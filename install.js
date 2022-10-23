@@ -21,7 +21,7 @@ async function getABI(runtime){
     try{
     
       const file = join(
-        process.env.npm_config_prefix,
+        process.env.npm_config_prefix || process.cwd(),
         "node_modules",
         "electron",
         "package.json"
@@ -43,8 +43,7 @@ async function getABI(runtime){
   }
 }
 
-// From https://github.com/prebuild/node-gyp-build (MIT License)
-function hasFlag(flag) {
+function hasFlag(flag) { //From https://github.com/prebuild/node-gyp-build (MIT License)
   if (!process.env.npm_config_argv) return false
   try {
     const { original } = JSON.parse(process.env.npm_config_argv);
@@ -53,7 +52,6 @@ function hasFlag(flag) {
     return false
   }
 }
-//end of prebuild/node-gyp-build
 
 function isElectron(){
   return hasFlag('--electron') || process.env.npm_config_runtime === "electron"
