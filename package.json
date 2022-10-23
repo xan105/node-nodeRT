@@ -46,7 +46,7 @@
     "email": "dev.xan105@outlook.be",
     "url": "https://xan105.com/"
   },
-  "license": "MIT",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/xan105/node-nodert.git"
