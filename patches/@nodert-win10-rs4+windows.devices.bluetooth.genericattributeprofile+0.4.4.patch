@@ -1,0 +1,142 @@
+diff --git a/node_modules/@nodert-win10-rs4/windows.devices.bluetooth.genericattributeprofile/_nodert_generated.cpp b/node_modules/@nodert-win10-rs4/windows.devices.bluetooth.genericattributeprofile/_nodert_generated.cpp
+index f5ea4c3..1c71987 100644
+--- a/node_modules/@nodert-win10-rs4/windows.devices.bluetooth.genericattributeprofile/_nodert_generated.cpp
++++ b/node_modules/@nodert-win10-rs4/windows.devices.bluetooth.genericattributeprofile/_nodert_generated.cpp
+@@ -12014,7 +12014,10 @@ namespace NodeRT { namespace Windows { namespace Devices { namespace Bluetooth {
+ 
+       GattLocalCharacteristic *wrapper = GattLocalCharacteristic::Unwrap<GattLocalCharacteristic>(info.This());
+ 
+-      ::Windows::Foundation::IAsyncOperation<::Windows::Foundation::Collections::IVectorView<::Windows::Devices::Bluetooth::GenericAttributeProfile::GattClientNotificationResult^>^>^ op;
++      // (acstacey) Port of patch from jasongin noble-uwp project - see below comment
++      // (jasongin) Hand-patched generated code due to NodeRT bug for method overloads having different return types.
++      ::Windows::Foundation::IAsyncOperation<::Windows::Foundation::Collections::IVectorView<::Windows::Devices::Bluetooth::GenericAttributeProfile::GattClientNotificationResult^>^>^ op1 = nullptr;
++      ::Windows::Foundation::IAsyncOperation<::Windows::Devices::Bluetooth::GenericAttributeProfile::GattClientNotificationResult^>^ op2 = nullptr;
+ 
+ 
+       if (info.Length() == 2
+@@ -12024,7 +12027,7 @@ namespace NodeRT { namespace Windows { namespace Devices { namespace Bluetooth {
+         {
+           ::Windows::Storage::Streams::IBuffer^ arg0 = dynamic_cast<::Windows::Storage::Streams::IBuffer^>(NodeRT::Utils::GetObjectInstance(info[0]));
+           
+-          op = wrapper->_instance->NotifyValueAsync(arg0);
++          op1 = wrapper->_instance->NotifyValueAsync(arg0);
+         }
+         catch (Platform::Exception ^exception)
+         {
+@@ -12041,7 +12044,7 @@ namespace NodeRT { namespace Windows { namespace Devices { namespace Bluetooth {
+           ::Windows::Storage::Streams::IBuffer^ arg0 = dynamic_cast<::Windows::Storage::Streams::IBuffer^>(NodeRT::Utils::GetObjectInstance(info[0]));
+           ::Windows::Devices::Bluetooth::GenericAttributeProfile::GattSubscribedClient^ arg1 = UnwrapGattSubscribedClient(info[1]);
+           
+-          op = wrapper->_instance->NotifyValueAsync(arg0,arg1);
++          op2 = wrapper->_instance->NotifyValueAsync(arg0,arg1);
+         }
+         catch (Platform::Exception ^exception)
+         {
+@@ -12054,9 +12057,10 @@ namespace NodeRT { namespace Windows { namespace Devices { namespace Bluetooth {
+         return;
+       }
+ 
+-      auto opTask = create_task(op);
+       uv_async_t* asyncToken = NodeUtils::Async::GetAsyncToken(info[info.Length() -1].As<Function>());
+ 
++      if (op1 != nullptr) {
++      auto opTask = create_task(op1);
+       opTask.then( [asyncToken] (task<::Windows::Foundation::Collections::IVectorView<::Windows::Devices::Bluetooth::GenericAttributeProfile::GattClientNotificationResult^>^> t) {
+         try {
+           auto result = t.get();
+@@ -12102,6 +12106,48 @@ namespace NodeRT { namespace Windows { namespace Devices { namespace Bluetooth {
+           });
+         }
+       });
++      } else {
++      auto opTask = create_task(op2);
++      opTask.then( [asyncToken] (task<::Windows::Devices::Bluetooth::GenericAttributeProfile::GattClientNotificationResult^> t) 
++      {	
++        try
++        {
++          auto result = t.get();
++          NodeUtils::Async::RunCallbackOnMain(asyncToken, [result](NodeUtils::InvokeCallbackDelegate invokeCallback) {
++
++            Local<Value> error;
++            Local<Value> arg1;
++            {
++              TryCatch tryCatch;
++              arg1 = WrapGattClientNotificationResult(result);
++              if (tryCatch.HasCaught())
++              {
++                error = Nan::To<Object>(tryCatch.Exception()).ToLocalChecked();
++              }
++              else 
++              {
++                error = Undefined();
++              }
++              if (arg1.IsEmpty()) arg1 = Undefined();
++            }
++            Local<Value> args[] = {error, arg1};
++
++
++            invokeCallback(_countof(args), args);
++          });
++        }
++        catch (Platform::Exception^ exception)
++        {
++          NodeUtils::Async::RunCallbackOnMain(asyncToken, [exception](NodeUtils::InvokeCallbackDelegate invokeCallback) {
++             
++            Local<Value> error = NodeRT::Utils::WinRtExceptionToJsError(exception);
++        
++            Local<Value> args[] = {error};
++            invokeCallback(_countof(args), args);
++          });
++        }  		
++      });
++      }
+     }
+ 
+ 
+@@ -14155,7 +14201,6 @@ namespace NodeRT { namespace Windows { namespace Devices { namespace Bluetooth {
+             Nan::SetAccessor(localRef->PrototypeTemplate(), Nan::New<String>("protocolError").ToLocalChecked(), ProtocolErrorGetter);
+             Nan::SetAccessor(localRef->PrototypeTemplate(), Nan::New<String>("status").ToLocalChecked(), StatusGetter);
+             Nan::SetAccessor(localRef->PrototypeTemplate(), Nan::New<String>("subscribedClient").ToLocalChecked(), SubscribedClientGetter);
+-            Nan::SetAccessor(localRef->PrototypeTemplate(), Nan::New<String>("bytesSent").ToLocalChecked(), BytesSentGetter);
+ 
+         Local<Object> constructor = Nan::To<Object>(Nan::GetFunction(localRef).ToLocalChecked()).ToLocalChecked();
+         Nan::SetMethod(constructor, "castFrom", CastFrom);
+@@ -14316,25 +14361,6 @@ namespace NodeRT { namespace Windows { namespace Devices { namespace Bluetooth {
+       }
+     }
+       
+-    static void BytesSentGetter(Local<String> property, const Nan::PropertyCallbackInfo<v8::Value> &info) {
+-      HandleScope scope;
+-
+-      if (!NodeRT::Utils::IsWinRtWrapperOf<::Windows::Devices::Bluetooth::GenericAttributeProfile::GattClientNotificationResult^>(info.This())) {
+-        return;
+-      }
+-
+-      GattClientNotificationResult *wrapper = GattClientNotificationResult::Unwrap<GattClientNotificationResult>(info.This());
+-
+-      try  {
+-        unsigned short result = wrapper->_instance->BytesSent;
+-        info.GetReturnValue().Set(Nan::New<Integer>(result));
+-        return;
+-      } catch (Platform::Exception ^exception) {
+-        NodeRT::Utils::ThrowWinRtExceptionInJs(exception);
+-        return;
+-      }
+-    }
+-      
+ 
+ 
+     private:
+diff --git a/node_modules/@nodert-win10-rs4/windows.devices.bluetooth.genericattributeprofile/binding.gyp b/node_modules/@nodert-win10-rs4/windows.devices.bluetooth.genericattributeprofile/binding.gyp
+index 7a8ea40..ca7244a 100644
+--- a/node_modules/@nodert-win10-rs4/windows.devices.bluetooth.genericattributeprofile/binding.gyp
++++ b/node_modules/@nodert-win10-rs4/windows.devices.bluetooth.genericattributeprofile/binding.gyp
+@@ -71,7 +71,7 @@
+     ],
+     "msvs_settings": {
+       "VCCLCompilerTool": {
+-        "AdditionalOptions": ["/ZW"],
++        "AdditionalOptions": ["/ZW /std:c++17"],
+         "DisableSpecificWarnings": [4609]
+       }
+     }

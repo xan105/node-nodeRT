@@ -1,0 +1,13 @@
+diff --git a/node_modules/@nodert-win10-rs4/windows.media.playlists/binding.gyp b/node_modules/@nodert-win10-rs4/windows.media.playlists/binding.gyp
+index 7a8ea40..ca7244a 100644
+--- a/node_modules/@nodert-win10-rs4/windows.media.playlists/binding.gyp
++++ b/node_modules/@nodert-win10-rs4/windows.media.playlists/binding.gyp
+@@ -71,7 +71,7 @@
+     ],
+     "msvs_settings": {
+       "VCCLCompilerTool": {
+-        "AdditionalOptions": ["/ZW"],
++        "AdditionalOptions": ["/ZW /std:c++17"],
+         "DisableSpecificWarnings": [4609]
+       }
+     }

@@ -1,0 +1,11 @@
+.github/
+test/
+.nyc_output/
+build/
+logs/
+packages/
+patches/
+prebuilds/
+.eslintrc.json
+tsconfig.json
+*.ps1
