@@ -1,21 +1,21 @@
 param (
-	[Parameter(Mandatory)]
+  [Parameter(Mandatory)]
     [string]$target,
 	
-	[Parameter(Mandatory)]
+  [Parameter(Mandatory)]
     [string]$abi,
 	
-	[string]$runtime = "node",
+  [string]$runtime = "node",
 	
-	[switch]$skip = $False
+  [switch]$skip = $False
 )
 
 #Make destination dirs
 if (!(Test-Path .\logs\build\$runtime\$abi)) {
-	New-Item .\logs\build\$runtime\$abi -ItemType Directory | Out-Null
+  New-Item .\logs\build\$runtime\$abi -ItemType Directory | Out-Null
 }
 if (!(Test-Path .\prebuilds\$runtime\$abi)) {
-	New-Item .\prebuilds\$runtime\$abi -ItemType Directory | Out-Null
+  New-Item .\prebuilds\$runtime\$abi -ItemType Directory | Out-Null
 }
 
 #Reset file content

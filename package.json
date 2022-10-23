@@ -26,6 +26,7 @@
     "node": ">=16.0.0"
   },
   "scripts": {
+    "install": "./install.js",
     "fetch:manual": "powershell -NoProfile -ExecutionPolicy Bypass -File ./fetch.ps1 && patch-package",
     "fetch:auto": "npm ci --ignore-scripts && patch-package",
     "diff": "powershell -NoProfile -ExecutionPolicy Bypass -File ./diff.ps1",
@@ -33,8 +34,7 @@
     "build:abi93": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 16.0.0 -abi abi93 -skip",
     "build:abi108": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 18.0.0 -abi abi108 -skip",
     "build:electron:abi107": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 20.0.0 -abi abi107 -runtime electron -skip",
-    "build:electron:abi109": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 21.0.0 -abi abi109 -runtime electron -skip",
-    "test": "powershell -NoProfile -ExecutionPolicy Bypass -File ./test.ps1"
+    "build:electron:abi109": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 21.0.0 -abi abi109 -runtime electron -skip"
   },
   "keywords": [
     "nodeRT",
@@ -71,6 +71,7 @@
   ],
   "dependencies": {
     "@xan105/error": "^1.4.3",
+    "@xan105/fs": "^2.1.0",
     "@xan105/is": "^2.7.0",
     "@xan105/request": "^0.3.3",
     "adm-zip": "^0.5.9"
@@ -397,8 +398,7 @@
     "@nodert-win10-rs4/windows.web.syndication": "^0.4.4",
     "@nodert-win10-rs4/windows.web.ui": "^0.4.4",
     "@nodert-win10-rs4/windows.web.ui.interop": "^0.4.4",
-    "@xan105/fs": "^2.1.0",
-    "node-gyp": "^9.3.0",
+    "node-gyp": ">=9.3.0",
     "patch-package": "^6.4.7",
     "prebuildify": "^5.0.1"
   }
