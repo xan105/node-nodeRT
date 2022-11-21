@@ -8,7 +8,8 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { dirname } from "@xan105/fs/path";
 import { readJSON } from "@xan105/fs";
-import { Failure } from "@xan105/error";
+import { Failure, attempt } from "@xan105/error";
+import { shouldArrayOfStringNotEmpty } from "@xan105/is/assert";
 import request from "@xan105/request";
 import Archive from "adm-zip";
 
@@ -93,7 +94,8 @@ async function download(){
   return path;
 }
 
-function unpack(filePath){
+async function unpack(filePath){
+  
   const overwrite = true; 
   const zip = new Archive(filePath);
   const destination = join(
@@ -102,7 +104,24 @@ function unpack(filePath){
     runtime, 
     "abi" + abi
   );
-  zip.extractAllTo(destination, overwrite);
+  
+  //Filter (or not) NodeRT namespaces
+  const file = join(
+    process.env.npm_config_prefix || process.cwd(),
+    "package.json"
+  );
+  const [ json = {} ] = await attempt(readJSON, [file]);
+  const modules = json?._nodert?.modules ?? [];
+  
+  shouldArrayOfStringNotEmpty(modules);
+  
+  if (modules.length > 0) {
+    for (const module of modules){
+      zip.extractEntryTo(module, destination, true, overwrite);
+    }
+  } else {
+    zip.extractAllTo(destination, overwrite);
+  }
 }
 
 download().then(unpack(filePath));
