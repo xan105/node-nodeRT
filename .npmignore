@@ -9,3 +9,4 @@ prebuilds/
 .eslintrc.json
 tsconfig.json
 *.ps1
+generate.js
