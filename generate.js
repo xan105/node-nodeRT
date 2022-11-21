@@ -6,7 +6,7 @@ found in the LICENSE file in the root directory of this source tree.
 
 //Generate the esm js exports files in ./lib/namespace
 
-import { ls, writeFile, exists, readFile } from "@xan105/fs";
+import { ls, writeFile, exists, readFile, writeJSON } from "@xan105/fs";
 import { join } from "node:path";
 import { EOL } from "node:os";
 import { load } from "./lib/util/load.js";
@@ -80,7 +80,7 @@ for (const scope of scopes)
         "utf8");
       }
     }
-    
+
   }
 }
 
@@ -110,3 +110,31 @@ async function getExternalRef(scope, namespace){
   
   return ref;
 }
+
+//Package.json Export map
+let map = {
+  ".": {
+    "types": "./types/index.d.ts",
+    "default": "./lib/index.js"
+  }
+};
+
+const list = await ls("./lib/namespaces", { recursive: true, ignore: { dir : true }, ext: "js" });
+
+for (const exportName of list) {
+
+  const [ root, name ] = exportName.split("\\");
+
+  const _export = name.replace(".js", "").replaceAll(".","/");
+  map["./" + _export] = {
+    types: `./types/namespace/${root}/${name.replace(".js",".d.ts")}`,
+    "default": `./lib/namespace/${root}/${name}`
+  };
+
+}
+
+await writeJSON(
+  "./_exports.json",
+  map, 
+  true
+);
