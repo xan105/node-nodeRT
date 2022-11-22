@@ -13,7 +13,21 @@ import { shouldArrayOfStringNotEmpty } from "@xan105/is/assert";
 import request from "@xan105/request";
 import Archive from "adm-zip";
 
-const runtime = isElectron ? "electron" : "node";
+function hasFlag(flag) { //From https://github.com/prebuild/node-gyp-build (MIT License)
+  if (!process.env.npm_config_argv) return false
+  try {
+    const { original } = JSON.parse(process.env.npm_config_argv);
+    return original.indexOf(flag) !== -1;
+  } catch {
+    return false
+  }
+}
+
+function isElectron(){
+  return hasFlag('--electron') || process.env.npm_config_runtime === "electron"
+}
+
+const runtime = isElectron() ? "electron" : "node";
 const abi = await getABI(runtime);
 
 async function getABI(runtime){
@@ -50,20 +64,6 @@ async function getABI(runtime){
   }
 }
 
-function hasFlag(flag) { //From https://github.com/prebuild/node-gyp-build (MIT License)
-  if (!process.env.npm_config_argv) return false
-  try {
-    const { original } = JSON.parse(process.env.npm_config_argv);
-    return original.indexOf(flag) !== -1;
-  } catch {
-    return false
-  }
-}
-
-function isElectron(){
-  return hasFlag('--electron') || process.env.npm_config_runtime === "electron"
-}
-
 async function download(){
 
   const { arch } = process;
@@ -80,15 +80,18 @@ async function download(){
     "integrity.json"
   ));
 
-  const url = `https://github.com/xan105/node-nodert/releases/${release}/download/`;
+  const url = `https://github.com/xan105/node-nodert/releases/download/${release}/`;
   const filename = `${runtime}.abi${abi}.${arch}.zip`;
+  
+  console.log(`Downloading NodeRT prebuild for ${runtime} ${arch} abi${abi}...`);
   
   const { path } = await request.download(
     url + filename, 
     join(tmpdir(), `${Date.now()}`), 
     {
       hash: { algo: "sha256", sum: sha256[runtime]["abi" + abi] }
-    }
+    },
+    printProgress
   );
                      
   return path;
@@ -124,4 +127,12 @@ async function unpack(filePath){
   }
 }
 
-download().then(unpack(filePath));
+function printProgress(percent, speed){
+  process.stdout.clearLine();
+  process.stdout.cursorTo(0);
+  process.stdout.write(`${percent}% @ ${speed} kb/s`);
+}
+
+download()
+.then((filePath) => { return unpack(filePath) })
+.catch((err) => console.error(err) );
