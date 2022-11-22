@@ -27,9 +27,6 @@ function isElectron(){
   return hasFlag('--electron') || process.env.npm_config_runtime === "electron"
 }
 
-const runtime = isElectron() ? "electron" : "node";
-const abi = await getABI(runtime);
-
 async function getABI(runtime){
 
   if (runtime === "electron") {
@@ -62,6 +59,15 @@ async function getABI(runtime){
   } else {
     return process.versions.modules;
   }
+}
+
+const runtime = isElectron() ? "electron" : "node";
+const abi = await getABI(runtime);
+
+function printProgress(percent, speed){
+  process.stdout.clearLine();
+  process.stdout.cursorTo(0);
+  process.stdout.write(`${percent}% @ ${speed} kb/s`);
 }
 
 async function download(){
@@ -120,19 +126,13 @@ async function unpack(filePath){
   
   if (modules.length > 0) {
     for (const module of modules){
-      zip.extractEntryTo(module, destination, true, overwrite);
+      zip.extractEntryTo(module + ".node", destination, true, overwrite);
     }
   } else {
     zip.extractAllTo(destination, overwrite);
   }
 }
 
-function printProgress(percent, speed){
-  process.stdout.clearLine();
-  process.stdout.cursorTo(0);
-  process.stdout.write(`${percent}% @ ${speed} kb/s`);
-}
-
 download()
 .then((filePath) => { return unpack(filePath) })
-.catch((err) => console.error(err) );
+.catch((err) => { console.error(err) });
