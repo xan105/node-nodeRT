@@ -64,12 +64,6 @@ async function getABI(runtime){
 const runtime = isElectron() ? "electron" : "node";
 const abi = await getABI(runtime);
 
-function printProgress(percent, speed){
-  process.stdout.clearLine();
-  process.stdout.cursorTo(0);
-  process.stdout.write(`${percent}% @ ${speed} kb/s`);
-}
-
 async function download(){
 
   const { arch } = process;
@@ -96,8 +90,7 @@ async function download(){
     join(tmpdir(), `${Date.now()}`), 
     {
       hash: { algo: "sha256", sum: sha256[runtime]["abi" + abi] }
-    },
-    printProgress
+    }
   );
                      
   return path;
