@@ -1,6 +1,6 @@
 {
   "name": "@xan105/nodert",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "NodeRT but precompiled (use WinRT API directly from node)",
   "type": "module",
   "exports": {
@@ -1382,7 +1382,7 @@
     "node": ">=16.0.0"
   },
   "scripts": {
-    "install": "./install.js",
+    "install": "node \"./install.js\"",
     "lint": "eslint \"./lib/**/*.{js,mjs}\" \"./types/**/*.d.ts\"",
     "test": "tap \"./test/**/*.js\" --no-coverage --no-coverage-report",
     "check": "tsc --noemit --checkjs",
