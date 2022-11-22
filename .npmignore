@@ -10,3 +10,4 @@ prebuilds/
 tsconfig.json
 *.ps1
 generate.js
+copyTypes.js

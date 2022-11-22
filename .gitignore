@@ -3,4 +3,4 @@ node_modules/
 build/
 prebuilds/
 logs/
-_exports.json
+out/
