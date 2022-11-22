@@ -6,6 +6,7 @@ logs/
 packages/
 patches/
 prebuilds/
+out/
 .eslintrc.json
 tsconfig.json
 *.ps1
