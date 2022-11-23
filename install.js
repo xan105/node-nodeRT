@@ -9,22 +9,13 @@ import { join } from "node:path";
 import { dirname } from "@xan105/fs/path";
 import { readJSON } from "@xan105/fs";
 import { Failure, attempt } from "@xan105/error";
+import { isStringNotEmpty } from "@xan105/is";
 import { shouldArrayOfStringNotEmpty } from "@xan105/is/assert";
 import request from "@xan105/request";
 import Archive from "adm-zip";
 
-function hasFlag(flag) { //From https://github.com/prebuild/node-gyp-build (MIT License)
-  if (!process.env.npm_config_argv) return false
-  try {
-    const { original } = JSON.parse(process.env.npm_config_argv);
-    return original.indexOf(flag) !== -1;
-  } catch {
-    return false
-  }
-}
-
 function isElectron(){
-  return hasFlag('--electron') || process.env.npm_config_runtime === "electron"
+  return process.env.npm_config_electron === "true" || process.env.npm_config_runtime === "electron"
 }
 
 async function getABI(runtime){
@@ -39,7 +30,7 @@ async function getABI(runtime){
     try{
     
       const file = join(
-        process.env.npm_config_prefix || process.cwd(),
+        process.env.npm_config_local_prefix || process.cwd(),
         "node_modules",
         "electron",
         "package.json"
@@ -96,6 +87,19 @@ async function download(){
   return path;
 }
 
+async function getModuleList(){  
+  if (isStringNotEmpty(process.env.npm_config_modules)){
+    return process.env.npm_config_modules.split(",");
+  } else {
+    const file = process.env.npm_package_json || join(
+      process.env.npm_config_local_prefix || process.cwd(),
+      "package.json"
+    );
+    const [ json = {} ] = await attempt(readJSON, [file]);
+    return json._nodert?.modules ?? [];
+  }
+}  
+
 async function unpack(filePath){
   
   const overwrite = true; 
@@ -107,19 +111,13 @@ async function unpack(filePath){
     "abi" + abi
   );
   
-  //Filter (or not) NodeRT namespaces
-  const file = join(
-    process.env.npm_config_prefix || process.cwd(),
-    "package.json"
-  );
-  const [ json = {} ] = await attempt(readJSON, [file]);
-  const modules = json?._nodert?.modules ?? [];
-  
+  const modules = await getModuleList();
   shouldArrayOfStringNotEmpty(modules);
   
   if (modules.length > 0) {
     for (const module of modules){
-      zip.extractEntryTo(module + ".node", destination, true, overwrite);
+      const [, err ] = attempt(zip.extractEntryTo.bind(zip), [module.trim() + ".node", destination, true, overwrite]);
+      if (err) console.warn(err);
     }
   } else {
     zip.extractAllTo(destination, overwrite);

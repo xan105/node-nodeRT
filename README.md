@@ -33,13 +33,21 @@ Install
 =======
 
 ```
-npm i  @xan105/nodert
+npm i @xan105/nodert
 ```
 
 An internet connection is required to download the prebuilt binaries. They are [hosted on github](https://github.com/xan105/node-nodeRT/releases).
 
 By default every NodeRT bindings will be installed.<br />
-You can choose to only keep the NodeRT bindings you _do_ need by adding a list of modules in your package.json file under the "_nodert/modules" path (similar to [nodert-npm](https://github.com/NodeRT/nodert-npm)).
+Similar to [nodert-npm](https://github.com/NodeRT/nodert-npm/) you can choose to only keep the NodeRT bindings you _do_ need by: 
+
+- passing a comma separated list of modules as argument
+
+```
+npm i @xan105/nodert --modules="windows.ui.notifications, windows.data.xml.dom"
+```
+
+- or by adding a list of modules in your package.json file under the `_nodert/modules` path
 
 For example, having the following section in your package.json will result with the installation of the "windows.devices.geolocation" and "windows.devices.sensors" modules:
 
