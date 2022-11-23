@@ -1,6 +1,6 @@
 {
   "name": "@xan105/nodert",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "NodeRT but precompiled (use WinRT API directly from node)",
   "type": "module",
   "exports": {
@@ -1384,7 +1384,6 @@
   "scripts": {
     "install": "node \"./install.js\"",
     "lint": "eslint \"./lib/**/*.{js,mjs}\" \"./types/**/*.d.ts\"",
-    "test": "tap \"./test/**/*.js\" --no-coverage --no-coverage-report",
     "check": "tsc --noemit --checkjs",
     "declare": "tsc --declaration --emitDeclarationOnly --outDir \"./types\"",
     "fetch:manual": "powershell -NoProfile -ExecutionPolicy Bypass -File ./fetch.ps1 && patch-package",
