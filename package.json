@@ -9,1372 +9,1372 @@
       "default": "./lib/index.js"
     },
     "./ai": {
-      "types": "./types/namespace/ai/ai.d.ts",
-      "default": "./lib/namespace/ai/ai.js"
+      "types": "./types/namespaces/ai/ai.d.ts",
+      "default": "./lib/namespaces/ai/ai.js"
     },
     "./ai/machinelearning": {
-      "types": "./types/namespace/ai/ai.machinelearning.d.ts",
-      "default": "./lib/namespace/ai/ai.machinelearning.js"
+      "types": "./types/namespaces/ai/ai.machinelearning.d.ts",
+      "default": "./lib/namespaces/ai/ai.machinelearning.js"
     },
     "./ai/machinelearning/preview": {
-      "types": "./types/namespace/ai/ai.machinelearning.preview.d.ts",
-      "default": "./lib/namespace/ai/ai.machinelearning.preview.js"
+      "types": "./types/namespaces/ai/ai.machinelearning.preview.d.ts",
+      "default": "./lib/namespaces/ai/ai.machinelearning.preview.js"
     },
     "./applicationmodel/activation": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.activation.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.activation.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.activation.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.activation.js"
     },
     "./applicationmodel/appextensions": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.appextensions.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.appextensions.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.appextensions.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.appextensions.js"
     },
     "./applicationmodel/appointments/appointmentsprovider": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.appointments.appointmentsprovider.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.appointments.appointmentsprovider.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.appointments.appointmentsprovider.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.appointments.appointmentsprovider.js"
     },
     "./applicationmodel/appointments/dataprovider": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.appointments.dataprovider.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.appointments.dataprovider.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.appointments.dataprovider.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.appointments.dataprovider.js"
     },
     "./applicationmodel/appointments": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.appointments.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.appointments.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.appointments.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.appointments.js"
     },
     "./applicationmodel/appservice": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.appservice.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.appservice.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.appservice.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.appservice.js"
     },
     "./applicationmodel/background": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.background.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.background.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.background.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.background.js"
     },
     "./applicationmodel/calls/background": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.calls.background.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.calls.background.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.calls.background.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.calls.background.js"
     },
     "./applicationmodel/calls": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.calls.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.calls.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.calls.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.calls.js"
     },
     "./applicationmodel/calls/provider": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.calls.provider.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.calls.provider.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.calls.provider.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.calls.provider.js"
     },
     "./applicationmodel/chat": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.chat.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.chat.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.chat.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.chat.js"
     },
     "./applicationmodel/communicationblocking": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.communicationblocking.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.communicationblocking.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.communicationblocking.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.communicationblocking.js"
     },
     "./applicationmodel/contacts/dataprovider": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.contacts.dataprovider.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.contacts.dataprovider.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.contacts.dataprovider.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.contacts.dataprovider.js"
     },
     "./applicationmodel/contacts": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.contacts.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.contacts.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.contacts.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.contacts.js"
     },
     "./applicationmodel/contacts/provider": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.contacts.provider.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.contacts.provider.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.contacts.provider.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.contacts.provider.js"
     },
     "./applicationmodel/core": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.core.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.core.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.core.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.core.js"
     },
     "./applicationmodel/datatransfer/dragdrop/core": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.datatransfer.dragdrop.core.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.datatransfer.dragdrop.core.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.datatransfer.dragdrop.core.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.datatransfer.dragdrop.core.js"
     },
     "./applicationmodel/datatransfer/dragdrop": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.datatransfer.dragdrop.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.datatransfer.dragdrop.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.datatransfer.dragdrop.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.datatransfer.dragdrop.js"
     },
     "./applicationmodel/datatransfer": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.datatransfer.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.datatransfer.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.datatransfer.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.datatransfer.js"
     },
     "./applicationmodel/datatransfer/sharetarget": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.datatransfer.sharetarget.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.datatransfer.sharetarget.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.datatransfer.sharetarget.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.datatransfer.sharetarget.js"
     },
     "./applicationmodel/email/dataprovider": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.email.dataprovider.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.email.dataprovider.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.email.dataprovider.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.email.dataprovider.js"
     },
     "./applicationmodel/email": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.email.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.email.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.email.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.email.js"
     },
     "./applicationmodel/extendedexecution/foreground": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.extendedexecution.foreground.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.extendedexecution.foreground.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.extendedexecution.foreground.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.extendedexecution.foreground.js"
     },
     "./applicationmodel/extendedexecution": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.extendedexecution.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.extendedexecution.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.extendedexecution.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.extendedexecution.js"
     },
     "./applicationmodel": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.js"
     },
     "./applicationmodel/lockscreen": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.lockscreen.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.lockscreen.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.lockscreen.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.lockscreen.js"
     },
     "./applicationmodel/payments": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.payments.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.payments.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.payments.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.payments.js"
     },
     "./applicationmodel/payments/provider": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.payments.provider.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.payments.provider.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.payments.provider.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.payments.provider.js"
     },
     "./applicationmodel/preview/holographic": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.preview.holographic.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.preview.holographic.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.preview.holographic.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.preview.holographic.js"
     },
     "./applicationmodel/preview/inkworkspace": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.preview.inkworkspace.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.preview.inkworkspace.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.preview.inkworkspace.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.preview.inkworkspace.js"
     },
     "./applicationmodel/preview": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.preview.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.preview.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.preview.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.preview.js"
     },
     "./applicationmodel/preview/notes": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.preview.notes.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.preview.notes.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.preview.notes.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.preview.notes.js"
     },
     "./applicationmodel/resources/core": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.resources.core.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.resources.core.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.resources.core.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.resources.core.js"
     },
     "./applicationmodel/resources": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.resources.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.resources.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.resources.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.resources.js"
     },
     "./applicationmodel/resources/management": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.resources.management.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.resources.management.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.resources.management.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.resources.management.js"
     },
     "./applicationmodel/search/core": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.search.core.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.search.core.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.search.core.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.search.core.js"
     },
     "./applicationmodel/search": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.search.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.search.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.search.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.search.js"
     },
     "./applicationmodel/socialinfo": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.socialinfo.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.socialinfo.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.socialinfo.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.socialinfo.js"
     },
     "./applicationmodel/socialinfo/provider": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.socialinfo.provider.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.socialinfo.provider.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.socialinfo.provider.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.socialinfo.provider.js"
     },
     "./applicationmodel/store": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.store.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.store.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.store.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.store.js"
     },
     "./applicationmodel/store/licensemanagement": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.store.licensemanagement.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.store.licensemanagement.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.store.licensemanagement.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.store.licensemanagement.js"
     },
     "./applicationmodel/store/preview/installcontrol": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.store.preview.installcontrol.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.store.preview.installcontrol.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.store.preview.installcontrol.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.store.preview.installcontrol.js"
     },
     "./applicationmodel/store/preview": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.store.preview.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.store.preview.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.store.preview.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.store.preview.js"
     },
     "./applicationmodel/useractivities/core": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.useractivities.core.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.useractivities.core.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.useractivities.core.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.useractivities.core.js"
     },
     "./applicationmodel/useractivities": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.useractivities.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.useractivities.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.useractivities.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.useractivities.js"
     },
     "./applicationmodel/userdataaccounts": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.userdataaccounts.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.userdataaccounts.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.userdataaccounts.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.userdataaccounts.js"
     },
     "./applicationmodel/userdataaccounts/provider": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.userdataaccounts.provider.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.userdataaccounts.provider.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.userdataaccounts.provider.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.userdataaccounts.provider.js"
     },
     "./applicationmodel/userdataaccounts/systemaccess": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.userdataaccounts.systemaccess.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.userdataaccounts.systemaccess.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.userdataaccounts.systemaccess.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.userdataaccounts.systemaccess.js"
     },
     "./applicationmodel/userdatatasks/dataprovider": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.userdatatasks.dataprovider.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.userdatatasks.dataprovider.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.userdatatasks.dataprovider.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.userdatatasks.dataprovider.js"
     },
     "./applicationmodel/userdatatasks": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.userdatatasks.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.userdatatasks.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.userdatatasks.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.userdatatasks.js"
     },
     "./applicationmodel/voicecommands": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.voicecommands.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.voicecommands.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.voicecommands.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.voicecommands.js"
     },
     "./applicationmodel/wallet": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.wallet.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.wallet.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.wallet.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.wallet.js"
     },
     "./applicationmodel/wallet/system": {
-      "types": "./types/namespace/applicationmodel/applicationmodel.wallet.system.d.ts",
-      "default": "./lib/namespace/applicationmodel/applicationmodel.wallet.system.js"
+      "types": "./types/namespaces/applicationmodel/applicationmodel.wallet.system.d.ts",
+      "default": "./lib/namespaces/applicationmodel/applicationmodel.wallet.system.js"
     },
     "./data/html": {
-      "types": "./types/namespace/data/data.html.d.ts",
-      "default": "./lib/namespace/data/data.html.js"
+      "types": "./types/namespaces/data/data.html.d.ts",
+      "default": "./lib/namespaces/data/data.html.js"
     },
     "./data": {
-      "types": "./types/namespace/data/data.d.ts",
-      "default": "./lib/namespace/data/data.js"
+      "types": "./types/namespaces/data/data.d.ts",
+      "default": "./lib/namespaces/data/data.js"
     },
     "./dataon/js": {
-      "types": "./types/namespace/data/data.d.tson.js",
-      "default": "./lib/namespace/data/data.json.js"
+      "types": "./types/namespaces/data/data.d.tson.js",
+      "default": "./lib/namespaces/data/data.json.js"
     },
     "./data/pdf": {
-      "types": "./types/namespace/data/data.pdf.d.ts",
-      "default": "./lib/namespace/data/data.pdf.js"
+      "types": "./types/namespaces/data/data.pdf.d.ts",
+      "default": "./lib/namespaces/data/data.pdf.js"
     },
     "./data/text": {
-      "types": "./types/namespace/data/data.text.d.ts",
-      "default": "./lib/namespace/data/data.text.js"
+      "types": "./types/namespaces/data/data.text.d.ts",
+      "default": "./lib/namespaces/data/data.text.js"
     },
     "./data/xml/dom": {
-      "types": "./types/namespace/data/data.xml.dom.d.ts",
-      "default": "./lib/namespace/data/data.xml.dom.js"
+      "types": "./types/namespaces/data/data.xml.dom.d.ts",
+      "default": "./lib/namespaces/data/data.xml.dom.js"
     },
     "./data/xml": {
-      "types": "./types/namespace/data/data.xml.d.ts",
-      "default": "./lib/namespace/data/data.xml.js"
+      "types": "./types/namespaces/data/data.xml.d.ts",
+      "default": "./lib/namespaces/data/data.xml.js"
     },
     "./data/xml/xsl": {
-      "types": "./types/namespace/data/data.xml.xsl.d.ts",
-      "default": "./lib/namespace/data/data.xml.xsl.js"
+      "types": "./types/namespaces/data/data.xml.xsl.d.ts",
+      "default": "./lib/namespaces/data/data.xml.xsl.js"
     },
     "./devices/adc": {
-      "types": "./types/namespace/devices/devices.adc.d.ts",
-      "default": "./lib/namespace/devices/devices.adc.js"
+      "types": "./types/namespaces/devices/devices.adc.d.ts",
+      "default": "./lib/namespaces/devices/devices.adc.js"
     },
     "./devices/adc/provider": {
-      "types": "./types/namespace/devices/devices.adc.provider.d.ts",
-      "default": "./lib/namespace/devices/devices.adc.provider.js"
+      "types": "./types/namespaces/devices/devices.adc.provider.d.ts",
+      "default": "./lib/namespaces/devices/devices.adc.provider.js"
     },
     "./devices/alljoyn": {
-      "types": "./types/namespace/devices/devices.alljoyn.d.ts",
-      "default": "./lib/namespace/devices/devices.alljoyn.js"
+      "types": "./types/namespaces/devices/devices.alljoyn.d.ts",
+      "default": "./lib/namespaces/devices/devices.alljoyn.js"
     },
     "./devices/background": {
-      "types": "./types/namespace/devices/devices.background.d.ts",
-      "default": "./lib/namespace/devices/devices.background.js"
+      "types": "./types/namespaces/devices/devices.background.d.ts",
+      "default": "./lib/namespaces/devices/devices.background.js"
     },
     "./devices/bluetooth/advertisement": {
-      "types": "./types/namespace/devices/devices.bluetooth.advertisement.d.ts",
-      "default": "./lib/namespace/devices/devices.bluetooth.advertisement.js"
+      "types": "./types/namespaces/devices/devices.bluetooth.advertisement.d.ts",
+      "default": "./lib/namespaces/devices/devices.bluetooth.advertisement.js"
     },
     "./devices/bluetooth/background": {
-      "types": "./types/namespace/devices/devices.bluetooth.background.d.ts",
-      "default": "./lib/namespace/devices/devices.bluetooth.background.js"
+      "types": "./types/namespaces/devices/devices.bluetooth.background.d.ts",
+      "default": "./lib/namespaces/devices/devices.bluetooth.background.js"
     },
     "./devices/bluetooth/genericattributeprofile": {
-      "types": "./types/namespace/devices/devices.bluetooth.genericattributeprofile.d.ts",
-      "default": "./lib/namespace/devices/devices.bluetooth.genericattributeprofile.js"
+      "types": "./types/namespaces/devices/devices.bluetooth.genericattributeprofile.d.ts",
+      "default": "./lib/namespaces/devices/devices.bluetooth.genericattributeprofile.js"
     },
     "./devices/bluetooth": {
-      "types": "./types/namespace/devices/devices.bluetooth.d.ts",
-      "default": "./lib/namespace/devices/devices.bluetooth.js"
+      "types": "./types/namespaces/devices/devices.bluetooth.d.ts",
+      "default": "./lib/namespaces/devices/devices.bluetooth.js"
     },
     "./devices/bluetooth/rfcomm": {
-      "types": "./types/namespace/devices/devices.bluetooth.rfcomm.d.ts",
-      "default": "./lib/namespace/devices/devices.bluetooth.rfcomm.js"
+      "types": "./types/namespaces/devices/devices.bluetooth.rfcomm.d.ts",
+      "default": "./lib/namespaces/devices/devices.bluetooth.rfcomm.js"
     },
     "./devices/custom": {
-      "types": "./types/namespace/devices/devices.custom.d.ts",
-      "default": "./lib/namespace/devices/devices.custom.js"
+      "types": "./types/namespaces/devices/devices.custom.d.ts",
+      "default": "./lib/namespaces/devices/devices.custom.js"
     },
     "./devices/display": {
-      "types": "./types/namespace/devices/devices.display.d.ts",
-      "default": "./lib/namespace/devices/devices.display.js"
+      "types": "./types/namespaces/devices/devices.display.d.ts",
+      "default": "./lib/namespaces/devices/devices.display.js"
     },
     "./devices/enumeration": {
-      "types": "./types/namespace/devices/devices.enumeration.d.ts",
-      "default": "./lib/namespace/devices/devices.enumeration.js"
+      "types": "./types/namespaces/devices/devices.enumeration.d.ts",
+      "default": "./lib/namespaces/devices/devices.enumeration.js"
     },
     "./devices/enumeration/pnp": {
-      "types": "./types/namespace/devices/devices.enumeration.pnp.d.ts",
-      "default": "./lib/namespace/devices/devices.enumeration.pnp.js"
+      "types": "./types/namespaces/devices/devices.enumeration.pnp.d.ts",
+      "default": "./lib/namespaces/devices/devices.enumeration.pnp.js"
     },
     "./devices/geolocation/geofencing": {
-      "types": "./types/namespace/devices/devices.geolocation.geofencing.d.ts",
-      "default": "./lib/namespace/devices/devices.geolocation.geofencing.js"
+      "types": "./types/namespaces/devices/devices.geolocation.geofencing.d.ts",
+      "default": "./lib/namespaces/devices/devices.geolocation.geofencing.js"
     },
     "./devices/geolocation": {
-      "types": "./types/namespace/devices/devices.geolocation.d.ts",
-      "default": "./lib/namespace/devices/devices.geolocation.js"
+      "types": "./types/namespaces/devices/devices.geolocation.d.ts",
+      "default": "./lib/namespaces/devices/devices.geolocation.js"
     },
     "./devices/gpio": {
-      "types": "./types/namespace/devices/devices.gpio.d.ts",
-      "default": "./lib/namespace/devices/devices.gpio.js"
+      "types": "./types/namespaces/devices/devices.gpio.d.ts",
+      "default": "./lib/namespaces/devices/devices.gpio.js"
     },
     "./devices/gpio/provider": {
-      "types": "./types/namespace/devices/devices.gpio.provider.d.ts",
-      "default": "./lib/namespace/devices/devices.gpio.provider.js"
+      "types": "./types/namespaces/devices/devices.gpio.provider.d.ts",
+      "default": "./lib/namespaces/devices/devices.gpio.provider.js"
     },
     "./devices/haptics": {
-      "types": "./types/namespace/devices/devices.haptics.d.ts",
-      "default": "./lib/namespace/devices/devices.haptics.js"
+      "types": "./types/namespaces/devices/devices.haptics.d.ts",
+      "default": "./lib/namespaces/devices/devices.haptics.js"
     },
     "./devices/humaninterfacedevice": {
-      "types": "./types/namespace/devices/devices.humaninterfacedevice.d.ts",
-      "default": "./lib/namespace/devices/devices.humaninterfacedevice.js"
+      "types": "./types/namespaces/devices/devices.humaninterfacedevice.d.ts",
+      "default": "./lib/namespaces/devices/devices.humaninterfacedevice.js"
     },
     "./devices/i2c": {
-      "types": "./types/namespace/devices/devices.i2c.d.ts",
-      "default": "./lib/namespace/devices/devices.i2c.js"
+      "types": "./types/namespaces/devices/devices.i2c.d.ts",
+      "default": "./lib/namespaces/devices/devices.i2c.js"
     },
     "./devices/i2c/provider": {
-      "types": "./types/namespace/devices/devices.i2c.provider.d.ts",
-      "default": "./lib/namespace/devices/devices.i2c.provider.js"
+      "types": "./types/namespaces/devices/devices.i2c.provider.d.ts",
+      "default": "./lib/namespaces/devices/devices.i2c.provider.js"
     },
     "./devices/input": {
-      "types": "./types/namespace/devices/devices.input.d.ts",
-      "default": "./lib/namespace/devices/devices.input.js"
+      "types": "./types/namespaces/devices/devices.input.d.ts",
+      "default": "./lib/namespaces/devices/devices.input.js"
     },
     "./devices/input/preview": {
-      "types": "./types/namespace/devices/devices.input.preview.d.ts",
-      "default": "./lib/namespace/devices/devices.input.preview.js"
+      "types": "./types/namespaces/devices/devices.input.preview.d.ts",
+      "default": "./lib/namespaces/devices/devices.input.preview.js"
     },
     "./devices": {
-      "types": "./types/namespace/devices/devices.d.ts",
-      "default": "./lib/namespace/devices/devices.js"
+      "types": "./types/namespaces/devices/devices.d.ts",
+      "default": "./lib/namespaces/devices/devices.js"
     },
     "./devices/lights": {
-      "types": "./types/namespace/devices/devices.lights.d.ts",
-      "default": "./lib/namespace/devices/devices.lights.js"
+      "types": "./types/namespaces/devices/devices.lights.d.ts",
+      "default": "./lib/namespaces/devices/devices.lights.js"
     },
     "./devices/midi": {
-      "types": "./types/namespace/devices/devices.midi.d.ts",
-      "default": "./lib/namespace/devices/devices.midi.js"
+      "types": "./types/namespaces/devices/devices.midi.d.ts",
+      "default": "./lib/namespaces/devices/devices.midi.js"
     },
     "./devices/perception": {
-      "types": "./types/namespace/devices/devices.perception.d.ts",
-      "default": "./lib/namespace/devices/devices.perception.js"
+      "types": "./types/namespaces/devices/devices.perception.d.ts",
+      "default": "./lib/namespaces/devices/devices.perception.js"
     },
     "./devices/perception/provider": {
-      "types": "./types/namespace/devices/devices.perception.provider.d.ts",
-      "default": "./lib/namespace/devices/devices.perception.provider.js"
+      "types": "./types/namespaces/devices/devices.perception.provider.d.ts",
+      "default": "./lib/namespaces/devices/devices.perception.provider.js"
     },
     "./devices/pointofservice": {
-      "types": "./types/namespace/devices/devices.pointofservice.d.ts",
-      "default": "./lib/namespace/devices/devices.pointofservice.js"
+      "types": "./types/namespaces/devices/devices.pointofservice.d.ts",
+      "default": "./lib/namespaces/devices/devices.pointofservice.js"
     },
     "./devices/pointofservice/provider": {
-      "types": "./types/namespace/devices/devices.pointofservice.provider.d.ts",
-      "default": "./lib/namespace/devices/devices.pointofservice.provider.js"
+      "types": "./types/namespaces/devices/devices.pointofservice.provider.d.ts",
+      "default": "./lib/namespaces/devices/devices.pointofservice.provider.js"
     },
     "./devices/portable": {
-      "types": "./types/namespace/devices/devices.portable.d.ts",
-      "default": "./lib/namespace/devices/devices.portable.js"
+      "types": "./types/namespaces/devices/devices.portable.d.ts",
+      "default": "./lib/namespaces/devices/devices.portable.js"
     },
     "./devices/power": {
-      "types": "./types/namespace/devices/devices.power.d.ts",
-      "default": "./lib/namespace/devices/devices.power.js"
+      "types": "./types/namespaces/devices/devices.power.d.ts",
+      "default": "./lib/namespaces/devices/devices.power.js"
     },
     "./devices/printers/extensions": {
-      "types": "./types/namespace/devices/devices.printers.extensions.d.ts",
-      "default": "./lib/namespace/devices/devices.printers.extensions.js"
+      "types": "./types/namespaces/devices/devices.printers.extensions.d.ts",
+      "default": "./lib/namespaces/devices/devices.printers.extensions.js"
     },
     "./devices/printers": {
-      "types": "./types/namespace/devices/devices.printers.d.ts",
-      "default": "./lib/namespace/devices/devices.printers.js"
+      "types": "./types/namespaces/devices/devices.printers.d.ts",
+      "default": "./lib/namespaces/devices/devices.printers.js"
     },
     "./devices/pwm": {
-      "types": "./types/namespace/devices/devices.pwm.d.ts",
-      "default": "./lib/namespace/devices/devices.pwm.js"
+      "types": "./types/namespaces/devices/devices.pwm.d.ts",
+      "default": "./lib/namespaces/devices/devices.pwm.js"
     },
     "./devices/pwm/provider": {
-      "types": "./types/namespace/devices/devices.pwm.provider.d.ts",
-      "default": "./lib/namespace/devices/devices.pwm.provider.js"
+      "types": "./types/namespaces/devices/devices.pwm.provider.d.ts",
+      "default": "./lib/namespaces/devices/devices.pwm.provider.js"
     },
     "./devices/radios": {
-      "types": "./types/namespace/devices/devices.radios.d.ts",
-      "default": "./lib/namespace/devices/devices.radios.js"
+      "types": "./types/namespaces/devices/devices.radios.d.ts",
+      "default": "./lib/namespaces/devices/devices.radios.js"
     },
     "./devices/scanners": {
-      "types": "./types/namespace/devices/devices.scanners.d.ts",
-      "default": "./lib/namespace/devices/devices.scanners.js"
+      "types": "./types/namespaces/devices/devices.scanners.d.ts",
+      "default": "./lib/namespaces/devices/devices.scanners.js"
     },
     "./devices/sensors/custom": {
-      "types": "./types/namespace/devices/devices.sensors.custom.d.ts",
-      "default": "./lib/namespace/devices/devices.sensors.custom.js"
+      "types": "./types/namespaces/devices/devices.sensors.custom.d.ts",
+      "default": "./lib/namespaces/devices/devices.sensors.custom.js"
     },
     "./devices/sensors": {
-      "types": "./types/namespace/devices/devices.sensors.d.ts",
-      "default": "./lib/namespace/devices/devices.sensors.js"
+      "types": "./types/namespaces/devices/devices.sensors.d.ts",
+      "default": "./lib/namespaces/devices/devices.sensors.js"
     },
     "./devices/serialcommunication": {
-      "types": "./types/namespace/devices/devices.serialcommunication.d.ts",
-      "default": "./lib/namespace/devices/devices.serialcommunication.js"
+      "types": "./types/namespaces/devices/devices.serialcommunication.d.ts",
+      "default": "./lib/namespaces/devices/devices.serialcommunication.js"
     },
     "./devices/smartcards": {
-      "types": "./types/namespace/devices/devices.smartcards.d.ts",
-      "default": "./lib/namespace/devices/devices.smartcards.js"
+      "types": "./types/namespaces/devices/devices.smartcards.d.ts",
+      "default": "./lib/namespaces/devices/devices.smartcards.js"
     },
     "./devices/sms": {
-      "types": "./types/namespace/devices/devices.sms.d.ts",
-      "default": "./lib/namespace/devices/devices.sms.js"
+      "types": "./types/namespaces/devices/devices.sms.d.ts",
+      "default": "./lib/namespaces/devices/devices.sms.js"
     },
     "./devices/spi": {
-      "types": "./types/namespace/devices/devices.spi.d.ts",
-      "default": "./lib/namespace/devices/devices.spi.js"
+      "types": "./types/namespaces/devices/devices.spi.d.ts",
+      "default": "./lib/namespaces/devices/devices.spi.js"
     },
     "./devices/spi/provider": {
-      "types": "./types/namespace/devices/devices.spi.provider.d.ts",
-      "default": "./lib/namespace/devices/devices.spi.provider.js"
+      "types": "./types/namespaces/devices/devices.spi.provider.d.ts",
+      "default": "./lib/namespaces/devices/devices.spi.provider.js"
     },
     "./devices/usb": {
-      "types": "./types/namespace/devices/devices.usb.d.ts",
-      "default": "./lib/namespace/devices/devices.usb.js"
+      "types": "./types/namespaces/devices/devices.usb.d.ts",
+      "default": "./lib/namespaces/devices/devices.usb.js"
     },
     "./devices/wifi": {
-      "types": "./types/namespace/devices/devices.wifi.d.ts",
-      "default": "./lib/namespace/devices/devices.wifi.js"
+      "types": "./types/namespaces/devices/devices.wifi.d.ts",
+      "default": "./lib/namespaces/devices/devices.wifi.js"
     },
     "./devices/wifidirect": {
-      "types": "./types/namespace/devices/devices.wifidirect.d.ts",
-      "default": "./lib/namespace/devices/devices.wifidirect.js"
+      "types": "./types/namespaces/devices/devices.wifidirect.d.ts",
+      "default": "./lib/namespaces/devices/devices.wifidirect.js"
     },
     "./devices/wifidirect/services": {
-      "types": "./types/namespace/devices/devices.wifidirect.services.d.ts",
-      "default": "./lib/namespace/devices/devices.wifidirect.services.js"
+      "types": "./types/namespaces/devices/devices.wifidirect.services.d.ts",
+      "default": "./lib/namespaces/devices/devices.wifidirect.services.js"
     },
     "./embedded/devicelockdown": {
-      "types": "./types/namespace/embedded/embedded.devicelockdown.d.ts",
-      "default": "./lib/namespace/embedded/embedded.devicelockdown.js"
+      "types": "./types/namespaces/embedded/embedded.devicelockdown.d.ts",
+      "default": "./lib/namespaces/embedded/embedded.devicelockdown.js"
     },
     "./embedded": {
-      "types": "./types/namespace/embedded/embedded.d.ts",
-      "default": "./lib/namespace/embedded/embedded.js"
+      "types": "./types/namespaces/embedded/embedded.d.ts",
+      "default": "./lib/namespaces/embedded/embedded.js"
     },
     "./foundation/collections": {
-      "types": "./types/namespace/foundation/foundation.collections.d.ts",
-      "default": "./lib/namespace/foundation/foundation.collections.js"
+      "types": "./types/namespaces/foundation/foundation.collections.d.ts",
+      "default": "./lib/namespaces/foundation/foundation.collections.js"
     },
     "./foundation/diagnostics": {
-      "types": "./types/namespace/foundation/foundation.diagnostics.d.ts",
-      "default": "./lib/namespace/foundation/foundation.diagnostics.js"
+      "types": "./types/namespaces/foundation/foundation.diagnostics.d.ts",
+      "default": "./lib/namespaces/foundation/foundation.diagnostics.js"
     },
     "./foundation": {
-      "types": "./types/namespace/foundation/foundation.d.ts",
-      "default": "./lib/namespace/foundation/foundation.js"
+      "types": "./types/namespaces/foundation/foundation.d.ts",
+      "default": "./lib/namespaces/foundation/foundation.js"
     },
     "./foundation/metadata": {
-      "types": "./types/namespace/foundation/foundation.metadata.d.ts",
-      "default": "./lib/namespace/foundation/foundation.metadata.js"
+      "types": "./types/namespaces/foundation/foundation.metadata.d.ts",
+      "default": "./lib/namespaces/foundation/foundation.metadata.js"
     },
     "./foundation/numerics": {
-      "types": "./types/namespace/foundation/foundation.numerics.d.ts",
-      "default": "./lib/namespace/foundation/foundation.numerics.js"
+      "types": "./types/namespaces/foundation/foundation.numerics.d.ts",
+      "default": "./lib/namespaces/foundation/foundation.numerics.js"
     },
     "./gaming/input/custom": {
-      "types": "./types/namespace/gaming/gaming.input.custom.d.ts",
-      "default": "./lib/namespace/gaming/gaming.input.custom.js"
+      "types": "./types/namespaces/gaming/gaming.input.custom.d.ts",
+      "default": "./lib/namespaces/gaming/gaming.input.custom.js"
     },
     "./gaming/input/forcefeedback": {
-      "types": "./types/namespace/gaming/gaming.input.forcefeedback.d.ts",
-      "default": "./lib/namespace/gaming/gaming.input.forcefeedback.js"
+      "types": "./types/namespaces/gaming/gaming.input.forcefeedback.d.ts",
+      "default": "./lib/namespaces/gaming/gaming.input.forcefeedback.js"
     },
     "./gaming/input": {
-      "types": "./types/namespace/gaming/gaming.input.d.ts",
-      "default": "./lib/namespace/gaming/gaming.input.js"
+      "types": "./types/namespaces/gaming/gaming.input.d.ts",
+      "default": "./lib/namespaces/gaming/gaming.input.js"
     },
     "./gaming/input/preview": {
-      "types": "./types/namespace/gaming/gaming.input.preview.d.ts",
-      "default": "./lib/namespace/gaming/gaming.input.preview.js"
+      "types": "./types/namespaces/gaming/gaming.input.preview.d.ts",
+      "default": "./lib/namespaces/gaming/gaming.input.preview.js"
     },
     "./gaming": {
-      "types": "./types/namespace/gaming/gaming.d.ts",
-      "default": "./lib/namespace/gaming/gaming.js"
+      "types": "./types/namespaces/gaming/gaming.d.ts",
+      "default": "./lib/namespaces/gaming/gaming.js"
     },
     "./gaming/preview/gamesenumeration": {
-      "types": "./types/namespace/gaming/gaming.preview.gamesenumeration.d.ts",
-      "default": "./lib/namespace/gaming/gaming.preview.gamesenumeration.js"
+      "types": "./types/namespaces/gaming/gaming.preview.gamesenumeration.d.ts",
+      "default": "./lib/namespaces/gaming/gaming.preview.gamesenumeration.js"
     },
     "./gaming/preview": {
-      "types": "./types/namespace/gaming/gaming.preview.d.ts",
-      "default": "./lib/namespace/gaming/gaming.preview.js"
+      "types": "./types/namespaces/gaming/gaming.preview.d.ts",
+      "default": "./lib/namespaces/gaming/gaming.preview.js"
     },
     "./gaming/ui": {
-      "types": "./types/namespace/gaming/gaming.ui.d.ts",
-      "default": "./lib/namespace/gaming/gaming.ui.js"
+      "types": "./types/namespaces/gaming/gaming.ui.d.ts",
+      "default": "./lib/namespaces/gaming/gaming.ui.js"
     },
     "./gaming/xboxlive": {
-      "types": "./types/namespace/gaming/gaming.xboxlive.d.ts",
-      "default": "./lib/namespace/gaming/gaming.xboxlive.js"
+      "types": "./types/namespaces/gaming/gaming.xboxlive.d.ts",
+      "default": "./lib/namespaces/gaming/gaming.xboxlive.js"
     },
     "./gaming/xboxlive/storage": {
-      "types": "./types/namespace/gaming/gaming.xboxlive.storage.d.ts",
-      "default": "./lib/namespace/gaming/gaming.xboxlive.storage.js"
+      "types": "./types/namespaces/gaming/gaming.xboxlive.storage.d.ts",
+      "default": "./lib/namespaces/gaming/gaming.xboxlive.storage.js"
     },
     "./globalization/collation": {
-      "types": "./types/namespace/globalization/globalization.collation.d.ts",
-      "default": "./lib/namespace/globalization/globalization.collation.js"
+      "types": "./types/namespaces/globalization/globalization.collation.d.ts",
+      "default": "./lib/namespaces/globalization/globalization.collation.js"
     },
     "./globalization/datetimeformatting": {
-      "types": "./types/namespace/globalization/globalization.datetimeformatting.d.ts",
-      "default": "./lib/namespace/globalization/globalization.datetimeformatting.js"
+      "types": "./types/namespaces/globalization/globalization.datetimeformatting.d.ts",
+      "default": "./lib/namespaces/globalization/globalization.datetimeformatting.js"
     },
     "./globalization/fonts": {
-      "types": "./types/namespace/globalization/globalization.fonts.d.ts",
-      "default": "./lib/namespace/globalization/globalization.fonts.js"
+      "types": "./types/namespaces/globalization/globalization.fonts.d.ts",
+      "default": "./lib/namespaces/globalization/globalization.fonts.js"
     },
     "./globalization": {
-      "types": "./types/namespace/globalization/globalization.d.ts",
-      "default": "./lib/namespace/globalization/globalization.js"
+      "types": "./types/namespaces/globalization/globalization.d.ts",
+      "default": "./lib/namespaces/globalization/globalization.js"
     },
     "./globalization/numberformatting": {
-      "types": "./types/namespace/globalization/globalization.numberformatting.d.ts",
-      "default": "./lib/namespace/globalization/globalization.numberformatting.js"
+      "types": "./types/namespaces/globalization/globalization.numberformatting.d.ts",
+      "default": "./lib/namespaces/globalization/globalization.numberformatting.js"
     },
     "./globalization/phonenumberformatting": {
-      "types": "./types/namespace/globalization/globalization.phonenumberformatting.d.ts",
-      "default": "./lib/namespace/globalization/globalization.phonenumberformatting.js"
+      "types": "./types/namespaces/globalization/globalization.phonenumberformatting.d.ts",
+      "default": "./lib/namespaces/globalization/globalization.phonenumberformatting.js"
     },
     "./graphics/capture": {
-      "types": "./types/namespace/graphics/graphics.capture.d.ts",
-      "default": "./lib/namespace/graphics/graphics.capture.js"
+      "types": "./types/namespaces/graphics/graphics.capture.d.ts",
+      "default": "./lib/namespaces/graphics/graphics.capture.js"
     },
     "./graphics/directx/direct3d11": {
-      "types": "./types/namespace/graphics/graphics.directx.direct3d11.d.ts",
-      "default": "./lib/namespace/graphics/graphics.directx.direct3d11.js"
+      "types": "./types/namespaces/graphics/graphics.directx.direct3d11.d.ts",
+      "default": "./lib/namespaces/graphics/graphics.directx.direct3d11.js"
     },
     "./graphics/directx": {
-      "types": "./types/namespace/graphics/graphics.directx.d.ts",
-      "default": "./lib/namespace/graphics/graphics.directx.js"
+      "types": "./types/namespaces/graphics/graphics.directx.d.ts",
+      "default": "./lib/namespaces/graphics/graphics.directx.js"
     },
     "./graphics/display/core": {
-      "types": "./types/namespace/graphics/graphics.display.core.d.ts",
-      "default": "./lib/namespace/graphics/graphics.display.core.js"
+      "types": "./types/namespaces/graphics/graphics.display.core.d.ts",
+      "default": "./lib/namespaces/graphics/graphics.display.core.js"
     },
     "./graphics/display": {
-      "types": "./types/namespace/graphics/graphics.display.d.ts",
-      "default": "./lib/namespace/graphics/graphics.display.js"
+      "types": "./types/namespaces/graphics/graphics.display.d.ts",
+      "default": "./lib/namespaces/graphics/graphics.display.js"
     },
     "./graphics/effects": {
-      "types": "./types/namespace/graphics/graphics.effects.d.ts",
-      "default": "./lib/namespace/graphics/graphics.effects.js"
+      "types": "./types/namespaces/graphics/graphics.effects.d.ts",
+      "default": "./lib/namespaces/graphics/graphics.effects.js"
     },
     "./graphics/holographic": {
-      "types": "./types/namespace/graphics/graphics.holographic.d.ts",
-      "default": "./lib/namespace/graphics/graphics.holographic.js"
+      "types": "./types/namespaces/graphics/graphics.holographic.d.ts",
+      "default": "./lib/namespaces/graphics/graphics.holographic.js"
     },
     "./graphics/imaging": {
-      "types": "./types/namespace/graphics/graphics.imaging.d.ts",
-      "default": "./lib/namespace/graphics/graphics.imaging.js"
+      "types": "./types/namespaces/graphics/graphics.imaging.d.ts",
+      "default": "./lib/namespaces/graphics/graphics.imaging.js"
     },
     "./graphics": {
-      "types": "./types/namespace/graphics/graphics.d.ts",
-      "default": "./lib/namespace/graphics/graphics.js"
+      "types": "./types/namespaces/graphics/graphics.d.ts",
+      "default": "./lib/namespaces/graphics/graphics.js"
     },
     "./graphics/printing": {
-      "types": "./types/namespace/graphics/graphics.printing.d.ts",
-      "default": "./lib/namespace/graphics/graphics.printing.js"
+      "types": "./types/namespaces/graphics/graphics.printing.d.ts",
+      "default": "./lib/namespaces/graphics/graphics.printing.js"
     },
     "./graphics/printing/optiondetails": {
-      "types": "./types/namespace/graphics/graphics.printing.optiondetails.d.ts",
-      "default": "./lib/namespace/graphics/graphics.printing.optiondetails.js"
+      "types": "./types/namespaces/graphics/graphics.printing.optiondetails.d.ts",
+      "default": "./lib/namespaces/graphics/graphics.printing.optiondetails.js"
     },
     "./graphics/printing/printticket": {
-      "types": "./types/namespace/graphics/graphics.printing.printticket.d.ts",
-      "default": "./lib/namespace/graphics/graphics.printing.printticket.js"
+      "types": "./types/namespaces/graphics/graphics.printing.printticket.d.ts",
+      "default": "./lib/namespaces/graphics/graphics.printing.printticket.js"
     },
     "./graphics/printing/workflow": {
-      "types": "./types/namespace/graphics/graphics.printing.workflow.d.ts",
-      "default": "./lib/namespace/graphics/graphics.printing.workflow.js"
+      "types": "./types/namespaces/graphics/graphics.printing.workflow.d.ts",
+      "default": "./lib/namespaces/graphics/graphics.printing.workflow.js"
     },
     "./graphics/printing3d": {
-      "types": "./types/namespace/graphics/graphics.printing3d.d.ts",
-      "default": "./lib/namespace/graphics/graphics.printing3d.js"
+      "types": "./types/namespaces/graphics/graphics.printing3d.d.ts",
+      "default": "./lib/namespaces/graphics/graphics.printing3d.js"
     },
     "./management/core": {
-      "types": "./types/namespace/management/management.core.d.ts",
-      "default": "./lib/namespace/management/management.core.js"
+      "types": "./types/namespaces/management/management.core.d.ts",
+      "default": "./lib/namespaces/management/management.core.js"
     },
     "./management/deployment": {
-      "types": "./types/namespace/management/management.deployment.d.ts",
-      "default": "./lib/namespace/management/management.deployment.js"
+      "types": "./types/namespaces/management/management.deployment.d.ts",
+      "default": "./lib/namespaces/management/management.deployment.js"
     },
     "./management/deployment/preview": {
-      "types": "./types/namespace/management/management.deployment.preview.d.ts",
-      "default": "./lib/namespace/management/management.deployment.preview.js"
+      "types": "./types/namespaces/management/management.deployment.preview.d.ts",
+      "default": "./lib/namespaces/management/management.deployment.preview.js"
     },
     "./management": {
-      "types": "./types/namespace/management/management.d.ts",
-      "default": "./lib/namespace/management/management.js"
+      "types": "./types/namespaces/management/management.d.ts",
+      "default": "./lib/namespaces/management/management.js"
     },
     "./management/policies": {
-      "types": "./types/namespace/management/management.policies.d.ts",
-      "default": "./lib/namespace/management/management.policies.js"
+      "types": "./types/namespaces/management/management.policies.d.ts",
+      "default": "./lib/namespaces/management/management.policies.js"
     },
     "./management/update": {
-      "types": "./types/namespace/management/management.update.d.ts",
-      "default": "./lib/namespace/management/management.update.js"
+      "types": "./types/namespaces/management/management.update.d.ts",
+      "default": "./lib/namespaces/management/management.update.js"
     },
     "./management/workplace": {
-      "types": "./types/namespace/management/management.workplace.d.ts",
-      "default": "./lib/namespace/management/management.workplace.js"
+      "types": "./types/namespaces/management/management.workplace.d.ts",
+      "default": "./lib/namespaces/management/management.workplace.js"
     },
     "./media/appbroadcasting": {
-      "types": "./types/namespace/media/media.appbroadcasting.d.ts",
-      "default": "./lib/namespace/media/media.appbroadcasting.js"
+      "types": "./types/namespaces/media/media.appbroadcasting.d.ts",
+      "default": "./lib/namespaces/media/media.appbroadcasting.js"
     },
     "./media/apprecording": {
-      "types": "./types/namespace/media/media.apprecording.d.ts",
-      "default": "./lib/namespace/media/media.apprecording.js"
+      "types": "./types/namespaces/media/media.apprecording.d.ts",
+      "default": "./lib/namespaces/media/media.apprecording.js"
     },
     "./media/audio": {
-      "types": "./types/namespace/media/media.audio.d.ts",
-      "default": "./lib/namespace/media/media.audio.js"
+      "types": "./types/namespaces/media/media.audio.d.ts",
+      "default": "./lib/namespaces/media/media.audio.js"
     },
     "./media/capture/core": {
-      "types": "./types/namespace/media/media.capture.core.d.ts",
-      "default": "./lib/namespace/media/media.capture.core.js"
+      "types": "./types/namespaces/media/media.capture.core.d.ts",
+      "default": "./lib/namespaces/media/media.capture.core.js"
     },
     "./media/capture/frames": {
-      "types": "./types/namespace/media/media.capture.frames.d.ts",
-      "default": "./lib/namespace/media/media.capture.frames.js"
+      "types": "./types/namespaces/media/media.capture.frames.d.ts",
+      "default": "./lib/namespaces/media/media.capture.frames.js"
     },
     "./media/capture": {
-      "types": "./types/namespace/media/media.capture.d.ts",
-      "default": "./lib/namespace/media/media.capture.js"
+      "types": "./types/namespaces/media/media.capture.d.ts",
+      "default": "./lib/namespaces/media/media.capture.js"
     },
     "./media/casting": {
-      "types": "./types/namespace/media/media.casting.d.ts",
-      "default": "./lib/namespace/media/media.casting.js"
+      "types": "./types/namespaces/media/media.casting.d.ts",
+      "default": "./lib/namespaces/media/media.casting.js"
     },
     "./media/closedcaptioning": {
-      "types": "./types/namespace/media/media.closedcaptioning.d.ts",
-      "default": "./lib/namespace/media/media.closedcaptioning.js"
+      "types": "./types/namespaces/media/media.closedcaptioning.d.ts",
+      "default": "./lib/namespaces/media/media.closedcaptioning.js"
     },
     "./media/contentrestrictions": {
-      "types": "./types/namespace/media/media.contentrestrictions.d.ts",
-      "default": "./lib/namespace/media/media.contentrestrictions.js"
+      "types": "./types/namespaces/media/media.contentrestrictions.d.ts",
+      "default": "./lib/namespaces/media/media.contentrestrictions.js"
     },
     "./media/core": {
-      "types": "./types/namespace/media/media.core.d.ts",
-      "default": "./lib/namespace/media/media.core.js"
+      "types": "./types/namespaces/media/media.core.d.ts",
+      "default": "./lib/namespaces/media/media.core.js"
     },
     "./media/core/preview": {
-      "types": "./types/namespace/media/media.core.preview.d.ts",
-      "default": "./lib/namespace/media/media.core.preview.js"
+      "types": "./types/namespaces/media/media.core.preview.d.ts",
+      "default": "./lib/namespaces/media/media.core.preview.js"
     },
     "./media/devices/core": {
-      "types": "./types/namespace/media/media.devices.core.d.ts",
-      "default": "./lib/namespace/media/media.devices.core.js"
+      "types": "./types/namespaces/media/media.devices.core.d.ts",
+      "default": "./lib/namespaces/media/media.devices.core.js"
     },
     "./media/devices": {
-      "types": "./types/namespace/media/media.devices.d.ts",
-      "default": "./lib/namespace/media/media.devices.js"
+      "types": "./types/namespaces/media/media.devices.d.ts",
+      "default": "./lib/namespaces/media/media.devices.js"
     },
     "./media/dialprotocol": {
-      "types": "./types/namespace/media/media.dialprotocol.d.ts",
-      "default": "./lib/namespace/media/media.dialprotocol.js"
+      "types": "./types/namespaces/media/media.dialprotocol.d.ts",
+      "default": "./lib/namespaces/media/media.dialprotocol.js"
     },
     "./media/editing": {
-      "types": "./types/namespace/media/media.editing.d.ts",
-      "default": "./lib/namespace/media/media.editing.js"
+      "types": "./types/namespaces/media/media.editing.d.ts",
+      "default": "./lib/namespaces/media/media.editing.js"
     },
     "./media/effects": {
-      "types": "./types/namespace/media/media.effects.d.ts",
-      "default": "./lib/namespace/media/media.effects.js"
+      "types": "./types/namespaces/media/media.effects.d.ts",
+      "default": "./lib/namespaces/media/media.effects.js"
     },
     "./media/faceanalysis": {
-      "types": "./types/namespace/media/media.faceanalysis.d.ts",
-      "default": "./lib/namespace/media/media.faceanalysis.js"
+      "types": "./types/namespaces/media/media.faceanalysis.d.ts",
+      "default": "./lib/namespaces/media/media.faceanalysis.js"
     },
     "./media/import": {
-      "types": "./types/namespace/media/media.import.d.ts",
-      "default": "./lib/namespace/media/media.import.js"
+      "types": "./types/namespaces/media/media.import.d.ts",
+      "default": "./lib/namespaces/media/media.import.js"
     },
     "./media": {
-      "types": "./types/namespace/media/media.d.ts",
-      "default": "./lib/namespace/media/media.js"
+      "types": "./types/namespaces/media/media.d.ts",
+      "default": "./lib/namespaces/media/media.js"
     },
     "./media/mediaproperties": {
-      "types": "./types/namespace/media/media.mediaproperties.d.ts",
-      "default": "./lib/namespace/media/media.mediaproperties.js"
+      "types": "./types/namespaces/media/media.mediaproperties.d.ts",
+      "default": "./lib/namespaces/media/media.mediaproperties.js"
     },
     "./media/ocr": {
-      "types": "./types/namespace/media/media.ocr.d.ts",
-      "default": "./lib/namespace/media/media.ocr.js"
+      "types": "./types/namespaces/media/media.ocr.d.ts",
+      "default": "./lib/namespaces/media/media.ocr.js"
     },
     "./media/playback": {
-      "types": "./types/namespace/media/media.playback.d.ts",
-      "default": "./lib/namespace/media/media.playback.js"
+      "types": "./types/namespaces/media/media.playback.d.ts",
+      "default": "./lib/namespaces/media/media.playback.js"
     },
     "./media/playlists": {
-      "types": "./types/namespace/media/media.playlists.d.ts",
-      "default": "./lib/namespace/media/media.playlists.js"
+      "types": "./types/namespaces/media/media.playlists.d.ts",
+      "default": "./lib/namespaces/media/media.playlists.js"
     },
     "./media/playto": {
-      "types": "./types/namespace/media/media.playto.d.ts",
-      "default": "./lib/namespace/media/media.playto.js"
+      "types": "./types/namespaces/media/media.playto.d.ts",
+      "default": "./lib/namespaces/media/media.playto.js"
     },
     "./media/protection": {
-      "types": "./types/namespace/media/media.protection.d.ts",
-      "default": "./lib/namespace/media/media.protection.js"
+      "types": "./types/namespaces/media/media.protection.d.ts",
+      "default": "./lib/namespaces/media/media.protection.js"
     },
     "./media/protection/playready": {
-      "types": "./types/namespace/media/media.protection.playready.d.ts",
-      "default": "./lib/namespace/media/media.protection.playready.js"
+      "types": "./types/namespaces/media/media.protection.playready.d.ts",
+      "default": "./lib/namespaces/media/media.protection.playready.js"
     },
     "./media/render": {
-      "types": "./types/namespace/media/media.render.d.ts",
-      "default": "./lib/namespace/media/media.render.js"
+      "types": "./types/namespaces/media/media.render.d.ts",
+      "default": "./lib/namespaces/media/media.render.js"
     },
     "./media/speechrecognition": {
-      "types": "./types/namespace/media/media.speechrecognition.d.ts",
-      "default": "./lib/namespace/media/media.speechrecognition.js"
+      "types": "./types/namespaces/media/media.speechrecognition.d.ts",
+      "default": "./lib/namespaces/media/media.speechrecognition.js"
     },
     "./media/speechsynthesis": {
-      "types": "./types/namespace/media/media.speechsynthesis.d.ts",
-      "default": "./lib/namespace/media/media.speechsynthesis.js"
+      "types": "./types/namespaces/media/media.speechsynthesis.d.ts",
+      "default": "./lib/namespaces/media/media.speechsynthesis.js"
     },
     "./media/streaming/adaptive": {
-      "types": "./types/namespace/media/media.streaming.adaptive.d.ts",
-      "default": "./lib/namespace/media/media.streaming.adaptive.js"
+      "types": "./types/namespaces/media/media.streaming.adaptive.d.ts",
+      "default": "./lib/namespaces/media/media.streaming.adaptive.js"
     },
     "./media/streaming": {
-      "types": "./types/namespace/media/media.streaming.d.ts",
-      "default": "./lib/namespace/media/media.streaming.js"
+      "types": "./types/namespaces/media/media.streaming.d.ts",
+      "default": "./lib/namespaces/media/media.streaming.js"
     },
     "./media/transcoding": {
-      "types": "./types/namespace/media/media.transcoding.d.ts",
-      "default": "./lib/namespace/media/media.transcoding.js"
+      "types": "./types/namespaces/media/media.transcoding.d.ts",
+      "default": "./lib/namespaces/media/media.transcoding.js"
     },
     "./networking/backgroundtransfer": {
-      "types": "./types/namespace/networking/networking.backgroundtransfer.d.ts",
-      "default": "./lib/namespace/networking/networking.backgroundtransfer.js"
+      "types": "./types/namespaces/networking/networking.backgroundtransfer.d.ts",
+      "default": "./lib/namespaces/networking/networking.backgroundtransfer.js"
     },
     "./networking/connectivity": {
-      "types": "./types/namespace/networking/networking.connectivity.d.ts",
-      "default": "./lib/namespace/networking/networking.connectivity.js"
+      "types": "./types/namespaces/networking/networking.connectivity.d.ts",
+      "default": "./lib/namespaces/networking/networking.connectivity.js"
     },
     "./networking": {
-      "types": "./types/namespace/networking/networking.d.ts",
-      "default": "./lib/namespace/networking/networking.js"
+      "types": "./types/namespaces/networking/networking.d.ts",
+      "default": "./lib/namespaces/networking/networking.js"
     },
     "./networking/networkoperators": {
-      "types": "./types/namespace/networking/networking.networkoperators.d.ts",
-      "default": "./lib/namespace/networking/networking.networkoperators.js"
+      "types": "./types/namespaces/networking/networking.networkoperators.d.ts",
+      "default": "./lib/namespaces/networking/networking.networkoperators.js"
     },
     "./networking/proximity": {
-      "types": "./types/namespace/networking/networking.proximity.d.ts",
-      "default": "./lib/namespace/networking/networking.proximity.js"
+      "types": "./types/namespaces/networking/networking.proximity.d.ts",
+      "default": "./lib/namespaces/networking/networking.proximity.js"
     },
     "./networking/pushnotifications": {
-      "types": "./types/namespace/networking/networking.pushnotifications.d.ts",
-      "default": "./lib/namespace/networking/networking.pushnotifications.js"
+      "types": "./types/namespaces/networking/networking.pushnotifications.d.ts",
+      "default": "./lib/namespaces/networking/networking.pushnotifications.js"
     },
     "./networking/servicediscovery/dnssd": {
-      "types": "./types/namespace/networking/networking.servicediscovery.dnssd.d.ts",
-      "default": "./lib/namespace/networking/networking.servicediscovery.dnssd.js"
+      "types": "./types/namespaces/networking/networking.servicediscovery.dnssd.d.ts",
+      "default": "./lib/namespaces/networking/networking.servicediscovery.dnssd.js"
     },
     "./networking/servicediscovery": {
-      "types": "./types/namespace/networking/networking.servicediscovery.d.ts",
-      "default": "./lib/namespace/networking/networking.servicediscovery.js"
+      "types": "./types/namespaces/networking/networking.servicediscovery.d.ts",
+      "default": "./lib/namespaces/networking/networking.servicediscovery.js"
     },
     "./networking/sockets": {
-      "types": "./types/namespace/networking/networking.sockets.d.ts",
-      "default": "./lib/namespace/networking/networking.sockets.js"
+      "types": "./types/namespaces/networking/networking.sockets.d.ts",
+      "default": "./lib/namespaces/networking/networking.sockets.js"
     },
     "./networking/vpn": {
-      "types": "./types/namespace/networking/networking.vpn.d.ts",
-      "default": "./lib/namespace/networking/networking.vpn.js"
+      "types": "./types/namespaces/networking/networking.vpn.d.ts",
+      "default": "./lib/namespaces/networking/networking.vpn.js"
     },
     "./networking/xboxlive": {
-      "types": "./types/namespace/networking/networking.xboxlive.d.ts",
-      "default": "./lib/namespace/networking/networking.xboxlive.js"
+      "types": "./types/namespaces/networking/networking.xboxlive.d.ts",
+      "default": "./lib/namespaces/networking/networking.xboxlive.js"
     },
     "./perception/automation/core": {
-      "types": "./types/namespace/perception/perception.automation.core.d.ts",
-      "default": "./lib/namespace/perception/perception.automation.core.js"
+      "types": "./types/namespaces/perception/perception.automation.core.d.ts",
+      "default": "./lib/namespaces/perception/perception.automation.core.js"
     },
     "./perception/automation": {
-      "types": "./types/namespace/perception/perception.automation.d.ts",
-      "default": "./lib/namespace/perception/perception.automation.js"
+      "types": "./types/namespaces/perception/perception.automation.d.ts",
+      "default": "./lib/namespaces/perception/perception.automation.js"
     },
     "./perception": {
-      "types": "./types/namespace/perception/perception.d.ts",
-      "default": "./lib/namespace/perception/perception.js"
+      "types": "./types/namespaces/perception/perception.d.ts",
+      "default": "./lib/namespaces/perception/perception.js"
     },
     "./perception/people": {
-      "types": "./types/namespace/perception/perception.people.d.ts",
-      "default": "./lib/namespace/perception/perception.people.js"
+      "types": "./types/namespaces/perception/perception.people.d.ts",
+      "default": "./lib/namespaces/perception/perception.people.js"
     },
     "./perception/spatial": {
-      "types": "./types/namespace/perception/perception.spatial.d.ts",
-      "default": "./lib/namespace/perception/perception.spatial.js"
+      "types": "./types/namespaces/perception/perception.spatial.d.ts",
+      "default": "./lib/namespaces/perception/perception.spatial.js"
     },
     "./perception/spatial/surfaces": {
-      "types": "./types/namespace/perception/perception.spatial.surfaces.d.ts",
-      "default": "./lib/namespace/perception/perception.spatial.surfaces.js"
+      "types": "./types/namespaces/perception/perception.spatial.surfaces.d.ts",
+      "default": "./lib/namespaces/perception/perception.spatial.surfaces.js"
     },
     "./phone/applicationmodel": {
-      "types": "./types/namespace/phone/phone.applicationmodel.d.ts",
-      "default": "./lib/namespace/phone/phone.applicationmodel.js"
+      "types": "./types/namespaces/phone/phone.applicationmodel.d.ts",
+      "default": "./lib/namespaces/phone/phone.applicationmodel.js"
     },
     "./phone/devices": {
-      "types": "./types/namespace/phone/phone.devices.d.ts",
-      "default": "./lib/namespace/phone/phone.devices.js"
+      "types": "./types/namespaces/phone/phone.devices.d.ts",
+      "default": "./lib/namespaces/phone/phone.devices.js"
     },
     "./phone/devices/notification": {
-      "types": "./types/namespace/phone/phone.devices.notification.d.ts",
-      "default": "./lib/namespace/phone/phone.devices.notification.js"
+      "types": "./types/namespaces/phone/phone.devices.notification.d.ts",
+      "default": "./lib/namespaces/phone/phone.devices.notification.js"
     },
     "./phone/devices/power": {
-      "types": "./types/namespace/phone/phone.devices.power.d.ts",
-      "default": "./lib/namespace/phone/phone.devices.power.js"
+      "types": "./types/namespaces/phone/phone.devices.power.d.ts",
+      "default": "./lib/namespaces/phone/phone.devices.power.js"
     },
     "./phone": {
-      "types": "./types/namespace/phone/phone.d.ts",
-      "default": "./lib/namespace/phone/phone.js"
+      "types": "./types/namespaces/phone/phone.d.ts",
+      "default": "./lib/namespaces/phone/phone.js"
     },
     "./phone/management/deployment": {
-      "types": "./types/namespace/phone/phone.management.deployment.d.ts",
-      "default": "./lib/namespace/phone/phone.management.deployment.js"
+      "types": "./types/namespaces/phone/phone.management.deployment.d.ts",
+      "default": "./lib/namespaces/phone/phone.management.deployment.js"
     },
     "./phone/management": {
-      "types": "./types/namespace/phone/phone.management.d.ts",
-      "default": "./lib/namespace/phone/phone.management.js"
+      "types": "./types/namespaces/phone/phone.management.d.ts",
+      "default": "./lib/namespaces/phone/phone.management.js"
     },
     "./phone/media/devices": {
-      "types": "./types/namespace/phone/phone.media.devices.d.ts",
-      "default": "./lib/namespace/phone/phone.media.devices.js"
+      "types": "./types/namespaces/phone/phone.media.devices.d.ts",
+      "default": "./lib/namespaces/phone/phone.media.devices.js"
     },
     "./phone/media": {
-      "types": "./types/namespace/phone/phone.media.d.ts",
-      "default": "./lib/namespace/phone/phone.media.js"
+      "types": "./types/namespaces/phone/phone.media.d.ts",
+      "default": "./lib/namespaces/phone/phone.media.js"
     },
     "./phone/notification": {
-      "types": "./types/namespace/phone/phone.notification.d.ts",
-      "default": "./lib/namespace/phone/phone.notification.js"
+      "types": "./types/namespaces/phone/phone.notification.d.ts",
+      "default": "./lib/namespaces/phone/phone.notification.js"
     },
     "./phone/notification/management": {
-      "types": "./types/namespace/phone/phone.notification.management.d.ts",
-      "default": "./lib/namespace/phone/phone.notification.management.js"
+      "types": "./types/namespaces/phone/phone.notification.management.d.ts",
+      "default": "./lib/namespaces/phone/phone.notification.management.js"
     },
     "./phone/personalinformation": {
-      "types": "./types/namespace/phone/phone.personalinformation.d.ts",
-      "default": "./lib/namespace/phone/phone.personalinformation.js"
+      "types": "./types/namespaces/phone/phone.personalinformation.d.ts",
+      "default": "./lib/namespaces/phone/phone.personalinformation.js"
     },
     "./phone/personalinformation/provisioning": {
-      "types": "./types/namespace/phone/phone.personalinformation.provisioning.d.ts",
-      "default": "./lib/namespace/phone/phone.personalinformation.provisioning.js"
+      "types": "./types/namespaces/phone/phone.personalinformation.provisioning.d.ts",
+      "default": "./lib/namespaces/phone/phone.personalinformation.provisioning.js"
     },
     "./phone/speech": {
-      "types": "./types/namespace/phone/phone.speech.d.ts",
-      "default": "./lib/namespace/phone/phone.speech.js"
+      "types": "./types/namespaces/phone/phone.speech.d.ts",
+      "default": "./lib/namespaces/phone/phone.speech.js"
     },
     "./phone/speech/recognition": {
-      "types": "./types/namespace/phone/phone.speech.recognition.d.ts",
-      "default": "./lib/namespace/phone/phone.speech.recognition.js"
+      "types": "./types/namespaces/phone/phone.speech.recognition.d.ts",
+      "default": "./lib/namespaces/phone/phone.speech.recognition.js"
     },
     "./phone/startscreen": {
-      "types": "./types/namespace/phone/phone.startscreen.d.ts",
-      "default": "./lib/namespace/phone/phone.startscreen.js"
+      "types": "./types/namespaces/phone/phone.startscreen.d.ts",
+      "default": "./lib/namespaces/phone/phone.startscreen.js"
     },
     "./phone/system": {
-      "types": "./types/namespace/phone/phone.system.d.ts",
-      "default": "./lib/namespace/phone/phone.system.js"
+      "types": "./types/namespaces/phone/phone.system.d.ts",
+      "default": "./lib/namespaces/phone/phone.system.js"
     },
     "./phone/system/power": {
-      "types": "./types/namespace/phone/phone.system.power.d.ts",
-      "default": "./lib/namespace/phone/phone.system.power.js"
+      "types": "./types/namespaces/phone/phone.system.power.d.ts",
+      "default": "./lib/namespaces/phone/phone.system.power.js"
     },
     "./phone/system/profile": {
-      "types": "./types/namespace/phone/phone.system.profile.d.ts",
-      "default": "./lib/namespace/phone/phone.system.profile.js"
+      "types": "./types/namespaces/phone/phone.system.profile.d.ts",
+      "default": "./lib/namespaces/phone/phone.system.profile.js"
     },
     "./phone/system/userprofile/gameservices/core": {
-      "types": "./types/namespace/phone/phone.system.userprofile.gameservices.core.d.ts",
-      "default": "./lib/namespace/phone/phone.system.userprofile.gameservices.core.js"
+      "types": "./types/namespaces/phone/phone.system.userprofile.gameservices.core.d.ts",
+      "default": "./lib/namespaces/phone/phone.system.userprofile.gameservices.core.js"
     },
     "./phone/system/userprofile/gameservices": {
-      "types": "./types/namespace/phone/phone.system.userprofile.gameservices.d.ts",
-      "default": "./lib/namespace/phone/phone.system.userprofile.gameservices.js"
+      "types": "./types/namespaces/phone/phone.system.userprofile.gameservices.d.ts",
+      "default": "./lib/namespaces/phone/phone.system.userprofile.gameservices.js"
     },
     "./phone/system/userprofile": {
-      "types": "./types/namespace/phone/phone.system.userprofile.d.ts",
-      "default": "./lib/namespace/phone/phone.system.userprofile.js"
+      "types": "./types/namespaces/phone/phone.system.userprofile.d.ts",
+      "default": "./lib/namespaces/phone/phone.system.userprofile.js"
     },
     "./phone/ui/input": {
-      "types": "./types/namespace/phone/phone.ui.input.d.ts",
-      "default": "./lib/namespace/phone/phone.ui.input.js"
+      "types": "./types/namespaces/phone/phone.ui.input.d.ts",
+      "default": "./lib/namespaces/phone/phone.ui.input.js"
     },
     "./phone/ui": {
-      "types": "./types/namespace/phone/phone.ui.d.ts",
-      "default": "./lib/namespace/phone/phone.ui.js"
+      "types": "./types/namespaces/phone/phone.ui.d.ts",
+      "default": "./lib/namespaces/phone/phone.ui.js"
     },
     "./security/authentication/identity/core": {
-      "types": "./types/namespace/security/security.authentication.identity.core.d.ts",
-      "default": "./lib/namespace/security/security.authentication.identity.core.js"
+      "types": "./types/namespaces/security/security.authentication.identity.core.d.ts",
+      "default": "./lib/namespaces/security/security.authentication.identity.core.js"
     },
     "./security/authentication/identity": {
-      "types": "./types/namespace/security/security.authentication.identity.d.ts",
-      "default": "./lib/namespace/security/security.authentication.identity.js"
+      "types": "./types/namespaces/security/security.authentication.identity.d.ts",
+      "default": "./lib/namespaces/security/security.authentication.identity.js"
     },
     "./security/authentication/identity/provider": {
-      "types": "./types/namespace/security/security.authentication.identity.provider.d.ts",
-      "default": "./lib/namespace/security/security.authentication.identity.provider.js"
+      "types": "./types/namespaces/security/security.authentication.identity.provider.d.ts",
+      "default": "./lib/namespaces/security/security.authentication.identity.provider.js"
     },
     "./security/authentication": {
-      "types": "./types/namespace/security/security.authentication.d.ts",
-      "default": "./lib/namespace/security/security.authentication.js"
+      "types": "./types/namespaces/security/security.authentication.d.ts",
+      "default": "./lib/namespaces/security/security.authentication.js"
     },
     "./security/authentication/onlineid": {
-      "types": "./types/namespace/security/security.authentication.onlineid.d.ts",
-      "default": "./lib/namespace/security/security.authentication.onlineid.js"
+      "types": "./types/namespaces/security/security.authentication.onlineid.d.ts",
+      "default": "./lib/namespaces/security/security.authentication.onlineid.js"
     },
     "./security/authentication/web/core": {
-      "types": "./types/namespace/security/security.authentication.web.core.d.ts",
-      "default": "./lib/namespace/security/security.authentication.web.core.js"
+      "types": "./types/namespaces/security/security.authentication.web.core.d.ts",
+      "default": "./lib/namespaces/security/security.authentication.web.core.js"
     },
     "./security/authentication/web": {
-      "types": "./types/namespace/security/security.authentication.web.d.ts",
-      "default": "./lib/namespace/security/security.authentication.web.js"
+      "types": "./types/namespaces/security/security.authentication.web.d.ts",
+      "default": "./lib/namespaces/security/security.authentication.web.js"
     },
     "./security/authentication/web/provider": {
-      "types": "./types/namespace/security/security.authentication.web.provider.d.ts",
-      "default": "./lib/namespace/security/security.authentication.web.provider.js"
+      "types": "./types/namespaces/security/security.authentication.web.provider.d.ts",
+      "default": "./lib/namespaces/security/security.authentication.web.provider.js"
     },
     "./security/credentials": {
-      "types": "./types/namespace/security/security.credentials.d.ts",
-      "default": "./lib/namespace/security/security.credentials.js"
+      "types": "./types/namespaces/security/security.credentials.d.ts",
+      "default": "./lib/namespaces/security/security.credentials.js"
     },
     "./security/credentials/ui": {
-      "types": "./types/namespace/security/security.credentials.ui.d.ts",
-      "default": "./lib/namespace/security/security.credentials.ui.js"
+      "types": "./types/namespaces/security/security.credentials.ui.d.ts",
+      "default": "./lib/namespaces/security/security.credentials.ui.js"
     },
     "./security/cryptography/certificates": {
-      "types": "./types/namespace/security/security.cryptography.certificates.d.ts",
-      "default": "./lib/namespace/security/security.cryptography.certificates.js"
+      "types": "./types/namespaces/security/security.cryptography.certificates.d.ts",
+      "default": "./lib/namespaces/security/security.cryptography.certificates.js"
     },
     "./security/cryptography/core": {
-      "types": "./types/namespace/security/security.cryptography.core.d.ts",
-      "default": "./lib/namespace/security/security.cryptography.core.js"
+      "types": "./types/namespaces/security/security.cryptography.core.d.ts",
+      "default": "./lib/namespaces/security/security.cryptography.core.js"
     },
     "./security/cryptography/dataprotection": {
-      "types": "./types/namespace/security/security.cryptography.dataprotection.d.ts",
-      "default": "./lib/namespace/security/security.cryptography.dataprotection.js"
+      "types": "./types/namespaces/security/security.cryptography.dataprotection.d.ts",
+      "default": "./lib/namespaces/security/security.cryptography.dataprotection.js"
     },
     "./security/cryptography": {
-      "types": "./types/namespace/security/security.cryptography.d.ts",
-      "default": "./lib/namespace/security/security.cryptography.js"
+      "types": "./types/namespaces/security/security.cryptography.d.ts",
+      "default": "./lib/namespaces/security/security.cryptography.js"
     },
     "./security/enterprisedata": {
-      "types": "./types/namespace/security/security.enterprisedata.d.ts",
-      "default": "./lib/namespace/security/security.enterprisedata.js"
+      "types": "./types/namespaces/security/security.enterprisedata.d.ts",
+      "default": "./lib/namespaces/security/security.enterprisedata.js"
     },
     "./security/exchangeactivesyncprovisioning": {
-      "types": "./types/namespace/security/security.exchangeactivesyncprovisioning.d.ts",
-      "default": "./lib/namespace/security/security.exchangeactivesyncprovisioning.js"
+      "types": "./types/namespaces/security/security.exchangeactivesyncprovisioning.d.ts",
+      "default": "./lib/namespaces/security/security.exchangeactivesyncprovisioning.js"
     },
     "./security": {
-      "types": "./types/namespace/security/security.d.ts",
-      "default": "./lib/namespace/security/security.js"
+      "types": "./types/namespaces/security/security.d.ts",
+      "default": "./lib/namespaces/security/security.js"
     },
     "./services/cortana": {
-      "types": "./types/namespace/services/services.cortana.d.ts",
-      "default": "./lib/namespace/services/services.cortana.js"
+      "types": "./types/namespaces/services/services.cortana.d.ts",
+      "default": "./lib/namespaces/services/services.cortana.js"
     },
     "./services": {
-      "types": "./types/namespace/services/services.d.ts",
-      "default": "./lib/namespace/services/services.js"
+      "types": "./types/namespaces/services/services.d.ts",
+      "default": "./lib/namespaces/services/services.js"
     },
     "./services/maps/guidance": {
-      "types": "./types/namespace/services/services.maps.guidance.d.ts",
-      "default": "./lib/namespace/services/services.maps.guidance.js"
+      "types": "./types/namespaces/services/services.maps.guidance.d.ts",
+      "default": "./lib/namespaces/services/services.maps.guidance.js"
     },
     "./services/maps": {
-      "types": "./types/namespace/services/services.maps.d.ts",
-      "default": "./lib/namespace/services/services.maps.js"
+      "types": "./types/namespaces/services/services.maps.d.ts",
+      "default": "./lib/namespaces/services/services.maps.js"
     },
     "./services/maps/localsearch": {
-      "types": "./types/namespace/services/services.maps.localsearch.d.ts",
-      "default": "./lib/namespace/services/services.maps.localsearch.js"
+      "types": "./types/namespaces/services/services.maps.localsearch.d.ts",
+      "default": "./lib/namespaces/services/services.maps.localsearch.js"
     },
     "./services/maps/offlinemaps": {
-      "types": "./types/namespace/services/services.maps.offlinemaps.d.ts",
-      "default": "./lib/namespace/services/services.maps.offlinemaps.js"
+      "types": "./types/namespaces/services/services.maps.offlinemaps.d.ts",
+      "default": "./lib/namespaces/services/services.maps.offlinemaps.js"
     },
     "./services/store": {
-      "types": "./types/namespace/services/services.store.d.ts",
-      "default": "./lib/namespace/services/services.store.js"
+      "types": "./types/namespaces/services/services.store.d.ts",
+      "default": "./lib/namespaces/services/services.store.js"
     },
     "./services/targetedcontent": {
-      "types": "./types/namespace/services/services.targetedcontent.d.ts",
-      "default": "./lib/namespace/services/services.targetedcontent.js"
+      "types": "./types/namespaces/services/services.targetedcontent.d.ts",
+      "default": "./lib/namespaces/services/services.targetedcontent.js"
     },
     "./storage/accesscache": {
-      "types": "./types/namespace/storage/storage.accesscache.d.ts",
-      "default": "./lib/namespace/storage/storage.accesscache.js"
+      "types": "./types/namespaces/storage/storage.accesscache.d.ts",
+      "default": "./lib/namespaces/storage/storage.accesscache.js"
     },
     "./storage/bulkaccess": {
-      "types": "./types/namespace/storage/storage.bulkaccess.d.ts",
-      "default": "./lib/namespace/storage/storage.bulkaccess.js"
+      "types": "./types/namespaces/storage/storage.bulkaccess.d.ts",
+      "default": "./lib/namespaces/storage/storage.bulkaccess.js"
     },
     "./storage/compression": {
-      "types": "./types/namespace/storage/storage.compression.d.ts",
-      "default": "./lib/namespace/storage/storage.compression.js"
+      "types": "./types/namespaces/storage/storage.compression.d.ts",
+      "default": "./lib/namespaces/storage/storage.compression.js"
     },
     "./storage/fileproperties": {
-      "types": "./types/namespace/storage/storage.fileproperties.d.ts",
-      "default": "./lib/namespace/storage/storage.fileproperties.js"
+      "types": "./types/namespaces/storage/storage.fileproperties.d.ts",
+      "default": "./lib/namespaces/storage/storage.fileproperties.js"
     },
     "./storage": {
-      "types": "./types/namespace/storage/storage.d.ts",
-      "default": "./lib/namespace/storage/storage.js"
+      "types": "./types/namespaces/storage/storage.d.ts",
+      "default": "./lib/namespaces/storage/storage.js"
     },
     "./storage/pickers": {
-      "types": "./types/namespace/storage/storage.pickers.d.ts",
-      "default": "./lib/namespace/storage/storage.pickers.js"
+      "types": "./types/namespaces/storage/storage.pickers.d.ts",
+      "default": "./lib/namespaces/storage/storage.pickers.js"
     },
     "./storage/pickers/provider": {
-      "types": "./types/namespace/storage/storage.pickers.provider.d.ts",
-      "default": "./lib/namespace/storage/storage.pickers.provider.js"
+      "types": "./types/namespaces/storage/storage.pickers.provider.d.ts",
+      "default": "./lib/namespaces/storage/storage.pickers.provider.js"
     },
     "./storage/provider": {
-      "types": "./types/namespace/storage/storage.provider.d.ts",
-      "default": "./lib/namespace/storage/storage.provider.js"
+      "types": "./types/namespaces/storage/storage.provider.d.ts",
+      "default": "./lib/namespaces/storage/storage.provider.js"
     },
     "./storage/search": {
-      "types": "./types/namespace/storage/storage.search.d.ts",
-      "default": "./lib/namespace/storage/storage.search.js"
+      "types": "./types/namespaces/storage/storage.search.d.ts",
+      "default": "./lib/namespaces/storage/storage.search.js"
     },
     "./storage/streams": {
-      "types": "./types/namespace/storage/storage.streams.d.ts",
-      "default": "./lib/namespace/storage/storage.streams.js"
+      "types": "./types/namespaces/storage/storage.streams.d.ts",
+      "default": "./lib/namespaces/storage/storage.streams.js"
     },
     "./system/diagnostics/deviceportal": {
-      "types": "./types/namespace/system/system.diagnostics.deviceportal.d.ts",
-      "default": "./lib/namespace/system/system.diagnostics.deviceportal.js"
+      "types": "./types/namespaces/system/system.diagnostics.deviceportal.d.ts",
+      "default": "./lib/namespaces/system/system.diagnostics.deviceportal.js"
     },
     "./system/diagnostics": {
-      "types": "./types/namespace/system/system.diagnostics.d.ts",
-      "default": "./lib/namespace/system/system.diagnostics.js"
+      "types": "./types/namespaces/system/system.diagnostics.d.ts",
+      "default": "./lib/namespaces/system/system.diagnostics.js"
     },
     "./system/diagnostics/telemetry": {
-      "types": "./types/namespace/system/system.diagnostics.telemetry.d.ts",
-      "default": "./lib/namespace/system/system.diagnostics.telemetry.js"
+      "types": "./types/namespaces/system/system.diagnostics.telemetry.d.ts",
+      "default": "./lib/namespaces/system/system.diagnostics.telemetry.js"
     },
     "./system/diagnostics/tracereporting": {
-      "types": "./types/namespace/system/system.diagnostics.tracereporting.d.ts",
-      "default": "./lib/namespace/system/system.diagnostics.tracereporting.js"
+      "types": "./types/namespaces/system/system.diagnostics.tracereporting.d.ts",
+      "default": "./lib/namespaces/system/system.diagnostics.tracereporting.js"
     },
     "./system/display": {
-      "types": "./types/namespace/system/system.display.d.ts",
-      "default": "./lib/namespace/system/system.display.js"
+      "types": "./types/namespaces/system/system.display.d.ts",
+      "default": "./lib/namespaces/system/system.display.js"
     },
     "./system/inventory": {
-      "types": "./types/namespace/system/system.inventory.d.ts",
-      "default": "./lib/namespace/system/system.inventory.js"
+      "types": "./types/namespaces/system/system.inventory.d.ts",
+      "default": "./lib/namespaces/system/system.inventory.js"
     },
     "./system": {
-      "types": "./types/namespace/system/system.d.ts",
-      "default": "./lib/namespace/system/system.js"
+      "types": "./types/namespaces/system/system.d.ts",
+      "default": "./lib/namespaces/system/system.js"
     },
     "./system/power/diagnostics": {
-      "types": "./types/namespace/system/system.power.diagnostics.d.ts",
-      "default": "./lib/namespace/system/system.power.diagnostics.js"
+      "types": "./types/namespaces/system/system.power.diagnostics.d.ts",
+      "default": "./lib/namespaces/system/system.power.diagnostics.js"
     },
     "./system/power": {
-      "types": "./types/namespace/system/system.power.d.ts",
-      "default": "./lib/namespace/system/system.power.js"
+      "types": "./types/namespaces/system/system.power.d.ts",
+      "default": "./lib/namespaces/system/system.power.js"
     },
     "./system/profile": {
-      "types": "./types/namespace/system/system.profile.d.ts",
-      "default": "./lib/namespace/system/system.profile.js"
+      "types": "./types/namespaces/system/system.profile.d.ts",
+      "default": "./lib/namespaces/system/system.profile.js"
     },
     "./system/profile/systemmanufacturers": {
-      "types": "./types/namespace/system/system.profile.systemmanufacturers.d.ts",
-      "default": "./lib/namespace/system/system.profile.systemmanufacturers.js"
+      "types": "./types/namespaces/system/system.profile.systemmanufacturers.d.ts",
+      "default": "./lib/namespaces/system/system.profile.systemmanufacturers.js"
     },
     "./system/remotedesktop": {
-      "types": "./types/namespace/system/system.remotedesktop.d.ts",
-      "default": "./lib/namespace/system/system.remotedesktop.js"
+      "types": "./types/namespaces/system/system.remotedesktop.d.ts",
+      "default": "./lib/namespaces/system/system.remotedesktop.js"
     },
     "./system/remotesystems": {
-      "types": "./types/namespace/system/system.remotesystems.d.ts",
-      "default": "./lib/namespace/system/system.remotesystems.js"
+      "types": "./types/namespaces/system/system.remotesystems.d.ts",
+      "default": "./lib/namespaces/system/system.remotesystems.js"
     },
     "./system/threading/core": {
-      "types": "./types/namespace/system/system.threading.core.d.ts",
-      "default": "./lib/namespace/system/system.threading.core.js"
+      "types": "./types/namespaces/system/system.threading.core.d.ts",
+      "default": "./lib/namespaces/system/system.threading.core.js"
     },
     "./system/threading": {
-      "types": "./types/namespace/system/system.threading.d.ts",
-      "default": "./lib/namespace/system/system.threading.js"
+      "types": "./types/namespaces/system/system.threading.d.ts",
+      "default": "./lib/namespaces/system/system.threading.js"
     },
     "./system/userprofile": {
-      "types": "./types/namespace/system/system.userprofile.d.ts",
-      "default": "./lib/namespace/system/system.userprofile.js"
+      "types": "./types/namespaces/system/system.userprofile.d.ts",
+      "default": "./lib/namespaces/system/system.userprofile.js"
     },
     "./ui/applicationsettings": {
-      "types": "./types/namespace/ui/ui.applicationsettings.d.ts",
-      "default": "./lib/namespace/ui/ui.applicationsettings.js"
+      "types": "./types/namespaces/ui/ui.applicationsettings.d.ts",
+      "default": "./lib/namespaces/ui/ui.applicationsettings.js"
     },
     "./ui/composition/core": {
-      "types": "./types/namespace/ui/ui.composition.core.d.ts",
-      "default": "./lib/namespace/ui/ui.composition.core.js"
+      "types": "./types/namespaces/ui/ui.composition.core.d.ts",
+      "default": "./lib/namespaces/ui/ui.composition.core.js"
     },
     "./ui/composition/desktop": {
-      "types": "./types/namespace/ui/ui.composition.desktop.d.ts",
-      "default": "./lib/namespace/ui/ui.composition.desktop.js"
+      "types": "./types/namespaces/ui/ui.composition.desktop.d.ts",
+      "default": "./lib/namespaces/ui/ui.composition.desktop.js"
     },
     "./ui/composition/diagnostics": {
-      "types": "./types/namespace/ui/ui.composition.diagnostics.d.ts",
-      "default": "./lib/namespace/ui/ui.composition.diagnostics.js"
+      "types": "./types/namespaces/ui/ui.composition.diagnostics.d.ts",
+      "default": "./lib/namespaces/ui/ui.composition.diagnostics.js"
     },
     "./ui/composition/effects": {
-      "types": "./types/namespace/ui/ui.composition.effects.d.ts",
-      "default": "./lib/namespace/ui/ui.composition.effects.js"
+      "types": "./types/namespaces/ui/ui.composition.effects.d.ts",
+      "default": "./lib/namespaces/ui/ui.composition.effects.js"
     },
     "./ui/composition/interactions": {
-      "types": "./types/namespace/ui/ui.composition.interactions.d.ts",
-      "default": "./lib/namespace/ui/ui.composition.interactions.js"
+      "types": "./types/namespaces/ui/ui.composition.interactions.d.ts",
+      "default": "./lib/namespaces/ui/ui.composition.interactions.js"
     },
     "./ui/composition": {
-      "types": "./types/namespace/ui/ui.composition.d.ts",
-      "default": "./lib/namespace/ui/ui.composition.js"
+      "types": "./types/namespaces/ui/ui.composition.d.ts",
+      "default": "./lib/namespaces/ui/ui.composition.js"
     },
     "./ui/core/animationmetrics": {
-      "types": "./types/namespace/ui/ui.core.animationmetrics.d.ts",
-      "default": "./lib/namespace/ui/ui.core.animationmetrics.js"
+      "types": "./types/namespaces/ui/ui.core.animationmetrics.d.ts",
+      "default": "./lib/namespaces/ui/ui.core.animationmetrics.js"
     },
     "./ui/core": {
-      "types": "./types/namespace/ui/ui.core.d.ts",
-      "default": "./lib/namespace/ui/ui.core.js"
+      "types": "./types/namespaces/ui/ui.core.d.ts",
+      "default": "./lib/namespaces/ui/ui.core.js"
     },
     "./ui/core/preview": {
-      "types": "./types/namespace/ui/ui.core.preview.d.ts",
-      "default": "./lib/namespace/ui/ui.core.preview.js"
+      "types": "./types/namespaces/ui/ui.core.preview.d.ts",
+      "default": "./lib/namespaces/ui/ui.core.preview.js"
     },
     "./ui/input/core": {
-      "types": "./types/namespace/ui/ui.input.core.d.ts",
-      "default": "./lib/namespace/ui/ui.input.core.js"
+      "types": "./types/namespaces/ui/ui.input.core.d.ts",
+      "default": "./lib/namespaces/ui/ui.input.core.js"
     },
     "./ui/input/inking/analysis": {
-      "types": "./types/namespace/ui/ui.input.inking.analysis.d.ts",
-      "default": "./lib/namespace/ui/ui.input.inking.analysis.js"
+      "types": "./types/namespaces/ui/ui.input.inking.analysis.d.ts",
+      "default": "./lib/namespaces/ui/ui.input.inking.analysis.js"
     },
     "./ui/input/inking/core": {
-      "types": "./types/namespace/ui/ui.input.inking.core.d.ts",
-      "default": "./lib/namespace/ui/ui.input.inking.core.js"
+      "types": "./types/namespaces/ui/ui.input.inking.core.d.ts",
+      "default": "./lib/namespaces/ui/ui.input.inking.core.js"
     },
     "./ui/input/inking": {
-      "types": "./types/namespace/ui/ui.input.inking.d.ts",
-      "default": "./lib/namespace/ui/ui.input.inking.js"
+      "types": "./types/namespaces/ui/ui.input.inking.d.ts",
+      "default": "./lib/namespaces/ui/ui.input.inking.js"
     },
     "./ui/input": {
-      "types": "./types/namespace/ui/ui.input.d.ts",
-      "default": "./lib/namespace/ui/ui.input.js"
+      "types": "./types/namespaces/ui/ui.input.d.ts",
+      "default": "./lib/namespaces/ui/ui.input.js"
     },
     "./ui/input/preview/injection": {
-      "types": "./types/namespace/ui/ui.input.preview.injection.d.ts",
-      "default": "./lib/namespace/ui/ui.input.preview.injection.js"
+      "types": "./types/namespaces/ui/ui.input.preview.injection.d.ts",
+      "default": "./lib/namespaces/ui/ui.input.preview.injection.js"
     },
     "./ui/input/preview": {
-      "types": "./types/namespace/ui/ui.input.preview.d.ts",
-      "default": "./lib/namespace/ui/ui.input.preview.js"
+      "types": "./types/namespaces/ui/ui.input.preview.d.ts",
+      "default": "./lib/namespaces/ui/ui.input.preview.js"
     },
     "./ui/input/spatial": {
-      "types": "./types/namespace/ui/ui.input.spatial.d.ts",
-      "default": "./lib/namespace/ui/ui.input.spatial.js"
+      "types": "./types/namespaces/ui/ui.input.spatial.d.ts",
+      "default": "./lib/namespaces/ui/ui.input.spatial.js"
     },
     "./ui": {
-      "types": "./types/namespace/ui/ui.d.ts",
-      "default": "./lib/namespace/ui/ui.js"
+      "types": "./types/namespaces/ui/ui.d.ts",
+      "default": "./lib/namespaces/ui/ui.js"
     },
     "./ui/notifications": {
-      "types": "./types/namespace/ui/ui.notifications.d.ts",
-      "default": "./lib/namespace/ui/ui.notifications.js"
+      "types": "./types/namespaces/ui/ui.notifications.d.ts",
+      "default": "./lib/namespaces/ui/ui.notifications.js"
     },
     "./ui/notifications/management": {
-      "types": "./types/namespace/ui/ui.notifications.management.d.ts",
-      "default": "./lib/namespace/ui/ui.notifications.management.js"
+      "types": "./types/namespaces/ui/ui.notifications.management.d.ts",
+      "default": "./lib/namespaces/ui/ui.notifications.management.js"
     },
     "./ui/popups": {
-      "types": "./types/namespace/ui/ui.popups.d.ts",
-      "default": "./lib/namespace/ui/ui.popups.js"
+      "types": "./types/namespaces/ui/ui.popups.d.ts",
+      "default": "./lib/namespaces/ui/ui.popups.js"
     },
     "./ui/shell": {
-      "types": "./types/namespace/ui/ui.shell.d.ts",
-      "default": "./lib/namespace/ui/ui.shell.js"
+      "types": "./types/namespaces/ui/ui.shell.d.ts",
+      "default": "./lib/namespaces/ui/ui.shell.js"
     },
     "./ui/startscreen": {
-      "types": "./types/namespace/ui/ui.startscreen.d.ts",
-      "default": "./lib/namespace/ui/ui.startscreen.js"
+      "types": "./types/namespaces/ui/ui.startscreen.d.ts",
+      "default": "./lib/namespaces/ui/ui.startscreen.js"
     },
     "./ui/text/core": {
-      "types": "./types/namespace/ui/ui.text.core.d.ts",
-      "default": "./lib/namespace/ui/ui.text.core.js"
+      "types": "./types/namespaces/ui/ui.text.core.d.ts",
+      "default": "./lib/namespaces/ui/ui.text.core.js"
     },
     "./ui/text": {
-      "types": "./types/namespace/ui/ui.text.d.ts",
-      "default": "./lib/namespace/ui/ui.text.js"
+      "types": "./types/namespaces/ui/ui.text.d.ts",
+      "default": "./lib/namespaces/ui/ui.text.js"
     },
     "./ui/viewmanagement/core": {
-      "types": "./types/namespace/ui/ui.viewmanagement.core.d.ts",
-      "default": "./lib/namespace/ui/ui.viewmanagement.core.js"
+      "types": "./types/namespaces/ui/ui.viewmanagement.core.d.ts",
+      "default": "./lib/namespaces/ui/ui.viewmanagement.core.js"
     },
     "./ui/viewmanagement": {
-      "types": "./types/namespace/ui/ui.viewmanagement.d.ts",
-      "default": "./lib/namespace/ui/ui.viewmanagement.js"
+      "types": "./types/namespaces/ui/ui.viewmanagement.d.ts",
+      "default": "./lib/namespaces/ui/ui.viewmanagement.js"
     },
     "./ui/webui/core": {
-      "types": "./types/namespace/ui/ui.webui.core.d.ts",
-      "default": "./lib/namespace/ui/ui.webui.core.js"
+      "types": "./types/namespaces/ui/ui.webui.core.d.ts",
+      "default": "./lib/namespaces/ui/ui.webui.core.js"
     },
     "./ui/webui": {
-      "types": "./types/namespace/ui/ui.webui.d.ts",
-      "default": "./lib/namespace/ui/ui.webui.js"
+      "types": "./types/namespaces/ui/ui.webui.d.ts",
+      "default": "./lib/namespaces/ui/ui.webui.js"
     },
     "./ui/xaml/automation": {
-      "types": "./types/namespace/ui/ui.xaml.automation.d.ts",
-      "default": "./lib/namespace/ui/ui.xaml.automation.js"
+      "types": "./types/namespaces/ui/ui.xaml.automation.d.ts",
+      "default": "./lib/namespaces/ui/ui.xaml.automation.js"
     },
     "./ui/xaml/automation/peers": {
-      "types": "./types/namespace/ui/ui.xaml.automation.peers.d.ts",
-      "default": "./lib/namespace/ui/ui.xaml.automation.peers.js"
+      "types": "./types/namespaces/ui/ui.xaml.automation.peers.d.ts",
+      "default": "./lib/namespaces/ui/ui.xaml.automation.peers.js"
     },
     "./ui/xaml/automation/provider": {
-      "types": "./types/namespace/ui/ui.xaml.automation.provider.d.ts",
-      "default": "./lib/namespace/ui/ui.xaml.automation.provider.js"
+      "types": "./types/namespaces/ui/ui.xaml.automation.provider.d.ts",
+      "default": "./lib/namespaces/ui/ui.xaml.automation.provider.js"
     },
     "./ui/xaml/automation/text": {
-      "types": "./types/namespace/ui/ui.xaml.automation.text.d.ts",
-      "default": "./lib/namespace/ui/ui.xaml.automation.text.js"
+      "types": "./types/namespaces/ui/ui.xaml.automation.text.d.ts",
+      "default": "./lib/namespaces/ui/ui.xaml.automation.text.js"
     },
     "./ui/xaml/controls": {
-      "types": "./types/namespace/ui/ui.xaml.controls.d.ts",
-      "default": "./lib/namespace/ui/ui.xaml.controls.js"
+      "types": "./types/namespaces/ui/ui.xaml.controls.d.ts",
+      "default": "./lib/namespaces/ui/ui.xaml.controls.js"
     },
     "./ui/xaml/controls/maps": {
-      "types": "./types/namespace/ui/ui.xaml.controls.maps.d.ts",
-      "default": "./lib/namespace/ui/ui.xaml.controls.maps.js"
+      "types": "./types/namespaces/ui/ui.xaml.controls.maps.d.ts",
+      "default": "./lib/namespaces/ui/ui.xaml.controls.maps.js"
     },
     "./ui/xaml/controls/primitives": {
-      "types": "./types/namespace/ui/ui.xaml.controls.primitives.d.ts",
-      "default": "./lib/namespace/ui/ui.xaml.controls.primitives.js"
+      "types": "./types/namespaces/ui/ui.xaml.controls.primitives.d.ts",
+      "default": "./lib/namespaces/ui/ui.xaml.controls.primitives.js"
     },
     "./ui/xaml/data": {
-      "types": "./types/namespace/ui/ui.xaml.data.d.ts",
-      "default": "./lib/namespace/ui/ui.xaml.data.js"
+      "types": "./types/namespaces/ui/ui.xaml.data.d.ts",
+      "default": "./lib/namespaces/ui/ui.xaml.data.js"
     },
     "./ui/xaml/documents": {
-      "types": "./types/namespace/ui/ui.xaml.documents.d.ts",
-      "default": "./lib/namespace/ui/ui.xaml.documents.js"
+      "types": "./types/namespaces/ui/ui.xaml.documents.d.ts",
+      "default": "./lib/namespaces/ui/ui.xaml.documents.js"
     },
     "./ui/xaml/hosting": {
-      "types": "./types/namespace/ui/ui.xaml.hosting.d.ts",
-      "default": "./lib/namespace/ui/ui.xaml.hosting.js"
+      "types": "./types/namespaces/ui/ui.xaml.hosting.d.ts",
+      "default": "./lib/namespaces/ui/ui.xaml.hosting.js"
     },
     "./ui/xaml/input": {
-      "types": "./types/namespace/ui/ui.xaml.input.d.ts",
-      "default": "./lib/namespace/ui/ui.xaml.input.js"
+      "types": "./types/namespaces/ui/ui.xaml.input.d.ts",
+      "default": "./lib/namespaces/ui/ui.xaml.input.js"
     },
     "./ui/xaml/interop": {
-      "types": "./types/namespace/ui/ui.xaml.interop.d.ts",
-      "default": "./lib/namespace/ui/ui.xaml.interop.js"
+      "types": "./types/namespaces/ui/ui.xaml.interop.d.ts",
+      "default": "./lib/namespaces/ui/ui.xaml.interop.js"
     },
     "./ui/xaml": {
-      "types": "./types/namespace/ui/ui.xaml.d.ts",
-      "default": "./lib/namespace/ui/ui.xaml.js"
+      "types": "./types/namespaces/ui/ui.xaml.d.ts",
+      "default": "./lib/namespaces/ui/ui.xaml.js"
     },
     "./ui/xaml/markup": {
-      "types": "./types/namespace/ui/ui.xaml.markup.d.ts",
-      "default": "./lib/namespace/ui/ui.xaml.markup.js"
+      "types": "./types/namespaces/ui/ui.xaml.markup.d.ts",
+      "default": "./lib/namespaces/ui/ui.xaml.markup.js"
     },
     "./ui/xaml/media/animation": {
-      "types": "./types/namespace/ui/ui.xaml.media.animation.d.ts",
-      "default": "./lib/namespace/ui/ui.xaml.media.animation.js"
+      "types": "./types/namespaces/ui/ui.xaml.media.animation.d.ts",
+      "default": "./lib/namespaces/ui/ui.xaml.media.animation.js"
     },
     "./ui/xaml/media/imaging": {
-      "types": "./types/namespace/ui/ui.xaml.media.imaging.d.ts",
-      "default": "./lib/namespace/ui/ui.xaml.media.imaging.js"
+      "types": "./types/namespaces/ui/ui.xaml.media.imaging.d.ts",
+      "default": "./lib/namespaces/ui/ui.xaml.media.imaging.js"
     },
     "./ui/xaml/media": {
-      "types": "./types/namespace/ui/ui.xaml.media.d.ts",
-      "default": "./lib/namespace/ui/ui.xaml.media.js"
+      "types": "./types/namespaces/ui/ui.xaml.media.d.ts",
+      "default": "./lib/namespaces/ui/ui.xaml.media.js"
     },
     "./ui/xaml/media/media3d": {
-      "types": "./types/namespace/ui/ui.xaml.media.media3d.d.ts",
-      "default": "./lib/namespace/ui/ui.xaml.media.media3d.js"
+      "types": "./types/namespaces/ui/ui.xaml.media.media3d.d.ts",
+      "default": "./lib/namespaces/ui/ui.xaml.media.media3d.js"
     },
     "./ui/xaml/navigation": {
-      "types": "./types/namespace/ui/ui.xaml.navigation.d.ts",
-      "default": "./lib/namespace/ui/ui.xaml.navigation.js"
+      "types": "./types/namespaces/ui/ui.xaml.navigation.d.ts",
+      "default": "./lib/namespaces/ui/ui.xaml.navigation.js"
     },
     "./ui/xaml/printing": {
-      "types": "./types/namespace/ui/ui.xaml.printing.d.ts",
-      "default": "./lib/namespace/ui/ui.xaml.printing.js"
+      "types": "./types/namespaces/ui/ui.xaml.printing.d.ts",
+      "default": "./lib/namespaces/ui/ui.xaml.printing.js"
     },
     "./ui/xaml/resources": {
-      "types": "./types/namespace/ui/ui.xaml.resources.d.ts",
-      "default": "./lib/namespace/ui/ui.xaml.resources.js"
+      "types": "./types/namespaces/ui/ui.xaml.resources.d.ts",
+      "default": "./lib/namespaces/ui/ui.xaml.resources.js"
     },
     "./ui/xaml/shapes": {
-      "types": "./types/namespace/ui/ui.xaml.shapes.d.ts",
-      "default": "./lib/namespace/ui/ui.xaml.shapes.js"
+      "types": "./types/namespaces/ui/ui.xaml.shapes.d.ts",
+      "default": "./lib/namespaces/ui/ui.xaml.shapes.js"
     },
     "./web/atompub": {
-      "types": "./types/namespace/web/web.atompub.d.ts",
-      "default": "./lib/namespace/web/web.atompub.js"
+      "types": "./types/namespaces/web/web.atompub.d.ts",
+      "default": "./lib/namespaces/web/web.atompub.js"
     },
     "./web/http/diagnostics": {
-      "types": "./types/namespace/web/web.http.diagnostics.d.ts",
-      "default": "./lib/namespace/web/web.http.diagnostics.js"
+      "types": "./types/namespaces/web/web.http.diagnostics.d.ts",
+      "default": "./lib/namespaces/web/web.http.diagnostics.js"
     },
     "./web/http/filters": {
-      "types": "./types/namespace/web/web.http.filters.d.ts",
-      "default": "./lib/namespace/web/web.http.filters.js"
+      "types": "./types/namespaces/web/web.http.filters.d.ts",
+      "default": "./lib/namespaces/web/web.http.filters.js"
     },
     "./web/http/headers": {
-      "types": "./types/namespace/web/web.http.headers.d.ts",
-      "default": "./lib/namespace/web/web.http.headers.js"
+      "types": "./types/namespaces/web/web.http.headers.d.ts",
+      "default": "./lib/namespaces/web/web.http.headers.js"
     },
     "./web/http": {
-      "types": "./types/namespace/web/web.http.d.ts",
-      "default": "./lib/namespace/web/web.http.js"
+      "types": "./types/namespaces/web/web.http.d.ts",
+      "default": "./lib/namespaces/web/web.http.js"
     },
     "./web": {
-      "types": "./types/namespace/web/web.d.ts",
-      "default": "./lib/namespace/web/web.js"
+      "types": "./types/namespaces/web/web.d.ts",
+      "default": "./lib/namespaces/web/web.js"
     },
     "./web/syndication": {
-      "types": "./types/namespace/web/web.syndication.d.ts",
-      "default": "./lib/namespace/web/web.syndication.js"
+      "types": "./types/namespaces/web/web.syndication.d.ts",
+      "default": "./lib/namespaces/web/web.syndication.js"
     },
     "./web/ui/interop": {
-      "types": "./types/namespace/web/web.ui.interop.d.ts",
-      "default": "./lib/namespace/web/web.ui.interop.js"
+      "types": "./types/namespaces/web/web.ui.interop.d.ts",
+      "default": "./lib/namespaces/web/web.ui.interop.js"
     },
     "./web/ui": {
-      "types": "./types/namespace/web/web.ui.d.ts",
-      "default": "./lib/namespace/web/web.ui.js"
+      "types": "./types/namespaces/web/web.ui.d.ts",
+      "default": "./lib/namespaces/web/web.ui.js"
     }
   },
   "types": "./types/index.d.ts",
