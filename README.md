@@ -60,7 +60,8 @@ For example, having the following section in your package.json will result with 
 },
 ```
 
-The latest official NodeRT scope is used as a base ([nodert-win10-rs4](https://www.npmjs.com/search?q=@nodert-win10-rs4)) and some missing new namespace might be pulled from unsupported community build such as [nodert-win10-20h1](https://www.npmjs.com/search?q=@nodert-win10-20h1). List of namespaces can be found [here](https://github.com/xan105/node-nodeRT/tree/main/packages).
+The latest official NodeRT scope is used as a base ([nodert-win10-rs4](https://www.npmjs.com/search?q=@nodert-win10-rs4)).<br /> 
+List of namespaces can be found [here](https://github.com/xan105/node-nodeRT/tree/main/packages).
 
 ### ABI
 

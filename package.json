@@ -1437,6 +1437,7 @@
   },
   "devDependencies": {
     "@nodert-win10-20h1/windows.ai.machinelearning": "^0.1.0",
+    "@nodert-win10-20h1/windows.ui.notifications": "^0.1.0",
     "@nodert-win10-rs4/windows.ai.machinelearning.preview": "^0.4.4",
     "@nodert-win10-rs4/windows.applicationmodel": "^0.4.4",
     "@nodert-win10-rs4/windows.applicationmodel.activation": "^0.4.4",
@@ -1715,7 +1716,6 @@
     "@nodert-win10-rs4/windows.ui.input.inking.core": "^0.4.4",
     "@nodert-win10-rs4/windows.ui.input.preview.injection": "^0.4.4",
     "@nodert-win10-rs4/windows.ui.input.spatial": "^0.4.4",
-    "@nodert-win10-rs4/windows.ui.notifications": "^0.4.4",
     "@nodert-win10-rs4/windows.ui.notifications.management": "^0.4.4",
     "@nodert-win10-rs4/windows.ui.popups": "^0.4.4",
     "@nodert-win10-rs4/windows.ui.shell": "^0.4.4",

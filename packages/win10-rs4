@@ -276,7 +276,6 @@ windows.ui.input.inking.analysis
 windows.ui.input.inking.core
 windows.ui.input.preview.injection
 windows.ui.input.spatial
-windows.ui.notifications
 windows.ui.notifications.management
 windows.ui.popups
 windows.ui.shell
