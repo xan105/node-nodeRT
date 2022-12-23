@@ -79,6 +79,19 @@ As of this writing, the following ABI are provided:
 ### Electron
 
 Switching to electron ABI instead of Node can be done by adding the `--electron` flag or the env. variable `npm_config_runtime` set to `electron`.<br />
+
+Alternatively in your package.json file under the `_nodert` path:
+
+```json
+"_nodert" : {
+  runtime: "electron",
+  "modules" : [
+    "windows.devices.geolocation",
+    "windows.device.sensors"
+  ]
+},
+```
+
 Electron should already be installed in your project as electron's `packages.json` file will be read to determine electron's ABI.
 
 ⚠️ NodeRT should be loaded in the main process [NodeRT#158](https://github.com/NodeRT/NodeRT/issues/158)

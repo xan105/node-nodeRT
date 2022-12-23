@@ -14,11 +14,26 @@ import { shouldArrayOfStringNotEmpty } from "@xan105/is/assert";
 import request from "@xan105/request";
 import Archive from "adm-zip";
 
-function isElectron(){
-  return process.env.npm_config_electron === "true" || process.env.npm_config_runtime === "electron"
+async function read(){
+  const file = process.env.npm_package_json || join(
+    process.env.npm_config_local_prefix || process.cwd(),
+    "package.json"
+  );
+  const [ json = {} ] = await attempt(readJSON, [file]);
+  return json;
 }
 
-async function getABI(runtime){
+async function isElectron(){
+  if (process.env.npm_config_electron === "true" || 
+      process.env.npm_config_runtime === "electron") {
+    return true;
+  } else {
+    const json = await read();
+    return json._nodert?.runtime === "electron";
+  }
+}
+
+async function findABI(runtime){
 
   if (runtime === "electron") {
   
@@ -52,10 +67,7 @@ async function getABI(runtime){
   }
 }
 
-const runtime = isElectron() ? "electron" : "node";
-const abi = await getABI(runtime);
-
-async function download(){
+async function download(runtime, abi){
 
   const { arch } = process;
 
@@ -91,16 +103,12 @@ async function getModuleList(){
   if (isStringNotEmpty(process.env.npm_config_modules)){
     return process.env.npm_config_modules.split(",");
   } else {
-    const file = process.env.npm_package_json || join(
-      process.env.npm_config_local_prefix || process.cwd(),
-      "package.json"
-    );
-    const [ json = {} ] = await attempt(readJSON, [file]);
+    const json = await read();
     return json._nodert?.modules ?? [];
   }
 }  
 
-async function unpack(filePath){
+async function unpack(filePath, runtime, abi){
   
   const overwrite = true; 
   const zip = new Archive(filePath);
@@ -124,6 +132,11 @@ async function unpack(filePath){
   }
 }
 
-download()
-.then((filePath) => { return unpack(filePath) })
-.catch((err) => { console.error(err) });
+try{
+  const runtime = await isElectron() ? "electron" : "node";
+  const abi = await findABI(runtime);
+  const file = await download(runtime, abi);
+  await unpack(file, runtime, abi);
+}catch(err){
+  console.error(err);
+}
