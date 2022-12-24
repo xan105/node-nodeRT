@@ -16,7 +16,6 @@ import Archive from "adm-zip";
 
 async function read(){
   const file = join(process.env.npm_config_local_prefix || process.cwd(), "package.json");
-  /*process.env.npm_package_json || */
   const [ json = {} ] = await attempt(readJSON, [file]);
   return json;
 }
@@ -123,11 +122,11 @@ async function unpack(filePath, runtime, abi){
   }
 }
 
-try{
+async function install(){
   const runtime = await isElectron() ? "electron" : "node";
   const abi = await findABI(runtime);
   const file = await download(runtime, abi);
   await unpack(file, runtime, abi);
-}catch(err){
-  console.error(err);
 }
+
+install();
