@@ -35,35 +35,28 @@ async function isElectron(){
 
 async function findABI(runtime){
 
-  if (runtime === "electron") {
-  
-    const electronABI = {
-      "20": "107",
-      "21": "109"
-    };
+  if (runtime !== "electron") return process.versions.modules;
 
-    try{
-    
-      const file = join(
-        process.env.npm_config_local_prefix || process.cwd(),
-        "node_modules",
-        "electron",
-        "package.json"
-      );
-    
-      const { version } = await readJSON(file);
-      const major = version.split["."][0];
+  try{
       
-      if (electronABI[major] === undefined) throw `ABI of electron@${major}.x is unknown`;
-      
-      return electronABI[major];
-      
-    }catch(err){
-      throw new Failure("Failed to determine electron ABI", { code: 0, cause: err });
-    }
+    const abi = await readJSON(join(
+      dirname(import.meta.url), 
+      "electron.json"
+    ));
 
-  } else {
-    return process.versions.modules;
+    const { version } = await readJSON(join(
+      process.env.npm_config_local_prefix || process.cwd(),
+      "node_modules",
+      "electron",
+      "package.json"
+    ));
+    
+    const major = version.split(".")[0];
+    if (abi[major] === undefined) throw `ABI of electron@${major}.x is unknown`;
+    return abi[major];
+      
+  }catch(err){
+    throw new Failure("Failed to determine electron ABI", { code: 0, cause: err });
   }
 }
 
