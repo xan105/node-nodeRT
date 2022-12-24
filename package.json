@@ -1,6 +1,6 @@
 {
   "name": "@xan105/nodert",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "NodeRT but precompiled (use WinRT API directly from node)",
   "type": "module",
   "exports": {
@@ -1433,7 +1433,7 @@
   "dependencies": {
     "@xan105/error": "^1.4.3",
     "@xan105/fs": "^2.1.0",
-    "@xan105/is": "^2.7.0",
+    "@xan105/is": "^2.7.1",
     "@xan105/request": "^0.3.3",
     "adm-zip": "^0.5.9"
   },
