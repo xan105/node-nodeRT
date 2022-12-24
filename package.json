@@ -1,6 +1,6 @@
 {
   "name": "@xan105/nodert",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "NodeRT but precompiled (use WinRT API directly from node)",
   "type": "module",
   "exports": {
@@ -1394,7 +1394,8 @@
     "build:abi93": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 16.0.0 -abi abi93 -skip",
     "build:abi108": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 18.0.0 -abi abi108 -skip",
     "build:electron:abi107": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 20.0.0 -abi abi107 -runtime electron -skip",
-    "build:electron:abi109": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 21.0.0 -abi abi109 -runtime electron -skip"
+    "build:electron:abi109": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 21.0.0 -abi abi109 -runtime electron -skip",
+    "build:electron:abi110": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 22.0.0 -abi abi110 -runtime electron -skip"
   },
   "keywords": [
     "nodeRT",
