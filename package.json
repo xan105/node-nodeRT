@@ -1,6 +1,6 @@
 {
   "name": "@xan105/nodert",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "NodeRT but precompiled (use WinRT API directly from node)",
   "type": "module",
   "exports": {
@@ -1379,7 +1379,8 @@
   },
   "types": "./types/index.d.ts",
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=16.0.0",
+    "npm": "~8.5.0"
   },
   "scripts": {
     "install": "node \"./install.js\"",
