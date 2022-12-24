@@ -84,7 +84,7 @@ Alternatively in your package.json file under the `_nodert` path:
 
 ```json
 "_nodert" : {
-  runtime: "electron",
+  "runtime": "electron",
   "modules" : [
     "windows.devices.geolocation",
     "windows.device.sensors"

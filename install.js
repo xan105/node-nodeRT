@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /*
 Copyright (c) Anthony Beaumont
 This source code is licensed under the Apache 2.0 License
@@ -129,4 +131,10 @@ async function install(){
   await unpack(file, runtime, abi);
 }
 
-install();
+install()
+.then(()=>{
+	process.exit(0);
+}).catch((err)=>{
+	console.error(err);
+	process.exit(1);
+});
