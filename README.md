@@ -66,15 +66,7 @@ List of namespaces can be found [here](https://github.com/xan105/node-nodeRT/tre
 ### ABI
 
 NodeRT package are not using [n-api](https://nodejs.org/api/n-api.html#node-api) they must be compiled for every ABI.<br />
-As of this writing, the following ABI are provided:
-
-+ Node (x64): 
-  - 83 (v14)
-  - 93 (v16)
-  - 108 (v18)
-+ Electron (x64): 
-  - 107 (v20)
-  - 109 (v21)
+List of provided ABI can be found [here](https://github.com/xan105/node-nodeRT/blob/main/integrity.json)
 
 ### Electron
 
