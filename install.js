@@ -15,10 +15,8 @@ import request from "@xan105/request";
 import Archive from "adm-zip";
 
 async function read(){
-  const file = process.env.npm_package_json || join(
-    process.env.npm_config_local_prefix || process.cwd(),
-    "package.json"
-  );
+  const file = join(process.env.npm_config_local_prefix || process.cwd(), "package.json");
+  /*process.env.npm_package_json || */
   const [ json = {} ] = await attempt(readJSON, [file]);
   return json;
 }
