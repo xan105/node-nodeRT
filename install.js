@@ -13,7 +13,7 @@ import { readJSON } from "@xan105/fs";
 import { Failure, attempt } from "@xan105/error";
 import { isStringNotEmpty } from "@xan105/is";
 import { shouldArrayOfStringNotEmpty } from "@xan105/is/assert";
-import request from "@xan105/request";
+import { getJSON, download } from "@xan105/request/h1";
 import Archive from "adm-zip";
 
 async function read(){
@@ -47,7 +47,7 @@ async function findABI(runtime){
     const major = version.split(".")[0];
     
     const url = "https://releases.electronjs.org/releases.json";
-    const releases = await request.getJson(url, {
+    const releases = await request.getJSON(url, {
       timeout: 7000,
       maxRetry: 1
     });
@@ -59,7 +59,7 @@ async function findABI(runtime){
   }
 }
 
-async function download(runtime, abi){
+async function downloadFile(runtime, abi){
 
   const { arch } = process;
 
@@ -80,7 +80,7 @@ async function download(runtime, abi){
   
   console.log(`Downloading NodeRT prebuild for ${runtime} ${arch} abi${abi}...`);
   
-  const { path } = await request.download(
+  const { path } = await download(
     url + filename, 
     join(tmpdir(), `${Date.now()}`), 
     {
@@ -127,14 +127,14 @@ async function unpack(filePath, runtime, abi){
 async function install(){
   const runtime = await isElectron() ? "electron" : "node";
   const abi = await findABI(runtime);
-  const file = await download(runtime, abi);
+  const file = await downloadFile(runtime, abi);
   await unpack(file, runtime, abi);
 }
 
 install()
 .then(()=>{
-	process.exit(0);
+  process.exit(0);
 }).catch((err)=>{
-	console.error(err);
-	process.exit(1);
+  console.error(err);
+  process.exit(1);
 });

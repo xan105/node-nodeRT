@@ -1432,11 +1432,11 @@
     }
   ],
   "dependencies": {
-    "@xan105/error": "^1.4.3",
+    "@xan105/error": "^1.6.0",
     "@xan105/fs": "^2.1.0",
-    "@xan105/is": "^2.7.1",
-    "@xan105/request": "^0.3.3",
-    "adm-zip": "^0.5.9"
+    "@xan105/is": "^2.8.1",
+    "@xan105/request": "^1.0.0",
+    "adm-zip": "^0.5.10"
   },
   "devDependencies": {
     "@nodert-win10-20h1/windows.ai.machinelearning": "^0.1.0",
@@ -1764,8 +1764,8 @@
     "@typescript-eslint/eslint-plugin": "^5.44.0",
     "@typescript-eslint/parser": "^5.44.0",
     "eslint": "^8.28.0",
-    "node-abi": ">=3.33.0",
-    "node-gyp": ">=9.3.0",
+    "node-abi": ">=3.35.0",
+    "node-gyp": ">=9.3.1",
     "patch-package": "^6.4.7",
     "prebuildify": "^5.0.1",
     "typescript": "^4.9.3"
