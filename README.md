@@ -61,7 +61,7 @@ For example, having the following section in your package.json will result with 
 ```
 
 The latest official NodeRT scope is used as a base ([nodert-win10-rs4](https://www.npmjs.com/search?q=@nodert-win10-rs4)).<br /> 
-List of namespaces can be found [here](https://github.com/xan105/node-nodeRT/tree/main/packages).
+List of namespaces can be found [here](https://github.com/xan105/node-nodeRT/tree/main/packages) or in the corresponding release section (GitHub).
 
 ### ABI
 
