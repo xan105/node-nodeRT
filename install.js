@@ -47,8 +47,8 @@ async function findABI(runtime){
     const major = version.split(".")[0];
     
     const url = "https://releases.electronjs.org/releases.json";
-    const releases = await request.getJSON(url, {
-      timeout: 7000,
+    const releases = await getJSON(url, {
+      timeout: 7500,
       maxRetry: 1
     });
     const abi = releases.find(release => release.version === `${major}.0.0`).modules
