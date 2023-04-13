@@ -6,6 +6,7 @@ This source code is licensed under the Apache 2.0 License
 found in the LICENSE file in the root directory of this source tree.
 */
 
+import { arch } from "node:process";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { dirname } from "@xan105/fs/path";
@@ -60,8 +61,6 @@ async function findABI(runtime){
 }
 
 async function downloadFile(runtime, abi){
-
-  const { arch } = process;
 
   if(arch !== "x64"){
     throw new Failure("Unsupported arch", { 

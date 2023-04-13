@@ -107,3 +107,5 @@ const toast = new notifications.ToastNotification(xml);
 
 ⚠️ Please be warned that in case of missing bindings the corresponding exports will be **undefined**.<br />
 They are a couple of them due to compilation failure.
+
+🐞 NB: Provided types are those from NodeRT packages. I know they have some errors but I haven't the courage to fix them up by hand.
