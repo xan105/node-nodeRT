@@ -1,14 +1,14 @@
   export class BitmapBounds {
-    x: Number;
-    y: Number;
-    width: Number;
-    height: Number;
+    x: number;
+    y: number;
+    width: number;
+    height: number;
     constructor();
   }
 
   export class MediaTimeRange {
-    start: Number;
-    end: Number;
+    start: number;
+    end: number;
     constructor();
   }
 
@@ -85,33 +85,33 @@
   }
 
   export class IMediaFrame {
-    duration: Number;
+    duration: number;
     extendedProperties: Object;
-    isDiscontinuous: Boolean;
-    isReadOnly: Boolean;
-    relativeTime: Number;
-    systemRelativeTime: Number;
-    type: String;
+    isDiscontinuous: boolean;
+    isReadOnly: boolean;
+    relativeTime: number;
+    systemRelativeTime: number;
+    type: string;
     constructor();
 
   }
 
   export class VideoFrame {
-    systemRelativeTime: Number;
-    relativeTime: Number;
-    isDiscontinuous: Boolean;
-    duration: Number;
+    systemRelativeTime: number;
+    relativeTime: number;
+    isDiscontinuous: boolean;
+    duration: number;
     extendedProperties: Object;
-    isReadOnly: Boolean;
-    type: String;
+    isReadOnly: boolean;
+    type: string;
     direct3DSurface: Object;
     softwareBitmap: Object;
     constructor();
-    constructor(format: Number, width: Number, height: Number);
-    constructor(format: Number, width: Number, height: Number, alpha: Number);
+    constructor(format: number, width: number, height: number);
+    constructor(format: number, width: number, height: number, alpha: number);
 
-    static createAsDirect3D11SurfaceBacked(format: Number, width: Number, height: Number): VideoFrame;
-    static createAsDirect3D11SurfaceBacked(format: Number, width: Number, height: Number, device: Object): VideoFrame;
+    static createAsDirect3D11SurfaceBacked(format: number, width: number, height: number): VideoFrame;
+    static createAsDirect3D11SurfaceBacked(format: number, width: number, height: number, device: Object): VideoFrame;
 
 
     static createWithSoftwareBitmap(bitmap: Object): VideoFrame;
@@ -127,8 +127,8 @@
   }
 
   export class AudioBuffer {
-    length: Number;
-    capacity: Number;
+    length: number;
+    capacity: number;
     constructor();
 
     createReference(): Object;
@@ -137,15 +137,15 @@
   }
 
   export class AudioFrame {
-    systemRelativeTime: Number;
-    relativeTime: Number;
-    isDiscontinuous: Boolean;
-    duration: Number;
+    systemRelativeTime: number;
+    relativeTime: number;
+    isDiscontinuous: boolean;
+    duration: number;
     extendedProperties: Object;
-    isReadOnly: Boolean;
-    type: String;
+    isReadOnly: boolean;
+    type: string;
     constructor();
-    constructor(capacity: Number);
+    constructor(capacity: number);
 
     lockBuffer(mode: AudioBufferAccessMode): AudioBuffer;
 
@@ -153,9 +153,9 @@
   }
 
   export class IMediaMarker {
-    mediaMarkerType: String;
-    text: String;
-    time: Number;
+    mediaMarkerType: string;
+    text: string;
+    time: number;
     constructor();
 
   }
@@ -167,44 +167,44 @@
   }
 
   export class MediaMarkerTypes {
-    static bookmark: String;
+    static bookmark: string;
     constructor();
 
   }
 
   export class SystemMediaTransportControlsTimelineProperties {
-    startTime: Number;
-    position: Number;
-    minSeekTime: Number;
-    maxSeekTime: Number;
-    endTime: Number;
+    startTime: number;
+    position: number;
+    minSeekTime: number;
+    maxSeekTime: number;
+    endTime: number;
     constructor();
 
   }
 
   export class MusicDisplayProperties {
-    title: String;
-    artist: String;
-    albumArtist: String;
-    trackNumber: Number;
-    albumTitle: String;
+    title: string;
+    artist: string;
+    albumArtist: string;
+    trackNumber: number;
+    albumTitle: string;
     genres: Object;
-    albumTrackCount: Number;
+    albumTrackCount: number;
     constructor();
 
   }
 
   export class VideoDisplayProperties {
-    title: String;
-    subtitle: String;
+    title: string;
+    subtitle: string;
     genres: Object;
     constructor();
 
   }
 
   export class ImageDisplayProperties {
-    title: String;
-    subtitle: String;
+    title: string;
+    subtitle: string;
     constructor();
 
   }
@@ -212,13 +212,13 @@
   export class SystemMediaTransportControlsDisplayUpdater {
     type: MediaPlaybackType;
     thumbnail: Object;
-    appMediaId: String;
+    appMediaId: string;
     imageProperties: ImageDisplayProperties;
     musicProperties: MusicDisplayProperties;
     videoProperties: VideoDisplayProperties;
     constructor();
 
-    copyFromFileAsync(type: MediaPlaybackType, source: Object, callback: (error: Error, result: Boolean) => void): void ;
+    copyFromFileAsync(type: MediaPlaybackType, source: Object, callback: (error: Error, result: boolean) => void): void ;
 
     clearAll(): void;
 
@@ -239,19 +239,19 @@
   }
 
   export class PlaybackPositionChangeRequestedEventArgs {
-    requestedPlaybackPosition: Number;
+    requestedPlaybackPosition: number;
     constructor();
 
   }
 
   export class PlaybackRateChangeRequestedEventArgs {
-    requestedPlaybackRate: Number;
+    requestedPlaybackRate: number;
     constructor();
 
   }
 
   export class ShuffleEnabledChangeRequestedEventArgs {
-    requestedShuffleEnabled: Boolean;
+    requestedShuffleEnabled: boolean;
     constructor();
 
   }
@@ -263,22 +263,22 @@
   }
 
   export class SystemMediaTransportControls {
-    isPlayEnabled: Boolean;
-    isPauseEnabled: Boolean;
-    isNextEnabled: Boolean;
-    isPreviousEnabled: Boolean;
-    isEnabled: Boolean;
-    isChannelDownEnabled: Boolean;
-    isFastForwardEnabled: Boolean;
-    isChannelUpEnabled: Boolean;
+    isPlayEnabled: boolean;
+    isPauseEnabled: boolean;
+    isNextEnabled: boolean;
+    isPreviousEnabled: boolean;
+    isEnabled: boolean;
+    isChannelDownEnabled: boolean;
+    isFastForwardEnabled: boolean;
+    isChannelUpEnabled: boolean;
     playbackStatus: MediaPlaybackStatus;
-    isStopEnabled: Boolean;
-    isRewindEnabled: Boolean;
-    isRecordEnabled: Boolean;
+    isStopEnabled: boolean;
+    isRewindEnabled: boolean;
+    isRecordEnabled: boolean;
     displayUpdater: SystemMediaTransportControlsDisplayUpdater;
     soundLevel: SoundLevel;
-    shuffleEnabled: Boolean;
-    playbackRate: Number;
+    shuffleEnabled: boolean;
+    playbackRate: number;
     autoRepeatMode: MediaPlaybackAutoRepeatMode;
     constructor();
 
@@ -326,11 +326,11 @@
   }
 
   export class MediaTimelineController {
-    position: Number;
-    clockRate: Number;
+    position: number;
+    clockRate: number;
     state: MediaTimelineControllerState;
-    isLoopingEnabled: Boolean;
-    duration: Number;
+    isLoopingEnabled: boolean;
+    duration: number;
     constructor();
 
     start(): void;
@@ -368,7 +368,7 @@
   }
 
   export class MediaTimelineControllerFailedEventArgs {
-    extendedError: Number;
+    extendedError: number;
     constructor();
 
   }
@@ -383,38 +383,38 @@
   export class MediaExtensionManager {
     constructor();
 
-    registerSchemeHandler(activatableClassId: String, scheme: String): void;
-    registerSchemeHandler(activatableClassId: String, scheme: String, configuration: Object): void;
+    registerSchemeHandler(activatableClassId: string, scheme: string): void;
+    registerSchemeHandler(activatableClassId: string, scheme: string, configuration: Object): void;
 
-    registerByteStreamHandler(activatableClassId: String, fileExtension: String, mimeType: String): void;
-    registerByteStreamHandler(activatableClassId: String, fileExtension: String, mimeType: String, configuration: Object): void;
+    registerByteStreamHandler(activatableClassId: string, fileExtension: string, mimeType: string): void;
+    registerByteStreamHandler(activatableClassId: string, fileExtension: string, mimeType: string, configuration: Object): void;
 
-    registerAudioDecoder(activatableClassId: String, inputSubtype: String, outputSubtype: String): void;
-    registerAudioDecoder(activatableClassId: String, inputSubtype: String, outputSubtype: String, configuration: Object): void;
+    registerAudioDecoder(activatableClassId: string, inputSubtype: string, outputSubtype: string): void;
+    registerAudioDecoder(activatableClassId: string, inputSubtype: string, outputSubtype: string, configuration: Object): void;
 
-    registerAudioEncoder(activatableClassId: String, inputSubtype: String, outputSubtype: String): void;
-    registerAudioEncoder(activatableClassId: String, inputSubtype: String, outputSubtype: String, configuration: Object): void;
+    registerAudioEncoder(activatableClassId: string, inputSubtype: string, outputSubtype: string): void;
+    registerAudioEncoder(activatableClassId: string, inputSubtype: string, outputSubtype: string, configuration: Object): void;
 
-    registerVideoDecoder(activatableClassId: String, inputSubtype: String, outputSubtype: String): void;
-    registerVideoDecoder(activatableClassId: String, inputSubtype: String, outputSubtype: String, configuration: Object): void;
+    registerVideoDecoder(activatableClassId: string, inputSubtype: string, outputSubtype: string): void;
+    registerVideoDecoder(activatableClassId: string, inputSubtype: string, outputSubtype: string, configuration: Object): void;
 
-    registerVideoEncoder(activatableClassId: String, inputSubtype: String, outputSubtype: String): void;
-    registerVideoEncoder(activatableClassId: String, inputSubtype: String, outputSubtype: String, configuration: Object): void;
+    registerVideoEncoder(activatableClassId: string, inputSubtype: string, outputSubtype: string): void;
+    registerVideoEncoder(activatableClassId: string, inputSubtype: string, outputSubtype: string, configuration: Object): void;
 
     registerMediaExtensionForAppService(extension: IMediaExtension, connection: Object): void;
 
   }
 
   export class VideoEffects {
-    static videoStabilization: String;
+    static videoStabilization: string;
     constructor();
 
   }
 
   export class MediaControl {
-    static trackName: String;
-    static isPlaying: Boolean;
-    static artistName: String;
+    static trackName: string;
+    static isPlaying: boolean;
+    static artistName: string;
     static albumArt: Object;
     static soundLevel: SoundLevel;
     constructor();

@@ -19,9 +19,9 @@
   export class FilePickerSelectedFilesArray {
     constructor();
 
-    getAt(index: Number): Object;
+    getAt(index: number): Object;
 
-    indexOf(value: Object, index: Number): Boolean;
+    indexOf(value: Object, index: number): boolean;
 
     getMany();
     first(): Object;
@@ -31,15 +31,15 @@
   export class FilePickerFileTypesOrderedMap {
     constructor();
 
-    lookup(key: String): Object;
+    lookup(key: string): Object;
 
-    hasKey(key: String): Boolean;
+    hasKey(key: string): boolean;
 
     getView(): Object;
 
-    insert(key: String, value: Object): Boolean;
+    insert(key: string, value: Object): boolean;
 
-    remove(key: String): void;
+    remove(key: string): void;
 
     clear(): void;
 
@@ -50,26 +50,26 @@
   export class FileExtensionVector {
     constructor();
 
-    getAt(index: Number): String;
+    getAt(index: number): string;
 
     getView(): Object;
 
-    indexOf(value: String, index: Number): Boolean;
+    indexOf(value: string, index: number): boolean;
 
-    setAt(index: Number, value: String): void;
+    setAt(index: number, value: string): void;
 
-    insertAt(index: Number, value: String): void;
+    insertAt(index: number, value: string): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
-    append(value: String): void;
+    append(value: string): void;
 
     removeAtEnd(): void;
 
     clear(): void;
 
     getMany();
-    replaceAll(items: Array<String>): void;
+    replaceAll(items: Array<string>): void;
 
     first(): Object;
 
@@ -78,8 +78,8 @@
   export class FileOpenPicker {
     viewMode: PickerViewMode;
     suggestedStartLocation: PickerLocationId;
-    settingsIdentifier: String;
-    commitButtonText: String;
+    settingsIdentifier: string;
+    commitButtonText: string;
     fileTypeFilter: Object;
     continuationData: Object;
     constructor();
@@ -88,7 +88,7 @@
 
 
     pickSingleFileAsync(callback: (error: Error, result: Object) => void): void ;
-    pickSingleFileAsync(pickerOperationId: String, callback: (error: Error, result: Object) => void): void ;
+    pickSingleFileAsync(pickerOperationId: string, callback: (error: Error, result: Object) => void): void ;
 
     pickMultipleFilesAsync(callback: (error: Error, result: Object) => void): void ;
 
@@ -101,13 +101,13 @@
   export class FileSavePicker {
     suggestedStartLocation: PickerLocationId;
     suggestedSaveFile: Object;
-    suggestedFileName: String;
-    settingsIdentifier: String;
-    defaultFileExtension: String;
-    commitButtonText: String;
+    suggestedFileName: string;
+    settingsIdentifier: string;
+    defaultFileExtension: string;
+    commitButtonText: string;
     fileTypeChoices: Object;
     continuationData: Object;
-    enterpriseId: String;
+    enterpriseId: string;
     constructor();
 
     pickSaveFileAsync(callback: (error: Error, result: Object) => void): void ;
@@ -119,8 +119,8 @@
   export class FolderPicker {
     viewMode: PickerViewMode;
     suggestedStartLocation: PickerLocationId;
-    settingsIdentifier: String;
-    commitButtonText: String;
+    settingsIdentifier: string;
+    commitButtonText: string;
     fileTypeFilter: Object;
     continuationData: Object;
     constructor();

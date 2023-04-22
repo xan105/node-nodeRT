@@ -32,12 +32,12 @@
   }
 
   export class IGpioPinProvider {
-    debounceTimeout: Number;
-    pinNumber: Number;
+    debounceTimeout: number;
+    pinNumber: number;
     sharingMode: ProviderGpioSharingMode;
     constructor();
 
-    isDriveModeSupported(driveMode: ProviderGpioPinDriveMode): Boolean;
+    isDriveModeSupported(driveMode: ProviderGpioPinDriveMode): boolean;
 
     getDriveMode(): ProviderGpioPinDriveMode;
 
@@ -61,10 +61,10 @@
   }
 
   export class IGpioControllerProvider {
-    pinCount: Number;
+    pinCount: number;
     constructor();
 
-    openPinProvider(pin: Number, sharingMode: ProviderGpioSharingMode): IGpioPinProvider;
+    openPinProvider(pin: number, sharingMode: ProviderGpioSharingMode): IGpioPinProvider;
 
   }
 

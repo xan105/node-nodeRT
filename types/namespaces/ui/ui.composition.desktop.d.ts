@@ -1,11 +1,11 @@
   export class DesktopWindowTarget {
-    isTopmost: Boolean;
+    isTopmost: boolean;
     root: Object;
     compositor: Object;
     dispatcher: Object;
     properties: Object;
     implicitAnimations: Object;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 

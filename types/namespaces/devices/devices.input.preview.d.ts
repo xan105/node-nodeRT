@@ -96,7 +96,7 @@
   }
 
   export class GazeMovedPreviewEventArgs {
-    handled: Boolean;
+    handled: boolean;
     currentPoint: GazePointPreview;
     constructor();
 
@@ -105,31 +105,31 @@
   }
 
   export class GazeEnteredPreviewEventArgs {
-    handled: Boolean;
+    handled: boolean;
     currentPoint: GazePointPreview;
     constructor();
 
   }
 
   export class GazeExitedPreviewEventArgs {
-    handled: Boolean;
+    handled: boolean;
     currentPoint: GazePointPreview;
     constructor();
 
   }
 
   export class GazeDevicePreview {
-    canTrackEyes: Boolean;
-    canTrackHead: Boolean;
+    canTrackEyes: boolean;
+    canTrackHead: boolean;
     configurationState: GazeDeviceConfigurationStatePreview;
-    id: Number;
+    id: number;
     constructor();
 
-    requestCalibrationAsync(callback: (error: Error, result: Boolean) => void): void ;
+    requestCalibrationAsync(callback: (error: Error, result: boolean) => void): void ;
 
-    getNumericControlDescriptions(usagePage: Number, usageId: Number): Object;
+    getNumericControlDescriptions(usagePage: number, usageId: number): Object;
 
-    getBooleanControlDescriptions(usagePage: Number, usageId: Number): Object;
+    getBooleanControlDescriptions(usagePage: number, usageId: number): Object;
 
   }
 
@@ -138,7 +138,7 @@
     headGazePosition: Object;
     hidInputReport: Object;
     sourceDevice: GazeDevicePreview;
-    timestamp: Number;
+    timestamp: number;
     constructor();
 
   }

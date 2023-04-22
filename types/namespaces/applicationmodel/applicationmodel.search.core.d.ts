@@ -9,30 +9,30 @@
   }
 
   export class SearchSuggestion {
-    detailText: String;
+    detailText: string;
     image: Object;
-    imageAlternateText: String;
+    imageAlternateText: string;
     kind: SearchSuggestionKind;
-    tag: String;
-    text: String;
+    tag: string;
+    text: string;
     constructor();
 
   }
 
   export class SearchSuggestionManager {
-    searchHistoryEnabled: Boolean;
-    searchHistoryContext: String;
+    searchHistoryEnabled: boolean;
+    searchHistoryContext: string;
     suggestions: Object;
     constructor();
 
     setLocalContentSuggestionSettings(settings: Object): void;
 
-    setQuery(queryText: String): void;
-    setQuery(queryText: String, language: String): void;
-    setQuery(queryText: String, language: String, linguisticDetails: Object): void;
+    setQuery(queryText: string): void;
+    setQuery(queryText: string, language: string): void;
+    setQuery(queryText: string, language: string, linguisticDetails: Object): void;
 
-    addToHistory(queryText: String): void;
-    addToHistory(queryText: String, language: String): void;
+    addToHistory(queryText: string): void;
+    addToHistory(queryText: string, language: string): void;
 
     clearHistory(): void;
 
@@ -55,9 +55,9 @@
   }
 
   export class SearchSuggestionsRequestedEventArgs {
-    language: String;
+    language: string;
     linguisticDetails: Object;
-    queryText: String;
+    queryText: string;
     request: Object;
     constructor();
 

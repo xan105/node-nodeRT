@@ -39,40 +39,40 @@
 
   export class BluetoothLEManufacturerData {
     data: Object;
-    companyId: Number;
+    companyId: number;
     constructor();
-    constructor(companyId: Number, data: Object);
+    constructor(companyId: number, data: Object);
 
   }
 
   export class BluetoothLEAdvertisementDataSection {
-    dataType: Number;
+    dataType: number;
     data: Object;
     constructor();
-    constructor(dataType: Number, data: Object);
+    constructor(dataType: number, data: Object);
 
   }
 
   export class BluetoothLEAdvertisement {
-    localName: String;
+    localName: string;
     flags: BluetoothLEAdvertisementFlags;
     dataSections: Object;
     manufacturerData: Object;
     serviceUuids: Object;
     constructor();
 
-    getManufacturerDataByCompanyId(companyId: Number): Object;
+    getManufacturerDataByCompanyId(companyId: number): Object;
 
-    getSectionsByType(type: Number): Object;
+    getSectionsByType(type: number): Object;
 
   }
 
   export class BluetoothLEAdvertisementBytePattern {
-    offset: Number;
-    dataType: Number;
+    offset: number;
+    dataType: number;
     data: Object;
     constructor();
-    constructor(dataType: Number, offset: Number, data: Object);
+    constructor(dataType: number, offset: number, data: Object);
 
   }
 
@@ -84,7 +84,7 @@
   }
 
   export class BluetoothLEAdvertisementWatcherStoppedEventArgs {
-    error: Number;
+    error: number;
     constructor();
 
   }
@@ -93,10 +93,10 @@
     signalStrengthFilter: Object;
     scanningMode: BluetoothLEScanningMode;
     advertisementFilter: BluetoothLEAdvertisementFilter;
-    maxOutOfRangeTimeout: Number;
-    maxSamplingInterval: Number;
-    minOutOfRangeTimeout: Number;
-    minSamplingInterval: Number;
+    maxOutOfRangeTimeout: number;
+    maxSamplingInterval: number;
+    minOutOfRangeTimeout: number;
+    minSamplingInterval: number;
     status: BluetoothLEAdvertisementWatcherStatus;
     constructor();
     constructor(advertisementFilter: BluetoothLEAdvertisementFilter);
@@ -126,42 +126,42 @@
   export class BluetoothLEAdvertisementReceivedEventArgs {
     advertisement: BluetoothLEAdvertisement;
     advertisementType: BluetoothLEAdvertisementType;
-    bluetoothAddress: Number;
-    rawSignalStrengthInDBm: Number;
+    bluetoothAddress: number;
+    rawSignalStrengthInDBm: number;
     timestamp: Date;
     constructor();
 
   }
 
   export class BluetoothLEAdvertisementDataTypes {
-    static advertisingInterval: Number;
-    static appearance: Number;
-    static completeLocalName: Number;
-    static completeService128BitUuids: Number;
-    static completeService16BitUuids: Number;
-    static completeService32BitUuids: Number;
-    static flags: Number;
-    static incompleteService128BitUuids: Number;
-    static incompleteService16BitUuids: Number;
-    static incompleteService32BitUuids: Number;
-    static manufacturerSpecificData: Number;
-    static publicTargetAddress: Number;
-    static randomTargetAddress: Number;
-    static serviceData128BitUuids: Number;
-    static serviceData16BitUuids: Number;
-    static serviceData32BitUuids: Number;
-    static serviceSolicitation128BitUuids: Number;
-    static serviceSolicitation16BitUuids: Number;
-    static serviceSolicitation32BitUuids: Number;
-    static shortenedLocalName: Number;
-    static slaveConnectionIntervalRange: Number;
-    static txPowerLevel: Number;
+    static advertisingInterval: number;
+    static appearance: number;
+    static completeLocalName: number;
+    static completeService128BitUuids: number;
+    static completeService16BitUuids: number;
+    static completeService32BitUuids: number;
+    static flags: number;
+    static incompleteService128BitUuids: number;
+    static incompleteService16BitUuids: number;
+    static incompleteService32BitUuids: number;
+    static manufacturerSpecificData: number;
+    static publicTargetAddress: number;
+    static randomTargetAddress: number;
+    static serviceData128BitUuids: number;
+    static serviceData16BitUuids: number;
+    static serviceData32BitUuids: number;
+    static serviceSolicitation128BitUuids: number;
+    static serviceSolicitation16BitUuids: number;
+    static serviceSolicitation32BitUuids: number;
+    static shortenedLocalName: number;
+    static slaveConnectionIntervalRange: number;
+    static txPowerLevel: number;
     constructor();
 
   }
 
   export class BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
-    error: Number;
+    error: number;
     status: BluetoothLEAdvertisementPublisherStatus;
     constructor();
 

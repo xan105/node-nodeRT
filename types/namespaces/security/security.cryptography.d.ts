@@ -7,37 +7,37 @@
   export class CryptographicBuffer {
     constructor();
 
-    static compare(object1: Object, object2: Object): Boolean;
+    static compare(object1: Object, object2: Object): boolean;
 
 
-    static generateRandom(length: Number): Object;
+    static generateRandom(length: number): Object;
 
 
-    static generateRandomNumber(): Number;
+    static generateRandomNumber(): number;
 
 
-    static createFromByteArray(value: Array<Number>): Object;
+    static createFromByteArray(value: Array<number>): Object;
 
 
-    static copyToByteArray(buffer: Object, value: Array<Number>): void;
+    static copyToByteArray(buffer: Object, value: Array<number>): void;
 
 
-    static decodeFromHexString(value: String): Object;
+    static decodeFromHexString(value: string): Object;
 
 
-    static encodeToHexString(buffer: Object): String;
+    static encodeToHexString(buffer: Object): string;
 
 
-    static decodeFromBase64String(value: String): Object;
+    static decodeFromBase64String(value: string): Object;
 
 
-    static encodeToBase64String(buffer: Object): String;
+    static encodeToBase64String(buffer: Object): string;
 
 
-    static convertStringToBinary(value: String, encoding: BinaryStringEncoding): Object;
+    static convertStringToBinary(value: string, encoding: BinaryStringEncoding): Object;
 
 
-    static convertBinaryToString(encoding: BinaryStringEncoding, buffer: Object): String;
+    static convertBinaryToString(encoding: BinaryStringEncoding, buffer: Object): string;
 
 
   }

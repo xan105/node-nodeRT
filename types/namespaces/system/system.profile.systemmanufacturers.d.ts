@@ -5,20 +5,20 @@
   export class OemSupportInfo {
     supportAppLink: Object;
     supportLink: Object;
-    supportProvider: String;
+    supportProvider: string;
     constructor();
 
   }
 
   export class SystemSupportInfo {
-    static localSystemEdition: String;
+    static localSystemEdition: string;
     static oemSupportInfo: OemSupportInfo;
     constructor();
 
   }
 
   export class SmbiosInformation {
-    static serialNumber: String;
+    static serialNumber: string;
     constructor();
 
   }

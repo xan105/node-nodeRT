@@ -62,28 +62,28 @@
   }
 
   export class StorageItemThumbnail {
-    originalHeight: Number;
-    originalWidth: Number;
-    returnedSmallerCachedSize: Boolean;
+    originalHeight: number;
+    originalWidth: number;
+    returnedSmallerCachedSize: boolean;
     type: ThumbnailType;
-    contentType: String;
-    size: Number;
-    canRead: Boolean;
-    canWrite: Boolean;
-    position: Number;
+    contentType: string;
+    size: number;
+    canRead: boolean;
+    canWrite: boolean;
+    position: number;
     constructor();
 
-    readAsync(buffer: Object, count: Number, options: Number, callback: (error: Error, result: Object) => void): void ;
+    readAsync(buffer: Object, count: number, options: number, callback: (error: Error, result: Object) => void): void ;
 
-    writeAsync(buffer: Object, callback: (error: Error, result: Number) => void): void ;
+    writeAsync(buffer: Object, callback: (error: Error, result: number) => void): void ;
 
-    flushAsync(callback: (error: Error, result: Boolean) => void): void ;
+    flushAsync(callback: (error: Error, result: boolean) => void): void ;
 
-    getInputStreamAt(position: Number): Object;
+    getInputStreamAt(position: number): Object;
 
-    getOutputStreamAt(position: Number): Object;
+    getOutputStreamAt(position: number): Object;
 
-    seek(position: Number): void;
+    seek(position: number): void;
 
     cloneStream(): Object;
 
@@ -101,19 +101,19 @@
   }
 
   export class MusicProperties {
-    year: Number;
-    trackNumber: Number;
-    title: String;
-    subtitle: String;
-    rating: Number;
-    publisher: String;
-    artist: String;
-    albumArtist: String;
-    album: String;
-    bitrate: Number;
+    year: number;
+    trackNumber: number;
+    title: string;
+    subtitle: string;
+    rating: number;
+    publisher: string;
+    artist: string;
+    albumArtist: string;
+    album: string;
+    bitrate: number;
     composers: Object;
     conductors: Object;
-    duration: Number;
+    duration: number;
     genre: Object;
     producers: Object;
     writers: Object;
@@ -127,21 +127,21 @@
   }
 
   export class VideoProperties {
-    year: Number;
-    title: String;
-    subtitle: String;
-    rating: Number;
-    publisher: String;
-    bitrate: Number;
+    year: number;
+    title: string;
+    subtitle: string;
+    rating: number;
+    publisher: string;
+    bitrate: number;
     directors: Object;
-    duration: Number;
-    height: Number;
+    duration: number;
+    height: number;
     keywords: Object;
-    latitude: Number;
-    longitude: Number;
+    latitude: number;
+    longitude: number;
     orientation: VideoOrientation;
     producers: Object;
-    width: Number;
+    width: number;
     writers: Object;
     constructor();
 
@@ -153,18 +153,18 @@
   }
 
   export class ImageProperties {
-    title: String;
-    rating: Number;
+    title: string;
+    rating: number;
     dateTaken: Date;
-    cameraModel: String;
-    cameraManufacturer: String;
-    height: Number;
+    cameraModel: string;
+    cameraManufacturer: string;
+    height: number;
     keywords: Object;
-    latitude: Number;
-    longitude: Number;
+    latitude: number;
+    longitude: number;
     orientation: PhotoOrientation;
     peopleNames: Object;
-    width: Number;
+    width: number;
     constructor();
 
     retrievePropertiesAsync(propertiesToRetrieve: Object, callback: (error: Error, result: Object) => void): void ;
@@ -175,8 +175,8 @@
   }
 
   export class DocumentProperties {
-    title: String;
-    comment: String;
+    title: string;
+    comment: string;
     author: Object;
     keywords: Object;
     constructor();
@@ -209,7 +209,7 @@
   export class BasicProperties {
     dateModified: Date;
     itemDate: Date;
-    size: Number;
+    size: number;
     constructor();
 
     retrievePropertiesAsync(propertiesToRetrieve: Object, callback: (error: Error, result: Object) => void): void ;

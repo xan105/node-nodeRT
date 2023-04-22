@@ -3,37 +3,37 @@
   }
 
   export class TimedTextPadding {
-    before: Number;
-    after: Number;
-    start: Number;
-    end: Number;
+    before: number;
+    after: number;
+    start: number;
+    end: number;
     unit: TimedTextUnit;
     constructor();
   }
 
   export class TimedTextSize {
-    height: Number;
-    width: Number;
+    height: number;
+    width: number;
     unit: TimedTextUnit;
     constructor();
   }
 
   export class TimedTextDouble {
-    value: Number;
+    value: number;
     unit: TimedTextUnit;
     constructor();
   }
 
   export class TimedTextPoint {
-    x: Number;
-    y: Number;
+    x: number;
+    y: number;
     unit: TimedTextUnit;
     constructor();
   }
 
   export class MseTimeRange {
-    start: Number;
-    end: Number;
+    start: number;
+    end: number;
     constructor();
   }
 
@@ -215,22 +215,22 @@
   }
 
   export class IMediaCue {
-    duration: Number;
-    id: String;
-    startTime: Number;
+    duration: number;
+    id: string;
+    startTime: number;
     constructor();
 
   }
 
   export class TimedTextRegion {
-    name: String;
+    name: string;
     lineHeight: TimedTextDouble;
-    isOverflowClipped: Boolean;
+    isOverflowClipped: boolean;
     extent: TimedTextSize;
     displayAlignment: TimedTextDisplayAlignment;
     padding: TimedTextPadding;
     background: Object;
-    zIndex: Number;
+    zIndex: number;
     writingMode: TimedTextWritingMode;
     textWrapping: TimedTextWrapping;
     scrollMode: TimedTextScrollMode;
@@ -245,23 +245,23 @@
     foreground: Object;
     background: Object;
     fontSize: TimedTextDouble;
-    name: String;
+    name: string;
     flowDirection: TimedTextFlowDirection;
     fontWeight: TimedTextWeight;
-    fontFamily: String;
+    fontFamily: string;
     outlineThickness: TimedTextDouble;
-    isBackgroundAlwaysShown: Boolean;
+    isBackgroundAlwaysShown: boolean;
     outlineColor: Object;
-    isUnderlineEnabled: Boolean;
-    isOverlineEnabled: Boolean;
-    isLineThroughEnabled: Boolean;
+    isUnderlineEnabled: boolean;
+    isOverlineEnabled: boolean;
+    isLineThroughEnabled: boolean;
     fontStyle: TimedTextFontStyle;
     constructor();
 
   }
 
   export class TimedTextLine {
-    text: String;
+    text: string;
     subformats: Object;
     constructor();
 
@@ -269,16 +269,16 @@
 
   export class TimedTextSubformat {
     subformatStyle: TimedTextStyle;
-    startIndex: Number;
-    length: Number;
+    startIndex: number;
+    length: number;
     constructor();
 
   }
 
   export class TimedTextCue {
-    startTime: Number;
-    id: String;
-    duration: Number;
+    startTime: number;
+    id: string;
+    duration: number;
     cueStyle: TimedTextStyle;
     cueRegion: TimedTextRegion;
     lines: Object;
@@ -289,18 +289,18 @@
   export class DataCue {
     data: Object;
     properties: Object;
-    startTime: Number;
-    id: String;
-    duration: Number;
+    startTime: number;
+    id: string;
+    duration: number;
     constructor();
 
   }
 
   export class ChapterCue {
-    title: String;
-    startTime: Number;
-    id: String;
-    duration: Number;
+    title: string;
+    startTime: number;
+    id: string;
+    duration: number;
     constructor();
 
   }
@@ -309,28 +309,28 @@
     softwareBitmap: Object;
     position: TimedTextPoint;
     extent: TimedTextSize;
-    startTime: Number;
-    id: String;
-    duration: Number;
+    startTime: number;
+    id: string;
+    duration: number;
     constructor();
 
   }
 
   export class SpeechCue {
-    startTime: Number;
-    id: String;
-    duration: Number;
-    text: String;
-    startPositionInInput: Number;
-    endPositionInInput: Number;
+    startTime: number;
+    id: string;
+    duration: number;
+    text: string;
+    startPositionInInput: number;
+    endPositionInInput: number;
     constructor();
 
   }
 
   export class CodecInfo {
     category: CodecCategory;
-    displayName: String;
-    isTrusted: Boolean;
+    displayName: string;
+    isTrusted: boolean;
     kind: CodecKind;
     subtypes: Object;
     constructor();
@@ -340,62 +340,62 @@
   export class CodecQuery {
     constructor();
 
-    findAllAsync(kind: CodecKind, category: CodecCategory, subType: String, callback: (error: Error, result: Object) => void): void ;
+    findAllAsync(kind: CodecKind, category: CodecCategory, subType: string, callback: (error: Error, result: Object) => void): void ;
 
   }
 
   export class CodecSubtypes {
-    static audioFormatAac: String;
-    static audioFormatAdts: String;
-    static audioFormatAlac: String;
-    static audioFormatAmrNB: String;
-    static audioFormatAmrWB: String;
-    static audioFormatAmrWP: String;
-    static audioFormatDolbyAC3: String;
-    static audioFormatDolbyAC3Spdif: String;
-    static audioFormatDolbyDDPlus: String;
-    static audioFormatDrm: String;
-    static audioFormatDts: String;
-    static audioFormatFlac: String;
-    static audioFormatFloat: String;
-    static audioFormatMP3: String;
-    static audioFormatMPeg: String;
-    static audioFormatMsp1: String;
-    static audioFormatOpus: String;
-    static audioFormatPcm: String;
-    static audioFormatWMAudioLossless: String;
-    static audioFormatWMAudioV8: String;
-    static audioFormatWMAudioV9: String;
-    static audioFormatWmaSpdif: String;
-    static videoFormat420O: String;
-    static videoFormatDV25: String;
-    static videoFormatDV50: String;
-    static videoFormatDvc: String;
-    static videoFormatDvh1: String;
-    static videoFormatDvhD: String;
-    static videoFormatDvsd: String;
-    static videoFormatDvsl: String;
-    static videoFormatH263: String;
-    static videoFormatH264: String;
-    static videoFormatH264ES: String;
-    static videoFormatH265: String;
-    static videoFormatHevc: String;
-    static videoFormatHevcES: String;
-    static videoFormatM4S2: String;
-    static videoFormatMP43: String;
-    static videoFormatMP4S: String;
-    static videoFormatMP4V: String;
-    static videoFormatMjpg: String;
-    static videoFormatMpeg2: String;
-    static videoFormatMpg1: String;
-    static videoFormatMss1: String;
-    static videoFormatMss2: String;
-    static videoFormatVP80: String;
-    static videoFormatVP90: String;
-    static videoFormatWmv1: String;
-    static videoFormatWmv2: String;
-    static videoFormatWmv3: String;
-    static videoFormatWvc1: String;
+    static audioFormatAac: string;
+    static audioFormatAdts: string;
+    static audioFormatAlac: string;
+    static audioFormatAmrNB: string;
+    static audioFormatAmrWB: string;
+    static audioFormatAmrWP: string;
+    static audioFormatDolbyAC3: string;
+    static audioFormatDolbyAC3Spdif: string;
+    static audioFormatDolbyDDPlus: string;
+    static audioFormatDrm: string;
+    static audioFormatDts: string;
+    static audioFormatFlac: string;
+    static audioFormatFloat: string;
+    static audioFormatMP3: string;
+    static audioFormatMPeg: string;
+    static audioFormatMsp1: string;
+    static audioFormatOpus: string;
+    static audioFormatPcm: string;
+    static audioFormatWMAudioLossless: string;
+    static audioFormatWMAudioV8: string;
+    static audioFormatWMAudioV9: string;
+    static audioFormatWmaSpdif: string;
+    static videoFormat420O: string;
+    static videoFormatDV25: string;
+    static videoFormatDV50: string;
+    static videoFormatDvc: string;
+    static videoFormatDvh1: string;
+    static videoFormatDvhD: string;
+    static videoFormatDvsd: string;
+    static videoFormatDvsl: string;
+    static videoFormatH263: string;
+    static videoFormatH264: string;
+    static videoFormatH264ES: string;
+    static videoFormatH265: string;
+    static videoFormatHevc: string;
+    static videoFormatHevcES: string;
+    static videoFormatM4S2: string;
+    static videoFormatMP43: string;
+    static videoFormatMP4S: string;
+    static videoFormatMP4V: string;
+    static videoFormatMjpg: string;
+    static videoFormatMpeg2: string;
+    static videoFormatMpg1: string;
+    static videoFormatMss1: string;
+    static videoFormatMss2: string;
+    static videoFormatVP80: string;
+    static videoFormatVP90: string;
+    static videoFormatWmv1: string;
+    static videoFormatWmv2: string;
+    static videoFormatWmv3: string;
+    static videoFormatWvc1: string;
     constructor();
 
   }
@@ -408,7 +408,7 @@
   }
 
   export class LowLightFusion {
-    static maxSupportedFrameCount: Number;
+    static maxSupportedFrameCount: number;
     static supportedBitmapPixelFormats: Object;
     constructor();
 
@@ -419,12 +419,12 @@
 
   export class AudioStreamDescriptor {
     encodingProperties: Object;
-    trailingEncoderPadding: Number;
-    leadingEncoderPadding: Number;
-    name: String;
-    language: String;
-    isSelected: Boolean;
-    label: String;
+    trailingEncoderPadding: number;
+    leadingEncoderPadding: number;
+    name: string;
+    language: string;
+    isSelected: boolean;
+    label: string;
     constructor();
     constructor(encodingProperties: Object);
 
@@ -433,10 +433,10 @@
   }
 
   export class VideoStreamDescriptor {
-    name: String;
-    language: String;
-    isSelected: Boolean;
-    label: String;
+    name: string;
+    language: string;
+    isSelected: boolean;
+    label: string;
     encodingProperties: Object;
     constructor();
     constructor(encodingProperties: Object);
@@ -446,10 +446,10 @@
   }
 
   export class TimedMetadataStreamDescriptor {
-    name: String;
-    language: String;
-    isSelected: Boolean;
-    label: String;
+    name: string;
+    language: string;
+    isSelected: boolean;
+    label: string;
     encodingProperties: Object;
     constructor();
     constructor(encodingProperties: Object);
@@ -459,15 +459,15 @@
   }
 
   export class IMediaStreamDescriptor {
-    isSelected: Boolean;
-    language: String;
-    name: String;
+    isSelected: boolean;
+    language: string;
+    name: string;
     constructor();
 
   }
 
   export class IMediaStreamDescriptor2 {
-    label: String;
+    label: string;
     constructor();
 
   }
@@ -480,13 +480,13 @@
   export class MediaStreamSource {
     thumbnail: Object;
     mediaProtectionManager: Object;
-    duration: Number;
-    canSeek: Boolean;
-    bufferTime: Number;
+    duration: number;
+    canSeek: boolean;
+    bufferTime: number;
     musicProperties: Object;
     videoProperties: Object;
-    maxSupportedPlaybackRate: Number;
-    isLive: Boolean;
+    maxSupportedPlaybackRate: number;
+    isLive: boolean;
     constructor();
     constructor(descriptor: IMediaStreamDescriptor);
     constructor(descriptor: IMediaStreamDescriptor, descriptor2: IMediaStreamDescriptor);
@@ -495,9 +495,9 @@
 
     addStreamDescriptor(descriptor: IMediaStreamDescriptor): void;
 
-    setBufferedRange(startOffset: Number, endOffset: Number): void;
+    setBufferedRange(startOffset: number, endOffset: number): void;
 
-    addProtectionKey(streamDescriptor: IMediaStreamDescriptor, keyIdentifier: Array<Number>, licenseData: Array<Number>): void;
+    addProtectionKey(streamDescriptor: IMediaStreamDescriptor, keyIdentifier: Array<number>, licenseData: Array<number>): void;
 
     addListener(type: "Closed", listener: (ev: Event) => void): void ;
     removeListener(type: "Closed", listener: (ev: Event) => void): void ;
@@ -562,7 +562,7 @@
   }
 
   export class MediaStreamSourceSampleRenderedEventArgs {
-    sampleLag: Number;
+    sampleLag: number;
     constructor();
 
   }
@@ -570,15 +570,15 @@
   export class MediaStreamSamplePropertySet {
     constructor();
 
-    lookup(key: String): Object;
+    lookup(key: string): Object;
 
-    hasKey(key: String): Boolean;
+    hasKey(key: string): boolean;
 
     getView(): Object;
 
-    insert(key: String, value: Object): Boolean;
+    insert(key: string, value: Object): boolean;
 
-    remove(key: String): void;
+    remove(key: string): void;
 
     clear(): void;
 
@@ -587,20 +587,20 @@
   }
 
   export class MediaStreamSample {
-    keyFrame: Boolean;
-    duration: Number;
-    discontinuous: Boolean;
-    decodeTimestamp: Number;
+    keyFrame: boolean;
+    duration: number;
+    discontinuous: boolean;
+    decodeTimestamp: number;
     buffer: Object;
     extendedProperties: MediaStreamSamplePropertySet;
     protection: MediaStreamSampleProtectionProperties;
-    timestamp: Number;
+    timestamp: number;
     constructor();
 
-    static createFromStreamAsync(stream: Object, count: Number, timestamp: Number, callback: (error: Error, result: MediaStreamSample) => void): void ;
+    static createFromStreamAsync(stream: Object, count: number, timestamp: number, callback: (error: Error, result: MediaStreamSample) => void): void ;
 
 
-    static createFromBuffer(buffer: Object, timestamp: Number): MediaStreamSample;
+    static createFromBuffer(buffer: Object, timestamp: number): MediaStreamSample;
 
 
     addListener(type: "Processed", listener: (ev: Event) => void): void ;
@@ -619,17 +619,17 @@
   export class MediaStreamSampleProtectionProperties {
     constructor();
 
-    setKeyIdentifier(value: Array<Number>): void;
+    setKeyIdentifier(value: Array<number>): void;
 
-    getKeyIdentifier(value: Array<Number>): void;
+    getKeyIdentifier(value: Array<number>): void;
 
-    setInitializationVector(value: Array<Number>): void;
+    setInitializationVector(value: Array<number>): void;
 
-    getInitializationVector(value: Array<Number>): void;
+    getInitializationVector(value: Array<number>): void;
 
-    setSubSampleMapping(value: Array<Number>): void;
+    setSubSampleMapping(value: Array<number>): void;
 
-    getSubSampleMapping(value: Array<Number>): void;
+    getSubSampleMapping(value: Array<number>): void;
 
   }
 
@@ -647,12 +647,12 @@
   }
 
   export class MediaStreamSourceStartingRequest {
-    startPosition: Number;
+    startPosition: number;
     constructor();
 
     getDeferral(): MediaStreamSourceStartingRequestDeferral;
 
-    setActualStartPosition(position: Number): void;
+    setActualStartPosition(position: number): void;
 
   }
 
@@ -670,7 +670,7 @@
 
     getDeferral(): MediaStreamSourceSampleRequestDeferral;
 
-    reportSampleProgress(progress: Number): void;
+    reportSampleProgress(progress: number): void;
 
   }
 
@@ -691,17 +691,17 @@
   }
 
   export class MseStreamSource {
-    duration: Number;
+    duration: number;
     activeSourceBuffers: MseSourceBufferList;
     readyState: MseReadyState;
     sourceBuffers: MseSourceBufferList;
     liveSeekableRange: MseTimeRange;
     constructor();
 
-    static isContentTypeSupported(contentType: String): Boolean;
+    static isContentTypeSupported(contentType: string): boolean;
 
 
-    addSourceBuffer(mimeType: String): MseSourceBuffer;
+    addSourceBuffer(mimeType: string): MseSourceBuffer;
 
     removeSourceBuffer(buffer: MseSourceBuffer): void;
 
@@ -753,22 +753,22 @@
   }
 
   export class MseSourceBuffer {
-    timestampOffset: Number;
+    timestampOffset: number;
     mode: MseAppendMode;
-    appendWindowStart: Number;
-    appendWindowEnd: Number;
+    appendWindowStart: number;
+    appendWindowEnd: number;
     buffered: Object;
-    isUpdating: Boolean;
+    isUpdating: boolean;
     constructor();
 
     appendBuffer(buffer: Object): void;
 
     appendStream(stream: Object): void;
-    appendStream(stream: Object, maxSize: Number): void;
+    appendStream(stream: Object, maxSize: number): void;
 
     abort(): void;
 
-    remove(start: Number, end: Number): void;
+    remove(start: number, end: number): void;
 
     addListener(type: "Aborted", listener: (ev: Event) => void): void ;
     removeListener(type: "Aborted", listener: (ev: Event) => void): void ;
@@ -832,13 +832,13 @@
   }
 
   export class HighDynamicRangeControl {
-    enabled: Boolean;
+    enabled: boolean;
     constructor();
 
   }
 
   export class SceneAnalysisEffect {
-    desiredAnalysisInterval: Number;
+    desiredAnalysisInterval: number;
     highDynamicRangeAnalyzer: HighDynamicRangeControl;
     constructor();
 
@@ -864,7 +864,7 @@
   }
 
   export class HighDynamicRangeOutput {
-    certainty: Number;
+    certainty: number;
     frameControllers: Object;
     constructor();
 
@@ -874,20 +874,20 @@
     frameControlValues: Object;
     highDynamicRange: HighDynamicRangeOutput;
     analysisRecommendation: SceneAnalysisRecommendation;
-    systemRelativeTime: Number;
-    relativeTime: Number;
-    isDiscontinuous: Boolean;
-    duration: Number;
+    systemRelativeTime: number;
+    relativeTime: number;
+    isDiscontinuous: boolean;
+    duration: number;
     extendedProperties: Object;
-    isReadOnly: Boolean;
-    type: String;
+    isReadOnly: boolean;
+    type: string;
     constructor();
 
     close(): void;
   }
 
   export class SceneAnalysisEffectDefinition {
-    activatableClassId: String;
+    activatableClassId: string;
     properties: Object;
     constructor();
 
@@ -895,13 +895,13 @@
 
   export class FaceDetectionEffectFrame {
     detectedFaces: Object;
-    systemRelativeTime: Number;
-    relativeTime: Number;
-    isDiscontinuous: Boolean;
-    duration: Number;
+    systemRelativeTime: number;
+    relativeTime: number;
+    isDiscontinuous: boolean;
+    duration: number;
     extendedProperties: Object;
-    isReadOnly: Boolean;
-    type: String;
+    isReadOnly: boolean;
+    type: string;
     constructor();
 
     close(): void;
@@ -914,8 +914,8 @@
   }
 
   export class FaceDetectionEffect {
-    enabled: Boolean;
-    desiredDetectionInterval: Number;
+    enabled: boolean;
+    desiredDetectionInterval: number;
     constructor();
 
     setProperties(configuration: Object): void;
@@ -934,9 +934,9 @@
   }
 
   export class FaceDetectionEffectDefinition {
-    synchronousDetectionEnabled: Boolean;
+    synchronousDetectionEnabled: boolean;
     detectionMode: FaceDetectionMode;
-    activatableClassId: String;
+    activatableClassId: string;
     properties: Object;
     constructor();
 
@@ -949,7 +949,7 @@
   }
 
   export class VideoStabilizationEffect {
-    enabled: Boolean;
+    enabled: boolean;
     constructor();
 
     getRecommendedStreamConfiguration(controller: Object, desiredProperties: Object): Object;
@@ -970,24 +970,24 @@
   }
 
   export class VideoStabilizationEffectDefinition {
-    activatableClassId: String;
+    activatableClassId: string;
     properties: Object;
     constructor();
 
   }
 
   export class MediaSourceError {
-    extendedError: Number;
+    extendedError: number;
     constructor();
 
   }
 
   export class MediaSource {
     customProperties: Object;
-    duration: Number;
+    duration: number;
     externalTimedMetadataTracks: Object;
     externalTimedTextSources: Object;
-    isOpen: Boolean;
+    isOpen: boolean;
     state: MediaSourceState;
     adaptiveMediaSource: Object;
     mediaStreamSource: MediaStreamSource;
@@ -1020,10 +1020,10 @@
     static createFromStorageFile(file: Object): MediaSource;
 
 
-    static createFromStream(stream: Object, contentType: String): MediaSource;
+    static createFromStream(stream: Object, contentType: string): MediaSource;
 
 
-    static createFromStreamReference(stream: Object, contentType: String): MediaSource;
+    static createFromStreamReference(stream: Object, contentType: string): MediaSource;
 
 
     static createFromUri(uri: Object): MediaSource;
@@ -1053,7 +1053,7 @@
   }
 
   export class MediaBinder {
-    token: String;
+    token: string;
     source: MediaSource;
     constructor();
 
@@ -1078,9 +1078,9 @@
 
     setUri(uri: Object): void;
 
-    setStream(stream: Object, contentType: String): void;
+    setStream(stream: Object, contentType: string): void;
 
-    setStreamReference(stream: Object, contentType: String): void;
+    setStreamReference(stream: Object, contentType: string): void;
 
     setAdaptiveMediaSource(mediaSource: Object): void;
 
@@ -1111,19 +1111,19 @@
     constructor();
 
     static createFromStreamWithIndex(stream: Object, indexStream: Object): TimedTextSource;
-    static createFromStreamWithIndex(stream: Object, indexStream: Object, defaultLanguage: String): TimedTextSource;
+    static createFromStreamWithIndex(stream: Object, indexStream: Object, defaultLanguage: string): TimedTextSource;
 
 
     static createFromUriWithIndex(uri: Object, indexUri: Object): TimedTextSource;
-    static createFromUriWithIndex(uri: Object, indexUri: Object, defaultLanguage: String): TimedTextSource;
+    static createFromUriWithIndex(uri: Object, indexUri: Object, defaultLanguage: string): TimedTextSource;
 
 
     static createFromStream(stream: Object): TimedTextSource;
-    static createFromStream(stream: Object, defaultLanguage: String): TimedTextSource;
+    static createFromStream(stream: Object, defaultLanguage: string): TimedTextSource;
 
 
     static createFromUri(uri: Object): TimedTextSource;
-    static createFromUri(uri: Object, defaultLanguage: String): TimedTextSource;
+    static createFromUri(uri: Object, defaultLanguage: string): TimedTextSource;
 
 
     addListener(type: "Resolved", listener: (ev: Event) => void): void ;
@@ -1140,18 +1140,18 @@
   }
 
   export class TimedMetadataTrack {
-    label: String;
-    id: String;
-    language: String;
+    label: string;
+    id: string;
+    language: string;
     trackKind: MediaTrackKind;
     activeCues: Object;
     cues: Object;
-    dispatchType: String;
+    dispatchType: string;
     timedMetadataKind: TimedMetadataKind;
-    name: String;
+    name: string;
     playbackItem: Object;
     constructor();
-    constructor(id: String, language: String, kind: TimedMetadataKind);
+    constructor(id: string, language: string, kind: TimedMetadataKind);
 
     addCue(cue: IMediaCue): void;
 
@@ -1188,7 +1188,7 @@
   }
 
   export class ISingleSelectMediaTrackList {
-    selectedIndex: Number;
+    selectedIndex: number;
     constructor();
 
     addListener(type: "SelectedIndexChanged", listener: (ev: Event) => void): void ;
@@ -1205,9 +1205,9 @@
   }
 
   export class IMediaTrack {
-    id: String;
-    label: String;
-    language: String;
+    id: string;
+    label: string;
+    language: string;
     trackKind: MediaTrackKind;
     constructor();
 
@@ -1215,7 +1215,7 @@
 
   export class TimedMetadataTrackError {
     errorCode: TimedMetadataTrackErrorCode;
-    extendedError: Number;
+    extendedError: number;
     constructor();
 
   }
@@ -1246,11 +1246,11 @@
   }
 
   export class VideoTrack {
-    label: String;
-    id: String;
-    language: String;
+    label: string;
+    id: string;
+    language: string;
     trackKind: MediaTrackKind;
-    name: String;
+    name: string;
     playbackItem: Object;
     supportInfo: VideoTrackSupportInfo;
     constructor();
@@ -1271,7 +1271,7 @@
   }
 
   export class VideoTrackOpenFailedEventArgs {
-    extendedError: Number;
+    extendedError: number;
     constructor();
 
   }
@@ -1284,12 +1284,12 @@
   }
 
   export class AudioTrack {
-    name: String;
+    name: string;
     playbackItem: Object;
     supportInfo: AudioTrackSupportInfo;
-    label: String;
-    id: String;
-    language: String;
+    label: string;
+    id: string;
+    language: string;
     trackKind: MediaTrackKind;
     constructor();
 
@@ -1309,7 +1309,7 @@
   }
 
   export class AudioTrackOpenFailedEventArgs {
-    extendedError: Number;
+    extendedError: number;
     constructor();
 
   }

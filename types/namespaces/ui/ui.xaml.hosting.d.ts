@@ -24,7 +24,7 @@
     static setImplicitHideAnimation(element: Object, animation: Object): void;
 
 
-    static setIsTranslationEnabled(element: Object, value: Boolean): void;
+    static setIsTranslationEnabled(element: Object, value: boolean): void;
 
 
     static getPointerPositionPropertySet(targetElement: Object): Object;
@@ -47,14 +47,14 @@
   export class IXamlUIPresenterHost {
     constructor();
 
-    resolveFileResource(path: String): String;
+    resolveFileResource(path: string): string;
 
   }
 
   export class IXamlUIPresenterHost2 {
     constructor();
 
-    getGenericXamlFilePath(): String;
+    getGenericXamlFilePath(): string;
 
   }
 
@@ -66,19 +66,19 @@
   }
 
   export class DesignerAppExitedEventArgs {
-    exitCode: Number;
+    exitCode: number;
     constructor();
 
   }
 
   export class DesignerAppManager {
-    appUserModelId: String;
+    appUserModelId: string;
     constructor();
-    constructor(appUserModelId: String);
+    constructor(appUserModelId: string);
 
     createNewViewAsync(initialViewState: DesignerAppViewState, initialViewSize: Object, callback: (error: Error, result: DesignerAppView) => void): void ;
 
-    loadObjectIntoAppAsync(dllName: String, classId: String, initializationData: String, callback: (error: Error) => void): void ;
+    loadObjectIntoAppAsync(dllName: string, classId: string, initializationData: string, callback: (error: Error) => void): void ;
 
     close(): void;
     addListener(type: "DesignerAppExited", listener: (ev: Event) => void): void ;
@@ -95,8 +95,8 @@
   }
 
   export class DesignerAppView {
-    appUserModelId: String;
-    applicationViewId: Number;
+    appUserModelId: string;
+    applicationViewId: number;
     viewSize: Object;
     viewState: DesignerAppViewState;
     constructor();
@@ -107,16 +107,16 @@
   }
 
   export class XamlUIPresenter {
-    static completeTimelinesAutomatically: Boolean;
-    themeResourcesXaml: String;
-    themeKey: String;
+    static completeTimelinesAutomatically: boolean;
+    themeResourcesXaml: string;
+    themeKey: string;
     rootElement: Object;
     constructor();
 
-    static getFlyoutPlacementTargetInfo(placementTarget: Object, preferredPlacement: Number, targetPreferredPlacement: Number, allowFallbacks: Boolean): Object;
+    static getFlyoutPlacementTargetInfo(placementTarget: Object, preferredPlacement: number, targetPreferredPlacement: number, allowFallbacks: boolean): Object;
 
 
-    static getFlyoutPlacement(placementTargetBounds: Object, controlSize: Object, minControlSize: Object, containerRect: Object, targetPreferredPlacement: Number, allowFallbacks: Boolean, chosenPlacement: Number): Object;
+    static getFlyoutPlacement(placementTargetBounds: Object, controlSize: Object, minControlSize: Object, containerRect: Object, targetPreferredPlacement: number, allowFallbacks: boolean, chosenPlacement: number): Object;
 
 
     static setHost(host: IXamlUIPresenterHost): void;
@@ -125,7 +125,7 @@
     static notifyWindowSizeChanged(): void;
 
 
-    setSize(width: Number, height: Number): void;
+    setSize(width: number, height: number): void;
 
     render(): void;
 

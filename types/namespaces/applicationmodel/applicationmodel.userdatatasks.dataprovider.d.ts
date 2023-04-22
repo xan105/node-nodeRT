@@ -84,7 +84,7 @@
 
   export class UserDataTaskListCreateOrUpdateTaskRequest {
     task: Object;
-    taskListId: String;
+    taskListId: string;
     constructor();
 
     reportCompletedAsync(createdOrUpdatedUserDataTask: Object, callback: (error: Error) => void): void ;
@@ -94,7 +94,7 @@
   }
 
   export class UserDataTaskListSyncManagerSyncRequest {
-    taskListId: String;
+    taskListId: string;
     constructor();
 
     reportCompletedAsync(callback: (error: Error) => void): void ;
@@ -104,8 +104,8 @@
   }
 
   export class UserDataTaskListSkipOccurrenceRequest {
-    taskId: String;
-    taskListId: String;
+    taskId: string;
+    taskListId: string;
     constructor();
 
     reportCompletedAsync(callback: (error: Error) => void): void ;
@@ -115,19 +115,19 @@
   }
 
   export class UserDataTaskListCompleteTaskRequest {
-    taskId: String;
-    taskListId: String;
+    taskId: string;
+    taskListId: string;
     constructor();
 
-    reportCompletedAsync(completedTaskId: String, callback: (error: Error) => void): void ;
+    reportCompletedAsync(completedTaskId: string, callback: (error: Error) => void): void ;
 
     reportFailedAsync(callback: (error: Error) => void): void ;
 
   }
 
   export class UserDataTaskListDeleteTaskRequest {
-    taskId: String;
-    taskListId: String;
+    taskId: string;
+    taskListId: string;
     constructor();
 
     reportCompletedAsync(callback: (error: Error) => void): void ;

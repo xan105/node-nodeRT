@@ -1,5 +1,5 @@
   export class BackPressedEventArgs {
-    handled: Boolean;
+    handled: boolean;
     constructor();
 
   }

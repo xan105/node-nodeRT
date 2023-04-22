@@ -286,133 +286,133 @@
   }
 
   export class UnifiedPosErrorData {
-    extendedReason: Number;
-    message: String;
+    extendedReason: number;
+    message: string;
     reason: UnifiedPosErrorReason;
     severity: UnifiedPosErrorSeverity;
     constructor();
-    constructor(message: String, severity: UnifiedPosErrorSeverity, reason: UnifiedPosErrorReason, extendedReason: Number);
+    constructor(message: string, severity: UnifiedPosErrorSeverity, reason: UnifiedPosErrorReason, extendedReason: number);
 
   }
 
   export class BarcodeScannerStatusUpdatedEventArgs {
-    extendedStatus: Number;
+    extendedStatus: number;
     status: BarcodeScannerStatus;
     constructor();
 
   }
 
   export class BarcodeSymbologies {
-    static extendedBase: Number;
-    static ausPost: Number;
-    static aztec: Number;
-    static canPost: Number;
-    static ccab: Number;
-    static ccc: Number;
-    static chinaPost: Number;
-    static codabar: Number;
-    static codablock128: Number;
-    static codablockA: Number;
-    static codablockF: Number;
-    static code11: Number;
-    static code128: Number;
-    static code16k: Number;
-    static code32: Number;
-    static code39: Number;
-    static code39Ex: Number;
-    static code49: Number;
-    static code93: Number;
-    static code93Ex: Number;
-    static dataCode: Number;
-    static dataMatrix: Number;
-    static dutchKix: Number;
-    static ean13: Number;
-    static ean13Add2: Number;
-    static ean13Add5: Number;
-    static ean8: Number;
-    static ean8Add2: Number;
-    static ean8Add5: Number;
-    static ean99: Number;
-    static ean99Add2: Number;
-    static ean99Add5: Number;
-    static eanv: Number;
-    static eanvAdd2: Number;
-    static eanvAdd5: Number;
-    static telepen: Number;
-    static gs1128: Number;
-    static gs1128Coupon: Number;
-    static gs1DatabarType1: Number;
-    static gs1DatabarType2: Number;
-    static gs1DatabarType3: Number;
-    static hanXin: Number;
-    static infoMail: Number;
-    static isbn: Number;
-    static isbnAdd5: Number;
-    static isbt: Number;
-    static ismn: Number;
-    static ismnAdd2: Number;
-    static ismnAdd5: Number;
-    static issn: Number;
-    static issnAdd2: Number;
-    static issnAdd5: Number;
-    static italianPost25: Number;
-    static italianPost39: Number;
-    static japanPost: Number;
-    static koreanPost: Number;
-    static maxicode: Number;
-    static micr: Number;
-    static microPdf417: Number;
-    static microQr: Number;
-    static msTag: Number;
-    static msi: Number;
-    static ocrA: Number;
-    static ocrB: Number;
-    static pdf417: Number;
-    static plessey: Number;
-    static pzn: Number;
-    static qr: Number;
-    static sisac: Number;
-    static swedenPost: Number;
-    static tfDis: Number;
-    static tfIata: Number;
-    static tfInd: Number;
-    static tfInt: Number;
-    static tfMat: Number;
-    static tfStd: Number;
-    static tlc39: Number;
-    static trioptic39: Number;
-    static uccEan128: Number;
-    static ukPost: Number;
-    static unknown: Number;
-    static upcCoupon: Number;
-    static upca: Number;
-    static upcaAdd2: Number;
-    static upcaAdd5: Number;
-    static upce: Number;
-    static upceAdd2: Number;
-    static upceAdd5: Number;
-    static us4StateFics: Number;
-    static usIntelligent: Number;
-    static usIntelligentPkg: Number;
-    static usPlanet: Number;
-    static usPostNet: Number;
-    static gs1DWCode: Number;
+    static extendedBase: number;
+    static ausPost: number;
+    static aztec: number;
+    static canPost: number;
+    static ccab: number;
+    static ccc: number;
+    static chinaPost: number;
+    static codabar: number;
+    static codablock128: number;
+    static codablockA: number;
+    static codablockF: number;
+    static code11: number;
+    static code128: number;
+    static code16k: number;
+    static code32: number;
+    static code39: number;
+    static code39Ex: number;
+    static code49: number;
+    static code93: number;
+    static code93Ex: number;
+    static dataCode: number;
+    static dataMatrix: number;
+    static dutchKix: number;
+    static ean13: number;
+    static ean13Add2: number;
+    static ean13Add5: number;
+    static ean8: number;
+    static ean8Add2: number;
+    static ean8Add5: number;
+    static ean99: number;
+    static ean99Add2: number;
+    static ean99Add5: number;
+    static eanv: number;
+    static eanvAdd2: number;
+    static eanvAdd5: number;
+    static telepen: number;
+    static gs1128: number;
+    static gs1128Coupon: number;
+    static gs1DatabarType1: number;
+    static gs1DatabarType2: number;
+    static gs1DatabarType3: number;
+    static hanXin: number;
+    static infoMail: number;
+    static isbn: number;
+    static isbnAdd5: number;
+    static isbt: number;
+    static ismn: number;
+    static ismnAdd2: number;
+    static ismnAdd5: number;
+    static issn: number;
+    static issnAdd2: number;
+    static issnAdd5: number;
+    static italianPost25: number;
+    static italianPost39: number;
+    static japanPost: number;
+    static koreanPost: number;
+    static maxicode: number;
+    static micr: number;
+    static microPdf417: number;
+    static microQr: number;
+    static msTag: number;
+    static msi: number;
+    static ocrA: number;
+    static ocrB: number;
+    static pdf417: number;
+    static plessey: number;
+    static pzn: number;
+    static qr: number;
+    static sisac: number;
+    static swedenPost: number;
+    static tfDis: number;
+    static tfIata: number;
+    static tfInd: number;
+    static tfInt: number;
+    static tfMat: number;
+    static tfStd: number;
+    static tlc39: number;
+    static trioptic39: number;
+    static uccEan128: number;
+    static ukPost: number;
+    static unknown: number;
+    static upcCoupon: number;
+    static upca: number;
+    static upcaAdd2: number;
+    static upcaAdd5: number;
+    static upce: number;
+    static upceAdd2: number;
+    static upceAdd5: number;
+    static us4StateFics: number;
+    static usIntelligent: number;
+    static usIntelligentPkg: number;
+    static usPlanet: number;
+    static usPostNet: number;
+    static gs1DWCode: number;
     constructor();
 
-    static getName(scanDataType: Number): String;
+    static getName(scanDataType: number): string;
 
 
   }
 
   export class BarcodeSymbologyAttributes {
-    isCheckDigitValidationEnabled: Boolean;
-    isCheckDigitTransmissionEnabled: Boolean;
+    isCheckDigitValidationEnabled: boolean;
+    isCheckDigitTransmissionEnabled: boolean;
     decodeLengthKind: BarcodeSymbologyDecodeLengthKind;
-    decodeLength2: Number;
-    decodeLength1: Number;
-    isCheckDigitTransmissionSupported: Boolean;
-    isCheckDigitValidationSupported: Boolean;
-    isDecodeLengthSupported: Boolean;
+    decodeLength2: number;
+    decodeLength1: number;
+    isCheckDigitTransmissionSupported: boolean;
+    isCheckDigitValidationSupported: boolean;
+    isDecodeLengthSupported: boolean;
     constructor();
 
   }
@@ -420,9 +420,9 @@
   export class BarcodeScannerReport {
     scanData: Object;
     scanDataLabel: Object;
-    scanDataType: Number;
+    scanDataType: number;
     constructor();
-    constructor(scanDataType: Number, scanData: Object, scanDataLabel: Object);
+    constructor(scanDataType: number, scanData: Object, scanDataLabel: Object);
 
   }
 
@@ -434,7 +434,7 @@
 
   export class BarcodeScannerErrorOccurredEventArgs {
     errorData: UnifiedPosErrorData;
-    isRetriable: Boolean;
+    isRetriable: boolean;
     partialInputData: BarcodeScannerReport;
     constructor();
 
@@ -447,44 +447,44 @@
   }
 
   export class BarcodeScannerCapabilities {
-    isImagePreviewSupported: Boolean;
-    isStatisticsReportingSupported: Boolean;
-    isStatisticsUpdatingSupported: Boolean;
+    isImagePreviewSupported: boolean;
+    isStatisticsReportingSupported: boolean;
+    isStatisticsUpdatingSupported: boolean;
     powerReportingType: UnifiedPosPowerReportingType;
-    isSoftwareTriggerSupported: Boolean;
+    isSoftwareTriggerSupported: boolean;
     constructor();
 
   }
 
   export class BarcodeScanner {
     capabilities: BarcodeScannerCapabilities;
-    deviceId: String;
-    videoDeviceId: String;
+    deviceId: string;
+    videoDeviceId: string;
     constructor();
 
     static getDefaultAsync(callback: (error: Error, result: BarcodeScanner) => void): void ;
 
 
-    static fromIdAsync(deviceId: String, callback: (error: Error, result: BarcodeScanner) => void): void ;
+    static fromIdAsync(deviceId: string, callback: (error: Error, result: BarcodeScanner) => void): void ;
 
 
-    static getDeviceSelector(connectionTypes: PosConnectionTypes): String;
-    static getDeviceSelector(): String;
+    static getDeviceSelector(connectionTypes: PosConnectionTypes): string;
+    static getDeviceSelector(): string;
 
 
     claimScannerAsync(callback: (error: Error, result: ClaimedBarcodeScanner) => void): void ;
 
-    checkHealthAsync(level: UnifiedPosHealthCheckLevel, callback: (error: Error, result: String) => void): void ;
+    checkHealthAsync(level: UnifiedPosHealthCheckLevel, callback: (error: Error, result: string) => void): void ;
 
     getSupportedSymbologiesAsync(callback: (error: Error, result: Object) => void): void ;
 
-    isSymbologySupportedAsync(barcodeSymbology: Number, callback: (error: Error, result: Boolean) => void): void ;
+    isSymbologySupportedAsync(barcodeSymbology: number, callback: (error: Error, result: boolean) => void): void ;
 
     retrieveStatisticsAsync(statisticsCategories: Object, callback: (error: Error, result: Object) => void): void ;
 
     getSupportedProfiles(): Object;
 
-    isProfileSupported(profile: String): Boolean;
+    isProfileSupported(profile: string): boolean;
 
     close(): void;
     addListener(type: "StatusUpdated", listener: (ev: Event) => void): void ;
@@ -501,11 +501,11 @@
   }
 
   export class ClaimedBarcodeScanner {
-    isDisabledOnDataReceived: Boolean;
-    isDecodeDataEnabled: Boolean;
-    deviceId: String;
-    isEnabled: Boolean;
-    isVideoPreviewShownOnEnable: Boolean;
+    isDisabledOnDataReceived: boolean;
+    isDecodeDataEnabled: boolean;
+    deviceId: string;
+    isEnabled: boolean;
+    isVideoPreviewShownOnEnable: boolean;
     constructor();
 
     enableAsync(callback: (error: Error) => void): void ;
@@ -518,17 +518,17 @@
 
     updateStatisticsAsync(statistics: Object, callback: (error: Error) => void): void ;
 
-    setActiveProfileAsync(profile: String, callback: (error: Error) => void): void ;
+    setActiveProfileAsync(profile: string, callback: (error: Error) => void): void ;
 
     startSoftwareTriggerAsync(callback: (error: Error) => void): void ;
 
     stopSoftwareTriggerAsync(callback: (error: Error) => void): void ;
 
-    getSymbologyAttributesAsync(barcodeSymbology: Number, callback: (error: Error, result: BarcodeSymbologyAttributes) => void): void ;
+    getSymbologyAttributesAsync(barcodeSymbology: number, callback: (error: Error, result: BarcodeSymbologyAttributes) => void): void ;
 
-    setSymbologyAttributesAsync(barcodeSymbology: Number, attributes: BarcodeSymbologyAttributes, callback: (error: Error, result: Boolean) => void): void ;
+    setSymbologyAttributesAsync(barcodeSymbology: number, attributes: BarcodeSymbologyAttributes, callback: (error: Error, result: boolean) => void): void ;
 
-    showVideoPreviewAsync(callback: (error: Error, result: Boolean) => void): void ;
+    showVideoPreviewAsync(callback: (error: Error, result: boolean) => void): void ;
 
     retainDevice(): void;
 
@@ -574,18 +574,18 @@
   }
 
   export class MagneticStripeReaderEncryptionAlgorithms {
-    static extendedBase: Number;
-    static none: Number;
-    static tripleDesDukpt: Number;
+    static extendedBase: number;
+    static none: number;
+    static tripleDesDukpt: number;
     constructor();
 
   }
 
   export class MagneticStripeReaderCardTypes {
-    static aamva: Number;
-    static bank: Number;
-    static extendedBase: Number;
-    static unknown: Number;
+    static aamva: number;
+    static bank: number;
+    static extendedBase: number;
+    static unknown: number;
     constructor();
 
   }
@@ -601,8 +601,8 @@
   export class MagneticStripeReaderReport {
     additionalSecurityInformation: Object;
     cardAuthenticationData: Object;
-    cardAuthenticationDataLength: Number;
-    cardType: Number;
+    cardAuthenticationDataLength: number;
+    cardType: number;
     properties: Object;
     track1: MagneticStripeReaderTrackData;
     track2: MagneticStripeReaderTrackData;
@@ -613,39 +613,39 @@
   }
 
   export class MagneticStripeReaderBankCardDataReceivedEventArgs {
-    accountNumber: String;
-    expirationDate: String;
-    firstName: String;
-    middleInitial: String;
+    accountNumber: string;
+    expirationDate: string;
+    firstName: string;
+    middleInitial: string;
     report: MagneticStripeReaderReport;
-    serviceCode: String;
-    suffix: String;
-    surname: String;
-    title: String;
+    serviceCode: string;
+    suffix: string;
+    surname: string;
+    title: string;
     constructor();
 
   }
 
   export class MagneticStripeReaderAamvaCardDataReceivedEventArgs {
-    address: String;
-    birthDate: String;
-    city: String;
-    class: String;
-    endorsements: String;
-    expirationDate: String;
-    eyeColor: String;
-    firstName: String;
-    gender: String;
-    hairColor: String;
-    height: String;
-    licenseNumber: String;
-    postalCode: String;
+    address: string;
+    birthDate: string;
+    city: string;
+    class: string;
+    endorsements: string;
+    expirationDate: string;
+    eyeColor: string;
+    firstName: string;
+    gender: string;
+    hairColor: string;
+    height: string;
+    licenseNumber: string;
+    postalCode: string;
     report: MagneticStripeReaderReport;
-    restrictions: String;
-    state: String;
-    suffix: String;
-    surname: String;
-    weight: String;
+    restrictions: string;
+    state: string;
+    suffix: string;
+    surname: string;
+    weight: string;
     constructor();
 
   }
@@ -668,7 +668,7 @@
   }
 
   export class MagneticStripeReaderStatusUpdatedEventArgs {
-    extendedStatus: Number;
+    extendedStatus: number;
     status: MagneticStripeReaderStatus;
     constructor();
 
@@ -676,29 +676,29 @@
 
   export class MagneticStripeReaderCapabilities {
     authenticationLevel: MagneticStripeReaderAuthenticationLevel;
-    cardAuthentication: String;
-    isIsoSupported: Boolean;
-    isJisOneSupported: Boolean;
-    isJisTwoSupported: Boolean;
-    isStatisticsReportingSupported: Boolean;
-    isStatisticsUpdatingSupported: Boolean;
-    isTrackDataMaskingSupported: Boolean;
-    isTransmitSentinelsSupported: Boolean;
+    cardAuthentication: string;
+    isIsoSupported: boolean;
+    isJisOneSupported: boolean;
+    isJisTwoSupported: boolean;
+    isStatisticsReportingSupported: boolean;
+    isStatisticsUpdatingSupported: boolean;
+    isTrackDataMaskingSupported: boolean;
+    isTransmitSentinelsSupported: boolean;
     powerReportingType: UnifiedPosPowerReportingType;
-    supportedEncryptionAlgorithms: Number;
+    supportedEncryptionAlgorithms: number;
     constructor();
 
   }
 
   export class ClaimedMagneticStripeReader {
     tracksToRead: MagneticStripeReaderTrackIds;
-    isTransmitSentinelsEnabled: Boolean;
-    isDisabledOnDataReceived: Boolean;
-    isDecodeDataEnabled: Boolean;
-    dataEncryptionAlgorithm: Number;
-    deviceId: String;
-    isDeviceAuthenticated: Boolean;
-    isEnabled: Boolean;
+    isTransmitSentinelsEnabled: boolean;
+    isDisabledOnDataReceived: boolean;
+    isDecodeDataEnabled: boolean;
+    dataEncryptionAlgorithm: number;
+    deviceId: string;
+    isDeviceAuthenticated: boolean;
+    isEnabled: boolean;
     constructor();
 
     enableAsync(callback: (error: Error) => void): void ;
@@ -707,11 +707,11 @@
 
     retrieveDeviceAuthenticationDataAsync(callback: (error: Error, result: Object) => void): void ;
 
-    authenticateDeviceAsync(responseToken: Array<Number>, callback: (error: Error) => void): void ;
+    authenticateDeviceAsync(responseToken: Array<number>, callback: (error: Error) => void): void ;
 
-    deAuthenticateDeviceAsync(responseToken: Array<Number>, callback: (error: Error) => void): void ;
+    deAuthenticateDeviceAsync(responseToken: Array<number>, callback: (error: Error) => void): void ;
 
-    updateKeyAsync(key: String, keyName: String, callback: (error: Error) => void): void ;
+    updateKeyAsync(key: string, keyName: string, callback: (error: Error) => void): void ;
 
     resetStatisticsAsync(statisticsCategories: Object, callback: (error: Error) => void): void ;
 
@@ -758,21 +758,21 @@
   export class MagneticStripeReader {
     capabilities: MagneticStripeReaderCapabilities;
     deviceAuthenticationProtocol: MagneticStripeReaderAuthenticationProtocol;
-    deviceId: String;
-    supportedCardTypes: Array<Number>;
+    deviceId: string;
+    supportedCardTypes: Array<number>;
     constructor();
 
     static getDefaultAsync(callback: (error: Error, result: MagneticStripeReader) => void): void ;
 
 
-    static fromIdAsync(deviceId: String, callback: (error: Error, result: MagneticStripeReader) => void): void ;
+    static fromIdAsync(deviceId: string, callback: (error: Error, result: MagneticStripeReader) => void): void ;
 
 
-    static getDeviceSelector(connectionTypes: PosConnectionTypes): String;
-    static getDeviceSelector(): String;
+    static getDeviceSelector(connectionTypes: PosConnectionTypes): string;
+    static getDeviceSelector(): string;
 
 
-    checkHealthAsync(level: UnifiedPosHealthCheckLevel, callback: (error: Error, result: String) => void): void ;
+    checkHealthAsync(level: UnifiedPosHealthCheckLevel, callback: (error: Error, result: string) => void): void ;
 
     claimReaderAsync(callback: (error: Error, result: ClaimedMagneticStripeReader) => void): void ;
 
@@ -795,9 +795,9 @@
   }
 
   export class PosPrinterCharacterSetIds {
-    static ansi: Number;
-    static ascii: Number;
-    static utf16LE: Number;
+    static ansi: number;
+    static ascii: number;
+    static utf16LE: number;
     constructor();
 
   }
@@ -805,28 +805,28 @@
   export class ICommonPosPrintStationCapabilities {
     cartridgeSensors: PosPrinterCartridgeSensors;
     colorCartridgeCapabilities: PosPrinterColorCapabilities;
-    isBoldSupported: Boolean;
-    isDoubleHighDoubleWidePrintSupported: Boolean;
-    isDoubleHighPrintSupported: Boolean;
-    isDoubleWidePrintSupported: Boolean;
-    isDualColorSupported: Boolean;
-    isItalicSupported: Boolean;
-    isPaperEmptySensorSupported: Boolean;
-    isPaperNearEndSensorSupported: Boolean;
-    isPrinterPresent: Boolean;
-    isUnderlineSupported: Boolean;
+    isBoldSupported: boolean;
+    isDoubleHighDoubleWidePrintSupported: boolean;
+    isDoubleHighPrintSupported: boolean;
+    isDoubleWidePrintSupported: boolean;
+    isDualColorSupported: boolean;
+    isItalicSupported: boolean;
+    isPaperEmptySensorSupported: boolean;
+    isPaperNearEndSensorSupported: boolean;
+    isPrinterPresent: boolean;
+    isUnderlineSupported: boolean;
     supportedCharactersPerLine: Object;
     constructor();
 
   }
 
   export class ICommonReceiptSlipCapabilities {
-    is180RotationSupported: Boolean;
-    isBarcodeSupported: Boolean;
-    isBitmapSupported: Boolean;
-    isLeft90RotationSupported: Boolean;
-    isPrintAreaSupported: Boolean;
-    isRight90RotationSupported: Boolean;
+    is180RotationSupported: boolean;
+    isBarcodeSupported: boolean;
+    isBitmapSupported: boolean;
+    isLeft90RotationSupported: boolean;
+    isPrintAreaSupported: boolean;
+    isRight90RotationSupported: boolean;
     ruledLineCapabilities: PosPrinterRuledLineCapabilities;
     supportedBarcodeRotations: Object;
     supportedBitmapRotations: Object;
@@ -836,59 +836,59 @@
 
   export class ReceiptPrinterCapabilities {
     colorCartridgeCapabilities: PosPrinterColorCapabilities;
-    isBoldSupported: Boolean;
-    isDoubleHighDoubleWidePrintSupported: Boolean;
-    isDoubleHighPrintSupported: Boolean;
-    isDoubleWidePrintSupported: Boolean;
-    isDualColorSupported: Boolean;
-    isItalicSupported: Boolean;
-    isPaperEmptySensorSupported: Boolean;
-    isPaperNearEndSensorSupported: Boolean;
-    isPrinterPresent: Boolean;
-    isUnderlineSupported: Boolean;
+    isBoldSupported: boolean;
+    isDoubleHighDoubleWidePrintSupported: boolean;
+    isDoubleHighPrintSupported: boolean;
+    isDoubleWidePrintSupported: boolean;
+    isDualColorSupported: boolean;
+    isItalicSupported: boolean;
+    isPaperEmptySensorSupported: boolean;
+    isPaperNearEndSensorSupported: boolean;
+    isPrinterPresent: boolean;
+    isUnderlineSupported: boolean;
     supportedCharactersPerLine: Object;
     cartridgeSensors: PosPrinterCartridgeSensors;
-    is180RotationSupported: Boolean;
+    is180RotationSupported: boolean;
     supportedBarcodeRotations: Object;
     supportedBitmapRotations: Object;
-    isLeft90RotationSupported: Boolean;
-    isBarcodeSupported: Boolean;
-    isBitmapSupported: Boolean;
-    isPrintAreaSupported: Boolean;
-    isRight90RotationSupported: Boolean;
+    isLeft90RotationSupported: boolean;
+    isBarcodeSupported: boolean;
+    isBitmapSupported: boolean;
+    isPrintAreaSupported: boolean;
+    isRight90RotationSupported: boolean;
     ruledLineCapabilities: PosPrinterRuledLineCapabilities;
-    isStampSupported: Boolean;
+    isStampSupported: boolean;
     markFeedCapabilities: PosPrinterMarkFeedCapabilities;
-    canCutPaper: Boolean;
+    canCutPaper: boolean;
     constructor();
 
   }
 
   export class SlipPrinterCapabilities {
-    isBoldSupported: Boolean;
-    isDoubleHighDoubleWidePrintSupported: Boolean;
-    isDoubleWidePrintSupported: Boolean;
-    isDoubleHighPrintSupported: Boolean;
-    isDualColorSupported: Boolean;
-    isItalicSupported: Boolean;
-    isPaperEmptySensorSupported: Boolean;
-    isPaperNearEndSensorSupported: Boolean;
-    isPrinterPresent: Boolean;
-    isUnderlineSupported: Boolean;
+    isBoldSupported: boolean;
+    isDoubleHighDoubleWidePrintSupported: boolean;
+    isDoubleWidePrintSupported: boolean;
+    isDoubleHighPrintSupported: boolean;
+    isDualColorSupported: boolean;
+    isItalicSupported: boolean;
+    isPaperEmptySensorSupported: boolean;
+    isPaperNearEndSensorSupported: boolean;
+    isPrinterPresent: boolean;
+    isUnderlineSupported: boolean;
     colorCartridgeCapabilities: PosPrinterColorCapabilities;
     supportedCharactersPerLine: Object;
     cartridgeSensors: PosPrinterCartridgeSensors;
-    isBarcodeSupported: Boolean;
+    isBarcodeSupported: boolean;
     supportedBitmapRotations: Object;
-    isPrintAreaSupported: Boolean;
+    isPrintAreaSupported: boolean;
     supportedBarcodeRotations: Object;
-    is180RotationSupported: Boolean;
-    isBitmapSupported: Boolean;
-    isLeft90RotationSupported: Boolean;
-    isRight90RotationSupported: Boolean;
+    is180RotationSupported: boolean;
+    isBitmapSupported: boolean;
+    isLeft90RotationSupported: boolean;
+    isRight90RotationSupported: boolean;
     ruledLineCapabilities: PosPrinterRuledLineCapabilities;
-    isFullLengthSupported: Boolean;
-    isBothSidesPrintingSupported: Boolean;
+    isFullLengthSupported: boolean;
+    isBothSidesPrintingSupported: boolean;
     constructor();
 
   }
@@ -896,28 +896,28 @@
   export class JournalPrinterCapabilities {
     cartridgeSensors: PosPrinterCartridgeSensors;
     colorCartridgeCapabilities: PosPrinterColorCapabilities;
-    isBoldSupported: Boolean;
-    isDoubleHighDoubleWidePrintSupported: Boolean;
-    isDoubleHighPrintSupported: Boolean;
-    isDoubleWidePrintSupported: Boolean;
-    isDualColorSupported: Boolean;
-    isItalicSupported: Boolean;
-    isPaperEmptySensorSupported: Boolean;
-    isPaperNearEndSensorSupported: Boolean;
-    isPrinterPresent: Boolean;
-    isUnderlineSupported: Boolean;
+    isBoldSupported: boolean;
+    isDoubleHighDoubleWidePrintSupported: boolean;
+    isDoubleHighPrintSupported: boolean;
+    isDoubleWidePrintSupported: boolean;
+    isDualColorSupported: boolean;
+    isItalicSupported: boolean;
+    isPaperEmptySensorSupported: boolean;
+    isPaperNearEndSensorSupported: boolean;
+    isPrinterPresent: boolean;
+    isUnderlineSupported: boolean;
     supportedCharactersPerLine: Object;
     constructor();
 
   }
 
   export class PosPrinterCapabilities {
-    canMapCharacterSet: Boolean;
-    defaultCharacterSet: Number;
-    hasCoverSensor: Boolean;
-    isStatisticsReportingSupported: Boolean;
-    isStatisticsUpdatingSupported: Boolean;
-    isTransactionSupported: Boolean;
+    canMapCharacterSet: boolean;
+    defaultCharacterSet: number;
+    hasCoverSensor: boolean;
+    isStatisticsReportingSupported: boolean;
+    isStatisticsUpdatingSupported: boolean;
+    isTransactionSupported: boolean;
     journal: JournalPrinterCapabilities;
     powerReportingType: UnifiedPosPowerReportingType;
     receipt: ReceiptPrinterCapabilities;
@@ -927,7 +927,7 @@
   }
 
   export class PosPrinterStatus {
-    extendedStatus: Number;
+    extendedStatus: number;
     statusKind: PosPrinterStatusKind;
     constructor();
 
@@ -946,7 +946,7 @@
 
   export class PosPrinter {
     capabilities: PosPrinterCapabilities;
-    deviceId: String;
+    deviceId: string;
     status: PosPrinterStatus;
     supportedCharacterSets: Object;
     supportedTypeFaces: Object;
@@ -955,18 +955,18 @@
     static getDefaultAsync(callback: (error: Error, result: PosPrinter) => void): void ;
 
 
-    static fromIdAsync(deviceId: String, callback: (error: Error, result: PosPrinter) => void): void ;
+    static fromIdAsync(deviceId: string, callback: (error: Error, result: PosPrinter) => void): void ;
 
 
-    static getDeviceSelector(connectionTypes: PosConnectionTypes): String;
-    static getDeviceSelector(): String;
+    static getDeviceSelector(connectionTypes: PosConnectionTypes): string;
+    static getDeviceSelector(): string;
 
 
     claimPrinterAsync(callback: (error: Error, result: ClaimedPosPrinter) => void): void ;
 
-    checkHealthAsync(level: UnifiedPosHealthCheckLevel, callback: (error: Error, result: String) => void): void ;
+    checkHealthAsync(level: UnifiedPosHealthCheckLevel, callback: (error: Error, result: string) => void): void ;
 
-    getStatisticsAsync(statisticsCategories: Object, callback: (error: Error, result: String) => void): void ;
+    getStatisticsAsync(statisticsCategories: Object, callback: (error: Error, result: string) => void): void ;
 
     close(): void;
     addListener(type: "StatusUpdated", listener: (ev: Event) => void): void ;
@@ -984,25 +984,25 @@
 
   export class ClaimedPosPrinter {
     mapMode: PosPrinterMapMode;
-    isCharacterSetMappingEnabled: Boolean;
-    characterSet: Number;
-    deviceId: String;
-    isCoverOpen: Boolean;
-    isEnabled: Boolean;
+    isCharacterSetMappingEnabled: boolean;
+    characterSet: number;
+    deviceId: string;
+    isCoverOpen: boolean;
+    isEnabled: boolean;
     journal: ClaimedJournalPrinter;
     receipt: ClaimedReceiptPrinter;
     slip: ClaimedSlipPrinter;
     constructor();
 
-    enableAsync(callback: (error: Error, result: Boolean) => void): void ;
+    enableAsync(callback: (error: Error, result: boolean) => void): void ;
 
-    disableAsync(callback: (error: Error, result: Boolean) => void): void ;
+    disableAsync(callback: (error: Error, result: boolean) => void): void ;
 
-    retainDeviceAsync(callback: (error: Error, result: Boolean) => void): void ;
+    retainDeviceAsync(callback: (error: Error, result: boolean) => void): void ;
 
-    resetStatisticsAsync(statisticsCategories: Object, callback: (error: Error, result: Boolean) => void): void ;
+    resetStatisticsAsync(statisticsCategories: Object, callback: (error: Error, result: boolean) => void): void ;
 
-    updateStatisticsAsync(statistics: Object, callback: (error: Error, result: Boolean) => void): void ;
+    updateStatisticsAsync(statistics: Object, callback: (error: Error, result: boolean) => void): void ;
 
     close(): void;
     addListener(type: "ReleaseDeviceRequested", listener: (ev: Event) => void): void ;
@@ -1021,11 +1021,11 @@
   export class IPosPrinterJob {
     constructor();
 
-    executeAsync(callback: (error: Error, result: Boolean) => void): void ;
+    executeAsync(callback: (error: Error, result: boolean) => void): void ;
 
-    print(data: String): void;
+    print(data: string): void;
 
-    printLine(data: String): void;
+    printLine(data: string): void;
     printLine(): void;
 
   }
@@ -1035,71 +1035,71 @@
 
     setBarcodeRotation(value: PosPrinterRotation): void;
 
-    setPrintRotation(value: PosPrinterRotation, includeBitmaps: Boolean): void;
+    setPrintRotation(value: PosPrinterRotation, includeBitmaps: boolean): void;
 
     setPrintArea(value: Object): void;
 
-    setBitmap(bitmapNumber: Number, bitmap: Object, alignment: PosPrinterAlignment): void;
-    setBitmap(bitmapNumber: Number, bitmap: Object, alignment: PosPrinterAlignment, width: Number): void;
+    setBitmap(bitmapNumber: number, bitmap: Object, alignment: PosPrinterAlignment): void;
+    setBitmap(bitmapNumber: number, bitmap: Object, alignment: PosPrinterAlignment, width: number): void;
 
-    setCustomAlignedBitmap(bitmapNumber: Number, bitmap: Object, alignmentDistance: Number): void;
-    setCustomAlignedBitmap(bitmapNumber: Number, bitmap: Object, alignmentDistance: Number, width: Number): void;
+    setCustomAlignedBitmap(bitmapNumber: number, bitmap: Object, alignmentDistance: number): void;
+    setCustomAlignedBitmap(bitmapNumber: number, bitmap: Object, alignmentDistance: number, width: number): void;
 
-    printSavedBitmap(bitmapNumber: Number): void;
+    printSavedBitmap(bitmapNumber: number): void;
 
-    drawRuledLine(positionList: String, lineDirection: PosPrinterLineDirection, lineWidth: Number, lineStyle: PosPrinterLineStyle, lineColor: Number): void;
+    drawRuledLine(positionList: string, lineDirection: PosPrinterLineDirection, lineWidth: number, lineStyle: PosPrinterLineStyle, lineColor: number): void;
 
-    printBarcode(data: String, symbology: Number, height: Number, width: Number, textPosition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment): void;
+    printBarcode(data: string, symbology: number, height: number, width: number, textPosition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment): void;
 
-    printBarcodeCustomAlign(data: String, symbology: Number, height: Number, width: Number, textPosition: PosPrinterBarcodeTextPosition, alignmentDistance: Number): void;
+    printBarcodeCustomAlign(data: string, symbology: number, height: number, width: number, textPosition: PosPrinterBarcodeTextPosition, alignmentDistance: number): void;
 
     printBitmap(bitmap: Object, alignment: PosPrinterAlignment): void;
-    printBitmap(bitmap: Object, alignment: PosPrinterAlignment, width: Number): void;
+    printBitmap(bitmap: Object, alignment: PosPrinterAlignment, width: number): void;
 
-    printCustomAlignedBitmap(bitmap: Object, alignmentDistance: Number): void;
-    printCustomAlignedBitmap(bitmap: Object, alignmentDistance: Number, width: Number): void;
+    printCustomAlignedBitmap(bitmap: Object, alignmentDistance: number): void;
+    printCustomAlignedBitmap(bitmap: Object, alignmentDistance: number, width: number): void;
 
   }
 
   export class ReceiptPrintJob {
     constructor();
 
-    executeAsync(callback: (error: Error, result: Boolean) => void): void ;
+    executeAsync(callback: (error: Error, result: boolean) => void): void ;
 
     markFeed(kind: PosPrinterMarkFeedKind): void;
 
-    cutPaper(percentage: Number): void;
+    cutPaper(percentage: number): void;
     cutPaper(): void;
 
     setBarcodeRotation(value: PosPrinterRotation): void;
 
-    setPrintRotation(value: PosPrinterRotation, includeBitmaps: Boolean): void;
+    setPrintRotation(value: PosPrinterRotation, includeBitmaps: boolean): void;
 
     setPrintArea(value: Object): void;
 
-    setBitmap(bitmapNumber: Number, bitmap: Object, alignment: PosPrinterAlignment): void;
-    setBitmap(bitmapNumber: Number, bitmap: Object, alignment: PosPrinterAlignment, width: Number): void;
+    setBitmap(bitmapNumber: number, bitmap: Object, alignment: PosPrinterAlignment): void;
+    setBitmap(bitmapNumber: number, bitmap: Object, alignment: PosPrinterAlignment, width: number): void;
 
-    setCustomAlignedBitmap(bitmapNumber: Number, bitmap: Object, alignmentDistance: Number): void;
-    setCustomAlignedBitmap(bitmapNumber: Number, bitmap: Object, alignmentDistance: Number, width: Number): void;
+    setCustomAlignedBitmap(bitmapNumber: number, bitmap: Object, alignmentDistance: number): void;
+    setCustomAlignedBitmap(bitmapNumber: number, bitmap: Object, alignmentDistance: number, width: number): void;
 
-    printSavedBitmap(bitmapNumber: Number): void;
+    printSavedBitmap(bitmapNumber: number): void;
 
-    drawRuledLine(positionList: String, lineDirection: PosPrinterLineDirection, lineWidth: Number, lineStyle: PosPrinterLineStyle, lineColor: Number): void;
+    drawRuledLine(positionList: string, lineDirection: PosPrinterLineDirection, lineWidth: number, lineStyle: PosPrinterLineStyle, lineColor: number): void;
 
-    printBarcode(data: String, symbology: Number, height: Number, width: Number, textPosition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment): void;
+    printBarcode(data: string, symbology: number, height: number, width: number, textPosition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment): void;
 
-    printBarcodeCustomAlign(data: String, symbology: Number, height: Number, width: Number, textPosition: PosPrinterBarcodeTextPosition, alignmentDistance: Number): void;
+    printBarcodeCustomAlign(data: string, symbology: number, height: number, width: number, textPosition: PosPrinterBarcodeTextPosition, alignmentDistance: number): void;
 
     printBitmap(bitmap: Object, alignment: PosPrinterAlignment): void;
-    printBitmap(bitmap: Object, alignment: PosPrinterAlignment, width: Number): void;
+    printBitmap(bitmap: Object, alignment: PosPrinterAlignment, width: number): void;
 
-    printCustomAlignedBitmap(bitmap: Object, alignmentDistance: Number): void;
-    printCustomAlignedBitmap(bitmap: Object, alignmentDistance: Number, width: Number): void;
+    printCustomAlignedBitmap(bitmap: Object, alignmentDistance: number): void;
+    printCustomAlignedBitmap(bitmap: Object, alignmentDistance: number, width: number): void;
 
-    print(data: String): void;
+    print(data: string): void;
 
-    printLine(data: String): void;
+    printLine(data: string): void;
     printLine(): void;
 
   }
@@ -1107,37 +1107,37 @@
   export class SlipPrintJob {
     constructor();
 
-    executeAsync(callback: (error: Error, result: Boolean) => void): void ;
+    executeAsync(callback: (error: Error, result: boolean) => void): void ;
 
     setBarcodeRotation(value: PosPrinterRotation): void;
 
-    setPrintRotation(value: PosPrinterRotation, includeBitmaps: Boolean): void;
+    setPrintRotation(value: PosPrinterRotation, includeBitmaps: boolean): void;
 
     setPrintArea(value: Object): void;
 
-    setBitmap(bitmapNumber: Number, bitmap: Object, alignment: PosPrinterAlignment): void;
-    setBitmap(bitmapNumber: Number, bitmap: Object, alignment: PosPrinterAlignment, width: Number): void;
+    setBitmap(bitmapNumber: number, bitmap: Object, alignment: PosPrinterAlignment): void;
+    setBitmap(bitmapNumber: number, bitmap: Object, alignment: PosPrinterAlignment, width: number): void;
 
-    setCustomAlignedBitmap(bitmapNumber: Number, bitmap: Object, alignmentDistance: Number): void;
-    setCustomAlignedBitmap(bitmapNumber: Number, bitmap: Object, alignmentDistance: Number, width: Number): void;
+    setCustomAlignedBitmap(bitmapNumber: number, bitmap: Object, alignmentDistance: number): void;
+    setCustomAlignedBitmap(bitmapNumber: number, bitmap: Object, alignmentDistance: number, width: number): void;
 
-    printSavedBitmap(bitmapNumber: Number): void;
+    printSavedBitmap(bitmapNumber: number): void;
 
-    drawRuledLine(positionList: String, lineDirection: PosPrinterLineDirection, lineWidth: Number, lineStyle: PosPrinterLineStyle, lineColor: Number): void;
+    drawRuledLine(positionList: string, lineDirection: PosPrinterLineDirection, lineWidth: number, lineStyle: PosPrinterLineStyle, lineColor: number): void;
 
-    printBarcode(data: String, symbology: Number, height: Number, width: Number, textPosition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment): void;
+    printBarcode(data: string, symbology: number, height: number, width: number, textPosition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment): void;
 
-    printBarcodeCustomAlign(data: String, symbology: Number, height: Number, width: Number, textPosition: PosPrinterBarcodeTextPosition, alignmentDistance: Number): void;
+    printBarcodeCustomAlign(data: string, symbology: number, height: number, width: number, textPosition: PosPrinterBarcodeTextPosition, alignmentDistance: number): void;
 
     printBitmap(bitmap: Object, alignment: PosPrinterAlignment): void;
-    printBitmap(bitmap: Object, alignment: PosPrinterAlignment, width: Number): void;
+    printBitmap(bitmap: Object, alignment: PosPrinterAlignment, width: number): void;
 
-    printCustomAlignedBitmap(bitmap: Object, alignmentDistance: Number): void;
-    printCustomAlignedBitmap(bitmap: Object, alignmentDistance: Number, width: Number): void;
+    printCustomAlignedBitmap(bitmap: Object, alignmentDistance: number): void;
+    printCustomAlignedBitmap(bitmap: Object, alignmentDistance: number, width: number): void;
 
-    print(data: String): void;
+    print(data: string): void;
 
-    printLine(data: String): void;
+    printLine(data: string): void;
     printLine(): void;
 
   }
@@ -1145,88 +1145,88 @@
   export class JournalPrintJob {
     constructor();
 
-    executeAsync(callback: (error: Error, result: Boolean) => void): void ;
+    executeAsync(callback: (error: Error, result: boolean) => void): void ;
 
-    print(data: String): void;
+    print(data: string): void;
 
-    printLine(data: String): void;
+    printLine(data: string): void;
     printLine(): void;
 
   }
 
   export class ICommonClaimedPosPrinterStation {
-    charactersPerLine: Number;
+    charactersPerLine: number;
     colorCartridge: PosPrinterColorCartridge;
-    isCartridgeEmpty: Boolean;
-    isCartridgeRemoved: Boolean;
-    isCoverOpen: Boolean;
-    isHeadCleaning: Boolean;
-    isLetterQuality: Boolean;
-    isPaperEmpty: Boolean;
-    isPaperNearEnd: Boolean;
-    isReadyToPrint: Boolean;
-    lineHeight: Number;
-    lineSpacing: Number;
-    lineWidth: Number;
+    isCartridgeEmpty: boolean;
+    isCartridgeRemoved: boolean;
+    isCoverOpen: boolean;
+    isHeadCleaning: boolean;
+    isLetterQuality: boolean;
+    isPaperEmpty: boolean;
+    isPaperNearEnd: boolean;
+    isReadyToPrint: boolean;
+    lineHeight: number;
+    lineSpacing: number;
+    lineWidth: number;
     constructor();
 
-    validateData(data: String): Boolean;
+    validateData(data: string): boolean;
 
   }
 
   export class ClaimedReceiptPrinter {
-    linesToPaperCut: Number;
+    linesToPaperCut: number;
     pageSize: Object;
     printArea: Object;
-    sidewaysMaxChars: Number;
-    sidewaysMaxLines: Number;
-    lineSpacing: Number;
-    lineHeight: Number;
-    isLetterQuality: Boolean;
+    sidewaysMaxChars: number;
+    sidewaysMaxLines: number;
+    lineSpacing: number;
+    lineHeight: number;
+    isLetterQuality: boolean;
     colorCartridge: PosPrinterColorCartridge;
-    charactersPerLine: Number;
-    isHeadCleaning: Boolean;
-    isCoverOpen: Boolean;
-    isPaperEmpty: Boolean;
-    isPaperNearEnd: Boolean;
-    isCartridgeRemoved: Boolean;
-    isReadyToPrint: Boolean;
-    isCartridgeEmpty: Boolean;
-    lineWidth: Number;
+    charactersPerLine: number;
+    isHeadCleaning: boolean;
+    isCoverOpen: boolean;
+    isPaperEmpty: boolean;
+    isPaperNearEnd: boolean;
+    isCartridgeRemoved: boolean;
+    isReadyToPrint: boolean;
+    isCartridgeEmpty: boolean;
+    lineWidth: number;
     constructor();
 
     createJob(): ReceiptPrintJob;
 
-    validateData(data: String): Boolean;
+    validateData(data: string): boolean;
 
   }
 
   export class ClaimedSlipPrinter {
-    linesNearEndToEnd: Number;
-    maxLines: Number;
+    linesNearEndToEnd: number;
+    maxLines: number;
     pageSize: Object;
     printArea: Object;
     printSide: PosPrinterPrintSide;
-    sidewaysMaxChars: Number;
-    sidewaysMaxLines: Number;
-    lineSpacing: Number;
-    lineHeight: Number;
-    isLetterQuality: Boolean;
+    sidewaysMaxChars: number;
+    sidewaysMaxLines: number;
+    lineSpacing: number;
+    lineHeight: number;
+    isLetterQuality: boolean;
     colorCartridge: PosPrinterColorCartridge;
-    charactersPerLine: Number;
-    isHeadCleaning: Boolean;
-    isCartridgeEmpty: Boolean;
-    isPaperEmpty: Boolean;
-    isCartridgeRemoved: Boolean;
-    isReadyToPrint: Boolean;
-    isPaperNearEnd: Boolean;
-    isCoverOpen: Boolean;
-    lineWidth: Number;
+    charactersPerLine: number;
+    isHeadCleaning: boolean;
+    isCartridgeEmpty: boolean;
+    isPaperEmpty: boolean;
+    isCartridgeRemoved: boolean;
+    isReadyToPrint: boolean;
+    isPaperNearEnd: boolean;
+    isCoverOpen: boolean;
+    lineWidth: number;
     constructor();
 
-    insertSlipAsync(timeout: Number, callback: (error: Error, result: Boolean) => void): void ;
+    insertSlipAsync(timeout: number, callback: (error: Error, result: boolean) => void): void ;
 
-    removeSlipAsync(timeout: Number, callback: (error: Error, result: Boolean) => void): void ;
+    removeSlipAsync(timeout: number, callback: (error: Error, result: boolean) => void): void ;
 
     openJaws(): void;
 
@@ -1236,34 +1236,34 @@
 
     createJob(): SlipPrintJob;
 
-    validateData(data: String): Boolean;
+    validateData(data: string): boolean;
 
   }
 
   export class ClaimedJournalPrinter {
-    isLetterQuality: Boolean;
+    isLetterQuality: boolean;
     colorCartridge: PosPrinterColorCartridge;
-    charactersPerLine: Number;
-    lineSpacing: Number;
-    lineHeight: Number;
-    isCartridgeEmpty: Boolean;
-    isCartridgeRemoved: Boolean;
-    isCoverOpen: Boolean;
-    isHeadCleaning: Boolean;
-    isPaperEmpty: Boolean;
-    isPaperNearEnd: Boolean;
-    isReadyToPrint: Boolean;
-    lineWidth: Number;
+    charactersPerLine: number;
+    lineSpacing: number;
+    lineHeight: number;
+    isCartridgeEmpty: boolean;
+    isCartridgeRemoved: boolean;
+    isCoverOpen: boolean;
+    isHeadCleaning: boolean;
+    isPaperEmpty: boolean;
+    isPaperNearEnd: boolean;
+    isReadyToPrint: boolean;
+    lineWidth: number;
     constructor();
 
     createJob(): JournalPrintJob;
 
-    validateData(data: String): Boolean;
+    validateData(data: string): boolean;
 
   }
 
   export class CashDrawerStatus {
-    extendedStatus: Number;
+    extendedStatus: number;
     statusKind: CashDrawerStatusKind;
     constructor();
 
@@ -1276,11 +1276,11 @@
   }
 
   export class CashDrawerCapabilities {
-    isDrawerOpenSensorAvailable: Boolean;
-    isStatisticsReportingSupported: Boolean;
-    isStatisticsUpdatingSupported: Boolean;
-    isStatusMultiDrawerDetectSupported: Boolean;
-    isStatusReportingSupported: Boolean;
+    isDrawerOpenSensorAvailable: boolean;
+    isStatisticsReportingSupported: boolean;
+    isStatisticsUpdatingSupported: boolean;
+    isStatusMultiDrawerDetectSupported: boolean;
+    isStatusReportingSupported: boolean;
     powerReportingType: UnifiedPosPowerReportingType;
     constructor();
 
@@ -1294,27 +1294,27 @@
 
   export class CashDrawer {
     capabilities: CashDrawerCapabilities;
-    deviceId: String;
+    deviceId: string;
     drawerEventSource: CashDrawerEventSource;
-    isDrawerOpen: Boolean;
+    isDrawerOpen: boolean;
     status: CashDrawerStatus;
     constructor();
 
     static getDefaultAsync(callback: (error: Error, result: CashDrawer) => void): void ;
 
 
-    static fromIdAsync(deviceId: String, callback: (error: Error, result: CashDrawer) => void): void ;
+    static fromIdAsync(deviceId: string, callback: (error: Error, result: CashDrawer) => void): void ;
 
 
-    static getDeviceSelector(connectionTypes: PosConnectionTypes): String;
-    static getDeviceSelector(): String;
+    static getDeviceSelector(connectionTypes: PosConnectionTypes): string;
+    static getDeviceSelector(): string;
 
 
     claimDrawerAsync(callback: (error: Error, result: ClaimedCashDrawer) => void): void ;
 
-    checkHealthAsync(level: UnifiedPosHealthCheckLevel, callback: (error: Error, result: String) => void): void ;
+    checkHealthAsync(level: UnifiedPosHealthCheckLevel, callback: (error: Error, result: string) => void): void ;
 
-    getStatisticsAsync(statisticsCategories: Object, callback: (error: Error, result: String) => void): void ;
+    getStatisticsAsync(statisticsCategories: Object, callback: (error: Error, result: string) => void): void ;
 
     close(): void;
     addListener(type: "StatusUpdated", listener: (ev: Event) => void): void ;
@@ -1365,22 +1365,22 @@
 
   export class ClaimedCashDrawer {
     closeAlarm: CashDrawerCloseAlarm;
-    deviceId: String;
-    isDrawerOpen: Boolean;
-    isEnabled: Boolean;
+    deviceId: string;
+    isDrawerOpen: boolean;
+    isEnabled: boolean;
     constructor();
 
-    openDrawerAsync(callback: (error: Error, result: Boolean) => void): void ;
+    openDrawerAsync(callback: (error: Error, result: boolean) => void): void ;
 
-    enableAsync(callback: (error: Error, result: Boolean) => void): void ;
+    enableAsync(callback: (error: Error, result: boolean) => void): void ;
 
-    disableAsync(callback: (error: Error, result: Boolean) => void): void ;
+    disableAsync(callback: (error: Error, result: boolean) => void): void ;
 
-    retainDeviceAsync(callback: (error: Error, result: Boolean) => void): void ;
+    retainDeviceAsync(callback: (error: Error, result: boolean) => void): void ;
 
-    resetStatisticsAsync(statisticsCategories: Object, callback: (error: Error, result: Boolean) => void): void ;
+    resetStatisticsAsync(statisticsCategories: Object, callback: (error: Error, result: boolean) => void): void ;
 
-    updateStatisticsAsync(statistics: Object, callback: (error: Error, result: Boolean) => void): void ;
+    updateStatisticsAsync(statistics: Object, callback: (error: Error, result: boolean) => void): void ;
 
     close(): void;
     addListener(type: "ReleaseDeviceRequested", listener: (ev: Event) => void): void ;
@@ -1397,13 +1397,13 @@
   }
 
   export class CashDrawerCloseAlarm {
-    beepFrequency: Number;
-    beepDuration: Number;
-    beepDelay: Number;
-    alarmTimeout: Number;
+    beepFrequency: number;
+    beepDuration: number;
+    beepDelay: number;
+    alarmTimeout: number;
     constructor();
 
-    startAsync(callback: (error: Error, result: Boolean) => void): void ;
+    startAsync(callback: (error: Error, result: boolean) => void): void ;
 
     addListener(type: "AlarmTimeoutExpired", listener: (ev: Event) => void): void ;
     removeListener(type: "AlarmTimeoutExpired", listener: (ev: Event) => void): void ;
@@ -1421,22 +1421,22 @@
   export class LineDisplay {
     static statisticsCategorySelector: LineDisplayStatisticsCategorySelector;
     capabilities: LineDisplayCapabilities;
-    deviceControlDescription: String;
-    deviceControlVersion: String;
-    deviceId: String;
-    deviceServiceVersion: String;
-    physicalDeviceDescription: String;
-    physicalDeviceName: String;
+    deviceControlDescription: string;
+    deviceControlVersion: string;
+    deviceId: string;
+    deviceServiceVersion: string;
+    physicalDeviceDescription: string;
+    physicalDeviceName: string;
     constructor();
 
-    static fromIdAsync(deviceId: String, callback: (error: Error, result: LineDisplay) => void): void ;
+    static fromIdAsync(deviceId: string, callback: (error: Error, result: LineDisplay) => void): void ;
 
 
     static getDefaultAsync(callback: (error: Error, result: LineDisplay) => void): void ;
 
 
-    static getDeviceSelector(): String;
-    static getDeviceSelector(connectionTypes: PosConnectionTypes): String;
+    static getDeviceSelector(): string;
+    static getDeviceSelector(connectionTypes: PosConnectionTypes): string;
 
 
     claimAsync(callback: (error: Error, result: ClaimedLineDisplay) => void): void ;
@@ -1447,9 +1447,9 @@
   }
 
   export class LineDisplayStatisticsCategorySelector {
-    allStatistics: String;
-    manufacturerStatistics: String;
-    unifiedPosStatistics: String;
+    allStatistics: string;
+    manufacturerStatistics: string;
+    unifiedPosStatistics: string;
     constructor();
 
   }
@@ -1457,42 +1457,42 @@
   export class ClaimedLineDisplay {
     capabilities: LineDisplayCapabilities;
     defaultWindow: LineDisplayWindow;
-    deviceControlDescription: String;
-    deviceControlVersion: String;
-    deviceId: String;
-    deviceServiceVersion: String;
-    physicalDeviceDescription: String;
-    physicalDeviceName: String;
+    deviceControlDescription: string;
+    deviceControlVersion: string;
+    deviceId: string;
+    deviceServiceVersion: string;
+    physicalDeviceDescription: string;
+    physicalDeviceName: string;
     customGlyphs: LineDisplayCustomGlyphs;
     maxBitmapSizeInPixels: Object;
     supportedCharacterSets: Object;
     supportedScreenSizesInCharacters: Object;
     constructor();
 
-    static fromIdAsync(deviceId: String, callback: (error: Error, result: ClaimedLineDisplay) => void): void ;
+    static fromIdAsync(deviceId: string, callback: (error: Error, result: ClaimedLineDisplay) => void): void ;
 
 
-    static getDeviceSelector(): String;
-    static getDeviceSelector(connectionTypes: PosConnectionTypes): String;
+    static getDeviceSelector(): string;
+    static getDeviceSelector(connectionTypes: PosConnectionTypes): string;
 
 
-    getStatisticsAsync(statisticsCategories: Object, callback: (error: Error, result: String) => void): void ;
+    getStatisticsAsync(statisticsCategories: Object, callback: (error: Error, result: string) => void): void ;
 
-    checkHealthAsync(level: UnifiedPosHealthCheckLevel, callback: (error: Error, result: String) => void): void ;
+    checkHealthAsync(level: UnifiedPosHealthCheckLevel, callback: (error: Error, result: string) => void): void ;
 
     checkPowerStatusAsync(callback: (error: Error, result: LineDisplayPowerStatus) => void): void ;
 
-    tryUpdateAttributesAsync(attributes: LineDisplayAttributes, callback: (error: Error, result: Boolean) => void): void ;
+    tryUpdateAttributesAsync(attributes: LineDisplayAttributes, callback: (error: Error, result: boolean) => void): void ;
 
-    trySetDescriptorAsync(descriptor: Number, descriptorState: LineDisplayDescriptorState, callback: (error: Error, result: Boolean) => void): void ;
+    trySetDescriptorAsync(descriptor: number, descriptorState: LineDisplayDescriptorState, callback: (error: Error, result: boolean) => void): void ;
 
-    tryClearDescriptorsAsync(callback: (error: Error, result: Boolean) => void): void ;
+    tryClearDescriptorsAsync(callback: (error: Error, result: boolean) => void): void ;
 
     tryCreateWindowAsync(viewport: Object, windowSize: Object, callback: (error: Error, result: LineDisplayWindow) => void): void ;
 
     tryStoreStorageFileBitmapAsync(bitmap: Object, callback: (error: Error, result: LineDisplayStoredBitmap) => void): void ;
     tryStoreStorageFileBitmapAsync(bitmap: Object, horizontalAlignment: LineDisplayHorizontalAlignment, verticalAlignment: LineDisplayVerticalAlignment, callback: (error: Error, result: LineDisplayStoredBitmap) => void): void ;
-    tryStoreStorageFileBitmapAsync(bitmap: Object, horizontalAlignment: LineDisplayHorizontalAlignment, verticalAlignment: LineDisplayVerticalAlignment, widthInPixels: Number, callback: (error: Error, result: LineDisplayStoredBitmap) => void): void ;
+    tryStoreStorageFileBitmapAsync(bitmap: Object, horizontalAlignment: LineDisplayHorizontalAlignment, verticalAlignment: LineDisplayVerticalAlignment, widthInPixels: number, callback: (error: Error, result: LineDisplayStoredBitmap) => void): void ;
 
     retainDevice(): void;
 
@@ -1519,76 +1519,76 @@
 
   export class LineDisplayCursorAttributes {
     position: Object;
-    isBlinkEnabled: Boolean;
-    isAutoAdvanceEnabled: Boolean;
+    isBlinkEnabled: boolean;
+    isAutoAdvanceEnabled: boolean;
     cursorType: LineDisplayCursorType;
     constructor();
 
   }
 
   export class LineDisplayCursor {
-    canCustomize: Boolean;
-    isBlinkSupported: Boolean;
-    isBlockSupported: Boolean;
-    isHalfBlockSupported: Boolean;
-    isOtherSupported: Boolean;
-    isReverseSupported: Boolean;
-    isUnderlineSupported: Boolean;
+    canCustomize: boolean;
+    isBlinkSupported: boolean;
+    isBlockSupported: boolean;
+    isHalfBlockSupported: boolean;
+    isOtherSupported: boolean;
+    isReverseSupported: boolean;
+    isUnderlineSupported: boolean;
     constructor();
 
-    tryUpdateAttributesAsync(attributes: LineDisplayCursorAttributes, callback: (error: Error, result: Boolean) => void): void ;
+    tryUpdateAttributesAsync(attributes: LineDisplayCursorAttributes, callback: (error: Error, result: boolean) => void): void ;
 
     getAttributes(): LineDisplayCursorAttributes;
 
   }
 
   export class LineDisplayMarquee {
-    scrollWaitInterval: Number;
-    repeatWaitInterval: Number;
+    scrollWaitInterval: number;
+    repeatWaitInterval: number;
     format: LineDisplayMarqueeFormat;
     constructor();
 
-    tryStartScrollingAsync(direction: LineDisplayScrollDirection, callback: (error: Error, result: Boolean) => void): void ;
+    tryStartScrollingAsync(direction: LineDisplayScrollDirection, callback: (error: Error, result: boolean) => void): void ;
 
-    tryStopScrollingAsync(callback: (error: Error, result: Boolean) => void): void ;
+    tryStopScrollingAsync(callback: (error: Error, result: boolean) => void): void ;
 
   }
 
   export class LineDisplayStoredBitmap {
-    escapeSequence: String;
+    escapeSequence: string;
     constructor();
 
-    tryDeleteAsync(callback: (error: Error, result: Boolean) => void): void ;
+    tryDeleteAsync(callback: (error: Error, result: boolean) => void): void ;
 
   }
 
   export class LineDisplayWindow {
-    interCharacterWaitInterval: Number;
+    interCharacterWaitInterval: number;
     sizeInCharacters: Object;
     cursor: LineDisplayCursor;
     marquee: LineDisplayMarquee;
     constructor();
 
-    tryRefreshAsync(callback: (error: Error, result: Boolean) => void): void ;
+    tryRefreshAsync(callback: (error: Error, result: boolean) => void): void ;
 
-    tryDisplayTextAsync(text: String, displayAttribute: LineDisplayTextAttribute, callback: (error: Error, result: Boolean) => void): void ;
-    tryDisplayTextAsync(text: String, displayAttribute: LineDisplayTextAttribute, startPosition: Object, callback: (error: Error, result: Boolean) => void): void ;
-    tryDisplayTextAsync(text: String, callback: (error: Error, result: Boolean) => void): void ;
+    tryDisplayTextAsync(text: string, displayAttribute: LineDisplayTextAttribute, callback: (error: Error, result: boolean) => void): void ;
+    tryDisplayTextAsync(text: string, displayAttribute: LineDisplayTextAttribute, startPosition: Object, callback: (error: Error, result: boolean) => void): void ;
+    tryDisplayTextAsync(text: string, callback: (error: Error, result: boolean) => void): void ;
 
-    tryScrollTextAsync(direction: LineDisplayScrollDirection, numberOfColumnsOrRows: Number, callback: (error: Error, result: Boolean) => void): void ;
+    tryScrollTextAsync(direction: LineDisplayScrollDirection, numberOfColumnsOrRows: number, callback: (error: Error, result: boolean) => void): void ;
 
-    tryClearTextAsync(callback: (error: Error, result: Boolean) => void): void ;
+    tryClearTextAsync(callback: (error: Error, result: boolean) => void): void ;
 
-    readCharacterAtCursorAsync(callback: (error: Error, result: Number) => void): void ;
+    readCharacterAtCursorAsync(callback: (error: Error, result: number) => void): void ;
 
-    tryDisplayStoredBitmapAtCursorAsync(bitmap: LineDisplayStoredBitmap, callback: (error: Error, result: Boolean) => void): void ;
+    tryDisplayStoredBitmapAtCursorAsync(bitmap: LineDisplayStoredBitmap, callback: (error: Error, result: boolean) => void): void ;
 
-    tryDisplayStorageFileBitmapAtCursorAsync(bitmap: Object, callback: (error: Error, result: Boolean) => void): void ;
-    tryDisplayStorageFileBitmapAtCursorAsync(bitmap: Object, horizontalAlignment: LineDisplayHorizontalAlignment, verticalAlignment: LineDisplayVerticalAlignment, callback: (error: Error, result: Boolean) => void): void ;
-    tryDisplayStorageFileBitmapAtCursorAsync(bitmap: Object, horizontalAlignment: LineDisplayHorizontalAlignment, verticalAlignment: LineDisplayVerticalAlignment, widthInPixels: Number, callback: (error: Error, result: Boolean) => void): void ;
+    tryDisplayStorageFileBitmapAtCursorAsync(bitmap: Object, callback: (error: Error, result: boolean) => void): void ;
+    tryDisplayStorageFileBitmapAtCursorAsync(bitmap: Object, horizontalAlignment: LineDisplayHorizontalAlignment, verticalAlignment: LineDisplayVerticalAlignment, callback: (error: Error, result: boolean) => void): void ;
+    tryDisplayStorageFileBitmapAtCursorAsync(bitmap: Object, horizontalAlignment: LineDisplayHorizontalAlignment, verticalAlignment: LineDisplayVerticalAlignment, widthInPixels: number, callback: (error: Error, result: boolean) => void): void ;
 
-    tryDisplayStorageFileBitmapAtPointAsync(bitmap: Object, offsetInPixels: Object, callback: (error: Error, result: Boolean) => void): void ;
-    tryDisplayStorageFileBitmapAtPointAsync(bitmap: Object, offsetInPixels: Object, widthInPixels: Number, callback: (error: Error, result: Boolean) => void): void ;
+    tryDisplayStorageFileBitmapAtPointAsync(bitmap: Object, offsetInPixels: Object, callback: (error: Error, result: boolean) => void): void ;
+    tryDisplayStorageFileBitmapAtPointAsync(bitmap: Object, offsetInPixels: Object, widthInPixels: number, callback: (error: Error, result: boolean) => void): void ;
 
     close(): void;
   }
@@ -1598,7 +1598,7 @@
     supportedGlyphCodes: Object;
     constructor();
 
-    tryRedefineAsync(glyphCode: Number, glyphData: Object, callback: (error: Error, result: Boolean) => void): void ;
+    tryRedefineAsync(glyphCode: number, glyphData: Object, callback: (error: Error, result: boolean) => void): void ;
 
   }
 
@@ -1610,35 +1610,35 @@
 
   export class LineDisplayCapabilities {
     canBlink: LineDisplayTextAttributeGranularity;
-    canChangeBlinkRate: Boolean;
-    canChangeScreenSize: Boolean;
-    canDisplayBitmaps: Boolean;
-    canDisplayCustomGlyphs: Boolean;
-    canMapCharacterSets: Boolean;
-    canReadCharacterAtCursor: Boolean;
+    canChangeBlinkRate: boolean;
+    canChangeScreenSize: boolean;
+    canDisplayBitmaps: boolean;
+    canDisplayCustomGlyphs: boolean;
+    canMapCharacterSets: boolean;
+    canReadCharacterAtCursor: boolean;
     canReverse: LineDisplayTextAttributeGranularity;
-    isBrightnessSupported: Boolean;
-    isCursorSupported: Boolean;
-    isHorizontalMarqueeSupported: Boolean;
-    isInterCharacterWaitSupported: Boolean;
-    isStatisticsReportingSupported: Boolean;
-    isStatisticsUpdatingSupported: Boolean;
-    isVerticalMarqueeSupported: Boolean;
+    isBrightnessSupported: boolean;
+    isCursorSupported: boolean;
+    isHorizontalMarqueeSupported: boolean;
+    isInterCharacterWaitSupported: boolean;
+    isStatisticsReportingSupported: boolean;
+    isStatisticsUpdatingSupported: boolean;
+    isVerticalMarqueeSupported: boolean;
     powerReportingType: UnifiedPosPowerReportingType;
-    supportedDescriptors: Number;
-    supportedWindows: Number;
+    supportedDescriptors: number;
+    supportedWindows: number;
     constructor();
 
   }
 
   export class LineDisplayAttributes {
     screenSizeInCharacters: Object;
-    isPowerNotifyEnabled: Boolean;
-    isCharacterSetMappingEnabled: Boolean;
+    isPowerNotifyEnabled: boolean;
+    isCharacterSetMappingEnabled: boolean;
     currentWindow: LineDisplayWindow;
-    characterSet: Number;
-    brightness: Number;
-    blinkRate: Number;
+    characterSet: number;
+    brightness: number;
+    blinkRate: number;
     constructor();
 
   }

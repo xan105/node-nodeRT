@@ -13,7 +13,7 @@
   export class GameServicePropertyCollection {
     constructor();
 
-    getPropertyAsync(propertyName: String, callback: (error: Error, result: Object) => void): void ;
+    getPropertyAsync(propertyName: string, callback: (error: Error, result: Object) => void): void ;
 
   }
 
@@ -27,25 +27,25 @@
     static getInstalledGameItemsAsync(callback: (error: Error, result: GameServicePropertyCollection) => void): void ;
 
 
-    static getPartnerTokenAsync(audienceUri: Object, callback: (error: Error, result: String) => void): void ;
+    static getPartnerTokenAsync(audienceUri: Object, callback: (error: Error, result: string) => void): void ;
 
 
-    static getPrivilegesAsync(callback: (error: Error, result: String) => void): void ;
+    static getPrivilegesAsync(callback: (error: Error, result: string) => void): void ;
 
 
     static notifyPartnerTokenExpired(audienceUri: Object): void;
 
 
-    static getAuthenticationStatus(): Number;
+    static getAuthenticationStatus(): number;
 
 
-    static grantAchievement(achievementId: Number): void;
+    static grantAchievement(achievementId: number): void;
 
 
-    static grantAvatarAward(avatarAwardId: Number): void;
+    static grantAvatarAward(avatarAwardId: number): void;
 
 
-    static postResult(gameVariant: Number, scoreKind: GameServiceScoreKind, scoreValue: Number, gameOutcome: GameServiceGameOutcome, buffer: Object): void;
+    static postResult(gameVariant: number, scoreKind: GameServiceScoreKind, scoreValue: number, gameOutcome: GameServiceGameOutcome, buffer: Object): void;
 
 
   }

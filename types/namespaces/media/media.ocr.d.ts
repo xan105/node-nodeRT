@@ -4,13 +4,13 @@
 
   export class OcrWord {
     boundingRect: Object;
-    text: String;
+    text: string;
     constructor();
 
   }
 
   export class OcrLine {
-    text: String;
+    text: string;
     words: Object;
     constructor();
 
@@ -18,19 +18,19 @@
 
   export class OcrResult {
     lines: Object;
-    text: String;
-    textAngle: Number;
+    text: string;
+    textAngle: number;
     constructor();
 
   }
 
   export class OcrEngine {
     static availableRecognizerLanguages: Object;
-    static maxImageDimension: Number;
+    static maxImageDimension: number;
     recognizerLanguage: Object;
     constructor();
 
-    static isLanguageSupported(language: Object): Boolean;
+    static isLanguageSupported(language: Object): boolean;
 
 
     static tryCreateFromLanguage(language: Object): OcrEngine;

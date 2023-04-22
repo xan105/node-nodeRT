@@ -1,15 +1,15 @@
   export class Vector3 {
-    x: Number;
-    y: Number;
-    z: Number;
+    x: number;
+    y: number;
+    z: number;
     constructor();
   }
 
   export class Quaternion {
-    x: Number;
-    y: Number;
-    z: Number;
-    w: Number;
+    x: number;
+    y: number;
+    z: number;
+    w: number;
     constructor();
   }
 
@@ -69,7 +69,7 @@
 
     cancelPendingGestures(): void;
 
-    trySetGestureSettings(settings: SpatialGestureSettings): Boolean;
+    trySetGestureSettings(settings: SpatialGestureSettings): boolean;
 
     addListener(type: "HoldCanceled", listener: (ev: Event) => void): void ;
     removeListener(type: "HoldCanceled", listener: (ev: Event) => void): void ;
@@ -155,7 +155,7 @@
 
     tryGetPointerPose(coordinateSystem: Object): SpatialPointerPose;
 
-    isGesturePossible(gesture: SpatialGestureSettings): Boolean;
+    isGesturePossible(gesture: SpatialGestureSettings): boolean;
 
   }
 
@@ -167,7 +167,7 @@
 
   export class SpatialTappedEventArgs {
     interactionSourceKind: SpatialInteractionSourceKind;
-    tapCount: Number;
+    tapCount: number;
     constructor();
 
     tryGetPointerPose(coordinateSystem: Object): SpatialPointerPose;
@@ -226,9 +226,9 @@
 
   export class SpatialNavigationStartedEventArgs {
     interactionSourceKind: SpatialInteractionSourceKind;
-    isNavigatingX: Boolean;
-    isNavigatingY: Boolean;
-    isNavigatingZ: Boolean;
+    isNavigatingX: boolean;
+    isNavigatingY: boolean;
+    isNavigatingZ: boolean;
     constructor();
 
     tryGetPointerPose(coordinateSystem: Object): SpatialPointerPose;
@@ -266,12 +266,12 @@
   }
 
   export class SpatialInteractionController {
-    hasThumbstick: Boolean;
-    hasTouchpad: Boolean;
-    productId: Number;
+    hasThumbstick: boolean;
+    hasTouchpad: boolean;
+    productId: number;
     simpleHapticsController: Object;
-    vendorId: Number;
-    version: Number;
+    vendorId: number;
+    version: number;
     constructor();
 
     tryGetRenderableModelAsync(callback: (error: Error, result: Object) => void): void ;
@@ -281,15 +281,15 @@
   }
 
   export class SpatialInteractionSourceState {
-    isPressed: Boolean;
+    isPressed: boolean;
     properties: SpatialInteractionSourceProperties;
     source: SpatialInteractionSource;
     timestamp: Object;
     controllerProperties: SpatialInteractionControllerProperties;
-    isGrasped: Boolean;
-    isMenuPressed: Boolean;
-    isSelectPressed: Boolean;
-    selectPressedValue: Number;
+    isGrasped: boolean;
+    isMenuPressed: boolean;
+    isSelectPressed: boolean;
+    selectPressedValue: number;
     constructor();
 
     tryGetPointerPose(coordinateSystem: Object): SpatialPointerPose;
@@ -308,12 +308,12 @@
   }
 
   export class SpatialInteractionSource {
-    id: Number;
+    id: number;
     kind: SpatialInteractionSourceKind;
     controller: SpatialInteractionController;
-    isGraspSupported: Boolean;
-    isMenuSupported: Boolean;
-    isPointingSupported: Boolean;
+    isGraspSupported: boolean;
+    isMenuSupported: boolean;
+    isPointingSupported: boolean;
     handedness: SpatialInteractionSourceHandedness;
     constructor();
 
@@ -334,7 +334,7 @@
   }
 
   export class SpatialInteractionSourceProperties {
-    sourceLossRisk: Number;
+    sourceLossRisk: number;
     constructor();
 
     tryGetSourceLossMitigationDirection(coordinateSystem: Object): Vector3;
@@ -344,13 +344,13 @@
   }
 
   export class SpatialInteractionControllerProperties {
-    isThumbstickPressed: Boolean;
-    isTouchpadPressed: Boolean;
-    isTouchpadTouched: Boolean;
-    thumbstickX: Number;
-    thumbstickY: Number;
-    touchpadX: Number;
-    touchpadY: Number;
+    isThumbstickPressed: boolean;
+    isTouchpadPressed: boolean;
+    isTouchpadTouched: boolean;
+    thumbstickX: number;
+    thumbstickY: number;
+    touchpadX: number;
+    touchpadY: number;
     constructor();
 
   }

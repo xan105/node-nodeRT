@@ -23,11 +23,11 @@
 
     getCoreInputViewOcclusions(): Object;
 
-    tryShowPrimaryView(): Boolean;
+    tryShowPrimaryView(): boolean;
 
-    tryHidePrimaryView(): Boolean;
+    tryHidePrimaryView(): boolean;
 
-    tryTransferXYFocusToPrimaryView(origin: Object, direction: CoreInputViewXYFocusTransferDirection): Boolean;
+    tryTransferXYFocusToPrimaryView(origin: Object, direction: CoreInputViewXYFocusTransferDirection): boolean;
 
     addListener(type: "OcclusionsChanged", listener: (ev: Event) => void): void ;
     removeListener(type: "OcclusionsChanged", listener: (ev: Event) => void): void ;
@@ -53,7 +53,7 @@
   }
 
   export class CoreInputViewOcclusionsChangedEventArgs {
-    handled: Boolean;
+    handled: boolean;
     occlusions: Object;
     constructor();
 
@@ -67,8 +67,8 @@
   }
 
   export class CoreInputViewTransferringXYFocusEventArgs {
-    transferHandled: Boolean;
-    keepPrimaryViewVisible: Boolean;
+    transferHandled: boolean;
+    keepPrimaryViewVisible: boolean;
     direction: CoreInputViewXYFocusTransferDirection;
     origin: Object;
     constructor();

@@ -6,10 +6,10 @@
     printSchema: PrintSchema;
     constructor();
 
-    static fromIdAsync(deviceId: String, callback: (error: Error, result: Print3DDevice) => void): void ;
+    static fromIdAsync(deviceId: string, callback: (error: Error, result: Print3DDevice) => void): void ;
 
 
-    static getDeviceSelector(): String;
+    static getDeviceSelector(): string;
 
 
   }

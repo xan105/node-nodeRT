@@ -11,15 +11,15 @@
   }
 
   export class PackageVersion {
-    major: Number;
-    minor: Number;
-    build: Number;
-    revision: Number;
+    major: number;
+    minor: number;
+    build: number;
+    revision: number;
     constructor();
   }
 
   export class PackageInstallProgress {
-    percentComplete: Number;
+    percentComplete: number;
     constructor();
   }
 
@@ -56,24 +56,24 @@
     constructor();
 
     static launchFullTrustProcessForCurrentAppAsync(callback: (error: Error) => void): void ;
-    static launchFullTrustProcessForCurrentAppAsync(parameterGroupId: String, callback: (error: Error) => void): void ;
+    static launchFullTrustProcessForCurrentAppAsync(parameterGroupId: string, callback: (error: Error) => void): void ;
 
 
-    static launchFullTrustProcessForAppAsync(fullTrustPackageRelativeAppId: String, callback: (error: Error) => void): void ;
-    static launchFullTrustProcessForAppAsync(fullTrustPackageRelativeAppId: String, parameterGroupId: String, callback: (error: Error) => void): void ;
+    static launchFullTrustProcessForAppAsync(fullTrustPackageRelativeAppId: string, callback: (error: Error) => void): void ;
+    static launchFullTrustProcessForAppAsync(fullTrustPackageRelativeAppId: string, parameterGroupId: string, callback: (error: Error) => void): void ;
 
 
   }
 
   export class StartupTask {
     state: StartupTaskState;
-    taskId: String;
+    taskId: string;
     constructor();
 
     static getForCurrentPackageAsync(callback: (error: Error, result: Object) => void): void ;
 
 
-    static getAsync(taskId: String, callback: (error: Error, result: StartupTask) => void): void ;
+    static getAsync(taskId: string, callback: (error: Error, result: StartupTask) => void): void ;
 
 
     requestEnableAsync(callback: (error: Error, result: StartupTaskState) => void): void ;
@@ -83,8 +83,8 @@
   }
 
   export class AppDisplayInfo {
-    description: String;
-    displayName: String;
+    description: string;
+    displayName: string;
     constructor();
 
     getLogo(size: Object): Object;
@@ -92,44 +92,44 @@
   }
 
   export class AppInfo {
-    appUserModelId: String;
+    appUserModelId: string;
     displayInfo: AppDisplayInfo;
-    id: String;
-    packageFamilyName: String;
+    id: string;
+    packageFamilyName: string;
     constructor();
 
   }
 
   export class PackageStatus {
-    dataOffline: Boolean;
-    dependencyIssue: Boolean;
-    deploymentInProgress: Boolean;
-    disabled: Boolean;
-    licenseIssue: Boolean;
-    modified: Boolean;
-    needsRemediation: Boolean;
-    notAvailable: Boolean;
-    packageOffline: Boolean;
-    servicing: Boolean;
-    tampered: Boolean;
-    isPartiallyStaged: Boolean;
+    dataOffline: boolean;
+    dependencyIssue: boolean;
+    deploymentInProgress: boolean;
+    disabled: boolean;
+    licenseIssue: boolean;
+    modified: boolean;
+    needsRemediation: boolean;
+    notAvailable: boolean;
+    packageOffline: boolean;
+    servicing: boolean;
+    tampered: boolean;
+    isPartiallyStaged: boolean;
     constructor();
 
-    verifyIsOK(): Boolean;
+    verifyIsOK(): boolean;
 
   }
 
   export class PackageId {
-    architecture: Number;
-    familyName: String;
-    fullName: String;
-    name: String;
-    publisher: String;
-    publisherId: String;
-    resourceId: String;
+    architecture: number;
+    familyName: string;
+    fullName: string;
+    name: string;
+    publisher: string;
+    publisherId: string;
+    resourceId: string;
     version: PackageVersion;
-    author: String;
-    productId: String;
+    author: string;
+    productId: string;
     constructor();
 
   }
@@ -139,44 +139,44 @@
     dependencies: Object;
     id: PackageId;
     installedLocation: Object;
-    isFramework: Boolean;
-    description: String;
-    displayName: String;
-    isBundle: Boolean;
-    isDevelopmentMode: Boolean;
-    isResourcePackage: Boolean;
+    isFramework: boolean;
+    description: string;
+    displayName: string;
+    isBundle: boolean;
+    isDevelopmentMode: boolean;
+    isResourcePackage: boolean;
     logo: Object;
-    publisherDisplayName: String;
+    publisherDisplayName: string;
     installedDate: Date;
     status: PackageStatus;
-    isOptional: Boolean;
+    isOptional: boolean;
     signatureKind: PackageSignatureKind;
     installDate: Date;
     constructor();
 
     getAppListEntriesAsync(callback: (error: Error, result: Object) => void): void ;
 
-    verifyContentIntegrityAsync(callback: (error: Error, result: Boolean) => void): void ;
+    verifyContentIntegrityAsync(callback: (error: Error, result: boolean) => void): void ;
 
     getContentGroupsAsync(callback: (error: Error, result: Object) => void): void ;
 
-    getContentGroupAsync(name: String, callback: (error: Error, result: PackageContentGroup) => void): void ;
+    getContentGroupAsync(name: string, callback: (error: Error, result: PackageContentGroup) => void): void ;
 
     stageContentGroupsAsync(names: Object, callback: (error: Error, result: Object) => void): void ;
-    stageContentGroupsAsync(names: Object, moveToHeadOfQueue: Boolean, callback: (error: Error, result: Object) => void): void ;
+    stageContentGroupsAsync(names: Object, moveToHeadOfQueue: boolean, callback: (error: Error, result: Object) => void): void ;
 
-    setInUseAsync(inUse: Boolean, callback: (error: Error, result: Boolean) => void): void ;
+    setInUseAsync(inUse: boolean, callback: (error: Error, result: boolean) => void): void ;
 
-    getThumbnailToken(): String;
+    getThumbnailToken(): string;
 
-    launch(parameters: String): void;
+    launch(parameters: string): void;
 
   }
 
   export class PackageContentGroup {
-    static requiredGroupName: String;
-    isRequired: Boolean;
-    name: String;
+    static requiredGroupName: string;
+    isRequired: boolean;
+    name: string;
     package: Package;
     state: PackageContentGroupState;
     constructor();
@@ -184,30 +184,30 @@
   }
 
   export class PackageStagingEventArgs {
-    activityId: String;
-    errorCode: Number;
-    isComplete: Boolean;
+    activityId: string;
+    errorCode: number;
+    isComplete: boolean;
     package: Package;
-    progress: Number;
+    progress: number;
     constructor();
 
   }
 
   export class PackageInstallingEventArgs {
-    activityId: String;
-    errorCode: Number;
-    isComplete: Boolean;
+    activityId: string;
+    errorCode: number;
+    isComplete: boolean;
     package: Package;
-    progress: Number;
+    progress: number;
     constructor();
 
   }
 
   export class PackageUpdatingEventArgs {
-    activityId: String;
-    errorCode: Number;
-    isComplete: Boolean;
-    progress: Number;
+    activityId: string;
+    errorCode: number;
+    isComplete: boolean;
+    progress: number;
     sourcePackage: Package;
     targetPackage: Package;
     constructor();
@@ -215,11 +215,11 @@
   }
 
   export class PackageUninstallingEventArgs {
-    activityId: String;
-    errorCode: Number;
-    isComplete: Boolean;
+    activityId: string;
+    errorCode: number;
+    isComplete: boolean;
     package: Package;
-    progress: Number;
+    progress: number;
     constructor();
 
   }
@@ -231,13 +231,13 @@
   }
 
   export class PackageContentGroupStagingEventArgs {
-    activityId: String;
-    contentGroupName: String;
-    errorCode: Number;
-    isComplete: Boolean;
-    isContentGroupRequired: Boolean;
+    activityId: string;
+    contentGroupName: string;
+    errorCode: number;
+    isComplete: boolean;
+    isContentGroupRequired: boolean;
     package: Package;
-    progress: Number;
+    progress: number;
     constructor();
 
   }
@@ -251,11 +251,11 @@
     static openForCurrentUser(): PackageCatalog;
 
 
-    addOptionalPackageAsync(optionalPackageFamilyName: String, callback: (error: Error, result: PackageCatalogAddOptionalPackageResult) => void): void ;
+    addOptionalPackageAsync(optionalPackageFamilyName: string, callback: (error: Error, result: PackageCatalogAddOptionalPackageResult) => void): void ;
 
     removeOptionalPackagesAsync(optionalPackageFamilyNames: Object, callback: (error: Error, result: PackageCatalogRemoveOptionalPackagesResult) => void): void ;
 
-    addResourcePackageAsync(resourcePackageFamilyName: String, resourceID: String, options: AddResourcePackageOptions, callback: (error: Error, result: PackageCatalogAddResourcePackageResult) => void): void ;
+    addResourcePackageAsync(resourcePackageFamilyName: string, resourceID: string, options: AddResourcePackageOptions, callback: (error: Error, result: PackageCatalogAddResourcePackageResult) => void): void ;
 
     removeResourcePackagesAsync(resourcePackages: Object, callback: (error: Error, result: PackageCatalogRemoveResourcePackagesResult) => void): void ;
 
@@ -298,51 +298,51 @@
   }
 
   export class PackageCatalogAddOptionalPackageResult {
-    extendedError: Number;
+    extendedError: number;
     package: Package;
     constructor();
 
   }
 
   export class PackageCatalogRemoveOptionalPackagesResult {
-    extendedError: Number;
+    extendedError: number;
     packagesRemoved: Object;
     constructor();
 
   }
 
   export class PackageCatalogRemoveResourcePackagesResult {
-    extendedError: Number;
+    extendedError: number;
     packagesRemoved: Object;
     constructor();
 
   }
 
   export class PackageCatalogAddResourcePackageResult {
-    extendedError: Number;
-    isComplete: Boolean;
+    extendedError: number;
+    isComplete: boolean;
     package: Package;
     constructor();
 
   }
 
   export class DesignMode {
-    static designModeEnabled: Boolean;
-    static designMode2Enabled: Boolean;
+    static designModeEnabled: boolean;
+    static designMode2Enabled: boolean;
     constructor();
 
   }
 
   export class AppInstance {
     static recommendedInstance: AppInstance;
-    isCurrentInstance: Boolean;
-    key: String;
+    isCurrentInstance: boolean;
+    key: string;
     constructor();
 
     static getActivatedEventArgs(): Object;
 
 
-    static findOrRegisterInstanceForKey(key: String): AppInstance;
+    static findOrRegisterInstanceForKey(key: string): AppInstance;
 
 
     static unregister(): void;

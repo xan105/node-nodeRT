@@ -336,9 +336,9 @@
   }
 
   export class DispatcherQueueTimer {
-    isRepeating: Boolean;
-    interval: Number;
-    isRunning: Boolean;
+    isRepeating: boolean;
+    interval: number;
+    isRunning: boolean;
     constructor();
 
     start(): void;
@@ -366,8 +366,8 @@
 
     createTimer(): DispatcherQueueTimer;
 
-    tryEnqueue(callback: Object): Boolean;
-    tryEnqueue(priority: DispatcherQueuePriority, callback: Object): Boolean;
+    tryEnqueue(callback: Object): boolean;
+    tryEnqueue(priority: DispatcherQueuePriority, callback: Object): boolean;
 
     addListener(type: "ShutdownCompleted", listener: (ev: Event) => void): void ;
     removeListener(type: "ShutdownCompleted", listener: (ev: Event) => void): void ;
@@ -458,7 +458,7 @@
 
   export class User {
     authenticationStatus: UserAuthenticationStatus;
-    nonRoamableId: String;
+    nonRoamableId: string;
     type: UserType;
     constructor();
 
@@ -470,10 +470,10 @@
     static createWatcher(): UserWatcher;
 
 
-    static getFromId(nonRoamableId: String): User;
+    static getFromId(nonRoamableId: string): User;
 
 
-    getPropertyAsync(value: String, callback: (error: Error, result: Object) => void): void ;
+    getPropertyAsync(value: string, callback: (error: Error, result: Object) => void): void ;
 
     getPropertiesAsync(values: Object, callback: (error: Error, result: Object) => void): void ;
 
@@ -505,25 +505,25 @@
   }
 
   export class KnownUserProperties {
-    static accountName: String;
-    static displayName: String;
-    static domainName: String;
-    static firstName: String;
-    static guestHost: String;
-    static lastName: String;
-    static principalName: String;
-    static providerName: String;
-    static sessionInitiationProtocolUri: String;
+    static accountName: string;
+    static displayName: string;
+    static domainName: string;
+    static firstName: string;
+    static guestHost: string;
+    static lastName: string;
+    static principalName: string;
+    static providerName: string;
+    static sessionInitiationProtocolUri: string;
     constructor();
 
   }
 
   export class UserPicker {
     suggestedSelectedUser: User;
-    allowGuestAccounts: Boolean;
+    allowGuestAccounts: boolean;
     constructor();
 
-    static isSupported(): Boolean;
+    static isSupported(): boolean;
 
 
     pickSingleUserAsync(callback: (error: Error, result: User) => void): void ;
@@ -531,7 +531,7 @@
   }
 
   export class UserDeviceAssociationChangedEventArgs {
-    deviceId: String;
+    deviceId: string;
     newUser: User;
     oldUser: User;
     constructor();
@@ -541,7 +541,7 @@
   export class UserDeviceAssociation {
     constructor();
 
-    static findUserFromDeviceId(deviceId: String): User;
+    static findUserFromDeviceId(deviceId: string): User;
 
 
     addListener(type: "UserDeviceAssociationChanged", listener: (ev: Event) => void): void ;
@@ -558,37 +558,37 @@
   }
 
   export class AppMemoryUsageLimitChangingEventArgs {
-    newLimit: Number;
-    oldLimit: Number;
+    newLimit: number;
+    oldLimit: number;
     constructor();
 
   }
 
   export class AppMemoryReport {
-    peakPrivateCommitUsage: Number;
-    privateCommitUsage: Number;
-    totalCommitLimit: Number;
-    totalCommitUsage: Number;
-    expectedTotalCommitLimit: Number;
+    peakPrivateCommitUsage: number;
+    privateCommitUsage: number;
+    totalCommitLimit: number;
+    totalCommitUsage: number;
+    expectedTotalCommitLimit: number;
     constructor();
 
   }
 
   export class ProcessMemoryReport {
-    privateWorkingSetUsage: Number;
-    totalWorkingSetUsage: Number;
+    privateWorkingSetUsage: number;
+    totalWorkingSetUsage: number;
     constructor();
 
   }
 
   export class MemoryManager {
-    static appMemoryUsage: Number;
+    static appMemoryUsage: number;
     static appMemoryUsageLevel: AppMemoryUsageLevel;
-    static appMemoryUsageLimit: Number;
-    static expectedAppMemoryUsageLimit: Number;
+    static appMemoryUsageLimit: number;
+    static expectedAppMemoryUsageLimit: number;
     constructor();
 
-    static trySetAppMemoryUsageLimit(value: Number): Boolean;
+    static trySetAppMemoryUsageLimit(value: number): boolean;
 
 
     static getAppMemoryReport(): AppMemoryReport;
@@ -634,11 +634,11 @@
     static requestAccessAsync(callback: (error: Error, result: DiagnosticAccessStatus) => void): void ;
 
 
-    static requestInfoForPackageAsync(packageFamilyName: String, callback: (error: Error, result: Object) => void): void ;
+    static requestInfoForPackageAsync(packageFamilyName: string, callback: (error: Error, result: Object) => void): void ;
 
 
     static requestInfoForAppAsync(callback: (error: Error, result: Object) => void): void ;
-    static requestInfoForAppAsync(appUserModelId: String, callback: (error: Error, result: Object) => void): void ;
+    static requestInfoForAppAsync(appUserModelId: string, callback: (error: Error, result: Object) => void): void ;
 
 
     static requestInfoAsync(callback: (error: Error, result: Object) => void): void ;
@@ -692,8 +692,8 @@
   }
 
   export class AppResourceGroupInfo {
-    instanceId: String;
-    isShared: Boolean;
+    instanceId: string;
+    isShared: boolean;
     constructor();
 
     startSuspendAsync(callback: (error: Error, result: AppExecutionStateChangeResult) => void): void ;
@@ -714,7 +714,7 @@
 
   export class AppActivationResult {
     appResourceGroupInfo: AppResourceGroupInfo;
-    extendedError: Number;
+    extendedError: number;
     constructor();
 
   }
@@ -767,25 +767,25 @@
   }
 
   export class AppExecutionStateChangeResult {
-    extendedError: Number;
+    extendedError: number;
     constructor();
 
   }
 
   export class AppResourceGroupBackgroundTaskReport {
-    entryPoint: String;
-    name: String;
-    taskId: String;
-    trigger: String;
+    entryPoint: string;
+    name: string;
+    taskId: string;
+    trigger: string;
     constructor();
 
   }
 
   export class AppResourceGroupMemoryReport {
     commitUsageLevel: AppMemoryUsageLevel;
-    commitUsageLimit: Number;
-    privateCommitUsage: Number;
-    totalCommitUsage: Number;
+    commitUsageLimit: number;
+    privateCommitUsage: number;
+    totalCommitUsage: number;
     constructor();
 
   }
@@ -820,31 +820,31 @@
 
   export class LauncherUIOptions {
     selectionRect: Object;
-    preferredPlacement: Number;
+    preferredPlacement: number;
     invocationPoint: Object;
     constructor();
 
   }
 
   export class ILauncherViewOptions {
-    desiredRemainingView: Number;
+    desiredRemainingView: number;
     constructor();
 
   }
 
   export class LauncherOptions {
-    treatAsUntrusted: Boolean;
-    preferredApplicationPackageFamilyName: String;
-    preferredApplicationDisplayName: String;
+    treatAsUntrusted: boolean;
+    preferredApplicationPackageFamilyName: string;
+    preferredApplicationDisplayName: string;
     fallbackUri: Object;
-    displayApplicationPicker: Boolean;
-    contentType: String;
+    displayApplicationPicker: boolean;
+    contentType: string;
     uI: LauncherUIOptions;
-    targetApplicationPackageFamilyName: String;
+    targetApplicationPackageFamilyName: string;
     neighboringFilesQuery: Object;
-    ignoreAppUriHandlers: Boolean;
-    limitPickerToCurrentAppAndAppUriHandlers: Boolean;
-    desiredRemainingView: Number;
+    ignoreAppUriHandlers: boolean;
+    limitPickerToCurrentAppAndAppUriHandlers: boolean;
+    desiredRemainingView: number;
     constructor();
 
   }
@@ -858,7 +858,7 @@
 
   export class FolderLauncherOptions {
     itemsToSelect: Object;
-    desiredRemainingView: Number;
+    desiredRemainingView: number;
     constructor();
 
   }
@@ -867,7 +867,7 @@
     constructor();
 
     static queryAppUriSupportAsync(uri: Object, callback: (error: Error, result: LaunchQuerySupportStatus) => void): void ;
-    static queryAppUriSupportAsync(uri: Object, packageFamilyName: String, callback: (error: Error, result: LaunchQuerySupportStatus) => void): void ;
+    static queryAppUriSupportAsync(uri: Object, packageFamilyName: string, callback: (error: Error, result: LaunchQuerySupportStatus) => void): void ;
 
 
     static findAppUriHandlersAsync(uri: Object, callback: (error: Error, result: Object) => void): void ;
@@ -882,36 +882,36 @@
     static launchUriForResultsForUserAsync(user: User, uri: Object, options: LauncherOptions, inputData: Object, callback: (error: Error, result: LaunchUriResult) => void): void ;
 
 
-    static launchFolderAsync(folder: Object, callback: (error: Error, result: Boolean) => void): void ;
-    static launchFolderAsync(folder: Object, options: FolderLauncherOptions, callback: (error: Error, result: Boolean) => void): void ;
+    static launchFolderAsync(folder: Object, callback: (error: Error, result: boolean) => void): void ;
+    static launchFolderAsync(folder: Object, options: FolderLauncherOptions, callback: (error: Error, result: boolean) => void): void ;
 
 
     static launchUriForResultsAsync(uri: Object, options: LauncherOptions, callback: (error: Error, result: LaunchUriResult) => void): void ;
     static launchUriForResultsAsync(uri: Object, options: LauncherOptions, inputData: Object, callback: (error: Error, result: LaunchUriResult) => void): void ;
 
 
-    static launchUriAsync(uri: Object, options: LauncherOptions, inputData: Object, callback: (error: Error, result: Boolean) => void): void ;
-    static launchUriAsync(uri: Object, callback: (error: Error, result: Boolean) => void): void ;
-    static launchUriAsync(uri: Object, options: LauncherOptions, callback: (error: Error, result: Boolean) => void): void ;
+    static launchUriAsync(uri: Object, options: LauncherOptions, inputData: Object, callback: (error: Error, result: boolean) => void): void ;
+    static launchUriAsync(uri: Object, callback: (error: Error, result: boolean) => void): void ;
+    static launchUriAsync(uri: Object, options: LauncherOptions, callback: (error: Error, result: boolean) => void): void ;
 
 
     static queryUriSupportAsync(uri: Object, launchQuerySupportType: LaunchQuerySupportType, callback: (error: Error, result: LaunchQuerySupportStatus) => void): void ;
-    static queryUriSupportAsync(uri: Object, launchQuerySupportType: LaunchQuerySupportType, packageFamilyName: String, callback: (error: Error, result: LaunchQuerySupportStatus) => void): void ;
+    static queryUriSupportAsync(uri: Object, launchQuerySupportType: LaunchQuerySupportType, packageFamilyName: string, callback: (error: Error, result: LaunchQuerySupportStatus) => void): void ;
 
 
     static queryFileSupportAsync(file: Object, callback: (error: Error, result: LaunchQuerySupportStatus) => void): void ;
-    static queryFileSupportAsync(file: Object, packageFamilyName: String, callback: (error: Error, result: LaunchQuerySupportStatus) => void): void ;
+    static queryFileSupportAsync(file: Object, packageFamilyName: string, callback: (error: Error, result: LaunchQuerySupportStatus) => void): void ;
 
 
-    static findUriSchemeHandlersAsync(scheme: String, callback: (error: Error, result: Object) => void): void ;
-    static findUriSchemeHandlersAsync(scheme: String, launchQuerySupportType: LaunchQuerySupportType, callback: (error: Error, result: Object) => void): void ;
+    static findUriSchemeHandlersAsync(scheme: string, callback: (error: Error, result: Object) => void): void ;
+    static findUriSchemeHandlersAsync(scheme: string, launchQuerySupportType: LaunchQuerySupportType, callback: (error: Error, result: Object) => void): void ;
 
 
-    static findFileHandlersAsync(extension: String, callback: (error: Error, result: Object) => void): void ;
+    static findFileHandlersAsync(extension: string, callback: (error: Error, result: Object) => void): void ;
 
 
-    static launchFileAsync(file: Object, callback: (error: Error, result: Boolean) => void): void ;
-    static launchFileAsync(file: Object, options: LauncherOptions, callback: (error: Error, result: Boolean) => void): void ;
+    static launchFileAsync(file: Object, callback: (error: Error, result: boolean) => void): void ;
+    static launchFileAsync(file: Object, options: LauncherOptions, callback: (error: Error, result: boolean) => void): void ;
 
 
   }
@@ -935,7 +935,7 @@
   }
 
   export class ProcessLauncherOptions {
-    workingDirectory: String;
+    workingDirectory: string;
     standardOutput: Object;
     standardInput: Object;
     standardError: Object;
@@ -944,7 +944,7 @@
   }
 
   export class ProcessLauncherResult {
-    exitCode: Number;
+    exitCode: number;
     constructor();
 
   }
@@ -952,8 +952,8 @@
   export class ProcessLauncher {
     constructor();
 
-    static runToCompletionAsync(fileName: String, args: String, callback: (error: Error, result: ProcessLauncherResult) => void): void ;
-    static runToCompletionAsync(fileName: String, args: String, options: ProcessLauncherOptions, callback: (error: Error, result: ProcessLauncherResult) => void): void ;
+    static runToCompletionAsync(fileName: string, args: string, callback: (error: Error, result: ProcessLauncherResult) => void): void ;
+    static runToCompletionAsync(fileName: string, args: string, options: ProcessLauncherOptions, callback: (error: Error, result: ProcessLauncherResult) => void): void ;
 
 
   }
@@ -961,14 +961,14 @@
   export class ShutdownManager {
     constructor();
 
-    static isPowerStateSupported(powerState: PowerState): Boolean;
+    static isPowerStateSupported(powerState: PowerState): boolean;
 
 
     static enterPowerState(powerState: PowerState): void;
-    static enterPowerState(powerState: PowerState, wakeUpAfter: Number): void;
+    static enterPowerState(powerState: PowerState, wakeUpAfter: number): void;
 
 
-    static beginShutdown(shutdownKind: ShutdownKind, timeout: Number): void;
+    static beginShutdown(shutdownKind: ShutdownKind, timeout: number): void;
 
 
     static cancelShutdown(): void;
@@ -977,15 +977,15 @@
   }
 
   export class TimeZoneSettings {
-    static canChangeTimeZone: Boolean;
-    static currentTimeZoneDisplayName: String;
+    static canChangeTimeZone: boolean;
+    static currentTimeZoneDisplayName: string;
     static supportedTimeZoneDisplayNames: Object;
     constructor();
 
-    static autoUpdateTimeZoneAsync(timeout: Number, callback: (error: Error, result: AutoUpdateTimeZoneStatus) => void): void ;
+    static autoUpdateTimeZoneAsync(timeout: number, callback: (error: Error, result: AutoUpdateTimeZoneStatus) => void): void ;
 
 
-    static changeTimeZoneByDisplayName(timeZoneDisplayName: String): void;
+    static changeTimeZoneByDisplayName(timeZoneDisplayName: string): void;
 
 
   }

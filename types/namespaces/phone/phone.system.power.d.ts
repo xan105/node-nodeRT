@@ -5,7 +5,7 @@
 
   export class PowerManager {
     static powerSavingMode: PowerSavingMode;
-    static powerSavingModeEnabled: Boolean;
+    static powerSavingModeEnabled: boolean;
     constructor();
 
     addListener(type: "PowerSavingModeChanged", listener: (ev: Event) => void): void ;

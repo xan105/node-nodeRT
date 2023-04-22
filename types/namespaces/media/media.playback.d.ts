@@ -7,16 +7,16 @@
   }
 
   export class MediaTimeRange {
-    start: Number;
-    end: Number;
+    start: number;
+    end: number;
     constructor();
   }
 
   export class Quaternion {
-    x: Number;
-    y: Number;
-    z: Number;
-    w: Number;
+    x: number;
+    y: number;
+    z: number;
+    w: number;
     constructor();
   }
 
@@ -132,17 +132,17 @@
   }
 
   export class PlaybackMediaMarker {
-    mediaMarkerType: String;
-    text: String;
-    time: Number;
+    mediaMarkerType: string;
+    text: string;
+    time: number;
     constructor();
-    constructor(value: Number);
-    constructor(value: Number, mediaMarketType: String, text: String);
+    constructor(value: number);
+    constructor(value: number, mediaMarketType: string, text: string);
 
   }
 
   export class PlaybackMediaMarkerSequence {
-    size: Number;
+    size: number;
     constructor();
 
     insert(value: PlaybackMediaMarker): void;
@@ -155,14 +155,14 @@
 
   export class MediaPlayerFailedEventArgs {
     error: MediaPlayerError;
-    errorMessage: String;
-    extendedErrorCode: Number;
+    errorMessage: string;
+    extendedErrorCode: number;
     constructor();
 
   }
 
   export class MediaPlayerRateChangedEventArgs {
-    newRate: Number;
+    newRate: number;
     constructor();
 
   }
@@ -180,38 +180,38 @@
   }
 
   export class MediaPlayer {
-    volume: Number;
-    position: Number;
-    playbackRate: Number;
-    isLoopingEnabled: Boolean;
-    isMuted: Boolean;
-    autoPlay: Boolean;
+    volume: number;
+    position: number;
+    playbackRate: number;
+    isLoopingEnabled: boolean;
+    isMuted: boolean;
+    autoPlay: boolean;
     currentState: MediaPlayerState;
-    naturalDuration: Number;
+    naturalDuration: number;
     playbackMediaMarkers: PlaybackMediaMarkerSequence;
-    isProtected: Boolean;
-    bufferingProgress: Number;
-    canPause: Boolean;
-    canSeek: Boolean;
+    isProtected: boolean;
+    bufferingProgress: number;
+    canPause: boolean;
+    canSeek: boolean;
     audioDeviceType: MediaPlayerAudioDeviceType;
     audioCategory: MediaPlayerAudioCategory;
     systemMediaTransportControls: Object;
-    timelineControllerPositionOffset: Number;
+    timelineControllerPositionOffset: number;
     timelineController: Object;
     stereoscopicVideoRenderMode: StereoscopicVideoRenderMode;
-    realTimePlayback: Boolean;
+    realTimePlayback: boolean;
     audioDevice: Object;
-    audioBalance: Number;
+    audioBalance: number;
     commandManager: MediaPlaybackCommandManager;
     breakManager: MediaBreakManager;
     playbackSession: MediaPlaybackSession;
-    isVideoFrameServerEnabled: Boolean;
+    isVideoFrameServerEnabled: boolean;
     audioStateMonitor: Object;
     protectionManager: Object;
     source: IMediaPlaybackSource;
     constructor();
 
-    addAudioEffect(activatableClassId: String, effectOptional: Boolean, configuration: Object): void;
+    addAudioEffect(activatableClassId: string, effectOptional: boolean, configuration: Object): void;
 
     removeAllEffects(): void;
 
@@ -226,15 +226,15 @@
 
     getSurface(compositor: Object): MediaPlayerSurface;
 
-    addVideoEffect(activatableClassId: String, effectOptional: Boolean, effectConfiguration: Object): void;
+    addVideoEffect(activatableClassId: string, effectOptional: boolean, effectConfiguration: Object): void;
 
     copyFrameToVideoSurface(destination: Object): void;
     copyFrameToVideoSurface(destination: Object, targetRectangle: Object): void;
 
     copyFrameToStereoscopicVideoSurfaces(destinationLeftEye: Object, destinationRightEye: Object): void;
 
-    renderSubtitlesToSurface(destination: Object): Boolean;
-    renderSubtitlesToSurface(destination: Object, targetRectangle: Object): Boolean;
+    renderSubtitlesToSurface(destination: Object): boolean;
+    renderSubtitlesToSurface(destination: Object, targetRectangle: Object): boolean;
 
     play(): void;
 
@@ -364,7 +364,7 @@
   }
 
   export class MediaPlaybackCommandManager {
-    isEnabled: Boolean;
+    isEnabled: boolean;
     autoRepeatModeBehavior: MediaPlaybackCommandManagerCommandBehavior;
     fastForwardBehavior: MediaPlaybackCommandManagerCommandBehavior;
     mediaPlayer: MediaPlayer;
@@ -437,28 +437,28 @@
   }
 
   export class MediaPlaybackSession {
-    stereoscopicVideoPackingMode: Number;
-    position: Number;
-    playbackRate: Number;
+    stereoscopicVideoPackingMode: number;
+    position: number;
+    playbackRate: number;
     normalizedSourceRect: Object;
-    bufferingProgress: Number;
-    canPause: Boolean;
-    canSeek: Boolean;
-    downloadProgress: Number;
-    isProtected: Boolean;
+    bufferingProgress: number;
+    canPause: boolean;
+    canSeek: boolean;
+    downloadProgress: number;
+    isProtected: boolean;
     mediaPlayer: MediaPlayer;
-    naturalDuration: Number;
-    naturalVideoHeight: Number;
-    naturalVideoWidth: Number;
+    naturalDuration: number;
+    naturalVideoHeight: number;
+    naturalVideoWidth: number;
     playbackState: MediaPlaybackState;
-    isMirroring: Boolean;
+    isMirroring: boolean;
     sphericalVideoProjection: MediaPlaybackSphericalVideoProjection;
-    playbackRotation: Number;
+    playbackRotation: number;
     constructor();
 
     getSeekableRanges(): Object;
 
-    isSupportedPlaybackRateRange(rate1: Number, rate2: Number): Boolean;
+    isSupportedPlaybackRateRange(rate1: number, rate2: number): boolean;
 
     getOutputDegradationPolicyState(): MediaPlaybackSessionOutputDegradationPolicyState;
 
@@ -556,9 +556,9 @@
   export class MediaPlaybackSphericalVideoProjection {
     viewOrientation: Quaternion;
     projectionMode: SphericalVideoProjectionMode;
-    isEnabled: Boolean;
-    horizontalFieldOfViewInDegrees: Number;
-    frameFormat: Number;
+    isEnabled: boolean;
+    horizontalFieldOfViewInDegrees: number;
+    frameFormat: number;
     constructor();
 
   }
@@ -570,14 +570,14 @@
   }
 
   export class MediaPlaybackSessionBufferingStartedEventArgs {
-    isPlaybackInterruption: Boolean;
+    isPlaybackInterruption: boolean;
     constructor();
 
   }
 
   export class MediaBreakSeekedOverEventArgs {
-    newPosition: Number;
-    oldPosition: Number;
+    newPosition: number;
+    oldPosition: number;
     seekedOverBreaks: Object;
     constructor();
 
@@ -611,7 +611,7 @@
     static sendMessageToForeground(value: Object): void;
 
 
-    static isMediaPlaying(): Boolean;
+    static isMediaPlaying(): boolean;
 
 
     static shutdown(): void;
@@ -636,7 +636,7 @@
   }
 
   export class MediaPlaybackCommandManagerPlayReceivedEventArgs {
-    handled: Boolean;
+    handled: boolean;
     constructor();
 
     getDeferral(): Object;
@@ -644,7 +644,7 @@
   }
 
   export class MediaPlaybackCommandManagerPauseReceivedEventArgs {
-    handled: Boolean;
+    handled: boolean;
     constructor();
 
     getDeferral(): Object;
@@ -652,7 +652,7 @@
   }
 
   export class MediaPlaybackCommandManagerNextReceivedEventArgs {
-    handled: Boolean;
+    handled: boolean;
     constructor();
 
     getDeferral(): Object;
@@ -660,7 +660,7 @@
   }
 
   export class MediaPlaybackCommandManagerPreviousReceivedEventArgs {
-    handled: Boolean;
+    handled: boolean;
     constructor();
 
     getDeferral(): Object;
@@ -668,7 +668,7 @@
   }
 
   export class MediaPlaybackCommandManagerFastForwardReceivedEventArgs {
-    handled: Boolean;
+    handled: boolean;
     constructor();
 
     getDeferral(): Object;
@@ -676,7 +676,7 @@
   }
 
   export class MediaPlaybackCommandManagerRewindReceivedEventArgs {
-    handled: Boolean;
+    handled: boolean;
     constructor();
 
     getDeferral(): Object;
@@ -684,8 +684,8 @@
   }
 
   export class MediaPlaybackCommandManagerShuffleReceivedEventArgs {
-    handled: Boolean;
-    isShuffleRequested: Boolean;
+    handled: boolean;
+    isShuffleRequested: boolean;
     constructor();
 
     getDeferral(): Object;
@@ -693,8 +693,8 @@
   }
 
   export class MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
-    handled: Boolean;
-    autoRepeatMode: Number;
+    handled: boolean;
+    autoRepeatMode: number;
     constructor();
 
     getDeferral(): Object;
@@ -702,8 +702,8 @@
   }
 
   export class MediaPlaybackCommandManagerPositionReceivedEventArgs {
-    handled: Boolean;
-    position: Number;
+    handled: boolean;
+    position: number;
     constructor();
 
     getDeferral(): Object;
@@ -711,8 +711,8 @@
   }
 
   export class MediaPlaybackCommandManagerRateReceivedEventArgs {
-    handled: Boolean;
-    playbackRate: Number;
+    handled: boolean;
+    playbackRate: number;
     constructor();
 
     getDeferral(): Object;
@@ -722,7 +722,7 @@
   export class MediaPlaybackCommandManagerCommandBehavior {
     enablingRule: MediaCommandEnablingRule;
     commandManager: MediaPlaybackCommandManager;
-    isEnabled: Boolean;
+    isEnabled: boolean;
     constructor();
 
     addListener(type: "IsEnabledChanged", listener: (ev: Event) => void): void ;
@@ -743,16 +743,16 @@
     source: Object;
     timedMetadataTracks: MediaPlaybackTimedMetadataTrackList;
     videoTracks: MediaPlaybackVideoTrackList;
-    canSkip: Boolean;
+    canSkip: boolean;
     breakSchedule: MediaBreakSchedule;
-    durationLimit: Number;
-    startTime: Number;
-    isDisabledInPlaybackList: Boolean;
+    durationLimit: number;
+    startTime: number;
+    isDisabledInPlaybackList: boolean;
     autoLoadedDisplayProperties: AutoLoadedDisplayPropertyKind;
-    totalDownloadProgress: Number;
+    totalDownloadProgress: number;
     constructor();
-    constructor(source: Object, startTime: Number);
-    constructor(source: Object, startTime: Number, durationLimit: Number);
+    constructor(source: Object, startTime: number);
+    constructor(source: Object, startTime: number, durationLimit: number);
     constructor(source: Object);
 
     static findFromMediaSource(source: Object): MediaPlaybackItem;
@@ -791,12 +791,12 @@
   }
 
   export class MediaPlaybackAudioTrackList {
-    selectedIndex: Number;
+    selectedIndex: number;
     constructor();
 
-    getAt(index: Number): Object;
+    getAt(index: number): Object;
 
-    indexOf(value: Object, index: Number): Boolean;
+    indexOf(value: Object, index: number): boolean;
 
     getMany();
     first(): Object;
@@ -815,12 +815,12 @@
   }
 
   export class MediaPlaybackVideoTrackList {
-    selectedIndex: Number;
+    selectedIndex: number;
     constructor();
 
-    getAt(index: Number): Object;
+    getAt(index: number): Object;
 
-    indexOf(value: Object, index: Number): Boolean;
+    indexOf(value: Object, index: number): boolean;
 
     getMany();
     first(): Object;
@@ -841,16 +841,16 @@
   export class MediaPlaybackTimedMetadataTrackList {
     constructor();
 
-    getAt(index: Number): Object;
+    getAt(index: number): Object;
 
-    indexOf(value: Object, index: Number): Boolean;
+    indexOf(value: Object, index: number): boolean;
 
     getMany();
     first(): Object;
 
-    getPresentationMode(index: Number): TimedMetadataTrackPresentationMode;
+    getPresentationMode(index: number): TimedMetadataTrackPresentationMode;
 
-    setPresentationMode(index: Number, value: TimedMetadataTrackPresentationMode): void;
+    setPresentationMode(index: number, value: TimedMetadataTrackPresentationMode): void;
 
     addListener(type: "PresentationModeChanged", listener: (ev: Event) => void): void ;
     removeListener(type: "PresentationModeChanged", listener: (ev: Event) => void): void ;
@@ -890,7 +890,7 @@
   }
 
   export class MediaItemDisplayProperties {
-    type: Number;
+    type: number;
     thumbnail: Object;
     musicProperties: Object;
     videoProperties: Object;
@@ -901,34 +901,34 @@
   }
 
   export class MediaBreak {
-    canStart: Boolean;
+    canStart: boolean;
     customProperties: Object;
     insertionMethod: MediaBreakInsertionMethod;
     playbackList: MediaPlaybackList;
-    presentationPosition: Number;
+    presentationPosition: number;
     constructor();
     constructor(insertionMethod: MediaBreakInsertionMethod);
-    constructor(insertionMethod: MediaBreakInsertionMethod, presentationPosition: Number);
+    constructor(insertionMethod: MediaBreakInsertionMethod, presentationPosition: number);
 
   }
 
   export class MediaPlaybackList {
-    shuffleEnabled: Boolean;
-    autoRepeatEnabled: Boolean;
+    shuffleEnabled: boolean;
+    autoRepeatEnabled: boolean;
     currentItem: MediaPlaybackItem;
-    currentItemIndex: Number;
+    currentItemIndex: number;
     items: Object;
     startingItem: MediaPlaybackItem;
-    maxPrefetchTime: Number;
+    maxPrefetchTime: number;
     shuffledItems: Object;
-    maxPlayedItemsToKeepOpen: Number;
+    maxPlayedItemsToKeepOpen: number;
     constructor();
 
     moveNext(): MediaPlaybackItem;
 
     movePrevious(): MediaPlaybackItem;
 
-    moveTo(itemIndex: Number): MediaPlaybackItem;
+    moveTo(itemIndex: number): MediaPlaybackItem;
 
     setShuffledItems(value: Object): void;
 
@@ -965,7 +965,7 @@
 
   export class MediaPlaybackItemError {
     errorCode: MediaPlaybackItemErrorCode;
-    extendedError: Number;
+    extendedError: number;
     constructor();
 
   }

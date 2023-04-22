@@ -1,13 +1,13 @@
   export class Direct3DMultisampleDescription {
-    count: Number;
-    quality: Number;
+    count: number;
+    quality: number;
     constructor();
   }
 
   export class Direct3DSurfaceDescription {
-    width: Number;
-    height: Number;
-    format: Number;
+    width: number;
+    height: number;
+    format: number;
     multisampleDescription: Direct3DMultisampleDescription;
     constructor();
   }

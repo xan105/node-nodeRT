@@ -1,5 +1,5 @@
   export class SoundLevelBroker {
-    static soundLevel: Number;
+    static soundLevel: number;
     constructor();
 
     addListener(type: "SoundLevelChanged", listener: (ev: Event) => void): void ;

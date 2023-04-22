@@ -110,20 +110,20 @@
   }
 
   export class EasClientDeviceInformation {
-    friendlyName: String;
-    id: String;
-    operatingSystem: String;
-    systemManufacturer: String;
-    systemProductName: String;
-    systemSku: String;
-    systemFirmwareVersion: String;
-    systemHardwareVersion: String;
+    friendlyName: string;
+    id: string;
+    operatingSystem: string;
+    systemManufacturer: string;
+    systemProductName: string;
+    systemSku: string;
+    systemFirmwareVersion: string;
+    systemHardwareVersion: string;
     constructor();
 
   }
 
   export class EasComplianceResults {
-    compliant: Boolean;
+    compliant: boolean;
     disallowConvenienceLogonResult: EasDisallowConvenienceLogonResult;
     maxInactivityTimeLockResult: EasMaxInactivityTimeLockResult;
     maxPasswordFailedAttemptsResult: EasMaxPasswordFailedAttemptsResult;
@@ -138,14 +138,14 @@
   }
 
   export class EasClientSecurityPolicy {
-    requireEncryption: Boolean;
-    passwordHistory: Number;
-    passwordExpiration: Number;
-    minPasswordLength: Number;
-    minPasswordComplexCharacters: Number;
-    maxPasswordFailedAttempts: Number;
-    maxInactivityTimeLock: Number;
-    disallowConvenienceLogon: Boolean;
+    requireEncryption: boolean;
+    passwordHistory: number;
+    passwordExpiration: number;
+    minPasswordLength: number;
+    minPasswordComplexCharacters: number;
+    maxPasswordFailedAttempts: number;
+    maxInactivityTimeLock: number;
+    disallowConvenienceLogon: boolean;
     constructor();
 
     applyAsync(callback: (error: Error, result: EasComplianceResults) => void): void ;

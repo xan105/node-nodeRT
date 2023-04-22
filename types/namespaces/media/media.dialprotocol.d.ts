@@ -33,17 +33,17 @@
   }
 
   export class DialAppStateDetails {
-    fullXml: String;
+    fullXml: string;
     state: DialAppState;
     constructor();
 
   }
 
   export class DialApp {
-    appName: String;
+    appName: string;
     constructor();
 
-    requestLaunchAsync(appArgument: String, callback: (error: Error, result: DialAppLaunchResult) => void): void ;
+    requestLaunchAsync(appArgument: string, callback: (error: Error, result: DialAppLaunchResult) => void): void ;
 
     stopAsync(callback: (error: Error, result: DialAppStopResult) => void): void ;
 
@@ -52,21 +52,21 @@
   }
 
   export class DialDevice {
-    id: String;
-    friendlyName: String;
+    id: string;
+    friendlyName: string;
     thumbnail: Object;
     constructor();
 
-    static fromIdAsync(value: String, callback: (error: Error, result: DialDevice) => void): void ;
+    static fromIdAsync(value: string, callback: (error: Error, result: DialDevice) => void): void ;
 
 
-    static deviceInfoSupportsDialAsync(device: Object, callback: (error: Error, result: Boolean) => void): void ;
+    static deviceInfoSupportsDialAsync(device: Object, callback: (error: Error, result: boolean) => void): void ;
 
 
-    static getDeviceSelector(appName: String): String;
+    static getDeviceSelector(appName: string): string;
 
 
-    getDialApp(appName: String): DialApp;
+    getDialApp(appName: string): DialApp;
 
   }
 
@@ -94,10 +94,10 @@
     constructor();
 
     pickSingleDialDeviceAsync(selection: Object, callback: (error: Error, result: DialDevice) => void): void ;
-    pickSingleDialDeviceAsync(selection: Object, preferredPlacement: Number, callback: (error: Error, result: DialDevice) => void): void ;
+    pickSingleDialDeviceAsync(selection: Object, preferredPlacement: number, callback: (error: Error, result: DialDevice) => void): void ;
 
     show(selection: Object): void;
-    show(selection: Object, preferredPlacement: Number): void;
+    show(selection: Object, preferredPlacement: number): void;
 
     hide(): void;
 
@@ -134,7 +134,7 @@
 
     setAdditionalDataAsync(additionalData: Object, callback: (error: Error) => void): void ;
 
-    getUniqueDeviceNameAsync(callback: (error: Error, result: String) => void): void ;
+    getUniqueDeviceNameAsync(callback: (error: Error, result: string) => void): void ;
 
   }
 

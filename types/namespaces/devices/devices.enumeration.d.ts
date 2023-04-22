@@ -113,13 +113,13 @@
   }
 
   export class DeviceConnectionChangeTriggerDetails {
-    deviceId: String;
+    deviceId: string;
     constructor();
 
   }
 
   export class DevicePickerAppearance {
-    title: String;
+    title: string;
     selectedForegroundColor: Object;
     selectedBackgroundColor: Object;
     selectedAccentColor: Object;
@@ -156,14 +156,14 @@
     constructor();
 
     pickSingleDeviceAsync(selection: Object, callback: (error: Error, result: DeviceInformation) => void): void ;
-    pickSingleDeviceAsync(selection: Object, placement: Number, callback: (error: Error, result: DeviceInformation) => void): void ;
+    pickSingleDeviceAsync(selection: Object, placement: number, callback: (error: Error, result: DeviceInformation) => void): void ;
 
     show(selection: Object): void;
-    show(selection: Object, placement: Number): void;
+    show(selection: Object, placement: number): void;
 
     hide(): void;
 
-    setDisplayStatus(device: DeviceInformation, status: String, options: DevicePickerDisplayStatusOptions): void;
+    setDisplayStatus(device: DeviceInformation, status: string, options: DevicePickerDisplayStatusOptions): void;
 
     addListener(type: "DevicePickerDismissed", listener: (ev: Event) => void): void ;
     removeListener(type: "DevicePickerDismissed", listener: (ev: Event) => void): void ;
@@ -189,24 +189,24 @@
   }
 
   export class DeviceThumbnail {
-    contentType: String;
-    size: Number;
-    canRead: Boolean;
-    canWrite: Boolean;
-    position: Number;
+    contentType: string;
+    size: number;
+    canRead: boolean;
+    canWrite: boolean;
+    position: number;
     constructor();
 
-    readAsync(buffer: Object, count: Number, options: Number, callback: (error: Error, result: Object) => void): void ;
+    readAsync(buffer: Object, count: number, options: number, callback: (error: Error, result: Object) => void): void ;
 
-    writeAsync(buffer: Object, callback: (error: Error, result: Number) => void): void ;
+    writeAsync(buffer: Object, callback: (error: Error, result: number) => void): void ;
 
-    flushAsync(callback: (error: Error, result: Boolean) => void): void ;
+    flushAsync(callback: (error: Error, result: boolean) => void): void ;
 
-    getInputStreamAt(position: Number): Object;
+    getInputStreamAt(position: number): Object;
 
-    getOutputStreamAt(position: Number): Object;
+    getOutputStreamAt(position: number): Object;
 
-    seek(position: Number): void;
+    seek(position: number): void;
 
     cloneStream(): Object;
 
@@ -214,16 +214,16 @@
   }
 
   export class EnclosureLocation {
-    inDock: Boolean;
-    inLid: Boolean;
+    inDock: boolean;
+    inLid: boolean;
     panel: Panel;
-    rotationAngleInDegreesClockwise: Number;
+    rotationAngleInDegreesClockwise: number;
     constructor();
 
   }
 
   export class DeviceInformationUpdate {
-    id: String;
+    id: string;
     properties: Object;
     kind: DeviceInformationKind;
     constructor();
@@ -233,9 +233,9 @@
   export class DeviceInformationCollection {
     constructor();
 
-    getAt(index: Number): DeviceInformation;
+    getAt(index: number): DeviceInformation;
 
-    indexOf(value: DeviceInformation, index: Number): Boolean;
+    indexOf(value: DeviceInformation, index: number): boolean;
 
     getMany();
     first(): Object;
@@ -287,35 +287,35 @@
 
   export class DeviceInformation {
     enclosureLocation: EnclosureLocation;
-    id: String;
-    isDefault: Boolean;
-    isEnabled: Boolean;
-    name: String;
+    id: string;
+    isDefault: boolean;
+    isEnabled: boolean;
+    name: string;
     properties: Object;
     kind: DeviceInformationKind;
     pairing: DeviceInformationPairing;
     constructor();
 
-    static createFromIdAsync(deviceId: String, additionalProperties: Object, kind: DeviceInformationKind, callback: (error: Error, result: DeviceInformation) => void): void ;
-    static createFromIdAsync(deviceId: String, callback: (error: Error, result: DeviceInformation) => void): void ;
-    static createFromIdAsync(deviceId: String, additionalProperties: Object, callback: (error: Error, result: DeviceInformation) => void): void ;
+    static createFromIdAsync(deviceId: string, additionalProperties: Object, kind: DeviceInformationKind, callback: (error: Error, result: DeviceInformation) => void): void ;
+    static createFromIdAsync(deviceId: string, callback: (error: Error, result: DeviceInformation) => void): void ;
+    static createFromIdAsync(deviceId: string, additionalProperties: Object, callback: (error: Error, result: DeviceInformation) => void): void ;
 
 
-    static findAllAsync(aqsFilter: String, additionalProperties: Object, kind: DeviceInformationKind, callback: (error: Error, result: DeviceInformationCollection) => void): void ;
+    static findAllAsync(aqsFilter: string, additionalProperties: Object, kind: DeviceInformationKind, callback: (error: Error, result: DeviceInformationCollection) => void): void ;
     static findAllAsync(callback: (error: Error, result: DeviceInformationCollection) => void): void ;
     static findAllAsync(deviceClass: DeviceClass, callback: (error: Error, result: DeviceInformationCollection) => void): void ;
-    static findAllAsync(aqsFilter: String, callback: (error: Error, result: DeviceInformationCollection) => void): void ;
-    static findAllAsync(aqsFilter: String, additionalProperties: Object, callback: (error: Error, result: DeviceInformationCollection) => void): void ;
+    static findAllAsync(aqsFilter: string, callback: (error: Error, result: DeviceInformationCollection) => void): void ;
+    static findAllAsync(aqsFilter: string, additionalProperties: Object, callback: (error: Error, result: DeviceInformationCollection) => void): void ;
 
 
-    static getAqsFilterFromDeviceClass(deviceClass: DeviceClass): String;
+    static getAqsFilterFromDeviceClass(deviceClass: DeviceClass): string;
 
 
-    static createWatcher(aqsFilter: String, additionalProperties: Object, kind: DeviceInformationKind): DeviceWatcher;
+    static createWatcher(aqsFilter: string, additionalProperties: Object, kind: DeviceInformationKind): DeviceWatcher;
     static createWatcher(): DeviceWatcher;
     static createWatcher(deviceClass: DeviceClass): DeviceWatcher;
-    static createWatcher(aqsFilter: String): DeviceWatcher;
-    static createWatcher(aqsFilter: String, additionalProperties: Object): DeviceWatcher;
+    static createWatcher(aqsFilter: string): DeviceWatcher;
+    static createWatcher(aqsFilter: string, additionalProperties: Object): DeviceWatcher;
 
 
     getThumbnailAsync(callback: (error: Error, result: DeviceThumbnail) => void): void ;
@@ -347,11 +347,11 @@
   export class DevicePairingRequestedEventArgs {
     deviceInformation: DeviceInformation;
     pairingKind: DevicePairingKinds;
-    pin: String;
+    pin: string;
     constructor();
 
     accept(): void;
-    accept(pin: String): void;
+    accept(pin: string): void;
 
     getDeferral(): Object;
 
@@ -378,13 +378,13 @@
   }
 
   export class DeviceInformationPairing {
-    canPair: Boolean;
-    isPaired: Boolean;
+    canPair: boolean;
+    isPaired: boolean;
     custom: DeviceInformationCustomPairing;
     protectionLevel: DevicePairingProtectionLevel;
     constructor();
 
-    static tryRegisterForAllInboundPairingRequests(pairingKindsSupported: DevicePairingKinds): Boolean;
+    static tryRegisterForAllInboundPairingRequests(pairingKindsSupported: DevicePairingKinds): boolean;
 
 
     pairAsync(callback: (error: Error, result: DevicePairingResult) => void): void ;
@@ -397,7 +397,7 @@
 
   export class DeviceAccessChangedEventArgs {
     status: DeviceAccessStatus;
-    id: String;
+    id: string;
     constructor();
 
   }
@@ -406,10 +406,10 @@
     currentStatus: DeviceAccessStatus;
     constructor();
 
-    static createFromId(deviceId: String): DeviceAccessInformation;
+    static createFromId(deviceId: string): DeviceAccessInformation;
 
 
-    static createFromDeviceClassId(deviceClassId: String): DeviceAccessInformation;
+    static createFromDeviceClassId(deviceClassId: string): DeviceAccessInformation;
 
 
     static createFromDeviceClass(deviceClass: DeviceClass): DeviceAccessInformation;

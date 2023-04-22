@@ -38,33 +38,33 @@
 
   export class PhoneCallBlockedTriggerDetails {
     callBlockedReason: PhoneCallBlockedReason;
-    lineId: String;
-    phoneNumber: String;
+    lineId: string;
+    phoneNumber: string;
     constructor();
 
   }
 
   export class PhoneCallOriginDataRequestTriggerDetails {
-    phoneNumber: String;
-    requestId: String;
+    phoneNumber: string;
+    requestId: string;
     constructor();
 
   }
 
   export class PhoneNewVoicemailMessageTriggerDetails {
-    lineId: String;
-    operatorMessage: String;
-    voicemailCount: Number;
+    lineId: string;
+    operatorMessage: string;
+    voicemailCount: number;
     constructor();
 
   }
 
   export class PhoneLineChangedTriggerDetails {
     changeType: PhoneLineChangeKind;
-    lineId: String;
+    lineId: string;
     constructor();
 
-    hasLinePropertyChanged(lineProperty: PhoneLineProperties): Boolean;
+    hasLinePropertyChanged(lineProperty: PhoneLineProperties): boolean;
 
   }
 

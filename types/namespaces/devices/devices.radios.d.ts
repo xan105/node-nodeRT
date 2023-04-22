@@ -22,20 +22,20 @@
 
   export class Radio {
     kind: RadioKind;
-    name: String;
+    name: string;
     state: RadioState;
     constructor();
 
     static getRadiosAsync(callback: (error: Error, result: Object) => void): void ;
 
 
-    static fromIdAsync(deviceId: String, callback: (error: Error, result: Radio) => void): void ;
+    static fromIdAsync(deviceId: string, callback: (error: Error, result: Radio) => void): void ;
 
 
     static requestAccessAsync(callback: (error: Error, result: RadioAccessStatus) => void): void ;
 
 
-    static getDeviceSelector(): String;
+    static getDeviceSelector(): string;
 
 
     setStateAsync(value: RadioState, callback: (error: Error, result: RadioAccessStatus) => void): void ;

@@ -3,9 +3,9 @@
   }
 
   export class Vector3 {
-    x: Number;
-    y: Number;
-    z: Number;
+    x: number;
+    y: number;
+    z: number;
     constructor();
   }
 
@@ -30,7 +30,7 @@
   }
 
   export class PerceptionColorFrameSourceWatcher {
-    status: Number;
+    status: number;
     constructor();
 
     start(): void;
@@ -78,7 +78,7 @@
   }
 
   export class PerceptionDepthFrameSourceWatcher {
-    status: Number;
+    status: number;
     constructor();
 
     start(): void;
@@ -126,7 +126,7 @@
   }
 
   export class PerceptionInfraredFrameSourceWatcher {
-    status: Number;
+    status: number;
     constructor();
 
     start(): void;
@@ -174,24 +174,24 @@
   }
 
   export class PerceptionColorFrameSource {
-    active: Boolean;
-    available: Boolean;
+    active: boolean;
+    available: boolean;
     availableVideoProfiles: Object;
     cameraIntrinsics: Object;
-    deviceKind: String;
-    displayName: String;
-    id: String;
-    isControlled: Boolean;
+    deviceKind: string;
+    displayName: string;
+    id: string;
+    isControlled: boolean;
     properties: Object;
     supportedVideoProfiles: Object;
     videoProfile: PerceptionVideoProfile;
-    deviceId: String;
+    deviceId: string;
     constructor();
 
     static findAllAsync(callback: (error: Error, result: Object) => void): void ;
 
 
-    static fromIdAsync(id: String, callback: (error: Error, result: PerceptionColorFrameSource) => void): void ;
+    static fromIdAsync(id: string, callback: (error: Error, result: PerceptionColorFrameSource) => void): void ;
 
 
     static requestAccessAsync(callback: (error: Error, result: PerceptionFrameSourceAccessStatus) => void): void ;
@@ -202,17 +202,17 @@
 
     tryGetDepthCorrelatedCameraIntrinsicsAsync(correlatedDepthFrameSource: PerceptionDepthFrameSource, callback: (error: Error, result: PerceptionDepthCorrelatedCameraIntrinsics) => void): void ;
 
-    tryGetDepthCorrelatedCoordinateMapperAsync(targetSourceId: String, correlatedDepthFrameSource: PerceptionDepthFrameSource, callback: (error: Error, result: PerceptionDepthCorrelatedCoordinateMapper) => void): void ;
+    tryGetDepthCorrelatedCoordinateMapperAsync(targetSourceId: string, correlatedDepthFrameSource: PerceptionDepthFrameSource, callback: (error: Error, result: PerceptionDepthCorrelatedCoordinateMapper) => void): void ;
 
     trySetVideoProfileAsync(controlSession: PerceptionControlSession, profile: PerceptionVideoProfile, callback: (error: Error, result: PerceptionFrameSourcePropertyChangeResult) => void): void ;
 
     acquireControlSession(): PerceptionControlSession;
 
-    canControlIndependentlyFrom(targetId: String): Boolean;
+    canControlIndependentlyFrom(targetId: string): boolean;
 
-    isCorrelatedWith(targetId: String): Boolean;
+    isCorrelatedWith(targetId: string): boolean;
 
-    tryGetTransformTo(targetId: String, result: Matrix4x4): Boolean;
+    tryGetTransformTo(targetId: string, result: Matrix4x4): boolean;
 
     openReader(): PerceptionColorFrameReader;
 
@@ -250,24 +250,24 @@
   }
 
   export class PerceptionDepthFrameSource {
-    active: Boolean;
-    available: Boolean;
+    active: boolean;
+    available: boolean;
     availableVideoProfiles: Object;
     cameraIntrinsics: Object;
-    deviceKind: String;
-    displayName: String;
-    id: String;
-    isControlled: Boolean;
+    deviceKind: string;
+    displayName: string;
+    id: string;
+    isControlled: boolean;
     properties: Object;
     supportedVideoProfiles: Object;
     videoProfile: PerceptionVideoProfile;
-    deviceId: String;
+    deviceId: string;
     constructor();
 
     static findAllAsync(callback: (error: Error, result: Object) => void): void ;
 
 
-    static fromIdAsync(id: String, callback: (error: Error, result: PerceptionDepthFrameSource) => void): void ;
+    static fromIdAsync(id: string, callback: (error: Error, result: PerceptionDepthFrameSource) => void): void ;
 
 
     static requestAccessAsync(callback: (error: Error, result: PerceptionFrameSourceAccessStatus) => void): void ;
@@ -278,17 +278,17 @@
 
     tryGetDepthCorrelatedCameraIntrinsicsAsync(target: PerceptionDepthFrameSource, callback: (error: Error, result: PerceptionDepthCorrelatedCameraIntrinsics) => void): void ;
 
-    tryGetDepthCorrelatedCoordinateMapperAsync(targetId: String, depthFrameSourceToMapWith: PerceptionDepthFrameSource, callback: (error: Error, result: PerceptionDepthCorrelatedCoordinateMapper) => void): void ;
+    tryGetDepthCorrelatedCoordinateMapperAsync(targetId: string, depthFrameSourceToMapWith: PerceptionDepthFrameSource, callback: (error: Error, result: PerceptionDepthCorrelatedCoordinateMapper) => void): void ;
 
     trySetVideoProfileAsync(controlSession: PerceptionControlSession, profile: PerceptionVideoProfile, callback: (error: Error, result: PerceptionFrameSourcePropertyChangeResult) => void): void ;
 
     acquireControlSession(): PerceptionControlSession;
 
-    canControlIndependentlyFrom(targetId: String): Boolean;
+    canControlIndependentlyFrom(targetId: string): boolean;
 
-    isCorrelatedWith(targetId: String): Boolean;
+    isCorrelatedWith(targetId: string): boolean;
 
-    tryGetTransformTo(targetId: String, result: Matrix4x4): Boolean;
+    tryGetTransformTo(targetId: string, result: Matrix4x4): boolean;
 
     openReader(): PerceptionDepthFrameReader;
 
@@ -326,24 +326,24 @@
   }
 
   export class PerceptionInfraredFrameSource {
-    active: Boolean;
-    available: Boolean;
+    active: boolean;
+    available: boolean;
     availableVideoProfiles: Object;
     cameraIntrinsics: Object;
-    deviceKind: String;
-    displayName: String;
-    id: String;
-    isControlled: Boolean;
+    deviceKind: string;
+    displayName: string;
+    id: string;
+    isControlled: boolean;
     properties: Object;
     supportedVideoProfiles: Object;
     videoProfile: PerceptionVideoProfile;
-    deviceId: String;
+    deviceId: string;
     constructor();
 
     static findAllAsync(callback: (error: Error, result: Object) => void): void ;
 
 
-    static fromIdAsync(id: String, callback: (error: Error, result: PerceptionInfraredFrameSource) => void): void ;
+    static fromIdAsync(id: string, callback: (error: Error, result: PerceptionInfraredFrameSource) => void): void ;
 
 
     static requestAccessAsync(callback: (error: Error, result: PerceptionFrameSourceAccessStatus) => void): void ;
@@ -354,17 +354,17 @@
 
     tryGetDepthCorrelatedCameraIntrinsicsAsync(target: PerceptionDepthFrameSource, callback: (error: Error, result: PerceptionDepthCorrelatedCameraIntrinsics) => void): void ;
 
-    tryGetDepthCorrelatedCoordinateMapperAsync(targetId: String, depthFrameSourceToMapWith: PerceptionDepthFrameSource, callback: (error: Error, result: PerceptionDepthCorrelatedCoordinateMapper) => void): void ;
+    tryGetDepthCorrelatedCoordinateMapperAsync(targetId: string, depthFrameSourceToMapWith: PerceptionDepthFrameSource, callback: (error: Error, result: PerceptionDepthCorrelatedCoordinateMapper) => void): void ;
 
     trySetVideoProfileAsync(controlSession: PerceptionControlSession, profile: PerceptionVideoProfile, callback: (error: Error, result: PerceptionFrameSourcePropertyChangeResult) => void): void ;
 
     acquireControlSession(): PerceptionControlSession;
 
-    canControlIndependentlyFrom(targetId: String): Boolean;
+    canControlIndependentlyFrom(targetId: string): boolean;
 
-    isCorrelatedWith(targetId: String): Boolean;
+    isCorrelatedWith(targetId: string): boolean;
 
-    tryGetTransformTo(targetId: String, result: Matrix4x4): Boolean;
+    tryGetTransformTo(targetId: string, result: Matrix4x4): boolean;
 
     openReader(): PerceptionInfraredFrameReader;
 
@@ -404,7 +404,7 @@
   export class PerceptionControlSession {
     constructor();
 
-    trySetPropertyAsync(name: String, value: Object, callback: (error: Error, result: PerceptionFrameSourcePropertyChangeResult) => void): void ;
+    trySetPropertyAsync(name: string, value: Object, callback: (error: Error, result: PerceptionFrameSourcePropertyChangeResult) => void): void ;
 
     close(): void;
     addListener(type: "ControlLost", listener: (ev: Event) => void): void ;
@@ -428,21 +428,21 @@
   }
 
   export class PerceptionFrameSourcePropertiesChangedEventArgs {
-    collectionChange: Number;
-    key: String;
+    collectionChange: number;
+    key: string;
     constructor();
 
   }
 
   export class PerceptionVideoProfile {
-    bitmapAlphaMode: Number;
-    bitmapPixelFormat: Number;
-    frameDuration: Number;
-    height: Number;
-    width: Number;
+    bitmapAlphaMode: number;
+    bitmapPixelFormat: number;
+    frameDuration: number;
+    height: number;
+    width: number;
     constructor();
 
-    isEqual(other: PerceptionVideoProfile): Boolean;
+    isEqual(other: PerceptionVideoProfile): boolean;
 
   }
 
@@ -471,7 +471,7 @@
   }
 
   export class PerceptionColorFrameReader {
-    isPaused: Boolean;
+    isPaused: boolean;
     source: PerceptionColorFrameSource;
     constructor();
 
@@ -492,7 +492,7 @@
   }
 
   export class PerceptionDepthFrameReader {
-    isPaused: Boolean;
+    isPaused: boolean;
     source: PerceptionDepthFrameSource;
     constructor();
 
@@ -513,7 +513,7 @@
   }
 
   export class PerceptionInfraredFrameReader {
-    isPaused: Boolean;
+    isPaused: boolean;
     source: PerceptionInfraredFrameSource;
     constructor();
 
@@ -534,7 +534,7 @@
   }
 
   export class PerceptionColorFrameArrivedEventArgs {
-    relativeTime: Number;
+    relativeTime: number;
     constructor();
 
     tryOpenFrame(): PerceptionColorFrame;
@@ -549,7 +549,7 @@
   }
 
   export class PerceptionDepthFrameArrivedEventArgs {
-    relativeTime: Number;
+    relativeTime: number;
     constructor();
 
     tryOpenFrame(): PerceptionDepthFrame;
@@ -564,7 +564,7 @@
   }
 
   export class PerceptionInfraredFrameArrivedEventArgs {
-    relativeTime: Number;
+    relativeTime: number;
     constructor();
 
     tryOpenFrame(): PerceptionInfraredFrame;
@@ -579,68 +579,68 @@
   }
 
   export class KnownPerceptionFrameSourceProperties {
-    static deviceModelVersion: String;
-    static enclosureLocation: String;
-    static frameKind: String;
-    static id: String;
-    static physicalDeviceIds: String;
-    static deviceId: String;
+    static deviceModelVersion: string;
+    static enclosureLocation: string;
+    static frameKind: string;
+    static id: string;
+    static physicalDeviceIds: string;
+    static deviceId: string;
     constructor();
 
   }
 
   export class KnownPerceptionVideoFrameSourceProperties {
-    static availableVideoProfiles: String;
-    static cameraIntrinsics: String;
-    static isMirrored: String;
-    static supportedVideoProfiles: String;
-    static videoProfile: String;
+    static availableVideoProfiles: string;
+    static cameraIntrinsics: string;
+    static isMirrored: string;
+    static supportedVideoProfiles: string;
+    static videoProfile: string;
     constructor();
 
   }
 
   export class KnownPerceptionInfraredFrameSourceProperties {
-    static activeIlluminationEnabled: String;
-    static ambientSubtractionEnabled: String;
-    static autoExposureEnabled: String;
-    static exposure: String;
-    static exposureCompensation: String;
-    static interleavedIlluminationEnabled: String;
-    static structureLightPatternEnabled: String;
+    static activeIlluminationEnabled: string;
+    static ambientSubtractionEnabled: string;
+    static autoExposureEnabled: string;
+    static exposure: string;
+    static exposureCompensation: string;
+    static interleavedIlluminationEnabled: string;
+    static structureLightPatternEnabled: string;
     constructor();
 
   }
 
   export class KnownPerceptionDepthFrameSourceProperties {
-    static maxDepth: String;
-    static minDepth: String;
+    static maxDepth: string;
+    static minDepth: string;
     constructor();
 
   }
 
   export class KnownPerceptionColorFrameSourceProperties {
-    static autoExposureEnabled: String;
-    static exposure: String;
-    static exposureCompensation: String;
+    static autoExposureEnabled: string;
+    static exposure: string;
+    static exposureCompensation: string;
     constructor();
 
   }
 
   export class KnownPerceptionVideoProfileProperties {
-    static bitmapAlphaMode: String;
-    static bitmapPixelFormat: String;
-    static frameDuration: String;
-    static height: String;
-    static width: String;
+    static bitmapAlphaMode: string;
+    static bitmapPixelFormat: string;
+    static frameDuration: string;
+    static height: string;
+    static width: string;
     constructor();
 
   }
 
   export class KnownCameraIntrinsicsProperties {
-    static focalLength: String;
-    static principalPoint: String;
-    static radialDistortion: String;
-    static tangentialDistortion: String;
+    static focalLength: string;
+    static principalPoint: string;
+    static radialDistortion: string;
+    static tangentialDistortion: string;
     constructor();
 
   }

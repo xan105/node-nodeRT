@@ -1,6 +1,6 @@
   export class I2cTransferResult {
     status: I2cTransferStatus;
-    bytesTransferred: Number;
+    bytesTransferred: number;
     constructor();
   }
 
@@ -23,39 +23,39 @@
   }
 
   export class I2cConnectionSettings {
-    slaveAddress: Number;
+    slaveAddress: number;
     sharingMode: I2cSharingMode;
     busSpeed: I2cBusSpeed;
     constructor();
-    constructor(slaveAddress: Number);
+    constructor(slaveAddress: number);
 
   }
 
   export class II2cDeviceStatics {
     constructor();
 
-    fromIdAsync(deviceId: String, settings: I2cConnectionSettings, callback: (error: Error, result: I2cDevice) => void): void ;
+    fromIdAsync(deviceId: string, settings: I2cConnectionSettings, callback: (error: Error, result: I2cDevice) => void): void ;
 
-    getDeviceSelector(): String;
-    getDeviceSelector(friendlyName: String): String;
+    getDeviceSelector(): string;
+    getDeviceSelector(friendlyName: string): string;
 
   }
 
   export class I2cDevice {
     connectionSettings: I2cConnectionSettings;
-    deviceId: String;
+    deviceId: string;
     constructor();
 
-    static fromIdAsync(deviceId: String, settings: I2cConnectionSettings, callback: (error: Error, result: I2cDevice) => void): void ;
+    static fromIdAsync(deviceId: string, settings: I2cConnectionSettings, callback: (error: Error, result: I2cDevice) => void): void ;
 
 
-    static getDeviceSelector(): String;
-    static getDeviceSelector(friendlyName: String): String;
+    static getDeviceSelector(): string;
+    static getDeviceSelector(friendlyName: string): string;
 
 
-    write(buffer: Array<Number>): void;
+    write(buffer: Array<number>): void;
 
-    writePartial(buffer: Array<Number>): I2cTransferResult;
+    writePartial(buffer: Array<number>): I2cTransferResult;
 
     read();
     readPartial();

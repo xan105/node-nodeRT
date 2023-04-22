@@ -27,18 +27,18 @@
 
   export class FileInformationFactory {
     constructor();
-    constructor(queryResult: Object, mode: Number);
-    constructor(queryResult: Object, mode: Number, requestedThumbnailSize: Number);
-    constructor(queryResult: Object, mode: Number, requestedThumbnailSize: Number, thumbnailOptions: Number);
-    constructor(queryResult: Object, mode: Number, requestedThumbnailSize: Number, thumbnailOptions: Number, delayLoad: Boolean);
+    constructor(queryResult: Object, mode: number);
+    constructor(queryResult: Object, mode: number, requestedThumbnailSize: number);
+    constructor(queryResult: Object, mode: number, requestedThumbnailSize: number, thumbnailOptions: number);
+    constructor(queryResult: Object, mode: number, requestedThumbnailSize: number, thumbnailOptions: number, delayLoad: boolean);
 
-    getItemsAsync(startIndex: Number, maxItemsToRetrieve: Number, callback: (error: Error, result: Object) => void): void ;
+    getItemsAsync(startIndex: number, maxItemsToRetrieve: number, callback: (error: Error, result: Object) => void): void ;
     getItemsAsync(callback: (error: Error, result: Object) => void): void ;
 
-    getFilesAsync(startIndex: Number, maxItemsToRetrieve: Number, callback: (error: Error, result: Object) => void): void ;
+    getFilesAsync(startIndex: number, maxItemsToRetrieve: number, callback: (error: Error, result: Object) => void): void ;
     getFilesAsync(callback: (error: Error, result: Object) => void): void ;
 
-    getFoldersAsync(startIndex: Number, maxItemsToRetrieve: Number, callback: (error: Error, result: Object) => void): void ;
+    getFoldersAsync(startIndex: number, maxItemsToRetrieve: number, callback: (error: Error, result: Object) => void): void ;
     getFoldersAsync(callback: (error: Error, result: Object) => void): void ;
 
     getVirtualizedItemsVector(): Object;
@@ -56,43 +56,43 @@
     musicProperties: Object;
     thumbnail: Object;
     videoProperties: Object;
-    contentType: String;
-    fileType: String;
-    isAvailable: Boolean;
-    attributes: Number;
+    contentType: string;
+    fileType: string;
+    isAvailable: boolean;
+    attributes: number;
     dateCreated: Date;
-    name: String;
-    path: String;
-    displayName: String;
-    displayType: String;
-    folderRelativeId: String;
+    name: string;
+    path: string;
+    displayName: string;
+    displayType: string;
+    folderRelativeId: string;
     properties: Object;
     provider: Object;
     constructor();
 
-    openAsync(accessMode: Number, callback: (error: Error, result: Object) => void): void ;
-    openAsync(accessMode: Number, options: Number, callback: (error: Error, result: Object) => void): void ;
+    openAsync(accessMode: number, callback: (error: Error, result: Object) => void): void ;
+    openAsync(accessMode: number, options: number, callback: (error: Error, result: Object) => void): void ;
 
     openTransactedWriteAsync(callback: (error: Error, result: Object) => void): void ;
-    openTransactedWriteAsync(options: Number, callback: (error: Error, result: Object) => void): void ;
+    openTransactedWriteAsync(options: number, callback: (error: Error, result: Object) => void): void ;
 
     copyAsync(destinationFolder: Object, callback: (error: Error, result: Object) => void): void ;
-    copyAsync(destinationFolder: Object, desiredNewName: String, callback: (error: Error, result: Object) => void): void ;
-    copyAsync(destinationFolder: Object, desiredNewName: String, option: Number, callback: (error: Error, result: Object) => void): void ;
+    copyAsync(destinationFolder: Object, desiredNewName: string, callback: (error: Error, result: Object) => void): void ;
+    copyAsync(destinationFolder: Object, desiredNewName: string, option: number, callback: (error: Error, result: Object) => void): void ;
 
     copyAndReplaceAsync(fileToReplace: Object, callback: (error: Error) => void): void ;
 
     moveAsync(destinationFolder: Object, callback: (error: Error) => void): void ;
-    moveAsync(destinationFolder: Object, desiredNewName: String, callback: (error: Error) => void): void ;
-    moveAsync(destinationFolder: Object, desiredNewName: String, option: Number, callback: (error: Error) => void): void ;
+    moveAsync(destinationFolder: Object, desiredNewName: string, callback: (error: Error) => void): void ;
+    moveAsync(destinationFolder: Object, desiredNewName: string, option: number, callback: (error: Error) => void): void ;
 
     moveAndReplaceAsync(fileToReplace: Object, callback: (error: Error) => void): void ;
 
-    renameAsync(desiredName: String, callback: (error: Error) => void): void ;
-    renameAsync(desiredName: String, option: Number, callback: (error: Error) => void): void ;
+    renameAsync(desiredName: string, callback: (error: Error) => void): void ;
+    renameAsync(desiredName: string, option: number, callback: (error: Error) => void): void ;
 
     deleteAsync(callback: (error: Error) => void): void ;
-    deleteAsync(option: Number, callback: (error: Error) => void): void ;
+    deleteAsync(option: number, callback: (error: Error) => void): void ;
 
     getBasicPropertiesAsync(callback: (error: Error, result: Object) => void): void ;
 
@@ -100,15 +100,15 @@
 
     openSequentialReadAsync(callback: (error: Error, result: Object) => void): void ;
 
-    getThumbnailAsync(mode: Number, callback: (error: Error, result: Object) => void): void ;
-    getThumbnailAsync(mode: Number, requestedSize: Number, callback: (error: Error, result: Object) => void): void ;
-    getThumbnailAsync(mode: Number, requestedSize: Number, options: Number, callback: (error: Error, result: Object) => void): void ;
+    getThumbnailAsync(mode: number, callback: (error: Error, result: Object) => void): void ;
+    getThumbnailAsync(mode: number, requestedSize: number, callback: (error: Error, result: Object) => void): void ;
+    getThumbnailAsync(mode: number, requestedSize: number, options: number, callback: (error: Error, result: Object) => void): void ;
 
     getParentAsync(callback: (error: Error, result: Object) => void): void ;
 
-    isOfType(type: Number): Boolean;
+    isOfType(type: number): boolean;
 
-    isEqual(item: Object): Boolean;
+    isEqual(item: Object): boolean;
 
     addListener(type: "PropertiesUpdated", listener: (ev: Event) => void): void ;
     removeListener(type: "PropertiesUpdated", listener: (ev: Event) => void): void ;
@@ -135,75 +135,75 @@
     musicProperties: Object;
     thumbnail: Object;
     videoProperties: Object;
-    attributes: Number;
+    attributes: number;
     dateCreated: Date;
-    name: String;
-    path: String;
-    displayName: String;
-    displayType: String;
-    folderRelativeId: String;
+    name: string;
+    path: string;
+    displayName: string;
+    displayType: string;
+    folderRelativeId: string;
     properties: Object;
     provider: Object;
     constructor();
 
     getParentAsync(callback: (error: Error, result: Object) => void): void ;
 
-    tryGetItemAsync(name: String, callback: (error: Error, result: Object) => void): void ;
+    tryGetItemAsync(name: string, callback: (error: Error, result: Object) => void): void ;
 
-    createFileAsync(desiredName: String, callback: (error: Error, result: Object) => void): void ;
-    createFileAsync(desiredName: String, options: Number, callback: (error: Error, result: Object) => void): void ;
+    createFileAsync(desiredName: string, callback: (error: Error, result: Object) => void): void ;
+    createFileAsync(desiredName: string, options: number, callback: (error: Error, result: Object) => void): void ;
 
-    createFolderAsync(desiredName: String, callback: (error: Error, result: Object) => void): void ;
-    createFolderAsync(desiredName: String, options: Number, callback: (error: Error, result: Object) => void): void ;
+    createFolderAsync(desiredName: string, callback: (error: Error, result: Object) => void): void ;
+    createFolderAsync(desiredName: string, options: number, callback: (error: Error, result: Object) => void): void ;
 
-    getFileAsync(name: String, callback: (error: Error, result: Object) => void): void ;
+    getFileAsync(name: string, callback: (error: Error, result: Object) => void): void ;
 
-    getFolderAsync(name: String, callback: (error: Error, result: Object) => void): void ;
+    getFolderAsync(name: string, callback: (error: Error, result: Object) => void): void ;
 
-    getItemAsync(name: String, callback: (error: Error, result: Object) => void): void ;
+    getItemAsync(name: string, callback: (error: Error, result: Object) => void): void ;
 
     getFilesAsync(callback: (error: Error, result: Object) => void): void ;
-    getFilesAsync(query: Number, startIndex: Number, maxItemsToRetrieve: Number, callback: (error: Error, result: Object) => void): void ;
-    getFilesAsync(query: Number, callback: (error: Error, result: Object) => void): void ;
+    getFilesAsync(query: number, startIndex: number, maxItemsToRetrieve: number, callback: (error: Error, result: Object) => void): void ;
+    getFilesAsync(query: number, callback: (error: Error, result: Object) => void): void ;
 
     getFoldersAsync(callback: (error: Error, result: Object) => void): void ;
-    getFoldersAsync(query: Number, startIndex: Number, maxItemsToRetrieve: Number, callback: (error: Error, result: Object) => void): void ;
-    getFoldersAsync(query: Number, callback: (error: Error, result: Object) => void): void ;
+    getFoldersAsync(query: number, startIndex: number, maxItemsToRetrieve: number, callback: (error: Error, result: Object) => void): void ;
+    getFoldersAsync(query: number, callback: (error: Error, result: Object) => void): void ;
 
     getItemsAsync(callback: (error: Error, result: Object) => void): void ;
-    getItemsAsync(startIndex: Number, maxItemsToRetrieve: Number, callback: (error: Error, result: Object) => void): void ;
+    getItemsAsync(startIndex: number, maxItemsToRetrieve: number, callback: (error: Error, result: Object) => void): void ;
 
-    renameAsync(desiredName: String, callback: (error: Error) => void): void ;
-    renameAsync(desiredName: String, option: Number, callback: (error: Error) => void): void ;
+    renameAsync(desiredName: string, callback: (error: Error) => void): void ;
+    renameAsync(desiredName: string, option: number, callback: (error: Error) => void): void ;
 
     deleteAsync(callback: (error: Error) => void): void ;
-    deleteAsync(option: Number, callback: (error: Error) => void): void ;
+    deleteAsync(option: number, callback: (error: Error) => void): void ;
 
     getBasicPropertiesAsync(callback: (error: Error, result: Object) => void): void ;
 
-    getThumbnailAsync(mode: Number, callback: (error: Error, result: Object) => void): void ;
-    getThumbnailAsync(mode: Number, requestedSize: Number, callback: (error: Error, result: Object) => void): void ;
-    getThumbnailAsync(mode: Number, requestedSize: Number, options: Number, callback: (error: Error, result: Object) => void): void ;
+    getThumbnailAsync(mode: number, callback: (error: Error, result: Object) => void): void ;
+    getThumbnailAsync(mode: number, requestedSize: number, callback: (error: Error, result: Object) => void): void ;
+    getThumbnailAsync(mode: number, requestedSize: number, options: number, callback: (error: Error, result: Object) => void): void ;
 
-    getIndexedStateAsync(callback: (error: Error, result: Number) => void): void ;
+    getIndexedStateAsync(callback: (error: Error, result: number) => void): void ;
 
-    areQueryOptionsSupported(queryOptions: Object): Boolean;
+    areQueryOptionsSupported(queryOptions: Object): boolean;
 
-    isCommonFolderQuerySupported(query: Number): Boolean;
+    isCommonFolderQuerySupported(query: number): boolean;
 
-    isCommonFileQuerySupported(query: Number): Boolean;
+    isCommonFileQuerySupported(query: number): boolean;
 
-    isEqual(item: Object): Boolean;
+    isEqual(item: Object): boolean;
 
-    isOfType(type: Number): Boolean;
+    isOfType(type: number): boolean;
 
     createFileQuery(): Object;
-    createFileQuery(query: Number): Object;
+    createFileQuery(query: number): Object;
 
     createFileQueryWithOptions(queryOptions: Object): Object;
 
     createFolderQuery(): Object;
-    createFolderQuery(query: Number): Object;
+    createFolderQuery(query: number): Object;
 
     createFolderQueryWithOptions(queryOptions: Object): Object;
 

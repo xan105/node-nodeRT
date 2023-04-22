@@ -66,7 +66,7 @@
   export class WebError {
     constructor();
 
-    static getStatus(hresult: Number): WebErrorStatus;
+    static getStatus(hresult: number): WebErrorStatus;
 
 
   }

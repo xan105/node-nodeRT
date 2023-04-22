@@ -10,16 +10,16 @@
   }
 
   export class ThreadPoolTimer {
-    delay: Number;
-    period: Number;
+    delay: number;
+    period: number;
     constructor();
 
-    static createPeriodicTimer(handler: Object, period: Number): ThreadPoolTimer;
-    static createPeriodicTimer(handler: Object, period: Number, destroyed: Object): ThreadPoolTimer;
+    static createPeriodicTimer(handler: Object, period: number): ThreadPoolTimer;
+    static createPeriodicTimer(handler: Object, period: number, destroyed: Object): ThreadPoolTimer;
 
 
-    static createTimer(handler: Object, delay: Number): ThreadPoolTimer;
-    static createTimer(handler: Object, delay: Number, destroyed: Object): ThreadPoolTimer;
+    static createTimer(handler: Object, delay: number): ThreadPoolTimer;
+    static createTimer(handler: Object, delay: number, destroyed: Object): ThreadPoolTimer;
 
 
     cancel(): void;

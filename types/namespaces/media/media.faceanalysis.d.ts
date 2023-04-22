@@ -1,14 +1,14 @@
   export class BitmapBounds {
-    x: Number;
-    y: Number;
-    width: Number;
-    height: Number;
+    x: number;
+    y: number;
+    width: number;
+    height: number;
     constructor();
   }
 
   export class BitmapSize {
-    width: Number;
-    height: Number;
+    width: number;
+    height: number;
     constructor();
   }
 
@@ -19,7 +19,7 @@
   }
 
   export class FaceTracker {
-    static isSupported: Boolean;
+    static isSupported: boolean;
     minDetectableFaceSize: BitmapSize;
     maxDetectableFaceSize: BitmapSize;
     constructor();
@@ -30,7 +30,7 @@
     static getSupportedBitmapPixelFormats(): Object;
 
 
-    static isBitmapPixelFormatSupported(bitmapPixelFormat: Number): Boolean;
+    static isBitmapPixelFormatSupported(bitmapPixelFormat: number): boolean;
 
 
     processNextFrameAsync(videoFrame: Object, callback: (error: Error, result: Object) => void): void ;
@@ -38,7 +38,7 @@
   }
 
   export class FaceDetector {
-    static isSupported: Boolean;
+    static isSupported: boolean;
     minDetectableFaceSize: BitmapSize;
     maxDetectableFaceSize: BitmapSize;
     constructor();
@@ -49,7 +49,7 @@
     static getSupportedBitmapPixelFormats(): Object;
 
 
-    static isBitmapPixelFormatSupported(bitmapPixelFormat: Number): Boolean;
+    static isBitmapPixelFormatSupported(bitmapPixelFormat: number): boolean;
 
 
     detectFacesAsync(image: Object, callback: (error: Error, result: Object) => void): void ;

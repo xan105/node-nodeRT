@@ -1,5 +1,5 @@
   export class InteractiveSession {
-    static isRemote: Boolean;
+    static isRemote: boolean;
     constructor();
 
   }

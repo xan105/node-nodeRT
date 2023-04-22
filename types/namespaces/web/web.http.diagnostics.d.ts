@@ -19,27 +19,27 @@
   }
 
   export class HttpDiagnosticSourceLocation {
-    columnNumber: Number;
-    lineNumber: Number;
+    columnNumber: number;
+    lineNumber: number;
     sourceUri: Object;
     constructor();
 
   }
 
   export class HttpDiagnosticProviderRequestSentEventArgs {
-    activityId: String;
+    activityId: string;
     initiator: HttpDiagnosticRequestInitiator;
     message: Object;
-    processId: Number;
+    processId: number;
     sourceLocations: Object;
-    threadId: Number;
+    threadId: number;
     timestamp: Date;
     constructor();
 
   }
 
   export class HttpDiagnosticProviderResponseReceivedEventArgs {
-    activityId: String;
+    activityId: string;
     message: Object;
     timestamp: Date;
     constructor();
@@ -61,12 +61,12 @@
   }
 
   export class HttpDiagnosticProviderRequestResponseCompletedEventArgs {
-    activityId: String;
+    activityId: string;
     initiator: HttpDiagnosticRequestInitiator;
-    processId: Number;
+    processId: number;
     requestedUri: Object;
     sourceLocations: Object;
-    threadId: Number;
+    threadId: number;
     timestamps: HttpDiagnosticProviderRequestResponseTimestamps;
     constructor();
 

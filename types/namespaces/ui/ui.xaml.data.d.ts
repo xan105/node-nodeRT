@@ -1,5 +1,5 @@
   export class LoadMoreItemsResult {
-    count: Number;
+    count: number;
     constructor();
   }
 
@@ -36,7 +36,7 @@
 
     deselectRange(itemIndexRange: ItemIndexRange): void;
 
-    isSelected(index: Number): Boolean;
+    isSelected(index: number): boolean;
 
     getSelectedRanges(): Object;
 
@@ -49,17 +49,17 @@
   }
 
   export class CurrentChangingEventArgs {
-    cancel: Boolean;
-    isCancelable: Boolean;
+    cancel: boolean;
+    isCancelable: boolean;
     constructor();
-    constructor(isCancelable: Boolean);
+    constructor(isCancelable: boolean);
 
   }
 
   export class ICustomProperty {
-    canRead: Boolean;
-    canWrite: Boolean;
-    name: String;
+    canRead: boolean;
+    canWrite: boolean;
+    name: string;
     type: Object;
     constructor();
 
@@ -77,28 +77,28 @@
     type: Object;
     constructor();
 
-    getCustomProperty(name: String): ICustomProperty;
+    getCustomProperty(name: string): ICustomProperty;
 
-    getIndexedProperty(name: String, type: Object): ICustomProperty;
+    getIndexedProperty(name: string, type: Object): ICustomProperty;
 
-    getStringRepresentation(): String;
+    getStringRepresentation(): string;
 
   }
 
   export class ISupportIncrementalLoading {
-    hasMoreItems: Boolean;
+    hasMoreItems: boolean;
     constructor();
 
-    loadMoreItemsAsync(count: Number, callback: (error: Error, result: LoadMoreItemsResult) => void): void ;
+    loadMoreItemsAsync(count: number, callback: (error: Error, result: LoadMoreItemsResult) => void): void ;
 
   }
 
   export class IValueConverter {
     constructor();
 
-    convert(value: Object, targetType: Object, parameter: Object, language: String): Object;
+    convert(value: Object, targetType: Object, parameter: Object, language: string): Object;
 
-    convertBack(value: Object, targetType: Object, parameter: Object, language: String): Object;
+    convertBack(value: Object, targetType: Object, parameter: Object, language: string): Object;
 
   }
 
@@ -139,9 +139,9 @@
 
   export class Binding {
     mode: BindingMode;
-    elementName: String;
+    elementName: string;
     converterParameter: Object;
-    converterLanguage: String;
+    converterLanguage: string;
     converter: IValueConverter;
     source: Object;
     relativeSource: RelativeSource;
@@ -157,25 +157,25 @@
   export class ICollectionView {
     collectionGroups: Object;
     currentItem: Object;
-    currentPosition: Number;
-    hasMoreItems: Boolean;
-    isCurrentAfterLast: Boolean;
-    isCurrentBeforeFirst: Boolean;
+    currentPosition: number;
+    hasMoreItems: boolean;
+    isCurrentAfterLast: boolean;
+    isCurrentBeforeFirst: boolean;
     constructor();
 
-    loadMoreItemsAsync(count: Number, callback: (error: Error, result: LoadMoreItemsResult) => void): void ;
+    loadMoreItemsAsync(count: number, callback: (error: Error, result: LoadMoreItemsResult) => void): void ;
 
-    moveCurrentTo(item: Object): Boolean;
+    moveCurrentTo(item: Object): boolean;
 
-    moveCurrentToPosition(index: Number): Boolean;
+    moveCurrentToPosition(index: number): boolean;
 
-    moveCurrentToFirst(): Boolean;
+    moveCurrentToFirst(): boolean;
 
-    moveCurrentToLast(): Boolean;
+    moveCurrentToLast(): boolean;
 
-    moveCurrentToNext(): Boolean;
+    moveCurrentToNext(): boolean;
 
-    moveCurrentToPrevious(): Boolean;
+    moveCurrentToPrevious(): boolean;
 
     addListener(type: "CurrentChanged", listener: (ev: Event) => void): void ;
     removeListener(type: "CurrentChanged", listener: (ev: Event) => void): void ;
@@ -210,11 +210,11 @@
   }
 
   export class ItemIndexRange {
-    firstIndex: Number;
-    lastIndex: Number;
-    length: Number;
+    firstIndex: number;
+    lastIndex: number;
+    length: number;
     constructor();
-    constructor(firstIndex: Number, length: Number);
+    constructor(firstIndex: number, length: number);
 
   }
 
@@ -225,7 +225,7 @@
     static viewProperty: Object;
     source: Object;
     itemsPath: Object;
-    isSourceGrouped: Boolean;
+    isSourceGrouped: boolean;
     view: ICollectionView;
     dispatcher: Object;
     constructor();

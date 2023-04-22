@@ -285,10 +285,10 @@
     static headingLevelProperty: Object;
     constructor();
 
-    static getItemType(element: Object): String;
+    static getItemType(element: Object): string;
 
 
-    static setItemType(element: Object, value: String): void;
+    static setItemType(element: Object, value: string): void;
 
 
     static getLabeledBy(element: Object): Object;
@@ -297,52 +297,52 @@
     static setLabeledBy(element: Object, value: Object): void;
 
 
-    static getName(element: Object): String;
+    static getName(element: Object): string;
 
 
-    static setName(element: Object, value: String): void;
+    static setName(element: Object, value: string): void;
 
 
-    static getLiveSetting(element: Object): Number;
+    static getLiveSetting(element: Object): number;
 
 
-    static setLiveSetting(element: Object, value: Number): void;
+    static setLiveSetting(element: Object, value: number): void;
 
 
-    static getHeadingLevel(element: Object): Number;
+    static getHeadingLevel(element: Object): number;
 
 
-    static setHeadingLevel(element: Object, value: Number): void;
+    static setHeadingLevel(element: Object, value: number): void;
 
 
-    static getCulture(element: Object): Number;
+    static getCulture(element: Object): number;
 
 
-    static setCulture(element: Object, value: Number): void;
+    static setCulture(element: Object, value: number): void;
 
 
-    static getIsPeripheral(element: Object): Boolean;
+    static getIsPeripheral(element: Object): boolean;
 
 
-    static setIsPeripheral(element: Object, value: Boolean): void;
+    static setIsPeripheral(element: Object, value: boolean): void;
 
 
-    static getIsDataValidForForm(element: Object): Boolean;
+    static getIsDataValidForForm(element: Object): boolean;
 
 
-    static setIsDataValidForForm(element: Object, value: Boolean): void;
+    static setIsDataValidForForm(element: Object, value: boolean): void;
 
 
-    static getFullDescription(element: Object): String;
+    static getFullDescription(element: Object): string;
 
 
-    static setFullDescription(element: Object, value: String): void;
+    static setFullDescription(element: Object, value: string): void;
 
 
-    static getLocalizedControlType(element: Object): String;
+    static getLocalizedControlType(element: Object): string;
 
 
-    static setLocalizedControlType(element: Object, value: String): void;
+    static setLocalizedControlType(element: Object, value: string): void;
 
 
     static getDescribedBy(element: Object): Object;
@@ -354,82 +354,82 @@
     static getFlowsFrom(element: Object): Object;
 
 
-    static getLandmarkType(element: Object): Number;
+    static getLandmarkType(element: Object): number;
 
 
-    static setLandmarkType(element: Object, value: Number): void;
+    static setLandmarkType(element: Object, value: number): void;
 
 
-    static getLocalizedLandmarkType(element: Object): String;
+    static getLocalizedLandmarkType(element: Object): string;
 
 
-    static setLocalizedLandmarkType(element: Object, value: String): void;
+    static setLocalizedLandmarkType(element: Object, value: string): void;
 
 
-    static getPositionInSet(element: Object): Number;
+    static getPositionInSet(element: Object): number;
 
 
-    static setPositionInSet(element: Object, value: Number): void;
+    static setPositionInSet(element: Object, value: number): void;
 
 
-    static getSizeOfSet(element: Object): Number;
+    static getSizeOfSet(element: Object): number;
 
 
-    static setSizeOfSet(element: Object, value: Number): void;
+    static setSizeOfSet(element: Object, value: number): void;
 
 
-    static getLevel(element: Object): Number;
+    static getLevel(element: Object): number;
 
 
-    static setLevel(element: Object, value: Number): void;
+    static setLevel(element: Object, value: number): void;
 
 
     static getAnnotations(element: Object): Object;
 
 
-    static getAccessibilityView(element: Object): Number;
+    static getAccessibilityView(element: Object): number;
 
 
-    static setAccessibilityView(element: Object, value: Number): void;
+    static setAccessibilityView(element: Object, value: number): void;
 
 
     static getControlledPeers(element: Object): Object;
 
 
-    static getAcceleratorKey(element: Object): String;
+    static getAcceleratorKey(element: Object): string;
 
 
-    static setAcceleratorKey(element: Object, value: String): void;
+    static setAcceleratorKey(element: Object, value: string): void;
 
 
-    static getAccessKey(element: Object): String;
+    static getAccessKey(element: Object): string;
 
 
-    static setAccessKey(element: Object, value: String): void;
+    static setAccessKey(element: Object, value: string): void;
 
 
-    static getAutomationId(element: Object): String;
+    static getAutomationId(element: Object): string;
 
 
-    static setAutomationId(element: Object, value: String): void;
+    static setAutomationId(element: Object, value: string): void;
 
 
-    static getHelpText(element: Object): String;
+    static getHelpText(element: Object): string;
 
 
-    static setHelpText(element: Object, value: String): void;
+    static setHelpText(element: Object, value: string): void;
 
 
-    static getIsRequiredForForm(element: Object): Boolean;
+    static getIsRequiredForForm(element: Object): boolean;
 
 
-    static setIsRequiredForForm(element: Object, value: Boolean): void;
+    static setIsRequiredForForm(element: Object, value: boolean): void;
 
 
-    static getItemStatus(element: Object): String;
+    static getItemStatus(element: Object): string;
 
 
-    static setItemStatus(element: Object, value: String): void;
+    static setItemStatus(element: Object, value: string): void;
 
 
   }
@@ -501,7 +501,7 @@
     static horizontalScrollPercentProperty: AutomationProperty;
     static horizontalViewSizeProperty: AutomationProperty;
     static horizontallyScrollableProperty: AutomationProperty;
-    static noScroll: Number;
+    static noScroll: number;
     static verticalScrollPercentProperty: AutomationProperty;
     static verticalViewSizeProperty: AutomationProperty;
     static verticallyScrollableProperty: AutomationProperty;

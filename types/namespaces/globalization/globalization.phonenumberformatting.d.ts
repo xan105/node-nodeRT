@@ -36,54 +36,54 @@
   }
 
   export class PhoneNumberInfo {
-    countryCode: Number;
-    phoneNumber: String;
+    countryCode: number;
+    phoneNumber: string;
     constructor();
-    constructor(number: String);
+    constructor(number: string);
 
-    static tryParse(input: String, phoneNumber: Object): PhoneNumberParseResult;
-    static tryParse(input: String, regionCode: String, phoneNumber: Object): PhoneNumberParseResult;
+    static tryParse(input: string, phoneNumber: Object): PhoneNumberParseResult;
+    static tryParse(input: string, regionCode: string, phoneNumber: Object): PhoneNumberParseResult;
 
 
-    getLengthOfGeographicalAreaCode(): Number;
+    getLengthOfGeographicalAreaCode(): number;
 
-    getNationalSignificantNumber(): String;
+    getNationalSignificantNumber(): string;
 
-    getLengthOfNationalDestinationCode(): Number;
+    getLengthOfNationalDestinationCode(): number;
 
     predictNumberKind(): PredictedPhoneNumberKind;
 
-    getGeographicRegionCode(): String;
+    getGeographicRegionCode(): string;
 
     checkNumberMatch(otherNumber: PhoneNumberInfo): PhoneNumberMatchResult;
 
-    toString(): String;
+    toString(): string;
 
   }
 
   export class PhoneNumberFormatter {
     constructor();
 
-    static tryCreate(regionCode: String, phoneNumber: Object): void;
+    static tryCreate(regionCode: string, phoneNumber: Object): void;
 
 
-    static getCountryCodeForRegion(regionCode: String): Number;
+    static getCountryCodeForRegion(regionCode: string): number;
 
 
-    static getNationalDirectDialingPrefixForRegion(regionCode: String, stripNonDigit: Boolean): String;
+    static getNationalDirectDialingPrefixForRegion(regionCode: string, stripNonDigit: boolean): string;
 
 
-    static wrapWithLeftToRightMarkers(number: String): String;
+    static wrapWithLeftToRightMarkers(number: string): string;
 
 
-    format(number: PhoneNumberInfo): String;
-    format(number: PhoneNumberInfo, numberFormat: PhoneNumberFormat): String;
+    format(number: PhoneNumberInfo): string;
+    format(number: PhoneNumberInfo, numberFormat: PhoneNumberFormat): string;
 
-    formatPartialString(number: String): String;
+    formatPartialString(number: string): string;
 
-    formatString(number: String): String;
+    formatString(number: string): string;
 
-    formatStringWithLeftToRightMarkers(number: String): String;
+    formatStringWithLeftToRightMarkers(number: string): string;
 
   }
 

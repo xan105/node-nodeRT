@@ -3,7 +3,7 @@
   }
 
   export class DeviceLockdownProfileInformation {
-    name: String;
+    name: string;
     constructor();
 
   }
@@ -11,16 +11,16 @@
   export class DeviceLockdownProfile {
     constructor();
 
-    static applyLockdownProfileAsync(profileID: String, callback: (error: Error) => void): void ;
+    static applyLockdownProfileAsync(profileID: string, callback: (error: Error) => void): void ;
 
 
     static getSupportedLockdownProfiles(): Object;
 
 
-    static getCurrentLockdownProfile(): String;
+    static getCurrentLockdownProfile(): string;
 
 
-    static getLockdownProfileInformation(profileID: String): DeviceLockdownProfileInformation;
+    static getLockdownProfileInformation(profileID: string): DeviceLockdownProfileInformation;
 
 
   }

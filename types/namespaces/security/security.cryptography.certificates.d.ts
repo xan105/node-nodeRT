@@ -62,42 +62,42 @@
   }
 
   export class CertificateExtension {
-    value: Array<Number>;
-    objectId: String;
-    isCritical: Boolean;
+    value: Array<number>;
+    objectId: string;
+    isCritical: boolean;
     constructor();
 
-    encodeValue(value: String): void;
+    encodeValue(value: string): void;
 
   }
 
   export class Certificate {
-    friendlyName: String;
+    friendlyName: string;
     enhancedKeyUsages: Object;
-    hasPrivateKey: Boolean;
-    isStronglyProtected: Boolean;
-    issuer: String;
-    serialNumber: Array<Number>;
-    subject: String;
+    hasPrivateKey: boolean;
+    isStronglyProtected: boolean;
+    issuer: string;
+    serialNumber: Array<number>;
+    subject: string;
     validFrom: Date;
     validTo: Date;
-    isSecurityDeviceBound: Boolean;
-    keyAlgorithmName: String;
+    isSecurityDeviceBound: boolean;
+    keyAlgorithmName: string;
     keyUsages: CertificateKeyUsages;
-    signatureAlgorithmName: String;
-    signatureHashAlgorithmName: String;
+    signatureAlgorithmName: string;
+    signatureHashAlgorithmName: string;
     subjectAlternativeName: SubjectAlternativeNameInfo;
-    isPerUser: Boolean;
-    keyStorageProviderName: String;
-    storeName: String;
+    isPerUser: boolean;
+    keyStorageProviderName: string;
+    storeName: string;
     constructor();
     constructor(certBlob: Object);
 
     buildChainAsync(certificates: Object, callback: (error: Error, result: CertificateChain) => void): void ;
     buildChainAsync(certificates: Object, parameters: ChainBuildingParameters, callback: (error: Error, result: CertificateChain) => void): void ;
 
-    getHashValue(): Array<Number>;
-    getHashValue(hashAlgorithmName: String): Array<Number>;
+    getHashValue(): Array<number>;
+    getHashValue(hashAlgorithmName: string): Array<number>;
 
     getCertificateBlob(): Object;
 
@@ -122,23 +122,23 @@
   }
 
   export class CertificateRequestProperties {
-    subject: String;
+    subject: string;
     keyUsages: EnrollKeyUsages;
-    keyStorageProviderName: String;
-    keySize: Number;
+    keyStorageProviderName: string;
+    keySize: number;
     exportable: ExportOption;
     keyProtectionLevel: KeyProtectionLevel;
-    keyAlgorithmName: String;
-    hashAlgorithmName: String;
-    friendlyName: String;
+    keyAlgorithmName: string;
+    hashAlgorithmName: string;
+    friendlyName: string;
     attestationCredentialCertificate: Certificate;
     signingCertificate: Certificate;
-    smartcardReaderName: String;
-    useExistingKey: Boolean;
-    curveParameters: Array<Number>;
-    curveName: String;
-    containerNamePrefix: String;
-    containerName: String;
+    smartcardReaderName: string;
+    useExistingKey: boolean;
+    curveParameters: Array<number>;
+    curveName: string;
+    containerNamePrefix: string;
+    containerName: string;
     extensions: Object;
     subjectAlternativeName: SubjectAlternativeNameInfo;
     suppressedDefaults: Object;
@@ -149,24 +149,24 @@
   export class UserCertificateEnrollmentManager {
     constructor();
 
-    createRequestAsync(request: CertificateRequestProperties, callback: (error: Error, result: String) => void): void ;
+    createRequestAsync(request: CertificateRequestProperties, callback: (error: Error, result: string) => void): void ;
 
-    installCertificateAsync(certificate: String, installOption: InstallOptions, callback: (error: Error) => void): void ;
+    installCertificateAsync(certificate: string, installOption: InstallOptions, callback: (error: Error) => void): void ;
 
-    importPfxDataAsync(pfxData: String, password: String, exportable: ExportOption, keyProtectionLevel: KeyProtectionLevel, installOption: InstallOptions, friendlyName: String, callback: (error: Error) => void): void ;
-    importPfxDataAsync(pfxData: String, password: String, exportable: ExportOption, keyProtectionLevel: KeyProtectionLevel, installOption: InstallOptions, friendlyName: String, keyStorageProvider: String, callback: (error: Error) => void): void ;
-    importPfxDataAsync(pfxData: String, password: String, pfxImportParameters: PfxImportParameters, callback: (error: Error) => void): void ;
+    importPfxDataAsync(pfxData: string, password: string, exportable: ExportOption, keyProtectionLevel: KeyProtectionLevel, installOption: InstallOptions, friendlyName: string, callback: (error: Error) => void): void ;
+    importPfxDataAsync(pfxData: string, password: string, exportable: ExportOption, keyProtectionLevel: KeyProtectionLevel, installOption: InstallOptions, friendlyName: string, keyStorageProvider: string, callback: (error: Error) => void): void ;
+    importPfxDataAsync(pfxData: string, password: string, pfxImportParameters: PfxImportParameters, callback: (error: Error) => void): void ;
 
   }
 
   export class PfxImportParameters {
-    readerName: String;
-    keyStorageProviderName: String;
+    readerName: string;
+    keyStorageProviderName: string;
     keyProtectionLevel: KeyProtectionLevel;
     installOptions: InstallOptions;
-    friendlyName: String;
+    friendlyName: string;
     exportable: ExportOption;
-    containerNamePrefix: String;
+    containerNamePrefix: string;
     constructor();
 
   }
@@ -175,15 +175,15 @@
     static userCertificateEnrollmentManager: UserCertificateEnrollmentManager;
     constructor();
 
-    static importPfxDataAsync(pfxData: String, password: String, pfxImportParameters: PfxImportParameters, callback: (error: Error) => void): void ;
-    static importPfxDataAsync(pfxData: String, password: String, exportable: ExportOption, keyProtectionLevel: KeyProtectionLevel, installOption: InstallOptions, friendlyName: String, keyStorageProvider: String, callback: (error: Error) => void): void ;
-    static importPfxDataAsync(pfxData: String, password: String, exportable: ExportOption, keyProtectionLevel: KeyProtectionLevel, installOption: InstallOptions, friendlyName: String, callback: (error: Error) => void): void ;
+    static importPfxDataAsync(pfxData: string, password: string, pfxImportParameters: PfxImportParameters, callback: (error: Error) => void): void ;
+    static importPfxDataAsync(pfxData: string, password: string, exportable: ExportOption, keyProtectionLevel: KeyProtectionLevel, installOption: InstallOptions, friendlyName: string, keyStorageProvider: string, callback: (error: Error) => void): void ;
+    static importPfxDataAsync(pfxData: string, password: string, exportable: ExportOption, keyProtectionLevel: KeyProtectionLevel, installOption: InstallOptions, friendlyName: string, callback: (error: Error) => void): void ;
 
 
-    static createRequestAsync(request: CertificateRequestProperties, callback: (error: Error, result: String) => void): void ;
+    static createRequestAsync(request: CertificateRequestProperties, callback: (error: Error, result: string) => void): void ;
 
 
-    static installCertificateAsync(certificate: String, installOption: InstallOptions, callback: (error: Error) => void): void ;
+    static installCertificateAsync(certificate: string, installOption: InstallOptions, callback: (error: Error) => void): void ;
 
 
   }
@@ -191,30 +191,30 @@
   export class KeyAttestationHelper {
     constructor();
 
-    static decryptTpmAttestationCredentialAsync(credential: String, containerName: String, callback: (error: Error, result: String) => void): void ;
-    static decryptTpmAttestationCredentialAsync(credential: String, callback: (error: Error, result: String) => void): void ;
+    static decryptTpmAttestationCredentialAsync(credential: string, containerName: string, callback: (error: Error, result: string) => void): void ;
+    static decryptTpmAttestationCredentialAsync(credential: string, callback: (error: Error, result: string) => void): void ;
 
 
-    static getTpmAttestationCredentialId(credential: String): String;
+    static getTpmAttestationCredentialId(credential: string): string;
 
 
   }
 
   export class CertificateQuery {
-    thumbprint: Array<Number>;
-    issuerName: String;
-    hardwareOnly: Boolean;
-    friendlyName: String;
+    thumbprint: Array<number>;
+    issuerName: string;
+    hardwareOnly: boolean;
+    friendlyName: string;
     enhancedKeyUsages: Object;
-    storeName: String;
-    includeExpiredCertificates: Boolean;
-    includeDuplicates: Boolean;
+    storeName: string;
+    includeExpiredCertificates: boolean;
+    includeDuplicates: boolean;
     constructor();
 
   }
 
   export class CertificateStore {
-    name: String;
+    name: string;
     constructor();
 
     add(certificate: Certificate): void;
@@ -224,12 +224,12 @@
   }
 
   export class UserCertificateStore {
-    name: String;
+    name: string;
     constructor();
 
-    requestAddAsync(certificate: Certificate, callback: (error: Error, result: Boolean) => void): void ;
+    requestAddAsync(certificate: Certificate, callback: (error: Error, result: boolean) => void): void ;
 
-    requestDeleteAsync(certificate: Certificate, callback: (error: Error, result: Boolean) => void): void ;
+    requestDeleteAsync(certificate: Certificate, callback: (error: Error, result: boolean) => void): void ;
 
   }
 
@@ -242,52 +242,52 @@
     static findAllAsync(query: CertificateQuery, callback: (error: Error, result: Object) => void): void ;
 
 
-    static getUserStoreByName(storeName: String): UserCertificateStore;
+    static getUserStoreByName(storeName: string): UserCertificateStore;
 
 
-    static getStoreByName(storeName: String): CertificateStore;
+    static getStoreByName(storeName: string): CertificateStore;
 
 
   }
 
   export class StandardCertificateStoreNames {
-    static intermediateCertificationAuthorities: String;
-    static personal: String;
-    static trustedRootCertificationAuthorities: String;
+    static intermediateCertificationAuthorities: string;
+    static personal: string;
+    static trustedRootCertificationAuthorities: string;
     constructor();
 
   }
 
   export class KeyAlgorithmNames {
-    static dsa: String;
-    static ecdh256: String;
-    static ecdh384: String;
-    static ecdh521: String;
-    static ecdsa256: String;
-    static ecdsa384: String;
-    static ecdsa521: String;
-    static rsa: String;
-    static ecdh: String;
-    static ecdsa: String;
+    static dsa: string;
+    static ecdh256: string;
+    static ecdh384: string;
+    static ecdh521: string;
+    static ecdsa256: string;
+    static ecdsa384: string;
+    static ecdsa521: string;
+    static rsa: string;
+    static ecdh: string;
+    static ecdsa: string;
     constructor();
 
   }
 
   export class KeyStorageProviderNames {
-    static platformKeyStorageProvider: String;
-    static smartcardKeyStorageProvider: String;
-    static softwareKeyStorageProvider: String;
-    static passportKeyStorageProvider: String;
+    static platformKeyStorageProvider: string;
+    static smartcardKeyStorageProvider: string;
+    static softwareKeyStorageProvider: string;
+    static passportKeyStorageProvider: string;
     constructor();
 
   }
 
   export class ChainBuildingParameters {
     validationTimestamp: Date;
-    revocationCheckEnabled: Boolean;
-    networkRetrievalEnabled: Boolean;
-    currentTimeValidationEnabled: Boolean;
-    authorityInformationAccessEnabled: Boolean;
+    revocationCheckEnabled: boolean;
+    networkRetrievalEnabled: boolean;
+    currentTimeValidationEnabled: boolean;
+    authorityInformationAccessEnabled: boolean;
     enhancedKeyUsages: Object;
     exclusiveTrustRoots: Object;
     constructor();
@@ -307,19 +307,19 @@
     validate(): ChainValidationResult;
     validate(parameter: ChainValidationParameters): ChainValidationResult;
 
-    getCertificates(includeRoot: Boolean): Object;
+    getCertificates(includeRoot: boolean): Object;
 
   }
 
   export class CertificateKeyUsages {
-    nonRepudiation: Boolean;
-    keyEncipherment: Boolean;
-    keyCertificateSign: Boolean;
-    keyAgreement: Boolean;
-    encipherOnly: Boolean;
-    digitalSignature: Boolean;
-    dataEncipherment: Boolean;
-    crlSign: Boolean;
+    nonRepudiation: boolean;
+    keyEncipherment: boolean;
+    keyCertificateSign: boolean;
+    keyAgreement: boolean;
+    encipherOnly: boolean;
+    digitalSignature: boolean;
+    dataEncipherment: boolean;
+    crlSign: boolean;
     constructor();
 
   }
@@ -333,7 +333,7 @@
   }
 
   export class CmsSignerInfo {
-    hashAlgorithmName: String;
+    hashAlgorithmName: string;
     certificate: Certificate;
     timestampInfo: CmsTimestampInfo;
     constructor();
@@ -342,7 +342,7 @@
 
   export class CmsAttachedSignature {
     certificates: Object;
-    content: Array<Number>;
+    content: Array<number>;
     signers: Object;
     constructor();
     constructor(inputBlob: Object);

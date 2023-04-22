@@ -1,8 +1,8 @@
   export class PrintPageDescription {
     pageSize: Object;
     imageableRect: Object;
-    dpiX: Number;
-    dpiY: Number;
+    dpiX: number;
+    dpiY: number;
     constructor();
   }
 
@@ -21,26 +21,26 @@
   }
 
   export class IPrintOptionDetails {
-    errorText: String;
-    optionId: String;
+    errorText: string;
+    optionId: string;
     optionType: PrintOptionType;
     state: PrintOptionStates;
     value: Object;
     constructor();
 
-    trySetValue(value: Object): Boolean;
+    trySetValue(value: Object): boolean;
 
   }
 
   export class IPrintNumberOptionDetails {
-    maxValue: Number;
-    minValue: Number;
+    maxValue: number;
+    minValue: number;
     constructor();
 
   }
 
   export class IPrintTextOptionDetails {
-    maxCharacters: Number;
+    maxCharacters: number;
     constructor();
 
   }
@@ -52,260 +52,260 @@
   }
 
   export class PrintCopiesOptionDetails {
-    warningText: String;
-    description: String;
-    maxValue: Number;
-    minValue: Number;
+    warningText: string;
+    description: string;
+    maxValue: number;
+    minValue: number;
     state: PrintOptionStates;
-    errorText: String;
-    optionId: String;
+    errorText: string;
+    optionId: string;
     optionType: PrintOptionType;
     value: Object;
     constructor();
 
-    trySetValue(value: Object): Boolean;
+    trySetValue(value: Object): boolean;
 
   }
 
   export class PrintMediaSizeOptionDetails {
     items: Object;
-    warningText: String;
-    description: String;
+    warningText: string;
+    description: string;
     state: PrintOptionStates;
-    errorText: String;
-    optionId: String;
+    errorText: string;
+    optionId: string;
     optionType: PrintOptionType;
     value: Object;
     constructor();
 
-    trySetValue(value: Object): Boolean;
+    trySetValue(value: Object): boolean;
 
   }
 
   export class PrintMediaTypeOptionDetails {
     items: Object;
-    warningText: String;
-    description: String;
+    warningText: string;
+    description: string;
     state: PrintOptionStates;
-    errorText: String;
-    optionId: String;
+    errorText: string;
+    optionId: string;
     optionType: PrintOptionType;
     value: Object;
     constructor();
 
-    trySetValue(value: Object): Boolean;
+    trySetValue(value: Object): boolean;
 
   }
 
   export class PrintOrientationOptionDetails {
     items: Object;
     state: PrintOptionStates;
-    errorText: String;
-    optionId: String;
+    errorText: string;
+    optionId: string;
     optionType: PrintOptionType;
     value: Object;
-    warningText: String;
-    description: String;
+    warningText: string;
+    description: string;
     constructor();
 
-    trySetValue(value: Object): Boolean;
+    trySetValue(value: Object): boolean;
 
   }
 
   export class PrintQualityOptionDetails {
     items: Object;
     state: PrintOptionStates;
-    errorText: String;
-    optionId: String;
+    errorText: string;
+    optionId: string;
     optionType: PrintOptionType;
     value: Object;
-    warningText: String;
-    description: String;
+    warningText: string;
+    description: string;
     constructor();
 
-    trySetValue(value: Object): Boolean;
+    trySetValue(value: Object): boolean;
 
   }
 
   export class PrintColorModeOptionDetails {
-    warningText: String;
-    description: String;
+    warningText: string;
+    description: string;
     items: Object;
     state: PrintOptionStates;
-    errorText: String;
-    optionId: String;
+    errorText: string;
+    optionId: string;
     optionType: PrintOptionType;
     value: Object;
     constructor();
 
-    trySetValue(value: Object): Boolean;
+    trySetValue(value: Object): boolean;
 
   }
 
   export class PrintDuplexOptionDetails {
-    warningText: String;
-    description: String;
+    warningText: string;
+    description: string;
     items: Object;
     state: PrintOptionStates;
-    errorText: String;
-    optionId: String;
+    errorText: string;
+    optionId: string;
     optionType: PrintOptionType;
     value: Object;
     constructor();
 
-    trySetValue(value: Object): Boolean;
+    trySetValue(value: Object): boolean;
 
   }
 
   export class PrintCollationOptionDetails {
-    warningText: String;
-    description: String;
+    warningText: string;
+    description: string;
     items: Object;
     state: PrintOptionStates;
-    errorText: String;
-    optionId: String;
+    errorText: string;
+    optionId: string;
     optionType: PrintOptionType;
     value: Object;
     constructor();
 
-    trySetValue(value: Object): Boolean;
+    trySetValue(value: Object): boolean;
 
   }
 
   export class PrintStapleOptionDetails {
     items: Object;
     state: PrintOptionStates;
-    errorText: String;
-    optionId: String;
+    errorText: string;
+    optionId: string;
     optionType: PrintOptionType;
     value: Object;
-    warningText: String;
-    description: String;
+    warningText: string;
+    description: string;
     constructor();
 
-    trySetValue(value: Object): Boolean;
+    trySetValue(value: Object): boolean;
 
   }
 
   export class PrintHolePunchOptionDetails {
-    warningText: String;
-    description: String;
+    warningText: string;
+    description: string;
     items: Object;
     state: PrintOptionStates;
-    errorText: String;
-    optionId: String;
+    errorText: string;
+    optionId: string;
     optionType: PrintOptionType;
     value: Object;
     constructor();
 
-    trySetValue(value: Object): Boolean;
+    trySetValue(value: Object): boolean;
 
   }
 
   export class PrintBindingOptionDetails {
-    warningText: String;
-    description: String;
+    warningText: string;
+    description: string;
     items: Object;
     state: PrintOptionStates;
-    errorText: String;
-    optionId: String;
+    errorText: string;
+    optionId: string;
     optionType: PrintOptionType;
     value: Object;
     constructor();
 
-    trySetValue(value: Object): Boolean;
+    trySetValue(value: Object): boolean;
 
   }
 
   export class PrintBorderingOptionDetails {
-    warningText: String;
-    description: String;
+    warningText: string;
+    description: string;
     items: Object;
     state: PrintOptionStates;
-    errorText: String;
-    optionId: String;
+    errorText: string;
+    optionId: string;
     optionType: PrintOptionType;
     value: Object;
     constructor();
 
-    trySetValue(value: Object): Boolean;
+    trySetValue(value: Object): boolean;
 
   }
 
   export class PrintPageRangeOptionDetails {
     state: PrintOptionStates;
-    errorText: String;
-    optionId: String;
+    errorText: string;
+    optionId: string;
     optionType: PrintOptionType;
     value: Object;
-    warningText: String;
-    description: String;
+    warningText: string;
+    description: string;
     constructor();
 
-    trySetValue(value: Object): Boolean;
+    trySetValue(value: Object): boolean;
 
   }
 
   export class IPrintCustomOptionDetails {
-    displayName: String;
+    displayName: string;
     constructor();
 
   }
 
   export class PrintCustomTextOptionDetails {
-    displayName: String;
-    maxCharacters: Number;
-    warningText: String;
-    description: String;
+    displayName: string;
+    maxCharacters: number;
+    warningText: string;
+    description: string;
     state: PrintOptionStates;
-    errorText: String;
-    optionId: String;
+    errorText: string;
+    optionId: string;
     optionType: PrintOptionType;
     value: Object;
     constructor();
 
-    trySetValue(value: Object): Boolean;
+    trySetValue(value: Object): boolean;
 
   }
 
   export class PrintCustomToggleOptionDetails {
-    displayName: String;
-    warningText: String;
-    description: String;
+    displayName: string;
+    warningText: string;
+    description: string;
     state: PrintOptionStates;
-    errorText: String;
-    optionId: String;
+    errorText: string;
+    optionId: string;
     optionType: PrintOptionType;
     value: Object;
     constructor();
 
-    trySetValue(value: Object): Boolean;
+    trySetValue(value: Object): boolean;
 
   }
 
   export class PrintCustomItemDetails {
-    itemDisplayName: String;
-    itemId: String;
+    itemDisplayName: string;
+    itemId: string;
     constructor();
 
   }
 
   export class PrintCustomItemListOptionDetails {
-    warningText: String;
-    description: String;
-    displayName: String;
+    warningText: string;
+    description: string;
+    displayName: string;
     items: Object;
     state: PrintOptionStates;
-    errorText: String;
-    optionId: String;
+    errorText: string;
+    optionId: string;
     optionType: PrintOptionType;
     value: Object;
     constructor();
 
-    trySetValue(value: Object): Boolean;
+    trySetValue(value: Object): boolean;
 
-    addItem(itemId: String, displayName: String): void;
-    addItem(itemId: String, displayName: String, description: String, icon: Object): void;
+    addItem(itemId: string, displayName: string): void;
+    addItem(itemId: string, displayName: string, description: string, icon: Object): void;
 
   }
 
@@ -323,13 +323,13 @@
     static getFromPrintTaskOptions(printTaskOptions: Object): PrintTaskOptionDetails;
 
 
-    createItemListOption(optionId: String, displayName: String): PrintCustomItemListOptionDetails;
+    createItemListOption(optionId: string, displayName: string): PrintCustomItemListOptionDetails;
 
-    createTextOption(optionId: String, displayName: String): PrintCustomTextOptionDetails;
+    createTextOption(optionId: string, displayName: string): PrintCustomTextOptionDetails;
 
-    getPageDescription(jobPageNumber: Number): PrintPageDescription;
+    getPageDescription(jobPageNumber: number): PrintPageDescription;
 
-    createToggleOption(optionId: String, displayName: String): PrintCustomToggleOptionDetails;
+    createToggleOption(optionId: string, displayName: string): PrintCustomToggleOptionDetails;
 
     addListener(type: "BeginValidation", listener: (ev: Event) => void): void ;
     removeListener(type: "BeginValidation", listener: (ev: Event) => void): void ;

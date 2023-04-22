@@ -29,8 +29,8 @@
   }
 
   export class GameBar {
-    static isInputRedirected: Boolean;
-    static visible: Boolean;
+    static isInputRedirected: boolean;
+    static visible: boolean;
     constructor();
 
     addListener(type: "IsInputRedirectedChanged", listener: (ev: Event) => void): void ;
@@ -58,7 +58,7 @@
     static getDefault(): GameChatOverlay;
 
 
-    addMessage(sender: String, message: String, origin: GameChatMessageOrigin): void;
+    addMessage(sender: string, message: string, origin: GameChatMessageOrigin): void;
 
   }
 
@@ -75,7 +75,7 @@
   export class GameChatOverlayMessageSource {
     constructor();
 
-    setDelayBeforeClosingAfterMessageReceived(value: Number): void;
+    setDelayBeforeClosingAfterMessageReceived(value: number): void;
 
     addListener(type: "MessageReceived", listener: (ev: Event) => void): void ;
     removeListener(type: "MessageReceived", listener: (ev: Event) => void): void ;
@@ -91,18 +91,18 @@
   }
 
   export class GameChatMessageReceivedEventArgs {
-    appDisplayName: String;
-    appId: String;
-    message: String;
+    appDisplayName: string;
+    appId: string;
+    message: string;
     origin: GameChatMessageOrigin;
-    senderName: String;
+    senderName: string;
     constructor();
 
   }
 
   export class GameUIProviderActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     gameUIArgs: Object;
     constructor();

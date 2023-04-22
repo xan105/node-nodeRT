@@ -1,10 +1,10 @@
   export class ColorHelper {
     constructor();
 
-    static toDisplayName(color: Object): String;
+    static toDisplayName(color: Object): string;
 
 
-    static fromArgb(a: Number, r: Number, g: Number, b: Number): Object;
+    static fromArgb(a: number, r: number, g: number, b: number): Object;
 
 
   }

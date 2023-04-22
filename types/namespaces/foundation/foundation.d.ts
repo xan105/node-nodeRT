@@ -63,52 +63,52 @@
     static createEmpty(): Object;
 
 
-    static createUInt8(value: Number): Object;
+    static createUInt8(value: number): Object;
 
 
-    static createInt16(value: Number): Object;
+    static createInt16(value: number): Object;
 
 
-    static createUInt16(value: Number): Object;
+    static createUInt16(value: number): Object;
 
 
-    static createInt32(value: Number): Object;
+    static createInt32(value: number): Object;
 
 
-    static createUInt32(value: Number): Object;
+    static createUInt32(value: number): Object;
 
 
-    static createInt64(value: Number): Object;
+    static createInt64(value: number): Object;
 
 
-    static createUInt64(value: Number): Object;
+    static createUInt64(value: number): Object;
 
 
-    static createSingle(value: Number): Object;
+    static createSingle(value: number): Object;
 
 
-    static createDouble(value: Number): Object;
+    static createDouble(value: number): Object;
 
 
-    static createChar16(value: String): Object;
+    static createChar16(value: string): Object;
 
 
-    static createBoolean(value: Boolean): Object;
+    static createBoolean(value: boolean): Object;
 
 
-    static createString(value: String): Object;
+    static createString(value: string): Object;
 
 
     static createInspectable(value: Object): Object;
 
 
-    static createGuid(value: String): Object;
+    static createGuid(value: string): Object;
 
 
     static createDateTime(value: Date): Object;
 
 
-    static createTimeSpan(value: Number): Object;
+    static createTimeSpan(value: number): Object;
 
 
     static createPoint(value: Object): Object;
@@ -120,52 +120,52 @@
     static createRect(value: Object): Object;
 
 
-    static createUInt8Array(value: Array<Number>): Object;
+    static createUInt8Array(value: Array<number>): Object;
 
 
-    static createInt16Array(value: Array<Number>): Object;
+    static createInt16Array(value: Array<number>): Object;
 
 
-    static createUInt16Array(value: Array<Number>): Object;
+    static createUInt16Array(value: Array<number>): Object;
 
 
-    static createInt32Array(value: Array<Number>): Object;
+    static createInt32Array(value: Array<number>): Object;
 
 
-    static createUInt32Array(value: Array<Number>): Object;
+    static createUInt32Array(value: Array<number>): Object;
 
 
-    static createInt64Array(value: Array<Number>): Object;
+    static createInt64Array(value: Array<number>): Object;
 
 
-    static createUInt64Array(value: Array<Number>): Object;
+    static createUInt64Array(value: Array<number>): Object;
 
 
-    static createSingleArray(value: Array<Number>): Object;
+    static createSingleArray(value: Array<number>): Object;
 
 
-    static createDoubleArray(value: Array<Number>): Object;
+    static createDoubleArray(value: Array<number>): Object;
 
 
-    static createChar16Array(value: Array<String>): Object;
+    static createChar16Array(value: Array<string>): Object;
 
 
-    static createBooleanArray(value: Array<Boolean>): Object;
+    static createBooleanArray(value: Array<boolean>): Object;
 
 
-    static createStringArray(value: Array<String>): Object;
+    static createStringArray(value: Array<string>): Object;
 
 
     static createInspectableArray(value: Array<Object>): Object;
 
 
-    static createGuidArray(value: Array<String>): Object;
+    static createGuidArray(value: Array<string>): Object;
 
 
     static createDateTimeArray(value: Array<Date>): Object;
 
 
-    static createTimeSpanArray(value: Array<Number>): Object;
+    static createTimeSpanArray(value: Array<number>): Object;
 
 
     static createPointArray(value: Array<Object>): Object;
@@ -182,7 +182,7 @@
   export class IStringable {
     constructor();
 
-    toString(): String;
+    toString(): string;
 
   }
 
@@ -196,8 +196,8 @@
   }
 
   export class IAsyncInfo {
-    errorCode: Number;
-    id: Number;
+    errorCode: number;
+    id: number;
     status: AsyncStatus;
     constructor();
 
@@ -216,7 +216,7 @@
   }
 
   export class IMemoryBufferReference {
-    capacity: Number;
+    capacity: number;
     constructor();
 
     addListener(type: "Closed", listener: (ev: Event) => void): void ;
@@ -241,7 +241,7 @@
 
   export class MemoryBuffer {
     constructor();
-    constructor(capacity: Number);
+    constructor(capacity: number);
 
     createReference(): IMemoryBufferReference;
 
@@ -250,29 +250,29 @@
 
   export class WwwFormUrlDecoder {
     constructor();
-    constructor(query: String);
+    constructor(query: string);
 
-    getFirstValueByName(name: String): String;
+    getFirstValueByName(name: string): string;
 
     first(): Object;
 
-    getAt(index: Number): IWwwFormUrlDecoderEntry;
+    getAt(index: number): IWwwFormUrlDecoderEntry;
 
-    indexOf(value: IWwwFormUrlDecoderEntry, index: Number): Boolean;
+    indexOf(value: IWwwFormUrlDecoderEntry, index: number): boolean;
 
     getMany();
   }
 
   export class IWwwFormUrlDecoderEntry {
-    name: String;
-    value: String;
+    name: string;
+    value: string;
     constructor();
 
   }
 
   export class WwwFormUrlDecoderEntry {
-    name: String;
-    value: String;
+    name: string;
+    value: string;
     constructor();
 
   }
@@ -280,44 +280,44 @@
   export class IGetActivationFactory {
     constructor();
 
-    getActivationFactory(activatableClassId: String): Object;
+    getActivationFactory(activatableClassId: string): Object;
 
   }
 
   export class IPropertyValue {
-    isNumericScalar: Boolean;
+    isNumericScalar: boolean;
     type: PropertyType;
     constructor();
 
-    getUInt8(): Number;
+    getUInt8(): number;
 
-    getInt16(): Number;
+    getInt16(): number;
 
-    getUInt16(): Number;
+    getUInt16(): number;
 
-    getInt32(): Number;
+    getInt32(): number;
 
-    getUInt32(): Number;
+    getUInt32(): number;
 
-    getInt64(): Number;
+    getInt64(): number;
 
-    getUInt64(): Number;
+    getUInt64(): number;
 
-    getSingle(): Number;
+    getSingle(): number;
 
-    getDouble(): Number;
+    getDouble(): number;
 
-    getChar16(): String;
+    getChar16(): string;
 
-    getBoolean(): Boolean;
+    getBoolean(): boolean;
 
-    getString(): String;
+    getString(): string;
 
-    getGuid(): String;
+    getGuid(): string;
 
     getDateTime(): Date;
 
-    getTimeSpan(): Number;
+    getTimeSpan(): number;
 
     getPoint(): Object;
 
@@ -325,37 +325,37 @@
 
     getRect(): Object;
 
-    getUInt8Array(value: Array<Number>): void;
+    getUInt8Array(value: Array<number>): void;
 
-    getInt16Array(value: Array<Number>): void;
+    getInt16Array(value: Array<number>): void;
 
-    getUInt16Array(value: Array<Number>): void;
+    getUInt16Array(value: Array<number>): void;
 
-    getInt32Array(value: Array<Number>): void;
+    getInt32Array(value: Array<number>): void;
 
-    getUInt32Array(value: Array<Number>): void;
+    getUInt32Array(value: Array<number>): void;
 
-    getInt64Array(value: Array<Number>): void;
+    getInt64Array(value: Array<number>): void;
 
-    getUInt64Array(value: Array<Number>): void;
+    getUInt64Array(value: Array<number>): void;
 
-    getSingleArray(value: Array<Number>): void;
+    getSingleArray(value: Array<number>): void;
 
-    getDoubleArray(value: Array<Number>): void;
+    getDoubleArray(value: Array<number>): void;
 
-    getChar16Array(value: Array<String>): void;
+    getChar16Array(value: Array<string>): void;
 
-    getBooleanArray(value: Array<Boolean>): void;
+    getBooleanArray(value: Array<boolean>): void;
 
-    getStringArray(value: Array<String>): void;
+    getStringArray(value: Array<string>): void;
 
     getInspectableArray(value: Array<Object>): void;
 
-    getGuidArray(value: Array<String>): void;
+    getGuidArray(value: Array<string>): void;
 
     getDateTimeArray(value: Array<Date>): void;
 
-    getTimeSpanArray(value: Array<Number>): void;
+    getTimeSpanArray(value: Array<number>): void;
 
     getPointArray(value: Array<Object>): void;
 
@@ -366,38 +366,38 @@
   }
 
   export class Uri {
-    absoluteUri: String;
-    displayUri: String;
-    domain: String;
-    extension: String;
-    fragment: String;
-    host: String;
-    password: String;
-    path: String;
-    port: Number;
-    query: String;
+    absoluteUri: string;
+    displayUri: string;
+    domain: string;
+    extension: string;
+    fragment: string;
+    host: string;
+    password: string;
+    path: string;
+    port: number;
+    query: string;
     queryParsed: WwwFormUrlDecoder;
-    rawUri: String;
-    schemeName: String;
-    suspicious: Boolean;
-    userName: String;
-    absoluteCanonicalUri: String;
-    displayIri: String;
+    rawUri: string;
+    schemeName: string;
+    suspicious: boolean;
+    userName: string;
+    absoluteCanonicalUri: string;
+    displayIri: string;
     constructor();
-    constructor(uri: String);
-    constructor(baseUri: String, relativeUri: String);
+    constructor(uri: string);
+    constructor(baseUri: string, relativeUri: string);
 
-    static unescapeComponent(toUnescape: String): String;
-
-
-    static escapeComponent(toEscape: String): String;
+    static unescapeComponent(toUnescape: string): string;
 
 
-    equals(pUri: Object): Boolean;
+    static escapeComponent(toEscape: string): string;
 
-    combineUri(relativeUri: String): Object;
 
-    toString(): String;
+    equals(pUri: Object): boolean;
+
+    combineUri(relativeUri: string): Object;
+
+    toString(): string;
 
   }
 

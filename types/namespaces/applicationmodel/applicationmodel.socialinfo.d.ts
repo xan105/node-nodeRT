@@ -1,6 +1,6 @@
   export class BitmapSize {
-    width: Number;
-    height: Number;
+    width: number;
+    height: number;
     constructor();
   }
 
@@ -31,18 +31,18 @@
   }
 
   export class SocialUserInfo {
-    userName: String;
+    userName: string;
     targetUri: Object;
-    remoteId: String;
-    displayName: String;
+    remoteId: string;
+    displayName: string;
     constructor();
 
   }
 
   export class SocialFeedContent {
-    title: String;
+    title: string;
     targetUri: Object;
-    message: String;
+    message: string;
     constructor();
 
   }
@@ -84,10 +84,10 @@
     targetUri: Object;
     style: SocialFeedItemStyle;
     sharedItem: SocialFeedSharedItem;
-    remoteId: String;
+    remoteId: string;
     childItem: SocialFeedChildItem;
     badgeStyle: SocialItemBadgeStyle;
-    badgeCountValue: Number;
+    badgeCountValue: number;
     author: SocialUserInfo;
     thumbnails: Object;
     primaryContent: SocialFeedContent;

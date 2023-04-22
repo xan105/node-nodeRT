@@ -1,24 +1,24 @@
   export class PhoneCallOrigin {
-    location: String;
-    categoryDescription: String;
-    category: String;
-    displayName: String;
+    location: string;
+    categoryDescription: string;
+    category: string;
+    displayName: string;
     displayPicture: Object;
     constructor();
 
   }
 
   export class PhoneCallOriginManager {
-    static isCurrentAppActiveCallOriginApp: Boolean;
+    static isCurrentAppActiveCallOriginApp: boolean;
     constructor();
 
-    static requestSetAsActiveCallOriginAppAsync(callback: (error: Error, result: Boolean) => void): void ;
+    static requestSetAsActiveCallOriginAppAsync(callback: (error: Error, result: boolean) => void): void ;
 
 
     static showPhoneCallOriginSettingsUI(): void;
 
 
-    static setCallOrigin(requestId: String, callOrigin: PhoneCallOrigin): void;
+    static setCallOrigin(requestId: string, callOrigin: PhoneCallOrigin): void;
 
 
   }

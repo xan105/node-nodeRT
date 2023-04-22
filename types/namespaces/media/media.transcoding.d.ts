@@ -11,7 +11,7 @@
   }
 
   export class PrepareTranscodeResult {
-    canTranscode: Boolean;
+    canTranscode: boolean;
     failureReason: TranscodeFailureReason;
     constructor();
 
@@ -20,10 +20,10 @@
   }
 
   export class MediaTranscoder {
-    trimStopTime: Number;
-    trimStartTime: Number;
-    hardwareAccelerationEnabled: Boolean;
-    alwaysReencode: Boolean;
+    trimStopTime: number;
+    trimStartTime: number;
+    hardwareAccelerationEnabled: boolean;
+    alwaysReencode: boolean;
     videoProcessingAlgorithm: MediaVideoProcessingAlgorithm;
     constructor();
 
@@ -33,11 +33,11 @@
 
     prepareMediaStreamSourceTranscodeAsync(source: Object, destination: Object, profile: Object, callback: (error: Error, result: PrepareTranscodeResult) => void): void ;
 
-    addAudioEffect(activatableClassId: String): void;
-    addAudioEffect(activatableClassId: String, effectRequired: Boolean, configuration: Object): void;
+    addAudioEffect(activatableClassId: string): void;
+    addAudioEffect(activatableClassId: string, effectRequired: boolean, configuration: Object): void;
 
-    addVideoEffect(activatableClassId: String): void;
-    addVideoEffect(activatableClassId: String, effectRequired: Boolean, configuration: Object): void;
+    addVideoEffect(activatableClassId: string): void;
+    addVideoEffect(activatableClassId: string, effectRequired: boolean, configuration: Object): void;
 
     clearEffects(): void;
 

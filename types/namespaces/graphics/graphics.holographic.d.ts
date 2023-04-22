@@ -17,23 +17,23 @@
   }
 
   export class Vector3 {
-    x: Number;
-    y: Number;
-    z: Number;
+    x: number;
+    y: number;
+    z: number;
     constructor();
   }
 
   export class Vector2 {
-    x: Number;
-    y: Number;
+    x: number;
+    y: number;
     constructor();
   }
 
   export class Quaternion {
-    x: Number;
-    y: Number;
-    z: Number;
-    w: Number;
+    x: number;
+    y: number;
+    z: number;
+    w: number;
     constructor();
   }
 
@@ -44,8 +44,8 @@
   }
 
   export class HolographicAdapterId {
-    lowPart: Number;
-    highPart: Number;
+    lowPart: number;
+    highPart: number;
     constructor();
   }
 
@@ -72,29 +72,29 @@
   }
 
   export class HolographicCamera {
-    viewportScaleFactor: Number;
-    id: Number;
-    isStereo: Boolean;
+    viewportScaleFactor: number;
+    id: number;
+    isStereo: boolean;
     renderTargetSize: Object;
     display: HolographicDisplay;
     leftViewportParameters: HolographicCameraViewportParameters;
     rightViewportParameters: HolographicCameraViewportParameters;
-    isPrimaryLayerEnabled: Boolean;
-    maxQuadLayerCount: Number;
+    isPrimaryLayerEnabled: boolean;
+    maxQuadLayerCount: number;
     quadLayers: Object;
-    canOverrideViewport: Boolean;
+    canOverrideViewport: boolean;
     constructor();
 
-    setNearPlaneDistance(value: Number): void;
+    setNearPlaneDistance(value: number): void;
 
-    setFarPlaneDistance(value: Number): void;
+    setFarPlaneDistance(value: number): void;
 
   }
 
   export class HolographicSpace {
-    static isAvailable: Boolean;
-    static isSupported: Boolean;
-    static isConfigured: Boolean;
+    static isAvailable: boolean;
+    static isSupported: boolean;
+    static isConfigured: boolean;
     primaryAdapterId: HolographicAdapterId;
     userPresence: HolographicSpaceUserPresence;
     constructor();
@@ -108,9 +108,9 @@
 
     waitForNextFrameReady(): void;
 
-    waitForNextFrameReadyWithHeadStart(requestedHeadStartDuration: Number): void;
+    waitForNextFrameReadyWithHeadStart(requestedHeadStartDuration: number): void;
 
-    createFramePresentationMonitor(maxQueuedReports: Number): HolographicFramePresentationMonitor;
+    createFramePresentationMonitor(maxQueuedReports: number): HolographicFramePresentationMonitor;
 
     addListener(type: "CameraAdded", listener: (ev: Event) => void): void ;
     removeListener(type: "CameraAdded", listener: (ev: Event) => void): void ;
@@ -157,7 +157,7 @@
   export class HolographicFrame {
     addedCameras: Object;
     currentPrediction: HolographicFramePrediction;
-    duration: Number;
+    duration: number;
     removedCameras: Object;
     constructor();
 
@@ -183,9 +183,9 @@
   }
 
   export class HolographicCameraPose {
-    farPlaneDistance: Number;
+    farPlaneDistance: number;
     holographicCamera: HolographicCamera;
-    nearPlaneDistance: Number;
+    nearPlaneDistance: number;
     projectionTransform: HolographicStereoTransform;
     viewport: Object;
     constructor();
@@ -208,7 +208,7 @@
     direct3D11BackBuffer: Object;
     direct3D11Device: Object;
     reprojectionMode: HolographicReprojectionMode;
-    isContentProtectionEnabled: Boolean;
+    isContentProtectionEnabled: boolean;
     constructor();
 
     setFocusPoint(coordinateSystem: Object, position: Vector3): void;
@@ -227,11 +227,11 @@
   }
 
   export class HolographicQuadLayer {
-    pixelFormat: Number;
+    pixelFormat: number;
     size: Object;
     constructor();
     constructor(size: Object);
-    constructor(size: Object, pixelFormat: Number);
+    constructor(size: Object, pixelFormat: number);
 
     close(): void;
   }
@@ -243,7 +243,7 @@
 
     updateViewport(value: Object): void;
 
-    updateContentProtectionEnabled(value: Boolean): void;
+    updateContentProtectionEnabled(value: boolean): void;
 
     updateExtents(value: Vector2): void;
 
@@ -254,11 +254,11 @@
   }
 
   export class HolographicFramePresentationReport {
-    appGpuDuration: Number;
-    appGpuOverrun: Number;
-    compositorGpuDuration: Number;
-    missedPresentationOpportunityCount: Number;
-    presentationCount: Number;
+    appGpuDuration: number;
+    appGpuOverrun: number;
+    compositorGpuDuration: number;
+    missedPresentationOpportunityCount: number;
+    presentationCount: number;
     constructor();
 
   }
@@ -272,12 +272,12 @@
 
   export class HolographicDisplay {
     adapterId: HolographicAdapterId;
-    displayName: String;
-    isOpaque: Boolean;
-    isStereo: Boolean;
+    displayName: string;
+    isOpaque: boolean;
+    isStereo: boolean;
     maxViewportSize: Object;
     spatialLocator: Object;
-    refreshRate: Number;
+    refreshRate: number;
     constructor();
 
     static getDefault(): HolographicDisplay;

@@ -90,9 +90,9 @@
   }
 
   export class BarcodeSymbologyAttributesBuilder {
-    isDecodeLengthSupported: Boolean;
-    isCheckDigitValidationSupported: Boolean;
-    isCheckDigitTransmissionSupported: Boolean;
+    isDecodeLengthSupported: boolean;
+    isCheckDigitValidationSupported: boolean;
+    isCheckDigitTransmissionSupported: boolean;
     constructor();
 
     createAttributes(): Object;
@@ -100,7 +100,7 @@
   }
 
   export class BarcodeScannerGetSymbologyAttributesRequest {
-    symbology: Number;
+    symbology: number;
     constructor();
 
     reportCompletedAsync(attributes: Object, callback: (error: Error) => void): void ;
@@ -119,7 +119,7 @@
 
   export class BarcodeScannerSetSymbologyAttributesRequest {
     attributes: Object;
-    symbology: Number;
+    symbology: number;
     constructor();
 
     reportCompletedAsync(callback: (error: Error) => void): void ;
@@ -154,12 +154,12 @@
   }
 
   export class BarcodeScannerProviderConnection {
-    version: String;
-    name: String;
-    companyName: String;
-    id: String;
+    version: string;
+    name: string;
+    companyName: string;
+    id: string;
     supportedSymbologies: Object;
-    videoDeviceId: String;
+    videoDeviceId: string;
     constructor();
 
     reportScannedDataAsync(report: Object, callback: (error: Error) => void): void ;
@@ -167,7 +167,7 @@
     reportTriggerStateAsync(state: BarcodeScannerTriggerState, callback: (error: Error) => void): void ;
 
     reportErrorAsync(errorData: Object, callback: (error: Error) => void): void ;
-    reportErrorAsync(errorData: Object, isRetriable: Boolean, scanReport: Object, callback: (error: Error) => void): void ;
+    reportErrorAsync(errorData: Object, isRetriable: boolean, scanReport: Object, callback: (error: Error) => void): void ;
 
     start(): void;
 

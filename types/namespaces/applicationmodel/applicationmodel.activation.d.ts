@@ -91,9 +91,9 @@
     kind: ActivationKind;
     previousExecutionState: ApplicationExecutionState;
     splashScreen: SplashScreen;
-    currentlyShownApplicationViewId: Number;
-    arguments: String;
-    tileId: String;
+    currentlyShownApplicationViewId: number;
+    arguments: string;
+    tileId: string;
     callUI: Object;
     viewSwitcher: Object;
     constructor();
@@ -123,10 +123,10 @@
     kind: ActivationKind;
     previousExecutionState: ApplicationExecutionState;
     splashScreen: SplashScreen;
-    verb: String;
+    verb: string;
     contact: Object;
-    serviceId: String;
-    serviceUserId: String;
+    serviceId: string;
+    serviceUserId: string;
     constructor();
 
   }
@@ -135,10 +135,10 @@
     kind: ActivationKind;
     previousExecutionState: ApplicationExecutionState;
     splashScreen: SplashScreen;
-    verb: String;
+    verb: string;
     contact: Object;
-    serviceId: String;
-    serviceUserId: String;
+    serviceId: string;
+    serviceUserId: string;
     constructor();
 
   }
@@ -147,7 +147,7 @@
     kind: ActivationKind;
     previousExecutionState: ApplicationExecutionState;
     splashScreen: SplashScreen;
-    verb: String;
+    verb: string;
     address: Object;
     contact: Object;
     constructor();
@@ -158,10 +158,10 @@
     kind: ActivationKind;
     previousExecutionState: ApplicationExecutionState;
     splashScreen: SplashScreen;
-    verb: String;
+    verb: string;
     contact: Object;
-    serviceId: String;
-    serviceUserId: String;
+    serviceId: string;
+    serviceUserId: string;
     constructor();
 
   }
@@ -170,10 +170,10 @@
     kind: ActivationKind;
     previousExecutionState: ApplicationExecutionState;
     splashScreen: SplashScreen;
-    verb: String;
+    verb: string;
     contact: Object;
-    serviceId: String;
-    serviceUserId: String;
+    serviceId: string;
+    serviceUserId: string;
     constructor();
 
   }
@@ -182,9 +182,9 @@
     kind: ActivationKind;
     previousExecutionState: ApplicationExecutionState;
     splashScreen: SplashScreen;
-    actionId: String;
-    actionKind: Number;
-    itemId: String;
+    actionId: string;
+    actionKind: number;
+    itemId: string;
     constructor();
 
   }
@@ -194,7 +194,7 @@
     previousExecutionState: ApplicationExecutionState;
     splashScreen: SplashScreen;
     user: Object;
-    verb: String;
+    verb: string;
     addAppointmentOperation: Object;
     constructor();
 
@@ -205,7 +205,7 @@
     previousExecutionState: ApplicationExecutionState;
     splashScreen: SplashScreen;
     user: Object;
-    verb: String;
+    verb: string;
     replaceAppointmentOperation: Object;
     constructor();
 
@@ -216,7 +216,7 @@
     previousExecutionState: ApplicationExecutionState;
     splashScreen: SplashScreen;
     user: Object;
-    verb: String;
+    verb: string;
     removeAppointmentOperation: Object;
     constructor();
 
@@ -227,10 +227,10 @@
     previousExecutionState: ApplicationExecutionState;
     splashScreen: SplashScreen;
     user: Object;
-    verb: String;
+    verb: string;
     instanceStartDate: Date;
-    localId: String;
-    roamingId: String;
+    localId: string;
+    roamingId: string;
     constructor();
 
   }
@@ -240,8 +240,8 @@
     previousExecutionState: ApplicationExecutionState;
     splashScreen: SplashScreen;
     user: Object;
-    verb: String;
-    duration: Number;
+    verb: string;
+    duration: number;
     timeToShow: Date;
     constructor();
 
@@ -347,23 +347,23 @@
   }
 
   export class IContactActivatedEventArgs {
-    verb: String;
+    verb: string;
     constructor();
 
   }
 
   export class IContactCallActivatedEventArgs {
     contact: Object;
-    serviceId: String;
-    serviceUserId: String;
+    serviceId: string;
+    serviceUserId: string;
     constructor();
 
   }
 
   export class IContactMessageActivatedEventArgs {
     contact: Object;
-    serviceId: String;
-    serviceUserId: String;
+    serviceId: string;
+    serviceUserId: string;
     constructor();
 
   }
@@ -377,36 +377,36 @@
 
   export class IContactPostActivatedEventArgs {
     contact: Object;
-    serviceId: String;
-    serviceUserId: String;
+    serviceId: string;
+    serviceUserId: string;
     constructor();
 
   }
 
   export class IContactVideoCallActivatedEventArgs {
     contact: Object;
-    serviceId: String;
-    serviceUserId: String;
+    serviceId: string;
+    serviceUserId: string;
     constructor();
 
   }
 
   export class IContactsProviderActivatedEventArgs {
-    verb: String;
+    verb: string;
     constructor();
 
   }
 
   export class IWalletActionActivatedEventArgs {
-    actionId: String;
-    actionKind: Number;
-    itemId: String;
+    actionId: string;
+    actionKind: number;
+    itemId: string;
     constructor();
 
   }
 
   export class IAppointmentsProviderActivatedEventArgs {
-    verb: String;
+    verb: string;
     constructor();
 
   }
@@ -431,14 +431,14 @@
 
   export class IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     instanceStartDate: Date;
-    localId: String;
-    roamingId: String;
+    localId: string;
+    roamingId: string;
     constructor();
 
   }
 
   export class IAppointmentsProviderShowTimeFrameActivatedEventArgs {
-    duration: Number;
+    duration: number;
     timeToShow: Date;
     constructor();
 
@@ -463,7 +463,7 @@
   }
 
   export class IApplicationViewActivatedEventArgs {
-    currentlyShownApplicationViewId: Number;
+    currentlyShownApplicationViewId: number;
     constructor();
 
   }
@@ -475,14 +475,14 @@
   }
 
   export class IPrelaunchActivatedEventArgs {
-    prelaunchActivated: Boolean;
+    prelaunchActivated: boolean;
     constructor();
 
   }
 
   export class ILaunchActivatedEventArgs {
-    arguments: String;
-    tileId: String;
+    arguments: string;
+    tileId: string;
     constructor();
 
   }
@@ -510,19 +510,19 @@
     previousExecutionState: ApplicationExecutionState;
     splashScreen: SplashScreen;
     user: Object;
-    currentlyShownApplicationViewId: Number;
-    arguments: String;
-    tileId: String;
+    currentlyShownApplicationViewId: number;
+    arguments: string;
+    tileId: string;
     tileActivatedInfo: TileActivatedInfo;
-    prelaunchActivated: Boolean;
+    prelaunchActivated: boolean;
     viewSwitcher: Object;
     constructor();
 
   }
 
   export class ISearchActivatedEventArgs {
-    language: String;
-    queryText: String;
+    language: string;
+    queryText: string;
     constructor();
 
   }
@@ -538,9 +538,9 @@
     previousExecutionState: ApplicationExecutionState;
     splashScreen: SplashScreen;
     user: Object;
-    currentlyShownApplicationViewId: Number;
-    language: String;
-    queryText: String;
+    currentlyShownApplicationViewId: number;
+    language: string;
+    queryText: string;
     linguisticDetails: Object;
     viewSwitcher: Object;
     constructor();
@@ -549,7 +549,7 @@
 
   export class IFileActivatedEventArgs {
     files: Object;
-    verb: String;
+    verb: string;
     constructor();
 
   }
@@ -561,7 +561,7 @@
   }
 
   export class IFileActivatedEventArgsWithCallerPackageFamilyName {
-    callerPackageFamilyName: String;
+    callerPackageFamilyName: string;
     constructor();
 
   }
@@ -571,10 +571,10 @@
     previousExecutionState: ApplicationExecutionState;
     splashScreen: SplashScreen;
     user: Object;
-    currentlyShownApplicationViewId: Number;
+    currentlyShownApplicationViewId: number;
     files: Object;
-    verb: String;
-    callerPackageFamilyName: String;
+    verb: string;
+    callerPackageFamilyName: string;
     neighboringFilesQuery: Object;
     viewSwitcher: Object;
     constructor();
@@ -588,7 +588,7 @@
   }
 
   export class IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
-    callerPackageFamilyName: String;
+    callerPackageFamilyName: string;
     data: Object;
     constructor();
 
@@ -599,9 +599,9 @@
     previousExecutionState: ApplicationExecutionState;
     splashScreen: SplashScreen;
     user: Object;
-    currentlyShownApplicationViewId: Number;
+    currentlyShownApplicationViewId: number;
     uri: Object;
-    callerPackageFamilyName: String;
+    callerPackageFamilyName: string;
     data: Object;
     viewSwitcher: Object;
     constructor();
@@ -619,9 +619,9 @@
     previousExecutionState: ApplicationExecutionState;
     splashScreen: SplashScreen;
     user: Object;
-    currentlyShownApplicationViewId: Number;
+    currentlyShownApplicationViewId: number;
     uri: Object;
-    callerPackageFamilyName: String;
+    callerPackageFamilyName: string;
     data: Object;
     protocolForResultsOperation: Object;
     viewSwitcher: Object;
@@ -636,7 +636,7 @@
   }
 
   export class IFileOpenPickerActivatedEventArgs2 {
-    callerPackageFamilyName: String;
+    callerPackageFamilyName: string;
     constructor();
 
   }
@@ -647,7 +647,7 @@
     splashScreen: SplashScreen;
     user: Object;
     fileOpenPickerUI: Object;
-    callerPackageFamilyName: String;
+    callerPackageFamilyName: string;
     constructor();
 
   }
@@ -659,8 +659,8 @@
   }
 
   export class IFileSavePickerActivatedEventArgs2 {
-    callerPackageFamilyName: String;
-    enterpriseId: String;
+    callerPackageFamilyName: string;
+    enterpriseId: string;
     constructor();
 
   }
@@ -671,8 +671,8 @@
     splashScreen: SplashScreen;
     user: Object;
     fileSavePickerUI: Object;
-    callerPackageFamilyName: String;
-    enterpriseId: String;
+    callerPackageFamilyName: string;
+    enterpriseId: string;
     constructor();
 
   }
@@ -694,8 +694,8 @@
   }
 
   export class IDeviceActivatedEventArgs {
-    deviceInformationId: String;
-    verb: String;
+    deviceInformationId: string;
+    verb: string;
     constructor();
 
   }
@@ -705,16 +705,16 @@
     previousExecutionState: ApplicationExecutionState;
     splashScreen: SplashScreen;
     user: Object;
-    currentlyShownApplicationViewId: Number;
-    deviceInformationId: String;
-    verb: String;
+    currentlyShownApplicationViewId: number;
+    deviceInformationId: string;
+    verb: string;
     viewSwitcher: Object;
     constructor();
 
   }
 
   export class IPickerReturnedActivatedEventArgs {
-    pickerOperationId: String;
+    pickerOperationId: string;
     constructor();
 
   }
@@ -723,7 +723,7 @@
     kind: ActivationKind;
     previousExecutionState: ApplicationExecutionState;
     splashScreen: SplashScreen;
-    pickerOperationId: String;
+    pickerOperationId: string;
     constructor();
 
   }
@@ -850,7 +850,7 @@
   }
 
   export class IToastNotificationActivatedEventArgs {
-    argument: String;
+    argument: string;
     userInput: Object;
     constructor();
 
@@ -861,15 +861,15 @@
     previousExecutionState: ApplicationExecutionState;
     splashScreen: SplashScreen;
     user: Object;
-    currentlyShownApplicationViewId: Number;
-    argument: String;
+    currentlyShownApplicationViewId: number;
+    argument: string;
     userInput: Object;
     constructor();
 
   }
 
   export class IDialReceiverActivatedEventArgs {
-    appName: String;
+    appName: string;
     constructor();
 
   }
@@ -879,10 +879,10 @@
     previousExecutionState: ApplicationExecutionState;
     splashScreen: SplashScreen;
     user: Object;
-    currentlyShownApplicationViewId: Number;
-    appName: String;
-    arguments: String;
-    tileId: String;
+    currentlyShownApplicationViewId: number;
+    appName: string;
+    arguments: string;
+    tileId: string;
     viewSwitcher: Object;
     constructor();
 
@@ -897,9 +897,9 @@
   }
 
   export class CommandLineActivationOperation {
-    exitCode: Number;
-    arguments: String;
-    currentDirectoryPath: String;
+    exitCode: number;
+    arguments: string;
+    currentDirectoryPath: string;
     constructor();
 
     getDeferral(): Object;
@@ -923,7 +923,7 @@
   }
 
   export class IStartupTaskActivatedEventArgs {
-    taskId: String;
+    taskId: string;
     constructor();
 
   }
@@ -933,13 +933,13 @@
     previousExecutionState: ApplicationExecutionState;
     splashScreen: SplashScreen;
     user: Object;
-    taskId: String;
+    taskId: string;
     constructor();
 
   }
 
   export class IBarcodeScannerPreviewActivatedEventArgs {
-    connectionId: String;
+    connectionId: string;
     constructor();
 
   }
@@ -949,7 +949,7 @@
     previousExecutionState: ApplicationExecutionState;
     splashScreen: SplashScreen;
     user: Object;
-    connectionId: String;
+    connectionId: string;
     constructor();
 
   }

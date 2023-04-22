@@ -10,13 +10,13 @@
   }
 
   export class GetPreviewPageEventArgs {
-    pageNumber: Number;
+    pageNumber: number;
     constructor();
 
   }
 
   export class PaginateEventArgs {
-    currentPreviewPageNumber: Number;
+    currentPreviewPageNumber: number;
     printTaskOptions: Object;
     constructor();
 
@@ -32,9 +32,9 @@
 
     addPagesComplete(): void;
 
-    setPreviewPageCount(count: Number, type: PreviewPageCountType): void;
+    setPreviewPageCount(count: number, type: PreviewPageCountType): void;
 
-    setPreviewPage(pageNumber: Number, pageVisual: Object): void;
+    setPreviewPage(pageNumber: number, pageVisual: Object): void;
 
     invalidatePreview(): void;
 

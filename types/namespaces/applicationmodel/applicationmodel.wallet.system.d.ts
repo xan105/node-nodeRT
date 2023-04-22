@@ -13,7 +13,7 @@
 
     importItemAsync(stream: Object, callback: (error: Error, result: Object) => void): void ;
 
-    launchAppForItemAsync(item: Object, callback: (error: Error, result: Boolean) => void): void ;
+    launchAppForItemAsync(item: Object, callback: (error: Error, result: boolean) => void): void ;
 
     getAppStatusForItem(item: Object): WalletItemAppAssociation;
 

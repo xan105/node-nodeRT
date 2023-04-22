@@ -70,7 +70,7 @@
   }
 
   export class ContactListSyncManagerSyncRequest {
-    contactListId: String;
+    contactListId: string;
     constructor();
 
     reportCompletedAsync(callback: (error: Error) => void): void ;
@@ -80,23 +80,23 @@
   }
 
   export class ContactListServerSearchReadBatchRequest {
-    contactListId: String;
+    contactListId: string;
     options: Object;
-    sessionId: String;
-    suggestedBatchSize: Number;
+    sessionId: string;
+    suggestedBatchSize: number;
     constructor();
 
     saveContactAsync(contact: Object, callback: (error: Error) => void): void ;
 
     reportCompletedAsync(callback: (error: Error) => void): void ;
 
-    reportFailedAsync(batchStatus: Number, callback: (error: Error) => void): void ;
+    reportFailedAsync(batchStatus: number, callback: (error: Error) => void): void ;
 
   }
 
   export class ContactListCreateOrUpdateContactRequest {
     contact: Object;
-    contactListId: String;
+    contactListId: string;
     constructor();
 
     reportCompletedAsync(createdOrUpdatedContact: Object, callback: (error: Error) => void): void ;
@@ -106,8 +106,8 @@
   }
 
   export class ContactListDeleteContactRequest {
-    contactId: String;
-    contactListId: String;
+    contactId: string;
+    contactListId: string;
     constructor();
 
     reportCompletedAsync(callback: (error: Error) => void): void ;

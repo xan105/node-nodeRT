@@ -1,37 +1,37 @@
   export class RfcommDeviceService {
     connectionHostName: Object;
-    connectionServiceName: String;
-    maxProtectionLevel: Number;
-    protectionLevel: Number;
+    connectionServiceName: string;
+    maxProtectionLevel: number;
+    protectionLevel: number;
     serviceId: RfcommServiceId;
     device: Object;
     deviceAccessInformation: Object;
     constructor();
 
-    static fromIdAsync(deviceId: String, callback: (error: Error, result: RfcommDeviceService) => void): void ;
+    static fromIdAsync(deviceId: string, callback: (error: Error, result: RfcommDeviceService) => void): void ;
 
 
-    static getDeviceSelectorForBluetoothDevice(bluetoothDevice: Object): String;
-    static getDeviceSelectorForBluetoothDevice(bluetoothDevice: Object, cacheMode: Number): String;
+    static getDeviceSelectorForBluetoothDevice(bluetoothDevice: Object): string;
+    static getDeviceSelectorForBluetoothDevice(bluetoothDevice: Object, cacheMode: number): string;
 
 
-    static getDeviceSelectorForBluetoothDeviceAndServiceId(bluetoothDevice: Object, serviceId: RfcommServiceId): String;
-    static getDeviceSelectorForBluetoothDeviceAndServiceId(bluetoothDevice: Object, serviceId: RfcommServiceId, cacheMode: Number): String;
+    static getDeviceSelectorForBluetoothDeviceAndServiceId(bluetoothDevice: Object, serviceId: RfcommServiceId): string;
+    static getDeviceSelectorForBluetoothDeviceAndServiceId(bluetoothDevice: Object, serviceId: RfcommServiceId, cacheMode: number): string;
 
 
-    static getDeviceSelector(serviceId: RfcommServiceId): String;
+    static getDeviceSelector(serviceId: RfcommServiceId): string;
 
 
     getSdpRawAttributesAsync(callback: (error: Error, result: Object) => void): void ;
-    getSdpRawAttributesAsync(cacheMode: Number, callback: (error: Error, result: Object) => void): void ;
+    getSdpRawAttributesAsync(cacheMode: number, callback: (error: Error, result: Object) => void): void ;
 
-    requestAccessAsync(callback: (error: Error, result: Number) => void): void ;
+    requestAccessAsync(callback: (error: Error, result: number) => void): void ;
 
     close(): void;
   }
 
   export class RfcommDeviceServicesResult {
-    error: Number;
+    error: number;
     services: Object;
     constructor();
 
@@ -44,18 +44,18 @@
     static phoneBookAccessPce: RfcommServiceId;
     static phoneBookAccessPse: RfcommServiceId;
     static serialPort: RfcommServiceId;
-    uuid: String;
+    uuid: string;
     constructor();
 
-    static fromUuid(uuid: String): RfcommServiceId;
+    static fromUuid(uuid: string): RfcommServiceId;
 
 
-    static fromShortId(shortId: Number): RfcommServiceId;
+    static fromShortId(shortId: number): RfcommServiceId;
 
 
-    asShortId(): Number;
+    asShortId(): number;
 
-    asString(): String;
+    asString(): string;
 
   }
 
@@ -68,7 +68,7 @@
 
 
     startAdvertising(listener: Object): void;
-    startAdvertising(listener: Object, radioDiscoverable: Boolean): void;
+    startAdvertising(listener: Object, radioDiscoverable: boolean): void;
 
     stopAdvertising(): void;
 

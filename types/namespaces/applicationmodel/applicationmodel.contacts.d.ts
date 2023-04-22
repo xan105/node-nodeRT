@@ -1,6 +1,6 @@
   export class TextSegment {
-    startPosition: Number;
-    length: Number;
+    startPosition: number;
+    length: number;
     constructor();
   }
 
@@ -205,23 +205,23 @@
     constructor();
 
     findContactsAsync(callback: (error: Error, result: Object) => void): void ;
-    findContactsAsync(searchText: String, callback: (error: Error, result: Object) => void): void ;
+    findContactsAsync(searchText: string, callback: (error: Error, result: Object) => void): void ;
 
-    getContactAsync(contactId: String, callback: (error: Error, result: Contact) => void): void ;
+    getContactAsync(contactId: string, callback: (error: Error, result: Contact) => void): void ;
 
     findContactListsAsync(callback: (error: Error, result: Object) => void): void ;
 
-    getContactListAsync(contactListId: String, callback: (error: Error, result: ContactList) => void): void ;
+    getContactListAsync(contactListId: string, callback: (error: Error, result: ContactList) => void): void ;
 
-    createContactListAsync(displayName: String, callback: (error: Error, result: ContactList) => void): void ;
-    createContactListAsync(displayName: String, userDataAccountId: String, callback: (error: Error, result: ContactList) => void): void ;
+    createContactListAsync(displayName: string, callback: (error: Error, result: ContactList) => void): void ;
+    createContactListAsync(displayName: string, userDataAccountId: string, callback: (error: Error, result: ContactList) => void): void ;
 
     getMeContactAsync(callback: (error: Error, result: Contact) => void): void ;
 
     getContactReader(): ContactReader;
     getContactReader(options: ContactQueryOptions): ContactReader;
 
-    getChangeTracker(identity: String): ContactChangeTracker;
+    getChangeTracker(identity: string): ContactChangeTracker;
 
     addListener(type: "ContactChanged", listener: (ev: Event) => void): void ;
     removeListener(type: "ContactChanged", listener: (ev: Event) => void): void ;
@@ -239,22 +239,22 @@
   export class ContactAnnotationStore {
     constructor();
 
-    findContactIdsByEmailAsync(emailAddress: String, callback: (error: Error, result: Object) => void): void ;
+    findContactIdsByEmailAsync(emailAddress: string, callback: (error: Error, result: Object) => void): void ;
 
-    findContactIdsByPhoneNumberAsync(phoneNumber: String, callback: (error: Error, result: Object) => void): void ;
+    findContactIdsByPhoneNumberAsync(phoneNumber: string, callback: (error: Error, result: Object) => void): void ;
 
     findAnnotationsForContactAsync(contact: Contact, callback: (error: Error, result: Object) => void): void ;
 
     disableAnnotationAsync(annotation: ContactAnnotation, callback: (error: Error) => void): void ;
 
     createAnnotationListAsync(callback: (error: Error, result: ContactAnnotationList) => void): void ;
-    createAnnotationListAsync(userDataAccountId: String, callback: (error: Error, result: ContactAnnotationList) => void): void ;
+    createAnnotationListAsync(userDataAccountId: string, callback: (error: Error, result: ContactAnnotationList) => void): void ;
 
-    getAnnotationListAsync(annotationListId: String, callback: (error: Error, result: ContactAnnotationList) => void): void ;
+    getAnnotationListAsync(annotationListId: string, callback: (error: Error, result: ContactAnnotationList) => void): void ;
 
     findAnnotationListsAsync(callback: (error: Error, result: Object) => void): void ;
 
-    findAnnotationsForContactListAsync(contactListId: String, callback: (error: Error, result: Object) => void): void ;
+    findAnnotationsForContactListAsync(contactListId: string, callback: (error: Error, result: Object) => void): void ;
 
   }
 
@@ -267,7 +267,7 @@
   }
 
   export class FullContactCardOptions {
-    desiredRemainingView: Number;
+    desiredRemainingView: number;
     constructor();
 
   }
@@ -279,7 +279,7 @@
     constructor();
 
     convertContactToVCardAsync(contact: Contact, callback: (error: Error, result: Object) => void): void ;
-    convertContactToVCardAsync(contact: Contact, maxBytes: Number, callback: (error: Error, result: Object) => void): void ;
+    convertContactToVCardAsync(contact: Contact, maxBytes: number, callback: (error: Error, result: Object) => void): void ;
 
     convertVCardToContactAsync(vCard: Object, callback: (error: Error, result: Contact) => void): void ;
 
@@ -293,30 +293,30 @@
 
   export class ContactAnnotation {
     supportedOperations: ContactAnnotationOperations;
-    remoteId: String;
-    contactId: String;
-    annotationListId: String;
-    id: String;
-    isDisabled: Boolean;
+    remoteId: string;
+    contactId: string;
+    annotationListId: string;
+    id: string;
+    isDisabled: boolean;
     providerProperties: Object;
-    contactListId: String;
+    contactListId: string;
     constructor();
 
   }
 
   export class ContactAnnotationList {
-    id: String;
-    providerPackageFamilyName: String;
-    userDataAccountId: String;
+    id: string;
+    providerPackageFamilyName: string;
+    userDataAccountId: string;
     constructor();
 
     deleteAsync(callback: (error: Error) => void): void ;
 
-    trySaveAnnotationAsync(annotation: ContactAnnotation, callback: (error: Error, result: Boolean) => void): void ;
+    trySaveAnnotationAsync(annotation: ContactAnnotation, callback: (error: Error, result: boolean) => void): void ;
 
-    getAnnotationAsync(annotationId: String, callback: (error: Error, result: ContactAnnotation) => void): void ;
+    getAnnotationAsync(annotationId: string, callback: (error: Error, result: ContactAnnotation) => void): void ;
 
-    findAnnotationsByRemoteIdAsync(remoteId: String, callback: (error: Error, result: Object) => void): void ;
+    findAnnotationsByRemoteIdAsync(remoteId: string, callback: (error: Error, result: Object) => void): void ;
 
     findAnnotationsAsync(callback: (error: Error, result: Object) => void): void ;
 
@@ -325,7 +325,7 @@
   }
 
   export class ContactChangeTracker {
-    isTracking: Boolean;
+    isTracking: boolean;
     constructor();
 
     enable(): void;
@@ -352,23 +352,23 @@
 
     unlinkRawContactAsync(contact: Contact, callback: (error: Error) => void): void ;
 
-    trySetPreferredSourceForPictureAsync(aggregateContact: Contact, rawContact: Contact, callback: (error: Error, result: Boolean) => void): void ;
+    trySetPreferredSourceForPictureAsync(aggregateContact: Contact, rawContact: Contact, callback: (error: Error, result: boolean) => void): void ;
 
-    setRemoteIdentificationInformationAsync(contactListId: String, remoteSourceId: String, accountId: String, callback: (error: Error) => void): void ;
+    setRemoteIdentificationInformationAsync(contactListId: string, remoteSourceId: string, accountId: string, callback: (error: Error) => void): void ;
 
   }
 
   export class ContactList {
-    supportsServerSearch: Boolean;
-    isHidden: Boolean;
+    supportsServerSearch: boolean;
+    isHidden: boolean;
     otherAppWriteAccess: ContactListOtherAppWriteAccess;
-    displayName: String;
+    displayName: string;
     otherAppReadAccess: ContactListOtherAppReadAccess;
     changeTracker: ContactChangeTracker;
-    sourceDisplayName: String;
-    id: String;
+    sourceDisplayName: string;
+    id: string;
     syncManager: ContactListSyncManager;
-    userDataAccountId: String;
+    userDataAccountId: string;
     syncConstraints: ContactListSyncConstraints;
     limitedWriteOperations: ContactListLimitedWriteOperations;
     constructor();
@@ -377,7 +377,7 @@
 
     deleteAsync(callback: (error: Error) => void): void ;
 
-    getContactFromRemoteIdAsync(remoteId: String, callback: (error: Error, result: Contact) => void): void ;
+    getContactFromRemoteIdAsync(remoteId: string, callback: (error: Error, result: Contact) => void): void ;
 
     getMeContactAsync(callback: (error: Error, result: Contact) => void): void ;
 
@@ -385,14 +385,14 @@
 
     deleteContactAsync(contact: Contact, callback: (error: Error) => void): void ;
 
-    getContactAsync(contactId: String, callback: (error: Error, result: Contact) => void): void ;
+    getContactAsync(contactId: string, callback: (error: Error, result: Contact) => void): void ;
 
     registerSyncManagerAsync(callback: (error: Error) => void): void ;
 
     getContactReader(): ContactReader;
     getContactReader(options: ContactQueryOptions): ContactReader;
 
-    getChangeTracker(identity: String): ContactChangeTracker;
+    getChangeTracker(identity: string): ContactChangeTracker;
 
     addListener(type: "ContactChanged", listener: (ev: Event) => void): void ;
     removeListener(type: "ContactChanged", listener: (ev: Event) => void): void ;
@@ -417,15 +417,15 @@
   }
 
   export class ContactQueryOptions {
-    includeContactsFromHiddenLists: Boolean;
+    includeContactsFromHiddenLists: boolean;
     desiredOperations: ContactAnnotationOperations;
     desiredFields: ContactQueryDesiredFields;
     annotationListIds: Object;
     contactListIds: Object;
     textSearch: ContactQueryTextSearch;
     constructor();
-    constructor(text: String);
-    constructor(text: String, fields: ContactQuerySearchFields);
+    constructor(text: string);
+    constructor(text: string, fields: ContactQuerySearchFields);
 
   }
 
@@ -435,7 +435,7 @@
     lastAttemptedSyncTime: Date;
     constructor();
 
-    syncAsync(callback: (error: Error, result: Boolean) => void): void ;
+    syncAsync(callback: (error: Error, result: boolean) => void): void ;
 
     addListener(type: "SyncStatusChanged", listener: (ev: Event) => void): void ;
     removeListener(type: "SyncStatusChanged", listener: (ev: Event) => void): void ;
@@ -451,34 +451,34 @@
   }
 
   export class ContactListSyncConstraints {
-    canSyncDescriptions: Boolean;
-    maxCompanyPhoneNumbers: Number;
-    maxChildRelationships: Number;
-    maxBusinessFaxPhoneNumbers: Number;
-    maxBirthdayDates: Number;
-    maxAssistantPhoneNumbers: Number;
-    maxOtherAddresses: Number;
-    maxAnniversaryDates: Number;
-    maxHomeAddresses: Number;
-    maxOtherDates: Number;
-    maxMobilePhoneNumbers: Number;
-    maxJobInfo: Number;
-    maxHomePhoneNumbers: Number;
-    maxHomeFaxPhoneNumbers: Number;
-    maxOtherEmailAddresses: Number;
-    maxPersonalEmailAddresses: Number;
-    maxPartnerRelationships: Number;
-    maxParentRelationships: Number;
-    maxPagerPhoneNumbers: Number;
-    maxOtherRelationships: Number;
-    maxOtherPhoneNumbers: Number;
-    maxRadioPhoneNumbers: Number;
-    maxWorkPhoneNumbers: Number;
-    maxWorkEmailAddresses: Number;
-    maxWorkAddresses: Number;
-    maxWebsites: Number;
-    maxSpouseRelationships: Number;
-    maxSiblingRelationships: Number;
+    canSyncDescriptions: boolean;
+    maxCompanyPhoneNumbers: number;
+    maxChildRelationships: number;
+    maxBusinessFaxPhoneNumbers: number;
+    maxBirthdayDates: number;
+    maxAssistantPhoneNumbers: number;
+    maxOtherAddresses: number;
+    maxAnniversaryDates: number;
+    maxHomeAddresses: number;
+    maxOtherDates: number;
+    maxMobilePhoneNumbers: number;
+    maxJobInfo: number;
+    maxHomePhoneNumbers: number;
+    maxHomeFaxPhoneNumbers: number;
+    maxOtherEmailAddresses: number;
+    maxPersonalEmailAddresses: number;
+    maxPartnerRelationships: number;
+    maxParentRelationships: number;
+    maxPagerPhoneNumbers: number;
+    maxOtherRelationships: number;
+    maxOtherPhoneNumbers: number;
+    maxRadioPhoneNumbers: number;
+    maxWorkPhoneNumbers: number;
+    maxWorkEmailAddresses: number;
+    maxWorkAddresses: number;
+    maxWebsites: number;
+    maxSpouseRelationships: number;
+    maxSiblingRelationships: number;
     constructor();
 
   }
@@ -486,9 +486,9 @@
   export class ContactListLimitedWriteOperations {
     constructor();
 
-    tryCreateOrUpdateContactAsync(contact: Contact, callback: (error: Error, result: Boolean) => void): void ;
+    tryCreateOrUpdateContactAsync(contact: Contact, callback: (error: Error, result: boolean) => void): void ;
 
-    tryDeleteContactAsync(contactId: String, callback: (error: Error, result: Boolean) => void): void ;
+    tryDeleteContactAsync(contactId: string, callback: (error: Error, result: boolean) => void): void ;
 
   }
 
@@ -527,13 +527,13 @@
   export class ContactMatchReason {
     field: ContactMatchReasonKind;
     segments: Object;
-    text: String;
+    text: string;
     constructor();
 
   }
 
   export class ContactQueryTextSearch {
-    text: String;
+    text: string;
     searchScope: ContactQuerySearchScope;
     fields: ContactQuerySearchFields;
     constructor();
@@ -548,14 +548,14 @@
   export class ContactManager {
     static systemSortOrder: ContactNameOrder;
     static systemDisplayNameOrder: ContactNameOrder;
-    static includeMiddleNameInSystemDisplayAndSort: Boolean;
+    static includeMiddleNameInSystemDisplayAndSort: boolean;
     constructor();
 
-    static isShowFullContactCardSupportedAsync(callback: (error: Error, result: Boolean) => void): void ;
+    static isShowFullContactCardSupportedAsync(callback: (error: Error, result: boolean) => void): void ;
 
 
     static convertContactToVCardAsync(contact: Contact, callback: (error: Error, result: Object) => void): void ;
-    static convertContactToVCardAsync(contact: Contact, maxBytes: Number, callback: (error: Error, result: Object) => void): void ;
+    static convertContactToVCardAsync(contact: Contact, maxBytes: number, callback: (error: Error, result: Object) => void): void ;
 
 
     static convertVCardToContactAsync(vCard: Object, callback: (error: Error, result: Contact) => void): void ;
@@ -571,19 +571,19 @@
     static getForUser(user: Object): ContactManagerForUser;
 
 
-    static isShowContactCardSupported(): Boolean;
+    static isShowContactCardSupported(): boolean;
 
 
-    static showContactCard(contact: Contact, selection: Object, preferredPlacement: Number, contactCardOptions: ContactCardOptions): void;
+    static showContactCard(contact: Contact, selection: Object, preferredPlacement: number, contactCardOptions: ContactCardOptions): void;
     static showContactCard(contact: Contact, selection: Object): void;
-    static showContactCard(contact: Contact, selection: Object, preferredPlacement: Number): void;
+    static showContactCard(contact: Contact, selection: Object, preferredPlacement: number): void;
 
 
-    static isShowDelayLoadedContactCardSupported(): Boolean;
+    static isShowDelayLoadedContactCardSupported(): boolean;
 
 
-    static showDelayLoadedContactCard(contact: Contact, selection: Object, preferredPlacement: Number, contactCardOptions: ContactCardOptions): ContactCardDelayedDataLoader;
-    static showDelayLoadedContactCard(contact: Contact, selection: Object, preferredPlacement: Number): ContactCardDelayedDataLoader;
+    static showDelayLoadedContactCard(contact: Contact, selection: Object, preferredPlacement: number, contactCardOptions: ContactCardOptions): ContactCardDelayedDataLoader;
+    static showDelayLoadedContactCard(contact: Contact, selection: Object, preferredPlacement: number): ContactCardDelayedDataLoader;
 
 
     static showFullContactCard(contact: Contact, fullContactCardOptions: FullContactCardOptions): void;
@@ -592,11 +592,11 @@
   }
 
   export class ContactLaunchActionVerbs {
-    static call: String;
-    static map: String;
-    static message: String;
-    static post: String;
-    static videoCall: String;
+    static call: string;
+    static map: string;
+    static message: string;
+    static post: string;
+    static videoCall: string;
     constructor();
 
   }
@@ -608,13 +608,13 @@
 
   export class ContactPicker {
     selectionMode: ContactSelectionMode;
-    commitButtonText: String;
+    commitButtonText: string;
     desiredFields: Object;
     desiredFieldsWithContactFieldType: Object;
     user: Object;
     constructor();
 
-    static isSupportedAsync(callback: (error: Error, result: Boolean) => void): void ;
+    static isSupportedAsync(callback: (error: Error, result: boolean) => void): void ;
 
 
     static createForUser(user: Object): ContactPicker;
@@ -632,74 +632,74 @@
 
   export class IContactField {
     category: ContactFieldCategory;
-    name: String;
+    name: string;
     type: ContactFieldType;
-    value: String;
+    value: string;
     constructor();
 
   }
 
   export class ContactPhone {
-    number: String;
+    number: string;
     kind: ContactPhoneKind;
-    description: String;
+    description: string;
     constructor();
 
   }
 
   export class ContactEmail {
     kind: ContactEmailKind;
-    description: String;
-    address: String;
+    description: string;
+    address: string;
     constructor();
 
   }
 
   export class ContactAddress {
-    streetAddress: String;
-    region: String;
-    postalCode: String;
-    locality: String;
+    streetAddress: string;
+    region: string;
+    postalCode: string;
+    locality: string;
     kind: ContactAddressKind;
-    description: String;
-    country: String;
+    description: string;
+    country: string;
     constructor();
 
   }
 
   export class ContactConnectedServiceAccount {
-    serviceName: String;
-    id: String;
+    serviceName: string;
+    id: string;
     constructor();
 
   }
 
   export class ContactDate {
-    year: Number;
-    month: Number;
+    year: number;
+    month: number;
     kind: ContactDateKind;
-    description: String;
-    day: Number;
+    description: string;
+    day: number;
     constructor();
 
   }
 
   export class ContactJobInfo {
-    title: String;
-    office: String;
-    manager: String;
-    description: String;
-    department: String;
-    companyYomiName: String;
-    companyName: String;
-    companyAddress: String;
+    title: string;
+    office: string;
+    manager: string;
+    description: string;
+    department: string;
+    companyYomiName: string;
+    companyName: string;
+    companyAddress: string;
     constructor();
 
   }
 
   export class ContactSignificantOther {
-    name: String;
-    description: String;
+    name: string;
+    description: string;
     relationship: ContactRelationship;
     constructor();
 
@@ -707,18 +707,18 @@
 
   export class ContactWebsite {
     uri: Object;
-    description: String;
-    rawValue: String;
+    description: string;
+    rawValue: string;
     constructor();
 
   }
 
   export class Contact {
     thumbnail: Object;
-    name: String;
+    name: string;
     fields: Object;
-    id: String;
-    notes: String;
+    id: string;
+    notes: string;
     connectedServiceAccounts: Object;
     emails: Object;
     addresses: Object;
@@ -730,91 +730,91 @@
     significantOthers: Object;
     websites: Object;
     sourceDisplayPicture: Object;
-    textToneToken: String;
-    displayNameOverride: String;
+    textToneToken: string;
+    displayNameOverride: string;
     displayPictureUserUpdateTime: Date;
-    nickname: String;
-    remoteId: String;
-    ringToneToken: String;
-    contactListId: String;
+    nickname: string;
+    remoteId: string;
+    ringToneToken: string;
+    contactListId: string;
     largeDisplayPicture: Object;
     smallDisplayPicture: Object;
-    sortName: String;
-    aggregateId: String;
-    fullName: String;
-    isAggregate: Boolean;
-    isDisplayPictureManuallySet: Boolean;
-    isMe: Boolean;
-    yomiGivenName: String;
-    honorificNameSuffix: String;
-    yomiFamilyName: String;
-    middleName: String;
-    lastName: String;
-    honorificNamePrefix: String;
-    firstName: String;
-    displayName: String;
-    yomiDisplayName: String;
+    sortName: string;
+    aggregateId: string;
+    fullName: string;
+    isAggregate: boolean;
+    isDisplayPictureManuallySet: boolean;
+    isMe: boolean;
+    yomiGivenName: string;
+    honorificNameSuffix: string;
+    yomiFamilyName: string;
+    middleName: string;
+    lastName: string;
+    honorificNamePrefix: string;
+    firstName: string;
+    displayName: string;
+    yomiDisplayName: string;
     constructor();
 
   }
 
   export class ContactField {
     category: ContactFieldCategory;
-    name: String;
+    name: string;
     type: ContactFieldType;
-    value: String;
+    value: string;
     constructor();
-    constructor(value: String, type: ContactFieldType);
-    constructor(value: String, type: ContactFieldType, category: ContactFieldCategory);
-    constructor(name: String, value: String, type: ContactFieldType, category: ContactFieldCategory);
+    constructor(value: string, type: ContactFieldType);
+    constructor(value: string, type: ContactFieldType, category: ContactFieldCategory);
+    constructor(name: string, value: string, type: ContactFieldType, category: ContactFieldCategory);
 
   }
 
   export class ContactLocationField {
     category: ContactFieldCategory;
-    name: String;
+    name: string;
     type: ContactFieldType;
-    value: String;
-    city: String;
-    country: String;
-    postalCode: String;
-    region: String;
-    street: String;
-    unstructuredAddress: String;
+    value: string;
+    city: string;
+    country: string;
+    postalCode: string;
+    region: string;
+    street: string;
+    unstructuredAddress: string;
     constructor();
-    constructor(unstructuredAddress: String);
-    constructor(unstructuredAddress: String, category: ContactFieldCategory);
-    constructor(unstructuredAddress: String, category: ContactFieldCategory, street: String, city: String, region: String, country: String, postalCode: String);
+    constructor(unstructuredAddress: string);
+    constructor(unstructuredAddress: string, category: ContactFieldCategory);
+    constructor(unstructuredAddress: string, category: ContactFieldCategory, street: string, city: string, region: string, country: string, postalCode: string);
 
   }
 
   export class ContactInstantMessageField {
     category: ContactFieldCategory;
-    name: String;
+    name: string;
     type: ContactFieldType;
-    value: String;
-    displayText: String;
+    value: string;
+    displayText: string;
     launchUri: Object;
-    service: String;
-    userName: String;
+    service: string;
+    userName: string;
     constructor();
-    constructor(userName: String);
-    constructor(userName: String, category: ContactFieldCategory);
-    constructor(userName: String, category: ContactFieldCategory, service: String, displayText: String, verb: Object);
+    constructor(userName: string);
+    constructor(userName: string, category: ContactFieldCategory);
+    constructor(userName: string, category: ContactFieldCategory, service: string, displayText: string, verb: Object);
 
   }
 
   export class KnownContactField {
-    static email: String;
-    static instantMessage: String;
-    static location: String;
-    static phoneNumber: String;
+    static email: string;
+    static instantMessage: string;
+    static location: string;
+    static phoneNumber: string;
     constructor();
 
-    static convertNameToType(name: String): ContactFieldType;
+    static convertNameToType(name: string): ContactFieldType;
 
 
-    static convertTypeToName(type: ContactFieldType): String;
+    static convertTypeToName(type: ContactFieldType): string;
 
 
   }
@@ -824,57 +824,57 @@
     emails: Object;
     instantMessages: Object;
     locations: Object;
-    name: String;
+    name: string;
     phoneNumbers: Object;
     constructor();
 
     getThumbnailAsync(callback: (error: Error, result: Object) => void): void ;
 
-    queryCustomFields(customName: String): Object;
+    queryCustomFields(customName: string): Object;
 
   }
 
   export class IContactFieldFactory {
     constructor();
 
-    createField(value: String, type: ContactFieldType): ContactField;
-    createField(value: String, type: ContactFieldType, category: ContactFieldCategory): ContactField;
-    createField(name: String, value: String, type: ContactFieldType, category: ContactFieldCategory): ContactField;
+    createField(value: string, type: ContactFieldType): ContactField;
+    createField(value: string, type: ContactFieldType, category: ContactFieldCategory): ContactField;
+    createField(name: string, value: string, type: ContactFieldType, category: ContactFieldCategory): ContactField;
 
   }
 
   export class IContactLocationFieldFactory {
     constructor();
 
-    createLocation(unstructuredAddress: String): ContactLocationField;
-    createLocation(unstructuredAddress: String, category: ContactFieldCategory): ContactLocationField;
-    createLocation(unstructuredAddress: String, category: ContactFieldCategory, street: String, city: String, region: String, country: String, postalCode: String): ContactLocationField;
+    createLocation(unstructuredAddress: string): ContactLocationField;
+    createLocation(unstructuredAddress: string, category: ContactFieldCategory): ContactLocationField;
+    createLocation(unstructuredAddress: string, category: ContactFieldCategory, street: string, city: string, region: string, country: string, postalCode: string): ContactLocationField;
 
   }
 
   export class IContactInstantMessageFieldFactory {
     constructor();
 
-    createInstantMessage(userName: String): ContactInstantMessageField;
-    createInstantMessage(userName: String, category: ContactFieldCategory): ContactInstantMessageField;
-    createInstantMessage(userName: String, category: ContactFieldCategory, service: String, displayText: String, verb: Object): ContactInstantMessageField;
+    createInstantMessage(userName: string): ContactInstantMessageField;
+    createInstantMessage(userName: string, category: ContactFieldCategory): ContactInstantMessageField;
+    createInstantMessage(userName: string, category: ContactFieldCategory, service: string, displayText: string, verb: Object): ContactInstantMessageField;
 
   }
 
   export class ContactFieldFactory {
     constructor();
 
-    createField(value: String, type: ContactFieldType): ContactField;
-    createField(value: String, type: ContactFieldType, category: ContactFieldCategory): ContactField;
-    createField(name: String, value: String, type: ContactFieldType, category: ContactFieldCategory): ContactField;
+    createField(value: string, type: ContactFieldType): ContactField;
+    createField(value: string, type: ContactFieldType, category: ContactFieldCategory): ContactField;
+    createField(name: string, value: string, type: ContactFieldType, category: ContactFieldCategory): ContactField;
 
-    createLocation(unstructuredAddress: String): ContactLocationField;
-    createLocation(unstructuredAddress: String, category: ContactFieldCategory): ContactLocationField;
-    createLocation(unstructuredAddress: String, category: ContactFieldCategory, street: String, city: String, region: String, country: String, postalCode: String): ContactLocationField;
+    createLocation(unstructuredAddress: string): ContactLocationField;
+    createLocation(unstructuredAddress: string, category: ContactFieldCategory): ContactLocationField;
+    createLocation(unstructuredAddress: string, category: ContactFieldCategory, street: string, city: string, region: string, country: string, postalCode: string): ContactLocationField;
 
-    createInstantMessage(userName: String): ContactInstantMessageField;
-    createInstantMessage(userName: String, category: ContactFieldCategory): ContactInstantMessageField;
-    createInstantMessage(userName: String, category: ContactFieldCategory, service: String, displayText: String, verb: Object): ContactInstantMessageField;
+    createInstantMessage(userName: string): ContactInstantMessageField;
+    createInstantMessage(userName: string, category: ContactFieldCategory): ContactInstantMessageField;
+    createInstantMessage(userName: string, category: ContactFieldCategory, service: string, displayText: string, verb: Object): ContactInstantMessageField;
 
   }
 
@@ -894,27 +894,27 @@
     static getForUser(user: Object): PinnedContactManager;
 
 
-    static isSupported(): Boolean;
+    static isSupported(): boolean;
 
 
-    requestPinContactAsync(contact: Contact, surface: PinnedContactSurface, callback: (error: Error, result: Boolean) => void): void ;
+    requestPinContactAsync(contact: Contact, surface: PinnedContactSurface, callback: (error: Error, result: boolean) => void): void ;
 
-    requestPinContactsAsync(contacts: Object, surface: PinnedContactSurface, callback: (error: Error, result: Boolean) => void): void ;
+    requestPinContactsAsync(contacts: Object, surface: PinnedContactSurface, callback: (error: Error, result: boolean) => void): void ;
 
-    requestUnpinContactAsync(contact: Contact, surface: PinnedContactSurface, callback: (error: Error, result: Boolean) => void): void ;
+    requestUnpinContactAsync(contact: Contact, surface: PinnedContactSurface, callback: (error: Error, result: boolean) => void): void ;
 
     getPinnedContactIdsAsync(callback: (error: Error, result: PinnedContactIdsQueryResult) => void): void ;
 
-    isPinSurfaceSupported(surface: PinnedContactSurface): Boolean;
+    isPinSurfaceSupported(surface: PinnedContactSurface): boolean;
 
-    isContactPinned(contact: Contact, surface: PinnedContactSurface): Boolean;
+    isContactPinned(contact: Contact, surface: PinnedContactSurface): boolean;
 
     signalContactActivity(contact: Contact): void;
 
   }
 
   export class ContactPanelLaunchFullAppRequestedEventArgs {
-    handled: Boolean;
+    handled: boolean;
     constructor();
 
   }

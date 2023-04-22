@@ -1,6 +1,6 @@
   export class ProviderI2cTransferResult {
     status: ProviderI2cTransferStatus;
-    bytesTransferred: Number;
+    bytesTransferred: number;
     constructor();
   }
 
@@ -21,7 +21,7 @@
   }
 
   export class ProviderI2cConnectionSettings {
-    slaveAddress: Number;
+    slaveAddress: number;
     sharingMode: ProviderI2cSharingMode;
     busSpeed: ProviderI2cBusSpeed;
     constructor();
@@ -43,12 +43,12 @@
   }
 
   export class II2cDeviceProvider {
-    deviceId: String;
+    deviceId: string;
     constructor();
 
-    write(buffer: Array<Number>): void;
+    write(buffer: Array<number>): void;
 
-    writePartial(buffer: Array<Number>): ProviderI2cTransferResult;
+    writePartial(buffer: Array<number>): ProviderI2cTransferResult;
 
     read();
     readPartial();

@@ -72,78 +72,78 @@
   export class SpeechRecognitionResult {
     confidence: SpeechRecognitionConfidence;
     constraint: ISpeechRecognitionConstraint;
-    rawConfidence: Number;
+    rawConfidence: number;
     rulePath: Object;
     semanticInterpretation: SpeechRecognitionSemanticInterpretation;
     status: SpeechRecognitionResultStatus;
-    text: String;
-    phraseDuration: Number;
+    text: string;
+    phraseDuration: number;
     phraseStartTime: Date;
     constructor();
 
-    getAlternates(maxAlternates: Number): Object;
+    getAlternates(maxAlternates: number): Object;
 
   }
 
   export class ISpeechRecognitionConstraint {
-    isEnabled: Boolean;
+    isEnabled: boolean;
     probability: SpeechRecognitionConstraintProbability;
-    tag: String;
+    tag: string;
     type: SpeechRecognitionConstraintType;
     constructor();
 
   }
 
   export class SpeechRecognitionTopicConstraint {
-    tag: String;
+    tag: string;
     probability: SpeechRecognitionConstraintProbability;
-    isEnabled: Boolean;
+    isEnabled: boolean;
     type: SpeechRecognitionConstraintType;
     scenario: SpeechRecognitionScenario;
-    topicHint: String;
+    topicHint: string;
     constructor();
-    constructor(scenario: SpeechRecognitionScenario, topicHint: String);
-    constructor(scenario: SpeechRecognitionScenario, topicHint: String, tag: String);
+    constructor(scenario: SpeechRecognitionScenario, topicHint: string);
+    constructor(scenario: SpeechRecognitionScenario, topicHint: string, tag: string);
 
   }
 
   export class SpeechRecognitionListConstraint {
-    tag: String;
+    tag: string;
     probability: SpeechRecognitionConstraintProbability;
-    isEnabled: Boolean;
+    isEnabled: boolean;
     type: SpeechRecognitionConstraintType;
     commands: Object;
     constructor();
     constructor(commands: Object);
-    constructor(commands: Object, tag: String);
+    constructor(commands: Object, tag: string);
 
   }
 
   export class SpeechRecognitionGrammarFileConstraint {
-    tag: String;
+    tag: string;
     probability: SpeechRecognitionConstraintProbability;
-    isEnabled: Boolean;
+    isEnabled: boolean;
     type: SpeechRecognitionConstraintType;
     grammarFile: Object;
     constructor();
     constructor(file: Object);
-    constructor(file: Object, tag: String);
+    constructor(file: Object, tag: string);
 
   }
 
   export class SpeechRecognizerTimeouts {
-    initialSilenceTimeout: Number;
-    endSilenceTimeout: Number;
-    babbleTimeout: Number;
+    initialSilenceTimeout: number;
+    endSilenceTimeout: number;
+    babbleTimeout: number;
     constructor();
 
   }
 
   export class SpeechRecognizerUIOptions {
-    showConfirmation: Boolean;
-    isReadBackEnabled: Boolean;
-    exampleText: String;
-    audiblePrompt: String;
+    showConfirmation: boolean;
+    isReadBackEnabled: boolean;
+    exampleText: string;
+    audiblePrompt: string;
     constructor();
 
   }
@@ -167,7 +167,7 @@
     constructor();
     constructor(language: Object);
 
-    static trySetSystemSpeechLanguageAsync(speechLanguage: Object, callback: (error: Error, result: Boolean) => void): void ;
+    static trySetSystemSpeechLanguageAsync(speechLanguage: Object, callback: (error: Error, result: boolean) => void): void ;
 
 
     compileConstraintsAsync(callback: (error: Error, result: SpeechRecognitionCompilationResult) => void): void ;
@@ -215,16 +215,16 @@
   }
 
   export class SpeechRecognitionVoiceCommandDefinitionConstraint {
-    tag: String;
+    tag: string;
     probability: SpeechRecognitionConstraintProbability;
-    isEnabled: Boolean;
+    isEnabled: boolean;
     type: SpeechRecognitionConstraintType;
     constructor();
 
   }
 
   export class SpeechContinuousRecognitionSession {
-    autoStopSilenceTimeout: Number;
+    autoStopSilenceTimeout: number;
     constructor();
 
     startAsync(callback: (error: Error) => void): void ;
@@ -263,7 +263,7 @@
   }
 
   export class SpeechRecognitionHypothesis {
-    text: String;
+    text: string;
     constructor();
 
   }
@@ -290,11 +290,11 @@
   }
 
   export class VoiceCommandSet {
-    language: String;
-    name: String;
+    language: string;
+    name: string;
     constructor();
 
-    setPhraseListAsync(phraseListName: String, phraseList: Object, callback: (error: Error) => void): void ;
+    setPhraseListAsync(phraseListName: string, phraseList: Object, callback: (error: Error) => void): void ;
 
   }
 

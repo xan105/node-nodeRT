@@ -9,19 +9,19 @@
   }
 
   export class PaymentTransactionAcceptResult {
-    status: Number;
+    status: number;
     constructor();
 
   }
 
   export class PaymentTransaction {
-    payerPhoneNumber: String;
-    payerName: String;
-    payerEmail: String;
+    payerPhoneNumber: string;
+    payerName: string;
+    payerEmail: string;
     paymentRequest: Object;
     constructor();
 
-    static fromIdAsync(id: String, callback: (error: Error, result: PaymentTransaction) => void): void ;
+    static fromIdAsync(id: string, callback: (error: Error, result: PaymentTransaction) => void): void ;
 
 
     updateShippingAddressAsync(shippingAddress: Object, callback: (error: Error, result: Object) => void): void ;

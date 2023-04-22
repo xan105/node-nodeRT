@@ -3,10 +3,10 @@
   }
 
   export class CommunicationBlockingAppManager {
-    static isCurrentAppActiveBlockingApp: Boolean;
+    static isCurrentAppActiveBlockingApp: boolean;
     constructor();
 
-    static requestSetAsActiveBlockingAppAsync(callback: (error: Error, result: Boolean) => void): void ;
+    static requestSetAsActiveBlockingAppAsync(callback: (error: Error, result: boolean) => void): void ;
 
 
     static showCommunicationBlockingSettingsUI(): void;
@@ -15,16 +15,16 @@
   }
 
   export class CommunicationBlockingAccessManager {
-    static isBlockingActive: Boolean;
+    static isBlockingActive: boolean;
     constructor();
 
-    static isBlockedNumberAsync(number: String, callback: (error: Error, result: Boolean) => void): void ;
+    static isBlockedNumberAsync(number: string, callback: (error: Error, result: boolean) => void): void ;
 
 
-    static showBlockNumbersUI(phoneNumbers: Object): Boolean;
+    static showBlockNumbersUI(phoneNumbers: Object): boolean;
 
 
-    static showUnblockNumbersUI(phoneNumbers: Object): Boolean;
+    static showUnblockNumbersUI(phoneNumbers: Object): boolean;
 
 
     static showBlockedCallsUI(): void;

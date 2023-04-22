@@ -45,9 +45,9 @@
     static longTime: DateTimeFormatter;
     static shortDate: DateTimeFormatter;
     static shortTime: DateTimeFormatter;
-    numeralSystem: String;
-    clock: String;
-    geographicRegion: String;
+    numeralSystem: string;
+    clock: string;
+    geographicRegion: string;
     includeDay: DayFormat;
     includeDayOfWeek: DayOfWeekFormat;
     includeHour: HourFormat;
@@ -56,22 +56,22 @@
     includeSecond: SecondFormat;
     includeYear: YearFormat;
     languages: Object;
-    calendar: String;
+    calendar: string;
     patterns: Object;
-    resolvedGeographicRegion: String;
-    resolvedLanguage: String;
-    template: String;
+    resolvedGeographicRegion: string;
+    resolvedLanguage: string;
+    template: string;
     constructor();
-    constructor(formatTemplate: String);
-    constructor(formatTemplate: String, languages: Object);
-    constructor(formatTemplate: String, languages: Object, geographicRegion: String, calendar: String, clock: String);
+    constructor(formatTemplate: string);
+    constructor(formatTemplate: string, languages: Object);
+    constructor(formatTemplate: string, languages: Object, geographicRegion: string, calendar: string, clock: string);
     constructor(yearFormat: YearFormat, monthFormat: MonthFormat, dayFormat: DayFormat, dayOfWeekFormat: DayOfWeekFormat);
     constructor(hourFormat: HourFormat, minuteFormat: MinuteFormat, secondFormat: SecondFormat);
     constructor(yearFormat: YearFormat, monthFormat: MonthFormat, dayFormat: DayFormat, dayOfWeekFormat: DayOfWeekFormat, hourFormat: HourFormat, minuteFormat: MinuteFormat, secondFormat: SecondFormat, languages: Object);
-    constructor(yearFormat: YearFormat, monthFormat: MonthFormat, dayFormat: DayFormat, dayOfWeekFormat: DayOfWeekFormat, hourFormat: HourFormat, minuteFormat: MinuteFormat, secondFormat: SecondFormat, languages: Object, geographicRegion: String, calendar: String, clock: String);
+    constructor(yearFormat: YearFormat, monthFormat: MonthFormat, dayFormat: DayFormat, dayOfWeekFormat: DayOfWeekFormat, hourFormat: HourFormat, minuteFormat: MinuteFormat, secondFormat: SecondFormat, languages: Object, geographicRegion: string, calendar: string, clock: string);
 
-    format(value: Date): String;
-    format(datetime: Date, timeZoneId: String): String;
+    format(value: Date): string;
+    format(datetime: Date, timeZoneId: string): string;
 
   }
 

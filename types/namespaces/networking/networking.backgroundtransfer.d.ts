@@ -1,26 +1,26 @@
   export class BackgroundDownloadProgress {
-    bytesReceived: Number;
-    totalBytesToReceive: Number;
+    bytesReceived: number;
+    totalBytesToReceive: number;
     status: BackgroundTransferStatus;
-    hasResponseChanged: Boolean;
-    hasRestarted: Boolean;
+    hasResponseChanged: boolean;
+    hasRestarted: boolean;
     constructor();
   }
 
   export class BackgroundUploadProgress {
-    bytesReceived: Number;
-    bytesSent: Number;
-    totalBytesToReceive: Number;
-    totalBytesToSend: Number;
+    bytesReceived: number;
+    bytesSent: number;
+    totalBytesToReceive: number;
+    totalBytesToSend: number;
     status: BackgroundTransferStatus;
-    hasResponseChanged: Boolean;
-    hasRestarted: Boolean;
+    hasResponseChanged: boolean;
+    hasRestarted: boolean;
     constructor();
   }
 
   export class BackgroundTransferFileRange {
-    offset: Number;
-    length: Number;
+    offset: number;
+    length: number;
     constructor();
   }
 
@@ -55,28 +55,28 @@
 
   export class IBackgroundTransferBase {
     costPolicy: BackgroundTransferCostPolicy;
-    group: String;
-    method: String;
+    group: string;
+    method: string;
     proxyCredential: Object;
     serverCredential: Object;
     constructor();
 
-    setRequestHeader(headerName: String, headerValue: String): void;
+    setRequestHeader(headerName: string, headerValue: string): void;
 
   }
 
   export class DownloadOperation {
     costPolicy: BackgroundTransferCostPolicy;
     requestedUri: Object;
-    method: String;
-    group: String;
-    guid: String;
+    method: string;
+    group: string;
+    guid: string;
     priority: BackgroundTransferPriority;
     progress: BackgroundDownloadProgress;
     resultFile: Object;
     transferGroup: BackgroundTransferGroup;
-    isRandomAccessRequired: Boolean;
-    currentWebErrorStatus: Number;
+    isRandomAccessRequired: boolean;
+    currentWebErrorStatus: number;
     recoverableWebErrorStatuses: Object;
     constructor();
 
@@ -88,7 +88,7 @@
 
     resume(): void;
 
-    getResultStreamAt(position: Number): Object;
+    getResultStreamAt(position: number): Object;
 
     getResponseInformation(): ResponseInformation;
 
@@ -112,16 +112,16 @@
   }
 
   export class UnconstrainedTransferRequestResult {
-    isUnconstrained: Boolean;
+    isUnconstrained: boolean;
     constructor();
 
   }
 
   export class UploadOperation {
     costPolicy: BackgroundTransferCostPolicy;
-    group: String;
-    guid: String;
-    method: String;
+    group: string;
+    guid: string;
+    method: string;
     requestedUri: Object;
     priority: BackgroundTransferPriority;
     progress: BackgroundUploadProgress;
@@ -133,7 +133,7 @@
 
     attachAsync(callback: (error: Error, result: UploadOperation) => void): void ;
 
-    getResultStreamAt(position: Number): Object;
+    getResultStreamAt(position: number): Object;
 
     getResponseInformation(): ResponseInformation;
 
@@ -143,16 +143,16 @@
 
   export class BackgroundTransferGroup {
     transferBehavior: BackgroundTransferBehavior;
-    name: String;
+    name: string;
     constructor();
 
-    static createGroup(name: String): BackgroundTransferGroup;
+    static createGroup(name: string): BackgroundTransferGroup;
 
 
   }
 
   export class BackgroundTransferCompletionGroup {
-    isEnabled: Boolean;
+    isEnabled: boolean;
     trigger: Object;
     constructor();
 
@@ -162,12 +162,12 @@
 
   export class BackgroundTransferContentPart {
     constructor();
-    constructor(name: String);
-    constructor(name: String, fileName: String);
+    constructor(name: string);
+    constructor(name: string, fileName: string);
 
-    setHeader(headerName: String, headerValue: String): void;
+    setHeader(headerName: string, headerValue: string): void;
 
-    setText(value: String): void;
+    setText(value: string): void;
 
     setFile(value: Object): void;
 
@@ -175,13 +175,13 @@
 
   export class IBackgroundTransferOperation {
     costPolicy: BackgroundTransferCostPolicy;
-    group: String;
-    guid: String;
-    method: String;
+    group: string;
+    guid: string;
+    method: string;
     requestedUri: Object;
     constructor();
 
-    getResultStreamAt(position: Number): Object;
+    getResultStreamAt(position: number): Object;
 
     getResponseInformation(): ResponseInformation;
 
@@ -190,8 +190,8 @@
   export class ResponseInformation {
     actualUri: Object;
     headers: Object;
-    isResumable: Boolean;
-    statusCode: Number;
+    isResumable: boolean;
+    statusCode: number;
     constructor();
 
   }
@@ -204,7 +204,7 @@
 
   export class BackgroundTransferRangesDownloadedEventArgs {
     addedRanges: Object;
-    wasDownloadRestarted: Boolean;
+    wasDownloadRestarted: boolean;
     constructor();
 
     getDeferral(): Object;
@@ -219,8 +219,8 @@
     failureTileNotification: Object;
     completionGroup: BackgroundTransferCompletionGroup;
     costPolicy: BackgroundTransferCostPolicy;
-    group: String;
-    method: String;
+    group: string;
+    method: string;
     proxyCredential: Object;
     serverCredential: Object;
     constructor();
@@ -233,7 +233,7 @@
 
 
     static getCurrentDownloadsAsync(callback: (error: Error, result: Object) => void): void ;
-    static getCurrentDownloadsAsync(group: String, callback: (error: Error, result: Object) => void): void ;
+    static getCurrentDownloadsAsync(group: string, callback: (error: Error, result: Object) => void): void ;
 
 
     createDownloadAsync(uri: Object, resultFile: Object, requestBodyStream: Object, callback: (error: Error, result: DownloadOperation) => void): void ;
@@ -241,15 +241,15 @@
     createDownload(uri: Object, resultFile: Object): DownloadOperation;
     createDownload(uri: Object, resultFile: Object, requestBodyFile: Object): DownloadOperation;
 
-    setRequestHeader(headerName: String, headerValue: String): void;
+    setRequestHeader(headerName: string, headerValue: string): void;
 
   }
 
   export class BackgroundUploader {
     serverCredential: Object;
     proxyCredential: Object;
-    method: String;
-    group: String;
+    method: string;
+    group: string;
     costPolicy: BackgroundTransferCostPolicy;
     failureTileNotification: Object;
     transferGroup: BackgroundTransferGroup;
@@ -267,34 +267,34 @@
 
 
     static getCurrentUploadsAsync(callback: (error: Error, result: Object) => void): void ;
-    static getCurrentUploadsAsync(group: String, callback: (error: Error, result: Object) => void): void ;
+    static getCurrentUploadsAsync(group: string, callback: (error: Error, result: Object) => void): void ;
 
 
     createUploadFromStreamAsync(uri: Object, sourceStream: Object, callback: (error: Error, result: UploadOperation) => void): void ;
 
     createUploadAsync(uri: Object, parts: Object, callback: (error: Error, result: UploadOperation) => void): void ;
-    createUploadAsync(uri: Object, parts: Object, subType: String, callback: (error: Error, result: UploadOperation) => void): void ;
-    createUploadAsync(uri: Object, parts: Object, subType: String, boundary: String, callback: (error: Error, result: UploadOperation) => void): void ;
+    createUploadAsync(uri: Object, parts: Object, subType: string, callback: (error: Error, result: UploadOperation) => void): void ;
+    createUploadAsync(uri: Object, parts: Object, subType: string, boundary: string, callback: (error: Error, result: UploadOperation) => void): void ;
 
     createUpload(uri: Object, sourceFile: Object): UploadOperation;
 
-    setRequestHeader(headerName: String, headerValue: String): void;
+    setRequestHeader(headerName: string, headerValue: string): void;
 
   }
 
   export class IBackgroundTransferContentPartFactory {
     constructor();
 
-    createWithName(name: String): BackgroundTransferContentPart;
+    createWithName(name: string): BackgroundTransferContentPart;
 
-    createWithNameAndFileName(name: String, fileName: String): BackgroundTransferContentPart;
+    createWithNameAndFileName(name: string, fileName: string): BackgroundTransferContentPart;
 
   }
 
   export class BackgroundTransferError {
     constructor();
 
-    static getStatus(hresult: Number): Number;
+    static getStatus(hresult: number): number;
 
 
   }

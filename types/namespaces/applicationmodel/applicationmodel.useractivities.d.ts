@@ -9,8 +9,8 @@
 
   export class UserActivityAttribution {
     iconUri: Object;
-    alternateText: String;
-    addImageQuery: Boolean;
+    alternateText: string;
+    addImageQuery: boolean;
     constructor();
     constructor(iconUri: Object);
 
@@ -19,33 +19,33 @@
   export class IUserActivityContentInfo {
     constructor();
 
-    toJson(): String;
+    toJson(): string;
 
   }
 
   export class UserActivityContentInfo {
     constructor();
 
-    static fromJson(value: String): UserActivityContentInfo;
+    static fromJson(value: string): UserActivityContentInfo;
 
 
-    toJson(): String;
+    toJson(): string;
 
   }
 
   export class UserActivityVisualElements {
-    displayText: String;
-    description: String;
+    displayText: string;
+    description: string;
     content: Object;
     backgroundColor: Object;
     attribution: UserActivityAttribution;
-    attributionDisplayText: String;
+    attributionDisplayText: string;
     constructor();
 
   }
 
   export class UserActivitySession {
-    activityId: String;
+    activityId: string;
     constructor();
 
     close(): void;
@@ -54,29 +54,29 @@
   export class UserActivity {
     fallbackUri: Object;
     contentUri: Object;
-    contentType: String;
+    contentType: string;
     contentInfo: IUserActivityContentInfo;
     activationUri: Object;
-    activityId: String;
+    activityId: string;
     state: UserActivityState;
     visualElements: UserActivityVisualElements;
     constructor();
-    constructor(activityId: String);
+    constructor(activityId: string);
 
-    static tryParseFromJson(json: String): UserActivity;
-
-
-    static tryParseFromJsonArray(json: String): Object;
+    static tryParseFromJson(json: string): UserActivity;
 
 
-    static toJsonArray(activities: Object): String;
+    static tryParseFromJsonArray(json: string): Object;
+
+
+    static toJsonArray(activities: Object): string;
 
 
     saveAsync(callback: (error: Error) => void): void ;
 
     createSession(): UserActivitySession;
 
-    toJson(): String;
+    toJson(): string;
 
   }
 
@@ -92,15 +92,15 @@
     static getDefault(): UserActivityChannel;
 
 
-    getOrCreateUserActivityAsync(activityId: String, callback: (error: Error, result: UserActivity) => void): void ;
+    getOrCreateUserActivityAsync(activityId: string, callback: (error: Error, result: UserActivity) => void): void ;
 
-    deleteActivityAsync(activityId: String, callback: (error: Error) => void): void ;
+    deleteActivityAsync(activityId: string, callback: (error: Error) => void): void ;
 
     deleteAllActivitiesAsync(callback: (error: Error) => void): void ;
 
-    getRecentUserActivitiesAsync(maxUniqueActivities: Number, callback: (error: Error, result: Object) => void): void ;
+    getRecentUserActivitiesAsync(maxUniqueActivities: number, callback: (error: Error, result: Object) => void): void ;
 
-    getSessionHistoryItemsForUserActivityAsync(activityId: String, startTime: Date, callback: (error: Error, result: Object) => void): void ;
+    getSessionHistoryItemsForUserActivityAsync(activityId: string, startTime: Date, callback: (error: Error, result: Object) => void): void ;
 
   }
 

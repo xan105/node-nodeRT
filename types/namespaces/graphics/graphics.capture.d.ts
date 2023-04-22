@@ -1,11 +1,11 @@
   export class SizeInt32 {
-    width: Number;
-    height: Number;
+    width: number;
+    height: number;
     constructor();
   }
 
   export class GraphicsCaptureItem {
-    displayName: String;
+    displayName: string;
     size: SizeInt32;
     constructor();
 
@@ -25,7 +25,7 @@
   export class Direct3D11CaptureFrame {
     contentSize: SizeInt32;
     surface: Object;
-    systemRelativeTime: Number;
+    systemRelativeTime: number;
     constructor();
 
     close(): void;
@@ -35,10 +35,10 @@
     dispatcherQueue: Object;
     constructor();
 
-    static create(device: Object, pixelFormat: Number, numberOfBuffers: Number, size: SizeInt32): Direct3D11CaptureFramePool;
+    static create(device: Object, pixelFormat: number, numberOfBuffers: number, size: SizeInt32): Direct3D11CaptureFramePool;
 
 
-    recreate(device: Object, pixelFormat: Number, numberOfBuffers: Number, size: SizeInt32): void;
+    recreate(device: Object, pixelFormat: number, numberOfBuffers: number, size: SizeInt32): void;
 
     tryGetNextFrame(): Direct3D11CaptureFrame;
 
@@ -61,7 +61,7 @@
   export class GraphicsCaptureSession {
     constructor();
 
-    static isSupported(): Boolean;
+    static isSupported(): boolean;
 
 
     startCapture(): void;

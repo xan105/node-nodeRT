@@ -17,21 +17,21 @@
     properties: Object;
     constructor();
 
-    launchAsync(callback: (error: Error, result: Boolean) => void): void ;
+    launchAsync(callback: (error: Error, result: boolean) => void): void ;
 
     setCategoryAsync(value: GameListCategory, callback: (error: Error) => void): void ;
 
   }
 
   export class GameModeConfiguration {
-    percentGpuTimeAllocatedToGame: Number;
-    percentGpuMemoryAllocatedToSystemCompositor: Number;
-    percentGpuMemoryAllocatedToGame: Number;
-    maxCpuCount: Number;
-    isEnabled: Boolean;
-    cpuExclusivityMaskLow: Number;
-    cpuExclusivityMaskHigh: Number;
-    affinitizeToExclusiveCpus: Boolean;
+    percentGpuTimeAllocatedToGame: number;
+    percentGpuMemoryAllocatedToSystemCompositor: number;
+    percentGpuMemoryAllocatedToGame: number;
+    maxCpuCount: number;
+    isEnabled: boolean;
+    cpuExclusivityMaskLow: number;
+    cpuExclusivityMaskHigh: number;
+    affinitizeToExclusiveCpus: boolean;
     relatedProcessNames: Object;
     constructor();
 
@@ -44,20 +44,20 @@
     displayInfo: Object;
     properties: Object;
     gameModeConfiguration: GameModeConfiguration;
-    launchParameters: String;
+    launchParameters: string;
     launchableState: GameListEntryLaunchableState;
     launcherExecutable: Object;
-    titleId: String;
+    titleId: string;
     constructor();
 
-    launchAsync(callback: (error: Error, result: Boolean) => void): void ;
+    launchAsync(callback: (error: Error, result: boolean) => void): void ;
 
     setCategoryAsync(value: GameListCategory, callback: (error: Error) => void): void ;
 
     setLauncherExecutableFileAsync(executableFile: Object, callback: (error: Error) => void): void ;
-    setLauncherExecutableFileAsync(executableFile: Object, launchParams: String, callback: (error: Error) => void): void ;
+    setLauncherExecutableFileAsync(executableFile: Object, launchParams: string, callback: (error: Error) => void): void ;
 
-    setTitleIdAsync(id: String, callback: (error: Error) => void): void ;
+    setTitleIdAsync(id: string, callback: (error: Error) => void): void ;
 
   }
 
@@ -82,7 +82,7 @@
 
 
     static findAllAsync(callback: (error: Error, result: Object) => void): void ;
-    static findAllAsync(packageFamilyName: String, callback: (error: Error, result: Object) => void): void ;
+    static findAllAsync(packageFamilyName: string, callback: (error: Error, result: Object) => void): void ;
 
 
     addListener(type: "GameAdded", listener: (ev: Event) => void): void ;

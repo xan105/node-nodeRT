@@ -209,8 +209,8 @@
   export class AdaptiveNotificationText {
     hints: Object;
     kind: AdaptiveNotificationContentKind;
-    text: String;
-    language: String;
+    text: string;
+    language: string;
     constructor();
 
   }
@@ -230,10 +230,10 @@
 
 
     static createBadgeUpdaterForApplication(): BadgeUpdater;
-    static createBadgeUpdaterForApplication(applicationId: String): BadgeUpdater;
+    static createBadgeUpdaterForApplication(applicationId: string): BadgeUpdater;
 
 
-    static createBadgeUpdaterForSecondaryTile(tileId: String): BadgeUpdater;
+    static createBadgeUpdaterForSecondaryTile(tileId: string): BadgeUpdater;
 
 
     static getTemplateContent(type: BadgeTemplateType): Object;
@@ -246,9 +246,9 @@
     constructor();
 
     createBadgeUpdaterForApplication(): BadgeUpdater;
-    createBadgeUpdaterForApplication(applicationId: String): BadgeUpdater;
+    createBadgeUpdaterForApplication(applicationId: string): BadgeUpdater;
 
-    createBadgeUpdaterForSecondaryTile(tileId: String): BadgeUpdater;
+    createBadgeUpdaterForSecondaryTile(tileId: string): BadgeUpdater;
 
   }
 
@@ -274,42 +274,42 @@
   }
 
   export class KnownAdaptiveNotificationHints {
-    static align: String;
-    static maxLines: String;
-    static minLines: String;
-    static style: String;
-    static textStacking: String;
-    static wrap: String;
+    static align: string;
+    static maxLines: string;
+    static minLines: string;
+    static style: string;
+    static textStacking: string;
+    static wrap: string;
     constructor();
 
   }
 
   export class KnownAdaptiveNotificationTextStyles {
-    static base: String;
-    static baseSubtle: String;
-    static body: String;
-    static bodySubtle: String;
-    static caption: String;
-    static captionSubtle: String;
-    static header: String;
-    static headerNumeral: String;
-    static headerNumeralSubtle: String;
-    static headerSubtle: String;
-    static subheader: String;
-    static subheaderNumeral: String;
-    static subheaderNumeralSubtle: String;
-    static subheaderSubtle: String;
-    static subtitle: String;
-    static subtitleSubtle: String;
-    static title: String;
-    static titleNumeral: String;
-    static titleSubtle: String;
+    static base: string;
+    static baseSubtle: string;
+    static body: string;
+    static bodySubtle: string;
+    static caption: string;
+    static captionSubtle: string;
+    static header: string;
+    static headerNumeral: string;
+    static headerNumeralSubtle: string;
+    static headerSubtle: string;
+    static subheader: string;
+    static subheaderNumeral: string;
+    static subheaderNumeralSubtle: string;
+    static subheaderSubtle: string;
+    static subtitle: string;
+    static subtitleSubtle: string;
+    static title: string;
+    static titleNumeral: string;
+    static titleSubtle: string;
     constructor();
 
   }
 
   export class KnownNotificationBindings {
-    static toastGeneric: String;
+    static toastGeneric: string;
     constructor();
 
   }
@@ -322,8 +322,8 @@
   }
 
   export class NotificationBinding {
-    template: String;
-    language: String;
+    template: string;
+    language: string;
     hints: Object;
     constructor();
 
@@ -332,26 +332,26 @@
   }
 
   export class NotificationData {
-    sequenceNumber: Number;
+    sequenceNumber: number;
     values: Object;
     constructor();
-    constructor(initialValues: Object, sequenceNumber: Number);
+    constructor(initialValues: Object, sequenceNumber: number);
     constructor(initialValues: Object);
 
   }
 
   export class NotificationVisual {
-    language: String;
+    language: string;
     bindings: Object;
     constructor();
 
-    getBinding(templateName: String): NotificationBinding;
+    getBinding(templateName: string): NotificationBinding;
 
   }
 
   export class ScheduledTileNotification {
-    tag: String;
-    id: String;
+    tag: string;
+    id: string;
     expirationTime: Date;
     content: Object;
     deliveryTime: Date;
@@ -361,25 +361,25 @@
   }
 
   export class ScheduledToastNotification {
-    id: String;
+    id: string;
     content: Object;
     deliveryTime: Date;
-    maximumSnoozeCount: Number;
-    snoozeInterval: Number;
-    tag: String;
-    suppressPopup: Boolean;
-    group: String;
-    remoteId: String;
+    maximumSnoozeCount: number;
+    snoozeInterval: number;
+    tag: string;
+    suppressPopup: boolean;
+    group: string;
+    remoteId: string;
     notificationMirroring: NotificationMirroring;
     expirationTime: Date;
     constructor();
     constructor(content: Object, deliveryTime: Date);
-    constructor(content: Object, deliveryTime: Date, snoozeInterval: Number, maximumSnoozeCount: Number);
+    constructor(content: Object, deliveryTime: Date, snoozeInterval: number, maximumSnoozeCount: number);
 
   }
 
   export class ScheduledToastNotificationShowingEventArgs {
-    cancel: Boolean;
+    cancel: boolean;
     scheduledToastNotification: ScheduledToastNotification;
     constructor();
 
@@ -388,7 +388,7 @@
   }
 
   export class ShownTileNotification {
-    arguments: String;
+    arguments: string;
     constructor();
 
   }
@@ -405,10 +405,10 @@
     constructor();
 
     static createTileFlyoutUpdaterForApplication(): TileFlyoutUpdater;
-    static createTileFlyoutUpdaterForApplication(applicationId: String): TileFlyoutUpdater;
+    static createTileFlyoutUpdaterForApplication(applicationId: string): TileFlyoutUpdater;
 
 
-    static createTileFlyoutUpdaterForSecondaryTile(tileId: String): TileFlyoutUpdater;
+    static createTileFlyoutUpdaterForSecondaryTile(tileId: string): TileFlyoutUpdater;
 
 
     static getTemplateContent(type: TileFlyoutTemplateType): Object;
@@ -432,7 +432,7 @@
   }
 
   export class TileNotification {
-    tag: String;
+    tag: string;
     expirationTime: Date;
     content: Object;
     constructor();
@@ -447,10 +447,10 @@
 
 
     static createTileUpdaterForApplication(): TileUpdater;
-    static createTileUpdaterForApplication(applicationId: String): TileUpdater;
+    static createTileUpdaterForApplication(applicationId: string): TileUpdater;
 
 
-    static createTileUpdaterForSecondaryTile(tileId: String): TileUpdater;
+    static createTileUpdaterForSecondaryTile(tileId: string): TileUpdater;
 
 
     static getTemplateContent(type: TileTemplateType): Object;
@@ -464,9 +464,9 @@
 
     createTileUpdaterForApplicationForUser(): TileUpdater;
 
-    createTileUpdaterForApplication(applicationId: String): TileUpdater;
+    createTileUpdaterForApplication(applicationId: string): TileUpdater;
 
-    createTileUpdaterForSecondaryTile(tileId: String): TileUpdater;
+    createTileUpdaterForSecondaryTile(tileId: string): TileUpdater;
 
   }
 
@@ -478,7 +478,7 @@
 
     clear(): void;
 
-    enableNotificationQueue(enable: Boolean): void;
+    enableNotificationQueue(enable: boolean): void;
 
     addToSchedule(scheduledTile: ScheduledTileNotification): void;
 
@@ -494,33 +494,33 @@
     startPeriodicUpdateBatch(tileContents: Object, requestedInterval: PeriodicUpdateRecurrence): void;
     startPeriodicUpdateBatch(tileContents: Object, startTime: Date, requestedInterval: PeriodicUpdateRecurrence): void;
 
-    enableNotificationQueueForSquare150x150(enable: Boolean): void;
+    enableNotificationQueueForSquare150x150(enable: boolean): void;
 
-    enableNotificationQueueForWide310x150(enable: Boolean): void;
+    enableNotificationQueueForWide310x150(enable: boolean): void;
 
-    enableNotificationQueueForSquare310x310(enable: Boolean): void;
+    enableNotificationQueueForSquare310x310(enable: boolean): void;
 
   }
 
   export class ToastActivatedEventArgs {
-    arguments: String;
+    arguments: string;
     userInput: Object;
     constructor();
 
   }
 
   export class ToastCollection {
-    launchArgs: String;
+    launchArgs: string;
     icon: Object;
-    displayName: String;
-    id: String;
+    displayName: string;
+    id: string;
     constructor();
-    constructor(collectionId: String, displayName: String, launchArgs: String, iconUri: Object);
+    constructor(collectionId: string, displayName: string, launchArgs: string, iconUri: Object);
 
   }
 
   export class ToastCollectionManager {
-    appId: String;
+    appId: string;
     user: Object;
     constructor();
 
@@ -528,9 +528,9 @@
 
     findAllToastCollectionsAsync(callback: (error: Error, result: Object) => void): void ;
 
-    getToastCollectionAsync(collectionId: String, callback: (error: Error, result: ToastCollection) => void): void ;
+    getToastCollectionAsync(collectionId: string, callback: (error: Error, result: ToastCollection) => void): void ;
 
-    removeToastCollectionAsync(collectionId: String, callback: (error: Error) => void): void ;
+    removeToastCollectionAsync(collectionId: string, callback: (error: Error) => void): void ;
 
     removeAllToastCollectionsAsync(callback: (error: Error) => void): void ;
 
@@ -543,7 +543,7 @@
   }
 
   export class ToastFailedEventArgs {
-    errorCode: Number;
+    errorCode: number;
     constructor();
 
   }
@@ -551,14 +551,14 @@
   export class ToastNotification {
     expirationTime: Date;
     content: Object;
-    tag: String;
-    suppressPopup: Boolean;
-    group: String;
-    remoteId: String;
+    tag: string;
+    suppressPopup: boolean;
+    group: string;
+    remoteId: string;
     notificationMirroring: NotificationMirroring;
     priority: ToastNotificationPriority;
     data: NotificationData;
-    expiresOnReboot: Boolean;
+    expiresOnReboot: boolean;
     constructor();
     constructor(content: Object);
 
@@ -586,7 +586,7 @@
   }
 
   export class ToastNotificationActionTriggerDetail {
-    argument: String;
+    argument: string;
     userInput: Object;
     constructor();
 
@@ -596,23 +596,23 @@
     constructor();
 
     getHistory(): Object;
-    getHistory(applicationId: String): Object;
+    getHistory(applicationId: string): Object;
 
-    removeGroup(group: String): void;
-    removeGroup(group: String, applicationId: String): void;
+    removeGroup(group: string): void;
+    removeGroup(group: string, applicationId: string): void;
 
-    remove(tag: String, group: String, applicationId: String): void;
-    remove(tag: String, group: String): void;
-    remove(tag: String): void;
+    remove(tag: string, group: string, applicationId: string): void;
+    remove(tag: string, group: string): void;
+    remove(tag: string): void;
 
     clear(): void;
-    clear(applicationId: String): void;
+    clear(applicationId: string): void;
 
   }
 
   export class ToastNotificationHistoryChangedTriggerDetail {
     changeType: ToastHistoryChangedType;
-    collectionId: String;
+    collectionId: string;
     constructor();
 
   }
@@ -631,7 +631,7 @@
 
 
     static createToastNotifier(): ToastNotifier;
-    static createToastNotifier(applicationId: String): ToastNotifier;
+    static createToastNotifier(applicationId: string): ToastNotifier;
 
 
     static getTemplateContent(type: ToastTemplateType): Object;
@@ -644,15 +644,15 @@
     user: Object;
     constructor();
 
-    getToastNotifierForToastCollectionIdAsync(collectionId: String, callback: (error: Error, result: ToastNotifier) => void): void ;
+    getToastNotifierForToastCollectionIdAsync(collectionId: string, callback: (error: Error, result: ToastNotifier) => void): void ;
 
-    getHistoryForToastCollectionIdAsync(collectionId: String, callback: (error: Error, result: ToastNotificationHistory) => void): void ;
+    getHistoryForToastCollectionIdAsync(collectionId: string, callback: (error: Error, result: ToastNotificationHistory) => void): void ;
 
     createToastNotifier(): ToastNotifier;
-    createToastNotifier(applicationId: String): ToastNotifier;
+    createToastNotifier(applicationId: string): ToastNotifier;
 
     getToastCollectionManager(): ToastCollectionManager;
-    getToastCollectionManager(appId: String): ToastCollectionManager;
+    getToastCollectionManager(appId: string): ToastCollectionManager;
 
   }
 
@@ -670,8 +670,8 @@
 
     getScheduledToastNotifications(): Object;
 
-    update(data: NotificationData, tag: String, group: String): NotificationUpdateResult;
-    update(data: NotificationData, tag: String): NotificationUpdateResult;
+    update(data: NotificationData, tag: string, group: string): NotificationUpdateResult;
+    update(data: NotificationData, tag: string): NotificationUpdateResult;
 
     addListener(type: "ScheduledToastNotificationShowing", listener: (ev: Event) => void): void ;
     removeListener(type: "ScheduledToastNotificationShowing", listener: (ev: Event) => void): void ;
@@ -689,7 +689,7 @@
   export class UserNotification {
     appInfo: Object;
     creationTime: Date;
-    id: Number;
+    id: number;
     notification: Notification;
     constructor();
 
@@ -697,7 +697,7 @@
 
   export class UserNotificationChangedEventArgs {
     changeKind: UserNotificationChangedKind;
-    userNotificationId: Number;
+    userNotificationId: number;
     constructor();
 
   }

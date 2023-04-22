@@ -1,20 +1,20 @@
   export class Matrix4x4 {
-    m11: Number;
-    m12: Number;
-    m13: Number;
-    m14: Number;
-    m21: Number;
-    m22: Number;
-    m23: Number;
-    m24: Number;
-    m31: Number;
-    m32: Number;
-    m33: Number;
-    m34: Number;
-    m41: Number;
-    m42: Number;
-    m43: Number;
-    m44: Number;
+    m11: number;
+    m12: number;
+    m13: number;
+    m14: number;
+    m21: number;
+    m22: number;
+    m23: number;
+    m24: number;
+    m31: number;
+    m32: number;
+    m33: number;
+    m34: number;
+    m41: number;
+    m42: number;
+    m43: number;
+    m44: number;
     constructor();
   }
 
@@ -28,7 +28,7 @@
 
   export class Printing3DBufferDescription {
     format: Printing3DBufferFormat;
-    stride: Number;
+    stride: number;
     constructor();
   }
 
@@ -143,7 +143,7 @@
   export class Print3DTaskRequest {
     constructor();
 
-    createTask(title: String, printerId: String, handler: Object): Print3DTask;
+    createTask(title: string, printerId: string, handler: Object): Print3DTask;
 
   }
 
@@ -156,7 +156,7 @@
   export class Print3DManager {
     constructor();
 
-    static showPrintUIAsync(callback: (error: Error, result: Boolean) => void): void ;
+    static showPrintUIAsync(callback: (error: Error, result: boolean) => void): void ;
 
 
     static getForCurrentView(): Print3DManager;
@@ -176,7 +176,7 @@
   }
 
   export class Printing3DMeshVerificationResult {
-    isValid: Boolean;
+    isValid: boolean;
     nonmanifoldTriangles: Object;
     reversedNormalTriangles: Object;
     constructor();
@@ -185,7 +185,7 @@
 
   export class Printing3DTextureResource {
     textureData: Object;
-    name: String;
+    name: string;
     constructor();
 
   }
@@ -193,8 +193,8 @@
   export class Printing3DComponent {
     type: Printing3DObjectType;
     thumbnail: Printing3DTextureResource;
-    partNumber: String;
-    name: String;
+    partNumber: string;
+    name: string;
     mesh: Printing3DMesh;
     components: Object;
     constructor();
@@ -204,10 +204,10 @@
   export class Printing3DMesh {
     vertexPositionsDescription: Printing3DBufferDescription;
     vertexNormalsDescription: Printing3DBufferDescription;
-    vertexCount: Number;
+    vertexCount: number;
     triangleMaterialIndicesDescription: Printing3DBufferDescription;
     triangleIndicesDescription: Printing3DBufferDescription;
-    indexCount: Number;
+    indexCount: number;
     bufferDescriptionSet: Object;
     bufferSet: Object;
     constructor();
@@ -216,19 +216,19 @@
 
     getVertexPositions(): Object;
 
-    createVertexPositions(value: Number): void;
+    createVertexPositions(value: number): void;
 
     getVertexNormals(): Object;
 
-    createVertexNormals(value: Number): void;
+    createVertexNormals(value: number): void;
 
     getTriangleIndices(): Object;
 
-    createTriangleIndices(value: Number): void;
+    createTriangleIndices(value: number): void;
 
     getTriangleMaterialIndices(): Object;
 
-    createTriangleMaterialIndices(value: Number): void;
+    createTriangleMaterialIndices(value: number): void;
 
   }
 
@@ -240,7 +240,7 @@
   }
 
   export class Printing3DColorMaterial {
-    value: Number;
+    value: number;
     color: Object;
     constructor();
 
@@ -256,16 +256,16 @@
 
   export class Printing3DBaseMaterialGroup {
     bases: Object;
-    materialGroupId: Number;
+    materialGroupId: number;
     constructor();
-    constructor(MaterialGroupId: Number);
+    constructor(MaterialGroupId: number);
 
   }
 
   export class Printing3DBaseMaterial {
-    static abs: String;
-    static pla: String;
-    name: String;
+    static abs: string;
+    static pla: string;
+    name: string;
     color: Printing3DColorMaterial;
     constructor();
 
@@ -273,24 +273,24 @@
 
   export class Printing3DColorMaterialGroup {
     colors: Object;
-    materialGroupId: Number;
+    materialGroupId: number;
     constructor();
-    constructor(MaterialGroupId: Number);
+    constructor(MaterialGroupId: number);
 
   }
 
   export class Printing3DTexture2CoordMaterialGroup {
-    materialGroupId: Number;
+    materialGroupId: number;
     texture2Coords: Object;
     texture: Printing3DModelTexture;
     constructor();
-    constructor(MaterialGroupId: Number);
+    constructor(MaterialGroupId: number);
 
   }
 
   export class Printing3DTexture2CoordMaterial {
-    v: Number;
-    u: Number;
+    v: number;
+    u: number;
     texture: Printing3DModelTexture;
     constructor();
 
@@ -298,11 +298,11 @@
 
   export class Printing3DCompositeMaterialGroup {
     composites: Object;
-    materialGroupId: Number;
+    materialGroupId: number;
     materialIndices: Object;
     baseMaterialGroup: Printing3DBaseMaterialGroup;
     constructor();
-    constructor(MaterialGroupId: Number);
+    constructor(MaterialGroupId: number);
 
   }
 
@@ -313,11 +313,11 @@
   }
 
   export class Printing3DMultiplePropertyMaterialGroup {
-    materialGroupId: Number;
+    materialGroupId: number;
     materialGroupIndices: Object;
     multipleProperties: Object;
     constructor();
-    constructor(MaterialGroupId: Number);
+    constructor(MaterialGroupId: number);
 
   }
 
@@ -338,7 +338,7 @@
   }
 
   export class Printing3DModel {
-    version: String;
+    version: string;
     unit: Printing3DModelUnit;
     material: Printing3DMaterial;
     build: Printing3DComponent;
@@ -351,23 +351,23 @@
 
     repairAsync(callback: (error: Error) => void): void ;
 
-    tryPartialRepairAsync(callback: (error: Error, result: Boolean) => void): void ;
-    tryPartialRepairAsync(maxWaitTime: Number, callback: (error: Error, result: Boolean) => void): void ;
+    tryPartialRepairAsync(callback: (error: Error, result: boolean) => void): void ;
+    tryPartialRepairAsync(maxWaitTime: number, callback: (error: Error, result: boolean) => void): void ;
 
-    tryReduceFacesAsync(callback: (error: Error, result: Boolean) => void): void ;
-    tryReduceFacesAsync(printing3DFaceReductionOptions: Printing3DFaceReductionOptions, callback: (error: Error, result: Boolean) => void): void ;
-    tryReduceFacesAsync(printing3DFaceReductionOptions: Printing3DFaceReductionOptions, maxWait: Number, callback: (error: Error, result: Boolean) => void): void ;
+    tryReduceFacesAsync(callback: (error: Error, result: boolean) => void): void ;
+    tryReduceFacesAsync(printing3DFaceReductionOptions: Printing3DFaceReductionOptions, callback: (error: Error, result: boolean) => void): void ;
+    tryReduceFacesAsync(printing3DFaceReductionOptions: Printing3DFaceReductionOptions, maxWait: number, callback: (error: Error, result: boolean) => void): void ;
 
-    repairWithProgressAsync(callback: (error: Error, result: Boolean) => void): void ;
+    repairWithProgressAsync(callback: (error: Error, result: boolean) => void): void ;
 
     clone(): Printing3DModel;
 
   }
 
   export class Printing3DFaceReductionOptions {
-    targetTriangleCount: Number;
-    maxReductionArea: Number;
-    maxEdgeLength: Number;
+    targetTriangleCount: number;
+    maxReductionArea: number;
+    maxEdgeLength: number;
     constructor();
 
   }

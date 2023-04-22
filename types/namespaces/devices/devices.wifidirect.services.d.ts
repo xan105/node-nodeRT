@@ -47,19 +47,19 @@
   }
 
   export class WiFiDirectServiceProvisioningInfo {
-    isGroupFormationNeeded: Boolean;
+    isGroupFormationNeeded: boolean;
     selectedConfigurationMethod: WiFiDirectServiceConfigurationMethod;
     constructor();
 
   }
 
   export class WiFiDirectServiceSession {
-    advertisementId: Number;
+    advertisementId: number;
     errorStatus: WiFiDirectServiceSessionErrorStatus;
-    serviceAddress: String;
-    serviceName: String;
-    sessionAddress: String;
-    sessionId: Number;
+    serviceAddress: string;
+    serviceName: string;
+    sessionAddress: string;
+    sessionId: number;
     status: WiFiDirectServiceSessionStatus;
     constructor();
 
@@ -127,20 +127,20 @@
   export class WiFiDirectServiceAdvertiser {
     serviceStatus: WiFiDirectServiceStatus;
     serviceInfo: Object;
-    preferGroupOwnerMode: Boolean;
+    preferGroupOwnerMode: boolean;
     deferredSessionInfo: Object;
-    customServiceStatusCode: Number;
-    autoAcceptSession: Boolean;
+    customServiceStatusCode: number;
+    autoAcceptSession: boolean;
     serviceError: WiFiDirectServiceError;
     preferredConfigurationMethods: Object;
-    serviceName: String;
+    serviceName: string;
     serviceNamePrefixes: Object;
     advertisementStatus: WiFiDirectServiceAdvertisementStatus;
     constructor();
-    constructor(serviceName: String);
+    constructor(serviceName: string);
 
     connectAsync(deviceInfo: Object, callback: (error: Error, result: WiFiDirectServiceSession) => void): void ;
-    connectAsync(deviceInfo: Object, pin: String, callback: (error: Error, result: WiFiDirectServiceSession) => void): void ;
+    connectAsync(deviceInfo: Object, pin: string, callback: (error: Error, result: WiFiDirectServiceSession) => void): void ;
 
     start(): void;
 
@@ -171,23 +171,23 @@
 
   export class WiFiDirectService {
     sessionInfo: Object;
-    preferGroupOwnerMode: Boolean;
+    preferGroupOwnerMode: boolean;
     remoteServiceInfo: Object;
     serviceError: WiFiDirectServiceError;
     supportedConfigurationMethods: Object;
     constructor();
 
-    static fromIdAsync(deviceId: String, callback: (error: Error, result: WiFiDirectService) => void): void ;
+    static fromIdAsync(deviceId: string, callback: (error: Error, result: WiFiDirectService) => void): void ;
 
 
-    static getSelector(serviceName: String): String;
-    static getSelector(serviceName: String, serviceInfoFilter: Object): String;
+    static getSelector(serviceName: string): string;
+    static getSelector(serviceName: string, serviceInfoFilter: Object): string;
 
 
     getProvisioningInfoAsync(selectedConfigurationMethod: WiFiDirectServiceConfigurationMethod, callback: (error: Error, result: WiFiDirectServiceProvisioningInfo) => void): void ;
 
     connectAsync(callback: (error: Error, result: WiFiDirectServiceSession) => void): void ;
-    connectAsync(pin: String, callback: (error: Error, result: WiFiDirectServiceSession) => void): void ;
+    connectAsync(pin: string, callback: (error: Error, result: WiFiDirectServiceSession) => void): void ;
 
     addListener(type: "SessionDeferred", listener: (ev: Event) => void): void ;
     removeListener(type: "SessionDeferred", listener: (ev: Event) => void): void ;

@@ -125,10 +125,10 @@
   }
 
   export class PhoneTrigger {
-    oneShot: Boolean;
-    triggerType: Number;
+    oneShot: boolean;
+    triggerType: number;
     constructor();
-    constructor(type: Number, oneShot: Boolean);
+    constructor(type: number, oneShot: boolean);
 
   }
 
@@ -138,9 +138,9 @@
   }
 
   export class SmartCardTrigger {
-    triggerType: Number;
+    triggerType: number;
     constructor();
-    constructor(triggerType: Number);
+    constructor(triggerType: number);
 
   }
 
@@ -167,9 +167,9 @@
   }
 
   export class ContentPrefetchTrigger {
-    waitInterval: Number;
+    waitInterval: number;
     constructor();
-    constructor(waitInterval: Number);
+    constructor(waitInterval: number);
 
   }
 
@@ -179,10 +179,10 @@
   }
 
   export class SystemTrigger {
-    oneShot: Boolean;
+    oneShot: boolean;
     triggerType: SystemTriggerType;
     constructor();
-    constructor(triggerType: SystemTriggerType, oneShot: Boolean);
+    constructor(triggerType: SystemTriggerType, oneShot: boolean);
 
   }
 
@@ -194,32 +194,32 @@
   }
 
   export class NetworkOperatorNotificationTrigger {
-    networkAccountId: String;
+    networkAccountId: string;
     constructor();
-    constructor(networkAccountId: String);
+    constructor(networkAccountId: string);
 
   }
 
   export class DeviceManufacturerNotificationTrigger {
-    oneShot: Boolean;
-    triggerQualifier: String;
+    oneShot: boolean;
+    triggerQualifier: string;
     constructor();
-    constructor(triggerQualifier: String, oneShot: Boolean);
+    constructor(triggerQualifier: string, oneShot: boolean);
 
   }
 
   export class CustomSystemEventTrigger {
     recurrence: CustomSystemEventTriggerRecurrence;
-    triggerId: String;
+    triggerId: string;
     constructor();
-    constructor(triggerId: String, recurrence: CustomSystemEventTriggerRecurrence);
+    constructor(triggerId: string, recurrence: CustomSystemEventTriggerRecurrence);
 
   }
 
   export class CachedFileUpdaterTriggerDetails {
-    canRequestUserInput: Boolean;
+    canRequestUserInput: boolean;
     updateRequest: Object;
-    updateTarget: Number;
+    updateTarget: number;
     constructor();
 
   }
@@ -230,18 +230,18 @@
   }
 
   export class TimeTrigger {
-    freshnessTime: Number;
-    oneShot: Boolean;
+    freshnessTime: number;
+    oneShot: boolean;
     constructor();
-    constructor(freshnessTime: Number, oneShot: Boolean);
+    constructor(freshnessTime: number, oneShot: boolean);
 
   }
 
   export class MaintenanceTrigger {
-    freshnessTime: Number;
-    oneShot: Boolean;
+    freshnessTime: number;
+    oneShot: boolean;
     constructor();
-    constructor(freshnessTime: Number, oneShot: Boolean);
+    constructor(freshnessTime: number, oneShot: boolean);
 
   }
 
@@ -253,27 +253,27 @@
   export class BackgroundExecutionManager {
     constructor();
 
-    static requestAccessKindAsync(requestedAccess: BackgroundAccessRequestKind, reason: String, callback: (error: Error, result: Boolean) => void): void ;
+    static requestAccessKindAsync(requestedAccess: BackgroundAccessRequestKind, reason: string, callback: (error: Error, result: boolean) => void): void ;
 
 
     static requestAccessAsync(callback: (error: Error, result: BackgroundAccessStatus) => void): void ;
-    static requestAccessAsync(applicationId: String, callback: (error: Error, result: BackgroundAccessStatus) => void): void ;
+    static requestAccessAsync(applicationId: string, callback: (error: Error, result: BackgroundAccessStatus) => void): void ;
 
 
     static removeAccess(): void;
-    static removeAccess(applicationId: String): void;
+    static removeAccess(applicationId: string): void;
 
 
     static getAccessStatus(): BackgroundAccessStatus;
-    static getAccessStatus(applicationId: String): BackgroundAccessStatus;
+    static getAccessStatus(applicationId: string): BackgroundAccessStatus;
 
 
   }
 
   export class IBackgroundTaskInstance {
-    instanceId: String;
-    progress: Number;
-    suspendedCount: Number;
+    instanceId: string;
+    progress: number;
+    suspendedCount: number;
     task: BackgroundTaskRegistration;
     triggerDetails: Object;
     constructor();
@@ -296,16 +296,16 @@
   export class BackgroundTaskRegistration {
     static allTasks: Object;
     static allTaskGroups: Object;
-    name: String;
-    taskId: String;
+    name: string;
+    taskId: string;
     trigger: IBackgroundTrigger;
     taskGroup: BackgroundTaskRegistrationGroup;
     constructor();
 
-    static getTaskGroup(groupId: String): BackgroundTaskRegistrationGroup;
+    static getTaskGroup(groupId: string): BackgroundTaskRegistrationGroup;
 
 
-    unregister(cancelTask: Boolean): void;
+    unregister(cancelTask: boolean): void;
 
     addListener(type: "Completed", listener: (ev: Event) => void): void ;
     removeListener(type: "Completed", listener: (ev: Event) => void): void ;
@@ -333,14 +333,14 @@
   }
 
   export class BackgroundTaskProgressEventArgs {
-    instanceId: String;
-    progress: Number;
+    instanceId: string;
+    progress: number;
     constructor();
 
   }
 
   export class BackgroundTaskCompletedEventArgs {
-    instanceId: String;
+    instanceId: string;
     constructor();
 
     checkResult(): void;
@@ -350,7 +350,7 @@
   export class IBackgroundTaskInstance2 {
     constructor();
 
-    getThrottleCount(counter: BackgroundTaskThrottleCounter): Number;
+    getThrottleCount(counter: BackgroundTaskThrottleCounter): number;
 
   }
 
@@ -368,11 +368,11 @@
   }
 
   export class IBackgroundTaskRegistration {
-    name: String;
-    taskId: String;
+    name: string;
+    taskId: string;
     constructor();
 
-    unregister(cancelTask: Boolean): void;
+    unregister(cancelTask: boolean): void;
 
     addListener(type: "Completed", listener: (ev: Event) => void): void ;
     removeListener(type: "Completed", listener: (ev: Event) => void): void ;
@@ -411,11 +411,11 @@
 
   export class BackgroundTaskRegistrationGroup {
     allTasks: Object;
-    id: String;
-    name: String;
+    id: string;
+    name: string;
     constructor();
-    constructor(id: String);
-    constructor(id: String, name: String);
+    constructor(id: string);
+    constructor(id: string, name: string);
 
     addListener(type: "BackgroundActivated", listener: (ev: Event) => void): void ;
     removeListener(type: "BackgroundActivated", listener: (ev: Event) => void): void ;
@@ -436,10 +436,10 @@
   }
 
   export class BackgroundTaskBuilder {
-    taskEntryPoint: String;
-    name: String;
-    cancelOnConditionLoss: Boolean;
-    isNetworkRequested: Boolean;
+    taskEntryPoint: string;
+    name: string;
+    cancelOnConditionLoss: boolean;
+    isNetworkRequested: boolean;
     taskGroup: BackgroundTaskRegistrationGroup;
     constructor();
 
@@ -548,23 +548,23 @@
   export class DeviceUseTrigger {
     constructor();
 
-    requestAsync(deviceId: String, callback: (error: Error, result: DeviceTriggerResult) => void): void ;
-    requestAsync(deviceId: String, arguments: String, callback: (error: Error, result: DeviceTriggerResult) => void): void ;
+    requestAsync(deviceId: string, callback: (error: Error, result: DeviceTriggerResult) => void): void ;
+    requestAsync(deviceId: string, arguments: string, callback: (error: Error, result: DeviceTriggerResult) => void): void ;
 
   }
 
   export class DeviceServicingTrigger {
     constructor();
 
-    requestAsync(deviceId: String, expectedDuration: Number, callback: (error: Error, result: DeviceTriggerResult) => void): void ;
-    requestAsync(deviceId: String, expectedDuration: Number, arguments: String, callback: (error: Error, result: DeviceTriggerResult) => void): void ;
+    requestAsync(deviceId: string, expectedDuration: number, callback: (error: Error, result: DeviceTriggerResult) => void): void ;
+    requestAsync(deviceId: string, expectedDuration: number, arguments: string, callback: (error: Error, result: DeviceTriggerResult) => void): void ;
 
   }
 
   export class RfcommConnectionTrigger {
     remoteHostName: Object;
-    protectionLevel: Number;
-    allowMultipleConnections: Boolean;
+    protectionLevel: number;
+    allowMultipleConnections: boolean;
     inboundConnection: Object;
     outboundConnection: Object;
     constructor();
@@ -572,21 +572,21 @@
   }
 
   export class DeviceConnectionChangeTrigger {
-    maintainConnection: Boolean;
-    canMaintainConnection: Boolean;
-    deviceId: String;
+    maintainConnection: boolean;
+    canMaintainConnection: boolean;
+    deviceId: string;
     constructor();
 
-    static fromIdAsync(deviceId: String, callback: (error: Error, result: DeviceConnectionChangeTrigger) => void): void ;
+    static fromIdAsync(deviceId: string, callback: (error: Error, result: DeviceConnectionChangeTrigger) => void): void ;
 
 
   }
 
   export class GattCharacteristicNotificationTrigger {
     characteristic: Object;
-    eventTriggeringMode: Number;
+    eventTriggeringMode: number;
     constructor();
-    constructor(characteristic: Object, eventTriggeringMode: Number);
+    constructor(characteristic: Object, eventTriggeringMode: number);
     constructor(characteristic: Object);
 
   }
@@ -594,16 +594,16 @@
   export class GattServiceProviderTrigger {
     advertisingParameters: Object;
     service: Object;
-    triggerId: String;
+    triggerId: string;
     constructor();
 
-    static createAsync(triggerId: String, serviceUuid: String, callback: (error: Error, result: GattServiceProviderTriggerResult) => void): void ;
+    static createAsync(triggerId: string, serviceUuid: string, callback: (error: Error, result: GattServiceProviderTriggerResult) => void): void ;
 
 
   }
 
   export class GattServiceProviderTriggerResult {
-    error: Number;
+    error: number;
     trigger: GattServiceProviderTrigger;
     constructor();
 
@@ -612,10 +612,10 @@
   export class BluetoothLEAdvertisementWatcherTrigger {
     signalStrengthFilter: Object;
     advertisementFilter: Object;
-    maxOutOfRangeTimeout: Number;
-    maxSamplingInterval: Number;
-    minOutOfRangeTimeout: Number;
-    minSamplingInterval: Number;
+    maxOutOfRangeTimeout: number;
+    maxSamplingInterval: number;
+    minOutOfRangeTimeout: number;
+    minSamplingInterval: number;
     constructor();
 
   }
@@ -639,18 +639,18 @@
   }
 
   export class GeovisitTrigger {
-    monitoringScope: Number;
+    monitoringScope: number;
     constructor();
 
   }
 
   export class ActivitySensorTrigger {
-    minimumReportInterval: Number;
-    reportInterval: Number;
+    minimumReportInterval: number;
+    reportInterval: number;
     subscribedActivities: Object;
     supportedActivities: Object;
     constructor();
-    constructor(reportIntervalInMilliseconds: Number);
+    constructor(reportIntervalInMilliseconds: number);
 
   }
 
@@ -666,42 +666,42 @@
   }
 
   export class SocketActivityTrigger {
-    isWakeFromLowPowerSupported: Boolean;
+    isWakeFromLowPowerSupported: boolean;
     constructor();
 
   }
 
   export class PushNotificationTrigger {
     constructor();
-    constructor(applicationId: String);
+    constructor(applicationId: string);
 
   }
 
   export class ToastNotificationHistoryChangedTrigger {
     constructor();
-    constructor(applicationId: String);
+    constructor(applicationId: string);
 
   }
 
   export class ToastNotificationActionTrigger {
     constructor();
-    constructor(applicationId: String);
+    constructor(applicationId: string);
 
   }
 
   export class UserNotificationChangedTrigger {
     constructor();
-    constructor(notificationKinds: Number);
+    constructor(notificationKinds: number);
 
   }
 
   export class AppBroadcastTriggerProviderInfo {
-    videoKeyFrameInterval: Number;
-    maxVideoWidth: Number;
-    maxVideoHeight: Number;
-    maxVideoBitrate: Number;
-    logoResource: String;
-    displayNameResource: String;
+    videoKeyFrameInterval: number;
+    maxVideoWidth: number;
+    maxVideoHeight: number;
+    maxVideoBitrate: number;
+    logoResource: string;
+    displayNameResource: string;
     constructor();
 
   }
@@ -709,7 +709,7 @@
   export class AppBroadcastTrigger {
     providerInfo: AppBroadcastTriggerProviderInfo;
     constructor();
-    constructor(providerKey: String);
+    constructor(providerKey: string);
 
   }
 

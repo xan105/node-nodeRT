@@ -3,8 +3,8 @@
   }
 
   export class InstalledClassicAppInfo {
-    displayName: String;
-    displayVersion: String;
+    displayName: string;
+    displayVersion: string;
     constructor();
 
   }
@@ -12,7 +12,7 @@
   export class ClassicAppManager {
     constructor();
 
-    static findInstalledApp(appUninstallKey: String): InstalledClassicAppInfo;
+    static findInstalledApp(appUninstallKey: string): InstalledClassicAppInfo;
 
 
   }

@@ -1,33 +1,33 @@
   export class Vector2 {
-    x: Number;
-    y: Number;
+    x: number;
+    y: number;
     constructor();
   }
 
   export class Vector3 {
-    x: Number;
-    y: Number;
-    z: Number;
+    x: number;
+    y: number;
+    z: number;
     constructor();
   }
 
   export class Matrix4x4 {
-    m11: Number;
-    m12: Number;
-    m13: Number;
-    m14: Number;
-    m21: Number;
-    m22: Number;
-    m23: Number;
-    m24: Number;
-    m31: Number;
-    m32: Number;
-    m33: Number;
-    m34: Number;
-    m41: Number;
-    m42: Number;
-    m43: Number;
-    m44: Number;
+    m11: number;
+    m12: number;
+    m13: number;
+    m14: number;
+    m21: number;
+    m22: number;
+    m23: number;
+    m24: number;
+    m31: number;
+    m32: number;
+    m33: number;
+    m34: number;
+    m41: number;
+    m42: number;
+    m43: number;
+    m44: number;
     constructor();
   }
 
@@ -42,11 +42,11 @@
   }
 
   export class VariablePhotoSequenceController {
-    photosPerSecondLimit: Number;
+    photosPerSecondLimit: number;
     desiredFrameControllers: Object;
     frameCapabilities: FrameControlCapabilities;
-    maxPhotosPerSecond: Number;
-    supported: Boolean;
+    maxPhotosPerSecond: number;
+    supported: boolean;
     constructor();
 
     getHighestConcurrentFrameRate(captureProperties: Object): Object;
@@ -56,45 +56,45 @@
   }
 
   export class FrameExposureCapabilities {
-    max: Number;
-    min: Number;
-    step: Number;
-    supported: Boolean;
+    max: number;
+    min: number;
+    step: number;
+    supported: boolean;
     constructor();
 
   }
 
   export class FrameExposureCompensationCapabilities {
-    max: Number;
-    min: Number;
-    step: Number;
-    supported: Boolean;
+    max: number;
+    min: number;
+    step: number;
+    supported: boolean;
     constructor();
 
   }
 
   export class FrameIsoSpeedCapabilities {
-    max: Number;
-    min: Number;
-    step: Number;
-    supported: Boolean;
+    max: number;
+    min: number;
+    step: number;
+    supported: boolean;
     constructor();
 
   }
 
   export class FrameFocusCapabilities {
-    max: Number;
-    min: Number;
-    step: Number;
-    supported: Boolean;
+    max: number;
+    min: number;
+    step: number;
+    supported: boolean;
     constructor();
 
   }
 
   export class FrameFlashCapabilities {
-    powerSupported: Boolean;
-    redEyeReductionSupported: Boolean;
-    supported: Boolean;
+    powerSupported: boolean;
+    redEyeReductionSupported: boolean;
+    supported: boolean;
     constructor();
 
   }
@@ -104,49 +104,49 @@
     exposureCompensation: FrameExposureCompensationCapabilities;
     focus: FrameFocusCapabilities;
     isoSpeed: FrameIsoSpeedCapabilities;
-    photoConfirmationSupported: Boolean;
+    photoConfirmationSupported: boolean;
     flash: FrameFlashCapabilities;
     constructor();
 
   }
 
   export class FrameExposureControl {
-    value: Number;
-    auto: Boolean;
+    value: number;
+    auto: boolean;
     constructor();
 
   }
 
   export class FrameExposureCompensationControl {
-    value: Number;
+    value: number;
     constructor();
 
   }
 
   export class FrameIsoSpeedControl {
-    value: Number;
-    auto: Boolean;
+    value: number;
+    auto: boolean;
     constructor();
 
   }
 
   export class FrameFocusControl {
-    value: Number;
+    value: number;
     constructor();
 
   }
 
   export class FrameFlashControl {
-    redEyeReduction: Boolean;
-    powerPercent: Number;
+    redEyeReduction: boolean;
+    powerPercent: number;
     mode: FrameFlashMode;
-    auto: Boolean;
+    auto: boolean;
     constructor();
 
   }
 
   export class FrameController {
-    photoConfirmationEnabled: Boolean;
+    photoConfirmationEnabled: boolean;
     exposureCompensationControl: FrameExposureCompensationControl;
     exposureControl: FrameExposureControl;
     focusControl: FrameFocusControl;
@@ -158,8 +158,8 @@
 
   export class CameraIntrinsics {
     focalLength: Vector2;
-    imageHeight: Number;
-    imageWidth: Number;
+    imageHeight: number;
+    imageWidth: number;
     principalPoint: Vector2;
     radialDistortion: Vector3;
     tangentialDistortion: Vector2;

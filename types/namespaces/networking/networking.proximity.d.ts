@@ -30,42 +30,42 @@
 
   export class ProximityMessage {
     data: Object;
-    dataAsString: String;
-    messageType: String;
-    subscriptionId: Number;
+    dataAsString: string;
+    messageType: string;
+    subscriptionId: number;
     constructor();
 
   }
 
   export class ProximityDevice {
-    bitsPerSecond: Number;
-    deviceId: String;
-    maxMessageBytes: Number;
+    bitsPerSecond: number;
+    deviceId: string;
+    maxMessageBytes: number;
     constructor();
 
-    static getDeviceSelector(): String;
+    static getDeviceSelector(): string;
 
 
     static getDefault(): ProximityDevice;
 
 
-    static fromId(deviceId: String): ProximityDevice;
+    static fromId(deviceId: string): ProximityDevice;
 
 
-    subscribeForMessage(messageType: String, messageReceivedHandler: Object): Number;
+    subscribeForMessage(messageType: string, messageReceivedHandler: Object): number;
 
-    publishMessage(messageType: String, message: String): Number;
-    publishMessage(messageType: String, message: String, messageTransmittedHandler: Object): Number;
+    publishMessage(messageType: string, message: string): number;
+    publishMessage(messageType: string, message: string, messageTransmittedHandler: Object): number;
 
-    publishBinaryMessage(messageType: String, message: Object): Number;
-    publishBinaryMessage(messageType: String, message: Object, messageTransmittedHandler: Object): Number;
+    publishBinaryMessage(messageType: string, message: Object): number;
+    publishBinaryMessage(messageType: string, message: Object, messageTransmittedHandler: Object): number;
 
-    publishUriMessage(message: Object): Number;
-    publishUriMessage(message: Object, messageTransmittedHandler: Object): Number;
+    publishUriMessage(message: Object): number;
+    publishUriMessage(message: Object, messageTransmittedHandler: Object): number;
 
-    stopSubscribingForMessage(subscriptionId: Number): void;
+    stopSubscribingForMessage(subscriptionId: number): void;
 
-    stopPublishingMessage(messageId: Number): void;
+    stopPublishingMessage(messageId: number): void;
 
     addListener(type: "DeviceArrived", listener: (ev: Event) => void): void ;
     removeListener(type: "DeviceArrived", listener: (ev: Event) => void): void ;
@@ -86,7 +86,7 @@
   }
 
   export class TriggeredConnectionStateChangedEventArgs {
-    id: Number;
+    id: number;
     socket: Object;
     state: TriggeredConnectState;
     constructor();
@@ -94,11 +94,11 @@
   }
 
   export class PeerInformation {
-    displayName: String;
+    displayName: string;
     discoveryData: Object;
-    id: String;
+    id: string;
     hostName: Object;
-    serviceName: String;
+    serviceName: string;
     constructor();
 
   }
@@ -151,10 +151,10 @@
   }
 
   export class PeerFinder {
-    static displayName: String;
-    static allowWiFiDirect: Boolean;
-    static allowInfrastructure: Boolean;
-    static allowBluetooth: Boolean;
+    static displayName: string;
+    static allowWiFiDirect: boolean;
+    static allowInfrastructure: boolean;
+    static allowBluetooth: boolean;
     static alternateIdentities: Object;
     static supportedDiscoveryTypes: PeerDiscoveryTypes;
     static role: PeerRole;
@@ -171,7 +171,7 @@
 
 
     static start(): void;
-    static start(peerMessage: String): void;
+    static start(peerMessage: string): void;
 
 
     static stop(): void;

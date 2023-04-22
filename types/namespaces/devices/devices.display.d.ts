@@ -3,14 +3,14 @@
   }
 
   export class DisplayAdapterId {
-    lowPart: Number;
-    highPart: Number;
+    lowPart: number;
+    highPart: number;
     constructor();
   }
 
   export class SizeInt32 {
-    width: Number;
-    height: Number;
+    width: number;
+    height: number;
     constructor();
   }
 
@@ -50,35 +50,35 @@
   export class DisplayMonitor {
     bluePrimary: Object;
     connectionKind: DisplayMonitorConnectionKind;
-    deviceId: String;
-    displayAdapterDeviceId: String;
+    deviceId: string;
+    displayAdapterDeviceId: string;
     displayAdapterId: DisplayAdapterId;
-    displayAdapterTargetId: Number;
-    displayName: String;
+    displayAdapterTargetId: number;
+    displayName: string;
     greenPrimary: Object;
-    maxAverageFullFrameLuminanceInNits: Number;
-    maxLuminanceInNits: Number;
-    minLuminanceInNits: Number;
+    maxAverageFullFrameLuminanceInNits: number;
+    maxLuminanceInNits: number;
+    minLuminanceInNits: number;
     nativeResolutionInRawPixels: SizeInt32;
     physicalConnector: DisplayMonitorPhysicalConnectorKind;
     physicalSizeInInches: Object;
-    rawDpiX: Number;
-    rawDpiY: Number;
+    rawDpiX: number;
+    rawDpiY: number;
     redPrimary: Object;
     usageKind: DisplayMonitorUsageKind;
     whitePoint: Object;
     constructor();
 
-    static fromIdAsync(deviceId: String, callback: (error: Error, result: DisplayMonitor) => void): void ;
+    static fromIdAsync(deviceId: string, callback: (error: Error, result: DisplayMonitor) => void): void ;
 
 
-    static fromInterfaceIdAsync(deviceInterfaceId: String, callback: (error: Error, result: DisplayMonitor) => void): void ;
+    static fromInterfaceIdAsync(deviceInterfaceId: string, callback: (error: Error, result: DisplayMonitor) => void): void ;
 
 
-    static getDeviceSelector(): String;
+    static getDeviceSelector(): string;
 
 
-    getDescriptor(descriptorKind: DisplayMonitorDescriptorKind): Array<Number>;
+    getDescriptor(descriptorKind: DisplayMonitorDescriptorKind): Array<number>;
 
   }
 

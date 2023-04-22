@@ -36,38 +36,38 @@
   }
 
   export class AppInstallStatus {
-    bytesDownloaded: Number;
-    downloadSizeInBytes: Number;
-    errorCode: Number;
+    bytesDownloaded: number;
+    downloadSizeInBytes: number;
+    errorCode: number;
     installState: AppInstallState;
-    percentComplete: Number;
-    readyForLaunch: Boolean;
+    percentComplete: number;
+    readyForLaunch: boolean;
     user: Object;
-    isStaged: Boolean;
+    isStaged: boolean;
     constructor();
 
   }
 
   export class AppInstallItem {
     installType: AppInstallType;
-    isUserInitiated: Boolean;
-    packageFamilyName: String;
-    productId: String;
+    isUserInitiated: boolean;
+    packageFamilyName: string;
+    productId: string;
     children: Object;
-    itemOperationsMightAffectOtherItems: Boolean;
-    launchAfterInstall: Boolean;
+    itemOperationsMightAffectOtherItems: boolean;
+    launchAfterInstall: boolean;
     constructor();
 
     getCurrentStatus(): AppInstallStatus;
 
     cancel(): void;
-    cancel(correlationVector: String): void;
+    cancel(correlationVector: string): void;
 
     pause(): void;
-    pause(correlationVector: String): void;
+    pause(correlationVector: string): void;
 
     restart(): void;
-    restart(correlationVector: String): void;
+    restart(correlationVector: string): void;
 
     addListener(type: "Completed", listener: (ev: Event) => void): void ;
     removeListener(type: "Completed", listener: (ev: Event) => void): void ;
@@ -100,89 +100,89 @@
   }
 
   export class AppUpdateOptions {
-    catalogId: String;
-    allowForcedAppRestart: Boolean;
+    catalogId: string;
+    allowForcedAppRestart: boolean;
     constructor();
 
   }
 
   export class AppInstallOptions {
     targetVolume: Object;
-    repair: Boolean;
-    launchAfterInstall: Boolean;
-    forceUseOfNonRemovableStorage: Boolean;
-    catalogId: String;
-    allowForcedAppRestart: Boolean;
+    repair: boolean;
+    launchAfterInstall: boolean;
+    forceUseOfNonRemovableStorage: boolean;
+    catalogId: string;
+    allowForcedAppRestart: boolean;
     constructor();
 
   }
 
   export class AppInstallManager {
     autoUpdateSetting: AutoUpdateSetting;
-    acquisitionIdentity: String;
+    acquisitionIdentity: string;
     appInstallItems: Object;
     appInstallItemsWithGroupSupport: Object;
     constructor();
 
-    getIsApplicableAsync(productId: String, skuId: String, callback: (error: Error, result: Boolean) => void): void ;
+    getIsApplicableAsync(productId: string, skuId: string, callback: (error: Error, result: boolean) => void): void ;
 
-    startAppInstallAsync(productId: String, skuId: String, repair: Boolean, forceUseOfNonRemovableStorage: Boolean, callback: (error: Error, result: AppInstallItem) => void): void ;
-    startAppInstallAsync(productId: String, skuId: String, repair: Boolean, forceUseOfNonRemovableStorage: Boolean, catalogId: String, bundleId: String, correlationVector: String, callback: (error: Error, result: AppInstallItem) => void): void ;
+    startAppInstallAsync(productId: string, skuId: string, repair: boolean, forceUseOfNonRemovableStorage: boolean, callback: (error: Error, result: AppInstallItem) => void): void ;
+    startAppInstallAsync(productId: string, skuId: string, repair: boolean, forceUseOfNonRemovableStorage: boolean, catalogId: string, bundleId: string, correlationVector: string, callback: (error: Error, result: AppInstallItem) => void): void ;
 
-    updateAppByPackageFamilyNameAsync(packageFamilyName: String, callback: (error: Error, result: AppInstallItem) => void): void ;
-    updateAppByPackageFamilyNameAsync(packageFamilyName: String, correlationVector: String, callback: (error: Error, result: AppInstallItem) => void): void ;
+    updateAppByPackageFamilyNameAsync(packageFamilyName: string, callback: (error: Error, result: AppInstallItem) => void): void ;
+    updateAppByPackageFamilyNameAsync(packageFamilyName: string, correlationVector: string, callback: (error: Error, result: AppInstallItem) => void): void ;
 
-    searchForUpdatesAsync(productId: String, skuId: String, callback: (error: Error, result: AppInstallItem) => void): void ;
-    searchForUpdatesAsync(productId: String, skuId: String, catalogId: String, correlationVector: String, callback: (error: Error, result: AppInstallItem) => void): void ;
-    searchForUpdatesAsync(productId: String, skuId: String, correlationVector: String, clientId: String, updateOptions: AppUpdateOptions, callback: (error: Error, result: AppInstallItem) => void): void ;
+    searchForUpdatesAsync(productId: string, skuId: string, callback: (error: Error, result: AppInstallItem) => void): void ;
+    searchForUpdatesAsync(productId: string, skuId: string, catalogId: string, correlationVector: string, callback: (error: Error, result: AppInstallItem) => void): void ;
+    searchForUpdatesAsync(productId: string, skuId: string, correlationVector: string, clientId: string, updateOptions: AppUpdateOptions, callback: (error: Error, result: AppInstallItem) => void): void ;
 
     searchForAllUpdatesAsync(callback: (error: Error, result: Object) => void): void ;
-    searchForAllUpdatesAsync(correlationVector: String, callback: (error: Error, result: Object) => void): void ;
-    searchForAllUpdatesAsync(correlationVector: String, clientId: String, updateOptions: AppUpdateOptions, callback: (error: Error, result: Object) => void): void ;
+    searchForAllUpdatesAsync(correlationVector: string, callback: (error: Error, result: Object) => void): void ;
+    searchForAllUpdatesAsync(correlationVector: string, clientId: string, updateOptions: AppUpdateOptions, callback: (error: Error, result: Object) => void): void ;
 
-    isStoreBlockedByPolicyAsync(storeClientName: String, storeClientPublisher: String, callback: (error: Error, result: Boolean) => void): void ;
+    isStoreBlockedByPolicyAsync(storeClientName: string, storeClientPublisher: string, callback: (error: Error, result: boolean) => void): void ;
 
-    getIsAppAllowedToInstallAsync(productId: String, callback: (error: Error, result: Boolean) => void): void ;
-    getIsAppAllowedToInstallAsync(productId: String, skuId: String, catalogId: String, correlationVector: String, callback: (error: Error, result: Boolean) => void): void ;
+    getIsAppAllowedToInstallAsync(productId: string, callback: (error: Error, result: boolean) => void): void ;
+    getIsAppAllowedToInstallAsync(productId: string, skuId: string, catalogId: string, correlationVector: string, callback: (error: Error, result: boolean) => void): void ;
 
-    startProductInstallAsync(productId: String, catalogId: String, flightId: String, clientId: String, repair: Boolean, forceUseOfNonRemovableStorage: Boolean, correlationVector: String, targetVolume: Object, callback: (error: Error, result: Object) => void): void ;
-    startProductInstallAsync(productId: String, flightId: String, clientId: String, correlationVector: String, installOptions: AppInstallOptions, callback: (error: Error, result: Object) => void): void ;
+    startProductInstallAsync(productId: string, catalogId: string, flightId: string, clientId: string, repair: boolean, forceUseOfNonRemovableStorage: boolean, correlationVector: string, targetVolume: Object, callback: (error: Error, result: Object) => void): void ;
+    startProductInstallAsync(productId: string, flightId: string, clientId: string, correlationVector: string, installOptions: AppInstallOptions, callback: (error: Error, result: Object) => void): void ;
 
-    startProductInstallForUserAsync(user: Object, productId: String, catalogId: String, flightId: String, clientId: String, repair: Boolean, forceUseOfNonRemovableStorage: Boolean, correlationVector: String, targetVolume: Object, callback: (error: Error, result: Object) => void): void ;
-    startProductInstallForUserAsync(user: Object, productId: String, flightId: String, clientId: String, correlationVector: String, installOptions: AppInstallOptions, callback: (error: Error, result: Object) => void): void ;
+    startProductInstallForUserAsync(user: Object, productId: string, catalogId: string, flightId: string, clientId: string, repair: boolean, forceUseOfNonRemovableStorage: boolean, correlationVector: string, targetVolume: Object, callback: (error: Error, result: Object) => void): void ;
+    startProductInstallForUserAsync(user: Object, productId: string, flightId: string, clientId: string, correlationVector: string, installOptions: AppInstallOptions, callback: (error: Error, result: Object) => void): void ;
 
-    updateAppByPackageFamilyNameForUserAsync(user: Object, packageFamilyName: String, correlationVector: String, callback: (error: Error, result: AppInstallItem) => void): void ;
+    updateAppByPackageFamilyNameForUserAsync(user: Object, packageFamilyName: string, correlationVector: string, callback: (error: Error, result: AppInstallItem) => void): void ;
 
-    searchForUpdatesForUserAsync(user: Object, productId: String, skuId: String, catalogId: String, correlationVector: String, callback: (error: Error, result: AppInstallItem) => void): void ;
-    searchForUpdatesForUserAsync(user: Object, productId: String, skuId: String, correlationVector: String, clientId: String, updateOptions: AppUpdateOptions, callback: (error: Error, result: AppInstallItem) => void): void ;
+    searchForUpdatesForUserAsync(user: Object, productId: string, skuId: string, catalogId: string, correlationVector: string, callback: (error: Error, result: AppInstallItem) => void): void ;
+    searchForUpdatesForUserAsync(user: Object, productId: string, skuId: string, correlationVector: string, clientId: string, updateOptions: AppUpdateOptions, callback: (error: Error, result: AppInstallItem) => void): void ;
 
-    searchForAllUpdatesForUserAsync(user: Object, correlationVector: String, callback: (error: Error, result: Object) => void): void ;
-    searchForAllUpdatesForUserAsync(user: Object, correlationVector: String, clientId: String, updateOptions: AppUpdateOptions, callback: (error: Error, result: Object) => void): void ;
+    searchForAllUpdatesForUserAsync(user: Object, correlationVector: string, callback: (error: Error, result: Object) => void): void ;
+    searchForAllUpdatesForUserAsync(user: Object, correlationVector: string, clientId: string, updateOptions: AppUpdateOptions, callback: (error: Error, result: Object) => void): void ;
 
-    getIsAppAllowedToInstallForUserAsync(user: Object, productId: String, skuId: String, catalogId: String, correlationVector: String, callback: (error: Error, result: Boolean) => void): void ;
+    getIsAppAllowedToInstallForUserAsync(user: Object, productId: string, skuId: string, catalogId: string, correlationVector: string, callback: (error: Error, result: boolean) => void): void ;
 
-    getIsApplicableForUserAsync(user: Object, productId: String, skuId: String, callback: (error: Error, result: Boolean) => void): void ;
+    getIsApplicableForUserAsync(user: Object, productId: string, skuId: string, callback: (error: Error, result: boolean) => void): void ;
 
-    getFreeUserEntitlementAsync(storeId: String, campaignId: String, correlationVector: String, callback: (error: Error, result: GetEntitlementResult) => void): void ;
+    getFreeUserEntitlementAsync(storeId: string, campaignId: string, correlationVector: string, callback: (error: Error, result: GetEntitlementResult) => void): void ;
 
-    getFreeUserEntitlementForUserAsync(user: Object, storeId: String, campaignId: String, correlationVector: String, callback: (error: Error, result: GetEntitlementResult) => void): void ;
+    getFreeUserEntitlementForUserAsync(user: Object, storeId: string, campaignId: string, correlationVector: string, callback: (error: Error, result: GetEntitlementResult) => void): void ;
 
-    getFreeDeviceEntitlementAsync(storeId: String, campaignId: String, correlationVector: String, callback: (error: Error, result: GetEntitlementResult) => void): void ;
+    getFreeDeviceEntitlementAsync(storeId: string, campaignId: string, correlationVector: string, callback: (error: Error, result: GetEntitlementResult) => void): void ;
 
-    getIsPackageIdentityAllowedToInstallAsync(correlationVector: String, packageIdentityName: String, publisherCertificateName: String, callback: (error: Error, result: Boolean) => void): void ;
+    getIsPackageIdentityAllowedToInstallAsync(correlationVector: string, packageIdentityName: string, publisherCertificateName: string, callback: (error: Error, result: boolean) => void): void ;
 
-    getIsPackageIdentityAllowedToInstallForUserAsync(user: Object, correlationVector: String, packageIdentityName: String, publisherCertificateName: String, callback: (error: Error, result: Boolean) => void): void ;
+    getIsPackageIdentityAllowedToInstallForUserAsync(user: Object, correlationVector: string, packageIdentityName: string, publisherCertificateName: string, callback: (error: Error, result: boolean) => void): void ;
 
-    cancel(productId: String): void;
-    cancel(productId: String, correlationVector: String): void;
+    cancel(productId: string): void;
+    cancel(productId: string, correlationVector: string): void;
 
-    pause(productId: String): void;
-    pause(productId: String, correlationVector: String): void;
+    pause(productId: string): void;
+    pause(productId: string, correlationVector: string): void;
 
-    restart(productId: String): void;
-    restart(productId: String, correlationVector: String): void;
+    restart(productId: string): void;
+    restart(productId: string, correlationVector: string): void;
 
-    moveToFrontOfDownloadQueue(productId: String, correlationVector: String): void;
+    moveToFrontOfDownloadQueue(productId: string, correlationVector: string): void;
 
     addListener(type: "ItemCompleted", listener: (ev: Event) => void): void ;
     removeListener(type: "ItemCompleted", listener: (ev: Event) => void): void ;

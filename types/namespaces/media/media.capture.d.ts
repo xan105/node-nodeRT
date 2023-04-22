@@ -3,8 +3,8 @@
   }
 
   export class BitmapSize {
-    width: Number;
-    height: Number;
+    width: number;
+    height: number;
     constructor();
   }
 
@@ -13,9 +13,9 @@
   }
 
   export class WhiteBalanceGain {
-    r: Number;
-    g: Number;
-    b: Number;
+    r: number;
+    g: number;
+    b: number;
     constructor();
   }
 
@@ -340,11 +340,11 @@
   }
 
   export class AppCapture {
-    isCapturingAudio: Boolean;
-    isCapturingVideo: Boolean;
+    isCapturingAudio: boolean;
+    isCapturingVideo: boolean;
     constructor();
 
-    static setAllowedAsync(allowed: Boolean, callback: (error: Error) => void): void ;
+    static setAllowedAsync(allowed: boolean, callback: (error: Error) => void): void ;
 
 
     static getForCurrentView(): AppCapture;
@@ -368,16 +368,16 @@
     format: CameraCaptureUIPhotoFormat;
     croppedSizeInPixels: Object;
     croppedAspectRatio: Object;
-    allowCropping: Boolean;
+    allowCropping: boolean;
     constructor();
 
   }
 
   export class CameraCaptureUIVideoCaptureSettings {
     maxResolution: CameraCaptureUIMaxVideoResolution;
-    maxDurationInSeconds: Number;
+    maxDurationInSeconds: number;
     format: CameraCaptureUIVideoFormat;
-    allowTrimming: Boolean;
+    allowTrimming: boolean;
     constructor();
 
   }
@@ -392,8 +392,8 @@
   }
 
   export class MediaCaptureFailedEventArgs {
-    code: Number;
-    message: String;
+    code: number;
+    message: string;
     constructor();
 
   }
@@ -402,21 +402,21 @@
     audioDeviceController: Object;
     mediaCaptureSettings: MediaCaptureSettings;
     videoDeviceController: Object;
-    cameraStreamState: Number;
+    cameraStreamState: number;
     thermalStatus: MediaCaptureThermalStatus;
     frameSources: Object;
     constructor();
 
-    static isVideoProfileSupported(videoDeviceId: String): Boolean;
+    static isVideoProfileSupported(videoDeviceId: string): boolean;
 
 
-    static findAllVideoProfiles(videoDeviceId: String): Object;
+    static findAllVideoProfiles(videoDeviceId: string): Object;
 
 
-    static findConcurrentProfiles(videoDeviceId: String): Object;
+    static findConcurrentProfiles(videoDeviceId: string): Object;
 
 
-    static findKnownVideoProfiles(videoDeviceId: String, name: KnownVideoProfile): Object;
+    static findKnownVideoProfiles(videoDeviceId: string, name: KnownVideoProfile): Object;
 
 
     getPreviewFrameAsync(callback: (error: Error, result: Object) => void): void ;
@@ -426,13 +426,13 @@
 
     removeEffectAsync(effect: Object, callback: (error: Error) => void): void ;
 
-    pauseRecordWithResultAsync(behavior: Number, callback: (error: Error, result: MediaCapturePauseResult) => void): void ;
+    pauseRecordWithResultAsync(behavior: number, callback: (error: Error, result: MediaCapturePauseResult) => void): void ;
 
     stopRecordWithResultAsync(callback: (error: Error, result: MediaCaptureStopResult) => void): void ;
 
     createFrameReaderAsync(inputSource: Object, callback: (error: Error, result: Object) => void): void ;
-    createFrameReaderAsync(inputSource: Object, outputSubtype: String, callback: (error: Error, result: Object) => void): void ;
-    createFrameReaderAsync(inputSource: Object, outputSubtype: String, outputSize: BitmapSize, callback: (error: Error, result: Object) => void): void ;
+    createFrameReaderAsync(inputSource: Object, outputSubtype: string, callback: (error: Error, result: Object) => void): void ;
+    createFrameReaderAsync(inputSource: Object, outputSubtype: string, outputSize: BitmapSize, callback: (error: Error, result: Object) => void): void ;
 
     createMultiSourceFrameReaderAsync(inputSources: Object, callback: (error: Error, result: Object) => void): void ;
 
@@ -444,7 +444,7 @@
     startRecordToStreamAsync(encodingProfile: Object, stream: Object, callback: (error: Error) => void): void ;
 
     startRecordToCustomSinkAsync(encodingProfile: Object, customMediaSink: Object, callback: (error: Error) => void): void ;
-    startRecordToCustomSinkAsync(encodingProfile: Object, customSinkActivationId: String, customSinkSettings: Object, callback: (error: Error) => void): void ;
+    startRecordToCustomSinkAsync(encodingProfile: Object, customSinkActivationId: string, customSinkSettings: Object, callback: (error: Error) => void): void ;
 
     stopRecordAsync(callback: (error: Error) => void): void ;
 
@@ -452,14 +452,14 @@
 
     capturePhotoToStreamAsync(type: Object, stream: Object, callback: (error: Error) => void): void ;
 
-    addEffectAsync(mediaStreamType: MediaStreamType, effectActivationID: String, effectSettings: Object, callback: (error: Error) => void): void ;
+    addEffectAsync(mediaStreamType: MediaStreamType, effectActivationID: string, effectSettings: Object, callback: (error: Error) => void): void ;
 
     clearEffectsAsync(mediaStreamType: MediaStreamType, callback: (error: Error) => void): void ;
 
     startPreviewAsync(callback: (error: Error) => void): void ;
 
     startPreviewToCustomSinkAsync(encodingProfile: Object, customMediaSink: Object, callback: (error: Error) => void): void ;
-    startPreviewToCustomSinkAsync(encodingProfile: Object, customSinkActivationId: String, customSinkSettings: Object, callback: (error: Error) => void): void ;
+    startPreviewToCustomSinkAsync(encodingProfile: Object, customSinkActivationId: string, customSinkSettings: Object, callback: (error: Error) => void): void ;
 
     stopPreviewAsync(callback: (error: Error) => void): void ;
 
@@ -468,7 +468,7 @@
     prepareLowLagRecordToStreamAsync(encodingProfile: Object, stream: Object, callback: (error: Error, result: LowLagMediaRecording) => void): void ;
 
     prepareLowLagRecordToCustomSinkAsync(encodingProfile: Object, customMediaSink: Object, callback: (error: Error, result: LowLagMediaRecording) => void): void ;
-    prepareLowLagRecordToCustomSinkAsync(encodingProfile: Object, customSinkActivationId: String, customSinkSettings: Object, callback: (error: Error, result: LowLagMediaRecording) => void): void ;
+    prepareLowLagRecordToCustomSinkAsync(encodingProfile: Object, customSinkActivationId: string, customSinkSettings: Object, callback: (error: Error, result: LowLagMediaRecording) => void): void ;
 
     prepareLowLagPhotoCaptureAsync(type: Object, callback: (error: Error, result: LowLagPhotoCapture) => void): void ;
 
@@ -482,17 +482,17 @@
 
     addVideoEffectAsync(definition: Object, mediaStreamType: MediaStreamType, callback: (error: Error, result: Object) => void): void ;
 
-    pauseRecordAsync(behavior: Number, callback: (error: Error) => void): void ;
+    pauseRecordAsync(behavior: number, callback: (error: Error) => void): void ;
 
     resumeRecordAsync(callback: (error: Error) => void): void ;
 
-    setEncoderProperty(mediaStreamType: MediaStreamType, propertyId: String, propertyValue: Object): void;
+    setEncoderProperty(mediaStreamType: MediaStreamType, propertyId: string, propertyValue: Object): void;
 
-    getEncoderProperty(mediaStreamType: MediaStreamType, propertyId: String): Object;
+    getEncoderProperty(mediaStreamType: MediaStreamType, propertyId: string): Object;
 
-    setPreviewMirroring(value: Boolean): void;
+    setPreviewMirroring(value: boolean): void;
 
-    getPreviewMirroring(): Boolean;
+    getPreviewMirroring(): boolean;
 
     setPreviewRotation(value: VideoRotation): void;
 
@@ -547,23 +547,23 @@
   }
 
   export class MediaCaptureVideoProfileMediaDescription {
-    frameRate: Number;
-    height: Number;
-    isHdrVideoSupported: Boolean;
-    isVariablePhotoSequenceSupported: Boolean;
-    width: Number;
+    frameRate: number;
+    height: number;
+    isHdrVideoSupported: boolean;
+    isVariablePhotoSequenceSupported: boolean;
+    width: number;
     properties: Object;
-    subtype: String;
+    subtype: string;
     constructor();
 
   }
 
   export class MediaCaptureVideoProfile {
-    id: String;
+    id: string;
     supportedPhotoMediaDescription: Object;
     supportedPreviewMediaDescription: Object;
     supportedRecordMediaDescription: Object;
-    videoDeviceId: String;
+    videoDeviceId: string;
     frameSourceInfos: Object;
     properties: Object;
     constructor();
@@ -573,12 +573,12 @@
   }
 
   export class MediaCaptureInitializationSettings {
-    videoDeviceId: String;
+    videoDeviceId: string;
     streamingCaptureMode: StreamingCaptureMode;
     photoCaptureSource: PhotoCaptureSource;
-    audioDeviceId: String;
+    audioDeviceId: string;
     mediaCategory: MediaCategory;
-    audioProcessing: Number;
+    audioProcessing: number;
     videoSource: Object;
     audioSource: Object;
     videoProfile: MediaCaptureVideoProfile;
@@ -588,25 +588,25 @@
     sourceGroup: Object;
     sharingMode: MediaCaptureSharingMode;
     memoryPreference: MediaCaptureMemoryPreference;
-    alwaysPlaySystemShutterSound: Boolean;
+    alwaysPlaySystemShutterSound: boolean;
     constructor();
 
   }
 
   export class MediaCaptureSettings {
-    audioDeviceId: String;
+    audioDeviceId: string;
     photoCaptureSource: PhotoCaptureSource;
     streamingCaptureMode: StreamingCaptureMode;
     videoDeviceCharacteristic: VideoDeviceCharacteristic;
-    videoDeviceId: String;
-    audioProcessing: Number;
-    cameraSoundRequiredForRegion: Boolean;
-    concurrentRecordAndPhotoSequenceSupported: Boolean;
-    concurrentRecordAndPhotoSupported: Boolean;
-    horizontal35mmEquivalentFocalLength: Number;
+    videoDeviceId: string;
+    audioProcessing: number;
+    cameraSoundRequiredForRegion: boolean;
+    concurrentRecordAndPhotoSequenceSupported: boolean;
+    concurrentRecordAndPhotoSupported: boolean;
+    horizontal35mmEquivalentFocalLength: number;
     mediaCategory: MediaCategory;
-    pitchOffsetDegrees: Number;
-    vertical35mmEquivalentFocalLength: Number;
+    pitchOffsetDegrees: number;
+    vertical35mmEquivalentFocalLength: number;
     direct3D11Device: Object;
     constructor();
 
@@ -621,11 +621,11 @@
 
     finishAsync(callback: (error: Error) => void): void ;
 
-    pauseAsync(behavior: Number, callback: (error: Error) => void): void ;
+    pauseAsync(behavior: number, callback: (error: Error) => void): void ;
 
     resumeAsync(callback: (error: Error) => void): void ;
 
-    pauseWithResultAsync(behavior: Number, callback: (error: Error, result: MediaCapturePauseResult) => void): void ;
+    pauseWithResultAsync(behavior: number, callback: (error: Error, result: MediaCapturePauseResult) => void): void ;
 
     stopWithResultAsync(callback: (error: Error, result: MediaCaptureStopResult) => void): void ;
 
@@ -663,13 +663,13 @@
   }
 
   export class MediaCaptureFocusChangedEventArgs {
-    focusState: Number;
+    focusState: number;
     constructor();
 
   }
 
   export class PhotoConfirmationCapturedEventArgs {
-    captureTimeOffset: Number;
+    captureTimeOffset: number;
     frame: CapturedFrame;
     constructor();
 
@@ -703,7 +703,7 @@
 
   export class MediaCapturePauseResult {
     lastFrame: Object;
-    recordDuration: Number;
+    recordDuration: number;
     constructor();
 
     close(): void;
@@ -711,14 +711,14 @@
 
   export class MediaCaptureStopResult {
     lastFrame: Object;
-    recordDuration: Number;
+    recordDuration: number;
     constructor();
 
     close(): void;
   }
 
   export class MediaCaptureDeviceExclusiveControlStatusChangedEventArgs {
-    deviceId: String;
+    deviceId: string;
     status: MediaCaptureDeviceExclusiveControlStatus;
     constructor();
 
@@ -734,7 +734,7 @@
   export class AdvancedCapturedPhoto {
     context: Object;
     frame: CapturedFrame;
-    mode: Number;
+    mode: number;
     frameBoundsRelativeToReferencePhoto: Object;
     constructor();
 
@@ -748,29 +748,29 @@
   }
 
   export class CapturedFrame {
-    height: Number;
-    width: Number;
+    height: number;
+    width: number;
     bitmapProperties: Object;
     controlValues: CapturedFrameControlValues;
     softwareBitmap: Object;
-    contentType: String;
-    size: Number;
-    canRead: Boolean;
-    canWrite: Boolean;
-    position: Number;
+    contentType: string;
+    size: number;
+    canRead: boolean;
+    canWrite: boolean;
+    position: number;
     constructor();
 
-    readAsync(buffer: Object, count: Number, options: Number, callback: (error: Error, result: Object) => void): void ;
+    readAsync(buffer: Object, count: number, options: number, callback: (error: Error, result: Object) => void): void ;
 
-    writeAsync(buffer: Object, callback: (error: Error, result: Number) => void): void ;
+    writeAsync(buffer: Object, callback: (error: Error, result: number) => void): void ;
 
-    flushAsync(callback: (error: Error, result: Boolean) => void): void ;
+    flushAsync(callback: (error: Error, result: boolean) => void): void ;
 
-    getInputStreamAt(position: Number): Object;
+    getInputStreamAt(position: number): Object;
 
-    getOutputStreamAt(position: Number): Object;
+    getOutputStreamAt(position: number): Object;
 
-    seek(position: Number): void;
+    seek(position: number): void;
 
     cloneStream(): Object;
 
@@ -778,7 +778,7 @@
   }
 
   export class PhotoCapturedEventArgs {
-    captureTimeOffset: Number;
+    captureTimeOffset: number;
     frame: CapturedFrame;
     thumbnail: CapturedFrame;
     constructor();
@@ -786,18 +786,18 @@
   }
 
   export class CapturedFrameControlValues {
-    exposure: Number;
-    exposureCompensation: Number;
-    flashPowerPercent: Number;
-    flashed: Boolean;
-    focus: Number;
-    isoSpeed: Number;
-    sceneMode: Number;
-    whiteBalance: Number;
-    zoomFactor: Number;
-    focusState: Number;
-    isoAnalogGain: Number;
-    isoDigitalGain: Number;
+    exposure: number;
+    exposureCompensation: number;
+    flashPowerPercent: number;
+    flashed: boolean;
+    focus: number;
+    isoSpeed: number;
+    sceneMode: number;
+    whiteBalance: number;
+    zoomFactor: number;
+    focusState: number;
+    isoAnalogGain: number;
+    isoDigitalGain: number;
     sensorFrameRate: Object;
     whiteBalanceGain: WhiteBalanceGain;
     constructor();
@@ -812,20 +812,20 @@
   }
 
   export class AppBroadcastGlobalSettings {
-    systemAudioGain: Number;
-    selectedCameraId: String;
-    microphoneGain: Number;
-    isMicrophoneCaptureEnabledByDefault: Boolean;
-    isEchoCancellationEnabled: Boolean;
-    isCursorImageCaptureEnabled: Boolean;
-    isCameraCaptureEnabledByDefault: Boolean;
-    isAudioCaptureEnabled: Boolean;
+    systemAudioGain: number;
+    selectedCameraId: string;
+    microphoneGain: number;
+    isMicrophoneCaptureEnabledByDefault: boolean;
+    isEchoCancellationEnabled: boolean;
+    isCursorImageCaptureEnabled: boolean;
+    isCameraCaptureEnabledByDefault: boolean;
+    isAudioCaptureEnabled: boolean;
     cameraOverlaySize: AppBroadcastCameraOverlaySize;
     cameraOverlayLocation: AppBroadcastCameraOverlayLocation;
-    hasHardwareEncoder: Boolean;
-    isBroadcastEnabled: Boolean;
-    isDisabledByPolicy: Boolean;
-    isGpuConstrained: Boolean;
+    hasHardwareEncoder: boolean;
+    isBroadcastEnabled: boolean;
+    isDisabledByPolicy: boolean;
+    isGpuConstrained: boolean;
     constructor();
 
   }
@@ -833,11 +833,11 @@
   export class AppBroadcastProviderSettings {
     videoEncodingResolutionMode: AppBroadcastVideoEncodingResolutionMode;
     videoEncodingBitrateMode: AppBroadcastVideoEncodingBitrateMode;
-    defaultBroadcastTitle: String;
-    customVideoEncodingWidth: Number;
-    customVideoEncodingHeight: Number;
-    customVideoEncodingBitrate: Number;
-    audioEncodingBitrate: Number;
+    defaultBroadcastTitle: string;
+    customVideoEncodingWidth: number;
+    customVideoEncodingHeight: number;
+    customVideoEncodingBitrate: number;
+    audioEncodingBitrate: number;
     constructor();
 
   }
@@ -860,7 +860,7 @@
   }
 
   export class AppBroadcastBackgroundServiceSignInInfo {
-    userName: String;
+    userName: string;
     oAuthRequestUri: Object;
     oAuthCallbackUri: Object;
     authenticationResult: Object;
@@ -894,12 +894,12 @@
 
   export class AppBroadcastStreamReader {
     audioAacSequence: Object;
-    audioBitrate: Number;
-    audioChannels: Number;
-    audioSampleRate: Number;
-    videoBitrate: Number;
-    videoHeight: Number;
-    videoWidth: Number;
+    audioBitrate: number;
+    audioChannels: number;
+    audioSampleRate: number;
+    videoBitrate: number;
+    videoHeight: number;
+    videoWidth: number;
     constructor();
 
     tryGetNextAudioFrame(): AppBroadcastStreamAudioFrame;
@@ -925,9 +925,9 @@
   }
 
   export class AppBroadcastBackgroundServiceStreamInfo {
-    desiredVideoEncodingBitrate: Number;
-    bandwidthTestBitrate: Number;
-    audioCodec: String;
+    desiredVideoEncodingBitrate: number;
+    bandwidthTestBitrate: number;
+    audioCodec: string;
     broadcastStreamReader: AppBroadcastStreamReader;
     streamState: AppBroadcastStreamState;
     constructor();
@@ -964,18 +964,18 @@
   }
 
   export class AppBroadcastBackgroundService {
-    viewerCount: Number;
+    viewerCount: number;
     streamInfo: AppBroadcastBackgroundServiceStreamInfo;
     signInInfo: AppBroadcastBackgroundServiceSignInInfo;
     plugInState: AppBroadcastPlugInState;
-    broadcastTitle: String;
-    appId: String;
-    titleId: String;
-    broadcastLanguage: String;
-    broadcastChannel: String;
+    broadcastTitle: string;
+    appId: string;
+    titleId: string;
+    broadcastLanguage: string;
+    broadcastChannel: string;
     constructor();
 
-    terminateBroadcast(reason: AppBroadcastTerminationReason, providerSpecificReason: Number): void;
+    terminateBroadcast(reason: AppBroadcastTerminationReason, providerSpecificReason: number): void;
 
     addListener(type: "HeartbeatRequested", listener: (ev: Event) => void): void ;
     removeListener(type: "HeartbeatRequested", listener: (ev: Event) => void): void ;
@@ -1006,7 +1006,7 @@
   }
 
   export class AppBroadcastHeartbeatRequestedEventArgs {
-    handled: Boolean;
+    handled: boolean;
     constructor();
 
   }
@@ -1027,21 +1027,21 @@
 
   export class AppBroadcastStreamVideoHeader {
     absoluteTimestamp: Date;
-    duration: Number;
-    frameId: Number;
-    hasDiscontinuity: Boolean;
-    isKeyFrame: Boolean;
-    relativeTimestamp: Number;
+    duration: number;
+    frameId: number;
+    hasDiscontinuity: boolean;
+    isKeyFrame: boolean;
+    relativeTimestamp: number;
     constructor();
 
   }
 
   export class AppBroadcastStreamAudioHeader {
     absoluteTimestamp: Date;
-    duration: Number;
-    frameId: Number;
-    hasDiscontinuity: Boolean;
-    relativeTimestamp: Number;
+    duration: number;
+    frameId: number;
+    hasDiscontinuity: boolean;
+    relativeTimestamp: number;
     constructor();
 
   }
@@ -1054,7 +1054,7 @@
 
   export class AppBroadcastPlugInManager {
     defaultPlugIn: AppBroadcastPlugIn;
-    isBroadcastProviderAvailable: Boolean;
+    isBroadcastProviderAvailable: boolean;
     plugInList: Object;
     constructor();
 
@@ -1067,8 +1067,8 @@
   }
 
   export class AppBroadcastPlugIn {
-    appId: String;
-    displayName: String;
+    appId: string;
+    displayName: string;
     logo: Object;
     providerSettings: AppBroadcastProviderSettings;
     constructor();
@@ -1076,7 +1076,7 @@
   }
 
   export class AppBroadcastPreview {
-    errorCode: Number;
+    errorCode: number;
     previewState: AppBroadcastPreviewState;
     previewStreamReader: AppBroadcastPreviewStreamReader;
     constructor();
@@ -1098,22 +1098,22 @@
 
   export class AppBroadcastState {
     signInState: AppBroadcastSignInState;
-    shouldCaptureMicrophone: Boolean;
-    shouldCaptureCamera: Boolean;
+    shouldCaptureMicrophone: boolean;
+    shouldCaptureCamera: boolean;
     authenticationResult: Object;
-    isCaptureTargetRunning: Boolean;
-    microphoneCaptureError: Number;
+    isCaptureTargetRunning: boolean;
+    microphoneCaptureError: number;
     microphoneCaptureState: AppBroadcastMicrophoneCaptureState;
     oAuthCallbackUri: Object;
     oAuthRequestUri: Object;
     plugInState: AppBroadcastPlugInState;
-    cameraCaptureError: Number;
+    cameraCaptureError: number;
     cameraCaptureState: AppBroadcastCameraCaptureState;
     encodedVideoSize: Object;
     streamState: AppBroadcastStreamState;
     terminationReason: AppBroadcastTerminationReason;
-    terminationReasonPlugInSpecific: Number;
-    viewerCount: Number;
+    terminationReasonPlugInSpecific: number;
+    viewerCount: number;
     constructor();
 
     restartMicrophoneCapture(): void;
@@ -1159,20 +1159,20 @@
   }
 
   export class AppBroadcastViewerCountChangedEventArgs {
-    viewerCount: Number;
+    viewerCount: number;
     constructor();
 
   }
 
   export class AppBroadcastMicrophoneCaptureStateChangedEventArgs {
-    errorCode: Number;
+    errorCode: number;
     state: AppBroadcastMicrophoneCaptureState;
     constructor();
 
   }
 
   export class AppBroadcastCameraCaptureStateChangedEventArgs {
-    errorCode: Number;
+    errorCode: number;
     state: AppBroadcastCameraCaptureState;
     constructor();
 
@@ -1185,18 +1185,18 @@
   }
 
   export class AppBroadcastPreviewStateChangedEventArgs {
-    errorCode: Number;
+    errorCode: number;
     previewState: AppBroadcastPreviewState;
     constructor();
 
   }
 
   export class AppBroadcastPreviewStreamReader {
-    videoBitmapAlphaMode: Number;
-    videoBitmapPixelFormat: Number;
-    videoHeight: Number;
-    videoStride: Number;
-    videoWidth: Number;
+    videoBitmapAlphaMode: number;
+    videoBitmapPixelFormat: number;
+    videoHeight: number;
+    videoStride: number;
+    videoWidth: number;
     constructor();
 
     tryGetNextVideoFrame(): AppBroadcastPreviewStreamVideoFrame;
@@ -1223,23 +1223,23 @@
 
   export class AppBroadcastPreviewStreamVideoHeader {
     absoluteTimestamp: Date;
-    duration: Number;
-    frameId: Number;
-    relativeTimestamp: Number;
+    duration: number;
+    frameId: number;
+    relativeTimestamp: number;
     constructor();
 
   }
 
   export class AppBroadcastServices {
     captureTargetType: AppBroadcastCaptureTargetType;
-    broadcastTitle: String;
-    broadcastLanguage: String;
-    canCapture: Boolean;
+    broadcastTitle: string;
+    broadcastLanguage: string;
+    canCapture: boolean;
     state: AppBroadcastState;
-    userName: String;
+    userName: string;
     constructor();
 
-    enterBroadcastModeAsync(plugIn: AppBroadcastPlugIn, callback: (error: Error, result: Number) => void): void ;
+    enterBroadcastModeAsync(plugIn: AppBroadcastPlugIn, callback: (error: Error, result: number) => void): void ;
 
     exitBroadcastMode(reason: AppBroadcastExitBroadcastModeReason): void;
 
@@ -1254,56 +1254,56 @@
   }
 
   export class AppCaptureSettings {
-    isHistoricalCaptureOnWirelessDisplayAllowed: Boolean;
+    isHistoricalCaptureOnWirelessDisplayAllowed: boolean;
     videoEncodingBitrateMode: AppCaptureVideoEncodingBitrateMode;
-    isHistoricalCaptureOnBatteryAllowed: Boolean;
-    isAudioCaptureEnabled: Boolean;
-    isAppCaptureEnabled: Boolean;
+    isHistoricalCaptureOnBatteryAllowed: boolean;
+    isAudioCaptureEnabled: boolean;
+    isAppCaptureEnabled: boolean;
     appCaptureDestinationFolder: Object;
-    historicalBufferLength: Number;
-    isHistoricalCaptureEnabled: Boolean;
-    customVideoEncodingWidth: Number;
-    customVideoEncodingHeight: Number;
-    customVideoEncodingBitrate: Number;
-    audioEncodingBitrate: Number;
+    historicalBufferLength: number;
+    isHistoricalCaptureEnabled: boolean;
+    customVideoEncodingWidth: number;
+    customVideoEncodingHeight: number;
+    customVideoEncodingBitrate: number;
+    audioEncodingBitrate: number;
     historicalBufferLengthUnit: AppCaptureHistoricalBufferLengthUnit;
     videoEncodingResolutionMode: AppCaptureVideoEncodingResolutionMode;
     screenshotDestinationFolder: Object;
-    maximumRecordLength: Number;
-    hasHardwareEncoder: Boolean;
-    isCpuConstrained: Boolean;
-    isMemoryConstrained: Boolean;
-    isDisabledByPolicy: Boolean;
+    maximumRecordLength: number;
+    hasHardwareEncoder: boolean;
+    isCpuConstrained: boolean;
+    isMemoryConstrained: boolean;
+    isDisabledByPolicy: boolean;
     alternateShortcutKeys: AppCaptureAlternateShortcutKeys;
-    isGpuConstrained: Boolean;
-    isMicrophoneCaptureEnabled: Boolean;
+    isGpuConstrained: boolean;
+    isMicrophoneCaptureEnabled: boolean;
     videoEncodingFrameRateMode: AppCaptureVideoEncodingFrameRateMode;
-    systemAudioGain: Number;
-    microphoneGain: Number;
-    isMicrophoneCaptureEnabledByDefault: Boolean;
-    isEchoCancellationEnabled: Boolean;
-    isCursorImageCaptureEnabled: Boolean;
+    systemAudioGain: number;
+    microphoneGain: number;
+    isMicrophoneCaptureEnabledByDefault: boolean;
+    isEchoCancellationEnabled: boolean;
+    isCursorImageCaptureEnabled: boolean;
     constructor();
 
   }
 
   export class AppCaptureAlternateShortcutKeys {
-    toggleRecordingKeyModifiers: Number;
-    toggleRecordingKey: Number;
-    toggleRecordingIndicatorKeyModifiers: Number;
-    toggleRecordingIndicatorKey: Number;
-    toggleGameBarKeyModifiers: Number;
-    toggleGameBarKey: Number;
-    takeScreenshotKeyModifiers: Number;
-    takeScreenshotKey: Number;
-    saveHistoricalVideoKeyModifiers: Number;
-    saveHistoricalVideoKey: Number;
-    toggleMicrophoneCaptureKeyModifiers: Number;
-    toggleMicrophoneCaptureKey: Number;
-    toggleCameraCaptureKeyModifiers: Number;
-    toggleCameraCaptureKey: Number;
-    toggleBroadcastKeyModifiers: Number;
-    toggleBroadcastKey: Number;
+    toggleRecordingKeyModifiers: number;
+    toggleRecordingKey: number;
+    toggleRecordingIndicatorKeyModifiers: number;
+    toggleRecordingIndicatorKey: number;
+    toggleGameBarKeyModifiers: number;
+    toggleGameBarKey: number;
+    takeScreenshotKeyModifiers: number;
+    takeScreenshotKey: number;
+    saveHistoricalVideoKeyModifiers: number;
+    saveHistoricalVideoKey: number;
+    toggleMicrophoneCaptureKeyModifiers: number;
+    toggleMicrophoneCaptureKey: number;
+    toggleCameraCaptureKeyModifiers: number;
+    toggleCameraCaptureKey: number;
+    toggleBroadcastKeyModifiers: number;
+    toggleBroadcastKey: number;
     constructor();
 
   }
@@ -1320,10 +1320,10 @@
   }
 
   export class AppCaptureRecordOperation {
-    duration: Number;
-    errorCode: Number;
+    duration: number;
+    errorCode: number;
     file: Object;
-    isFileTruncated: Boolean;
+    isFileTruncated: boolean;
     state: AppCaptureRecordingState;
     constructor();
 
@@ -1353,10 +1353,10 @@
   }
 
   export class AppCaptureState {
-    shouldCaptureMicrophone: Boolean;
-    isHistoricalCaptureEnabled: Boolean;
-    isTargetRunning: Boolean;
-    microphoneCaptureError: Number;
+    shouldCaptureMicrophone: boolean;
+    isHistoricalCaptureEnabled: boolean;
+    isTargetRunning: boolean;
+    microphoneCaptureError: number;
     microphoneCaptureState: AppCaptureMicrophoneCaptureState;
     constructor();
 
@@ -1381,21 +1381,21 @@
   }
 
   export class AppCaptureMicrophoneCaptureStateChangedEventArgs {
-    errorCode: Number;
+    errorCode: number;
     state: AppCaptureMicrophoneCaptureState;
     constructor();
 
   }
 
   export class AppCaptureRecordingStateChangedEventArgs {
-    errorCode: Number;
+    errorCode: number;
     state: AppCaptureRecordingState;
     constructor();
 
   }
 
   export class AppCaptureDurationGeneratedEventArgs {
-    duration: Number;
+    duration: number;
     constructor();
 
   }
@@ -1407,33 +1407,33 @@
   }
 
   export class AppCaptureServices {
-    canCapture: Boolean;
+    canCapture: boolean;
     state: AppCaptureState;
     constructor();
 
     record(): AppCaptureRecordOperation;
 
-    recordTimeSpan(startTime: Date, duration: Number): AppCaptureRecordOperation;
+    recordTimeSpan(startTime: Date, duration: number): AppCaptureRecordOperation;
 
   }
 
   export class AppCaptureMetadataWriter {
-    remainingStorageBytesAvailable: Number;
+    remainingStorageBytesAvailable: number;
     constructor();
 
-    addStringEvent(name: String, value: String, priority: AppCaptureMetadataPriority): void;
+    addStringEvent(name: string, value: string, priority: AppCaptureMetadataPriority): void;
 
-    addInt32Event(name: String, value: Number, priority: AppCaptureMetadataPriority): void;
+    addInt32Event(name: string, value: number, priority: AppCaptureMetadataPriority): void;
 
-    addDoubleEvent(name: String, value: Number, priority: AppCaptureMetadataPriority): void;
+    addDoubleEvent(name: string, value: number, priority: AppCaptureMetadataPriority): void;
 
-    startStringState(name: String, value: String, priority: AppCaptureMetadataPriority): void;
+    startStringState(name: string, value: string, priority: AppCaptureMetadataPriority): void;
 
-    startInt32State(name: String, value: Number, priority: AppCaptureMetadataPriority): void;
+    startInt32State(name: string, value: number, priority: AppCaptureMetadataPriority): void;
 
-    startDoubleState(name: String, value: Number, priority: AppCaptureMetadataPriority): void;
+    startDoubleState(name: string, value: number, priority: AppCaptureMetadataPriority): void;
 
-    stopState(name: String): void;
+    stopState(name: string): void;
 
     stopAllStates(): void;
 
@@ -1487,7 +1487,7 @@
   export class GameBarServices {
     appBroadcastServices: AppBroadcastServices;
     appCaptureServices: AppCaptureServices;
-    sessionId: String;
+    sessionId: string;
     targetCapturePolicy: GameBarTargetCapturePolicy;
     targetInfo: GameBarServicesTargetInfo;
     constructor();
@@ -1510,10 +1510,10 @@
   }
 
   export class GameBarServicesTargetInfo {
-    appId: String;
+    appId: string;
     displayMode: GameBarServicesDisplayMode;
-    displayName: String;
-    titleId: String;
+    displayName: string;
+    titleId: string;
     constructor();
 
   }
@@ -1527,8 +1527,8 @@
 
   export class ScreenCapture {
     audioSource: Object;
-    isAudioSuspended: Boolean;
-    isVideoSuspended: Boolean;
+    isAudioSuspended: boolean;
+    isVideoSuspended: boolean;
     videoSource: Object;
     constructor();
 
@@ -1549,8 +1549,8 @@
   }
 
   export class SourceSuspensionChangedEventArgs {
-    isAudioSuspended: Boolean;
-    isVideoSuspended: Boolean;
+    isAudioSuspended: boolean;
+    isVideoSuspended: boolean;
     constructor();
 
   }

@@ -39,33 +39,33 @@
   }
 
   export class AdaptiveMediaSource {
-    initialBitrate: Number;
-    inboundBitsPerSecondWindow: Number;
-    desiredMaxBitrate: Number;
-    desiredLiveOffset: Number;
-    desiredMinBitrate: Number;
-    currentPlaybackBitrate: Number;
-    audioOnlyPlayback: Boolean;
-    inboundBitsPerSecond: Number;
+    initialBitrate: number;
+    inboundBitsPerSecondWindow: number;
+    desiredMaxBitrate: number;
+    desiredLiveOffset: number;
+    desiredMinBitrate: number;
+    currentPlaybackBitrate: number;
+    audioOnlyPlayback: boolean;
+    inboundBitsPerSecond: number;
     availableBitrates: Object;
-    currentDownloadBitrate: Number;
-    isLive: Boolean;
+    currentDownloadBitrate: number;
+    isLive: boolean;
     advancedSettings: AdaptiveMediaSourceAdvancedSettings;
-    desiredSeekableWindowSize: Number;
+    desiredSeekableWindowSize: number;
     diagnostics: AdaptiveMediaSourceDiagnostics;
-    maxSeekableWindowSize: Number;
-    minLiveOffset: Number;
+    maxSeekableWindowSize: number;
+    minLiveOffset: number;
     constructor();
 
     static createFromUriAsync(uri: Object, callback: (error: Error, result: AdaptiveMediaSourceCreationResult) => void): void ;
     static createFromUriAsync(uri: Object, httpClient: Object, callback: (error: Error, result: AdaptiveMediaSourceCreationResult) => void): void ;
 
 
-    static createFromStreamAsync(stream: Object, uri: Object, contentType: String, callback: (error: Error, result: AdaptiveMediaSourceCreationResult) => void): void ;
-    static createFromStreamAsync(stream: Object, uri: Object, contentType: String, httpClient: Object, callback: (error: Error, result: AdaptiveMediaSourceCreationResult) => void): void ;
+    static createFromStreamAsync(stream: Object, uri: Object, contentType: string, callback: (error: Error, result: AdaptiveMediaSourceCreationResult) => void): void ;
+    static createFromStreamAsync(stream: Object, uri: Object, contentType: string, httpClient: Object, callback: (error: Error, result: AdaptiveMediaSourceCreationResult) => void): void ;
 
 
-    static isContentTypeSupported(contentType: String): Boolean;
+    static isContentTypeSupported(contentType: string): boolean;
 
 
     getCorrelatedTimes(): AdaptiveMediaSourceCorrelatedTimes;
@@ -108,37 +108,37 @@
     httpResponseMessage: Object;
     mediaSource: AdaptiveMediaSource;
     status: AdaptiveMediaSourceCreationStatus;
-    extendedError: Number;
+    extendedError: number;
     constructor();
 
   }
 
   export class AdaptiveMediaSourceDownloadBitrateChangedEventArgs {
-    newValue: Number;
-    oldValue: Number;
+    newValue: number;
+    oldValue: number;
     reason: AdaptiveMediaSourceDownloadBitrateChangedReason;
     constructor();
 
   }
 
   export class AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
-    audioOnly: Boolean;
-    newValue: Number;
-    oldValue: Number;
+    audioOnly: boolean;
+    newValue: number;
+    oldValue: number;
     constructor();
 
   }
 
   export class AdaptiveMediaSourceDownloadRequestedEventArgs {
-    resourceByteRangeLength: Number;
-    resourceByteRangeOffset: Number;
+    resourceByteRangeLength: number;
+    resourceByteRangeOffset: number;
     resourceType: AdaptiveMediaSourceResourceType;
     resourceUri: Object;
     result: AdaptiveMediaSourceDownloadResult;
-    position: Number;
-    requestId: Number;
-    resourceContentType: String;
-    resourceDuration: Number;
+    position: number;
+    requestId: number;
+    resourceContentType: string;
+    resourceDuration: number;
     constructor();
 
     getDeferral(): AdaptiveMediaSourceDownloadRequestedDeferral;
@@ -147,39 +147,39 @@
 
   export class AdaptiveMediaSourceDownloadCompletedEventArgs {
     httpResponseMessage: Object;
-    resourceByteRangeLength: Number;
-    resourceByteRangeOffset: Number;
+    resourceByteRangeLength: number;
+    resourceByteRangeOffset: number;
     resourceType: AdaptiveMediaSourceResourceType;
     resourceUri: Object;
-    position: Number;
-    requestId: Number;
+    position: number;
+    requestId: number;
     statistics: AdaptiveMediaSourceDownloadStatistics;
-    resourceContentType: String;
-    resourceDuration: Number;
+    resourceContentType: string;
+    resourceDuration: number;
     constructor();
 
   }
 
   export class AdaptiveMediaSourceDownloadFailedEventArgs {
     httpResponseMessage: Object;
-    resourceByteRangeLength: Number;
-    resourceByteRangeOffset: Number;
+    resourceByteRangeLength: number;
+    resourceByteRangeOffset: number;
     resourceType: AdaptiveMediaSourceResourceType;
     resourceUri: Object;
-    extendedError: Number;
-    position: Number;
-    requestId: Number;
+    extendedError: number;
+    position: number;
+    requestId: number;
     statistics: AdaptiveMediaSourceDownloadStatistics;
-    resourceContentType: String;
-    resourceDuration: Number;
+    resourceContentType: string;
+    resourceDuration: number;
     constructor();
 
   }
 
   export class AdaptiveMediaSourceAdvancedSettings {
-    desiredBitrateHeadroomRatio: Number;
-    bitrateDowngradeTriggerRatio: Number;
-    allSegmentsIndependent: Boolean;
+    desiredBitrateHeadroomRatio: number;
+    bitrateDowngradeTriggerRatio: number;
+    allSegmentsIndependent: boolean;
     constructor();
 
   }
@@ -201,8 +201,8 @@
   }
 
   export class AdaptiveMediaSourceCorrelatedTimes {
-    position: Number;
-    presentationTimeStamp: Number;
+    position: number;
+    presentationTimeStamp: number;
     programDateTime: Date;
     constructor();
 
@@ -211,11 +211,11 @@
   export class AdaptiveMediaSourceDownloadResult {
     resourceUri: Object;
     inputStream: Object;
-    extendedStatus: Number;
-    contentType: String;
+    extendedStatus: number;
+    contentType: string;
     buffer: Object;
-    resourceByteRangeOffset: Number;
-    resourceByteRangeLength: Number;
+    resourceByteRangeOffset: number;
+    resourceByteRangeLength: number;
     constructor();
 
   }
@@ -228,27 +228,27 @@
   }
 
   export class AdaptiveMediaSourceDownloadStatistics {
-    contentBytesReceivedCount: Number;
-    timeToFirstByteReceived: Number;
-    timeToHeadersReceived: Number;
-    timeToLastByteReceived: Number;
+    contentBytesReceivedCount: number;
+    timeToFirstByteReceived: number;
+    timeToHeadersReceived: number;
+    timeToLastByteReceived: number;
     constructor();
 
   }
 
   export class AdaptiveMediaSourceDiagnosticAvailableEventArgs {
-    bitrate: Number;
+    bitrate: number;
     diagnosticType: AdaptiveMediaSourceDiagnosticType;
-    position: Number;
-    requestId: Number;
-    resourceByteRangeLength: Number;
-    resourceByteRangeOffset: Number;
+    position: number;
+    requestId: number;
+    resourceByteRangeLength: number;
+    resourceByteRangeOffset: number;
     resourceType: AdaptiveMediaSourceResourceType;
     resourceUri: Object;
-    segmentId: Number;
-    extendedError: Number;
-    resourceContentType: String;
-    resourceDuration: Number;
+    segmentId: number;
+    extendedError: number;
+    resourceContentType: string;
+    resourceDuration: number;
     constructor();
 
   }

@@ -1,10 +1,10 @@
   export class GameControllerProviderInfo {
     constructor();
 
-    static getParentProviderId(provider: Object): String;
+    static getParentProviderId(provider: Object): string;
 
 
-    static getProviderId(provider: Object): String;
+    static getProviderId(provider: Object): string;
 
 
   }

@@ -107,33 +107,33 @@
   export class UserDataTaskStore {
     constructor();
 
-    createListAsync(name: String, callback: (error: Error, result: UserDataTaskList) => void): void ;
-    createListAsync(name: String, userDataAccountId: String, callback: (error: Error, result: UserDataTaskList) => void): void ;
+    createListAsync(name: string, callback: (error: Error, result: UserDataTaskList) => void): void ;
+    createListAsync(name: string, userDataAccountId: string, callback: (error: Error, result: UserDataTaskList) => void): void ;
 
     findListsAsync(callback: (error: Error, result: Object) => void): void ;
 
-    getListAsync(taskListId: String, callback: (error: Error, result: UserDataTaskList) => void): void ;
+    getListAsync(taskListId: string, callback: (error: Error, result: UserDataTaskList) => void): void ;
 
   }
 
   export class UserDataTaskList {
     otherAppWriteAccess: UserDataTaskListOtherAppWriteAccess;
     otherAppReadAccess: UserDataTaskListOtherAppReadAccess;
-    displayName: String;
-    id: String;
+    displayName: string;
+    id: string;
     limitedWriteOperations: UserDataTaskListLimitedWriteOperations;
-    sourceDisplayName: String;
+    sourceDisplayName: string;
     syncManager: UserDataTaskListSyncManager;
-    userDataAccountId: String;
+    userDataAccountId: string;
     constructor();
 
     registerSyncManagerAsync(callback: (error: Error) => void): void ;
 
-    getTaskAsync(userDataTask: String, callback: (error: Error, result: UserDataTask) => void): void ;
+    getTaskAsync(userDataTask: string, callback: (error: Error, result: UserDataTask) => void): void ;
 
     saveTaskAsync(userDataTask: UserDataTask, callback: (error: Error) => void): void ;
 
-    deleteTaskAsync(userDataTaskId: String, callback: (error: Error) => void): void ;
+    deleteTaskAsync(userDataTaskId: string, callback: (error: Error) => void): void ;
 
     deleteAsync(callback: (error: Error) => void): void ;
 
@@ -147,13 +147,13 @@
   export class UserDataTaskListLimitedWriteOperations {
     constructor();
 
-    tryCompleteTaskAsync(userDataTaskId: String, callback: (error: Error, result: String) => void): void ;
+    tryCompleteTaskAsync(userDataTaskId: string, callback: (error: Error, result: string) => void): void ;
 
-    tryCreateOrUpdateTaskAsync(userDataTask: UserDataTask, callback: (error: Error, result: Boolean) => void): void ;
+    tryCreateOrUpdateTaskAsync(userDataTask: UserDataTask, callback: (error: Error, result: boolean) => void): void ;
 
-    tryDeleteTaskAsync(userDataTaskId: String, callback: (error: Error, result: Boolean) => void): void ;
+    tryDeleteTaskAsync(userDataTaskId: string, callback: (error: Error, result: boolean) => void): void ;
 
-    trySkipOccurrenceAsync(userDataTaskId: String, callback: (error: Error, result: Boolean) => void): void ;
+    trySkipOccurrenceAsync(userDataTaskId: string, callback: (error: Error, result: boolean) => void): void ;
 
   }
 
@@ -163,7 +163,7 @@
     lastAttemptedSyncTime: Date;
     constructor();
 
-    syncAsync(callback: (error: Error, result: Boolean) => void): void ;
+    syncAsync(callback: (error: Error, result: boolean) => void): void ;
 
     addListener(type: "SyncStatusChanged", listener: (ev: Event) => void): void ;
     removeListener(type: "SyncStatusChanged", listener: (ev: Event) => void): void ;
@@ -199,15 +199,15 @@
     dueDate: Date;
     detailsKind: UserDataTaskDetailsKind;
     startDate: Date;
-    details: String;
-    subject: String;
+    details: string;
+    subject: string;
     sensitivity: UserDataTaskSensitivity;
-    remoteId: String;
+    remoteId: string;
     reminder: Date;
     recurrenceProperties: UserDataTaskRecurrenceProperties;
-    id: String;
+    id: string;
     kind: UserDataTaskKind;
-    listId: String;
+    listId: string;
     constructor();
 
   }
@@ -222,11 +222,11 @@
     weekOfMonth: UserDataTaskWeekOfMonth;
     until: Date;
     unit: UserDataTaskRecurrenceUnit;
-    occurrences: Number;
-    month: Number;
-    interval: Number;
+    occurrences: number;
+    month: number;
+    interval: number;
     daysOfWeek: UserDataTaskDaysOfWeek;
-    day: Number;
+    day: number;
     constructor();
 
   }
@@ -234,8 +234,8 @@
   export class UserDataTaskRegenerationProperties {
     until: Date;
     unit: UserDataTaskRegenerationUnit;
-    occurrences: Number;
-    interval: Number;
+    occurrences: number;
+    interval: number;
     constructor();
 
   }

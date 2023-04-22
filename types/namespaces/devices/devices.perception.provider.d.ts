@@ -1,15 +1,15 @@
   export class Vector3 {
-    x: Number;
-    y: Number;
-    z: Number;
+    x: number;
+    y: number;
+    z: number;
     constructor();
   }
 
   export class Quaternion {
-    x: Number;
-    y: Number;
-    z: Number;
-    w: Number;
+    x: number;
+    y: number;
+    z: number;
+    w: number;
     constructor();
   }
 
@@ -25,17 +25,17 @@
   }
 
   export class PerceptionFrameProviderInfo {
-    id: String;
-    hidden: Boolean;
-    frameKind: String;
-    displayName: String;
-    deviceKind: String;
+    id: string;
+    hidden: boolean;
+    frameKind: string;
+    displayName: string;
+    deviceKind: string;
     constructor();
 
   }
 
   export class IPerceptionFrameProvider {
-    available: Boolean;
+    available: boolean;
     frameProviderInfo: PerceptionFrameProviderInfo;
     properties: Object;
     constructor();
@@ -49,8 +49,8 @@
   }
 
   export class PerceptionPropertyChangeRequest {
-    status: Number;
-    name: String;
+    status: number;
+    name: string;
     value: Object;
     constructor();
 
@@ -80,7 +80,7 @@
   }
 
   export class PerceptionFrame {
-    relativeTime: Number;
+    relativeTime: number;
     frameData: Object;
     properties: Object;
     constructor();
@@ -90,15 +90,15 @@
   export class PerceptionCorrelation {
     orientation: Quaternion;
     position: Vector3;
-    targetId: String;
+    targetId: string;
     constructor();
-    constructor(targetId: String, position: Vector3, orientation: Quaternion);
+    constructor(targetId: string, position: Vector3, orientation: Quaternion);
 
   }
 
   export class PerceptionVideoFrameAllocator {
     constructor();
-    constructor(maxOutstandingFrameCountForWrite: Number, format: Number, resolution: Object, alpha: Number);
+    constructor(maxOutstandingFrameCountForWrite: number, format: number, resolution: Object, alpha: number);
 
     allocateFrame(): PerceptionFrame;
 
@@ -134,7 +134,7 @@
     static unregisterCorrelationGroup(manager: IPerceptionFrameProviderManager, correlationGroup: PerceptionCorrelationGroup): void;
 
 
-    static updateAvailabilityForProvider(provider: IPerceptionFrameProvider, available: Boolean): void;
+    static updateAvailabilityForProvider(provider: IPerceptionFrameProvider, available: boolean): void;
 
 
     static publishFrameForProvider(provider: IPerceptionFrameProvider, frame: PerceptionFrame): void;
@@ -143,9 +143,9 @@
   }
 
   export class KnownPerceptionFrameKind {
-    static color: String;
-    static depth: String;
-    static infrared: String;
+    static color: string;
+    static depth: string;
+    static infrared: string;
     constructor();
 
   }

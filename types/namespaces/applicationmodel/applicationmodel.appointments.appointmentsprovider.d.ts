@@ -1,56 +1,56 @@
   export class AppointmentsProviderLaunchActionVerbs {
-    static addAppointment: String;
-    static removeAppointment: String;
-    static replaceAppointment: String;
-    static showTimeFrame: String;
-    static showAppointmentDetails: String;
+    static addAppointment: string;
+    static removeAppointment: string;
+    static replaceAppointment: string;
+    static showTimeFrame: string;
+    static showAppointmentDetails: string;
     constructor();
 
   }
 
   export class AddAppointmentOperation {
     appointmentInformation: Object;
-    sourcePackageFamilyName: String;
+    sourcePackageFamilyName: string;
     constructor();
 
-    reportCompleted(itemId: String): void;
+    reportCompleted(itemId: string): void;
 
     reportCanceled(): void;
 
-    reportError(value: String): void;
+    reportError(value: string): void;
 
     dismissUI(): void;
 
   }
 
   export class ReplaceAppointmentOperation {
-    appointmentId: String;
+    appointmentId: string;
     appointmentInformation: Object;
     instanceStartDate: Date;
-    sourcePackageFamilyName: String;
+    sourcePackageFamilyName: string;
     constructor();
 
-    reportCompleted(itemId: String): void;
+    reportCompleted(itemId: string): void;
 
     reportCanceled(): void;
 
-    reportError(value: String): void;
+    reportError(value: string): void;
 
     dismissUI(): void;
 
   }
 
   export class RemoveAppointmentOperation {
-    appointmentId: String;
+    appointmentId: string;
     instanceStartDate: Date;
-    sourcePackageFamilyName: String;
+    sourcePackageFamilyName: string;
     constructor();
 
     reportCompleted(): void;
 
     reportCanceled(): void;
 
-    reportError(value: String): void;
+    reportError(value: string): void;
 
     dismissUI(): void;
 

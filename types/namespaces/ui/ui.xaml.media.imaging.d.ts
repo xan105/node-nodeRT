@@ -16,7 +16,7 @@
   }
 
   export class DownloadProgressEventArgs {
-    progress: Number;
+    progress: number;
     constructor();
 
   }
@@ -24,8 +24,8 @@
   export class BitmapSource {
     static pixelHeightProperty: Object;
     static pixelWidthProperty: Object;
-    pixelHeight: Number;
-    pixelWidth: Number;
+    pixelHeight: number;
+    pixelWidth: number;
     dispatcher: Object;
     constructor();
 
@@ -38,13 +38,13 @@
   export class RenderTargetBitmap {
     static pixelHeightProperty: Object;
     static pixelWidthProperty: Object;
-    pixelHeight: Number;
-    pixelWidth: Number;
+    pixelHeight: number;
+    pixelWidth: number;
     dispatcher: Object;
     constructor();
 
     renderAsync(element: Object, callback: (error: Error) => void): void ;
-    renderAsync(element: Object, scaledWidth: Number, scaledHeight: Number, callback: (error: Error) => void): void ;
+    renderAsync(element: Object, scaledWidth: number, scaledHeight: number, callback: (error: Error) => void): void ;
 
     getPixelsAsync(callback: (error: Error, result: Object) => void): void ;
 
@@ -53,8 +53,8 @@
   export class SurfaceImageSource {
     dispatcher: Object;
     constructor();
-    constructor(pixelWidth: Number, pixelHeight: Number);
-    constructor(pixelWidth: Number, pixelHeight: Number, isOpaque: Boolean);
+    constructor(pixelWidth: number, pixelHeight: number);
+    constructor(pixelWidth: number, pixelHeight: number, isOpaque: boolean);
 
   }
 
@@ -70,15 +70,15 @@
     static pixelHeightProperty: Object;
     static pixelWidthProperty: Object;
     uriSource: Object;
-    decodePixelWidth: Number;
-    decodePixelHeight: Number;
+    decodePixelWidth: number;
+    decodePixelHeight: number;
     createOptions: BitmapCreateOptions;
     decodePixelType: DecodePixelType;
-    autoPlay: Boolean;
-    isAnimatedBitmap: Boolean;
-    isPlaying: Boolean;
-    pixelHeight: Number;
-    pixelWidth: Number;
+    autoPlay: boolean;
+    isAnimatedBitmap: boolean;
+    isPlaying: boolean;
+    pixelHeight: number;
+    pixelWidth: number;
     dispatcher: Object;
     constructor();
     constructor(uriSource: Object);
@@ -113,8 +113,8 @@
   export class VirtualSurfaceImageSource {
     dispatcher: Object;
     constructor();
-    constructor(pixelWidth: Number, pixelHeight: Number);
-    constructor(pixelWidth: Number, pixelHeight: Number, isOpaque: Boolean);
+    constructor(pixelWidth: number, pixelHeight: number);
+    constructor(pixelWidth: number, pixelHeight: number, isOpaque: boolean);
 
   }
 
@@ -122,11 +122,11 @@
     static pixelHeightProperty: Object;
     static pixelWidthProperty: Object;
     pixelBuffer: Object;
-    pixelHeight: Number;
-    pixelWidth: Number;
+    pixelHeight: number;
+    pixelWidth: number;
     dispatcher: Object;
     constructor();
-    constructor(pixelWidth: Number, pixelHeight: Number);
+    constructor(pixelWidth: number, pixelHeight: number);
 
     invalidate(): void;
 
@@ -164,8 +164,8 @@
     static rasterizePixelWidthProperty: Object;
     static uriSourceProperty: Object;
     uriSource: Object;
-    rasterizePixelWidth: Number;
-    rasterizePixelHeight: Number;
+    rasterizePixelWidth: number;
+    rasterizePixelHeight: number;
     dispatcher: Object;
     constructor();
     constructor(uriSource: Object);

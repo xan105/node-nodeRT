@@ -43,14 +43,14 @@
   }
 
   export class AnalyticsVersionInfo {
-    deviceFamily: String;
-    deviceFamilyVersion: String;
+    deviceFamily: string;
+    deviceFamilyVersion: string;
     constructor();
 
   }
 
   export class AnalyticsInfo {
-    static deviceForm: String;
+    static deviceForm: string;
     static versionInfo: AnalyticsVersionInfo;
     constructor();
 
@@ -60,7 +60,7 @@
   }
 
   export class EducationSettings {
-    static isEducationEnvironment: Boolean;
+    static isEducationEnvironment: boolean;
     constructor();
 
   }
@@ -69,7 +69,7 @@
     static collectionLevel: PlatformDataCollectionLevel;
     constructor();
 
-    static canCollectDiagnostics(level: PlatformDataCollectionLevel): Boolean;
+    static canCollectDiagnostics(level: PlatformDataCollectionLevel): boolean;
 
 
     addListener(type: "CollectionLevelChanged", listener: (ev: Event) => void): void ;
@@ -102,42 +102,42 @@
   }
 
   export class RetailInfo {
-    static isDemoModeEnabled: Boolean;
+    static isDemoModeEnabled: boolean;
     static properties: Object;
     constructor();
 
   }
 
   export class KnownRetailInfoProperties {
-    static batteryLifeDescription: String;
-    static displayDescription: String;
-    static displayModelName: String;
-    static formFactor: String;
-    static frontCameraDescription: String;
-    static graphicsDescription: String;
-    static hasNfc: String;
-    static hasOpticalDrive: String;
-    static hasSdSlot: String;
-    static isFeatured: String;
-    static isOfficeInstalled: String;
-    static manufacturerName: String;
-    static memory: String;
-    static modelName: String;
-    static price: String;
-    static processorDescription: String;
-    static rearCameraDescription: String;
-    static retailAccessCode: String;
-    static screenSize: String;
-    static storageDescription: String;
-    static weight: String;
-    static windowsEdition: String;
+    static batteryLifeDescription: string;
+    static displayDescription: string;
+    static displayModelName: string;
+    static formFactor: string;
+    static frontCameraDescription: string;
+    static graphicsDescription: string;
+    static hasNfc: string;
+    static hasOpticalDrive: string;
+    static hasSdSlot: string;
+    static isFeatured: string;
+    static isOfficeInstalled: string;
+    static manufacturerName: string;
+    static memory: string;
+    static modelName: string;
+    static price: string;
+    static processorDescription: string;
+    static rearCameraDescription: string;
+    static retailAccessCode: string;
+    static screenSize: string;
+    static storageDescription: string;
+    static weight: string;
+    static windowsEdition: string;
     constructor();
 
   }
 
   export class SharedModeSettings {
-    static isEnabled: Boolean;
-    static shouldAvoidLocalStorage: Boolean;
+    static isEnabled: boolean;
+    static shouldAvoidLocalStorage: boolean;
     constructor();
 
   }

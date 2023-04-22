@@ -4,19 +4,19 @@
   }
 
   export class LicenseSatisfactionInfo {
-    isSatisfied: Boolean;
-    satisfiedByDevice: Boolean;
-    satisfiedByInstallMedia: Boolean;
-    satisfiedByOpenLicense: Boolean;
-    satisfiedByPass: Boolean;
-    satisfiedBySignedInUser: Boolean;
-    satisfiedByTrial: Boolean;
+    isSatisfied: boolean;
+    satisfiedByDevice: boolean;
+    satisfiedByInstallMedia: boolean;
+    satisfiedByOpenLicense: boolean;
+    satisfiedByPass: boolean;
+    satisfiedBySignedInUser: boolean;
+    satisfiedByTrial: boolean;
     constructor();
 
   }
 
   export class LicenseSatisfactionResult {
-    extendedError: Number;
+    extendedError: number;
     licenseSatisfactionInfos: Object;
     constructor();
 

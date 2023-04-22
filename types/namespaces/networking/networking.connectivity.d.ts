@@ -124,45 +124,45 @@
 
   export class IPInformation {
     networkAdapter: NetworkAdapter;
-    prefixLength: Number;
+    prefixLength: number;
     constructor();
 
   }
 
   export class DataPlanUsage {
     lastSyncTime: Date;
-    megabytesUsed: Number;
+    megabytesUsed: number;
     constructor();
 
   }
 
   export class ConnectionCost {
-    approachingDataLimit: Boolean;
+    approachingDataLimit: boolean;
     networkCostType: NetworkCostType;
-    overDataLimit: Boolean;
-    roaming: Boolean;
-    backgroundDataUsageRestricted: Boolean;
+    overDataLimit: boolean;
+    roaming: boolean;
+    backgroundDataUsageRestricted: boolean;
     constructor();
 
   }
 
   export class DataPlanStatus {
-    dataLimitInMegabytes: Number;
+    dataLimitInMegabytes: number;
     dataPlanUsage: DataPlanUsage;
-    inboundBitsPerSecond: Number;
-    maxTransferSizeInMegabytes: Number;
+    inboundBitsPerSecond: number;
+    maxTransferSizeInMegabytes: number;
     nextBillingCycle: Date;
-    outboundBitsPerSecond: Number;
+    outboundBitsPerSecond: number;
     constructor();
 
   }
 
   export class NetworkAdapter {
-    ianaInterfaceType: Number;
-    inboundMaxBitsPerSecond: Number;
-    networkAdapterId: String;
+    ianaInterfaceType: number;
+    inboundMaxBitsPerSecond: number;
+    networkAdapterId: string;
     networkItem: NetworkItem;
-    outboundMaxBitsPerSecond: Number;
+    outboundMaxBitsPerSecond: number;
     constructor();
 
     getConnectedProfileAsync(callback: (error: Error, result: ConnectionProfile) => void): void ;
@@ -170,8 +170,8 @@
   }
 
   export class DataUsage {
-    bytesReceived: Number;
-    bytesSent: Number;
+    bytesReceived: number;
+    bytesSent: number;
     constructor();
 
   }
@@ -186,45 +186,45 @@
   export class WlanConnectionProfileDetails {
     constructor();
 
-    getConnectedSsid(): String;
+    getConnectedSsid(): string;
 
   }
 
   export class NetworkUsage {
-    bytesReceived: Number;
-    bytesSent: Number;
-    connectionDuration: Number;
+    bytesReceived: number;
+    bytesSent: number;
+    connectionDuration: number;
     constructor();
 
   }
 
   export class ConnectivityInterval {
-    connectionDuration: Number;
+    connectionDuration: number;
     startTime: Date;
     constructor();
 
   }
 
   export class AttributedNetworkUsage {
-    attributionId: String;
-    attributionName: String;
+    attributionId: string;
+    attributionName: string;
     attributionThumbnail: Object;
-    bytesReceived: Number;
-    bytesSent: Number;
+    bytesReceived: number;
+    bytesSent: number;
     constructor();
 
   }
 
   export class ProviderNetworkUsage {
-    bytesReceived: Number;
-    bytesSent: Number;
-    providerId: String;
+    bytesReceived: number;
+    bytesSent: number;
+    providerId: string;
     constructor();
 
   }
 
   export class LanIdentifierData {
-    type: Number;
+    type: number;
     value: Object;
     constructor();
 
@@ -233,10 +233,10 @@
   export class ConnectionProfile {
     networkAdapter: NetworkAdapter;
     networkSecuritySettings: NetworkSecuritySettings;
-    profileName: String;
-    isWlanConnectionProfile: Boolean;
-    isWwanConnectionProfile: Boolean;
-    serviceProviderGuid: String;
+    profileName: string;
+    isWlanConnectionProfile: boolean;
+    isWwanConnectionProfile: boolean;
+    serviceProviderGuid: string;
     wlanConnectionProfileDetails: WlanConnectionProfileDetails;
     wwanConnectionProfileDetails: WwanConnectionProfileDetails;
     constructor();
@@ -260,7 +260,7 @@
     getLocalUsage(StartTime: Date, EndTime: Date): DataUsage;
     getLocalUsage(StartTime: Date, EndTime: Date, States: RoamingStates): DataUsage;
 
-    getSignalBars(): Number;
+    getSignalBars(): number;
 
     getDomainConnectivityLevel(): DomainConnectivityLevel;
 
@@ -268,36 +268,36 @@
 
   export class LanIdentifier {
     infrastructureId: LanIdentifierData;
-    networkAdapterId: String;
+    networkAdapterId: string;
     portId: LanIdentifierData;
     constructor();
 
   }
 
   export class ProxyConfiguration {
-    canConnectDirectly: Boolean;
+    canConnectDirectly: boolean;
     proxyUris: Object;
     constructor();
 
   }
 
   export class ConnectionProfileFilter {
-    serviceProviderGuid: String;
+    serviceProviderGuid: string;
     networkCostType: NetworkCostType;
-    isWwanConnectionProfile: Boolean;
-    isWlanConnectionProfile: Boolean;
-    isConnected: Boolean;
-    isRoaming: Boolean;
-    isOverDataLimit: Boolean;
-    isBackgroundDataUsageRestricted: Boolean;
+    isWwanConnectionProfile: boolean;
+    isWlanConnectionProfile: boolean;
+    isConnected: boolean;
+    isRoaming: boolean;
+    isOverDataLimit: boolean;
+    isBackgroundDataUsageRestricted: boolean;
     rawData: Object;
-    purposeGuid: String;
+    purposeGuid: string;
     constructor();
 
   }
 
   export class NetworkItem {
-    networkId: String;
+    networkId: string;
     constructor();
 
     getNetworkTypes(): NetworkTypes;
@@ -307,20 +307,20 @@
   export class RoutePolicy {
     connectionProfile: ConnectionProfile;
     hostName: Object;
-    hostNameType: Number;
+    hostNameType: number;
     constructor();
-    constructor(connectionProfile: ConnectionProfile, hostName: Object, type: Number);
+    constructor(connectionProfile: ConnectionProfile, hostName: Object, type: number);
 
   }
 
   export class CellularApnContext {
-    userName: String;
-    providerId: String;
-    password: String;
-    isCompressionEnabled: Boolean;
+    userName: string;
+    providerId: string;
+    password: string;
+    isCompressionEnabled: boolean;
     authenticationType: CellularApnAuthenticationType;
-    accessPointName: String;
-    profileName: String;
+    accessPointName: string;
+    profileName: string;
     constructor();
 
   }
@@ -353,7 +353,7 @@
     static getHostNames(): Object;
 
 
-    static getSortedEndpointPairs(destinationList: Object, sortOptions: Number): Object;
+    static getSortedEndpointPairs(destinationList: Object, sortOptions: number): Object;
 
 
     addListener(type: "NetworkStatusChanged", listener: (ev: Event) => void): void ;
@@ -384,21 +384,21 @@
   }
 
   export class NetworkStateChangeEventDetails {
-    hasNewConnectionCost: Boolean;
-    hasNewDomainConnectivityLevel: Boolean;
-    hasNewHostNameList: Boolean;
-    hasNewInternetConnectionProfile: Boolean;
-    hasNewNetworkConnectivityLevel: Boolean;
-    hasNewWwanRegistrationState: Boolean;
-    hasNewTetheringClientCount: Boolean;
-    hasNewTetheringOperationalState: Boolean;
+    hasNewConnectionCost: boolean;
+    hasNewDomainConnectivityLevel: boolean;
+    hasNewHostNameList: boolean;
+    hasNewInternetConnectionProfile: boolean;
+    hasNewNetworkConnectivityLevel: boolean;
+    hasNewWwanRegistrationState: boolean;
+    hasNewTetheringClientCount: boolean;
+    hasNewTetheringOperationalState: boolean;
     constructor();
 
   }
 
   export class WwanConnectionProfileDetails {
-    accessPointName: String;
-    homeProviderId: String;
+    accessPointName: string;
+    homeProviderId: string;
     iPKind: WwanNetworkIPKind;
     purposeGuids: Object;
     constructor();

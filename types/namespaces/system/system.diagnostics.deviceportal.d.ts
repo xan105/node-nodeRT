@@ -16,7 +16,7 @@
   export class DevicePortalConnectionRequestReceivedEventArgs {
     requestMessage: Object;
     responseMessage: Object;
-    isWebSocketUpgradeRequest: Boolean;
+    isWebSocketUpgradeRequest: boolean;
     webSocketProtocolsRequested: Object;
     constructor();
 
@@ -31,11 +31,11 @@
 
 
     getServerMessageWebSocketForRequest(request: Object): Object;
-    getServerMessageWebSocketForRequest(request: Object, messageType: Number, protocol: String): Object;
-    getServerMessageWebSocketForRequest(request: Object, messageType: Number, protocol: String, outboundBufferSizeInBytes: Number, maxMessageSize: Number, receiveMode: Number): Object;
+    getServerMessageWebSocketForRequest(request: Object, messageType: number, protocol: string): Object;
+    getServerMessageWebSocketForRequest(request: Object, messageType: number, protocol: string, outboundBufferSizeInBytes: number, maxMessageSize: number, receiveMode: number): Object;
 
     getServerStreamWebSocketForRequest(request: Object): Object;
-    getServerStreamWebSocketForRequest(request: Object, protocol: String, outboundBufferSizeInBytes: Number, noDelay: Boolean): Object;
+    getServerStreamWebSocketForRequest(request: Object, protocol: string, outboundBufferSizeInBytes: number, noDelay: boolean): Object;
 
     addListener(type: "Closed", listener: (ev: Event) => void): void ;
     removeListener(type: "Closed", listener: (ev: Event) => void): void ;

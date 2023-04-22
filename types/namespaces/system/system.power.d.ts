@@ -21,8 +21,8 @@
     static batteryStatus: BatteryStatus;
     static energySaverStatus: EnergySaverStatus;
     static powerSupplyStatus: PowerSupplyStatus;
-    static remainingChargePercent: Number;
-    static remainingDischargeTime: Number;
+    static remainingChargePercent: number;
+    static remainingDischargeTime: number;
     constructor();
 
     addListener(type: "BatteryStatusChanged", listener: (ev: Event) => void): void ;
@@ -59,14 +59,14 @@
   }
 
   export class BackgroundEnergyManager {
-    static excessiveUsageLevel: Number;
-    static lowUsageLevel: Number;
-    static maxAcceptableUsageLevel: Number;
-    static nearMaxAcceptableUsageLevel: Number;
-    static nearTerminationUsageLevel: Number;
-    static recentEnergyUsage: Number;
-    static recentEnergyUsageLevel: Number;
-    static terminationUsageLevel: Number;
+    static excessiveUsageLevel: number;
+    static lowUsageLevel: number;
+    static maxAcceptableUsageLevel: number;
+    static nearMaxAcceptableUsageLevel: number;
+    static nearTerminationUsageLevel: number;
+    static recentEnergyUsage: number;
+    static recentEnergyUsageLevel: number;
+    static terminationUsageLevel: number;
     constructor();
 
     addListener(type: "RecentEnergyUsageIncreased", listener: (ev: Event) => void): void ;
@@ -88,12 +88,12 @@
   }
 
   export class ForegroundEnergyManager {
-    static excessiveUsageLevel: Number;
-    static lowUsageLevel: Number;
-    static maxAcceptableUsageLevel: Number;
-    static nearMaxAcceptableUsageLevel: Number;
-    static recentEnergyUsage: Number;
-    static recentEnergyUsageLevel: Number;
+    static excessiveUsageLevel: number;
+    static lowUsageLevel: number;
+    static maxAcceptableUsageLevel: number;
+    static nearMaxAcceptableUsageLevel: number;
+    static recentEnergyUsage: number;
+    static recentEnergyUsageLevel: number;
     constructor();
 
     addListener(type: "RecentEnergyUsageIncreased", listener: (ev: Event) => void): void ;

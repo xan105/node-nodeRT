@@ -11,8 +11,8 @@
   }
 
   export class PlatformTelemetryRegistrationSettings {
-    uploadQuotaSize: Number;
-    storageSize: Number;
+    uploadQuotaSize: number;
+    storageSize: number;
     constructor();
 
   }
@@ -20,8 +20,8 @@
   export class PlatformTelemetryClient {
     constructor();
 
-    static register(id: String): PlatformTelemetryRegistrationResult;
-    static register(id: String, settings: PlatformTelemetryRegistrationSettings): PlatformTelemetryRegistrationResult;
+    static register(id: string): PlatformTelemetryRegistrationResult;
+    static register(id: string, settings: PlatformTelemetryRegistrationSettings): PlatformTelemetryRegistrationResult;
 
 
   }

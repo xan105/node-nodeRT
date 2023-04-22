@@ -3,20 +3,20 @@
   }
 
   export class Lamp {
-    isEnabled: Boolean;
+    isEnabled: boolean;
     color: Object;
-    brightnessLevel: Number;
-    deviceId: String;
-    isColorSettable: Boolean;
+    brightnessLevel: number;
+    deviceId: string;
+    isColorSettable: boolean;
     constructor();
 
-    static fromIdAsync(deviceId: String, callback: (error: Error, result: Lamp) => void): void ;
+    static fromIdAsync(deviceId: string, callback: (error: Error, result: Lamp) => void): void ;
 
 
     static getDefaultAsync(callback: (error: Error, result: Lamp) => void): void ;
 
 
-    static getDeviceSelector(): String;
+    static getDeviceSelector(): string;
 
 
     close(): void;
@@ -34,7 +34,7 @@
   }
 
   export class LampAvailabilityChangedEventArgs {
-    isAvailable: Boolean;
+    isAvailable: boolean;
     constructor();
 
   }

@@ -17,19 +17,19 @@
   }
 
   export class GameSaveContainer {
-    name: String;
+    name: string;
     provider: GameSaveProvider;
     constructor();
 
-    submitUpdatesAsync(blobsToWrite: Object, blobsToDelete: Object, displayName: String, callback: (error: Error, result: GameSaveOperationResult) => void): void ;
+    submitUpdatesAsync(blobsToWrite: Object, blobsToDelete: Object, displayName: string, callback: (error: Error, result: GameSaveOperationResult) => void): void ;
 
     readAsync(blobsToRead: Object, callback: (error: Error, result: GameSaveOperationResult) => void): void ;
 
     getAsync(blobsToRead: Object, callback: (error: Error, result: GameSaveBlobGetResult) => void): void ;
 
-    submitPropertySetUpdatesAsync(blobsToWrite: Object, blobsToDelete: Object, displayName: String, callback: (error: Error, result: GameSaveOperationResult) => void): void ;
+    submitPropertySetUpdatesAsync(blobsToWrite: Object, blobsToDelete: Object, displayName: string, callback: (error: Error, result: GameSaveOperationResult) => void): void ;
 
-    createBlobInfoQuery(blobNamePrefix: String): GameSaveBlobInfoQuery;
+    createBlobInfoQuery(blobNamePrefix: string): GameSaveBlobInfoQuery;
 
   }
 
@@ -43,9 +43,9 @@
     constructor();
 
     getContainerInfoAsync(callback: (error: Error, result: GameSaveContainerInfoGetResult) => void): void ;
-    getContainerInfoAsync(startIndex: Number, maxNumberOfItems: Number, callback: (error: Error, result: GameSaveContainerInfoGetResult) => void): void ;
+    getContainerInfoAsync(startIndex: number, maxNumberOfItems: number, callback: (error: Error, result: GameSaveContainerInfoGetResult) => void): void ;
 
-    getItemCountAsync(callback: (error: Error, result: Number) => void): void ;
+    getItemCountAsync(callback: (error: Error, result: number) => void): void ;
 
   }
 
@@ -61,20 +61,20 @@
     user: Object;
     constructor();
 
-    static getForUserAsync(user: Object, serviceConfigId: String, callback: (error: Error, result: GameSaveProviderGetResult) => void): void ;
+    static getForUserAsync(user: Object, serviceConfigId: string, callback: (error: Error, result: GameSaveProviderGetResult) => void): void ;
 
 
-    static getSyncOnDemandForUserAsync(user: Object, serviceConfigId: String, callback: (error: Error, result: GameSaveProviderGetResult) => void): void ;
+    static getSyncOnDemandForUserAsync(user: Object, serviceConfigId: string, callback: (error: Error, result: GameSaveProviderGetResult) => void): void ;
 
 
-    deleteContainerAsync(name: String, callback: (error: Error, result: GameSaveOperationResult) => void): void ;
+    deleteContainerAsync(name: string, callback: (error: Error, result: GameSaveOperationResult) => void): void ;
 
-    getRemainingBytesInQuotaAsync(callback: (error: Error, result: Number) => void): void ;
+    getRemainingBytesInQuotaAsync(callback: (error: Error, result: number) => void): void ;
 
-    createContainer(name: String): GameSaveContainer;
+    createContainer(name: string): GameSaveContainer;
 
     createContainerInfoQuery(): GameSaveContainerInfoQuery;
-    createContainerInfoQuery(containerNamePrefix: String): GameSaveContainerInfoQuery;
+    createContainerInfoQuery(containerNamePrefix: string): GameSaveContainerInfoQuery;
 
   }
 
@@ -89,25 +89,25 @@
     constructor();
 
     getBlobInfoAsync(callback: (error: Error, result: GameSaveBlobInfoGetResult) => void): void ;
-    getBlobInfoAsync(startIndex: Number, maxNumberOfItems: Number, callback: (error: Error, result: GameSaveBlobInfoGetResult) => void): void ;
+    getBlobInfoAsync(startIndex: number, maxNumberOfItems: number, callback: (error: Error, result: GameSaveBlobInfoGetResult) => void): void ;
 
-    getItemCountAsync(callback: (error: Error, result: Number) => void): void ;
+    getItemCountAsync(callback: (error: Error, result: number) => void): void ;
 
   }
 
   export class GameSaveContainerInfo {
-    displayName: String;
+    displayName: string;
     lastModifiedTime: Date;
-    name: String;
-    needsSync: Boolean;
-    totalSize: Number;
+    name: string;
+    needsSync: boolean;
+    totalSize: number;
     constructor();
 
   }
 
   export class GameSaveBlobInfo {
-    name: String;
-    size: Number;
+    name: string;
+    size: number;
     constructor();
 
   }

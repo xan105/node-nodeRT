@@ -6,8 +6,8 @@
   }
 
   export class WebUIPrintTaskSettingsActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     configuration: Object;
     activatedOperation: ActivatedOperation;
@@ -16,8 +16,8 @@
   }
 
   export class WebUIPrint3DWorkflowActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     workflow: Object;
     activatedOperation: ActivatedOperation;
@@ -26,12 +26,12 @@
   }
 
   export class WebUILockScreenCallActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
-    currentlyShownApplicationViewId: Number;
-    arguments: String;
-    tileId: String;
+    currentlyShownApplicationViewId: number;
+    arguments: string;
+    tileId: string;
     callUI: Object;
     activatedOperation: ActivatedOperation;
     constructor();
@@ -39,8 +39,8 @@
   }
 
   export class WebUICameraSettingsActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     videoDeviceController: Object;
     videoDeviceExtension: Object;
@@ -50,8 +50,8 @@
   }
 
   export class WebUIContactPickerActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     contactPickerUI: Object;
     activatedOperation: ActivatedOperation;
@@ -60,36 +60,36 @@
   }
 
   export class WebUIContactCallActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
-    verb: String;
+    verb: string;
     contact: Object;
-    serviceId: String;
-    serviceUserId: String;
+    serviceId: string;
+    serviceUserId: string;
     activatedOperation: ActivatedOperation;
     constructor();
 
   }
 
   export class WebUIContactMessageActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
-    verb: String;
+    verb: string;
     contact: Object;
-    serviceId: String;
-    serviceUserId: String;
+    serviceId: string;
+    serviceUserId: string;
     activatedOperation: ActivatedOperation;
     constructor();
 
   }
 
   export class WebUIContactMapActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
-    verb: String;
+    verb: string;
     address: Object;
     contact: Object;
     activatedOperation: ActivatedOperation;
@@ -98,38 +98,38 @@
   }
 
   export class WebUIContactPostActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
-    verb: String;
+    verb: string;
     contact: Object;
-    serviceId: String;
-    serviceUserId: String;
+    serviceId: string;
+    serviceUserId: string;
     activatedOperation: ActivatedOperation;
     constructor();
 
   }
 
   export class WebUIContactVideoCallActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
-    verb: String;
+    verb: string;
     contact: Object;
-    serviceId: String;
-    serviceUserId: String;
+    serviceId: string;
+    serviceUserId: string;
     activatedOperation: ActivatedOperation;
     constructor();
 
   }
 
   export class WebUISearchActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
-    currentlyShownApplicationViewId: Number;
-    language: String;
-    queryText: String;
+    currentlyShownApplicationViewId: number;
+    language: string;
+    queryText: string;
     linguisticDetails: Object;
     activatedOperation: ActivatedOperation;
     constructor();
@@ -137,23 +137,23 @@
   }
 
   export class WebUIWalletActionActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
-    actionId: String;
-    actionKind: Number;
-    itemId: String;
+    actionId: string;
+    actionKind: number;
+    itemId: string;
     activatedOperation: ActivatedOperation;
     constructor();
 
   }
 
   export class WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     user: Object;
-    verb: String;
+    verb: string;
     addAppointmentOperation: Object;
     activatedOperation: ActivatedOperation;
     constructor();
@@ -161,11 +161,11 @@
   }
 
   export class WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     user: Object;
-    verb: String;
+    verb: string;
     replaceAppointmentOperation: Object;
     activatedOperation: ActivatedOperation;
     constructor();
@@ -173,11 +173,11 @@
   }
 
   export class WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     user: Object;
-    verb: String;
+    verb: string;
     removeAppointmentOperation: Object;
     activatedOperation: ActivatedOperation;
     constructor();
@@ -185,26 +185,26 @@
   }
 
   export class WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     user: Object;
-    verb: String;
+    verb: string;
     instanceStartDate: Date;
-    localId: String;
-    roamingId: String;
+    localId: string;
+    roamingId: string;
     activatedOperation: ActivatedOperation;
     constructor();
 
   }
 
   export class WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     user: Object;
-    verb: String;
-    duration: Number;
+    verb: string;
+    duration: number;
     timeToShow: Date;
     activatedOperation: ActivatedOperation;
     constructor();
@@ -212,8 +212,8 @@
   }
 
   export class WebUIContactPanelActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     user: Object;
     contact: Object;
@@ -224,8 +224,8 @@
   }
 
   export class WebUIShareTargetActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     user: Object;
     shareOperation: Object;
@@ -235,8 +235,8 @@
   }
 
   export class WebUIUserDataAccountProviderActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     operation: Object;
     activatedOperation: ActivatedOperation;
@@ -245,8 +245,8 @@
   }
 
   export class WebUIDevicePairingActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     user: Object;
     deviceInformation: Object;
@@ -256,8 +256,8 @@
   }
 
   export class WebUIVoiceCommandActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     user: Object;
     result: Object;
@@ -287,28 +287,28 @@
   }
 
   export class WebUILaunchActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     user: Object;
-    currentlyShownApplicationViewId: Number;
-    arguments: String;
-    tileId: String;
+    currentlyShownApplicationViewId: number;
+    arguments: string;
+    tileId: string;
     tileActivatedInfo: Object;
-    prelaunchActivated: Boolean;
+    prelaunchActivated: boolean;
     activatedOperation: ActivatedOperation;
     constructor();
 
   }
 
   export class WebUIFileActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     user: Object;
-    currentlyShownApplicationViewId: Number;
+    currentlyShownApplicationViewId: number;
     files: Object;
-    verb: String;
+    verb: string;
     neighboringFilesQuery: Object;
     activatedOperation: ActivatedOperation;
     constructor();
@@ -316,13 +316,13 @@
   }
 
   export class WebUIProtocolActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     user: Object;
-    currentlyShownApplicationViewId: Number;
+    currentlyShownApplicationViewId: number;
     uri: Object;
-    callerPackageFamilyName: String;
+    callerPackageFamilyName: string;
     data: Object;
     activatedOperation: ActivatedOperation;
     constructor();
@@ -330,13 +330,13 @@
   }
 
   export class WebUIProtocolForResultsActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     user: Object;
-    currentlyShownApplicationViewId: Number;
+    currentlyShownApplicationViewId: number;
     uri: Object;
-    callerPackageFamilyName: String;
+    callerPackageFamilyName: string;
     data: Object;
     protocolForResultsOperation: Object;
     activatedOperation: ActivatedOperation;
@@ -345,33 +345,33 @@
   }
 
   export class WebUIFileOpenPickerActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     user: Object;
     fileOpenPickerUI: Object;
-    callerPackageFamilyName: String;
+    callerPackageFamilyName: string;
     activatedOperation: ActivatedOperation;
     constructor();
 
   }
 
   export class WebUIFileSavePickerActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     user: Object;
     fileSavePickerUI: Object;
-    callerPackageFamilyName: String;
-    enterpriseId: String;
+    callerPackageFamilyName: string;
+    enterpriseId: string;
     activatedOperation: ActivatedOperation;
     constructor();
 
   }
 
   export class WebUICachedFileUpdaterActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     user: Object;
     cachedFileUpdaterUI: Object;
@@ -381,24 +381,24 @@
   }
 
   export class WebUIDeviceActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     user: Object;
-    currentlyShownApplicationViewId: Number;
-    deviceInformationId: String;
-    verb: String;
+    currentlyShownApplicationViewId: number;
+    deviceInformationId: string;
+    verb: string;
     activatedOperation: ActivatedOperation;
     constructor();
 
   }
 
   export class WebUILockScreenActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     user: Object;
-    currentlyShownApplicationViewId: Number;
+    currentlyShownApplicationViewId: number;
     info: Object;
     activatedOperation: ActivatedOperation;
     constructor();
@@ -406,8 +406,8 @@
   }
 
   export class WebUIRestrictedLaunchActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     user: Object;
     sharedContext: Object;
@@ -417,8 +417,8 @@
   }
 
   export class WebUIFileOpenPickerContinuationEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     user: Object;
     continuationData: Object;
@@ -429,8 +429,8 @@
   }
 
   export class WebUIFileSavePickerContinuationEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     user: Object;
     continuationData: Object;
@@ -441,8 +441,8 @@
   }
 
   export class WebUIFolderPickerContinuationEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     user: Object;
     continuationData: Object;
@@ -453,8 +453,8 @@
   }
 
   export class WebUIWebAuthenticationBrokerContinuationEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     continuationData: Object;
     webAuthenticationResult: Object;
@@ -464,8 +464,8 @@
   }
 
   export class WebUIWebAccountProviderActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     user: Object;
     operation: Object;
@@ -475,25 +475,25 @@
   }
 
   export class WebUIDialReceiverActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     user: Object;
-    currentlyShownApplicationViewId: Number;
-    appName: String;
-    arguments: String;
-    tileId: String;
+    currentlyShownApplicationViewId: number;
+    appName: string;
+    arguments: string;
+    tileId: string;
     activatedOperation: ActivatedOperation;
     constructor();
 
   }
 
   export class WebUIToastNotificationActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     user: Object;
-    argument: String;
+    argument: string;
     userInput: Object;
     activatedOperation: ActivatedOperation;
     constructor();
@@ -501,8 +501,8 @@
   }
 
   export class WebUILockScreenComponentActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     activatedOperation: ActivatedOperation;
     constructor();
@@ -510,8 +510,8 @@
   }
 
   export class WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     activatedOperation: ActivatedOperation;
     constructor();
@@ -519,8 +519,8 @@
   }
 
   export class WebUICommandLineActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     user: Object;
     operation: Object;
@@ -530,22 +530,22 @@
   }
 
   export class WebUIStartupTaskActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     user: Object;
-    taskId: String;
+    taskId: string;
     activatedOperation: ActivatedOperation;
     constructor();
 
   }
 
   export class WebUIBarcodeScannerPreviewActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     user: Object;
-    connectionId: String;
+    connectionId: string;
     activatedOperation: ActivatedOperation;
     constructor();
 
@@ -600,18 +600,18 @@
   }
 
   export class IWebUIBackgroundTaskInstance {
-    succeeded: Boolean;
+    succeeded: boolean;
     constructor();
 
   }
 
   export class WebUIBackgroundTaskInstanceRuntimeClass {
-    progress: Number;
-    instanceId: String;
-    suspendedCount: Number;
+    progress: number;
+    instanceId: string;
+    suspendedCount: number;
     task: Object;
     triggerDetails: Object;
-    succeeded: Boolean;
+    succeeded: boolean;
     constructor();
 
     getDeferral(): Object;
@@ -651,13 +651,13 @@
   export class WebUIApplication {
     constructor();
 
-    static requestRestartAsync(launchArguments: String, callback: (error: Error, result: Number) => void): void ;
+    static requestRestartAsync(launchArguments: string, callback: (error: Error, result: number) => void): void ;
 
 
-    static requestRestartForUserAsync(user: Object, launchArguments: String, callback: (error: Error, result: Number) => void): void ;
+    static requestRestartForUserAsync(user: Object, launchArguments: string, callback: (error: Error, result: number) => void): void ;
 
 
-    static enablePrelaunch(value: Boolean): void;
+    static enablePrelaunch(value: boolean): void;
 
 
     addListener(type: "EnteredBackground", listener: (ev: Event) => void): void ;
@@ -699,18 +699,18 @@
   }
 
   export class HtmlPrintDocumentSource {
-    topMargin: Number;
-    shrinkToFit: Boolean;
-    rightMargin: Number;
-    percentScale: Number;
-    leftMargin: Number;
-    enableHeaderFooter: Boolean;
+    topMargin: number;
+    shrinkToFit: boolean;
+    rightMargin: number;
+    percentScale: number;
+    leftMargin: number;
+    enableHeaderFooter: boolean;
     content: PrintContent;
-    bottomMargin: Number;
-    pageRange: String;
+    bottomMargin: number;
+    pageRange: string;
     constructor();
 
-    trySetPageRange(strPageRange: String): Boolean;
+    trySetPageRange(strPageRange: string): boolean;
 
     close(): void;
   }

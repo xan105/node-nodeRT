@@ -11,15 +11,15 @@
   }
 
   export class XamlBinaryWriterErrorInformation {
-    inputStreamIndex: Number;
-    lineNumber: Number;
-    linePosition: Number;
+    inputStreamIndex: number;
+    lineNumber: number;
+    linePosition: number;
     constructor();
   }
 
   export class XmlnsDefinition {
-    xmlNamespace: String;
-    namespace: String;
+    xmlNamespace: string;
+    namespace: string;
     constructor();
   }
 
@@ -38,14 +38,14 @@
   export class IComponentConnector {
     constructor();
 
-    connect(connectionId: Number, target: Object): void;
+    connect(connectionId: number, target: Object): void;
 
   }
 
   export class IComponentConnector2 {
     constructor();
 
-    getBindingConnector(connectionId: Number, target: Object): IComponentConnector;
+    getBindingConnector(connectionId: number, target: Object): IComponentConnector;
 
   }
 
@@ -54,15 +54,15 @@
 
     recycle(): void;
 
-    processBindings(item: Object, itemIndex: Number, phase: Number, nextPhase: Number): void;
+    processBindings(item: Object, itemIndex: number, phase: number, nextPhase: number): void;
 
   }
 
   export class IXamlMember {
-    isAttachable: Boolean;
-    isDependencyProperty: Boolean;
-    isReadOnly: Boolean;
-    name: String;
+    isAttachable: boolean;
+    isDependencyProperty: boolean;
+    isReadOnly: boolean;
+    name: string;
     targetType: IXamlType;
     type: IXamlType;
     constructor();
@@ -76,13 +76,13 @@
   export class IXamlType {
     baseType: IXamlType;
     contentProperty: IXamlMember;
-    fullName: String;
-    isArray: Boolean;
-    isBindable: Boolean;
-    isCollection: Boolean;
-    isConstructible: Boolean;
-    isDictionary: Boolean;
-    isMarkupExtension: Boolean;
+    fullName: string;
+    isArray: boolean;
+    isBindable: boolean;
+    isCollection: boolean;
+    isConstructible: boolean;
+    isDictionary: boolean;
+    isMarkupExtension: boolean;
     itemType: IXamlType;
     keyType: IXamlType;
     underlyingType: Object;
@@ -90,9 +90,9 @@
 
     activateInstance(): Object;
 
-    createFromString(value: String): Object;
+    createFromString(value: string): Object;
 
-    getMember(name: String): IXamlMember;
+    getMember(name: string): IXamlMember;
 
     addToVector(instance: Object, value: Object): void;
 
@@ -106,7 +106,7 @@
     constructor();
 
     getXamlType(type: Object): IXamlType;
-    getXamlType(fullName: String): IXamlType;
+    getXamlType(fullName: string): IXamlType;
 
     getXmlnsDefinitions(): Array<XmlnsDefinition>;
 
@@ -146,34 +146,34 @@
     static convertValue(type: Object, value: Object): Object;
 
 
-    static setPropertyFromString(dependencyObject: Object, propertyToSet: Object, value: String): void;
+    static setPropertyFromString(dependencyObject: Object, propertyToSet: Object, value: string): void;
 
 
-    static setPropertyFromBoolean(dependencyObject: Object, propertyToSet: Object, value: Boolean): void;
+    static setPropertyFromBoolean(dependencyObject: Object, propertyToSet: Object, value: boolean): void;
 
 
-    static setPropertyFromChar16(dependencyObject: Object, propertyToSet: Object, value: String): void;
+    static setPropertyFromChar16(dependencyObject: Object, propertyToSet: Object, value: string): void;
 
 
     static setPropertyFromDateTime(dependencyObject: Object, propertyToSet: Object, value: Date): void;
 
 
-    static setPropertyFromDouble(dependencyObject: Object, propertyToSet: Object, value: Number): void;
+    static setPropertyFromDouble(dependencyObject: Object, propertyToSet: Object, value: number): void;
 
 
-    static setPropertyFromInt32(dependencyObject: Object, propertyToSet: Object, value: Number): void;
+    static setPropertyFromInt32(dependencyObject: Object, propertyToSet: Object, value: number): void;
 
 
-    static setPropertyFromUInt32(dependencyObject: Object, propertyToSet: Object, value: Number): void;
+    static setPropertyFromUInt32(dependencyObject: Object, propertyToSet: Object, value: number): void;
 
 
-    static setPropertyFromInt64(dependencyObject: Object, propertyToSet: Object, value: Number): void;
+    static setPropertyFromInt64(dependencyObject: Object, propertyToSet: Object, value: number): void;
 
 
-    static setPropertyFromUInt64(dependencyObject: Object, propertyToSet: Object, value: Number): void;
+    static setPropertyFromUInt64(dependencyObject: Object, propertyToSet: Object, value: number): void;
 
 
-    static setPropertyFromSingle(dependencyObject: Object, propertyToSet: Object, value: Number): void;
+    static setPropertyFromSingle(dependencyObject: Object, propertyToSet: Object, value: number): void;
 
 
     static setPropertyFromPoint(dependencyObject: Object, propertyToSet: Object, value: Object): void;
@@ -185,10 +185,10 @@
     static setPropertyFromSize(dependencyObject: Object, propertyToSet: Object, value: Object): void;
 
 
-    static setPropertyFromTimeSpan(dependencyObject: Object, propertyToSet: Object, value: Number): void;
+    static setPropertyFromTimeSpan(dependencyObject: Object, propertyToSet: Object, value: number): void;
 
 
-    static setPropertyFromByte(dependencyObject: Object, propertyToSet: Object, value: Number): void;
+    static setPropertyFromByte(dependencyObject: Object, propertyToSet: Object, value: number): void;
 
 
     static setPropertyFromUri(dependencyObject: Object, propertyToSet: Object, value: Object): void;
@@ -210,10 +210,10 @@
   export class XamlReader {
     constructor();
 
-    static load(xaml: String): Object;
+    static load(xaml: string): Object;
 
 
-    static loadWithInitialTemplateValidation(xaml: String): Object;
+    static loadWithInitialTemplateValidation(xaml: string): Object;
 
 
   }

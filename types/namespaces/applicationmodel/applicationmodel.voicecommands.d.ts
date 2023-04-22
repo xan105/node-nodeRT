@@ -20,11 +20,11 @@
   }
 
   export class VoiceCommandDefinition {
-    language: String;
-    name: String;
+    language: string;
+    name: string;
     constructor();
 
-    setPhraseListAsync(phraseListName: String, phraseList: Object, callback: (error: Error) => void): void ;
+    setPhraseListAsync(phraseListName: string, phraseList: Object, callback: (error: Error) => void): void ;
 
   }
 
@@ -38,27 +38,27 @@
   }
 
   export class VoiceCommandContentTile {
-    title: String;
-    textLine3: String;
-    textLine2: String;
-    textLine1: String;
+    title: string;
+    textLine3: string;
+    textLine2: string;
+    textLine1: string;
     image: Object;
     contentTileType: VoiceCommandContentTileType;
-    appLaunchArgument: String;
+    appLaunchArgument: string;
     appContext: Object;
     constructor();
 
   }
 
   export class VoiceCommandUserMessage {
-    spokenMessage: String;
-    displayMessage: String;
+    spokenMessage: string;
+    displayMessage: string;
     constructor();
 
   }
 
   export class VoiceCommand {
-    commandName: String;
+    commandName: string;
     properties: Object;
     speechRecognitionResult: Object;
     constructor();
@@ -66,10 +66,10 @@
   }
 
   export class VoiceCommandResponse {
-    static maxSupportedVoiceCommandContentTiles: Number;
+    static maxSupportedVoiceCommandContentTiles: number;
     repeatMessage: VoiceCommandUserMessage;
     message: VoiceCommandUserMessage;
-    appLaunchArgument: String;
+    appLaunchArgument: string;
     voiceCommandContentTiles: Object;
     constructor();
 
@@ -84,7 +84,7 @@
   }
 
   export class VoiceCommandConfirmationResult {
-    confirmed: Boolean;
+    confirmed: boolean;
     constructor();
 
   }

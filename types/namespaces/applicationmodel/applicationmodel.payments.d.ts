@@ -38,7 +38,7 @@
   }
 
   export class PaymentMerchantInfo {
-    packageFullName: String;
+    packageFullName: string;
     uri: Object;
     constructor();
     constructor(uri: Object);
@@ -57,17 +57,17 @@
   }
 
   export class PaymentMethodData {
-    jsonData: String;
+    jsonData: string;
     supportedMethodIds: Object;
     constructor();
     constructor(supportedMethodIds: Object);
-    constructor(supportedMethodIds: Object, jsonData: String);
+    constructor(supportedMethodIds: Object, jsonData: string);
 
   }
 
   export class PaymentOptions {
     shippingType: PaymentShippingType;
-    requestShipping: Boolean;
+    requestShipping: boolean;
     requestPayerPhoneNumber: PaymentOptionPresence;
     requestPayerName: PaymentOptionPresence;
     requestPayerEmail: PaymentOptionPresence;
@@ -80,9 +80,9 @@
     merchantInfo: PaymentMerchantInfo;
     methodData: Object;
     options: PaymentOptions;
-    id: String;
+    id: string;
     constructor();
-    constructor(details: PaymentDetails, methodData: Object, merchantInfo: PaymentMerchantInfo, options: PaymentOptions, id: String);
+    constructor(details: PaymentDetails, methodData: Object, merchantInfo: PaymentMerchantInfo, options: PaymentOptions, id: string);
     constructor(details: PaymentDetails, methodData: Object);
     constructor(details: PaymentDetails, methodData: Object, merchantInfo: PaymentMerchantInfo);
     constructor(details: PaymentDetails, methodData: Object, merchantInfo: PaymentMerchantInfo, options: PaymentOptions);
@@ -90,37 +90,37 @@
   }
 
   export class PaymentToken {
-    jsonDetails: String;
-    paymentMethodId: String;
+    jsonDetails: string;
+    paymentMethodId: string;
     constructor();
-    constructor(paymentMethodId: String);
-    constructor(paymentMethodId: String, jsonDetails: String);
+    constructor(paymentMethodId: string);
+    constructor(paymentMethodId: string, jsonDetails: string);
 
   }
 
   export class PaymentShippingOption {
-    tag: String;
-    label: String;
-    isSelected: Boolean;
+    tag: string;
+    label: string;
+    isSelected: boolean;
     amount: PaymentCurrencyAmount;
     constructor();
-    constructor(label: String, amount: PaymentCurrencyAmount);
-    constructor(label: String, amount: PaymentCurrencyAmount, selected: Boolean);
-    constructor(label: String, amount: PaymentCurrencyAmount, selected: Boolean, tag: String);
+    constructor(label: string, amount: PaymentCurrencyAmount);
+    constructor(label: string, amount: PaymentCurrencyAmount, selected: boolean);
+    constructor(label: string, amount: PaymentCurrencyAmount, selected: boolean, tag: string);
 
   }
 
   export class PaymentAddress {
-    sortingCode: String;
-    region: String;
-    recipient: String;
-    postalCode: String;
-    phoneNumber: String;
-    organization: String;
-    languageCode: String;
-    dependentLocality: String;
-    country: String;
-    city: String;
+    sortingCode: string;
+    region: string;
+    recipient: string;
+    postalCode: string;
+    phoneNumber: string;
+    organization: string;
+    languageCode: string;
+    dependentLocality: string;
+    country: string;
+    city: string;
     addressLines: Object;
     properties: Object;
     constructor();
@@ -128,43 +128,43 @@
   }
 
   export class PaymentItem {
-    pending: Boolean;
-    label: String;
+    pending: boolean;
+    label: string;
     amount: PaymentCurrencyAmount;
     constructor();
-    constructor(label: String, amount: PaymentCurrencyAmount);
+    constructor(label: string, amount: PaymentCurrencyAmount);
 
   }
 
   export class PaymentDetailsModifier {
     additionalDisplayItems: Object;
-    jsonData: String;
+    jsonData: string;
     supportedMethodIds: Object;
     total: PaymentItem;
     constructor();
     constructor(supportedMethodIds: Object, total: PaymentItem);
     constructor(supportedMethodIds: Object, total: PaymentItem, additionalDisplayItems: Object);
-    constructor(supportedMethodIds: Object, total: PaymentItem, additionalDisplayItems: Object, jsonData: String);
+    constructor(supportedMethodIds: Object, total: PaymentItem, additionalDisplayItems: Object, jsonData: string);
 
   }
 
   export class PaymentCurrencyAmount {
-    value: String;
-    currencySystem: String;
-    currency: String;
+    value: string;
+    currencySystem: string;
+    currency: string;
     constructor();
-    constructor(value: String, currency: String);
-    constructor(value: String, currency: String, currencySystem: String);
+    constructor(value: string, currency: string);
+    constructor(value: string, currency: string, currencySystem: string);
 
   }
 
   export class PaymentRequestChangedResult {
     updatedPaymentDetails: PaymentDetails;
-    message: String;
-    changeAcceptedByMerchant: Boolean;
+    message: string;
+    changeAcceptedByMerchant: boolean;
     constructor();
-    constructor(changeAcceptedByMerchant: Boolean);
-    constructor(changeAcceptedByMerchant: Boolean, updatedPaymentDetails: PaymentDetails);
+    constructor(changeAcceptedByMerchant: boolean);
+    constructor(changeAcceptedByMerchant: boolean, updatedPaymentDetails: PaymentDetails);
 
   }
 
@@ -193,9 +193,9 @@
   }
 
   export class PaymentResponse {
-    payerEmail: String;
-    payerName: String;
-    payerPhoneNumber: String;
+    payerEmail: string;
+    payerName: string;
+    payerPhoneNumber: string;
     paymentToken: PaymentToken;
     shippingAddress: PaymentAddress;
     shippingOption: PaymentShippingOption;

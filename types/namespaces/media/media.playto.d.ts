@@ -13,49 +13,49 @@
   }
 
   export class SourceChangeRequestedEventArgs {
-    album: String;
-    author: String;
+    album: string;
+    author: string;
     date: Date;
-    description: String;
-    genre: String;
+    description: string;
+    genre: string;
     properties: Object;
-    rating: Number;
+    rating: number;
     stream: Object;
     thumbnail: Object;
-    title: String;
+    title: string;
     constructor();
 
   }
 
   export class PlaybackRateChangeRequestedEventArgs {
-    rate: Number;
+    rate: number;
     constructor();
 
   }
 
   export class CurrentTimeChangeRequestedEventArgs {
-    time: Number;
+    time: number;
     constructor();
 
   }
 
   export class MuteChangeRequestedEventArgs {
-    mute: Boolean;
+    mute: boolean;
     constructor();
 
   }
 
   export class VolumeChangeRequestedEventArgs {
-    volume: Number;
+    volume: number;
     constructor();
 
   }
 
   export class PlayToReceiver {
-    supportsVideo: Boolean;
-    supportsImage: Boolean;
-    supportsAudio: Boolean;
-    friendlyName: String;
+    supportsVideo: boolean;
+    supportsImage: boolean;
+    supportsAudio: boolean;
+    friendlyName: string;
     properties: Object;
     constructor();
 
@@ -63,15 +63,15 @@
 
     stopAsync(callback: (error: Error) => void): void ;
 
-    notifyVolumeChange(volume: Number, mute: Boolean): void;
+    notifyVolumeChange(volume: number, mute: boolean): void;
 
-    notifyRateChange(rate: Number): void;
+    notifyRateChange(rate: number): void;
 
     notifyLoadedMetadata(): void;
 
-    notifyTimeUpdate(currentTime: Number): void;
+    notifyTimeUpdate(currentTime: number): void;
 
-    notifyDurationChange(duration: Number): void;
+    notifyDurationChange(duration: number): void;
 
     notifySeeking(): void;
 
@@ -193,17 +193,17 @@
 
   export class PlayToConnectionErrorEventArgs {
     code: PlayToConnectionError;
-    message: String;
+    message: string;
     constructor();
 
   }
 
   export class PlayToSourceSelectedEventArgs {
-    friendlyName: String;
+    friendlyName: string;
     icon: Object;
-    supportsAudio: Boolean;
-    supportsImage: Boolean;
-    supportsVideo: Boolean;
+    supportsAudio: boolean;
+    supportsImage: boolean;
+    supportsVideo: boolean;
     constructor();
 
   }
@@ -219,7 +219,7 @@
     deadline: Date;
     constructor();
 
-    displayErrorString(errorString: String): void;
+    displayErrorString(errorString: string): void;
 
     getDeferral(): PlayToSourceDeferral;
 
@@ -234,7 +234,7 @@
   }
 
   export class PlayToManager {
-    defaultSourceSelection: Boolean;
+    defaultSourceSelection: boolean;
     constructor();
 
     static getForCurrentView(): PlayToManager;

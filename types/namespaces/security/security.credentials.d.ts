@@ -56,7 +56,7 @@
   }
 
   export class KeyCredential {
-    name: String;
+    name: string;
     constructor();
 
     requestSignAsync(data: Object, callback: (error: Error, result: KeyCredentialOperationResult) => void): void ;
@@ -64,74 +64,74 @@
     getAttestationAsync(callback: (error: Error, result: KeyCredentialAttestationResult) => void): void ;
 
     retrievePublicKey(): Object;
-    retrievePublicKey(blobType: Number): Object;
+    retrievePublicKey(blobType: number): Object;
 
   }
 
   export class KeyCredentialManager {
     constructor();
 
-    static isSupportedAsync(callback: (error: Error, result: Boolean) => void): void ;
+    static isSupportedAsync(callback: (error: Error, result: boolean) => void): void ;
 
 
     static renewAttestationAsync(callback: (error: Error) => void): void ;
 
 
-    static requestCreateAsync(name: String, option: KeyCredentialCreationOption, callback: (error: Error, result: KeyCredentialRetrievalResult) => void): void ;
+    static requestCreateAsync(name: string, option: KeyCredentialCreationOption, callback: (error: Error, result: KeyCredentialRetrievalResult) => void): void ;
 
 
-    static openAsync(name: String, callback: (error: Error, result: KeyCredentialRetrievalResult) => void): void ;
+    static openAsync(name: string, callback: (error: Error, result: KeyCredentialRetrievalResult) => void): void ;
 
 
-    static deleteAsync(name: String, callback: (error: Error) => void): void ;
+    static deleteAsync(name: string, callback: (error: Error) => void): void ;
 
 
   }
 
   export class WebAccountProvider {
-    displayName: String;
+    displayName: string;
     iconUri: Object;
-    id: String;
-    authority: String;
-    displayPurpose: String;
+    id: string;
+    authority: string;
+    displayPurpose: string;
     user: Object;
-    isSystemProvider: Boolean;
+    isSystemProvider: boolean;
     constructor();
-    constructor(id: String, displayName: String, iconUri: Object);
+    constructor(id: string, displayName: string, iconUri: Object);
 
   }
 
   export class WebAccount {
     state: WebAccountState;
-    userName: String;
+    userName: string;
     webAccountProvider: WebAccountProvider;
-    id: String;
+    id: string;
     properties: Object;
     constructor();
-    constructor(webAccountProvider: WebAccountProvider, userName: String, state: WebAccountState);
+    constructor(webAccountProvider: WebAccountProvider, userName: string, state: WebAccountState);
 
     getPictureAsync(desizedSize: WebAccountPictureSize, callback: (error: Error, result: Object) => void): void ;
 
     signOutAsync(callback: (error: Error) => void): void ;
-    signOutAsync(clientId: String, callback: (error: Error) => void): void ;
+    signOutAsync(clientId: string, callback: (error: Error) => void): void ;
 
   }
 
   export class IWebAccount {
     state: WebAccountState;
-    userName: String;
+    userName: string;
     webAccountProvider: WebAccountProvider;
     constructor();
 
   }
 
   export class PasswordCredential {
-    userName: String;
-    resource: String;
-    password: String;
+    userName: string;
+    resource: string;
+    password: string;
     properties: Object;
     constructor();
-    constructor(resource: String, userName: String, password: String);
+    constructor(resource: string, userName: string, password: string);
 
     retrievePassword(): void;
 
@@ -144,11 +144,11 @@
 
     remove(credential: PasswordCredential): void;
 
-    retrieve(resource: String, userName: String): PasswordCredential;
+    retrieve(resource: string, userName: string): PasswordCredential;
 
-    findAllByResource(resource: String): Object;
+    findAllByResource(resource: string): Object;
 
-    findAllByUserName(userName: String): Object;
+    findAllByUserName(userName: string): Object;
 
     retrieveAll(): Object;
 
@@ -157,15 +157,15 @@
   export class PasswordCredentialPropertyStore {
     constructor();
 
-    lookup(key: String): Object;
+    lookup(key: string): Object;
 
-    hasKey(key: String): Boolean;
+    hasKey(key: string): boolean;
 
     getView(): Object;
 
-    insert(key: String, value: Object): Boolean;
+    insert(key: string, value: Object): boolean;
 
-    remove(key: String): void;
+    remove(key: string): void;
 
     clear(): void;
 

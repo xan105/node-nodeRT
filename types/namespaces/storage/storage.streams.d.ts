@@ -24,13 +24,13 @@
   }
 
   export class DataReaderLoadOperation {
-    errorCode: Number;
-    id: Number;
-    status: Number;
+    errorCode: number;
+    id: number;
+    status: number;
     completed: Object;
     constructor();
 
-    getResults(): Number;
+    getResults(): number;
 
     cancel(): void;
 
@@ -41,42 +41,42 @@
   export class IDataReader {
     byteOrder: ByteOrder;
     inputStreamOptions: InputStreamOptions;
-    unconsumedBufferLength: Number;
+    unconsumedBufferLength: number;
     unicodeEncoding: UnicodeEncoding;
     constructor();
 
-    loadAsync(count: Number, callback: (error: Error, result: Number) => void): void ;
+    loadAsync(count: number, callback: (error: Error, result: number) => void): void ;
 
-    readByte(): Number;
+    readByte(): number;
 
     readBytes();
-    readBuffer(length: Number): IBuffer;
+    readBuffer(length: number): IBuffer;
 
-    readBoolean(): Boolean;
+    readBoolean(): boolean;
 
-    readGuid(): String;
+    readGuid(): string;
 
-    readInt16(): Number;
+    readInt16(): number;
 
-    readInt32(): Number;
+    readInt32(): number;
 
-    readInt64(): Number;
+    readInt64(): number;
 
-    readUInt16(): Number;
+    readUInt16(): number;
 
-    readUInt32(): Number;
+    readUInt32(): number;
 
-    readUInt64(): Number;
+    readUInt64(): number;
 
-    readSingle(): Number;
+    readSingle(): number;
 
-    readDouble(): Number;
+    readDouble(): number;
 
-    readString(codeUnitCount: Number): String;
+    readString(codeUnitCount: number): string;
 
     readDateTime(): Date;
 
-    readTimeSpan(): Number;
+    readTimeSpan(): number;
 
     detachBuffer(): IBuffer;
 
@@ -88,45 +88,45 @@
     unicodeEncoding: UnicodeEncoding;
     inputStreamOptions: InputStreamOptions;
     byteOrder: ByteOrder;
-    unconsumedBufferLength: Number;
+    unconsumedBufferLength: number;
     constructor();
     constructor(inputStream: IInputStream);
 
     static fromBuffer(buffer: IBuffer): DataReader;
 
 
-    loadAsync(count: Number, callback: (error: Error, result: Number) => void): void ;
+    loadAsync(count: number, callback: (error: Error, result: number) => void): void ;
 
-    readByte(): Number;
+    readByte(): number;
 
     readBytes();
-    readBuffer(length: Number): IBuffer;
+    readBuffer(length: number): IBuffer;
 
-    readBoolean(): Boolean;
+    readBoolean(): boolean;
 
-    readGuid(): String;
+    readGuid(): string;
 
-    readInt16(): Number;
+    readInt16(): number;
 
-    readInt32(): Number;
+    readInt32(): number;
 
-    readInt64(): Number;
+    readInt64(): number;
 
-    readUInt16(): Number;
+    readUInt16(): number;
 
-    readUInt32(): Number;
+    readUInt32(): number;
 
-    readUInt64(): Number;
+    readUInt64(): number;
 
-    readSingle(): Number;
+    readSingle(): number;
 
-    readDouble(): Number;
+    readDouble(): number;
 
-    readString(codeUnitCount: Number): String;
+    readString(codeUnitCount: number): string;
 
     readDateTime(): Date;
 
-    readTimeSpan(): Number;
+    readTimeSpan(): number;
 
     detachBuffer(): IBuffer;
 
@@ -136,13 +136,13 @@
   }
 
   export class DataWriterStoreOperation {
-    errorCode: Number;
-    id: Number;
-    status: Number;
+    errorCode: number;
+    id: number;
+    status: number;
     completed: Object;
     constructor();
 
-    getResults(): Number;
+    getResults(): number;
 
     cancel(): void;
 
@@ -153,47 +153,47 @@
   export class IDataWriter {
     byteOrder: ByteOrder;
     unicodeEncoding: UnicodeEncoding;
-    unstoredBufferLength: Number;
+    unstoredBufferLength: number;
     constructor();
 
-    storeAsync(callback: (error: Error, result: Number) => void): void ;
+    storeAsync(callback: (error: Error, result: number) => void): void ;
 
-    flushAsync(callback: (error: Error, result: Boolean) => void): void ;
+    flushAsync(callback: (error: Error, result: boolean) => void): void ;
 
-    writeByte(value: Number): void;
+    writeByte(value: number): void;
 
-    writeBytes(value: Array<Number>): void;
+    writeBytes(value: Array<number>): void;
 
     writeBuffer(buffer: IBuffer): void;
-    writeBuffer(buffer: IBuffer, start: Number, count: Number): void;
+    writeBuffer(buffer: IBuffer, start: number, count: number): void;
 
-    writeBoolean(value: Boolean): void;
+    writeBoolean(value: boolean): void;
 
-    writeGuid(value: String): void;
+    writeGuid(value: string): void;
 
-    writeInt16(value: Number): void;
+    writeInt16(value: number): void;
 
-    writeInt32(value: Number): void;
+    writeInt32(value: number): void;
 
-    writeInt64(value: Number): void;
+    writeInt64(value: number): void;
 
-    writeUInt16(value: Number): void;
+    writeUInt16(value: number): void;
 
-    writeUInt32(value: Number): void;
+    writeUInt32(value: number): void;
 
-    writeUInt64(value: Number): void;
+    writeUInt64(value: number): void;
 
-    writeSingle(value: Number): void;
+    writeSingle(value: number): void;
 
-    writeDouble(value: Number): void;
+    writeDouble(value: number): void;
 
     writeDateTime(value: Date): void;
 
-    writeTimeSpan(value: Number): void;
+    writeTimeSpan(value: number): void;
 
-    writeString(value: String): Number;
+    writeString(value: string): number;
 
-    measureString(value: String): Number;
+    measureString(value: string): number;
 
     detachBuffer(): IBuffer;
 
@@ -204,48 +204,48 @@
   export class DataWriter {
     unicodeEncoding: UnicodeEncoding;
     byteOrder: ByteOrder;
-    unstoredBufferLength: Number;
+    unstoredBufferLength: number;
     constructor();
     constructor(outputStream: IOutputStream);
 
-    storeAsync(callback: (error: Error, result: Number) => void): void ;
+    storeAsync(callback: (error: Error, result: number) => void): void ;
 
-    flushAsync(callback: (error: Error, result: Boolean) => void): void ;
+    flushAsync(callback: (error: Error, result: boolean) => void): void ;
 
-    writeByte(value: Number): void;
+    writeByte(value: number): void;
 
-    writeBytes(value: Array<Number>): void;
+    writeBytes(value: Array<number>): void;
 
     writeBuffer(buffer: IBuffer): void;
-    writeBuffer(buffer: IBuffer, start: Number, count: Number): void;
+    writeBuffer(buffer: IBuffer, start: number, count: number): void;
 
-    writeBoolean(value: Boolean): void;
+    writeBoolean(value: boolean): void;
 
-    writeGuid(value: String): void;
+    writeGuid(value: string): void;
 
-    writeInt16(value: Number): void;
+    writeInt16(value: number): void;
 
-    writeInt32(value: Number): void;
+    writeInt32(value: number): void;
 
-    writeInt64(value: Number): void;
+    writeInt64(value: number): void;
 
-    writeUInt16(value: Number): void;
+    writeUInt16(value: number): void;
 
-    writeUInt32(value: Number): void;
+    writeUInt32(value: number): void;
 
-    writeUInt64(value: Number): void;
+    writeUInt64(value: number): void;
 
-    writeSingle(value: Number): void;
+    writeSingle(value: number): void;
 
-    writeDouble(value: Number): void;
+    writeDouble(value: number): void;
 
     writeDateTime(value: Date): void;
 
-    writeTimeSpan(value: Number): void;
+    writeTimeSpan(value: number): void;
 
-    writeString(value: String): Number;
+    writeString(value: string): number;
 
-    measureString(value: String): Number;
+    measureString(value: string): number;
 
     detachBuffer(): IBuffer;
 
@@ -255,10 +255,10 @@
   }
 
   export class Buffer {
-    length: Number;
-    capacity: Number;
+    length: number;
+    capacity: number;
     constructor();
-    constructor(capacity: Number);
+    constructor(capacity: number);
 
     static createCopyFromMemoryBuffer(input: Object): Buffer;
 
@@ -269,14 +269,14 @@
   }
 
   export class IBuffer {
-    capacity: Number;
-    length: Number;
+    capacity: number;
+    length: number;
     constructor();
 
   }
 
   export class IContentTypeProvider {
-    contentType: String;
+    contentType: string;
     constructor();
 
   }
@@ -284,31 +284,31 @@
   export class IInputStream {
     constructor();
 
-    readAsync(buffer: IBuffer, count: Number, options: InputStreamOptions, callback: (error: Error, result: IBuffer) => void): void ;
+    readAsync(buffer: IBuffer, count: number, options: InputStreamOptions, callback: (error: Error, result: IBuffer) => void): void ;
 
   }
 
   export class IOutputStream {
     constructor();
 
-    writeAsync(buffer: IBuffer, callback: (error: Error, result: Number) => void): void ;
+    writeAsync(buffer: IBuffer, callback: (error: Error, result: number) => void): void ;
 
-    flushAsync(callback: (error: Error, result: Boolean) => void): void ;
+    flushAsync(callback: (error: Error, result: boolean) => void): void ;
 
   }
 
   export class IRandomAccessStream {
-    canRead: Boolean;
-    canWrite: Boolean;
-    position: Number;
-    size: Number;
+    canRead: boolean;
+    canWrite: boolean;
+    position: number;
+    size: number;
     constructor();
 
-    getInputStreamAt(position: Number): IInputStream;
+    getInputStreamAt(position: number): IInputStream;
 
-    getOutputStreamAt(position: Number): IOutputStream;
+    getOutputStreamAt(position: number): IOutputStream;
 
-    seek(position: Number): void;
+    seek(position: number): void;
 
     cloneStream(): IRandomAccessStream;
 
@@ -329,11 +329,11 @@
   export class RandomAccessStream {
     constructor();
 
-    static copyAsync(source: IInputStream, destination: IOutputStream, callback: (error: Error, result: Number) => void): void ;
-    static copyAsync(source: IInputStream, destination: IOutputStream, bytesToCopy: Number, callback: (error: Error, result: Number) => void): void ;
+    static copyAsync(source: IInputStream, destination: IOutputStream, callback: (error: Error, result: number) => void): void ;
+    static copyAsync(source: IInputStream, destination: IOutputStream, bytesToCopy: number, callback: (error: Error, result: number) => void): void ;
 
 
-    static copyAndCloseAsync(source: IInputStream, destination: IOutputStream, callback: (error: Error, result: Number) => void): void ;
+    static copyAndCloseAsync(source: IInputStream, destination: IOutputStream, callback: (error: Error, result: number) => void): void ;
 
 
   }
@@ -362,39 +362,39 @@
   }
 
   export class FileRandomAccessStream {
-    size: Number;
-    canRead: Boolean;
-    canWrite: Boolean;
-    position: Number;
+    size: number;
+    canRead: boolean;
+    canWrite: boolean;
+    position: number;
     constructor();
 
-    static openAsync(filePath: String, accessMode: Number, callback: (error: Error, result: IRandomAccessStream) => void): void ;
-    static openAsync(filePath: String, accessMode: Number, sharingOptions: Number, openDisposition: FileOpenDisposition, callback: (error: Error, result: IRandomAccessStream) => void): void ;
+    static openAsync(filePath: string, accessMode: number, callback: (error: Error, result: IRandomAccessStream) => void): void ;
+    static openAsync(filePath: string, accessMode: number, sharingOptions: number, openDisposition: FileOpenDisposition, callback: (error: Error, result: IRandomAccessStream) => void): void ;
 
 
-    static openTransactedWriteAsync(filePath: String, callback: (error: Error, result: Object) => void): void ;
-    static openTransactedWriteAsync(filePath: String, openOptions: Number, openDisposition: FileOpenDisposition, callback: (error: Error, result: Object) => void): void ;
+    static openTransactedWriteAsync(filePath: string, callback: (error: Error, result: Object) => void): void ;
+    static openTransactedWriteAsync(filePath: string, openOptions: number, openDisposition: FileOpenDisposition, callback: (error: Error, result: Object) => void): void ;
 
 
-    static openForUserAsync(user: Object, filePath: String, accessMode: Number, callback: (error: Error, result: IRandomAccessStream) => void): void ;
-    static openForUserAsync(user: Object, filePath: String, accessMode: Number, sharingOptions: Number, openDisposition: FileOpenDisposition, callback: (error: Error, result: IRandomAccessStream) => void): void ;
+    static openForUserAsync(user: Object, filePath: string, accessMode: number, callback: (error: Error, result: IRandomAccessStream) => void): void ;
+    static openForUserAsync(user: Object, filePath: string, accessMode: number, sharingOptions: number, openDisposition: FileOpenDisposition, callback: (error: Error, result: IRandomAccessStream) => void): void ;
 
 
-    static openTransactedWriteForUserAsync(user: Object, filePath: String, callback: (error: Error, result: Object) => void): void ;
-    static openTransactedWriteForUserAsync(user: Object, filePath: String, openOptions: Number, openDisposition: FileOpenDisposition, callback: (error: Error, result: Object) => void): void ;
+    static openTransactedWriteForUserAsync(user: Object, filePath: string, callback: (error: Error, result: Object) => void): void ;
+    static openTransactedWriteForUserAsync(user: Object, filePath: string, openOptions: number, openDisposition: FileOpenDisposition, callback: (error: Error, result: Object) => void): void ;
 
 
-    readAsync(buffer: IBuffer, count: Number, options: InputStreamOptions, callback: (error: Error, result: IBuffer) => void): void ;
+    readAsync(buffer: IBuffer, count: number, options: InputStreamOptions, callback: (error: Error, result: IBuffer) => void): void ;
 
-    writeAsync(buffer: IBuffer, callback: (error: Error, result: Number) => void): void ;
+    writeAsync(buffer: IBuffer, callback: (error: Error, result: number) => void): void ;
 
-    flushAsync(callback: (error: Error, result: Boolean) => void): void ;
+    flushAsync(callback: (error: Error, result: boolean) => void): void ;
 
-    getInputStreamAt(position: Number): IInputStream;
+    getInputStreamAt(position: number): IInputStream;
 
-    getOutputStreamAt(position: Number): IOutputStream;
+    getOutputStreamAt(position: number): IOutputStream;
 
-    seek(position: Number): void;
+    seek(position: number): void;
 
     cloneStream(): IRandomAccessStream;
 
@@ -404,7 +404,7 @@
   export class FileInputStream {
     constructor();
 
-    readAsync(buffer: IBuffer, count: Number, options: InputStreamOptions, callback: (error: Error, result: IBuffer) => void): void ;
+    readAsync(buffer: IBuffer, count: number, options: InputStreamOptions, callback: (error: Error, result: IBuffer) => void): void ;
 
     close(): void;
   }
@@ -412,31 +412,31 @@
   export class FileOutputStream {
     constructor();
 
-    writeAsync(buffer: IBuffer, callback: (error: Error, result: Number) => void): void ;
+    writeAsync(buffer: IBuffer, callback: (error: Error, result: number) => void): void ;
 
-    flushAsync(callback: (error: Error, result: Boolean) => void): void ;
+    flushAsync(callback: (error: Error, result: boolean) => void): void ;
 
     close(): void;
   }
 
   export class RandomAccessStreamOverStream {
-    size: Number;
-    canRead: Boolean;
-    canWrite: Boolean;
-    position: Number;
+    size: number;
+    canRead: boolean;
+    canWrite: boolean;
+    position: number;
     constructor();
 
-    readAsync(buffer: IBuffer, count: Number, options: InputStreamOptions, callback: (error: Error, result: IBuffer) => void): void ;
+    readAsync(buffer: IBuffer, count: number, options: InputStreamOptions, callback: (error: Error, result: IBuffer) => void): void ;
 
-    writeAsync(buffer: IBuffer, callback: (error: Error, result: Number) => void): void ;
+    writeAsync(buffer: IBuffer, callback: (error: Error, result: number) => void): void ;
 
-    flushAsync(callback: (error: Error, result: Boolean) => void): void ;
+    flushAsync(callback: (error: Error, result: boolean) => void): void ;
 
-    getInputStreamAt(position: Number): IInputStream;
+    getInputStreamAt(position: number): IInputStream;
 
-    getOutputStreamAt(position: Number): IOutputStream;
+    getOutputStreamAt(position: number): IOutputStream;
 
-    seek(position: Number): void;
+    seek(position: number): void;
 
     cloneStream(): IRandomAccessStream;
 
@@ -446,7 +446,7 @@
   export class InputStreamOverStream {
     constructor();
 
-    readAsync(buffer: IBuffer, count: Number, options: InputStreamOptions, callback: (error: Error, result: IBuffer) => void): void ;
+    readAsync(buffer: IBuffer, count: number, options: InputStreamOptions, callback: (error: Error, result: IBuffer) => void): void ;
 
     close(): void;
   }
@@ -454,31 +454,31 @@
   export class OutputStreamOverStream {
     constructor();
 
-    writeAsync(buffer: IBuffer, callback: (error: Error, result: Number) => void): void ;
+    writeAsync(buffer: IBuffer, callback: (error: Error, result: number) => void): void ;
 
-    flushAsync(callback: (error: Error, result: Boolean) => void): void ;
+    flushAsync(callback: (error: Error, result: boolean) => void): void ;
 
     close(): void;
   }
 
   export class InMemoryRandomAccessStream {
-    size: Number;
-    canRead: Boolean;
-    canWrite: Boolean;
-    position: Number;
+    size: number;
+    canRead: boolean;
+    canWrite: boolean;
+    position: number;
     constructor();
 
-    readAsync(buffer: IBuffer, count: Number, options: InputStreamOptions, callback: (error: Error, result: IBuffer) => void): void ;
+    readAsync(buffer: IBuffer, count: number, options: InputStreamOptions, callback: (error: Error, result: IBuffer) => void): void ;
 
-    writeAsync(buffer: IBuffer, callback: (error: Error, result: Number) => void): void ;
+    writeAsync(buffer: IBuffer, callback: (error: Error, result: number) => void): void ;
 
-    flushAsync(callback: (error: Error, result: Boolean) => void): void ;
+    flushAsync(callback: (error: Error, result: boolean) => void): void ;
 
-    getInputStreamAt(position: Number): IInputStream;
+    getInputStreamAt(position: number): IInputStream;
 
-    getOutputStreamAt(position: Number): IOutputStream;
+    getOutputStreamAt(position: number): IOutputStream;
 
-    seek(position: Number): void;
+    seek(position: number): void;
 
     cloneStream(): IRandomAccessStream;
 

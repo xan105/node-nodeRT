@@ -3,20 +3,20 @@
   }
 
   export class PointerDeviceUsage {
-    usagePage: Number;
-    usage: Number;
-    minLogical: Number;
-    maxLogical: Number;
-    minPhysical: Number;
-    maxPhysical: Number;
-    unit: Number;
-    physicalMultiplier: Number;
+    usagePage: number;
+    usage: number;
+    minLogical: number;
+    maxLogical: number;
+    minPhysical: number;
+    maxPhysical: number;
+    unit: number;
+    physicalMultiplier: number;
     constructor();
   }
 
   export class MouseDelta {
-    x: Number;
-    y: Number;
+    x: number;
+    y: number;
     constructor();
   }
 
@@ -27,16 +27,16 @@
   }
 
   export class PointerDevice {
-    isIntegrated: Boolean;
-    maxContacts: Number;
+    isIntegrated: boolean;
+    maxContacts: number;
     physicalDeviceRect: Object;
     pointerDeviceType: PointerDeviceType;
     screenRect: Object;
     supportedUsages: Object;
-    maxPointersWithZDistance: Number;
+    maxPointersWithZDistance: number;
     constructor();
 
-    static getPointerDevice(pointerId: Number): PointerDevice;
+    static getPointerDevice(pointerId: number): PointerDevice;
 
 
     static getPointerDevices(): Object;
@@ -70,24 +70,24 @@
   }
 
   export class MouseCapabilities {
-    horizontalWheelPresent: Number;
-    mousePresent: Number;
-    numberOfButtons: Number;
-    swapButtons: Number;
-    verticalWheelPresent: Number;
+    horizontalWheelPresent: number;
+    mousePresent: number;
+    numberOfButtons: number;
+    swapButtons: number;
+    verticalWheelPresent: number;
     constructor();
 
   }
 
   export class KeyboardCapabilities {
-    keyboardPresent: Number;
+    keyboardPresent: number;
     constructor();
 
   }
 
   export class TouchCapabilities {
-    contacts: Number;
-    touchPresent: Number;
+    contacts: number;
+    touchPresent: number;
     constructor();
 
   }

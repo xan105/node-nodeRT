@@ -1,12 +1,12 @@
   export class AppExtensionCatalog {
     constructor();
 
-    static open(appExtensionName: String): AppExtensionCatalog;
+    static open(appExtensionName: string): AppExtensionCatalog;
 
 
     findAllAsync(callback: (error: Error, result: Object) => void): void ;
 
-    requestRemovePackageAsync(packageFullName: String, callback: (error: Error, result: Boolean) => void): void ;
+    requestRemovePackageAsync(packageFullName: string, callback: (error: Error, result: boolean) => void): void ;
 
     addListener(type: "PackageInstalled", listener: (ev: Event) => void): void ;
     removeListener(type: "PackageInstalled", listener: (ev: Event) => void): void ;
@@ -43,9 +43,9 @@
 
   export class AppExtension {
     appInfo: Object;
-    description: String;
-    displayName: String;
-    id: String;
+    description: string;
+    displayName: string;
+    id: string;
     package: Object;
     constructor();
 
@@ -56,7 +56,7 @@
   }
 
   export class AppExtensionPackageInstalledEventArgs {
-    appExtensionName: String;
+    appExtensionName: string;
     extensions: Object;
     package: Object;
     constructor();
@@ -64,14 +64,14 @@
   }
 
   export class AppExtensionPackageUpdatingEventArgs {
-    appExtensionName: String;
+    appExtensionName: string;
     package: Object;
     constructor();
 
   }
 
   export class AppExtensionPackageUpdatedEventArgs {
-    appExtensionName: String;
+    appExtensionName: string;
     extensions: Object;
     package: Object;
     constructor();
@@ -79,14 +79,14 @@
   }
 
   export class AppExtensionPackageUninstallingEventArgs {
-    appExtensionName: String;
+    appExtensionName: string;
     package: Object;
     constructor();
 
   }
 
   export class AppExtensionPackageStatusChangedEventArgs {
-    appExtensionName: String;
+    appExtensionName: string;
     package: Object;
     constructor();
 

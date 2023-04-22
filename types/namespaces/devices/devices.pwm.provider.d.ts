@@ -1,21 +1,21 @@
   export class IPwmControllerProvider {
-    actualFrequency: Number;
-    maxFrequency: Number;
-    minFrequency: Number;
-    pinCount: Number;
+    actualFrequency: number;
+    maxFrequency: number;
+    minFrequency: number;
+    pinCount: number;
     constructor();
 
-    setDesiredFrequency(frequency: Number): Number;
+    setDesiredFrequency(frequency: number): number;
 
-    acquirePin(pin: Number): void;
+    acquirePin(pin: number): void;
 
-    releasePin(pin: Number): void;
+    releasePin(pin: number): void;
 
-    enablePin(pin: Number): void;
+    enablePin(pin: number): void;
 
-    disablePin(pin: Number): void;
+    disablePin(pin: number): void;
 
-    setPulseParameters(pin: Number, dutyCycle: Number, invertPolarity: Boolean): void;
+    setPulseParameters(pin: number, dutyCycle: number, invertPolarity: boolean): void;
 
   }
 

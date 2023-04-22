@@ -21,21 +21,21 @@
   }
 
   export class IBindableVectorView {
-    size: Number;
+    size: number;
     constructor();
 
-    getAt(index: Number): Object;
+    getAt(index: number): Object;
 
-    indexOf(value: Object, index: Number): Boolean;
+    indexOf(value: Object, index: number): boolean;
 
   }
 
   export class IBindableIterator {
     current: Object;
-    hasCurrent: Boolean;
+    hasCurrent: boolean;
     constructor();
 
-    moveNext(): Boolean;
+    moveNext(): boolean;
 
   }
 

@@ -49,15 +49,15 @@
   }
 
   export class StorePreviewSkuInfo {
-    currencyCode: String;
-    customDeveloperData: String;
-    description: String;
-    extendedData: String;
-    formattedListPrice: String;
-    productId: String;
-    skuId: String;
-    skuType: String;
-    title: String;
+    currencyCode: string;
+    customDeveloperData: string;
+    description: string;
+    extendedData: string;
+    formattedListPrice: string;
+    productId: string;
+    skuId: string;
+    skuType: string;
+    title: string;
     constructor();
 
   }
@@ -69,20 +69,20 @@
   }
 
   export class StorePreviewProductInfo {
-    description: String;
-    productId: String;
-    productType: String;
+    description: string;
+    productId: string;
+    productType: string;
     skuInfoList: Object;
-    title: String;
+    title: string;
     constructor();
 
   }
 
   export class StoreHardwareManufacturerInfo {
-    hardwareManufacturerId: String;
-    manufacturerName: String;
-    modelName: String;
-    storeContentModifierId: String;
+    hardwareManufacturerId: string;
+    manufacturerName: string;
+    modelName: string;
+    storeContentModifierId: string;
     constructor();
 
   }
@@ -90,7 +90,7 @@
   export class StorePreview {
     constructor();
 
-    static requestProductPurchaseByProductIdAndSkuIdAsync(productId: String, skuId: String, callback: (error: Error, result: StorePreviewPurchaseResults) => void): void ;
+    static requestProductPurchaseByProductIdAndSkuIdAsync(productId: string, skuId: string, callback: (error: Error, result: StorePreviewPurchaseResults) => void): void ;
 
 
     static loadAddOnProductInfosAsync(callback: (error: Error, result: Object) => void): void ;
@@ -100,7 +100,7 @@
 
   export class StoreConfiguration {
     static hardwareManufacturerInfo: StoreHardwareManufacturerInfo;
-    static purchasePromptingPolicy: Number;
+    static purchasePromptingPolicy: number;
     constructor();
 
     static getStoreLogDataAsync(options: StoreLogOptions, callback: (error: Error, result: Object) => void): void ;
@@ -109,58 +109,58 @@
     static filterUnsupportedSystemFeaturesAsync(systemFeatures: Object, callback: (error: Error, result: Object) => void): void ;
 
 
-    static getStoreWebAccountId(): String;
+    static getStoreWebAccountId(): string;
 
 
-    static getStoreWebAccountIdForUser(user: Object): String;
+    static getStoreWebAccountIdForUser(user: Object): string;
 
 
-    static setEnterpriseStoreWebAccountId(webAccountId: String): void;
+    static setEnterpriseStoreWebAccountId(webAccountId: string): void;
 
 
-    static setEnterpriseStoreWebAccountIdForUser(user: Object, webAccountId: String): void;
+    static setEnterpriseStoreWebAccountIdForUser(user: Object, webAccountId: string): void;
 
 
-    static getEnterpriseStoreWebAccountId(): String;
+    static getEnterpriseStoreWebAccountId(): string;
 
 
-    static getEnterpriseStoreWebAccountIdForUser(user: Object): String;
+    static getEnterpriseStoreWebAccountIdForUser(user: Object): string;
 
 
-    static shouldRestrictToEnterpriseStoreOnly(): Boolean;
+    static shouldRestrictToEnterpriseStoreOnly(): boolean;
 
 
-    static shouldRestrictToEnterpriseStoreOnlyForUser(user: Object): Boolean;
+    static shouldRestrictToEnterpriseStoreOnlyForUser(user: Object): boolean;
 
 
-    static hasStoreWebAccount(): Boolean;
+    static hasStoreWebAccount(): boolean;
 
 
-    static hasStoreWebAccountForUser(user: Object): Boolean;
+    static hasStoreWebAccountForUser(user: Object): boolean;
 
 
-    static setStoreWebAccountIdForUser(user: Object, webAccountId: String): void;
+    static setStoreWebAccountIdForUser(user: Object, webAccountId: string): void;
 
 
-    static isStoreWebAccountIdForUser(user: Object, webAccountId: String): Boolean;
+    static isStoreWebAccountIdForUser(user: Object, webAccountId: string): boolean;
 
 
-    static getPurchasePromptingPolicyForUser(user: Object): Number;
+    static getPurchasePromptingPolicyForUser(user: Object): number;
 
 
-    static setPurchasePromptingPolicyForUser(user: Object, value: Number): void;
+    static setPurchasePromptingPolicyForUser(user: Object, value: number): void;
 
 
-    static setSystemConfiguration(catalogHardwareManufacturerId: String, catalogStoreContentModifierId: String, systemConfigurationExpiration: Date, catalogHardwareDescriptor: String): void;
+    static setSystemConfiguration(catalogHardwareManufacturerId: string, catalogStoreContentModifierId: string, systemConfigurationExpiration: Date, catalogHardwareDescriptor: string): void;
 
 
-    static setMobileOperatorConfiguration(mobileOperatorId: String, appDownloadLimitInMegabytes: Number, updateDownloadLimitInMegabytes: Number): void;
+    static setMobileOperatorConfiguration(mobileOperatorId: string, appDownloadLimitInMegabytes: number, updateDownloadLimitInMegabytes: number): void;
 
 
-    static setStoreWebAccountId(webAccountId: String): void;
+    static setStoreWebAccountId(webAccountId: string): void;
 
 
-    static isStoreWebAccountId(webAccountId: String): Boolean;
+    static isStoreWebAccountId(webAccountId: string): boolean;
 
 
   }

@@ -1,35 +1,35 @@
   export class GamepadReading {
-    timestamp: Number;
-    buttons: Number;
-    leftTrigger: Number;
-    rightTrigger: Number;
-    leftThumbstickX: Number;
-    leftThumbstickY: Number;
-    rightThumbstickX: Number;
-    rightThumbstickY: Number;
+    timestamp: number;
+    buttons: number;
+    leftTrigger: number;
+    rightTrigger: number;
+    leftThumbstickX: number;
+    leftThumbstickY: number;
+    rightThumbstickX: number;
+    rightThumbstickY: number;
     constructor();
   }
 
   export class InjectedInputRectangle {
-    left: Number;
-    top: Number;
-    bottom: Number;
-    right: Number;
+    left: number;
+    top: number;
+    bottom: number;
+    right: number;
     constructor();
   }
 
   export class InjectedInputPoint {
-    positionX: Number;
-    positionY: Number;
+    positionX: number;
+    positionY: number;
     constructor();
   }
 
   export class InjectedInputPointerInfo {
-    pointerId: Number;
+    pointerId: number;
     pointerOptions: InjectedInputPointerOptions;
     pixelLocation: InjectedInputPoint;
-    timeOffsetInMilliseconds: Number;
-    performanceCount: Number;
+    timeOffsetInMilliseconds: number;
+    performanceCount: number;
     constructor();
   }
 
@@ -124,51 +124,51 @@
   }
 
   export class InjectedInputGamepadInfo {
-    rightTrigger: Number;
-    rightThumbstickY: Number;
-    rightThumbstickX: Number;
-    leftTrigger: Number;
-    leftThumbstickY: Number;
-    leftThumbstickX: Number;
-    buttons: Number;
+    rightTrigger: number;
+    rightThumbstickY: number;
+    rightThumbstickX: number;
+    leftTrigger: number;
+    leftThumbstickY: number;
+    leftThumbstickX: number;
+    buttons: number;
     constructor();
     constructor(reading: GamepadReading);
 
   }
 
   export class InjectedInputKeyboardInfo {
-    virtualKey: Number;
-    scanCode: Number;
+    virtualKey: number;
+    scanCode: number;
     keyOptions: InjectedInputKeyOptions;
     constructor();
 
   }
 
   export class InjectedInputMouseInfo {
-    timeOffsetInMilliseconds: Number;
+    timeOffsetInMilliseconds: number;
     mouseOptions: InjectedInputMouseOptions;
-    mouseData: Number;
-    deltaY: Number;
-    deltaX: Number;
+    mouseData: number;
+    deltaY: number;
+    deltaX: number;
     constructor();
 
   }
 
   export class InjectedInputTouchInfo {
     touchParameters: InjectedInputTouchParameters;
-    pressure: Number;
+    pressure: number;
     pointerInfo: InjectedInputPointerInfo;
-    orientation: Number;
+    orientation: number;
     contact: InjectedInputRectangle;
     constructor();
 
   }
 
   export class InjectedInputPenInfo {
-    tiltY: Number;
-    tiltX: Number;
-    rotation: Number;
-    pressure: Number;
+    tiltY: number;
+    tiltX: number;
+    rotation: number;
+    pressure: number;
     pointerInfo: InjectedInputPointerInfo;
     penParameters: InjectedInputPenParameters;
     penButtons: InjectedInputPenButtons;

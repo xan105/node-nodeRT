@@ -79,30 +79,30 @@
   export class ApiInformation {
     constructor();
 
-    static isTypePresent(typeName: String): Boolean;
+    static isTypePresent(typeName: string): boolean;
 
 
-    static isMethodPresent(typeName: String, methodName: String): Boolean;
-    static isMethodPresent(typeName: String, methodName: String, inputParameterCount: Number): Boolean;
+    static isMethodPresent(typeName: string, methodName: string): boolean;
+    static isMethodPresent(typeName: string, methodName: string, inputParameterCount: number): boolean;
 
 
-    static isEventPresent(typeName: String, eventName: String): Boolean;
+    static isEventPresent(typeName: string, eventName: string): boolean;
 
 
-    static isPropertyPresent(typeName: String, propertyName: String): Boolean;
+    static isPropertyPresent(typeName: string, propertyName: string): boolean;
 
 
-    static isReadOnlyPropertyPresent(typeName: String, propertyName: String): Boolean;
+    static isReadOnlyPropertyPresent(typeName: string, propertyName: string): boolean;
 
 
-    static isWriteablePropertyPresent(typeName: String, propertyName: String): Boolean;
+    static isWriteablePropertyPresent(typeName: string, propertyName: string): boolean;
 
 
-    static isEnumNamedValuePresent(enumTypeName: String, valueName: String): Boolean;
+    static isEnumNamedValuePresent(enumTypeName: string, valueName: string): boolean;
 
 
-    static isApiContractPresent(contractName: String, majorVersion: Number): Boolean;
-    static isApiContractPresent(contractName: String, majorVersion: Number, minorVersion: Number): Boolean;
+    static isApiContractPresent(contractName: string, majorVersion: number): boolean;
+    static isApiContractPresent(contractName: string, majorVersion: number, minorVersion: number): boolean;
 
 
   }
@@ -110,29 +110,29 @@
   export class ActivatableAttribute {
     typeId: Object;
     constructor();
-    constructor(version: Number);
-    constructor(version: Number, type: String);
-    constructor(version: Number, platform: Platform);
-    constructor(type: Object, version: Number);
-    constructor(type: Object, version: Number, contractName: String);
-    constructor(type: Object, version: Number, platform: Platform);
+    constructor(version: number);
+    constructor(version: number, type: string);
+    constructor(version: number, platform: Platform);
+    constructor(type: Object, version: number);
+    constructor(type: Object, version: number, contractName: string);
+    constructor(type: Object, version: number, platform: Platform);
 
   }
 
   export class VersionAttribute {
     typeId: Object;
     constructor();
-    constructor(version: Number);
-    constructor(version: Number, platform: Platform);
+    constructor(version: number);
+    constructor(version: number, platform: Platform);
 
   }
 
   export class ContractVersionAttribute {
     typeId: Object;
     constructor();
-    constructor(version: Number);
-    constructor(contract: Object, version: Number);
-    constructor(contract: String, version: Number);
+    constructor(version: number);
+    constructor(contract: Object, version: number);
+    constructor(contract: string, version: number);
 
   }
 
@@ -157,14 +157,14 @@
   export class GuidAttribute {
     typeId: Object;
     constructor();
-    constructor(a: Number, b: Number, c: Number, d: Number, e: Number, f: Number, g: Number, h: Number, i: Number, j: Number, k: Number);
+    constructor(a: number, b: number, c: number, d: number, e: number, f: number, g: number, h: number, i: number, j: number, k: number);
 
   }
 
   export class FeatureAttribute {
     typeId: Object;
     constructor();
-    constructor(featureStage: FeatureStage, validInAllBranches: Boolean);
+    constructor(featureStage: FeatureStage, validInAllBranches: boolean);
 
   }
 
@@ -177,16 +177,16 @@
   export class ComposableAttribute {
     typeId: Object;
     constructor();
-    constructor(type: Object, compositionType: CompositionType, version: Number);
-    constructor(type: Object, compositionType: CompositionType, version: Number, platform: Platform);
-    constructor(type: Object, compositionType: CompositionType, version: Number, contract: String);
+    constructor(type: Object, compositionType: CompositionType, version: number);
+    constructor(type: Object, compositionType: CompositionType, version: number, platform: Platform);
+    constructor(type: Object, compositionType: CompositionType, version: number, contract: string);
 
   }
 
   export class OverloadAttribute {
     typeId: Object;
     constructor();
-    constructor(method: String);
+    constructor(method: string);
 
   }
 
@@ -199,17 +199,17 @@
   export class PreviousContractVersionAttribute {
     typeId: Object;
     constructor();
-    constructor(contract: String, versionLow: Number, versionHigh: Number, newContract: String);
-    constructor(contract: String, versionLow: Number, versionHigh: Number);
+    constructor(contract: string, versionLow: number, versionHigh: number, newContract: string);
+    constructor(contract: string, versionLow: number, versionHigh: number);
 
   }
 
   export class StaticAttribute {
     typeId: Object;
     constructor();
-    constructor(type: Object, version: Number);
-    constructor(type: Object, version: Number, platform: Platform);
-    constructor(type: Object, version: Number, contractName: String);
+    constructor(type: Object, version: number);
+    constructor(type: Object, version: number, platform: Platform);
+    constructor(type: Object, version: number, contractName: string);
 
   }
 
@@ -242,9 +242,9 @@
   export class DeprecatedAttribute {
     typeId: Object;
     constructor();
-    constructor(message: String, type: DeprecationType, version: Number);
-    constructor(message: String, type: DeprecationType, version: Number, platform: Platform);
-    constructor(message: String, type: DeprecationType, version: Number, contract: String);
+    constructor(message: string, type: DeprecationType, version: number);
+    constructor(message: string, type: DeprecationType, version: number, platform: Platform);
+    constructor(message: string, type: DeprecationType, version: number, contract: string);
 
   }
 
@@ -265,14 +265,14 @@
   export class LengthIsAttribute {
     typeId: Object;
     constructor();
-    constructor(indexLengthParameter: Number);
+    constructor(indexLengthParameter: number);
 
   }
 
   export class RangeAttribute {
     typeId: Object;
     constructor();
-    constructor(minValue: Number, maxValue: Number);
+    constructor(minValue: number, maxValue: number);
 
   }
 

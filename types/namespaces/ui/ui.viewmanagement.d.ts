@@ -127,56 +127,56 @@
 
   export class ApplicationView {
     static value: ApplicationViewState;
-    static terminateAppOnFinalViewClose: Boolean;
+    static terminateAppOnFinalViewClose: boolean;
     static preferredLaunchWindowingMode: ApplicationViewWindowingMode;
     static preferredLaunchViewSize: Object;
-    isScreenCaptureEnabled: Boolean;
-    title: String;
-    adjacentToLeftDisplayEdge: Boolean;
-    adjacentToRightDisplayEdge: Boolean;
-    id: Number;
-    isFullScreen: Boolean;
-    isOnLockScreen: Boolean;
+    isScreenCaptureEnabled: boolean;
+    title: string;
+    adjacentToLeftDisplayEdge: boolean;
+    adjacentToRightDisplayEdge: boolean;
+    id: number;
+    isFullScreen: boolean;
+    isOnLockScreen: boolean;
     orientation: ApplicationViewOrientation;
-    suppressSystemOverlays: Boolean;
+    suppressSystemOverlays: boolean;
     desiredBoundsMode: ApplicationViewBoundsMode;
     visibleBounds: Object;
     fullScreenSystemOverlayMode: FullScreenSystemOverlayMode;
-    isFullScreenMode: Boolean;
+    isFullScreenMode: boolean;
     titleBar: ApplicationViewTitleBar;
     viewMode: ApplicationViewMode;
     constructor();
 
-    static tryUnsnapToFullscreen(): Boolean;
+    static tryUnsnapToFullscreen(): boolean;
 
 
-    static getApplicationViewIdForWindow(window: Object): Number;
+    static getApplicationViewIdForWindow(window: Object): number;
 
 
     static getForCurrentView(): ApplicationView;
 
 
-    static tryUnsnap(): Boolean;
+    static tryUnsnap(): boolean;
 
 
-    tryEnterViewModeAsync(viewMode: ApplicationViewMode, callback: (error: Error, result: Boolean) => void): void ;
-    tryEnterViewModeAsync(viewMode: ApplicationViewMode, viewModePreferences: ViewModePreferences, callback: (error: Error, result: Boolean) => void): void ;
+    tryEnterViewModeAsync(viewMode: ApplicationViewMode, callback: (error: Error, result: boolean) => void): void ;
+    tryEnterViewModeAsync(viewMode: ApplicationViewMode, viewModePreferences: ViewModePreferences, callback: (error: Error, result: boolean) => void): void ;
 
-    tryConsolidateAsync(callback: (error: Error, result: Boolean) => void): void ;
+    tryConsolidateAsync(callback: (error: Error, result: boolean) => void): void ;
 
-    setDesiredBoundsMode(boundsMode: ApplicationViewBoundsMode): Boolean;
+    setDesiredBoundsMode(boundsMode: ApplicationViewBoundsMode): boolean;
 
-    tryEnterFullScreenMode(): Boolean;
+    tryEnterFullScreenMode(): boolean;
 
     exitFullScreenMode(): void;
 
     showStandardSystemOverlays(): void;
 
-    tryResizeView(value: Object): Boolean;
+    tryResizeView(value: Object): boolean;
 
     setPreferredMinSize(minSize: Object): void;
 
-    isViewModeSupported(viewMode: ApplicationViewMode): Boolean;
+    isViewModeSupported(viewMode: ApplicationViewMode): boolean;
 
     addListener(type: "Consolidated", listener: (ev: Event) => void): void ;
     removeListener(type: "Consolidated", listener: (ev: Event) => void): void ;
@@ -197,8 +197,8 @@
   }
 
   export class ApplicationViewConsolidatedEventArgs {
-    isUserInitiated: Boolean;
-    isAppInitiated: Boolean;
+    isUserInitiated: boolean;
+    isAppInitiated: boolean;
     constructor();
 
   }
@@ -223,21 +223,21 @@
   export class ApplicationViewSwitcher {
     constructor();
 
-    static tryShowAsViewModeAsync(viewId: Number, viewMode: ApplicationViewMode, callback: (error: Error, result: Boolean) => void): void ;
-    static tryShowAsViewModeAsync(viewId: Number, viewMode: ApplicationViewMode, viewModePreferences: ViewModePreferences, callback: (error: Error, result: Boolean) => void): void ;
+    static tryShowAsViewModeAsync(viewId: number, viewMode: ApplicationViewMode, callback: (error: Error, result: boolean) => void): void ;
+    static tryShowAsViewModeAsync(viewId: number, viewMode: ApplicationViewMode, viewModePreferences: ViewModePreferences, callback: (error: Error, result: boolean) => void): void ;
 
 
-    static tryShowAsStandaloneAsync(viewId: Number, callback: (error: Error, result: Boolean) => void): void ;
-    static tryShowAsStandaloneAsync(viewId: Number, sizePreference: ViewSizePreference, callback: (error: Error, result: Boolean) => void): void ;
-    static tryShowAsStandaloneAsync(viewId: Number, sizePreference: ViewSizePreference, anchorViewId: Number, anchorSizePreference: ViewSizePreference, callback: (error: Error, result: Boolean) => void): void ;
+    static tryShowAsStandaloneAsync(viewId: number, callback: (error: Error, result: boolean) => void): void ;
+    static tryShowAsStandaloneAsync(viewId: number, sizePreference: ViewSizePreference, callback: (error: Error, result: boolean) => void): void ;
+    static tryShowAsStandaloneAsync(viewId: number, sizePreference: ViewSizePreference, anchorViewId: number, anchorSizePreference: ViewSizePreference, callback: (error: Error, result: boolean) => void): void ;
 
 
-    static switchAsync(viewId: Number, callback: (error: Error) => void): void ;
-    static switchAsync(toViewId: Number, fromViewId: Number, callback: (error: Error) => void): void ;
-    static switchAsync(toViewId: Number, fromViewId: Number, options: ApplicationViewSwitchingOptions, callback: (error: Error) => void): void ;
+    static switchAsync(viewId: number, callback: (error: Error) => void): void ;
+    static switchAsync(toViewId: number, fromViewId: number, callback: (error: Error) => void): void ;
+    static switchAsync(toViewId: number, fromViewId: number, options: ApplicationViewSwitchingOptions, callback: (error: Error) => void): void ;
 
 
-    static prepareForCustomAnimatedSwitchAsync(toViewId: Number, fromViewId: Number, options: ApplicationViewSwitchingOptions, callback: (error: Error, result: Boolean) => void): void ;
+    static prepareForCustomAnimatedSwitchAsync(toViewId: number, fromViewId: number, options: ApplicationViewSwitchingOptions, callback: (error: Error, result: boolean) => void): void ;
 
 
     static disableSystemViewActivationPolicy(): void;
@@ -251,22 +251,22 @@
   export class ActivationViewSwitcher {
     constructor();
 
-    showAsStandaloneAsync(viewId: Number, callback: (error: Error) => void): void ;
-    showAsStandaloneAsync(viewId: Number, sizePreference: ViewSizePreference, callback: (error: Error) => void): void ;
+    showAsStandaloneAsync(viewId: number, callback: (error: Error) => void): void ;
+    showAsStandaloneAsync(viewId: number, sizePreference: ViewSizePreference, callback: (error: Error) => void): void ;
 
-    isViewPresentedOnActivationVirtualDesktop(viewId: Number): Boolean;
+    isViewPresentedOnActivationVirtualDesktop(viewId: number): boolean;
 
   }
 
   export class ApplicationViewTransferContext {
-    static dataPackageFormatId: String;
-    viewId: Number;
+    static dataPackageFormatId: string;
+    viewId: number;
     constructor();
 
   }
 
   export class InputPaneVisibilityEventArgs {
-    ensuredFocusedElementInView: Boolean;
+    ensuredFocusedElementInView: boolean;
     occludedRect: Object;
     constructor();
 
@@ -274,15 +274,15 @@
 
   export class InputPane {
     occludedRect: Object;
-    visible: Boolean;
+    visible: boolean;
     constructor();
 
     static getForCurrentView(): InputPane;
 
 
-    tryShow(): Boolean;
+    tryShow(): boolean;
 
-    tryHide(): Boolean;
+    tryHide(): boolean;
 
     addListener(type: "Hiding", listener: (ev: Event) => void): void ;
     removeListener(type: "Hiding", listener: (ev: Event) => void): void ;
@@ -303,24 +303,24 @@
   }
 
   export class ProjectionManager {
-    static projectionDisplayAvailable: Boolean;
+    static projectionDisplayAvailable: boolean;
     constructor();
 
-    static startProjectingAsync(projectionViewId: Number, anchorViewId: Number, displayDeviceInfo: Object, callback: (error: Error) => void): void ;
-    static startProjectingAsync(projectionViewId: Number, anchorViewId: Number, callback: (error: Error) => void): void ;
+    static startProjectingAsync(projectionViewId: number, anchorViewId: number, displayDeviceInfo: Object, callback: (error: Error) => void): void ;
+    static startProjectingAsync(projectionViewId: number, anchorViewId: number, callback: (error: Error) => void): void ;
 
 
-    static requestStartProjectingAsync(projectionViewId: Number, anchorViewId: Number, selection: Object, callback: (error: Error, result: Boolean) => void): void ;
-    static requestStartProjectingAsync(projectionViewId: Number, anchorViewId: Number, selection: Object, prefferedPlacement: Number, callback: (error: Error, result: Boolean) => void): void ;
+    static requestStartProjectingAsync(projectionViewId: number, anchorViewId: number, selection: Object, callback: (error: Error, result: boolean) => void): void ;
+    static requestStartProjectingAsync(projectionViewId: number, anchorViewId: number, selection: Object, prefferedPlacement: number, callback: (error: Error, result: boolean) => void): void ;
 
 
-    static swapDisplaysForViewsAsync(projectionViewId: Number, anchorViewId: Number, callback: (error: Error) => void): void ;
+    static swapDisplaysForViewsAsync(projectionViewId: number, anchorViewId: number, callback: (error: Error) => void): void ;
 
 
-    static stopProjectingAsync(projectionViewId: Number, anchorViewId: Number, callback: (error: Error) => void): void ;
+    static stopProjectingAsync(projectionViewId: number, anchorViewId: number, callback: (error: Error) => void): void ;
 
 
-    static getDeviceSelector(): String;
+    static getDeviceSelector(): string;
 
 
     addListener(type: "ProjectionDisplayAvailableChanged", listener: (ev: Event) => void): void ;
@@ -346,8 +346,8 @@
   }
 
   export class AccessibilitySettings {
-    highContrast: Boolean;
-    highContrastScheme: String;
+    highContrast: boolean;
+    highContrastScheme: string;
     constructor();
 
     addListener(type: "HighContrastChanged", listener: (ev: Event) => void): void ;
@@ -364,20 +364,20 @@
   }
 
   export class UISettings {
-    animationsEnabled: Boolean;
-    caretBlinkRate: Number;
-    caretBrowsingEnabled: Boolean;
-    caretWidth: Number;
+    animationsEnabled: boolean;
+    caretBlinkRate: number;
+    caretBrowsingEnabled: boolean;
+    caretWidth: number;
     cursorSize: Object;
-    doubleClickTime: Number;
+    doubleClickTime: number;
     handPreference: HandPreference;
-    messageDuration: Number;
-    mouseHoverTime: Number;
+    messageDuration: number;
+    mouseHoverTime: number;
     scrollBarArrowSize: Object;
     scrollBarSize: Object;
     scrollBarThumbBoxSize: Object;
-    textScaleFactor: Number;
-    advancedEffectsEnabled: Boolean;
+    textScaleFactor: number;
+    advancedEffectsEnabled: boolean;
     constructor();
 
     uIElementColor(desiredElement: UIElementType): Object;
@@ -409,7 +409,7 @@
 
   export class StatusBar {
     foregroundColor: Object;
-    backgroundOpacity: Number;
+    backgroundOpacity: number;
     backgroundColor: Object;
     occludedRect: Object;
     progressIndicator: StatusBarProgressIndicator;
@@ -441,8 +441,8 @@
   }
 
   export class StatusBarProgressIndicator {
-    text: String;
-    progressValue: Number;
+    text: string;
+    progressValue: number;
     constructor();
 
     showAsync(callback: (error: Error) => void): void ;
@@ -452,10 +452,10 @@
   }
 
   export class ApplicationViewScaling {
-    static disableLayoutScaling: Boolean;
+    static disableLayoutScaling: boolean;
     constructor();
 
-    static trySetDisableLayoutScaling(disableLayoutScaling: Boolean): Boolean;
+    static trySetDisableLayoutScaling(disableLayoutScaling: boolean): boolean;
 
 
   }

@@ -23,7 +23,7 @@
   }
 
   export class NavigatingCancelEventArgs {
-    cancel: Boolean;
+    cancel: boolean;
     navigationMode: NavigationMode;
     sourcePageType: Object;
     navigationTransitionInfo: Object;
@@ -33,8 +33,8 @@
   }
 
   export class NavigationFailedEventArgs {
-    handled: Boolean;
-    exception: Number;
+    handled: boolean;
+    exception: number;
     sourcePageType: Object;
     constructor();
 

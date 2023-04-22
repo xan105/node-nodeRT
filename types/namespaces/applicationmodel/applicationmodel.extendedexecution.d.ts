@@ -22,8 +22,8 @@
 
   export class ExtendedExecutionSession {
     reason: ExtendedExecutionReason;
-    percentProgress: Number;
-    description: String;
+    percentProgress: number;
+    description: string;
     constructor();
 
     requestExtensionAsync(callback: (error: Error, result: ExtendedExecutionResult) => void): void ;

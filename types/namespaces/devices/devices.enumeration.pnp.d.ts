@@ -10,7 +10,7 @@
   }
 
   export class PnpObjectUpdate {
-    id: String;
+    id: string;
     properties: Object;
     type: PnpObjectType;
     constructor();
@@ -20,9 +20,9 @@
   export class PnpObjectCollection {
     constructor();
 
-    getAt(index: Number): PnpObject;
+    getAt(index: number): PnpObject;
 
-    indexOf(value: PnpObject, index: Number): Boolean;
+    indexOf(value: PnpObject, index: number): boolean;
 
     getMany();
     first(): Object;
@@ -30,7 +30,7 @@
   }
 
   export class PnpObjectWatcher {
-    status: Number;
+    status: number;
     constructor();
 
     start(): void;
@@ -71,20 +71,20 @@
   }
 
   export class PnpObject {
-    id: String;
+    id: string;
     properties: Object;
     type: PnpObjectType;
     constructor();
 
-    static createFromIdAsync(type: PnpObjectType, id: String, requestedProperties: Object, callback: (error: Error, result: PnpObject) => void): void ;
+    static createFromIdAsync(type: PnpObjectType, id: string, requestedProperties: Object, callback: (error: Error, result: PnpObject) => void): void ;
 
 
     static findAllAsync(type: PnpObjectType, requestedProperties: Object, callback: (error: Error, result: PnpObjectCollection) => void): void ;
-    static findAllAsync(type: PnpObjectType, requestedProperties: Object, aqsFilter: String, callback: (error: Error, result: PnpObjectCollection) => void): void ;
+    static findAllAsync(type: PnpObjectType, requestedProperties: Object, aqsFilter: string, callback: (error: Error, result: PnpObjectCollection) => void): void ;
 
 
     static createWatcher(type: PnpObjectType, requestedProperties: Object): PnpObjectWatcher;
-    static createWatcher(type: PnpObjectType, requestedProperties: Object, aqsFilter: String): PnpObjectWatcher;
+    static createWatcher(type: PnpObjectType, requestedProperties: Object, aqsFilter: string): PnpObjectWatcher;
 
 
     update(updateInfo: PnpObjectUpdate): void;

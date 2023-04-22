@@ -24,22 +24,22 @@
     static getDefault(): CortanaPermissionsManager;
 
 
-    arePermissionsGrantedAsync(permissions: Object, callback: (error: Error, result: Boolean) => void): void ;
+    arePermissionsGrantedAsync(permissions: Object, callback: (error: Error, result: boolean) => void): void ;
 
     grantPermissionsAsync(permissions: Object, callback: (error: Error, result: CortanaPermissionsChangeResult) => void): void ;
 
     revokePermissionsAsync(permissions: Object, callback: (error: Error, result: CortanaPermissionsChangeResult) => void): void ;
 
-    isSupported(): Boolean;
+    isSupported(): boolean;
 
   }
 
   export class CortanaSettings {
-    isVoiceActivationEnabled: Boolean;
-    hasUserConsentToVoiceActivation: Boolean;
+    isVoiceActivationEnabled: boolean;
+    hasUserConsentToVoiceActivation: boolean;
     constructor();
 
-    static isSupported(): Boolean;
+    static isSupported(): boolean;
 
 
     static getDefault(): CortanaSettings;

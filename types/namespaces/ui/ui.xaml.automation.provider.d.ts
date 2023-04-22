@@ -7,27 +7,27 @@
   }
 
   export class IAnnotationProvider {
-    annotationTypeId: Number;
-    annotationTypeName: String;
-    author: String;
-    dateTime: String;
+    annotationTypeId: number;
+    annotationTypeName: string;
+    author: string;
+    dateTime: string;
     target: IRawElementProviderSimple;
     constructor();
 
   }
 
   export class IDockProvider {
-    dockPosition: Number;
+    dockPosition: number;
     constructor();
 
-    setDockPosition(dockPosition: Number): void;
+    setDockPosition(dockPosition: number): void;
 
   }
 
   export class IDragProvider {
-    dropEffect: String;
-    dropEffects: Array<String>;
-    isGrabbed: Boolean;
+    dropEffect: string;
+    dropEffects: Array<string>;
+    isGrabbed: boolean;
     constructor();
 
     getGrabbedItems(): Array<Object>;
@@ -35,14 +35,14 @@
   }
 
   export class IDropTargetProvider {
-    dropEffect: String;
-    dropEffects: Array<String>;
+    dropEffect: string;
+    dropEffects: Array<string>;
     constructor();
 
   }
 
   export class IExpandCollapseProvider {
-    expandCollapseState: Number;
+    expandCollapseState: number;
     constructor();
 
     collapse(): void;
@@ -52,21 +52,21 @@
   }
 
   export class IGridItemProvider {
-    column: Number;
-    columnSpan: Number;
+    column: number;
+    columnSpan: number;
     containingGrid: IRawElementProviderSimple;
-    row: Number;
-    rowSpan: Number;
+    row: number;
+    rowSpan: number;
     constructor();
 
   }
 
   export class IGridProvider {
-    columnCount: Number;
-    rowCount: Number;
+    columnCount: number;
+    rowCount: number;
     constructor();
 
-    getItem(row: Number, column: Number): IRawElementProviderSimple;
+    getItem(row: number, column: number): IRawElementProviderSimple;
 
   }
 
@@ -85,14 +85,14 @@
   }
 
   export class IMultipleViewProvider {
-    currentView: Number;
+    currentView: number;
     constructor();
 
-    getSupportedViews(): Array<Number>;
+    getSupportedViews(): Array<number>;
 
-    getViewName(viewId: Number): String;
+    getViewName(viewId: number): string;
 
-    setCurrentView(viewId: Number): void;
+    setCurrentView(viewId: number): void;
 
   }
 
@@ -104,15 +104,15 @@
   }
 
   export class IRangeValueProvider {
-    isReadOnly: Boolean;
-    largeChange: Number;
-    maximum: Number;
-    minimum: Number;
-    smallChange: Number;
-    value: Number;
+    isReadOnly: boolean;
+    largeChange: number;
+    maximum: number;
+    minimum: number;
+    smallChange: number;
+    value: number;
     constructor();
 
-    setValue(value: Number): void;
+    setValue(value: number): void;
 
   }
 
@@ -124,22 +124,22 @@
   }
 
   export class IScrollProvider {
-    horizontalScrollPercent: Number;
-    horizontalViewSize: Number;
-    horizontallyScrollable: Boolean;
-    verticalScrollPercent: Number;
-    verticalViewSize: Number;
-    verticallyScrollable: Boolean;
+    horizontalScrollPercent: number;
+    horizontalViewSize: number;
+    horizontallyScrollable: boolean;
+    verticalScrollPercent: number;
+    verticalViewSize: number;
+    verticallyScrollable: boolean;
     constructor();
 
-    scroll(horizontalAmount: Number, verticalAmount: Number): void;
+    scroll(horizontalAmount: number, verticalAmount: number): void;
 
-    setScrollPercent(horizontalPercent: Number, verticalPercent: Number): void;
+    setScrollPercent(horizontalPercent: number, verticalPercent: number): void;
 
   }
 
   export class ISelectionItemProvider {
-    isSelected: Boolean;
+    isSelected: boolean;
     selectionContainer: IRawElementProviderSimple;
     constructor();
 
@@ -152,8 +152,8 @@
   }
 
   export class ISelectionProvider {
-    canSelectMultiple: Boolean;
-    isSelectionRequired: Boolean;
+    canSelectMultiple: boolean;
+    isSelectionRequired: boolean;
     constructor();
 
     getSelection(): Array<Object>;
@@ -161,30 +161,30 @@
   }
 
   export class ISpreadsheetItemProvider {
-    formula: String;
+    formula: string;
     constructor();
 
     getAnnotationObjects(): Array<Object>;
 
-    getAnnotationTypes(): Array<Number>;
+    getAnnotationTypes(): Array<number>;
 
   }
 
   export class ISpreadsheetProvider {
     constructor();
 
-    getItemByName(name: String): IRawElementProviderSimple;
+    getItemByName(name: string): IRawElementProviderSimple;
 
   }
 
   export class IStylesProvider {
-    extendedProperties: String;
+    extendedProperties: string;
     fillColor: Object;
     fillPatternColor: Object;
-    fillPatternStyle: String;
-    shape: String;
-    styleId: Number;
-    styleName: String;
+    fillPatternStyle: string;
+    shape: string;
+    styleId: number;
+    styleName: string;
     constructor();
 
   }
@@ -194,7 +194,7 @@
 
     cancel(): void;
 
-    startListening(inputType: Number): void;
+    startListening(inputType: number): void;
 
   }
 
@@ -208,7 +208,7 @@
   }
 
   export class ITableProvider {
-    rowOrColumnMajor: Number;
+    rowOrColumnMajor: number;
     constructor();
 
     getColumnHeaders(): Array<Object>;
@@ -229,29 +229,29 @@
 
     clone(): ITextRangeProvider;
 
-    compare(textRangeProvider: ITextRangeProvider): Boolean;
+    compare(textRangeProvider: ITextRangeProvider): boolean;
 
-    compareEndpoints(endpoint: Number, textRangeProvider: ITextRangeProvider, targetEndpoint: Number): Number;
+    compareEndpoints(endpoint: number, textRangeProvider: ITextRangeProvider, targetEndpoint: number): number;
 
-    expandToEnclosingUnit(unit: Number): void;
+    expandToEnclosingUnit(unit: number): void;
 
-    findAttribute(attributeId: Number, value: Object, backward: Boolean): ITextRangeProvider;
+    findAttribute(attributeId: number, value: Object, backward: boolean): ITextRangeProvider;
 
-    findText(text: String, backward: Boolean, ignoreCase: Boolean): ITextRangeProvider;
+    findText(text: string, backward: boolean, ignoreCase: boolean): ITextRangeProvider;
 
-    getAttributeValue(attributeId: Number): Object;
+    getAttributeValue(attributeId: number): Object;
 
-    getBoundingRectangles(returnValue: Array<Number>): void;
+    getBoundingRectangles(returnValue: Array<number>): void;
 
     getEnclosingElement(): IRawElementProviderSimple;
 
-    getText(maxLength: Number): String;
+    getText(maxLength: number): string;
 
-    move(unit: Number, count: Number): Number;
+    move(unit: number, count: number): number;
 
-    moveEndpointByUnit(endpoint: Number, unit: Number, count: Number): Number;
+    moveEndpointByUnit(endpoint: number, unit: number, count: number): number;
 
-    moveEndpointByRange(endpoint: Number, textRangeProvider: ITextRangeProvider, targetEndpoint: Number): void;
+    moveEndpointByRange(endpoint: number, textRangeProvider: ITextRangeProvider, targetEndpoint: number): void;
 
     select(): void;
 
@@ -259,7 +259,7 @@
 
     removeFromSelection(): void;
 
-    scrollIntoView(alignToTop: Boolean): void;
+    scrollIntoView(alignToTop: boolean): void;
 
     getChildren(): Array<Object>;
 
@@ -267,7 +267,7 @@
 
   export class ITextProvider {
     documentRange: ITextRangeProvider;
-    supportedTextSelection: Number;
+    supportedTextSelection: number;
     constructor();
 
     getSelection(): Array<Object>;
@@ -285,7 +285,7 @@
 
     rangeFromAnnotation(annotationElement: IRawElementProviderSimple): ITextRangeProvider;
 
-    getCaretRange(isActive: Boolean): ITextRangeProvider;
+    getCaretRange(isActive: boolean): ITextRangeProvider;
 
   }
 
@@ -297,7 +297,7 @@
   }
 
   export class IToggleProvider {
-    toggleState: Number;
+    toggleState: number;
     constructor();
 
     toggle(): void;
@@ -305,38 +305,38 @@
   }
 
   export class ITransformProvider {
-    canMove: Boolean;
-    canResize: Boolean;
-    canRotate: Boolean;
+    canMove: boolean;
+    canResize: boolean;
+    canRotate: boolean;
     constructor();
 
-    move(x: Number, y: Number): void;
+    move(x: number, y: number): void;
 
-    resize(width: Number, height: Number): void;
+    resize(width: number, height: number): void;
 
-    rotate(degrees: Number): void;
+    rotate(degrees: number): void;
 
   }
 
   export class ITransformProvider2 {
-    canZoom: Boolean;
-    maxZoom: Number;
-    minZoom: Number;
-    zoomLevel: Number;
+    canZoom: boolean;
+    maxZoom: number;
+    minZoom: number;
+    zoomLevel: number;
     constructor();
 
-    zoom(zoom: Number): void;
+    zoom(zoom: number): void;
 
-    zoomByUnit(zoomUnit: Number): void;
+    zoomByUnit(zoomUnit: number): void;
 
   }
 
   export class IValueProvider {
-    isReadOnly: Boolean;
-    value: String;
+    isReadOnly: boolean;
+    value: string;
     constructor();
 
-    setValue(value: String): void;
+    setValue(value: string): void;
 
   }
 
@@ -348,19 +348,19 @@
   }
 
   export class IWindowProvider {
-    interactionState: Number;
-    isModal: Boolean;
-    isTopmost: Boolean;
-    maximizable: Boolean;
-    minimizable: Boolean;
-    visualState: Number;
+    interactionState: number;
+    isModal: boolean;
+    isTopmost: boolean;
+    maximizable: boolean;
+    minimizable: boolean;
+    visualState: number;
     constructor();
 
     close(): void;
 
-    setVisualState(state: Number): void;
+    setVisualState(state: number): void;
 
-    waitForInputIdle(milliseconds: Number): Boolean;
+    waitForInputIdle(milliseconds: number): boolean;
 
   }
 
@@ -373,7 +373,7 @@
   export class ICustomNavigationProvider {
     constructor();
 
-    navigateCustom(direction: Number): Object;
+    navigateCustom(direction: number): Object;
 
   }
 

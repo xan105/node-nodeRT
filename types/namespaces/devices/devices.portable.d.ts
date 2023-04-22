@@ -15,10 +15,10 @@
   export class StorageDevice {
     constructor();
 
-    static fromId(deviceId: String): Object;
+    static fromId(deviceId: string): Object;
 
 
-    static getDeviceSelector(): String;
+    static getDeviceSelector(): string;
 
 
   }
@@ -26,10 +26,10 @@
   export class ServiceDevice {
     constructor();
 
-    static getDeviceSelector(serviceType: ServiceDeviceType): String;
+    static getDeviceSelector(serviceType: ServiceDeviceType): string;
 
 
-    static getDeviceSelectorFromServiceId(serviceId: String): String;
+    static getDeviceSelectorFromServiceId(serviceId: string): string;
 
 
   }

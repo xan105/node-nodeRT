@@ -100,9 +100,9 @@
   }
 
   export class PrintWorkflowConfiguration {
-    jobTitle: String;
-    sessionId: String;
-    sourceAppDisplayName: String;
+    jobTitle: string;
+    sessionId: string;
+    sourceAppDisplayName: string;
     constructor();
 
   }
@@ -159,8 +159,8 @@
   }
 
   export class PrintWorkflowUIActivatedEventArgs {
-    kind: Number;
-    previousExecutionState: Number;
+    kind: number;
+    previousExecutionState: number;
     splashScreen: Object;
     user: Object;
     printWorkflowSession: PrintWorkflowForegroundSession;

@@ -1,6 +1,6 @@
   export class DeploymentProgress {
     state: DeploymentProgressState;
-    percentage: Number;
+    percentage: number;
     constructor();
   }
 
@@ -63,61 +63,61 @@
   }
 
   export class DeploymentResult {
-    activityId: String;
-    errorText: String;
-    extendedErrorCode: Number;
-    isRegistered: Boolean;
+    activityId: string;
+    errorText: string;
+    extendedErrorCode: number;
+    isRegistered: boolean;
     constructor();
 
   }
 
   export class PackageUserInformation {
     installState: PackageInstallState;
-    userSecurityId: String;
+    userSecurityId: string;
     constructor();
 
   }
 
   export class PackageVolume {
-    isOffline: Boolean;
-    isSystemVolume: Boolean;
-    mountPoint: String;
-    name: String;
-    packageStorePath: String;
-    supportsHardLinks: Boolean;
-    isAppxInstallSupported: Boolean;
-    isFullTrustPackageSupported: Boolean;
+    isOffline: boolean;
+    isSystemVolume: boolean;
+    mountPoint: string;
+    name: string;
+    packageStorePath: string;
+    supportsHardLinks: boolean;
+    isAppxInstallSupported: boolean;
+    isFullTrustPackageSupported: boolean;
     constructor();
 
-    getAvailableSpaceAsync(callback: (error: Error, result: Number) => void): void ;
+    getAvailableSpaceAsync(callback: (error: Error, result: number) => void): void ;
 
     findPackages(): Object;
-    findPackages(packageName: String, packagePublisher: String): Object;
-    findPackages(packageFamilyName: String): Object;
+    findPackages(packageName: string, packagePublisher: string): Object;
+    findPackages(packageFamilyName: string): Object;
 
     findPackagesWithPackageTypes(packageTypes: PackageTypes): Object;
-    findPackagesWithPackageTypes(packageTypes: PackageTypes, packageName: String, packagePublisher: String): Object;
-    findPackagesWithPackageTypes(packageTypes: PackageTypes, packageFamilyName: String): Object;
+    findPackagesWithPackageTypes(packageTypes: PackageTypes, packageName: string, packagePublisher: string): Object;
+    findPackagesWithPackageTypes(packageTypes: PackageTypes, packageFamilyName: string): Object;
 
-    findPackage(packageFullName: String): Object;
+    findPackage(packageFullName: string): Object;
 
-    findPackagesForUser(userSecurityId: String): Object;
-    findPackagesForUser(userSecurityId: String, packageName: String, packagePublisher: String): Object;
-    findPackagesForUser(userSecurityId: String, packageFamilyName: String): Object;
+    findPackagesForUser(userSecurityId: string): Object;
+    findPackagesForUser(userSecurityId: string, packageName: string, packagePublisher: string): Object;
+    findPackagesForUser(userSecurityId: string, packageFamilyName: string): Object;
 
-    findPackagesForUserWithPackageTypes(userSecurityId: String, packageTypes: PackageTypes): Object;
-    findPackagesForUserWithPackageTypes(userSecurityId: String, packageTypes: PackageTypes, packageName: String, packagePublisher: String): Object;
-    findPackagesForUserWithPackageTypes(userSecurityId: String, packageTypes: PackageTypes, packageFamilyName: String): Object;
+    findPackagesForUserWithPackageTypes(userSecurityId: string, packageTypes: PackageTypes): Object;
+    findPackagesForUserWithPackageTypes(userSecurityId: string, packageTypes: PackageTypes, packageName: string, packagePublisher: string): Object;
+    findPackagesForUserWithPackageTypes(userSecurityId: string, packageTypes: PackageTypes, packageFamilyName: string): Object;
 
-    findPackageForUser(userSecurityId: String, packageFullName: String): Object;
+    findPackageForUser(userSecurityId: string, packageFullName: string): Object;
 
   }
 
   export class PackageManagerDebugSettings {
     constructor();
 
-    setContentGroupStateAsync(package: Object, contentGroupName: String, state: Number, callback: (error: Error) => void): void ;
-    setContentGroupStateAsync(package: Object, contentGroupName: String, state: Number, completionPercentage: Number, callback: (error: Error) => void): void ;
+    setContentGroupStateAsync(package: Object, contentGroupName: string, state: number, callback: (error: Error) => void): void ;
+    setContentGroupStateAsync(package: Object, contentGroupName: string, state: number, completionPercentage: number, callback: (error: Error) => void): void ;
 
   }
 
@@ -141,22 +141,22 @@
 
     updatePackageAsync(packageUri: Object, dependencyPackageUris: Object, deploymentOptions: DeploymentOptions, callback: (error: Error, result: DeploymentResult) => void): void ;
 
-    removePackageAsync(packageFullName: String, callback: (error: Error, result: DeploymentResult) => void): void ;
-    removePackageAsync(packageFullName: String, removalOptions: RemovalOptions, callback: (error: Error, result: DeploymentResult) => void): void ;
+    removePackageAsync(packageFullName: string, callback: (error: Error, result: DeploymentResult) => void): void ;
+    removePackageAsync(packageFullName: string, removalOptions: RemovalOptions, callback: (error: Error, result: DeploymentResult) => void): void ;
 
     registerPackageAsync(manifestUri: Object, dependencyPackageUris: Object, deploymentOptions: DeploymentOptions, callback: (error: Error, result: DeploymentResult) => void): void ;
     registerPackageAsync(manifestUri: Object, dependencyPackageUris: Object, deploymentOptions: DeploymentOptions, appDataVolume: PackageVolume, callback: (error: Error, result: DeploymentResult) => void): void ;
 
-    cleanupPackageForUserAsync(packageName: String, userSecurityId: String, callback: (error: Error, result: DeploymentResult) => void): void ;
+    cleanupPackageForUserAsync(packageName: string, userSecurityId: string, callback: (error: Error, result: DeploymentResult) => void): void ;
 
-    registerPackageByFullNameAsync(mainPackageFullName: String, dependencyPackageFullNames: Object, deploymentOptions: DeploymentOptions, callback: (error: Error, result: DeploymentResult) => void): void ;
+    registerPackageByFullNameAsync(mainPackageFullName: string, dependencyPackageFullNames: Object, deploymentOptions: DeploymentOptions, callback: (error: Error, result: DeploymentResult) => void): void ;
 
-    stageUserDataAsync(packageFullName: String, callback: (error: Error, result: DeploymentResult) => void): void ;
-    stageUserDataAsync(packageFullName: String, deploymentOptions: DeploymentOptions, callback: (error: Error, result: DeploymentResult) => void): void ;
+    stageUserDataAsync(packageFullName: string, callback: (error: Error, result: DeploymentResult) => void): void ;
+    stageUserDataAsync(packageFullName: string, deploymentOptions: DeploymentOptions, callback: (error: Error, result: DeploymentResult) => void): void ;
 
-    addPackageVolumeAsync(packageStorePath: String, callback: (error: Error, result: PackageVolume) => void): void ;
+    addPackageVolumeAsync(packageStorePath: string, callback: (error: Error, result: PackageVolume) => void): void ;
 
-    movePackageToVolumeAsync(packageFullName: String, deploymentOptions: DeploymentOptions, targetVolume: PackageVolume, callback: (error: Error, result: DeploymentResult) => void): void ;
+    movePackageToVolumeAsync(packageFullName: string, deploymentOptions: DeploymentOptions, targetVolume: PackageVolume, callback: (error: Error, result: DeploymentResult) => void): void ;
 
     removePackageVolumeAsync(volume: PackageVolume, callback: (error: Error, result: DeploymentResult) => void): void ;
 
@@ -166,41 +166,41 @@
 
     getPackageVolumesAsync(callback: (error: Error, result: Object) => void): void ;
 
-    registerPackageByFamilyNameAsync(mainPackageFamilyName: String, dependencyPackageFamilyNames: Object, deploymentOptions: DeploymentOptions, appDataVolume: PackageVolume, optionalPackageFamilyNames: Object, callback: (error: Error, result: DeploymentResult) => void): void ;
+    registerPackageByFamilyNameAsync(mainPackageFamilyName: string, dependencyPackageFamilyNames: Object, deploymentOptions: DeploymentOptions, appDataVolume: PackageVolume, optionalPackageFamilyNames: Object, callback: (error: Error, result: DeploymentResult) => void): void ;
 
-    provisionPackageForAllUsersAsync(packageFamilyName: String, callback: (error: Error, result: DeploymentResult) => void): void ;
+    provisionPackageForAllUsersAsync(packageFamilyName: string, callback: (error: Error, result: DeploymentResult) => void): void ;
 
     addPackageByAppInstallerFileAsync(appInstallerFileUri: Object, options: AddPackageByAppInstallerOptions, targetVolume: PackageVolume, callback: (error: Error, result: DeploymentResult) => void): void ;
 
     requestAddPackageByAppInstallerFileAsync(appInstallerFileUri: Object, options: AddPackageByAppInstallerOptions, targetVolume: PackageVolume, callback: (error: Error, result: DeploymentResult) => void): void ;
 
     findPackages(): Object;
-    findPackages(packageName: String, packagePublisher: String): Object;
-    findPackages(packageFamilyName: String): Object;
+    findPackages(packageName: string, packagePublisher: string): Object;
+    findPackages(packageFamilyName: string): Object;
 
-    findPackagesForUser(userSecurityId: String): Object;
-    findPackagesForUser(userSecurityId: String, packageName: String, packagePublisher: String): Object;
-    findPackagesForUser(userSecurityId: String, packageFamilyName: String): Object;
+    findPackagesForUser(userSecurityId: string): Object;
+    findPackagesForUser(userSecurityId: string, packageName: string, packagePublisher: string): Object;
+    findPackagesForUser(userSecurityId: string, packageFamilyName: string): Object;
 
-    findUsers(packageFullName: String): Object;
+    findUsers(packageFullName: string): Object;
 
-    setPackageState(packageFullName: String, packageState: PackageState): void;
+    setPackageState(packageFullName: string, packageState: PackageState): void;
 
-    findPackage(packageFullName: String): Object;
+    findPackage(packageFullName: string): Object;
 
-    findPackageForUser(userSecurityId: String, packageFullName: String): Object;
+    findPackageForUser(userSecurityId: string, packageFullName: string): Object;
 
     findPackagesWithPackageTypes(packageTypes: PackageTypes): Object;
-    findPackagesWithPackageTypes(packageName: String, packagePublisher: String, packageTypes: PackageTypes): Object;
-    findPackagesWithPackageTypes(packageFamilyName: String, packageTypes: PackageTypes): Object;
+    findPackagesWithPackageTypes(packageName: string, packagePublisher: string, packageTypes: PackageTypes): Object;
+    findPackagesWithPackageTypes(packageFamilyName: string, packageTypes: PackageTypes): Object;
 
-    findPackagesForUserWithPackageTypes(userSecurityId: String, packageTypes: PackageTypes): Object;
-    findPackagesForUserWithPackageTypes(userSecurityId: String, packageName: String, packagePublisher: String, packageTypes: PackageTypes): Object;
-    findPackagesForUserWithPackageTypes(userSecurityId: String, packageFamilyName: String, packageTypes: PackageTypes): Object;
+    findPackagesForUserWithPackageTypes(userSecurityId: string, packageTypes: PackageTypes): Object;
+    findPackagesForUserWithPackageTypes(userSecurityId: string, packageName: string, packagePublisher: string, packageTypes: PackageTypes): Object;
+    findPackagesForUserWithPackageTypes(userSecurityId: string, packageFamilyName: string, packageTypes: PackageTypes): Object;
 
-    clearPackageStatus(packageFullName: String, status: PackageStatus): void;
+    clearPackageStatus(packageFullName: string, status: PackageStatus): void;
 
-    findPackageVolume(volumeName: String): PackageVolume;
+    findPackageVolume(volumeName: string): PackageVolume;
 
     findPackageVolumes(): Object;
 
@@ -208,7 +208,7 @@
 
     setDefaultPackageVolume(volume: PackageVolume): void;
 
-    setPackageStatus(packageFullName: String, status: PackageStatus): void;
+    setPackageStatus(packageFullName: string, status: PackageStatus): void;
 
   }
 

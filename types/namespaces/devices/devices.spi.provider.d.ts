@@ -13,11 +13,11 @@
   export class ProviderSpiConnectionSettings {
     sharingMode: ProviderSpiSharingMode;
     mode: ProviderSpiMode;
-    dataBitLength: Number;
-    clockFrequency: Number;
-    chipSelectLine: Number;
+    dataBitLength: number;
+    clockFrequency: number;
+    chipSelectLine: number;
     constructor();
-    constructor(chipSelectLine: Number);
+    constructor(chipSelectLine: number);
 
   }
 
@@ -37,10 +37,10 @@
 
   export class ISpiDeviceProvider {
     connectionSettings: ProviderSpiConnectionSettings;
-    deviceId: String;
+    deviceId: string;
     constructor();
 
-    write(buffer: Array<Number>): void;
+    write(buffer: Array<number>): void;
 
     read();
     transferSequential();

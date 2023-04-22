@@ -13,18 +13,18 @@
   export class SpiConnectionSettings {
     sharingMode: SpiSharingMode;
     mode: SpiMode;
-    dataBitLength: Number;
-    clockFrequency: Number;
-    chipSelectLine: Number;
+    dataBitLength: number;
+    clockFrequency: number;
+    chipSelectLine: number;
     constructor();
-    constructor(chipSelectLine: Number);
+    constructor(chipSelectLine: number);
 
   }
 
   export class SpiBusInfo {
-    chipSelectLineCount: Number;
-    maxClockFrequency: Number;
-    minClockFrequency: Number;
+    chipSelectLineCount: number;
+    maxClockFrequency: number;
+    minClockFrequency: number;
     supportedDataBitLengths: Object;
     constructor();
 
@@ -33,31 +33,31 @@
   export class ISpiDeviceStatics {
     constructor();
 
-    fromIdAsync(busId: String, settings: SpiConnectionSettings, callback: (error: Error, result: SpiDevice) => void): void ;
+    fromIdAsync(busId: string, settings: SpiConnectionSettings, callback: (error: Error, result: SpiDevice) => void): void ;
 
-    getDeviceSelector(): String;
-    getDeviceSelector(friendlyName: String): String;
+    getDeviceSelector(): string;
+    getDeviceSelector(friendlyName: string): string;
 
-    getBusInfo(busId: String): SpiBusInfo;
+    getBusInfo(busId: string): SpiBusInfo;
 
   }
 
   export class SpiDevice {
     connectionSettings: SpiConnectionSettings;
-    deviceId: String;
+    deviceId: string;
     constructor();
 
-    static fromIdAsync(busId: String, settings: SpiConnectionSettings, callback: (error: Error, result: SpiDevice) => void): void ;
+    static fromIdAsync(busId: string, settings: SpiConnectionSettings, callback: (error: Error, result: SpiDevice) => void): void ;
 
 
-    static getDeviceSelector(): String;
-    static getDeviceSelector(friendlyName: String): String;
+    static getDeviceSelector(): string;
+    static getDeviceSelector(friendlyName: string): string;
 
 
-    static getBusInfo(busId: String): SpiBusInfo;
+    static getBusInfo(busId: string): SpiBusInfo;
 
 
-    write(buffer: Array<Number>): void;
+    write(buffer: Array<number>): void;
 
     read();
     transferSequential();

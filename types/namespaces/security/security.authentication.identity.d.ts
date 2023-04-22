@@ -1,9 +1,9 @@
   export class EnterpriseKeyCredentialRegistrationInfo {
-    keyId: String;
-    keyName: String;
-    subject: String;
-    tenantId: String;
-    tenantName: String;
+    keyId: string;
+    keyName: string;
+    subject: string;
+    tenantId: string;
+    tenantName: string;
     constructor();
 
   }

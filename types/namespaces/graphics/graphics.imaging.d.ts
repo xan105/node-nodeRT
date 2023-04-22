@@ -1,22 +1,22 @@
   export class BitmapSize {
-    width: Number;
-    height: Number;
+    width: number;
+    height: number;
     constructor();
   }
 
   export class BitmapBounds {
-    x: Number;
-    y: Number;
-    width: Number;
-    height: Number;
+    x: number;
+    y: number;
+    width: number;
+    height: number;
     constructor();
   }
 
   export class BitmapPlaneDescription {
-    startIndex: Number;
-    width: Number;
-    height: Number;
-    stride: Number;
+    startIndex: number;
+    width: number;
+    height: number;
+    stride: number;
     constructor();
   }
 
@@ -103,8 +103,8 @@
   }
 
   export class BitmapTransform {
-    scaledWidth: Number;
-    scaledHeight: Number;
+    scaledWidth: number;
+    scaledHeight: number;
     rotation: BitmapRotation;
     interpolationMode: BitmapInterpolationMode;
     flip: BitmapFlip;
@@ -114,25 +114,25 @@
   }
 
   export class BitmapTypedValue {
-    type: Number;
+    type: number;
     value: Object;
     constructor();
-    constructor(value: Object, type: Number);
+    constructor(value: Object, type: number);
 
   }
 
   export class BitmapPropertySet {
     constructor();
 
-    lookup(key: String): BitmapTypedValue;
+    lookup(key: string): BitmapTypedValue;
 
-    hasKey(key: String): Boolean;
+    hasKey(key: string): boolean;
 
     getView(): Object;
 
-    insert(key: String, value: BitmapTypedValue): Boolean;
+    insert(key: string, value: BitmapTypedValue): boolean;
 
-    remove(key: String): void;
+    remove(key: string): void;
 
     clear(): void;
 
@@ -166,29 +166,29 @@
   export class PixelDataProvider {
     constructor();
 
-    detachPixelData(): Array<Number>;
+    detachPixelData(): Array<number>;
 
   }
 
   export class ImageStream {
-    contentType: String;
-    size: Number;
-    canRead: Boolean;
-    canWrite: Boolean;
-    position: Number;
+    contentType: string;
+    size: number;
+    canRead: boolean;
+    canWrite: boolean;
+    position: number;
     constructor();
 
-    readAsync(buffer: Object, count: Number, options: Number, callback: (error: Error, result: Object) => void): void ;
+    readAsync(buffer: Object, count: number, options: number, callback: (error: Error, result: Object) => void): void ;
 
-    writeAsync(buffer: Object, callback: (error: Error, result: Number) => void): void ;
+    writeAsync(buffer: Object, callback: (error: Error, result: number) => void): void ;
 
-    flushAsync(callback: (error: Error, result: Boolean) => void): void ;
+    flushAsync(callback: (error: Error, result: boolean) => void): void ;
 
-    getInputStreamAt(position: Number): Object;
+    getInputStreamAt(position: number): Object;
 
-    getOutputStreamAt(position: Number): Object;
+    getOutputStreamAt(position: number): Object;
 
-    seek(position: Number): void;
+    seek(position: number): void;
 
     cloneStream(): Object;
 
@@ -199,12 +199,12 @@
     bitmapAlphaMode: BitmapAlphaMode;
     bitmapPixelFormat: BitmapPixelFormat;
     bitmapProperties: BitmapPropertiesView;
-    dpiX: Number;
-    dpiY: Number;
-    orientedPixelHeight: Number;
-    orientedPixelWidth: Number;
-    pixelHeight: Number;
-    pixelWidth: Number;
+    dpiX: number;
+    dpiY: number;
+    orientedPixelHeight: number;
+    orientedPixelWidth: number;
+    pixelHeight: number;
+    pixelWidth: number;
     constructor();
 
     getThumbnailAsync(callback: (error: Error, result: ImageStream) => void): void ;
@@ -227,12 +227,12 @@
     bitmapAlphaMode: BitmapAlphaMode;
     bitmapPixelFormat: BitmapPixelFormat;
     bitmapProperties: BitmapPropertiesView;
-    dpiX: Number;
-    dpiY: Number;
-    orientedPixelHeight: Number;
-    orientedPixelWidth: Number;
-    pixelHeight: Number;
-    pixelWidth: Number;
+    dpiX: number;
+    dpiY: number;
+    orientedPixelHeight: number;
+    orientedPixelWidth: number;
+    pixelHeight: number;
+    pixelWidth: number;
     constructor();
 
     getThumbnailAsync(callback: (error: Error, result: ImageStream) => void): void ;
@@ -247,38 +247,38 @@
   }
 
   export class BitmapCodecInformation {
-    codecId: String;
+    codecId: string;
     fileExtensions: Object;
-    friendlyName: String;
+    friendlyName: string;
     mimeTypes: Object;
     constructor();
 
   }
 
   export class BitmapDecoder {
-    static bmpDecoderId: String;
-    static gifDecoderId: String;
-    static icoDecoderId: String;
-    static jpegDecoderId: String;
-    static jpegXRDecoderId: String;
-    static pngDecoderId: String;
-    static tiffDecoderId: String;
+    static bmpDecoderId: string;
+    static gifDecoderId: string;
+    static icoDecoderId: string;
+    static jpegDecoderId: string;
+    static jpegXRDecoderId: string;
+    static pngDecoderId: string;
+    static tiffDecoderId: string;
     bitmapContainerProperties: BitmapPropertiesView;
     decoderInformation: BitmapCodecInformation;
-    frameCount: Number;
+    frameCount: number;
     bitmapAlphaMode: BitmapAlphaMode;
     bitmapPixelFormat: BitmapPixelFormat;
     bitmapProperties: BitmapPropertiesView;
-    dpiX: Number;
-    dpiY: Number;
-    orientedPixelHeight: Number;
-    orientedPixelWidth: Number;
-    pixelHeight: Number;
-    pixelWidth: Number;
+    dpiX: number;
+    dpiY: number;
+    orientedPixelHeight: number;
+    orientedPixelWidth: number;
+    pixelHeight: number;
+    pixelWidth: number;
     constructor();
 
     static createAsync(stream: Object, callback: (error: Error, result: BitmapDecoder) => void): void ;
-    static createAsync(decoderId: String, stream: Object, callback: (error: Error, result: BitmapDecoder) => void): void ;
+    static createAsync(decoderId: string, stream: Object, callback: (error: Error, result: BitmapDecoder) => void): void ;
 
 
     static getDecoderInformationEnumerator(): Object;
@@ -286,7 +286,7 @@
 
     getPreviewAsync(callback: (error: Error, result: ImageStream) => void): void ;
 
-    getFrameAsync(frameIndex: Number, callback: (error: Error, result: BitmapFrame) => void): void ;
+    getFrameAsync(frameIndex: number, callback: (error: Error, result: BitmapFrame) => void): void ;
 
     getThumbnailAsync(callback: (error: Error, result: ImageStream) => void): void ;
 
@@ -300,23 +300,23 @@
   }
 
   export class BitmapEncoder {
-    static bmpEncoderId: String;
-    static gifEncoderId: String;
-    static jpegEncoderId: String;
-    static jpegXREncoderId: String;
-    static pngEncoderId: String;
-    static tiffEncoderId: String;
-    isThumbnailGenerated: Boolean;
-    generatedThumbnailWidth: Number;
-    generatedThumbnailHeight: Number;
+    static bmpEncoderId: string;
+    static gifEncoderId: string;
+    static jpegEncoderId: string;
+    static jpegXREncoderId: string;
+    static pngEncoderId: string;
+    static tiffEncoderId: string;
+    isThumbnailGenerated: boolean;
+    generatedThumbnailWidth: number;
+    generatedThumbnailHeight: number;
     bitmapContainerProperties: BitmapProperties;
     bitmapProperties: BitmapProperties;
     bitmapTransform: BitmapTransform;
     encoderInformation: BitmapCodecInformation;
     constructor();
 
-    static createAsync(encoderId: String, stream: Object, callback: (error: Error, result: BitmapEncoder) => void): void ;
-    static createAsync(encoderId: String, stream: Object, encodingOptions: Object, callback: (error: Error, result: BitmapEncoder) => void): void ;
+    static createAsync(encoderId: string, stream: Object, callback: (error: Error, result: BitmapEncoder) => void): void ;
+    static createAsync(encoderId: string, stream: Object, encodingOptions: Object, callback: (error: Error, result: BitmapEncoder) => void): void ;
 
 
     static createForTranscodingAsync(stream: Object, bitmapDecoder: BitmapDecoder, callback: (error: Error, result: BitmapEncoder) => void): void ;
@@ -333,7 +333,7 @@
 
     flushAsync(callback: (error: Error) => void): void ;
 
-    setPixelData(pixelFormat: BitmapPixelFormat, alphaMode: BitmapAlphaMode, width: Number, height: Number, dpiX: Number, dpiY: Number, pixels: Array<Number>): void;
+    setPixelData(pixelFormat: BitmapPixelFormat, alphaMode: BitmapAlphaMode, width: number, height: number, dpiX: number, dpiY: number, pixels: Array<number>): void;
 
     setSoftwareBitmap(bitmap: SoftwareBitmap): void;
 
@@ -342,9 +342,9 @@
   export class BitmapBuffer {
     constructor();
 
-    getPlaneCount(): Number;
+    getPlaneCount(): number;
 
-    getPlaneDescription(index: Number): BitmapPlaneDescription;
+    getPlaneDescription(index: number): BitmapPlaneDescription;
 
     createReference(): Object;
 
@@ -352,16 +352,16 @@
   }
 
   export class SoftwareBitmap {
-    dpiY: Number;
-    dpiX: Number;
+    dpiY: number;
+    dpiX: number;
     bitmapAlphaMode: BitmapAlphaMode;
     bitmapPixelFormat: BitmapPixelFormat;
-    isReadOnly: Boolean;
-    pixelHeight: Number;
-    pixelWidth: Number;
+    isReadOnly: boolean;
+    pixelHeight: number;
+    pixelWidth: number;
     constructor();
-    constructor(format: BitmapPixelFormat, width: Number, height: Number);
-    constructor(format: BitmapPixelFormat, width: Number, height: Number, alpha: BitmapAlphaMode);
+    constructor(format: BitmapPixelFormat, width: number, height: number);
+    constructor(format: BitmapPixelFormat, width: number, height: number, alpha: BitmapAlphaMode);
 
     static createCopyFromSurfaceAsync(surface: Object, callback: (error: Error, result: SoftwareBitmap) => void): void ;
     static createCopyFromSurfaceAsync(surface: Object, alpha: BitmapAlphaMode, callback: (error: Error, result: SoftwareBitmap) => void): void ;
@@ -374,8 +374,8 @@
     static convert(source: SoftwareBitmap, format: BitmapPixelFormat, alpha: BitmapAlphaMode): SoftwareBitmap;
 
 
-    static createCopyFromBuffer(source: Object, format: BitmapPixelFormat, width: Number, height: Number): SoftwareBitmap;
-    static createCopyFromBuffer(source: Object, format: BitmapPixelFormat, width: Number, height: Number, alpha: BitmapAlphaMode): SoftwareBitmap;
+    static createCopyFromBuffer(source: Object, format: BitmapPixelFormat, width: number, height: number): SoftwareBitmap;
+    static createCopyFromBuffer(source: Object, format: BitmapPixelFormat, width: number, height: number, alpha: BitmapAlphaMode): SoftwareBitmap;
 
 
     lockBuffer(mode: BitmapBufferAccessMode): BitmapBuffer;

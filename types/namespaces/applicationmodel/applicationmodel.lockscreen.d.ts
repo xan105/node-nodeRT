@@ -34,10 +34,10 @@
   }
 
   export class LockScreenBadge {
-    automationName: String;
+    automationName: string;
     glyph: Object;
     logo: Object;
-    number: Number;
+    number: number;
     constructor();
 
     launchApp(): void;

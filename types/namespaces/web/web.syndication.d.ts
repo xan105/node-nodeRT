@@ -1,14 +1,14 @@
   export class RetrievalProgress {
-    bytesRetrieved: Number;
-    totalBytesToRetrieve: Number;
+    bytesRetrieved: number;
+    totalBytesToRetrieve: number;
     constructor();
   }
 
   export class TransferProgress {
-    bytesSent: Number;
-    totalBytesToSend: Number;
-    bytesRetrieved: Number;
-    totalBytesToRetrieve: Number;
+    bytesSent: number;
+    totalBytesToSend: number;
+    bytesRetrieved: number;
+    totalBytesToRetrieve: number;
     constructor();
   }
 
@@ -37,11 +37,11 @@
   }
 
   export class SyndicationAttribute {
-    value: String;
-    namespace: String;
-    name: String;
+    value: string;
+    namespace: string;
+    name: string;
     constructor();
-    constructor(attributeName: String, attributeNamespace: String, attributeValue: String);
+    constructor(attributeName: string, attributeNamespace: string, attributeValue: string);
 
   }
 
@@ -49,10 +49,10 @@
     attributeExtensions: Object;
     baseUri: Object;
     elementExtensions: Object;
-    language: String;
-    nodeName: String;
-    nodeNamespace: String;
-    nodeValue: String;
+    language: string;
+    nodeName: string;
+    nodeNamespace: string;
+    nodeValue: string;
     constructor();
 
     getXmlDocument(format: SyndicationFormat): Object;
@@ -60,60 +60,60 @@
   }
 
   export class SyndicationNode {
-    nodeValue: String;
-    nodeNamespace: String;
-    nodeName: String;
-    language: String;
+    nodeValue: string;
+    nodeNamespace: string;
+    nodeName: string;
+    language: string;
     baseUri: Object;
     attributeExtensions: Object;
     elementExtensions: Object;
     constructor();
-    constructor(nodeName: String, nodeNamespace: String, nodeValue: String);
+    constructor(nodeName: string, nodeNamespace: string, nodeValue: string);
 
     getXmlDocument(format: SyndicationFormat): Object;
 
   }
 
   export class SyndicationGenerator {
-    version: String;
+    version: string;
     uri: Object;
-    text: String;
-    nodeValue: String;
-    nodeNamespace: String;
-    nodeName: String;
-    language: String;
+    text: string;
+    nodeValue: string;
+    nodeNamespace: string;
+    nodeName: string;
+    language: string;
     baseUri: Object;
     attributeExtensions: Object;
     elementExtensions: Object;
     constructor();
-    constructor(text: String);
+    constructor(text: string);
 
     getXmlDocument(format: SyndicationFormat): Object;
 
   }
 
   export class ISyndicationText {
-    text: String;
-    type: String;
+    text: string;
+    type: string;
     xml: Object;
     constructor();
 
   }
 
   export class SyndicationText {
-    nodeValue: String;
-    nodeNamespace: String;
-    nodeName: String;
-    language: String;
+    nodeValue: string;
+    nodeNamespace: string;
+    nodeName: string;
+    language: string;
     baseUri: Object;
     attributeExtensions: Object;
     elementExtensions: Object;
     xml: Object;
-    type: String;
-    text: String;
+    type: string;
+    text: string;
     constructor();
-    constructor(text: String);
-    constructor(text: String, type: SyndicationTextType);
+    constructor(text: string);
+    constructor(text: string, type: SyndicationTextType);
 
     getXmlDocument(format: SyndicationFormat): Object;
 
@@ -121,18 +121,18 @@
 
   export class SyndicationContent {
     sourceUri: Object;
-    nodeValue: String;
+    nodeValue: string;
     baseUri: Object;
-    language: String;
-    nodeName: String;
-    nodeNamespace: String;
+    language: string;
+    nodeName: string;
+    nodeNamespace: string;
     attributeExtensions: Object;
     elementExtensions: Object;
-    text: String;
-    type: String;
+    text: string;
+    type: string;
     xml: Object;
     constructor();
-    constructor(text: String, type: SyndicationTextType);
+    constructor(text: string, type: SyndicationTextType);
     constructor(sourceUri: Object);
 
     getXmlDocument(format: SyndicationFormat): Object;
@@ -141,59 +141,59 @@
 
   export class SyndicationLink {
     uri: Object;
-    title: String;
-    resourceLanguage: String;
-    relationship: String;
-    mediaType: String;
-    length: Number;
-    nodeValue: String;
-    nodeNamespace: String;
-    nodeName: String;
-    language: String;
+    title: string;
+    resourceLanguage: string;
+    relationship: string;
+    mediaType: string;
+    length: number;
+    nodeValue: string;
+    nodeNamespace: string;
+    nodeName: string;
+    language: string;
     baseUri: Object;
     attributeExtensions: Object;
     elementExtensions: Object;
     constructor();
     constructor(uri: Object);
-    constructor(uri: Object, relationship: String, title: String, mediaType: String, length: Number);
+    constructor(uri: Object, relationship: string, title: string, mediaType: string, length: number);
 
     getXmlDocument(format: SyndicationFormat): Object;
 
   }
 
   export class SyndicationPerson {
-    nodeValue: String;
-    nodeNamespace: String;
-    nodeName: String;
-    language: String;
+    nodeValue: string;
+    nodeNamespace: string;
+    nodeName: string;
+    language: string;
     baseUri: Object;
     attributeExtensions: Object;
     elementExtensions: Object;
     uri: Object;
-    name: String;
-    email: String;
+    name: string;
+    email: string;
     constructor();
-    constructor(name: String);
-    constructor(name: String, email: String, uri: Object);
+    constructor(name: string);
+    constructor(name: string, email: string, uri: Object);
 
     getXmlDocument(format: SyndicationFormat): Object;
 
   }
 
   export class SyndicationCategory {
-    term: String;
-    scheme: String;
-    label: String;
-    nodeValue: String;
-    nodeNamespace: String;
-    nodeName: String;
-    language: String;
+    term: string;
+    scheme: string;
+    label: string;
+    nodeValue: string;
+    nodeNamespace: string;
+    nodeName: string;
+    language: string;
     baseUri: Object;
     attributeExtensions: Object;
     elementExtensions: Object;
     constructor();
-    constructor(term: String);
-    constructor(term: String, scheme: String, label: String);
+    constructor(term: string);
+    constructor(term: string, scheme: string, label: string);
 
     getXmlDocument(format: SyndicationFormat): Object;
 
@@ -207,7 +207,7 @@
     lastUpdatedTime: Date;
     imageUri: Object;
     iconUri: Object;
-    id: String;
+    id: string;
     firstUri: Object;
     items: Object;
     lastUri: Object;
@@ -218,17 +218,17 @@
     sourceFormat: SyndicationFormat;
     contributors: Object;
     authors: Object;
-    nodeValue: String;
-    nodeNamespace: String;
-    nodeName: String;
-    language: String;
+    nodeValue: string;
+    nodeNamespace: string;
+    nodeName: string;
+    language: string;
     baseUri: Object;
     attributeExtensions: Object;
     elementExtensions: Object;
     constructor();
-    constructor(title: String, subtitle: String, uri: Object);
+    constructor(title: string, subtitle: string, uri: Object);
 
-    load(feed: String): void;
+    load(feed: string): void;
 
     loadFromXml(feedDocument: Object): void;
 
@@ -243,7 +243,7 @@
     summary: ISyndicationText;
     publishedDate: Date;
     commentsUri: Object;
-    id: String;
+    id: string;
     lastUpdatedTime: Date;
     content: SyndicationContent;
     editUri: Object;
@@ -252,19 +252,19 @@
     categories: Object;
     contributors: Object;
     itemUri: Object;
-    eTag: String;
+    eTag: string;
     editMediaUri: Object;
-    nodeValue: String;
-    nodeNamespace: String;
-    nodeName: String;
-    language: String;
+    nodeValue: string;
+    nodeNamespace: string;
+    nodeName: string;
+    language: string;
     baseUri: Object;
     attributeExtensions: Object;
     elementExtensions: Object;
     constructor();
-    constructor(title: String, content: SyndicationContent, uri: Object);
+    constructor(title: string, content: SyndicationContent, uri: Object);
 
-    load(item: String): void;
+    load(item: string): void;
 
     loadFromXml(itemDocument: Object): void;
 
@@ -273,38 +273,38 @@
   }
 
   export class ISyndicationClient {
-    bypassCacheOnRetrieve: Boolean;
-    maxResponseBufferSize: Number;
+    bypassCacheOnRetrieve: boolean;
+    maxResponseBufferSize: number;
     proxyCredential: Object;
     serverCredential: Object;
-    timeout: Number;
+    timeout: number;
     constructor();
 
     retrieveFeedAsync(uri: Object, callback: (error: Error, result: SyndicationFeed) => void): void ;
 
-    setRequestHeader(name: String, value: String): void;
+    setRequestHeader(name: string, value: string): void;
 
   }
 
   export class SyndicationClient {
-    timeout: Number;
+    timeout: number;
     serverCredential: Object;
     proxyCredential: Object;
-    maxResponseBufferSize: Number;
-    bypassCacheOnRetrieve: Boolean;
+    maxResponseBufferSize: number;
+    bypassCacheOnRetrieve: boolean;
     constructor();
     constructor(serverCredential: Object);
 
     retrieveFeedAsync(uri: Object, callback: (error: Error, result: SyndicationFeed) => void): void ;
 
-    setRequestHeader(name: String, value: String): void;
+    setRequestHeader(name: string, value: string): void;
 
   }
 
   export class SyndicationError {
     constructor();
 
-    static getStatus(hresult: Number): SyndicationErrorStatus;
+    static getStatus(hresult: number): SyndicationErrorStatus;
 
 
   }

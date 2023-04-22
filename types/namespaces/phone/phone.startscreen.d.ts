@@ -5,16 +5,16 @@
   export class IToastNotificationManagerStatics3 {
     constructor();
 
-    createToastNotifierForSecondaryTile(tileId: String): Object;
+    createToastNotifierForSecondaryTile(tileId: string): Object;
 
   }
 
   export class DualSimTile {
-    displayName: String;
-    isPinnedToStart: Boolean;
+    displayName: string;
+    isPinnedToStart: boolean;
     constructor();
 
-    static updateDisplayNameForSim1Async(name: String, callback: (error: Error, result: Boolean) => void): void ;
+    static updateDisplayNameForSim1Async(name: string, callback: (error: Error, result: boolean) => void): void ;
 
 
     static getTileForSim2(): DualSimTile;
@@ -38,11 +38,11 @@
     static createToastNotifierForSim2(): Object;
 
 
-    createAsync(callback: (error: Error, result: Boolean) => void): void ;
+    createAsync(callback: (error: Error, result: boolean) => void): void ;
 
-    updateAsync(callback: (error: Error, result: Boolean) => void): void ;
+    updateAsync(callback: (error: Error, result: boolean) => void): void ;
 
-    deleteAsync(callback: (error: Error, result: Boolean) => void): void ;
+    deleteAsync(callback: (error: Error, result: boolean) => void): void ;
 
   }
 

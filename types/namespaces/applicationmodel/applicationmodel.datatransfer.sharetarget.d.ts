@@ -1,7 +1,7 @@
   export class QuickLink {
-    title: String;
+    title: string;
     thumbnail: Object;
-    id: String;
+    id: string;
     supportedDataFormats: Object;
     supportedFileTypes: Object;
     constructor();
@@ -10,7 +10,7 @@
 
   export class ShareOperation {
     data: Object;
-    quickLinkId: String;
+    quickLinkId: string;
     contacts: Object;
     constructor();
 
@@ -25,7 +25,7 @@
     reportCompleted(quicklink: QuickLink): void;
     reportCompleted(): void;
 
-    reportError(value: String): void;
+    reportError(value: string): void;
 
     dismissUI(): void;
 

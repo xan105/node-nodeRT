@@ -2,7 +2,7 @@
     static current: CustomXamlResourceLoader;
     constructor();
 
-    getResource(resourceId: String, objectType: String, propertyName: String, propertyType: String): Object;
+    getResource(resourceId: string, objectType: string, propertyName: string, propertyType: string): Object;
 
   }
 

@@ -3,7 +3,7 @@
   }
 
   export class FontWeight {
-    weight: Number;
+    weight: number;
     constructor();
   }
 
@@ -20,8 +20,8 @@
   }
 
   export class TextRange {
-    startIndex: Number;
-    length: Number;
+    startIndex: number;
+    length: number;
     constructor();
   }
 
@@ -38,17 +38,17 @@
   export class BlockCollection {
     constructor();
 
-    getAt(index: Number): Block;
+    getAt(index: number): Block;
 
     getView(): Object;
 
-    indexOf(value: Block, index: Number): Boolean;
+    indexOf(value: Block, index: number): boolean;
 
-    setAt(index: Number, value: Block): void;
+    setAt(index: number, value: Block): void;
 
-    insertAt(index: Number, value: Block): void;
+    insertAt(index: number, value: Block): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: Block): void;
 
@@ -66,17 +66,17 @@
   export class InlineCollection {
     constructor();
 
-    getAt(index: Number): Inline;
+    getAt(index: number): Inline;
 
     getView(): Object;
 
-    indexOf(value: Inline, index: Number): Boolean;
+    indexOf(value: Inline, index: number): boolean;
 
-    setAt(index: Number, value: Inline): void;
+    setAt(index: number, value: Inline): void;
 
-    insertAt(index: Number, value: Inline): void;
+    insertAt(index: number, value: Inline): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: Inline): void;
 
@@ -103,14 +103,14 @@
 
   export class TextPointer {
     logicalDirection: LogicalDirection;
-    offset: Number;
+    offset: number;
     parent: Object;
     visualParent: Object;
     constructor();
 
     getCharacterRect(direction: LogicalDirection): Object;
 
-    getPositionAtOffset(offset: Number, direction: LogicalDirection): TextPointer;
+    getPositionAtOffset(offset: number, direction: LogicalDirection): TextPointer;
 
   }
 
@@ -160,268 +160,268 @@
     static variantsProperty: Object;
     constructor();
 
-    static setVariants(element: Object, value: Number): void;
+    static setVariants(element: Object, value: number): void;
 
 
-    static getStylisticSet10(element: Object): Boolean;
+    static getStylisticSet10(element: Object): boolean;
 
 
-    static setStylisticSet10(element: Object, value: Boolean): void;
+    static setStylisticSet10(element: Object, value: boolean): void;
 
 
-    static getStylisticSet11(element: Object): Boolean;
+    static getStylisticSet11(element: Object): boolean;
 
 
-    static setStylisticSet11(element: Object, value: Boolean): void;
+    static setStylisticSet11(element: Object, value: boolean): void;
 
 
-    static getStylisticSet12(element: Object): Boolean;
+    static getStylisticSet12(element: Object): boolean;
 
 
-    static setStylisticSet12(element: Object, value: Boolean): void;
+    static setStylisticSet12(element: Object, value: boolean): void;
 
 
-    static getStylisticSet13(element: Object): Boolean;
+    static getStylisticSet13(element: Object): boolean;
 
 
-    static setStylisticSet13(element: Object, value: Boolean): void;
+    static setStylisticSet13(element: Object, value: boolean): void;
 
 
-    static getStylisticSet14(element: Object): Boolean;
+    static getStylisticSet14(element: Object): boolean;
 
 
-    static setStylisticSet14(element: Object, value: Boolean): void;
+    static setStylisticSet14(element: Object, value: boolean): void;
 
 
-    static getStylisticSet15(element: Object): Boolean;
+    static getStylisticSet15(element: Object): boolean;
 
 
-    static setStylisticSet15(element: Object, value: Boolean): void;
+    static setStylisticSet15(element: Object, value: boolean): void;
 
 
-    static getStylisticSet16(element: Object): Boolean;
+    static getStylisticSet16(element: Object): boolean;
 
 
-    static setStylisticSet16(element: Object, value: Boolean): void;
+    static setStylisticSet16(element: Object, value: boolean): void;
 
 
-    static getStylisticSet17(element: Object): Boolean;
+    static getStylisticSet17(element: Object): boolean;
 
 
-    static setStylisticSet17(element: Object, value: Boolean): void;
+    static setStylisticSet17(element: Object, value: boolean): void;
 
 
-    static getStylisticSet18(element: Object): Boolean;
+    static getStylisticSet18(element: Object): boolean;
 
 
-    static setStylisticSet18(element: Object, value: Boolean): void;
+    static setStylisticSet18(element: Object, value: boolean): void;
 
 
-    static getStylisticSet19(element: Object): Boolean;
+    static getStylisticSet19(element: Object): boolean;
 
 
-    static setStylisticSet19(element: Object, value: Boolean): void;
+    static setStylisticSet19(element: Object, value: boolean): void;
 
 
-    static getStylisticSet20(element: Object): Boolean;
+    static getStylisticSet20(element: Object): boolean;
 
 
-    static setStylisticSet20(element: Object, value: Boolean): void;
+    static setStylisticSet20(element: Object, value: boolean): void;
 
 
-    static getCapitals(element: Object): Number;
+    static getCapitals(element: Object): number;
 
 
-    static setCapitals(element: Object, value: Number): void;
+    static setCapitals(element: Object, value: number): void;
 
 
-    static getCapitalSpacing(element: Object): Boolean;
+    static getCapitalSpacing(element: Object): boolean;
 
 
-    static setCapitalSpacing(element: Object, value: Boolean): void;
+    static setCapitalSpacing(element: Object, value: boolean): void;
 
 
-    static getKerning(element: Object): Boolean;
+    static getKerning(element: Object): boolean;
 
 
-    static setKerning(element: Object, value: Boolean): void;
+    static setKerning(element: Object, value: boolean): void;
 
 
-    static getCaseSensitiveForms(element: Object): Boolean;
+    static getCaseSensitiveForms(element: Object): boolean;
 
 
-    static setCaseSensitiveForms(element: Object, value: Boolean): void;
+    static setCaseSensitiveForms(element: Object, value: boolean): void;
 
 
-    static getHistoricalForms(element: Object): Boolean;
+    static getHistoricalForms(element: Object): boolean;
 
 
-    static setHistoricalForms(element: Object, value: Boolean): void;
+    static setHistoricalForms(element: Object, value: boolean): void;
 
 
-    static getFraction(element: Object): Number;
+    static getFraction(element: Object): number;
 
 
-    static setFraction(element: Object, value: Number): void;
+    static setFraction(element: Object, value: number): void;
 
 
-    static getNumeralStyle(element: Object): Number;
+    static getNumeralStyle(element: Object): number;
 
 
-    static setNumeralStyle(element: Object, value: Number): void;
+    static setNumeralStyle(element: Object, value: number): void;
 
 
-    static getNumeralAlignment(element: Object): Number;
+    static getNumeralAlignment(element: Object): number;
 
 
-    static setNumeralAlignment(element: Object, value: Number): void;
+    static setNumeralAlignment(element: Object, value: number): void;
 
 
-    static getSlashedZero(element: Object): Boolean;
+    static getSlashedZero(element: Object): boolean;
 
 
-    static setSlashedZero(element: Object, value: Boolean): void;
+    static setSlashedZero(element: Object, value: boolean): void;
 
 
-    static getMathematicalGreek(element: Object): Boolean;
+    static getMathematicalGreek(element: Object): boolean;
 
 
-    static setMathematicalGreek(element: Object, value: Boolean): void;
+    static setMathematicalGreek(element: Object, value: boolean): void;
 
 
-    static getVariants(element: Object): Number;
+    static getVariants(element: Object): number;
 
 
-    static getAnnotationAlternates(element: Object): Number;
+    static getAnnotationAlternates(element: Object): number;
 
 
-    static setAnnotationAlternates(element: Object, value: Number): void;
+    static setAnnotationAlternates(element: Object, value: number): void;
 
 
-    static getEastAsianExpertForms(element: Object): Boolean;
+    static getEastAsianExpertForms(element: Object): boolean;
 
 
-    static setEastAsianExpertForms(element: Object, value: Boolean): void;
+    static setEastAsianExpertForms(element: Object, value: boolean): void;
 
 
-    static getEastAsianLanguage(element: Object): Number;
+    static getEastAsianLanguage(element: Object): number;
 
 
-    static setEastAsianLanguage(element: Object, value: Number): void;
+    static setEastAsianLanguage(element: Object, value: number): void;
 
 
-    static getEastAsianWidths(element: Object): Number;
+    static getEastAsianWidths(element: Object): number;
 
 
-    static setEastAsianWidths(element: Object, value: Number): void;
+    static setEastAsianWidths(element: Object, value: number): void;
 
 
-    static getStandardLigatures(element: Object): Boolean;
+    static getStandardLigatures(element: Object): boolean;
 
 
-    static setStandardLigatures(element: Object, value: Boolean): void;
+    static setStandardLigatures(element: Object, value: boolean): void;
 
 
-    static getContextualLigatures(element: Object): Boolean;
+    static getContextualLigatures(element: Object): boolean;
 
 
-    static setContextualLigatures(element: Object, value: Boolean): void;
+    static setContextualLigatures(element: Object, value: boolean): void;
 
 
-    static getDiscretionaryLigatures(element: Object): Boolean;
+    static getDiscretionaryLigatures(element: Object): boolean;
 
 
-    static setDiscretionaryLigatures(element: Object, value: Boolean): void;
+    static setDiscretionaryLigatures(element: Object, value: boolean): void;
 
 
-    static getHistoricalLigatures(element: Object): Boolean;
+    static getHistoricalLigatures(element: Object): boolean;
 
 
-    static setHistoricalLigatures(element: Object, value: Boolean): void;
+    static setHistoricalLigatures(element: Object, value: boolean): void;
 
 
-    static getStandardSwashes(element: Object): Number;
+    static getStandardSwashes(element: Object): number;
 
 
-    static setStandardSwashes(element: Object, value: Number): void;
+    static setStandardSwashes(element: Object, value: number): void;
 
 
-    static getContextualSwashes(element: Object): Number;
+    static getContextualSwashes(element: Object): number;
 
 
-    static setContextualSwashes(element: Object, value: Number): void;
+    static setContextualSwashes(element: Object, value: number): void;
 
 
-    static getContextualAlternates(element: Object): Boolean;
+    static getContextualAlternates(element: Object): boolean;
 
 
-    static setContextualAlternates(element: Object, value: Boolean): void;
+    static setContextualAlternates(element: Object, value: boolean): void;
 
 
-    static getStylisticAlternates(element: Object): Number;
+    static getStylisticAlternates(element: Object): number;
 
 
-    static setStylisticAlternates(element: Object, value: Number): void;
+    static setStylisticAlternates(element: Object, value: number): void;
 
 
-    static getStylisticSet1(element: Object): Boolean;
+    static getStylisticSet1(element: Object): boolean;
 
 
-    static setStylisticSet1(element: Object, value: Boolean): void;
+    static setStylisticSet1(element: Object, value: boolean): void;
 
 
-    static getStylisticSet2(element: Object): Boolean;
+    static getStylisticSet2(element: Object): boolean;
 
 
-    static setStylisticSet2(element: Object, value: Boolean): void;
+    static setStylisticSet2(element: Object, value: boolean): void;
 
 
-    static getStylisticSet3(element: Object): Boolean;
+    static getStylisticSet3(element: Object): boolean;
 
 
-    static setStylisticSet3(element: Object, value: Boolean): void;
+    static setStylisticSet3(element: Object, value: boolean): void;
 
 
-    static getStylisticSet4(element: Object): Boolean;
+    static getStylisticSet4(element: Object): boolean;
 
 
-    static setStylisticSet4(element: Object, value: Boolean): void;
+    static setStylisticSet4(element: Object, value: boolean): void;
 
 
-    static getStylisticSet5(element: Object): Boolean;
+    static getStylisticSet5(element: Object): boolean;
 
 
-    static setStylisticSet5(element: Object, value: Boolean): void;
+    static setStylisticSet5(element: Object, value: boolean): void;
 
 
-    static getStylisticSet6(element: Object): Boolean;
+    static getStylisticSet6(element: Object): boolean;
 
 
-    static setStylisticSet6(element: Object, value: Boolean): void;
+    static setStylisticSet6(element: Object, value: boolean): void;
 
 
-    static getStylisticSet7(element: Object): Boolean;
+    static getStylisticSet7(element: Object): boolean;
 
 
-    static setStylisticSet7(element: Object, value: Boolean): void;
+    static setStylisticSet7(element: Object, value: boolean): void;
 
 
-    static getStylisticSet8(element: Object): Boolean;
+    static getStylisticSet8(element: Object): boolean;
 
 
-    static setStylisticSet8(element: Object, value: Boolean): void;
+    static setStylisticSet8(element: Object, value: boolean): void;
 
 
-    static getStylisticSet9(element: Object): Boolean;
+    static getStylisticSet9(element: Object): boolean;
 
 
-    static setStylisticSet9(element: Object, value: Boolean): void;
+    static setStylisticSet9(element: Object, value: boolean): void;
 
 
   }
 
   export class ContentLinkInvokedEventArgs {
-    handled: Boolean;
+    handled: boolean;
     contentLinkInfo: Object;
     constructor();
 
@@ -430,17 +430,17 @@
   export class ContentLinkProviderCollection {
     constructor();
 
-    getAt(index: Number): ContentLinkProvider;
+    getAt(index: number): ContentLinkProvider;
 
     getView(): Object;
 
-    indexOf(value: ContentLinkProvider, index: Number): Boolean;
+    indexOf(value: ContentLinkProvider, index: number): boolean;
 
-    setAt(index: Number, value: ContentLinkProvider): void;
+    setAt(index: number, value: ContentLinkProvider): void;
 
-    insertAt(index: Number, value: ContentLinkProvider): void;
+    insertAt(index: number, value: ContentLinkProvider): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: ContentLinkProvider): void;
 
@@ -474,33 +474,33 @@
     static keyTipHorizontalOffsetProperty: Object;
     static isAccessKeyScopeProperty: Object;
     static accessKeyScopeOwnerProperty: Object;
-    fontSize: Number;
+    fontSize: number;
     fontFamily: Object;
     foreground: Object;
     fontWeight: FontWeight;
-    fontStyle: Number;
-    fontStretch: Number;
-    characterSpacing: Number;
-    language: String;
+    fontStyle: number;
+    fontStretch: number;
+    characterSpacing: number;
+    language: string;
     contentEnd: TextPointer;
     elementEnd: TextPointer;
     elementStart: TextPointer;
     contentStart: TextPointer;
-    name: String;
-    isTextScaleFactorEnabled: Boolean;
-    accessKey: String;
-    exitDisplayModeOnAccessKeyInvoked: Boolean;
-    allowFocusOnInteraction: Boolean;
-    keyTipVerticalOffset: Number;
-    keyTipPlacementMode: Number;
-    keyTipHorizontalOffset: Number;
-    isAccessKeyScope: Boolean;
+    name: string;
+    isTextScaleFactorEnabled: boolean;
+    accessKey: string;
+    exitDisplayModeOnAccessKeyInvoked: boolean;
+    allowFocusOnInteraction: boolean;
+    keyTipVerticalOffset: number;
+    keyTipPlacementMode: number;
+    keyTipHorizontalOffset: number;
+    isAccessKeyScope: boolean;
     accessKeyScopeOwner: Object;
-    textDecorations: Number;
+    textDecorations: number;
     dispatcher: Object;
     constructor();
 
-    findName(name: String): Object;
+    findName(name: string): Object;
 
     onDisconnectVisualChildren(): void;
 
@@ -557,34 +557,34 @@
     static keyTipHorizontalOffsetProperty: Object;
     static isAccessKeyScopeProperty: Object;
     static accessKeyScopeOwnerProperty: Object;
-    textAlignment: Number;
+    textAlignment: number;
     margin: Thickness;
-    lineStackingStrategy: Number;
-    lineHeight: Number;
-    horizontalTextAlignment: Number;
-    fontSize: Number;
+    lineStackingStrategy: number;
+    lineHeight: number;
+    horizontalTextAlignment: number;
+    fontSize: number;
     fontFamily: Object;
     foreground: Object;
     fontWeight: FontWeight;
-    fontStyle: Number;
-    fontStretch: Number;
-    characterSpacing: Number;
-    language: String;
+    fontStyle: number;
+    fontStretch: number;
+    characterSpacing: number;
+    language: string;
     contentEnd: TextPointer;
     elementEnd: TextPointer;
     elementStart: TextPointer;
     contentStart: TextPointer;
-    name: String;
-    isTextScaleFactorEnabled: Boolean;
-    accessKey: String;
-    exitDisplayModeOnAccessKeyInvoked: Boolean;
-    allowFocusOnInteraction: Boolean;
-    keyTipVerticalOffset: Number;
-    keyTipPlacementMode: Number;
-    keyTipHorizontalOffset: Number;
-    isAccessKeyScope: Boolean;
+    name: string;
+    isTextScaleFactorEnabled: boolean;
+    accessKey: string;
+    exitDisplayModeOnAccessKeyInvoked: boolean;
+    allowFocusOnInteraction: boolean;
+    keyTipVerticalOffset: number;
+    keyTipPlacementMode: number;
+    keyTipHorizontalOffset: number;
+    isAccessKeyScope: boolean;
     accessKeyScopeOwner: Object;
-    textDecorations: Number;
+    textDecorations: number;
     dispatcher: Object;
     constructor();
 
@@ -630,29 +630,29 @@
     static keyTipHorizontalOffsetProperty: Object;
     static isAccessKeyScopeProperty: Object;
     static accessKeyScopeOwnerProperty: Object;
-    fontSize: Number;
+    fontSize: number;
     fontFamily: Object;
     foreground: Object;
     fontWeight: FontWeight;
-    fontStyle: Number;
-    fontStretch: Number;
-    characterSpacing: Number;
-    language: String;
+    fontStyle: number;
+    fontStretch: number;
+    characterSpacing: number;
+    language: string;
     contentEnd: TextPointer;
     elementEnd: TextPointer;
     elementStart: TextPointer;
     contentStart: TextPointer;
-    name: String;
-    isTextScaleFactorEnabled: Boolean;
-    accessKey: String;
-    exitDisplayModeOnAccessKeyInvoked: Boolean;
-    allowFocusOnInteraction: Boolean;
-    keyTipVerticalOffset: Number;
-    keyTipPlacementMode: Number;
-    keyTipHorizontalOffset: Number;
-    isAccessKeyScope: Boolean;
+    name: string;
+    isTextScaleFactorEnabled: boolean;
+    accessKey: string;
+    exitDisplayModeOnAccessKeyInvoked: boolean;
+    allowFocusOnInteraction: boolean;
+    keyTipVerticalOffset: number;
+    keyTipPlacementMode: number;
+    keyTipHorizontalOffset: number;
+    isAccessKeyScope: boolean;
     accessKeyScopeOwner: Object;
-    textDecorations: Number;
+    textDecorations: number;
     dispatcher: Object;
     constructor();
 
@@ -699,29 +699,29 @@
     static isAccessKeyScopeProperty: Object;
     static accessKeyScopeOwnerProperty: Object;
     child: Object;
-    fontSize: Number;
+    fontSize: number;
     fontFamily: Object;
     foreground: Object;
     fontWeight: FontWeight;
-    fontStyle: Number;
-    fontStretch: Number;
-    characterSpacing: Number;
-    language: String;
+    fontStyle: number;
+    fontStretch: number;
+    characterSpacing: number;
+    language: string;
     contentEnd: TextPointer;
     elementEnd: TextPointer;
     elementStart: TextPointer;
     contentStart: TextPointer;
-    name: String;
-    isTextScaleFactorEnabled: Boolean;
-    accessKey: String;
-    exitDisplayModeOnAccessKeyInvoked: Boolean;
-    allowFocusOnInteraction: Boolean;
-    keyTipVerticalOffset: Number;
-    keyTipPlacementMode: Number;
-    keyTipHorizontalOffset: Number;
-    isAccessKeyScope: Boolean;
+    name: string;
+    isTextScaleFactorEnabled: boolean;
+    accessKey: string;
+    exitDisplayModeOnAccessKeyInvoked: boolean;
+    allowFocusOnInteraction: boolean;
+    keyTipVerticalOffset: number;
+    keyTipPlacementMode: number;
+    keyTipHorizontalOffset: number;
+    isAccessKeyScope: boolean;
     accessKeyScopeOwner: Object;
-    textDecorations: Number;
+    textDecorations: number;
     dispatcher: Object;
     constructor();
 
@@ -767,29 +767,29 @@
     static keyTipHorizontalOffsetProperty: Object;
     static isAccessKeyScopeProperty: Object;
     static accessKeyScopeOwnerProperty: Object;
-    fontSize: Number;
+    fontSize: number;
     fontFamily: Object;
     foreground: Object;
     fontWeight: FontWeight;
-    fontStyle: Number;
-    fontStretch: Number;
-    characterSpacing: Number;
-    language: String;
+    fontStyle: number;
+    fontStretch: number;
+    characterSpacing: number;
+    language: string;
     contentEnd: TextPointer;
     elementEnd: TextPointer;
     elementStart: TextPointer;
     contentStart: TextPointer;
-    name: String;
-    isTextScaleFactorEnabled: Boolean;
-    accessKey: String;
-    exitDisplayModeOnAccessKeyInvoked: Boolean;
-    allowFocusOnInteraction: Boolean;
-    keyTipVerticalOffset: Number;
-    keyTipPlacementMode: Number;
-    keyTipHorizontalOffset: Number;
-    isAccessKeyScope: Boolean;
+    name: string;
+    isTextScaleFactorEnabled: boolean;
+    accessKey: string;
+    exitDisplayModeOnAccessKeyInvoked: boolean;
+    allowFocusOnInteraction: boolean;
+    keyTipVerticalOffset: number;
+    keyTipPlacementMode: number;
+    keyTipHorizontalOffset: number;
+    isAccessKeyScope: boolean;
     accessKeyScopeOwner: Object;
-    textDecorations: Number;
+    textDecorations: number;
     dispatcher: Object;
     constructor();
 
@@ -841,36 +841,36 @@
     static keyTipHorizontalOffsetProperty: Object;
     static isAccessKeyScopeProperty: Object;
     static accessKeyScopeOwnerProperty: Object;
-    textIndent: Number;
+    textIndent: number;
     inlines: InlineCollection;
-    textAlignment: Number;
+    textAlignment: number;
     margin: Thickness;
-    lineStackingStrategy: Number;
-    lineHeight: Number;
-    horizontalTextAlignment: Number;
-    fontSize: Number;
+    lineStackingStrategy: number;
+    lineHeight: number;
+    horizontalTextAlignment: number;
+    fontSize: number;
     fontFamily: Object;
     foreground: Object;
     fontWeight: FontWeight;
-    fontStyle: Number;
-    fontStretch: Number;
-    characterSpacing: Number;
-    language: String;
+    fontStyle: number;
+    fontStretch: number;
+    characterSpacing: number;
+    language: string;
     contentEnd: TextPointer;
     elementEnd: TextPointer;
     elementStart: TextPointer;
     contentStart: TextPointer;
-    name: String;
-    isTextScaleFactorEnabled: Boolean;
-    accessKey: String;
-    exitDisplayModeOnAccessKeyInvoked: Boolean;
-    allowFocusOnInteraction: Boolean;
-    keyTipVerticalOffset: Number;
-    keyTipPlacementMode: Number;
-    keyTipHorizontalOffset: Number;
-    isAccessKeyScope: Boolean;
+    name: string;
+    isTextScaleFactorEnabled: boolean;
+    accessKey: string;
+    exitDisplayModeOnAccessKeyInvoked: boolean;
+    allowFocusOnInteraction: boolean;
+    keyTipVerticalOffset: number;
+    keyTipPlacementMode: number;
+    keyTipHorizontalOffset: number;
+    isAccessKeyScope: boolean;
     accessKeyScopeOwner: Object;
-    textDecorations: Number;
+    textDecorations: number;
     dispatcher: Object;
     constructor();
 
@@ -917,31 +917,31 @@
     static keyTipHorizontalOffsetProperty: Object;
     static isAccessKeyScopeProperty: Object;
     static accessKeyScopeOwnerProperty: Object;
-    text: String;
-    flowDirection: Number;
-    fontSize: Number;
+    text: string;
+    flowDirection: number;
+    fontSize: number;
     fontFamily: Object;
     foreground: Object;
     fontWeight: FontWeight;
-    fontStyle: Number;
-    fontStretch: Number;
-    characterSpacing: Number;
-    language: String;
+    fontStyle: number;
+    fontStretch: number;
+    characterSpacing: number;
+    language: string;
     contentEnd: TextPointer;
     elementEnd: TextPointer;
     elementStart: TextPointer;
     contentStart: TextPointer;
-    name: String;
-    isTextScaleFactorEnabled: Boolean;
-    accessKey: String;
-    exitDisplayModeOnAccessKeyInvoked: Boolean;
-    allowFocusOnInteraction: Boolean;
-    keyTipVerticalOffset: Number;
-    keyTipPlacementMode: Number;
-    keyTipHorizontalOffset: Number;
-    isAccessKeyScope: Boolean;
+    name: string;
+    isTextScaleFactorEnabled: boolean;
+    accessKey: string;
+    exitDisplayModeOnAccessKeyInvoked: boolean;
+    allowFocusOnInteraction: boolean;
+    keyTipVerticalOffset: number;
+    keyTipPlacementMode: number;
+    keyTipHorizontalOffset: number;
+    isAccessKeyScope: boolean;
     accessKeyScopeOwner: Object;
-    textDecorations: Number;
+    textDecorations: number;
     dispatcher: Object;
     constructor();
 
@@ -988,29 +988,29 @@
     static isAccessKeyScopeProperty: Object;
     static accessKeyScopeOwnerProperty: Object;
     inlines: InlineCollection;
-    fontSize: Number;
+    fontSize: number;
     fontFamily: Object;
     foreground: Object;
     fontWeight: FontWeight;
-    fontStyle: Number;
-    fontStretch: Number;
-    characterSpacing: Number;
-    language: String;
+    fontStyle: number;
+    fontStretch: number;
+    characterSpacing: number;
+    language: string;
     contentEnd: TextPointer;
     elementEnd: TextPointer;
     elementStart: TextPointer;
     contentStart: TextPointer;
-    name: String;
-    isTextScaleFactorEnabled: Boolean;
-    accessKey: String;
-    exitDisplayModeOnAccessKeyInvoked: Boolean;
-    allowFocusOnInteraction: Boolean;
-    keyTipVerticalOffset: Number;
-    keyTipPlacementMode: Number;
-    keyTipHorizontalOffset: Number;
-    isAccessKeyScope: Boolean;
+    name: string;
+    isTextScaleFactorEnabled: boolean;
+    accessKey: string;
+    exitDisplayModeOnAccessKeyInvoked: boolean;
+    allowFocusOnInteraction: boolean;
+    keyTipVerticalOffset: number;
+    keyTipPlacementMode: number;
+    keyTipHorizontalOffset: number;
+    isAccessKeyScope: boolean;
     accessKeyScopeOwner: Object;
-    textDecorations: Number;
+    textDecorations: number;
     dispatcher: Object;
     constructor();
 
@@ -1057,29 +1057,29 @@
     static isAccessKeyScopeProperty: Object;
     static accessKeyScopeOwnerProperty: Object;
     inlines: InlineCollection;
-    fontSize: Number;
+    fontSize: number;
     fontFamily: Object;
     foreground: Object;
     fontWeight: FontWeight;
-    fontStyle: Number;
-    fontStretch: Number;
-    characterSpacing: Number;
-    language: String;
+    fontStyle: number;
+    fontStretch: number;
+    characterSpacing: number;
+    language: string;
     contentEnd: TextPointer;
     elementEnd: TextPointer;
     elementStart: TextPointer;
     contentStart: TextPointer;
-    name: String;
-    isTextScaleFactorEnabled: Boolean;
-    accessKey: String;
-    exitDisplayModeOnAccessKeyInvoked: Boolean;
-    allowFocusOnInteraction: Boolean;
-    keyTipVerticalOffset: Number;
-    keyTipPlacementMode: Number;
-    keyTipHorizontalOffset: Number;
-    isAccessKeyScope: Boolean;
+    name: string;
+    isTextScaleFactorEnabled: boolean;
+    accessKey: string;
+    exitDisplayModeOnAccessKeyInvoked: boolean;
+    allowFocusOnInteraction: boolean;
+    keyTipVerticalOffset: number;
+    keyTipPlacementMode: number;
+    keyTipHorizontalOffset: number;
+    isAccessKeyScope: boolean;
     accessKeyScopeOwner: Object;
-    textDecorations: Number;
+    textDecorations: number;
     dispatcher: Object;
     constructor();
 
@@ -1126,29 +1126,29 @@
     static isAccessKeyScopeProperty: Object;
     static accessKeyScopeOwnerProperty: Object;
     inlines: InlineCollection;
-    fontSize: Number;
+    fontSize: number;
     fontFamily: Object;
     foreground: Object;
     fontWeight: FontWeight;
-    fontStyle: Number;
-    fontStretch: Number;
-    characterSpacing: Number;
-    language: String;
+    fontStyle: number;
+    fontStretch: number;
+    characterSpacing: number;
+    language: string;
     contentEnd: TextPointer;
     elementEnd: TextPointer;
     elementStart: TextPointer;
     contentStart: TextPointer;
-    name: String;
-    isTextScaleFactorEnabled: Boolean;
-    accessKey: String;
-    exitDisplayModeOnAccessKeyInvoked: Boolean;
-    allowFocusOnInteraction: Boolean;
-    keyTipVerticalOffset: Number;
-    keyTipPlacementMode: Number;
-    keyTipHorizontalOffset: Number;
-    isAccessKeyScope: Boolean;
+    name: string;
+    isTextScaleFactorEnabled: boolean;
+    accessKey: string;
+    exitDisplayModeOnAccessKeyInvoked: boolean;
+    allowFocusOnInteraction: boolean;
+    keyTipVerticalOffset: number;
+    keyTipPlacementMode: number;
+    keyTipHorizontalOffset: number;
+    isAccessKeyScope: boolean;
     accessKeyScopeOwner: Object;
-    textDecorations: Number;
+    textDecorations: number;
     dispatcher: Object;
     constructor();
 
@@ -1195,29 +1195,29 @@
     static isAccessKeyScopeProperty: Object;
     static accessKeyScopeOwnerProperty: Object;
     inlines: InlineCollection;
-    fontSize: Number;
+    fontSize: number;
     fontFamily: Object;
     foreground: Object;
     fontWeight: FontWeight;
-    fontStyle: Number;
-    fontStretch: Number;
-    characterSpacing: Number;
-    language: String;
+    fontStyle: number;
+    fontStretch: number;
+    characterSpacing: number;
+    language: string;
     contentEnd: TextPointer;
     elementEnd: TextPointer;
     elementStart: TextPointer;
     contentStart: TextPointer;
-    name: String;
-    isTextScaleFactorEnabled: Boolean;
-    accessKey: String;
-    exitDisplayModeOnAccessKeyInvoked: Boolean;
-    allowFocusOnInteraction: Boolean;
-    keyTipVerticalOffset: Number;
-    keyTipPlacementMode: Number;
-    keyTipHorizontalOffset: Number;
-    isAccessKeyScope: Boolean;
+    name: string;
+    isTextScaleFactorEnabled: boolean;
+    accessKey: string;
+    exitDisplayModeOnAccessKeyInvoked: boolean;
+    allowFocusOnInteraction: boolean;
+    keyTipVerticalOffset: number;
+    keyTipPlacementMode: number;
+    keyTipHorizontalOffset: number;
+    isAccessKeyScope: boolean;
     accessKeyScopeOwner: Object;
-    textDecorations: Number;
+    textDecorations: number;
     dispatcher: Object;
     constructor();
 
@@ -1295,48 +1295,48 @@
     static keyTipHorizontalOffsetProperty: Object;
     static isAccessKeyScopeProperty: Object;
     static accessKeyScopeOwnerProperty: Object;
-    xYFocusUpNavigationStrategy: Number;
+    xYFocusUpNavigationStrategy: number;
     xYFocusUp: Object;
-    xYFocusRightNavigationStrategy: Number;
+    xYFocusRightNavigationStrategy: number;
     xYFocusRight: Object;
-    xYFocusLeftNavigationStrategy: Number;
+    xYFocusLeftNavigationStrategy: number;
     xYFocusLeft: Object;
-    xYFocusDownNavigationStrategy: Number;
+    xYFocusDownNavigationStrategy: number;
     xYFocusDown: Object;
-    tabIndex: Number;
-    isTabStop: Boolean;
+    tabIndex: number;
+    isTabStop: boolean;
     info: Object;
-    elementSoundMode: Number;
-    cursor: Number;
+    elementSoundMode: number;
+    cursor: number;
     background: Object;
-    focusState: Number;
-    fontSize: Number;
+    focusState: number;
+    fontSize: number;
     fontFamily: Object;
     foreground: Object;
     fontWeight: FontWeight;
-    fontStyle: Number;
-    fontStretch: Number;
-    characterSpacing: Number;
-    language: String;
+    fontStyle: number;
+    fontStretch: number;
+    characterSpacing: number;
+    language: string;
     contentEnd: TextPointer;
     elementEnd: TextPointer;
     elementStart: TextPointer;
     contentStart: TextPointer;
-    name: String;
-    isTextScaleFactorEnabled: Boolean;
-    accessKey: String;
-    exitDisplayModeOnAccessKeyInvoked: Boolean;
-    allowFocusOnInteraction: Boolean;
-    keyTipVerticalOffset: Number;
-    keyTipPlacementMode: Number;
-    keyTipHorizontalOffset: Number;
-    isAccessKeyScope: Boolean;
+    name: string;
+    isTextScaleFactorEnabled: boolean;
+    accessKey: string;
+    exitDisplayModeOnAccessKeyInvoked: boolean;
+    allowFocusOnInteraction: boolean;
+    keyTipVerticalOffset: number;
+    keyTipPlacementMode: number;
+    keyTipHorizontalOffset: number;
+    isAccessKeyScope: boolean;
     accessKeyScopeOwner: Object;
-    textDecorations: Number;
+    textDecorations: number;
     dispatcher: Object;
     constructor();
 
-    focus(value: Number): Boolean;
+    focus(value: number): boolean;
 
     addListener(type: "GotFocus", listener: (ev: Event) => void): void ;
     removeListener(type: "GotFocus", listener: (ev: Event) => void): void ;
@@ -1415,42 +1415,42 @@
     xYFocusRight: Object;
     xYFocusLeft: Object;
     xYFocusDown: Object;
-    elementSoundMode: Number;
-    xYFocusDownNavigationStrategy: Number;
-    xYFocusUpNavigationStrategy: Number;
-    xYFocusRightNavigationStrategy: Number;
-    xYFocusLeftNavigationStrategy: Number;
-    focusState: Number;
-    isTabStop: Boolean;
-    tabIndex: Number;
+    elementSoundMode: number;
+    xYFocusDownNavigationStrategy: number;
+    xYFocusUpNavigationStrategy: number;
+    xYFocusRightNavigationStrategy: number;
+    xYFocusLeftNavigationStrategy: number;
+    focusState: number;
+    isTabStop: boolean;
+    tabIndex: number;
     inlines: InlineCollection;
-    fontSize: Number;
+    fontSize: number;
     fontFamily: Object;
     foreground: Object;
     fontWeight: FontWeight;
-    fontStyle: Number;
-    fontStretch: Number;
-    characterSpacing: Number;
-    language: String;
+    fontStyle: number;
+    fontStretch: number;
+    characterSpacing: number;
+    language: string;
     contentEnd: TextPointer;
     elementEnd: TextPointer;
     elementStart: TextPointer;
     contentStart: TextPointer;
-    name: String;
-    isTextScaleFactorEnabled: Boolean;
-    accessKey: String;
-    exitDisplayModeOnAccessKeyInvoked: Boolean;
-    allowFocusOnInteraction: Boolean;
-    keyTipVerticalOffset: Number;
-    keyTipPlacementMode: Number;
-    keyTipHorizontalOffset: Number;
-    isAccessKeyScope: Boolean;
+    name: string;
+    isTextScaleFactorEnabled: boolean;
+    accessKey: string;
+    exitDisplayModeOnAccessKeyInvoked: boolean;
+    allowFocusOnInteraction: boolean;
+    keyTipVerticalOffset: number;
+    keyTipPlacementMode: number;
+    keyTipHorizontalOffset: number;
+    isAccessKeyScope: boolean;
     accessKeyScopeOwner: Object;
-    textDecorations: Number;
+    textDecorations: number;
     dispatcher: Object;
     constructor();
 
-    focus(value: Number): Boolean;
+    focus(value: number): boolean;
 
     addListener(type: "Click", listener: (ev: Event) => void): void ;
     removeListener(type: "Click", listener: (ev: Event) => void): void ;
@@ -1603,58 +1603,58 @@
     static keyTipTargetProperty: Object;
     static contextRequestedEvent: Object;
     static bringIntoViewRequestedEvent: Object;
-    unicodeString: String;
-    styleSimulations: Number;
-    originY: Number;
-    originX: Number;
-    indices: String;
+    unicodeString: string;
+    styleSimulations: number;
+    originY: number;
+    originX: number;
+    indices: string;
     fontUri: Object;
-    fontRenderingEmSize: Number;
+    fontRenderingEmSize: number;
     fill: Object;
-    isColorFontEnabled: Boolean;
-    colorFontPaletteIndex: Number;
-    flowDirection: Number;
-    minWidth: Number;
-    minHeight: Number;
-    maxWidth: Number;
-    maxHeight: Number;
+    isColorFontEnabled: boolean;
+    colorFontPaletteIndex: number;
+    flowDirection: number;
+    minWidth: number;
+    minHeight: number;
+    maxWidth: number;
+    maxHeight: number;
     margin: Thickness;
-    language: String;
-    name: String;
-    horizontalAlignment: Number;
-    height: Number;
+    language: string;
+    name: string;
+    horizontalAlignment: number;
+    height: number;
     dataContext: Object;
     resources: Object;
-    width: Number;
+    width: number;
     tag: Object;
     style: Object;
-    verticalAlignment: Number;
-    actualHeight: Number;
-    actualWidth: Number;
+    verticalAlignment: number;
+    actualHeight: number;
+    actualWidth: number;
     parent: Object;
     baseUri: Object;
     triggers: Object;
-    requestedTheme: Number;
+    requestedTheme: number;
     focusVisualSecondaryThickness: Thickness;
     focusVisualSecondaryBrush: Object;
     focusVisualPrimaryThickness: Thickness;
     focusVisualPrimaryBrush: Object;
     focusVisualMargin: Thickness;
-    allowFocusWhenDisabled: Boolean;
-    allowFocusOnInteraction: Boolean;
-    actualTheme: Number;
-    manipulationMode: Number;
-    isTapEnabled: Boolean;
-    isRightTapEnabled: Boolean;
-    isHoldingEnabled: Boolean;
-    isHitTestVisible: Boolean;
-    isDoubleTapEnabled: Boolean;
-    opacity: Number;
+    allowFocusWhenDisabled: boolean;
+    allowFocusOnInteraction: boolean;
+    actualTheme: number;
+    manipulationMode: number;
+    isTapEnabled: boolean;
+    isRightTapEnabled: boolean;
+    isHoldingEnabled: boolean;
+    isHitTestVisible: boolean;
+    isDoubleTapEnabled: boolean;
+    opacity: number;
     cacheMode: Object;
-    allowDrop: Boolean;
+    allowDrop: boolean;
     clip: Object;
-    visibility: Number;
-    useLayoutRounding: Boolean;
+    visibility: number;
+    useLayoutRounding: boolean;
     renderTransformOrigin: Object;
     projection: Object;
     renderTransform: Object;
@@ -1662,28 +1662,28 @@
     renderSize: Object;
     pointerCaptures: Object;
     desiredSize: Object;
-    compositeMode: Number;
+    compositeMode: number;
     transform3D: Object;
-    canDrag: Boolean;
-    accessKey: String;
+    canDrag: boolean;
+    accessKey: string;
     accessKeyScopeOwner: Object;
-    exitDisplayModeOnAccessKeyInvoked: Boolean;
+    exitDisplayModeOnAccessKeyInvoked: boolean;
     contextFlyout: Object;
-    isAccessKeyScope: Boolean;
-    xYFocusDownNavigationStrategy: Number;
-    xYFocusLeftNavigationStrategy: Number;
-    tabFocusNavigation: Number;
-    xYFocusKeyboardNavigation: Number;
-    keyTipVerticalOffset: Number;
-    keyTipPlacementMode: Number;
-    keyTipHorizontalOffset: Number;
-    highContrastAdjustment: Number;
-    xYFocusUpNavigationStrategy: Number;
-    xYFocusRightNavigationStrategy: Number;
+    isAccessKeyScope: boolean;
+    xYFocusDownNavigationStrategy: number;
+    xYFocusLeftNavigationStrategy: number;
+    tabFocusNavigation: number;
+    xYFocusKeyboardNavigation: number;
+    keyTipVerticalOffset: number;
+    keyTipPlacementMode: number;
+    keyTipHorizontalOffset: number;
+    highContrastAdjustment: number;
+    xYFocusUpNavigationStrategy: number;
+    xYFocusRightNavigationStrategy: number;
     lights: Object;
     keyboardAccelerators: Object;
     keyboardAcceleratorPlacementTarget: Object;
-    keyboardAcceleratorPlacementMode: Number;
+    keyboardAcceleratorPlacementMode: number;
     keyTipTarget: Object;
     dispatcher: Object;
     constructor();

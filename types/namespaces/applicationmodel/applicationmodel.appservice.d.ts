@@ -48,8 +48,8 @@
   }
 
   export class AppServiceConnection {
-    packageFamilyName: String;
-    appServiceName: String;
+    packageFamilyName: string;
+    appServiceName: string;
     user: Object;
     constructor();
 
@@ -94,19 +94,19 @@
 
   export class AppServiceTriggerDetails {
     appServiceConnection: AppServiceConnection;
-    callerPackageFamilyName: String;
-    name: String;
-    isRemoteSystemConnection: Boolean;
+    callerPackageFamilyName: string;
+    name: string;
+    isRemoteSystemConnection: boolean;
     constructor();
 
-    checkCallerForCapabilityAsync(capabilityName: String, callback: (error: Error, result: Boolean) => void): void ;
+    checkCallerForCapabilityAsync(capabilityName: string, callback: (error: Error, result: boolean) => void): void ;
 
   }
 
   export class AppServiceCatalog {
     constructor();
 
-    static findAppServiceProvidersAsync(appServiceName: String, callback: (error: Error, result: Object) => void): void ;
+    static findAppServiceProvidersAsync(appServiceName: string, callback: (error: Error, result: Object) => void): void ;
 
 
   }

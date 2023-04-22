@@ -1,8 +1,8 @@
   export class Quaternion {
-    x: Number;
-    y: Number;
-    z: Number;
-    w: Number;
+    x: number;
+    y: number;
+    z: number;
+    w: number;
     constructor();
   }
 
@@ -53,18 +53,18 @@
   }
 
   export class IVideoCompositorDefinition {
-    activatableClassId: String;
+    activatableClassId: string;
     properties: Object;
     constructor();
 
   }
 
   export class VideoCompositorDefinition {
-    activatableClassId: String;
+    activatableClassId: string;
     properties: Object;
     constructor();
-    constructor(activatableClassId: String);
-    constructor(activatableClassId: String, props: Object);
+    constructor(activatableClassId: string);
+    constructor(activatableClassId: string, props: Object);
 
   }
 
@@ -85,7 +85,7 @@
   }
 
   export class AudioRenderEffectsManager {
-    effectsProviderSettingsLabel: String;
+    effectsProviderSettingsLabel: string;
     effectsProviderThumbnail: Object;
     constructor();
 
@@ -127,18 +127,18 @@
   export class AudioEffectsManager {
     constructor();
 
-    static createAudioRenderEffectsManager(deviceId: String, category: Number): AudioRenderEffectsManager;
-    static createAudioRenderEffectsManager(deviceId: String, category: Number, mode: Number): AudioRenderEffectsManager;
+    static createAudioRenderEffectsManager(deviceId: string, category: number): AudioRenderEffectsManager;
+    static createAudioRenderEffectsManager(deviceId: string, category: number, mode: number): AudioRenderEffectsManager;
 
 
-    static createAudioCaptureEffectsManager(deviceId: String, category: Number): AudioCaptureEffectsManager;
-    static createAudioCaptureEffectsManager(deviceId: String, category: Number, mode: Number): AudioCaptureEffectsManager;
+    static createAudioCaptureEffectsManager(deviceId: string, category: number): AudioCaptureEffectsManager;
+    static createAudioCaptureEffectsManager(deviceId: string, category: number, mode: number): AudioCaptureEffectsManager;
 
 
   }
 
   export class IVideoCompositor {
-    timeIndependent: Boolean;
+    timeIndependent: boolean;
     constructor();
 
     setEncodingProperties(backgroundProperties: Object, device: Object): void;
@@ -152,42 +152,42 @@
   }
 
   export class IVideoEffectDefinition {
-    activatableClassId: String;
+    activatableClassId: string;
     properties: Object;
     constructor();
 
   }
 
   export class VideoEffectDefinition {
-    activatableClassId: String;
+    activatableClassId: string;
     properties: Object;
     constructor();
-    constructor(activatableClassId: String);
-    constructor(activatableClassId: String, props: Object);
+    constructor(activatableClassId: string);
+    constructor(activatableClassId: string, props: Object);
 
   }
 
   export class IAudioEffectDefinition {
-    activatableClassId: String;
+    activatableClassId: string;
     properties: Object;
     constructor();
 
   }
 
   export class AudioEffectDefinition {
-    activatableClassId: String;
+    activatableClassId: string;
     properties: Object;
     constructor();
-    constructor(activatableClassId: String);
-    constructor(activatableClassId: String, props: Object);
+    constructor(activatableClassId: string);
+    constructor(activatableClassId: string, props: Object);
 
   }
 
   export class IBasicVideoEffect {
-    isReadOnly: Boolean;
+    isReadOnly: boolean;
     supportedEncodingProperties: Object;
     supportedMemoryTypes: MediaMemoryTypes;
-    timeIndependent: Boolean;
+    timeIndependent: boolean;
     constructor();
 
     setEncodingProperties(encodingProperties: Object, device: Object): void;
@@ -209,7 +209,7 @@
 
   export class IBasicAudioEffect {
     supportedEncodingProperties: Object;
-    useInputFrameForOutput: Boolean;
+    useInputFrameForOutput: boolean;
     constructor();
 
     setEncodingProperties(encodingProperties: Object): void;
@@ -231,22 +231,22 @@
 
   export class VideoTransformSphericalProjection {
     viewOrientation: Quaternion;
-    projectionMode: Number;
-    isEnabled: Boolean;
-    horizontalFieldOfViewInDegrees: Number;
-    frameFormat: Number;
+    projectionMode: number;
+    isEnabled: boolean;
+    horizontalFieldOfViewInDegrees: number;
+    frameFormat: number;
     constructor();
 
   }
 
   export class VideoTransformEffectDefinition {
-    activatableClassId: String;
+    activatableClassId: string;
     properties: Object;
-    rotation: Number;
-    processingAlgorithm: Number;
+    rotation: number;
+    processingAlgorithm: number;
     paddingColor: Object;
     outputSize: Object;
-    mirror: Number;
+    mirror: number;
     cropRectangle: Object;
     sphericalProjection: VideoTransformSphericalProjection;
     constructor();
@@ -254,8 +254,8 @@
   }
 
   export class SlowMotionEffectDefinition {
-    timeStretchRate: Number;
-    activatableClassId: String;
+    timeStretchRate: number;
+    activatableClassId: string;
     properties: Object;
     constructor();
 

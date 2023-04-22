@@ -1,10 +1,10 @@
   export class HolographicApplicationPreview {
     constructor();
 
-    static isCurrentViewPresentedOnHolographicDisplay(): Boolean;
+    static isCurrentViewPresentedOnHolographicDisplay(): boolean;
 
 
-    static isHolographicActivation(activatedEventArgs: Object): Boolean;
+    static isHolographicActivation(activatedEventArgs: Object): boolean;
 
 
   }

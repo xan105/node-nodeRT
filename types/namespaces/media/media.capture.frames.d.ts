@@ -49,30 +49,30 @@
   export class MediaFrameSourceInfo {
     coordinateSystem: Object;
     deviceInformation: Object;
-    id: String;
-    mediaStreamType: Number;
+    id: string;
+    mediaStreamType: number;
     properties: Object;
     sourceGroup: MediaFrameSourceGroup;
     sourceKind: MediaFrameSourceKind;
-    profileId: String;
+    profileId: string;
     videoProfileMediaDescription: Object;
     constructor();
 
   }
 
   export class MediaFrameSourceGroup {
-    displayName: String;
-    id: String;
+    displayName: string;
+    id: string;
     sourceInfos: Object;
     constructor();
 
     static findAllAsync(callback: (error: Error, result: Object) => void): void ;
 
 
-    static fromIdAsync(id: String, callback: (error: Error, result: MediaFrameSourceGroup) => void): void ;
+    static fromIdAsync(id: string, callback: (error: Error, result: MediaFrameSourceGroup) => void): void ;
 
 
-    static getDeviceSelector(): String;
+    static getDeviceSelector(): string;
 
 
   }
@@ -154,21 +154,21 @@
     audioDeviceController: Object;
     constructor();
 
-    getPropertyAsync(propertyId: String, callback: (error: Error, result: MediaFrameSourceGetPropertyResult) => void): void ;
+    getPropertyAsync(propertyId: string, callback: (error: Error, result: MediaFrameSourceGetPropertyResult) => void): void ;
 
-    setPropertyAsync(propertyId: String, propertyValue: Object, callback: (error: Error, result: MediaFrameSourceSetPropertyStatus) => void): void ;
+    setPropertyAsync(propertyId: string, propertyValue: Object, callback: (error: Error, result: MediaFrameSourceSetPropertyStatus) => void): void ;
 
-    getPropertyByExtendedIdAsync(extendedPropertyId: Array<Number>, maxPropertyValueSize: Number, callback: (error: Error, result: MediaFrameSourceGetPropertyResult) => void): void ;
+    getPropertyByExtendedIdAsync(extendedPropertyId: Array<number>, maxPropertyValueSize: number, callback: (error: Error, result: MediaFrameSourceGetPropertyResult) => void): void ;
 
-    setPropertyByExtendedIdAsync(extendedPropertyId: Array<Number>, propertyValue: Array<Number>, callback: (error: Error, result: MediaFrameSourceSetPropertyStatus) => void): void ;
+    setPropertyByExtendedIdAsync(extendedPropertyId: Array<number>, propertyValue: Array<number>, callback: (error: Error, result: MediaFrameSourceSetPropertyStatus) => void): void ;
 
   }
 
   export class MediaFrameFormat {
     frameRate: Object;
-    majorType: String;
+    majorType: string;
     properties: Object;
-    subtype: String;
+    subtype: string;
     videoFormat: VideoMediaFrameFormat;
     audioEncodingProperties: Object;
     constructor();
@@ -183,11 +183,11 @@
   export class MediaFrameReference {
     bufferMediaFrame: BufferMediaFrame;
     coordinateSystem: Object;
-    duration: Number;
+    duration: number;
     format: MediaFrameFormat;
     properties: Object;
     sourceKind: MediaFrameSourceKind;
-    systemRelativeTime: Number;
+    systemRelativeTime: number;
     videoMediaFrame: VideoMediaFrame;
     audioMediaFrame: AudioMediaFrame;
     constructor();
@@ -203,7 +203,7 @@
   export class MultiSourceMediaFrameReference {
     constructor();
 
-    tryGetFrameReferenceBySourceId(sourceId: String): MediaFrameReference;
+    tryGetFrameReferenceBySourceId(sourceId: string): MediaFrameReference;
 
     close(): void;
   }
@@ -217,15 +217,15 @@
 
   export class VideoMediaFrameFormat {
     depthFormat: DepthMediaFrameFormat;
-    height: Number;
+    height: number;
     mediaFrameFormat: MediaFrameFormat;
-    width: Number;
+    width: number;
     constructor();
 
   }
 
   export class DepthMediaFrameFormat {
-    depthScaleInMeters: Number;
+    depthScaleInMeters: number;
     videoFormat: VideoMediaFrameFormat;
     constructor();
 
@@ -263,7 +263,7 @@
 
   export class InfraredMediaFrame {
     frameReference: MediaFrameReference;
-    isIlluminated: Boolean;
+    isIlluminated: boolean;
     videoMediaFrame: VideoMediaFrame;
     constructor();
 
@@ -273,8 +273,8 @@
     depthFormat: DepthMediaFrameFormat;
     frameReference: MediaFrameReference;
     videoMediaFrame: VideoMediaFrame;
-    maxReliableDepth: Number;
-    minReliableDepth: Number;
+    maxReliableDepth: number;
+    minReliableDepth: number;
     constructor();
 
     tryCreateCoordinateMapper(cameraIntrinsics: Object, coordinateSystem: Object): Object;

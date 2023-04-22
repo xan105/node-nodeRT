@@ -1,10 +1,10 @@
   export class Matrix3x2 {
-    m11: Number;
-    m12: Number;
-    m21: Number;
-    m22: Number;
-    m31: Number;
-    m32: Number;
+    m11: number;
+    m12: number;
+    m21: number;
+    m22: number;
+    m31: number;
+    m32: number;
     constructor();
   }
 
@@ -71,7 +71,7 @@
   export class CoreWetStrokeUpdateEventArgs {
     disposition: CoreWetStrokeDisposition;
     newInkPoints: Object;
-    pointerId: Number;
+    pointerId: number;
     constructor();
 
   }

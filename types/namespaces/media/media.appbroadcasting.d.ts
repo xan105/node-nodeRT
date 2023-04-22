@@ -3,7 +3,7 @@
   }
 
   export class AppBroadcastingStatus {
-    canStartBroadcast: Boolean;
+    canStartBroadcast: boolean;
     details: AppBroadcastingStatusDetails;
     constructor();
 
@@ -25,7 +25,7 @@
   }
 
   export class AppBroadcastingMonitor {
-    isCurrentAppBroadcasting: Boolean;
+    isCurrentAppBroadcasting: boolean;
     constructor();
 
     addListener(type: "IsCurrentAppBroadcastingChanged", listener: (ev: Event) => void): void ;
@@ -42,14 +42,14 @@
   }
 
   export class AppBroadcastingStatusDetails {
-    isAnyAppBroadcasting: Boolean;
-    isAppInactive: Boolean;
-    isBlockedForApp: Boolean;
-    isCaptureResourceUnavailable: Boolean;
-    isDisabledBySystem: Boolean;
-    isDisabledByUser: Boolean;
-    isGameStreamInProgress: Boolean;
-    isGpuConstrained: Boolean;
+    isAnyAppBroadcasting: boolean;
+    isAppInactive: boolean;
+    isBlockedForApp: boolean;
+    isCaptureResourceUnavailable: boolean;
+    isDisabledBySystem: boolean;
+    isDisabledByUser: boolean;
+    isGameStreamInProgress: boolean;
+    isGpuConstrained: boolean;
     constructor();
 
   }

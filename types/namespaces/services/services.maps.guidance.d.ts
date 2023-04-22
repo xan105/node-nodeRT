@@ -3,9 +3,9 @@
   }
 
   export class BasicGeoposition {
-    latitude: Number;
-    longitude: Number;
-    altitude: Number;
+    latitude: number;
+    longitude: number;
+    altitude: number;
     constructor();
   }
 
@@ -108,26 +108,26 @@
 
   export class GuidanceRoadSignpost {
     backgroundColor: Object;
-    exit: String;
+    exit: string;
     exitDirections: Object;
-    exitNumber: String;
+    exitNumber: string;
     foregroundColor: Object;
     constructor();
 
   }
 
   export class GuidanceManeuver {
-    departureRoadName: String;
-    departureShortRoadName: String;
-    distanceFromPreviousManeuver: Number;
-    distanceFromRouteStart: Number;
-    endAngle: Number;
-    instructionText: String;
+    departureRoadName: string;
+    departureShortRoadName: string;
+    distanceFromPreviousManeuver: number;
+    distanceFromRouteStart: number;
+    endAngle: number;
+    instructionText: string;
     kind: GuidanceManeuverKind;
-    nextRoadName: String;
-    nextShortRoadName: String;
+    nextRoadName: string;
+    nextShortRoadName: string;
     roadSignpost: GuidanceRoadSignpost;
-    startAngle: Number;
+    startAngle: number;
     startLocation: Object;
     constructor();
 
@@ -135,14 +135,14 @@
 
   export class GuidanceRoute {
     boundingBox: Object;
-    distance: Number;
-    duration: Number;
+    distance: number;
+    duration: number;
     maneuvers: Object;
     path: Object;
     roadSegments: Object;
     constructor();
 
-    static canCreateFromMapRoute(mapRoute: Object): Boolean;
+    static canCreateFromMapRoute(mapRoute: Object): boolean;
 
 
     static tryCreateFromMapRoute(mapRoute: Object): GuidanceRoute;
@@ -153,9 +153,9 @@
   }
 
   export class GuidanceMapMatchedCoordinate {
-    currentHeading: Number;
-    currentSpeed: Number;
-    isOnStreet: Boolean;
+    currentHeading: number;
+    currentSpeed: number;
+    isOnStreet: boolean;
     location: Object;
     road: GuidanceRoadSegment;
     constructor();
@@ -163,7 +163,7 @@
   }
 
   export class GuidanceLaneInfo {
-    isOnRoute: Boolean;
+    isOnRoute: boolean;
     laneMarkers: GuidanceLaneMarkers;
     constructor();
 
@@ -171,19 +171,19 @@
 
   export class GuidanceUpdatedEventArgs {
     afterNextManeuver: GuidanceManeuver;
-    afterNextManeuverDistance: Number;
+    afterNextManeuverDistance: number;
     currentLocation: GuidanceMapMatchedCoordinate;
-    distanceToDestination: Number;
-    elapsedDistance: Number;
-    elapsedTime: Number;
-    isNewManeuver: Boolean;
+    distanceToDestination: number;
+    elapsedDistance: number;
+    elapsedTime: number;
+    isNewManeuver: boolean;
     laneInfo: Object;
     mode: GuidanceMode;
     nextManeuver: GuidanceManeuver;
-    nextManeuverDistance: Number;
-    roadName: String;
+    nextManeuverDistance: number;
+    roadName: string;
     route: GuidanceRoute;
-    timeToDestination: Number;
+    timeToDestination: number;
     constructor();
 
   }
@@ -197,16 +197,16 @@
   export class GuidanceAudioNotificationRequestedEventArgs {
     audioFilePaths: Object;
     audioNotification: GuidanceAudioNotificationKind;
-    audioText: String;
+    audioText: string;
     constructor();
 
   }
 
   export class GuidanceNavigator {
-    static useAppProvidedVoice: Boolean;
+    static useAppProvidedVoice: boolean;
     audioNotifications: GuidanceAudioNotifications;
     audioMeasurementSystem: GuidanceAudioMeasurementSystem;
-    isGuidanceAudioMuted: Boolean;
+    isGuidanceAudioMuted: boolean;
     constructor();
 
     static getCurrent(): GuidanceNavigator;
@@ -214,7 +214,7 @@
 
     startNavigating(route: GuidanceRoute): void;
 
-    startSimulating(route: GuidanceRoute, speedInMetersPerSecond: Number): void;
+    startSimulating(route: GuidanceRoute, speedInMetersPerSecond: number): void;
 
     startTracking(): void;
 
@@ -226,7 +226,7 @@
 
     repeatLastAudioNotification(): void;
 
-    setGuidanceVoice(voiceId: Number, voiceFolder: String): void;
+    setGuidanceVoice(voiceId: number, voiceFolder: string): void;
 
     updateUserLocation(userLocation: Object): void;
     updateUserLocation(userLocation: Object, positionOverride: BasicGeoposition): void;
@@ -280,24 +280,24 @@
   }
 
   export class GuidanceRoadSegment {
-    id: String;
-    isHighway: Boolean;
-    isTollRoad: Boolean;
-    isTunnel: Boolean;
+    id: string;
+    isHighway: boolean;
+    isTollRoad: boolean;
+    isTunnel: boolean;
     path: Object;
-    roadName: String;
-    shortRoadName: String;
-    speedLimit: Number;
-    travelTime: Number;
-    isScenic: Boolean;
+    roadName: string;
+    shortRoadName: string;
+    speedLimit: number;
+    travelTime: number;
+    isScenic: boolean;
     constructor();
 
   }
 
   export class GuidanceTelemetryCollector {
-    uploadFrequency: Number;
-    speedTrigger: Number;
-    enabled: Boolean;
+    uploadFrequency: number;
+    speedTrigger: number;
+    enabled: boolean;
     constructor();
 
     static getCurrent(): GuidanceTelemetryCollector;

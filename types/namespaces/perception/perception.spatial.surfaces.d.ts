@@ -6,19 +6,19 @@
   }
 
   export class Vector3 {
-    x: Number;
-    y: Number;
-    z: Number;
+    x: number;
+    y: number;
+    z: number;
     constructor();
   }
 
   export class SpatialSurfaceInfo {
-    id: String;
+    id: string;
     updateTime: Date;
     constructor();
 
-    tryComputeLatestMeshAsync(maxTrianglesPerCubicMeter: Number, callback: (error: Error, result: SpatialSurfaceMesh) => void): void ;
-    tryComputeLatestMeshAsync(maxTrianglesPerCubicMeter: Number, options: SpatialSurfaceMeshOptions, callback: (error: Error, result: SpatialSurfaceMesh) => void): void ;
+    tryComputeLatestMeshAsync(maxTrianglesPerCubicMeter: number, callback: (error: Error, result: SpatialSurfaceMesh) => void): void ;
+    tryComputeLatestMeshAsync(maxTrianglesPerCubicMeter: number, options: SpatialSurfaceMeshOptions, callback: (error: Error, result: SpatialSurfaceMesh) => void): void ;
 
     tryGetBounds(coordinateSystem: Object): SpatialBoundingOrientedBox;
 
@@ -26,9 +26,9 @@
 
   export class SpatialSurfaceMeshBuffer {
     data: Object;
-    elementCount: Number;
-    format: Number;
-    stride: Number;
+    elementCount: number;
+    format: number;
+    stride: number;
     constructor();
 
   }
@@ -48,10 +48,10 @@
     static supportedTriangleIndexFormats: Object;
     static supportedVertexNormalFormats: Object;
     static supportedVertexPositionFormats: Object;
-    vertexPositionFormat: Number;
-    vertexNormalFormat: Number;
-    triangleIndexFormat: Number;
-    includeVertexNormals: Boolean;
+    vertexPositionFormat: number;
+    vertexNormalFormat: number;
+    triangleIndexFormat: number;
+    includeVertexNormals: boolean;
     constructor();
 
   }
@@ -59,10 +59,10 @@
   export class SpatialSurfaceObserver {
     constructor();
 
-    static requestAccessAsync(callback: (error: Error, result: Number) => void): void ;
+    static requestAccessAsync(callback: (error: Error, result: number) => void): void ;
 
 
-    static isSupported(): Boolean;
+    static isSupported(): boolean;
 
 
     getObservedSurfaces(): Object;

@@ -256,15 +256,15 @@
 
     resetTemplate(): void;
 
-    processBinding(phase: Number): Boolean;
+    processBinding(phase: number): boolean;
 
-    processBindings(arg: Object): Number;
+    processBindings(arg: Object): number;
 
   }
 
   export class DispatcherTimer {
-    interval: Number;
-    isEnabled: Boolean;
+    interval: number;
+    isEnabled: boolean;
     constructor();
 
     start(): void;
@@ -309,9 +309,9 @@
 
     getAnimationBaseValue(dp: DependencyProperty): Object;
 
-    registerPropertyChangedCallback(dp: DependencyProperty, callback: Object): Number;
+    registerPropertyChangedCallback(dp: DependencyProperty, callback: Object): number;
 
-    unregisterPropertyChangedCallback(dp: DependencyProperty, token: Number): void;
+    unregisterPropertyChangedCallback(dp: DependencyProperty, token: number): void;
 
   }
 
@@ -319,10 +319,10 @@
     static unsetValue: Object;
     constructor();
 
-    static register(name: String, propertyType: Object, ownerType: Object, typeMetadata: PropertyMetadata): DependencyProperty;
+    static register(name: string, propertyType: Object, ownerType: Object, typeMetadata: PropertyMetadata): DependencyProperty;
 
 
-    static registerAttached(name: String, propertyType: Object, ownerType: Object, defaultMetadata: PropertyMetadata): DependencyProperty;
+    static registerAttached(name: string, propertyType: Object, ownerType: Object, defaultMetadata: PropertyMetadata): DependencyProperty;
 
 
     getMetadata(forType: Object): PropertyMetadata;
@@ -344,9 +344,9 @@
   }
 
   export class UnhandledExceptionEventArgs {
-    handled: Boolean;
-    exception: Number;
-    message: String;
+    handled: boolean;
+    exception: number;
+    message: string;
     constructor();
 
   }
@@ -361,17 +361,17 @@
 
   export class BringIntoViewOptions {
     targetRect: Object;
-    animationDesired: Boolean;
-    verticalOffset: Number;
-    verticalAlignmentRatio: Number;
-    horizontalOffset: Number;
-    horizontalAlignmentRatio: Number;
+    animationDesired: boolean;
+    verticalOffset: number;
+    verticalAlignmentRatio: number;
+    horizontalOffset: number;
+    horizontalAlignmentRatio: number;
     constructor();
 
   }
 
   export class DataContextChangedEventArgs {
-    handled: Boolean;
+    handled: boolean;
     newValue: Object;
     constructor();
 
@@ -420,10 +420,10 @@
   }
 
   export class DragUIOverride {
-    isGlyphVisible: Boolean;
-    isContentVisible: Boolean;
-    isCaptionVisible: Boolean;
-    caption: String;
+    isGlyphVisible: boolean;
+    isContentVisible: boolean;
+    isCaptionVisible: boolean;
+    caption: string;
     constructor();
 
     clear(): void;
@@ -443,7 +443,7 @@
 
     setWindow(window: Object): void;
 
-    load(entryPoint: String): void;
+    load(entryPoint: string): void;
 
     run(): void;
 
@@ -457,20 +457,20 @@
   }
 
   export class SetterBaseCollection {
-    isSealed: Boolean;
+    isSealed: boolean;
     constructor();
 
-    getAt(index: Number): SetterBase;
+    getAt(index: number): SetterBase;
 
     getView(): Object;
 
-    indexOf(value: SetterBase, index: Number): Boolean;
+    indexOf(value: SetterBase, index: number): boolean;
 
-    setAt(index: Number, value: SetterBase): void;
+    setAt(index: number, value: SetterBase): void;
 
-    insertAt(index: Number, value: SetterBase): void;
+    insertAt(index: number, value: SetterBase): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: SetterBase): void;
 
@@ -496,17 +496,17 @@
   export class TriggerActionCollection {
     constructor();
 
-    getAt(index: Number): TriggerAction;
+    getAt(index: number): TriggerAction;
 
     getView(): Object;
 
-    indexOf(value: TriggerAction, index: Number): Boolean;
+    indexOf(value: TriggerAction, index: number): boolean;
 
-    setAt(index: Number, value: TriggerAction): void;
+    setAt(index: number, value: TriggerAction): void;
 
-    insertAt(index: Number, value: TriggerAction): void;
+    insertAt(index: number, value: TriggerAction): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: TriggerAction): void;
 
@@ -524,17 +524,17 @@
   export class TriggerCollection {
     constructor();
 
-    getAt(index: Number): TriggerBase;
+    getAt(index: number): TriggerBase;
 
     getView(): Object;
 
-    indexOf(value: TriggerBase, index: Number): Boolean;
+    indexOf(value: TriggerBase, index: number): boolean;
 
-    setAt(index: Number, value: TriggerBase): void;
+    setAt(index: number, value: TriggerBase): void;
 
-    insertAt(index: Number, value: TriggerBase): void;
+    insertAt(index: number, value: TriggerBase): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: TriggerBase): void;
 
@@ -550,14 +550,14 @@
   }
 
   export class BringIntoViewRequestedEventArgs {
-    verticalOffset: Number;
+    verticalOffset: number;
     targetRect: Object;
     targetElement: UIElement;
-    horizontalOffset: Number;
-    handled: Boolean;
-    animationDesired: Boolean;
-    horizontalAlignmentRatio: Number;
-    verticalAlignmentRatio: Number;
+    horizontalOffset: number;
+    handled: boolean;
+    animationDesired: boolean;
+    horizontalAlignmentRatio: number;
+    verticalAlignmentRatio: number;
     originalSource: Object;
     constructor();
 
@@ -567,17 +567,17 @@
     dispatcher: Object;
     constructor();
 
-    getAt(index: Number): DependencyObject;
+    getAt(index: number): DependencyObject;
 
     getView(): Object;
 
-    indexOf(value: DependencyObject, index: Number): Boolean;
+    indexOf(value: DependencyObject, index: number): boolean;
 
-    setAt(index: Number, value: DependencyObject): void;
+    setAt(index: number, value: DependencyObject): void;
 
-    insertAt(index: Number, value: DependencyObject): void;
+    insertAt(index: number, value: DependencyObject): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: DependencyObject): void;
 
@@ -604,13 +604,13 @@
   }
 
   export class DragEventArgs {
-    handled: Boolean;
+    handled: boolean;
     data: Object;
-    acceptedOperation: Number;
+    acceptedOperation: number;
     dataView: Object;
     dragUIOverride: DragUIOverride;
-    modifiers: Number;
-    allowedOperations: Number;
+    modifiers: number;
+    allowedOperations: number;
     originalSource: Object;
     constructor();
 
@@ -621,10 +621,10 @@
   }
 
   export class DragStartingEventArgs {
-    cancel: Boolean;
+    cancel: boolean;
     data: Object;
     dragUI: DragUI;
-    allowedOperations: Number;
+    allowedOperations: number;
     originalSource: Object;
     constructor();
 
@@ -635,14 +635,14 @@
   }
 
   export class DropCompletedEventArgs {
-    dropResult: Number;
+    dropResult: number;
     originalSource: Object;
     constructor();
 
   }
 
   export class ExceptionRoutedEventArgs {
-    errorMessage: String;
+    errorMessage: string;
     originalSource: Object;
     constructor();
 
@@ -670,10 +670,10 @@
   }
 
   export class PropertyPath {
-    path: String;
+    path: string;
     dispatcher: Object;
     constructor();
-    constructor(path: String);
+    constructor(path: string);
 
   }
 
@@ -686,11 +686,11 @@
 
     lookup(key: Object): Object;
 
-    hasKey(key: Object): Boolean;
+    hasKey(key: Object): boolean;
 
     getView(): Object;
 
-    insert(key: Object, value: Object): Boolean;
+    insert(key: Object, value: Object): boolean;
 
     remove(key: Object): void;
 
@@ -701,7 +701,7 @@
   }
 
   export class SetterBase {
-    isSealed: Boolean;
+    isSealed: boolean;
     dispatcher: Object;
     constructor();
 
@@ -719,14 +719,14 @@
     dispatcher: Object;
     constructor();
 
-    setActive(IsActive: Boolean): void;
+    setActive(IsActive: boolean): void;
 
   }
 
   export class Style {
     targetType: Object;
     basedOn: Style;
-    isSealed: Boolean;
+    isSealed: boolean;
     setters: SetterBaseCollection;
     dispatcher: Object;
     constructor();
@@ -819,18 +819,18 @@
     static keyTipTargetProperty: DependencyProperty;
     static contextRequestedEvent: RoutedEvent;
     static bringIntoViewRequestedEvent: RoutedEvent;
-    manipulationMode: Number;
-    isTapEnabled: Boolean;
-    isRightTapEnabled: Boolean;
-    isHoldingEnabled: Boolean;
-    isHitTestVisible: Boolean;
-    isDoubleTapEnabled: Boolean;
-    opacity: Number;
+    manipulationMode: number;
+    isTapEnabled: boolean;
+    isRightTapEnabled: boolean;
+    isHoldingEnabled: boolean;
+    isHitTestVisible: boolean;
+    isDoubleTapEnabled: boolean;
+    opacity: number;
     cacheMode: Object;
-    allowDrop: Boolean;
+    allowDrop: boolean;
     clip: Object;
     visibility: Visibility;
-    useLayoutRounding: Boolean;
+    useLayoutRounding: boolean;
     renderTransformOrigin: Object;
     projection: Object;
     renderTransform: Object;
@@ -838,39 +838,39 @@
     renderSize: Object;
     pointerCaptures: Object;
     desiredSize: Object;
-    compositeMode: Number;
+    compositeMode: number;
     transform3D: Object;
-    canDrag: Boolean;
-    accessKey: String;
+    canDrag: boolean;
+    accessKey: string;
     accessKeyScopeOwner: DependencyObject;
-    exitDisplayModeOnAccessKeyInvoked: Boolean;
+    exitDisplayModeOnAccessKeyInvoked: boolean;
     contextFlyout: Object;
-    isAccessKeyScope: Boolean;
-    xYFocusDownNavigationStrategy: Number;
-    xYFocusLeftNavigationStrategy: Number;
-    tabFocusNavigation: Number;
-    xYFocusKeyboardNavigation: Number;
-    keyTipVerticalOffset: Number;
-    keyTipPlacementMode: Number;
-    keyTipHorizontalOffset: Number;
+    isAccessKeyScope: boolean;
+    xYFocusDownNavigationStrategy: number;
+    xYFocusLeftNavigationStrategy: number;
+    tabFocusNavigation: number;
+    xYFocusKeyboardNavigation: number;
+    keyTipVerticalOffset: number;
+    keyTipPlacementMode: number;
+    keyTipHorizontalOffset: number;
     highContrastAdjustment: ElementHighContrastAdjustment;
-    xYFocusUpNavigationStrategy: Number;
-    xYFocusRightNavigationStrategy: Number;
+    xYFocusUpNavigationStrategy: number;
+    xYFocusRightNavigationStrategy: number;
     lights: Object;
     keyboardAccelerators: Object;
     keyboardAcceleratorPlacementTarget: DependencyObject;
-    keyboardAcceleratorPlacementMode: Number;
+    keyboardAcceleratorPlacementMode: number;
     keyTipTarget: DependencyObject;
     dispatcher: Object;
     constructor();
 
-    static tryStartDirectManipulation(value: Object): Boolean;
+    static tryStartDirectManipulation(value: Object): boolean;
 
 
     static registerAsScrollPort(element: UIElement): void;
 
 
-    startDragAsync(pointerPoint: Object, callback: (error: Error, result: Number) => void): void ;
+    startDragAsync(pointerPoint: Object, callback: (error: Error, result: number) => void): void ;
 
     startBringIntoView(): void;
     startBringIntoView(options: BringIntoViewOptions): void;
@@ -889,13 +889,13 @@
 
     arrange(finalRect: Object): void;
 
-    capturePointer(value: Object): Boolean;
+    capturePointer(value: Object): boolean;
 
     releasePointerCapture(value: Object): void;
 
     releasePointerCaptures(): void;
 
-    addHandler(routedEvent: RoutedEvent, handler: Object, handledEventsToo: Boolean): void;
+    addHandler(routedEvent: RoutedEvent, handler: Object, handledEventsToo: boolean): void;
 
     removeHandler(routedEvent: RoutedEvent, handler: Object): void;
 
@@ -913,7 +913,7 @@
 
     findSubElementsForTouchTargeting(point: Object, boundingRect: Object): Object;
 
-    cancelDirectManipulations(): Boolean;
+    cancelDirectManipulations(): boolean;
 
     addListener(type: "DoubleTapped", listener: (ev: Event) => void): void ;
     removeListener(type: "DoubleTapped", listener: (ev: Event) => void): void ;
@@ -1125,7 +1125,7 @@
 
   export class VisualState {
     storyboard: Object;
-    name: String;
+    name: string;
     setters: SetterBaseCollection;
     stateTriggers: Object;
     dispatcher: Object;
@@ -1135,7 +1135,7 @@
 
   export class VisualStateGroup {
     currentState: VisualState;
-    name: String;
+    name: string;
     states: Object;
     transitions: Object;
     dispatcher: Object;
@@ -1160,11 +1160,11 @@
   }
 
   export class VisualTransition {
-    to: String;
+    to: string;
     storyboard: Object;
     generatedEasingFunction: Object;
     generatedDuration: Duration;
-    from: String;
+    from: string;
     dispatcher: Object;
     constructor();
 
@@ -1173,8 +1173,8 @@
   export class AdaptiveTrigger {
     static minWindowHeightProperty: DependencyProperty;
     static minWindowWidthProperty: DependencyProperty;
-    minWindowWidth: Number;
-    minWindowHeight: Number;
+    minWindowWidth: number;
+    minWindowHeight: number;
     dispatcher: Object;
     constructor();
 
@@ -1286,23 +1286,23 @@
     static contextRequestedEvent: RoutedEvent;
     static bringIntoViewRequestedEvent: RoutedEvent;
     flowDirection: FlowDirection;
-    minWidth: Number;
-    minHeight: Number;
-    maxWidth: Number;
-    maxHeight: Number;
+    minWidth: number;
+    minHeight: number;
+    maxWidth: number;
+    maxHeight: number;
     margin: Thickness;
-    language: String;
-    name: String;
+    language: string;
+    name: string;
     horizontalAlignment: HorizontalAlignment;
-    height: Number;
+    height: number;
     dataContext: Object;
     resources: ResourceDictionary;
-    width: Number;
+    width: number;
     tag: Object;
     style: Style;
     verticalAlignment: VerticalAlignment;
-    actualHeight: Number;
-    actualWidth: Number;
+    actualHeight: number;
+    actualWidth: number;
     parent: DependencyObject;
     baseUri: Object;
     triggers: TriggerCollection;
@@ -1312,21 +1312,21 @@
     focusVisualPrimaryThickness: Thickness;
     focusVisualPrimaryBrush: Object;
     focusVisualMargin: Thickness;
-    allowFocusWhenDisabled: Boolean;
-    allowFocusOnInteraction: Boolean;
+    allowFocusWhenDisabled: boolean;
+    allowFocusOnInteraction: boolean;
     actualTheme: ElementTheme;
-    manipulationMode: Number;
-    isTapEnabled: Boolean;
-    isRightTapEnabled: Boolean;
-    isHoldingEnabled: Boolean;
-    isHitTestVisible: Boolean;
-    isDoubleTapEnabled: Boolean;
-    opacity: Number;
+    manipulationMode: number;
+    isTapEnabled: boolean;
+    isRightTapEnabled: boolean;
+    isHoldingEnabled: boolean;
+    isHitTestVisible: boolean;
+    isDoubleTapEnabled: boolean;
+    opacity: number;
     cacheMode: Object;
-    allowDrop: Boolean;
+    allowDrop: boolean;
     clip: Object;
     visibility: Visibility;
-    useLayoutRounding: Boolean;
+    useLayoutRounding: boolean;
     renderTransformOrigin: Object;
     projection: Object;
     renderTransform: Object;
@@ -1334,28 +1334,28 @@
     renderSize: Object;
     pointerCaptures: Object;
     desiredSize: Object;
-    compositeMode: Number;
+    compositeMode: number;
     transform3D: Object;
-    canDrag: Boolean;
-    accessKey: String;
+    canDrag: boolean;
+    accessKey: string;
     accessKeyScopeOwner: DependencyObject;
-    exitDisplayModeOnAccessKeyInvoked: Boolean;
+    exitDisplayModeOnAccessKeyInvoked: boolean;
     contextFlyout: Object;
-    isAccessKeyScope: Boolean;
-    xYFocusDownNavigationStrategy: Number;
-    xYFocusLeftNavigationStrategy: Number;
-    tabFocusNavigation: Number;
-    xYFocusKeyboardNavigation: Number;
-    keyTipVerticalOffset: Number;
-    keyTipPlacementMode: Number;
-    keyTipHorizontalOffset: Number;
+    isAccessKeyScope: boolean;
+    xYFocusDownNavigationStrategy: number;
+    xYFocusLeftNavigationStrategy: number;
+    tabFocusNavigation: number;
+    xYFocusKeyboardNavigation: number;
+    keyTipVerticalOffset: number;
+    keyTipPlacementMode: number;
+    keyTipHorizontalOffset: number;
     highContrastAdjustment: ElementHighContrastAdjustment;
-    xYFocusUpNavigationStrategy: Number;
-    xYFocusRightNavigationStrategy: Number;
+    xYFocusUpNavigationStrategy: number;
+    xYFocusRightNavigationStrategy: number;
     lights: Object;
     keyboardAccelerators: Object;
     keyboardAcceleratorPlacementTarget: DependencyObject;
-    keyboardAcceleratorPlacementMode: Number;
+    keyboardAcceleratorPlacementMode: number;
     keyTipTarget: DependencyObject;
     dispatcher: Object;
     constructor();
@@ -1365,9 +1365,9 @@
 
     getBindingExpression(dp: DependencyProperty): Object;
 
-    goToElementStateCore(stateName: String, useTransitions: Boolean): Boolean;
+    goToElementStateCore(stateName: string, useTransitions: boolean): boolean;
 
-    findName(name: String): Object;
+    findName(name: string): Object;
 
     setBinding(dp: DependencyProperty, binding: Object): void;
 
@@ -1621,8 +1621,8 @@
   }
 
   export class MediaFailedRoutedEventArgs {
-    errorTrace: String;
-    errorMessage: String;
+    errorTrace: string;
+    errorMessage: string;
     originalSource: Object;
     constructor();
 
@@ -1632,7 +1632,7 @@
     value: Object;
     property: DependencyProperty;
     target: TargetPropertyPath;
-    isSealed: Boolean;
+    isSealed: boolean;
     dispatcher: Object;
     constructor();
     constructor(targetProperty: DependencyProperty, value: Object);
@@ -1641,7 +1641,7 @@
 
   export class StateTrigger {
     static isActiveProperty: DependencyProperty;
-    isActive: Boolean;
+    isActive: boolean;
     dispatcher: Object;
     constructor();
 
@@ -1660,17 +1660,17 @@
   }
 
   export class BindingFailedEventArgs {
-    message: String;
+    message: string;
     constructor();
 
   }
 
   export class DebugSettings {
-    isOverdrawHeatMapEnabled: Boolean;
-    isBindingTracingEnabled: Boolean;
-    enableFrameRateCounter: Boolean;
-    enableRedrawRegions: Boolean;
-    isTextPerformanceVisualizationEnabled: Boolean;
+    isOverdrawHeatMapEnabled: boolean;
+    isBindingTracingEnabled: boolean;
+    enableFrameRateCounter: boolean;
+    enableRedrawRegions: boolean;
+    isTextPerformanceVisualizationEnabled: boolean;
     constructor();
 
     addListener(type: "BindingFailed", listener: (ev: Event) => void): void ;
@@ -1687,7 +1687,7 @@
   }
 
   export class ElementSoundPlayer {
-    static volume: Number;
+    static volume: number;
     static state: ElementSoundPlayerState;
     static spatialAudioMode: ElementSpatialAudioMode;
     constructor();
@@ -1717,7 +1717,7 @@
 
 
     static loadComponent(component: Object, resourceLocator: Object): void;
-    static loadComponent(component: Object, resourceLocator: Object, componentResourceLocation: Number): void;
+    static loadComponent(component: Object, resourceLocator: Object, componentResourceLocation: number): void;
 
 
     exit(): void;
@@ -1785,7 +1785,7 @@
   export class PointHelper {
     constructor();
 
-    static fromCoordinates(x: Number, y: Number): Object;
+    static fromCoordinates(x: number, y: number): Object;
 
 
   }
@@ -1794,7 +1794,7 @@
     static empty: Object;
     constructor();
 
-    static fromCoordinatesAndDimensions(x: Number, y: Number, width: Number, height: Number): Object;
+    static fromCoordinatesAndDimensions(x: number, y: number, width: number, height: number): Object;
 
 
     static fromPoints(point1: Object, point2: Object): Object;
@@ -1803,25 +1803,25 @@
     static fromLocationAndSize(location: Object, size: Object): Object;
 
 
-    static getIsEmpty(target: Object): Boolean;
+    static getIsEmpty(target: Object): boolean;
 
 
-    static getBottom(target: Object): Number;
+    static getBottom(target: Object): number;
 
 
-    static getLeft(target: Object): Number;
+    static getLeft(target: Object): number;
 
 
-    static getRight(target: Object): Number;
+    static getRight(target: Object): number;
 
 
-    static getTop(target: Object): Number;
+    static getTop(target: Object): number;
 
 
-    static contains(target: Object, point: Object): Boolean;
+    static contains(target: Object, point: Object): boolean;
 
 
-    static equals(target: Object, value: Object): Boolean;
+    static equals(target: Object, value: Object): boolean;
 
 
     static intersect(target: Object, rect: Object): Object;
@@ -1837,13 +1837,13 @@
     static empty: Object;
     constructor();
 
-    static fromDimensions(width: Number, height: Number): Object;
+    static fromDimensions(width: number, height: number): Object;
 
 
-    static getIsEmpty(target: Object): Boolean;
+    static getIsEmpty(target: Object): boolean;
 
 
-    static equals(target: Object, value: Object): Boolean;
+    static equals(target: Object, value: Object): boolean;
 
 
   }
@@ -1854,7 +1854,7 @@
     bounds: Object;
     coreWindow: Object;
     dispatcher: Object;
-    visible: Boolean;
+    visible: boolean;
     compositor: Object;
     constructor();
 
@@ -1906,10 +1906,10 @@
     static setCustomVisualStateManager(obj: FrameworkElement, value: VisualStateManager): void;
 
 
-    static goToState(control: Object, stateName: String, useTransitions: Boolean): Boolean;
+    static goToState(control: Object, stateName: string, useTransitions: boolean): boolean;
 
 
-    goToStateCore(control: Object, templateRoot: FrameworkElement, stateName: String, group: VisualStateGroup, state: VisualState, useTransitions: Boolean): Boolean;
+    goToStateCore(control: Object, templateRoot: FrameworkElement, stateName: string, group: VisualStateGroup, state: VisualState, useTransitions: boolean): boolean;
 
     raiseCurrentStateChanging(stateGroup: VisualStateGroup, oldState: VisualState, newState: VisualState, control: Object): void;
 

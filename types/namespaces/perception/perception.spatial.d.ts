@@ -1,35 +1,35 @@
   export class Matrix4x4 {
-    m11: Number;
-    m12: Number;
-    m13: Number;
-    m14: Number;
-    m21: Number;
-    m22: Number;
-    m23: Number;
-    m24: Number;
-    m31: Number;
-    m32: Number;
-    m33: Number;
-    m34: Number;
-    m41: Number;
-    m42: Number;
-    m43: Number;
-    m44: Number;
+    m11: number;
+    m12: number;
+    m13: number;
+    m14: number;
+    m21: number;
+    m22: number;
+    m23: number;
+    m24: number;
+    m31: number;
+    m32: number;
+    m33: number;
+    m34: number;
+    m41: number;
+    m42: number;
+    m43: number;
+    m44: number;
     constructor();
   }
 
   export class Vector3 {
-    x: Number;
-    y: Number;
-    z: Number;
+    x: number;
+    y: number;
+    z: number;
     constructor();
   }
 
   export class Quaternion {
-    x: Number;
-    y: Number;
-    z: Number;
-    w: Number;
+    x: number;
+    y: number;
+    z: number;
+    w: number;
     constructor();
   }
 
@@ -58,7 +58,7 @@
 
   export class SpatialBoundingSphere {
     center: Vector3;
-    radius: Number;
+    radius: number;
     constructor();
   }
 
@@ -106,7 +106,7 @@
   export class SpatialAnchor {
     coordinateSystem: SpatialCoordinateSystem;
     rawCoordinateSystem: SpatialCoordinateSystem;
-    removedByUser: Boolean;
+    removedByUser: boolean;
     constructor();
 
     static tryCreateRelativeTo(coordinateSystem: SpatialCoordinateSystem): SpatialAnchor;
@@ -138,9 +138,9 @@
 
     getAllSavedAnchors(): Object;
 
-    trySave(id: String, anchor: SpatialAnchor): Boolean;
+    trySave(id: string, anchor: SpatialAnchor): boolean;
 
-    remove(id: String): void;
+    remove(id: string): void;
 
     clear(): void;
 
@@ -158,12 +158,12 @@
     createAttachedFrameOfReferenceAtCurrentHeading(): SpatialLocatorAttachedFrameOfReference;
     createAttachedFrameOfReferenceAtCurrentHeading(relativePosition: Vector3): SpatialLocatorAttachedFrameOfReference;
     createAttachedFrameOfReferenceAtCurrentHeading(relativePosition: Vector3, relativeOrientation: Quaternion): SpatialLocatorAttachedFrameOfReference;
-    createAttachedFrameOfReferenceAtCurrentHeading(relativePosition: Vector3, relativeOrientation: Quaternion, relativeHeadingInRadians: Number): SpatialLocatorAttachedFrameOfReference;
+    createAttachedFrameOfReferenceAtCurrentHeading(relativePosition: Vector3, relativeOrientation: Quaternion, relativeHeadingInRadians: number): SpatialLocatorAttachedFrameOfReference;
 
     createStationaryFrameOfReferenceAtCurrentLocation(): SpatialStationaryFrameOfReference;
     createStationaryFrameOfReferenceAtCurrentLocation(relativePosition: Vector3): SpatialStationaryFrameOfReference;
     createStationaryFrameOfReferenceAtCurrentLocation(relativePosition: Vector3, relativeOrientation: Quaternion): SpatialStationaryFrameOfReference;
-    createStationaryFrameOfReferenceAtCurrentLocation(relativePosition: Vector3, relativeOrientation: Quaternion, relativeHeadingInRadians: Number): SpatialStationaryFrameOfReference;
+    createStationaryFrameOfReferenceAtCurrentLocation(relativePosition: Vector3, relativeOrientation: Quaternion, relativeHeadingInRadians: number): SpatialStationaryFrameOfReference;
 
     addListener(type: "LocatabilityChanged", listener: (ev: Event) => void): void ;
     removeListener(type: "LocatabilityChanged", listener: (ev: Event) => void): void ;
@@ -184,7 +184,7 @@
   }
 
   export class SpatialLocatorPositionalTrackingDeactivatingEventArgs {
-    canceled: Boolean;
+    canceled: boolean;
     constructor();
 
   }
@@ -205,11 +205,11 @@
     relativeOrientation: Quaternion;
     constructor();
 
-    adjustHeading(headingOffsetInRadians: Number): void;
+    adjustHeading(headingOffsetInRadians: number): void;
 
     getStationaryCoordinateSystemAtTimestamp(timestamp: Object): SpatialCoordinateSystem;
 
-    tryGetRelativeHeadingAtTimestamp(timestamp: Object): Number;
+    tryGetRelativeHeadingAtTimestamp(timestamp: Object): number;
 
   }
 
@@ -233,7 +233,7 @@
     static tryImportAnchorsAsync(stream: Object, callback: (error: Error, result: Object) => void): void ;
 
 
-    static tryExportAnchorsAsync(anchors: Object, stream: Object, callback: (error: Error, result: Boolean) => void): void ;
+    static tryExportAnchorsAsync(anchors: Object, stream: Object, callback: (error: Error, result: boolean) => void): void ;
 
 
     static requestAccessAsync(callback: (error: Error, result: SpatialPerceptionAccessStatus) => void): void ;
@@ -287,7 +287,7 @@
 
   export class SpatialEntity {
     anchor: SpatialAnchor;
-    id: String;
+    id: string;
     properties: Object;
     constructor();
     constructor(spatialAnchor: SpatialAnchor);
@@ -350,7 +350,7 @@
   }
 
   export class SpatialEntityStore {
-    static isSupported: Boolean;
+    static isSupported: boolean;
     constructor();
 
     static tryGet(session: Object): SpatialEntityStore;

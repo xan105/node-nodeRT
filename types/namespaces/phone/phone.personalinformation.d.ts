@@ -26,22 +26,22 @@
   }
 
   export class ContactAddress {
-    streetAddress: String;
-    region: String;
-    postalCode: String;
-    locality: String;
-    country: String;
+    streetAddress: string;
+    region: string;
+    postalCode: string;
+    locality: string;
+    country: string;
     constructor();
 
   }
 
   export class IContactInformation {
-    displayName: String;
+    displayName: string;
     displayPicture: Object;
-    familyName: String;
-    givenName: String;
-    honorificPrefix: String;
-    honorificSuffix: String;
+    familyName: string;
+    givenName: string;
+    honorificPrefix: string;
+    honorificSuffix: string;
     constructor();
 
     getDisplayPictureAsync(callback: (error: Error, result: Object) => void): void ;
@@ -62,11 +62,11 @@
   }
 
   export class ContactInformation {
-    honorificSuffix: String;
-    honorificPrefix: String;
-    givenName: String;
-    familyName: String;
-    displayName: String;
+    honorificSuffix: string;
+    honorificPrefix: string;
+    givenName: string;
+    familyName: string;
+    displayName: string;
     displayPicture: Object;
     constructor();
 
@@ -85,28 +85,28 @@
   }
 
   export class ContactStore {
-    revisionNumber: Number;
+    revisionNumber: number;
     constructor();
 
     static createOrOpenAsync(callback: (error: Error, result: ContactStore) => void): void ;
     static createOrOpenAsync(access: ContactStoreSystemAccessMode, sharing: ContactStoreApplicationAccessMode, callback: (error: Error, result: ContactStore) => void): void ;
 
 
-    findContactByRemoteIdAsync(id: String, callback: (error: Error, result: StoredContact) => void): void ;
+    findContactByRemoteIdAsync(id: string, callback: (error: Error, result: StoredContact) => void): void ;
 
-    findContactByIdAsync(id: String, callback: (error: Error, result: StoredContact) => void): void ;
+    findContactByIdAsync(id: string, callback: (error: Error, result: StoredContact) => void): void ;
 
-    deleteContactAsync(id: String, callback: (error: Error) => void): void ;
+    deleteContactAsync(id: string, callback: (error: Error) => void): void ;
 
     deleteAsync(callback: (error: Error) => void): void ;
 
-    getChangesAsync(baseRevisionNumber: Number, callback: (error: Error, result: Object) => void): void ;
+    getChangesAsync(baseRevisionNumber: number, callback: (error: Error, result: Object) => void): void ;
 
     loadExtendedPropertiesAsync(callback: (error: Error, result: Object) => void): void ;
 
     saveExtendedPropertiesAsync(data: Object, callback: (error: Error) => void): void ;
 
-    createMeContactAsync(id: String, callback: (error: Error, result: StoredContact) => void): void ;
+    createMeContactAsync(id: string, callback: (error: Error, result: StoredContact) => void): void ;
 
     createContactQuery(): ContactQueryResult;
     createContactQuery(options: ContactQueryOptions): ContactQueryResult;
@@ -114,15 +114,15 @@
   }
 
   export class StoredContact {
-    honorificSuffix: String;
-    honorificPrefix: String;
-    givenName: String;
-    familyName: String;
-    displayName: String;
+    honorificSuffix: string;
+    honorificPrefix: string;
+    givenName: string;
+    familyName: string;
+    displayName: string;
     displayPicture: Object;
     displayPictureDate: Date;
-    remoteId: String;
-    id: String;
+    remoteId: string;
+    id: string;
     store: ContactStore;
     constructor();
     constructor(store: ContactStore);
@@ -132,7 +132,7 @@
 
     saveAsync(callback: (error: Error) => void): void ;
 
-    replaceExistingContactAsync(id: String, callback: (error: Error) => void): void ;
+    replaceExistingContactAsync(id: string, callback: (error: Error) => void): void ;
 
     getDisplayPictureAsync(callback: (error: Error, result: Object) => void): void ;
 
@@ -146,41 +146,41 @@
   }
 
   export class KnownContactProperties {
-    static additionalName: String;
-    static address: String;
-    static alternateMobileTelephone: String;
-    static alternateTelephone: String;
-    static alternateWorkTelephone: String;
-    static anniversary: String;
-    static birthdate: String;
-    static children: String;
-    static companyName: String;
-    static companyTelephone: String;
-    static displayName: String;
-    static email: String;
-    static familyName: String;
-    static givenName: String;
-    static homeFax: String;
-    static honorificPrefix: String;
-    static honorificSuffix: String;
-    static jobTitle: String;
-    static manager: String;
-    static mobileTelephone: String;
-    static nickname: String;
-    static notes: String;
-    static officeLocation: String;
-    static otherAddress: String;
-    static otherEmail: String;
-    static significantOther: String;
-    static telephone: String;
-    static url: String;
-    static workAddress: String;
-    static workEmail: String;
-    static workFax: String;
-    static workTelephone: String;
-    static yomiCompanyName: String;
-    static yomiFamilyName: String;
-    static yomiGivenName: String;
+    static additionalName: string;
+    static address: string;
+    static alternateMobileTelephone: string;
+    static alternateTelephone: string;
+    static alternateWorkTelephone: string;
+    static anniversary: string;
+    static birthdate: string;
+    static children: string;
+    static companyName: string;
+    static companyTelephone: string;
+    static displayName: string;
+    static email: string;
+    static familyName: string;
+    static givenName: string;
+    static homeFax: string;
+    static honorificPrefix: string;
+    static honorificSuffix: string;
+    static jobTitle: string;
+    static manager: string;
+    static mobileTelephone: string;
+    static nickname: string;
+    static notes: string;
+    static officeLocation: string;
+    static otherAddress: string;
+    static otherEmail: string;
+    static significantOther: string;
+    static telephone: string;
+    static url: string;
+    static workAddress: string;
+    static workEmail: string;
+    static workFax: string;
+    static workTelephone: string;
+    static yomiCompanyName: string;
+    static yomiFamilyName: string;
+    static yomiGivenName: string;
     constructor();
 
   }
@@ -195,10 +195,10 @@
   export class ContactQueryResult {
     constructor();
 
-    getContactCountAsync(callback: (error: Error, result: Number) => void): void ;
+    getContactCountAsync(callback: (error: Error, result: number) => void): void ;
 
     getContactsAsync(callback: (error: Error, result: Object) => void): void ;
-    getContactsAsync(startIndex: Number, maxNumberOfItems: Number, callback: (error: Error, result: Object) => void): void ;
+    getContactsAsync(startIndex: number, maxNumberOfItems: number, callback: (error: Error, result: Object) => void): void ;
 
     getCurrentQueryOptions(): ContactQueryOptions;
 
@@ -206,9 +206,9 @@
 
   export class ContactChangeRecord {
     changeType: ContactChangeType;
-    id: String;
-    remoteId: String;
-    revisionNumber: Number;
+    id: string;
+    remoteId: string;
+    revisionNumber: number;
     constructor();
 
   }

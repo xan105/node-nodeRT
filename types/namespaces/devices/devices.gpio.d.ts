@@ -1,12 +1,12 @@
   export class GpioChangeRecord {
-    relativeTime: Number;
+    relativeTime: number;
     edge: GpioPinEdge;
     constructor();
   }
 
   export class GpioChangeCount {
-    count: Number;
-    relativeTime: Number;
+    count: number;
+    relativeTime: number;
     constructor();
   }
 
@@ -57,12 +57,12 @@
   }
 
   export class GpioPin {
-    debounceTimeout: Number;
-    pinNumber: Number;
+    debounceTimeout: number;
+    pinNumber: number;
     sharingMode: GpioSharingMode;
     constructor();
 
-    isDriveModeSupported(driveMode: GpioPinDriveMode): Boolean;
+    isDriveModeSupported(driveMode: GpioPinDriveMode): boolean;
 
     getDriveMode(): GpioPinDriveMode;
 
@@ -87,7 +87,7 @@
   }
 
   export class GpioController {
-    pinCount: Number;
+    pinCount: number;
     constructor();
 
     static getControllersAsync(provider: Object, callback: (error: Error, result: Object) => void): void ;
@@ -99,25 +99,25 @@
     static getDefault(): GpioController;
 
 
-    openPin(pinNumber: Number): GpioPin;
-    openPin(pinNumber: Number, sharingMode: GpioSharingMode): GpioPin;
+    openPin(pinNumber: number): GpioPin;
+    openPin(pinNumber: number, sharingMode: GpioSharingMode): GpioPin;
 
-    tryOpenPin(pinNumber: Number, sharingMode: GpioSharingMode, pin: Object, openStatus: GpioOpenStatus): Boolean;
+    tryOpenPin(pinNumber: number, sharingMode: GpioSharingMode, pin: Object, openStatus: GpioOpenStatus): boolean;
 
   }
 
   export class GpioChangeReader {
     polarity: GpioChangePolarity;
-    capacity: Number;
-    isEmpty: Boolean;
-    isOverflowed: Boolean;
-    isStarted: Boolean;
-    length: Number;
+    capacity: number;
+    isEmpty: boolean;
+    isOverflowed: boolean;
+    isStarted: boolean;
+    length: number;
     constructor();
     constructor(pin: GpioPin);
-    constructor(pin: GpioPin, minCapacity: Number);
+    constructor(pin: GpioPin, minCapacity: number);
 
-    waitForItemsAsync(count: Number, callback: (error: Error) => void): void ;
+    waitForItemsAsync(count: number, callback: (error: Error) => void): void ;
 
     start(): void;
 
@@ -136,7 +136,7 @@
 
   export class GpioChangeCounter {
     polarity: GpioChangePolarity;
-    isStarted: Boolean;
+    isStarted: boolean;
     constructor();
     constructor(pin: GpioPin);
 

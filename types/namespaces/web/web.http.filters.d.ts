@@ -1,10 +1,10 @@
   export class HttpProgress {
-    stage: Number;
-    bytesSent: Number;
-    totalBytesToSend: Number;
-    bytesReceived: Number;
-    totalBytesToReceive: Number;
-    retries: Number;
+    stage: number;
+    bytesSent: number;
+    totalBytesToSend: number;
+    bytesReceived: number;
+    totalBytesToReceive: number;
+    retries: number;
     constructor();
   }
 
@@ -33,18 +33,18 @@
   }
 
   export class HttpBaseProtocolFilter {
-    useProxy: Boolean;
+    useProxy: boolean;
     serverCredential: Object;
     proxyCredential: Object;
-    maxConnectionsPerServer: Number;
+    maxConnectionsPerServer: number;
     clientCertificate: Object;
-    automaticDecompression: Boolean;
-    allowUI: Boolean;
-    allowAutoRedirect: Boolean;
+    automaticDecompression: boolean;
+    allowUI: boolean;
+    allowAutoRedirect: boolean;
     cookieManager: Object;
     ignorableServerCertificateErrors: Object;
     cacheControl: HttpCacheControl;
-    maxVersion: Number;
+    maxVersion: number;
     cookieUsageBehavior: HttpCookieUsageBehavior;
     constructor();
 
@@ -76,7 +76,7 @@
   export class HttpServerCustomValidationRequestedEventArgs {
     requestMessage: Object;
     serverCertificate: Object;
-    serverCertificateErrorSeverity: Number;
+    serverCertificateErrorSeverity: number;
     serverCertificateErrors: Object;
     serverIntermediateCertificates: Object;
     constructor();

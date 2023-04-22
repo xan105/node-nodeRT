@@ -1,54 +1,54 @@
   export class ArcadeStickReading {
-    timestamp: Number;
+    timestamp: number;
     buttons: ArcadeStickButtons;
     constructor();
   }
 
   export class FlightStickReading {
-    timestamp: Number;
+    timestamp: number;
     buttons: FlightStickButtons;
     hatSwitch: GameControllerSwitchPosition;
-    roll: Number;
-    pitch: Number;
-    yaw: Number;
-    throttle: Number;
+    roll: number;
+    pitch: number;
+    yaw: number;
+    throttle: number;
     constructor();
   }
 
   export class GamepadReading {
-    timestamp: Number;
+    timestamp: number;
     buttons: GamepadButtons;
-    leftTrigger: Number;
-    rightTrigger: Number;
-    leftThumbstickX: Number;
-    leftThumbstickY: Number;
-    rightThumbstickX: Number;
-    rightThumbstickY: Number;
+    leftTrigger: number;
+    rightTrigger: number;
+    leftThumbstickX: number;
+    leftThumbstickY: number;
+    rightThumbstickX: number;
+    rightThumbstickY: number;
     constructor();
   }
 
   export class GamepadVibration {
-    leftMotor: Number;
-    rightMotor: Number;
-    leftTrigger: Number;
-    rightTrigger: Number;
+    leftMotor: number;
+    rightMotor: number;
+    leftTrigger: number;
+    rightTrigger: number;
     constructor();
   }
 
   export class RacingWheelReading {
-    timestamp: Number;
+    timestamp: number;
     buttons: RacingWheelButtons;
-    patternShifterGear: Number;
-    wheel: Number;
-    throttle: Number;
-    brake: Number;
-    clutch: Number;
-    handbrake: Number;
+    patternShifterGear: number;
+    wheel: number;
+    throttle: number;
+    brake: number;
+    clutch: number;
+    handbrake: number;
     constructor();
   }
 
   export class UINavigationReading {
-    timestamp: Number;
+    timestamp: number;
     requiredButtons: RequiredUINavigationButtons;
     optionalButtons: OptionalUINavigationButtons;
     constructor();
@@ -248,7 +248,7 @@
 
   export class IGameController {
     headset: Headset;
-    isWireless: Boolean;
+    isWireless: boolean;
     user: Object;
     constructor();
 
@@ -276,8 +276,8 @@
   }
 
   export class Headset {
-    captureDeviceId: String;
-    renderDeviceId: String;
+    captureDeviceId: string;
+    renderDeviceId: string;
     constructor();
 
     tryGetBatteryReport(): Object;
@@ -294,7 +294,7 @@
   export class ArcadeStick {
     static arcadeSticks: Object;
     headset: Headset;
-    isWireless: Boolean;
+    isWireless: boolean;
     user: Object;
     constructor();
 
@@ -344,7 +344,7 @@
     static flightSticks: Object;
     hatSwitchKind: GameControllerSwitchKind;
     headset: Headset;
-    isWireless: Boolean;
+    isWireless: boolean;
     user: Object;
     constructor();
 
@@ -393,7 +393,7 @@
   export class Gamepad {
     static gamepads: Object;
     headset: Headset;
-    isWireless: Boolean;
+    isWireless: boolean;
     user: Object;
     vibration: GamepadVibration;
     constructor();
@@ -443,13 +443,13 @@
   export class RacingWheel {
     static racingWheels: Object;
     headset: Headset;
-    isWireless: Boolean;
+    isWireless: boolean;
     user: Object;
-    hasClutch: Boolean;
-    hasHandbrake: Boolean;
-    hasPatternShifter: Boolean;
-    maxPatternShifterGear: Number;
-    maxWheelAngle: Number;
+    hasClutch: boolean;
+    hasHandbrake: boolean;
+    hasPatternShifter: boolean;
+    maxPatternShifterGear: number;
+    maxWheelAngle: number;
     wheelMotor: Object;
     constructor();
 
@@ -498,26 +498,26 @@
   export class RawGameController {
     static rawGameControllers: Object;
     headset: Headset;
-    isWireless: Boolean;
+    isWireless: boolean;
     user: Object;
-    axisCount: Number;
-    buttonCount: Number;
+    axisCount: number;
+    buttonCount: number;
     forceFeedbackMotors: Object;
-    hardwareProductId: Number;
-    hardwareVendorId: Number;
-    switchCount: Number;
-    displayName: String;
-    nonRoamableId: String;
+    hardwareProductId: number;
+    hardwareVendorId: number;
+    switchCount: number;
+    displayName: string;
+    nonRoamableId: string;
     simpleHapticsControllers: Object;
     constructor();
 
     static fromGameController(gameController: IGameController): RawGameController;
 
 
-    getButtonLabel(buttonIndex: Number): GameControllerButtonLabel;
+    getButtonLabel(buttonIndex: number): GameControllerButtonLabel;
 
     getCurrentReading();
-    getSwitchKind(switchIndex: Number): GameControllerSwitchKind;
+    getSwitchKind(switchIndex: number): GameControllerSwitchKind;
 
     tryGetBatteryReport(): Object;
 
@@ -557,7 +557,7 @@
   export class UINavigationController {
     static uINavigationControllers: Object;
     headset: Headset;
-    isWireless: Boolean;
+    isWireless: boolean;
     user: Object;
     constructor();
 

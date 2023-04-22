@@ -20,9 +20,9 @@
   }
 
   export class OfflineMapPackage {
-    displayName: String;
-    enclosingRegionName: String;
-    estimatedSizeInBytes: Number;
+    displayName: string;
+    enclosingRegionName: string;
+    estimatedSizeInBytes: number;
     status: OfflineMapPackageStatus;
     constructor();
 

@@ -13,10 +13,10 @@
     qualifiers: Object;
     type: IndexedResourceType;
     uri: Object;
-    valueAsString: String;
+    valueAsString: string;
     constructor();
 
-    getQualifierValue(qualifierName: String): String;
+    getQualifierValue(qualifierName: string): string;
 
   }
 
@@ -32,8 +32,8 @@
   }
 
   export class IndexedResourceQualifier {
-    qualifierName: String;
-    qualifierValue: String;
+    qualifierName: string;
+    qualifierValue: string;
     constructor();
 
   }

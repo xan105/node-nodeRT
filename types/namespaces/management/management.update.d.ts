@@ -5,16 +5,16 @@
   }
 
   export class PreviewBuildsManager {
-    arePreviewBuildsAllowed: Boolean;
+    arePreviewBuildsAllowed: boolean;
     constructor();
 
     static getDefault(): PreviewBuildsManager;
 
 
-    static isSupported(): Boolean;
+    static isSupported(): boolean;
 
 
-    syncAsync(callback: (error: Error, result: Boolean) => void): void ;
+    syncAsync(callback: (error: Error, result: boolean) => void): void ;
 
     getCurrentState(): PreviewBuildsState;
 

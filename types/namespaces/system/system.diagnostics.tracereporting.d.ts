@@ -33,19 +33,19 @@
   }
 
   export class PlatformDiagnosticTraceInfo {
-    isAutoLogger: Boolean;
-    isExclusive: Boolean;
-    maxTraceDurationFileTime: Number;
+    isAutoLogger: boolean;
+    isExclusive: boolean;
+    maxTraceDurationFileTime: number;
     priority: PlatformDiagnosticTracePriority;
-    profileHash: Number;
-    scenarioId: String;
+    profileHash: number;
+    scenarioId: string;
     constructor();
 
   }
 
   export class PlatformDiagnosticTraceRuntimeInfo {
-    etwRuntimeFileTime: Number;
-    runtimeFileTime: Number;
+    etwRuntimeFileTime: number;
+    runtimeFileTime: number;
     constructor();
 
   }
@@ -53,22 +53,22 @@
   export class PlatformDiagnosticActions {
     constructor();
 
-    static isScenarioEnabled(scenarioId: String): Boolean;
+    static isScenarioEnabled(scenarioId: string): boolean;
 
 
-    static tryEscalateScenario(scenarioId: String, escalationType: PlatformDiagnosticEscalationType, outputDirectory: String, timestampOutputDirectory: Boolean, forceEscalationUpload: Boolean, triggers: Object): Boolean;
+    static tryEscalateScenario(scenarioId: string, escalationType: PlatformDiagnosticEscalationType, outputDirectory: string, timestampOutputDirectory: boolean, forceEscalationUpload: boolean, triggers: Object): boolean;
 
 
-    static downloadLatestSettingsForNamespace(partner: String, feature: String, isScenarioNamespace: Boolean, downloadOverCostedNetwork: Boolean, downloadOverBattery: Boolean): PlatformDiagnosticActionState;
+    static downloadLatestSettingsForNamespace(partner: string, feature: string, isScenarioNamespace: boolean, downloadOverCostedNetwork: boolean, downloadOverBattery: boolean): PlatformDiagnosticActionState;
 
 
     static getActiveScenarioList(): Object;
 
 
-    static forceUpload(latency: PlatformDiagnosticEventBufferLatencies, uploadOverCostedNetwork: Boolean, uploadOverBattery: Boolean): PlatformDiagnosticActionState;
+    static forceUpload(latency: PlatformDiagnosticEventBufferLatencies, uploadOverCostedNetwork: boolean, uploadOverBattery: boolean): PlatformDiagnosticActionState;
 
 
-    static isTraceRunning(slotType: PlatformDiagnosticTraceSlotType, scenarioId: String, traceProfileHash: Number): PlatformDiagnosticTraceSlotState;
+    static isTraceRunning(slotType: PlatformDiagnosticTraceSlotType, scenarioId: string, traceProfileHash: number): PlatformDiagnosticTraceSlotState;
 
 
     static getActiveTraceRuntime(slotType: PlatformDiagnosticTraceSlotType): PlatformDiagnosticTraceRuntimeInfo;

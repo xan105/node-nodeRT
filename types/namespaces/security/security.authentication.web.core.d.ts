@@ -20,18 +20,18 @@
   }
 
   export class WebTokenRequest {
-    clientId: String;
+    clientId: string;
     promptType: WebTokenRequestPromptType;
     properties: Object;
-    scope: String;
+    scope: string;
     webAccountProvider: Object;
     appProperties: Object;
-    correlationId: String;
+    correlationId: string;
     constructor();
-    constructor(provider: Object, scope: String, clientId: String);
-    constructor(provider: Object, scope: String, clientId: String, promptType: WebTokenRequestPromptType);
+    constructor(provider: Object, scope: string, clientId: string);
+    constructor(provider: Object, scope: string, clientId: string, promptType: WebTokenRequestPromptType);
     constructor(provider: Object);
-    constructor(provider: Object, scope: String);
+    constructor(provider: Object, scope: string);
 
   }
 
@@ -79,17 +79,17 @@
     constructor();
 
     static findAllAccountsAsync(provider: Object, callback: (error: Error, result: FindAllAccountsResult) => void): void ;
-    static findAllAccountsAsync(provider: Object, clientId: String, callback: (error: Error, result: FindAllAccountsResult) => void): void ;
+    static findAllAccountsAsync(provider: Object, clientId: string, callback: (error: Error, result: FindAllAccountsResult) => void): void ;
 
 
-    static findSystemAccountProviderAsync(webAccountProviderId: String, callback: (error: Error, result: Object) => void): void ;
-    static findSystemAccountProviderAsync(webAccountProviderId: String, authority: String, callback: (error: Error, result: Object) => void): void ;
-    static findSystemAccountProviderAsync(webAccountProviderId: String, authority: String, user: Object, callback: (error: Error, result: Object) => void): void ;
+    static findSystemAccountProviderAsync(webAccountProviderId: string, callback: (error: Error, result: Object) => void): void ;
+    static findSystemAccountProviderAsync(webAccountProviderId: string, authority: string, callback: (error: Error, result: Object) => void): void ;
+    static findSystemAccountProviderAsync(webAccountProviderId: string, authority: string, user: Object, callback: (error: Error, result: Object) => void): void ;
 
 
-    static findAccountProviderAsync(webAccountProviderId: String, authority: String, user: Object, callback: (error: Error, result: Object) => void): void ;
-    static findAccountProviderAsync(webAccountProviderId: String, callback: (error: Error, result: Object) => void): void ;
-    static findAccountProviderAsync(webAccountProviderId: String, authority: String, callback: (error: Error, result: Object) => void): void ;
+    static findAccountProviderAsync(webAccountProviderId: string, authority: string, user: Object, callback: (error: Error, result: Object) => void): void ;
+    static findAccountProviderAsync(webAccountProviderId: string, callback: (error: Error, result: Object) => void): void ;
+    static findAccountProviderAsync(webAccountProviderId: string, authority: string, callback: (error: Error, result: Object) => void): void ;
 
 
     static getTokenSilentlyAsync(request: WebTokenRequest, callback: (error: Error, result: WebTokenRequestResult) => void): void ;
@@ -100,7 +100,7 @@
     static requestTokenAsync(request: WebTokenRequest, webAccount: Object, callback: (error: Error, result: WebTokenRequestResult) => void): void ;
 
 
-    static findAccountAsync(provider: Object, webAccountId: String, callback: (error: Error, result: Object) => void): void ;
+    static findAccountAsync(provider: Object, webAccountId: string, callback: (error: Error, result: Object) => void): void ;
 
 
     static createWebAccountMonitor(webAccounts: Object): WebAccountMonitor;
@@ -109,23 +109,23 @@
   }
 
   export class WebProviderError {
-    errorCode: Number;
-    errorMessage: String;
+    errorCode: number;
+    errorMessage: string;
     properties: Object;
     constructor();
-    constructor(errorCode: Number, errorMessage: String);
+    constructor(errorCode: number, errorMessage: string);
 
   }
 
   export class WebTokenResponse {
     properties: Object;
     providerError: WebProviderError;
-    token: String;
+    token: string;
     webAccount: Object;
     constructor();
-    constructor(token: String);
-    constructor(token: String, webAccount: Object);
-    constructor(token: String, webAccount: Object, error: WebProviderError);
+    constructor(token: string);
+    constructor(token: string, webAccount: Object);
+    constructor(token: string, webAccount: Object, error: WebProviderError);
 
   }
 

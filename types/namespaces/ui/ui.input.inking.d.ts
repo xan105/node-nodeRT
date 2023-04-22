@@ -3,12 +3,12 @@
   }
 
   export class Matrix3x2 {
-    m11: Number;
-    m12: Number;
-    m21: Number;
-    m22: Number;
-    m31: Number;
-    m32: Number;
+    m11: number;
+    m12: number;
+    m21: number;
+    m22: number;
+    m31: number;
+    m32: number;
     constructor();
   }
 
@@ -176,8 +176,8 @@
 
   export class InkPresenter {
     strokeContainer: InkStrokeContainer;
-    isInputEnabled: Boolean;
-    inputDeviceTypes: Number;
+    isInputEnabled: boolean;
+    inputDeviceTypes: number;
     inputProcessingConfiguration: InkInputProcessingConfiguration;
     strokeInput: InkStrokeInput;
     unprocessedInput: InkUnprocessedInput;
@@ -224,8 +224,8 @@
   }
 
   export class InkInputConfiguration {
-    isPrimaryBarrelButtonInputEnabled: Boolean;
-    isEraserInputEnabled: Boolean;
+    isPrimaryBarrelButtonInputEnabled: boolean;
+    isEraserInputEnabled: boolean;
     constructor();
 
   }
@@ -233,7 +233,7 @@
   export class IInkPresenterStencil {
     backgroundColor: Object;
     foregroundColor: Object;
-    isVisible: Boolean;
+    isVisible: boolean;
     kind: InkPresenterStencilKind;
     transform: Matrix3x2;
     constructor();
@@ -248,12 +248,12 @@
   }
 
   export class InkPresenterRuler {
-    width: Number;
-    length: Number;
-    isCompassVisible: Boolean;
-    areTickMarksVisible: Boolean;
+    width: number;
+    length: number;
+    isCompassVisible: boolean;
+    areTickMarksVisible: boolean;
     transform: Matrix3x2;
-    isVisible: Boolean;
+    isVisible: boolean;
     foregroundColor: Object;
     backgroundColor: Object;
     kind: InkPresenterStencilKind;
@@ -263,15 +263,15 @@
   }
 
   export class InkPresenterProtractor {
-    radius: Number;
-    isResizable: Boolean;
-    isCenterMarkerVisible: Boolean;
-    isAngleReadoutVisible: Boolean;
-    areTickMarksVisible: Boolean;
-    areRaysVisible: Boolean;
+    radius: number;
+    isResizable: boolean;
+    isCenterMarkerVisible: boolean;
+    isAngleReadoutVisible: boolean;
+    areTickMarksVisible: boolean;
+    areRaysVisible: boolean;
     accentColor: Object;
     transform: Matrix3x2;
-    isVisible: Boolean;
+    isVisible: boolean;
     foregroundColor: Object;
     backgroundColor: Object;
     kind: InkPresenterStencilKind;
@@ -283,24 +283,24 @@
   export class IInkPointFactory {
     constructor();
 
-    createInkPoint(position: Object, pressure: Number): InkPoint;
+    createInkPoint(position: Object, pressure: number): InkPoint;
 
   }
 
   export class InkPoint {
     position: Object;
-    pressure: Number;
-    tiltX: Number;
-    tiltY: Number;
-    timestamp: Number;
+    pressure: number;
+    tiltX: number;
+    tiltY: number;
+    timestamp: number;
     constructor();
-    constructor(position: Object, pressure: Number, tiltX: Number, tiltY: Number, timestamp: Number);
-    constructor(position: Object, pressure: Number);
+    constructor(position: Object, pressure: number, tiltX: number, tiltY: number, timestamp: number);
+    constructor(position: Object, pressure: number);
 
   }
 
   export class InkDrawingAttributesPencilProperties {
-    opacity: Number;
+    opacity: number;
     constructor();
 
   }
@@ -308,14 +308,14 @@
   export class InkDrawingAttributes {
     size: Object;
     penTip: PenTipShape;
-    ignorePressure: Boolean;
-    fitToCurve: Boolean;
+    ignorePressure: boolean;
+    fitToCurve: boolean;
     color: Object;
     penTipTransform: Matrix3x2;
-    drawAsHighlighter: Boolean;
+    drawAsHighlighter: boolean;
     kind: InkDrawingAttributesKind;
     pencilProperties: InkDrawingAttributesPencilProperties;
-    ignoreTilt: Boolean;
+    ignoreTilt: boolean;
     modelerAttributes: InkModelerAttributes;
     constructor();
 
@@ -325,8 +325,8 @@
   }
 
   export class InkModelerAttributes {
-    scalingFactor: Number;
-    predictionTime: Number;
+    scalingFactor: number;
+    predictionTime: number;
     constructor();
 
   }
@@ -335,23 +335,23 @@
     bezierControlPoint1: Object;
     bezierControlPoint2: Object;
     position: Object;
-    pressure: Number;
-    tiltX: Number;
-    tiltY: Number;
-    twist: Number;
+    pressure: number;
+    tiltX: number;
+    tiltY: number;
+    twist: number;
     constructor();
 
   }
 
   export class InkStroke {
-    selected: Boolean;
+    selected: boolean;
     drawingAttributes: InkDrawingAttributes;
     boundingRect: Object;
-    recognized: Boolean;
+    recognized: boolean;
     pointTransform: Matrix3x2;
     strokeStartedTime: Date;
-    strokeDuration: Number;
-    id: Number;
+    strokeDuration: number;
+    id: number;
     constructor();
 
     getRenderingSegments(): Object;
@@ -376,7 +376,7 @@
     setDefaultDrawingAttributes(drawingAttributes: InkDrawingAttributes): void;
 
     createStrokeFromInkPoints(inkPoints: Object, transform: Matrix3x2): InkStroke;
-    createStrokeFromInkPoints(inkPoints: Object, transform: Matrix3x2, strokeStartedTime: Date, strokeDuration: Number): InkStroke;
+    createStrokeFromInkPoints(inkPoints: Object, transform: Matrix3x2, strokeStartedTime: Date, strokeDuration: number): InkStroke;
 
   }
 
@@ -396,7 +396,7 @@
 
     loadAsync(inputStream: Object, callback: (error: Error) => void): void ;
 
-    saveAsync(outputStream: Object, callback: (error: Error, result: Number) => void): void ;
+    saveAsync(outputStream: Object, callback: (error: Error, result: number) => void): void ;
 
     addStroke(stroke: InkStroke): void;
 
@@ -412,7 +412,7 @@
 
     pasteFromClipboard(position: Object): Object;
 
-    canPasteFromClipboard(): Boolean;
+    canPasteFromClipboard(): boolean;
 
     updateRecognitionResults(recognitionResults: Object): void;
 
@@ -428,8 +428,8 @@
 
     loadAsync(inputStream: Object, callback: (error: Error) => void): void ;
 
-    saveAsync(outputStream: Object, callback: (error: Error, result: Number) => void): void ;
-    saveAsync(outputStream: Object, inkPersistenceFormat: InkPersistenceFormat, callback: (error: Error, result: Number) => void): void ;
+    saveAsync(outputStream: Object, callback: (error: Error, result: number) => void): void ;
+    saveAsync(outputStream: Object, inkPersistenceFormat: InkPersistenceFormat, callback: (error: Error, result: number) => void): void ;
 
     addStroke(stroke: InkStroke): void;
 
@@ -445,7 +445,7 @@
 
     pasteFromClipboard(position: Object): Object;
 
-    canPasteFromClipboard(): Boolean;
+    canPasteFromClipboard(): boolean;
 
     updateRecognitionResults(recognitionResults: Object): void;
 
@@ -457,12 +457,12 @@
 
     clear(): void;
 
-    getStrokeById(id: Number): InkStroke;
+    getStrokeById(id: number): InkStroke;
 
   }
 
   export class InkRecognizer {
-    name: String;
+    name: string;
     constructor();
 
   }
@@ -499,7 +499,7 @@
 
     loadAsync(inputStream: Object, callback: (error: Error) => void): void ;
 
-    saveAsync(outputStream: Object, callback: (error: Error, result: Number) => void): void ;
+    saveAsync(outputStream: Object, callback: (error: Error, result: number) => void): void ;
 
     processPointerDown(pointerPoint: Object): void;
 
@@ -523,7 +523,7 @@
 
     pasteFromClipboard(position: Object): Object;
 
-    canPasteFromClipboard(): Boolean;
+    canPasteFromClipboard(): boolean;
 
     updateRecognitionResults(recognitionResults: Object): void;
 

@@ -1,5 +1,5 @@
   export class SystemProtection {
-    static screenLocked: Boolean;
+    static screenLocked: boolean;
     constructor();
 
     static requestScreenUnlock(): void;

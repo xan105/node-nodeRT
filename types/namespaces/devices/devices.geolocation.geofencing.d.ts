@@ -27,18 +27,18 @@
   }
 
   export class Geofence {
-    duration: Number;
-    dwellTime: Number;
+    duration: number;
+    dwellTime: number;
     geoshape: Object;
-    id: String;
+    id: string;
     monitoredStates: MonitoredGeofenceStates;
-    singleUse: Boolean;
+    singleUse: boolean;
     startTime: Date;
     constructor();
-    constructor(id: String, geoshape: Object);
-    constructor(id: String, geoshape: Object, monitoredStates: MonitoredGeofenceStates, singleUse: Boolean);
-    constructor(id: String, geoshape: Object, monitoredStates: MonitoredGeofenceStates, singleUse: Boolean, dwellTime: Number);
-    constructor(id: String, geoshape: Object, monitoredStates: MonitoredGeofenceStates, singleUse: Boolean, dwellTime: Number, startTime: Date, duration: Number);
+    constructor(id: string, geoshape: Object);
+    constructor(id: string, geoshape: Object, monitoredStates: MonitoredGeofenceStates, singleUse: boolean);
+    constructor(id: string, geoshape: Object, monitoredStates: MonitoredGeofenceStates, singleUse: boolean, dwellTime: number);
+    constructor(id: string, geoshape: Object, monitoredStates: MonitoredGeofenceStates, singleUse: boolean, dwellTime: number, startTime: Date, duration: number);
 
   }
 

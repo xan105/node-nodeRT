@@ -119,90 +119,90 @@
   }
 
   export class TextResponse {
-    content: String;
-    id: Number;
+    content: string;
+    id: number;
     constructor();
 
   }
 
   export class AppNotificationInfo {
-    id: String;
-    name: String;
+    id: string;
+    name: string;
     constructor();
 
   }
 
   export class EmailAccountInfo {
-    displayName: String;
-    isNotificationEnabled: Boolean;
+    displayName: string;
+    isNotificationEnabled: boolean;
     constructor();
 
   }
 
   export class EmailFolderInfo {
-    displayName: String;
-    isNotificationEnabled: Boolean;
+    displayName: string;
+    isNotificationEnabled: boolean;
     constructor();
 
   }
 
   export class BinaryId {
-    id: Number;
-    length: Number;
+    id: number;
+    length: number;
     constructor();
 
   }
 
   export class IAccessoryNotificationTriggerDetails {
     accessoryNotificationType: AccessoryNotificationType;
-    appDisplayName: String;
-    appId: String;
-    startedProcessing: Boolean;
+    appDisplayName: string;
+    appId: string;
+    startedProcessing: boolean;
     timeCreated: Date;
     constructor();
 
   }
 
   export class AlarmNotificationTriggerDetails {
-    startedProcessing: Boolean;
+    startedProcessing: boolean;
     accessoryNotificationType: AccessoryNotificationType;
-    appDisplayName: String;
-    appId: String;
+    appDisplayName: string;
+    appId: string;
     timeCreated: Date;
-    alarmId: String;
+    alarmId: string;
     reminderState: ReminderState;
     timestamp: Date;
-    title: String;
-    instanceId: String;
+    title: string;
+    instanceId: string;
     constructor();
 
   }
 
   export class EmailReadNotificationTriggerDetails {
-    startedProcessing: Boolean;
+    startedProcessing: boolean;
     accessoryNotificationType: AccessoryNotificationType;
-    appDisplayName: String;
-    appId: String;
+    appDisplayName: string;
+    appId: string;
     timeCreated: Date;
-    accountName: String;
-    isRead: Boolean;
+    accountName: string;
+    isRead: boolean;
     messageEntryId: BinaryId;
-    parentFolderName: String;
+    parentFolderName: string;
     constructor();
 
   }
 
   export class EmailNotificationTriggerDetails {
-    startedProcessing: Boolean;
+    startedProcessing: boolean;
     accessoryNotificationType: AccessoryNotificationType;
-    appDisplayName: String;
-    appId: String;
+    appDisplayName: string;
+    appId: string;
     timeCreated: Date;
-    accountName: String;
+    accountName: string;
     emailMessage: Object;
-    parentFolderName: String;
-    senderAddress: String;
-    senderName: String;
+    parentFolderName: string;
+    senderAddress: string;
+    senderName: string;
     timestamp: Date;
     messageEntryId: BinaryId;
     constructor();
@@ -210,27 +210,27 @@
   }
 
   export class PhoneLineDetails {
-    defaultOutgoingLine: Boolean;
-    displayName: String;
-    lineId: String;
-    lineNumber: String;
+    defaultOutgoingLine: boolean;
+    displayName: string;
+    lineId: string;
+    lineNumber: string;
     registrationState: PhoneLineRegistrationState;
-    voicemailCount: Number;
-    missedCallCount: Number;
+    voicemailCount: number;
+    missedCallCount: number;
     constructor();
 
   }
 
   export class PhoneCallDetails {
     callDirection: PhoneCallDirection;
-    callId: Number;
+    callId: number;
     callMediaType: PhoneMediaType;
     callTransport: PhoneCallTransport;
-    conferenceCallId: Number;
-    contactName: String;
+    conferenceCallId: number;
+    contactName: string;
     endTime: Date;
-    phoneLine: String;
-    phoneNumber: String;
+    phoneLine: string;
+    phoneNumber: string;
     presetTextResponses: Object;
     startTime: Date;
     state: PhoneCallState;
@@ -239,109 +239,109 @@
   }
 
   export class PhoneNotificationTriggerDetails {
-    startedProcessing: Boolean;
+    startedProcessing: boolean;
     accessoryNotificationType: AccessoryNotificationType;
-    appDisplayName: String;
-    appId: String;
+    appDisplayName: string;
+    appId: string;
     timeCreated: Date;
     callDetails: PhoneCallDetails;
-    phoneLineChangedId: String;
+    phoneLineChangedId: string;
     phoneNotificationType: PhoneNotificationType;
     constructor();
 
   }
 
   export class SpeedDialEntry {
-    contactName: String;
-    numberType: String;
-    phoneNumber: String;
+    contactName: string;
+    numberType: string;
+    phoneNumber: string;
     constructor();
 
   }
 
   export class ReminderNotificationTriggerDetails {
-    startedProcessing: Boolean;
+    startedProcessing: boolean;
     accessoryNotificationType: AccessoryNotificationType;
-    appDisplayName: String;
-    appId: String;
+    appDisplayName: string;
+    appId: string;
     timeCreated: Date;
     appointment: Object;
-    description: String;
-    details: String;
-    reminderId: String;
+    description: string;
+    details: string;
+    reminderId: string;
     reminderState: ReminderState;
     timestamp: Date;
-    title: String;
-    instanceId: String;
+    title: string;
+    instanceId: string;
     constructor();
 
   }
 
   export class CalendarChangedNotificationTriggerDetails {
-    startedProcessing: Boolean;
+    startedProcessing: boolean;
     accessoryNotificationType: AccessoryNotificationType;
-    appDisplayName: String;
-    appId: String;
+    appDisplayName: string;
+    appId: string;
     timeCreated: Date;
     eventType: CalendarChangedEvent;
-    itemId: String;
+    itemId: string;
     constructor();
 
   }
 
   export class ToastNotificationTriggerDetails {
-    startedProcessing: Boolean;
+    startedProcessing: boolean;
     accessoryNotificationType: AccessoryNotificationType;
-    appDisplayName: String;
-    appId: String;
+    appDisplayName: string;
+    appId: string;
     timeCreated: Date;
-    suppressPopup: Boolean;
-    text1: String;
-    text2: String;
-    text3: String;
-    text4: String;
-    instanceId: String;
+    suppressPopup: boolean;
+    text1: string;
+    text2: string;
+    text3: string;
+    text4: string;
+    instanceId: string;
     constructor();
 
   }
 
   export class CortanaTileNotificationTriggerDetails {
-    startedProcessing: Boolean;
+    startedProcessing: boolean;
     accessoryNotificationType: AccessoryNotificationType;
-    appDisplayName: String;
-    appId: String;
+    appDisplayName: string;
+    appId: string;
     timeCreated: Date;
-    content: String;
-    emphasizedText: String;
-    largeContent1: String;
-    largeContent2: String;
-    nonWrappedSmallContent1: String;
-    nonWrappedSmallContent2: String;
-    nonWrappedSmallContent3: String;
-    nonWrappedSmallContent4: String;
-    source: String;
-    tileId: String;
+    content: string;
+    emphasizedText: string;
+    largeContent1: string;
+    largeContent2: string;
+    nonWrappedSmallContent1: string;
+    nonWrappedSmallContent2: string;
+    nonWrappedSmallContent3: string;
+    nonWrappedSmallContent4: string;
+    source: string;
+    tileId: string;
     constructor();
 
   }
 
   export class MediaMetadata {
-    album: String;
-    artist: String;
-    duration: Number;
-    subtitle: String;
+    album: string;
+    artist: string;
+    duration: number;
+    subtitle: string;
     thumbnail: Object;
-    title: String;
-    track: Number;
+    title: string;
+    track: number;
     constructor();
 
   }
 
   export class MediaControlsTriggerDetails {
-    startedProcessing: Boolean;
+    startedProcessing: boolean;
     accessoryNotificationType: AccessoryNotificationType;
-    appDisplayName: String;
-    appId: String;
+    appDisplayName: string;
+    appId: string;
     timeCreated: Date;
     mediaMetadata: MediaMetadata;
     playbackStatus: PlaybackStatus;
@@ -350,78 +350,78 @@
   }
 
   export class VolumeInfo {
-    callVolume: Number;
-    isMuted: Boolean;
+    callVolume: number;
+    isMuted: boolean;
     isVibrateEnabled: VibrateState;
-    mediaVolume: Number;
-    systemVolume: Number;
+    mediaVolume: number;
+    systemVolume: number;
     constructor();
 
   }
 
   export class AccessoryManager {
-    static phoneMute: Boolean;
+    static phoneMute: boolean;
     static phoneCallAudioEndpoint: PhoneCallAudioEndpoint;
-    static batterySaverState: Boolean;
-    static doNotDisturbEnabled: Boolean;
-    static drivingModeEnabled: Boolean;
+    static batterySaverState: boolean;
+    static doNotDisturbEnabled: boolean;
+    static drivingModeEnabled: boolean;
     static mediaPlaybackCapabilities: PlaybackCapability;
     static mediaPlaybackStatus: PlaybackStatus;
     static phoneLineDetails: Object;
-    static isPhonePinLocked: Boolean;
+    static isPhonePinLocked: boolean;
     static speedDialList: Object;
     static volumeInfo: VolumeInfo;
     constructor();
 
-    static snoozeAlarmByInstanceId(instanceId: String): void;
+    static snoozeAlarmByInstanceId(instanceId: string): void;
 
 
-    static dismissAlarmByInstanceId(instanceId: String): void;
+    static dismissAlarmByInstanceId(instanceId: string): void;
 
 
-    static snoozeReminderByInstanceId(instanceId: String): void;
+    static snoozeReminderByInstanceId(instanceId: string): void;
 
 
-    static dismissReminderByInstanceId(instanceId: String): void;
+    static dismissReminderByInstanceId(instanceId: string): void;
 
 
     static ringDevice(): void;
 
 
-    static clearToast(instanceId: String): void;
+    static clearToast(instanceId: string): void;
 
 
-    static increaseVolume(step: Number): void;
+    static increaseVolume(step: number): void;
 
 
-    static decreaseVolume(step: Number): void;
+    static decreaseVolume(step: number): void;
 
 
-    static setMute(mute: Boolean): void;
+    static setMute(mute: boolean): void;
 
 
-    static setRingerVibrate(ringer: Boolean, vibrate: Boolean): void;
+    static setRingerVibrate(ringer: boolean, vibrate: boolean): void;
 
 
     static getAllEmailAccounts(): Object;
 
 
-    static getFolders(emailAccount: String): Object;
+    static getFolders(emailAccount: string): Object;
 
 
-    static enableEmailNotificationEmailAccount(emailAccount: String): void;
+    static enableEmailNotificationEmailAccount(emailAccount: string): void;
 
 
-    static disableEmailNotificationEmailAccount(emailAccount: String): void;
+    static disableEmailNotificationEmailAccount(emailAccount: string): void;
 
 
-    static enableEmailNotificationFolderFilter(emailAccount: String, folders: Object): void;
+    static enableEmailNotificationFolderFilter(emailAccount: string, folders: Object): void;
 
 
-    static updateEmailReadStatus(messageEntryId: BinaryId, isRead: Boolean): void;
+    static updateEmailReadStatus(messageEntryId: BinaryId, isRead: boolean): void;
 
 
-    static registerAccessoryApp(): String;
+    static registerAccessoryApp(): string;
 
 
     static getNextTriggerDetails(): IAccessoryNotificationTriggerDetails;
@@ -430,50 +430,50 @@
     static processTriggerDetails(pDetails: IAccessoryNotificationTriggerDetails): void;
 
 
-    static getPhoneLineDetails(phoneLine: String): PhoneLineDetails;
+    static getPhoneLineDetails(phoneLine: string): PhoneLineDetails;
 
 
-    static acceptPhoneCall(phoneCallId: Number): void;
-    static acceptPhoneCall(phoneCallId: Number, endPoint: PhoneCallAudioEndpoint): void;
+    static acceptPhoneCall(phoneCallId: number): void;
+    static acceptPhoneCall(phoneCallId: number, endPoint: PhoneCallAudioEndpoint): void;
 
 
-    static acceptPhoneCallWithVideo(phoneCallId: Number): void;
-    static acceptPhoneCallWithVideo(phoneCallId: Number, endPoint: PhoneCallAudioEndpoint): void;
+    static acceptPhoneCallWithVideo(phoneCallId: number): void;
+    static acceptPhoneCallWithVideo(phoneCallId: number, endPoint: PhoneCallAudioEndpoint): void;
 
 
-    static rejectPhoneCall(phoneCallId: Number): void;
-    static rejectPhoneCall(phoneCallId: Number, textResponseID: Number): void;
+    static rejectPhoneCall(phoneCallId: number): void;
+    static rejectPhoneCall(phoneCallId: number, textResponseID: number): void;
 
 
-    static makePhoneCall(phoneLine: String, phoneNumber: String): void;
-    static makePhoneCall(phoneLine: String, phoneNumber: String, endPoint: PhoneCallAudioEndpoint): void;
+    static makePhoneCall(phoneLine: string, phoneNumber: string): void;
+    static makePhoneCall(phoneLine: string, phoneNumber: string, endPoint: PhoneCallAudioEndpoint): void;
 
 
-    static makePhoneCallWithVideo(phoneLine: String, phoneNumber: String): void;
-    static makePhoneCallWithVideo(phoneLine: String, phoneNumber: String, endPoint: PhoneCallAudioEndpoint): void;
+    static makePhoneCallWithVideo(phoneLine: string, phoneNumber: string): void;
+    static makePhoneCallWithVideo(phoneLine: string, phoneNumber: string, endPoint: PhoneCallAudioEndpoint): void;
 
 
-    static swapPhoneCalls(phoneCallIdToHold: Number, phoneCallIdOnHold: Number): void;
+    static swapPhoneCalls(phoneCallIdToHold: number, phoneCallIdOnHold: number): void;
 
 
-    static holdPhoneCall(phoneCallId: Number, holdCall: Boolean): void;
+    static holdPhoneCall(phoneCallId: number, holdCall: boolean): void;
 
 
-    static endPhoneCall(phoneCallId: Number): void;
+    static endPhoneCall(phoneCallId: number): void;
 
 
-    static snoozeAlarm(alarmId: String): void;
-    static snoozeAlarm(alarmId: String, timeSpan: Number): void;
+    static snoozeAlarm(alarmId: string): void;
+    static snoozeAlarm(alarmId: string, timeSpan: number): void;
 
 
-    static dismissAlarm(alarmId: String): void;
+    static dismissAlarm(alarmId: string): void;
 
 
-    static snoozeReminder(reminderId: String): void;
-    static snoozeReminder(reminderId: String, timeSpan: Number): void;
+    static snoozeReminder(reminderId: string): void;
+    static snoozeReminder(reminderId: string, timeSpan: number): void;
 
 
-    static dismissReminder(reminderId: String): void;
+    static dismissReminder(reminderId: string): void;
 
 
     static getMediaMetadata(): MediaMetadata;
@@ -485,28 +485,28 @@
     static getApps(): Object;
 
 
-    static enableNotificationsForApplication(appId: String): void;
+    static enableNotificationsForApplication(appId: string): void;
 
 
-    static disableNotificationsForApplication(appId: String): void;
+    static disableNotificationsForApplication(appId: string): void;
 
 
-    static isNotificationEnabledForApplication(appId: String): Boolean;
+    static isNotificationEnabledForApplication(appId: string): boolean;
 
 
-    static getEnabledAccessoryNotificationTypes(): Number;
+    static getEnabledAccessoryNotificationTypes(): number;
 
 
-    static enableAccessoryNotificationTypes(accessoryNotificationTypes: Number): void;
+    static enableAccessoryNotificationTypes(accessoryNotificationTypes: number): void;
 
 
     static disableAllAccessoryNotificationTypes(): void;
 
 
-    static getUserConsent(): Boolean;
+    static getUserConsent(): boolean;
 
 
-    static getAppIcon(appId: String): Object;
+    static getAppIcon(appId: string): Object;
 
 
   }

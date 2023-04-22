@@ -7,31 +7,31 @@
 
   export class AppListEntry {
     displayInfo: Object;
-    appUserModelId: String;
+    appUserModelId: string;
     constructor();
 
-    launchAsync(callback: (error: Error, result: Boolean) => void): void ;
+    launchAsync(callback: (error: Error, result: boolean) => void): void ;
 
-    launchForUserAsync(user: Object, callback: (error: Error, result: Boolean) => void): void ;
+    launchForUserAsync(user: Object, callback: (error: Error, result: boolean) => void): void ;
 
   }
 
   export class CoreApplication {
-    static id: String;
+    static id: string;
     static properties: Object;
     static mainView: CoreApplicationView;
     static views: Object;
     constructor();
 
-    static requestRestartAsync(launchArguments: String, callback: (error: Error, result: AppRestartFailureReason) => void): void ;
+    static requestRestartAsync(launchArguments: string, callback: (error: Error, result: AppRestartFailureReason) => void): void ;
 
 
-    static requestRestartForUserAsync(user: Object, launchArguments: String, callback: (error: Error, result: AppRestartFailureReason) => void): void ;
+    static requestRestartForUserAsync(user: Object, launchArguments: string, callback: (error: Error, result: AppRestartFailureReason) => void): void ;
 
 
     static createNewView(viewSource: IFrameworkViewSource): CoreApplicationView;
     static createNewView(): CoreApplicationView;
-    static createNewView(runtimeType: String, entryPoint: String): CoreApplicationView;
+    static createNewView(runtimeType: string, entryPoint: string): CoreApplicationView;
 
 
     static incrementApplicationUseCount(): void;
@@ -43,7 +43,7 @@
     static exit(): void;
 
 
-    static enablePrelaunch(value: Boolean): void;
+    static enablePrelaunch(value: boolean): void;
 
 
     static getCurrentView(): CoreApplicationView;
@@ -100,10 +100,10 @@
 
   export class CoreApplicationView {
     coreWindow: Object;
-    isHosted: Boolean;
-    isMain: Boolean;
+    isHosted: boolean;
+    isMain: boolean;
     dispatcher: Object;
-    isComponent: Boolean;
+    isComponent: boolean;
     titleBar: CoreApplicationViewTitleBar;
     properties: Object;
     dispatcherQueue: Object;
@@ -128,11 +128,11 @@
   }
 
   export class CoreApplicationViewTitleBar {
-    extendViewIntoTitleBar: Boolean;
-    height: Number;
-    isVisible: Boolean;
-    systemOverlayLeftInset: Number;
-    systemOverlayRightInset: Number;
+    extendViewIntoTitleBar: boolean;
+    height: number;
+    isVisible: boolean;
+    systemOverlayLeftInset: number;
+    systemOverlayRightInset: number;
     constructor();
 
     addListener(type: "IsVisibleChanged", listener: (ev: Event) => void): void ;
@@ -160,7 +160,7 @@
 
     setWindow(window: Object): void;
 
-    load(entryPoint: String): void;
+    load(entryPoint: string): void;
 
     run(): void;
 
@@ -205,7 +205,7 @@
   }
 
   export class UnhandledError {
-    handled: Boolean;
+    handled: boolean;
     constructor();
 
     propagate(): void;

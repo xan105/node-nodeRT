@@ -1,18 +1,18 @@
   export class RoundTripTimeStatistics {
-    variance: Number;
-    max: Number;
-    min: Number;
-    sum: Number;
+    variance: number;
+    max: number;
+    min: number;
+    sum: number;
     constructor();
   }
 
   export class BandwidthStatistics {
-    outboundBitsPerSecond: Number;
-    inboundBitsPerSecond: Number;
-    outboundBitsPerSecondInstability: Number;
-    inboundBitsPerSecondInstability: Number;
-    outboundBandwidthPeaked: Boolean;
-    inboundBandwidthPeaked: Boolean;
+    outboundBitsPerSecond: number;
+    inboundBitsPerSecond: number;
+    outboundBitsPerSecondInstability: number;
+    inboundBitsPerSecondInstability: number;
+    outboundBandwidthPeaked: boolean;
+    inboundBandwidthPeaked: boolean;
     constructor();
   }
 
@@ -143,19 +143,19 @@
     outputStream: Object;
     constructor();
 
-    static getEndpointPairsAsync(remoteHostName: Object, remoteServiceName: String, callback: (error: Error, result: Object) => void): void ;
-    static getEndpointPairsAsync(remoteHostName: Object, remoteServiceName: String, sortOptions: Number, callback: (error: Error, result: Object) => void): void ;
+    static getEndpointPairsAsync(remoteHostName: Object, remoteServiceName: string, callback: (error: Error, result: Object) => void): void ;
+    static getEndpointPairsAsync(remoteHostName: Object, remoteServiceName: string, sortOptions: number, callback: (error: Error, result: Object) => void): void ;
 
 
-    connectAsync(remoteHostName: Object, remoteServiceName: String, callback: (error: Error) => void): void ;
+    connectAsync(remoteHostName: Object, remoteServiceName: string, callback: (error: Error) => void): void ;
     connectAsync(endpointPair: Object, callback: (error: Error) => void): void ;
 
-    bindServiceNameAsync(localServiceName: String, callback: (error: Error) => void): void ;
-    bindServiceNameAsync(localServiceName: String, adapter: Object, callback: (error: Error) => void): void ;
+    bindServiceNameAsync(localServiceName: string, callback: (error: Error) => void): void ;
+    bindServiceNameAsync(localServiceName: string, adapter: Object, callback: (error: Error) => void): void ;
 
-    bindEndpointAsync(localHostName: Object, localServiceName: String, callback: (error: Error) => void): void ;
+    bindEndpointAsync(localHostName: Object, localServiceName: string, callback: (error: Error) => void): void ;
 
-    getOutputStreamAsync(remoteHostName: Object, remoteServiceName: String, callback: (error: Error, result: Object) => void): void ;
+    getOutputStreamAsync(remoteHostName: Object, remoteServiceName: string, callback: (error: Error, result: Object) => void): void ;
     getOutputStreamAsync(endpointPair: Object, callback: (error: Error, result: Object) => void): void ;
 
     cancelIOAsync(callback: (error: Error) => void): void ;
@@ -163,12 +163,12 @@
     joinMulticastGroup(host: Object): void;
 
     close(): void;
-    enableTransferOwnership(taskId: String): void;
-    enableTransferOwnership(taskId: String, connectedStandbyAction: SocketActivityConnectedStandbyAction): void;
+    enableTransferOwnership(taskId: string): void;
+    enableTransferOwnership(taskId: string, connectedStandbyAction: SocketActivityConnectedStandbyAction): void;
 
-    transferOwnership(socketId: String): void;
-    transferOwnership(socketId: String, data: SocketActivityContext): void;
-    transferOwnership(socketId: String, data: SocketActivityContext, keepAliveTime: Number): void;
+    transferOwnership(socketId: string): void;
+    transferOwnership(socketId: string, data: SocketActivityContext): void;
+    transferOwnership(socketId: string, data: SocketActivityContext, keepAliveTime: number): void;
 
     addListener(type: "MessageReceived", listener: (ev: Event) => void): void ;
     removeListener(type: "MessageReceived", listener: (ev: Event) => void): void ;
@@ -190,27 +190,27 @@
     outputStream: Object;
     constructor();
 
-    static getEndpointPairsAsync(remoteHostName: Object, remoteServiceName: String, callback: (error: Error, result: Object) => void): void ;
-    static getEndpointPairsAsync(remoteHostName: Object, remoteServiceName: String, sortOptions: Number, callback: (error: Error, result: Object) => void): void ;
+    static getEndpointPairsAsync(remoteHostName: Object, remoteServiceName: string, callback: (error: Error, result: Object) => void): void ;
+    static getEndpointPairsAsync(remoteHostName: Object, remoteServiceName: string, sortOptions: number, callback: (error: Error, result: Object) => void): void ;
 
 
     connectAsync(endpointPair: Object, callback: (error: Error) => void): void ;
-    connectAsync(remoteHostName: Object, remoteServiceName: String, callback: (error: Error) => void): void ;
+    connectAsync(remoteHostName: Object, remoteServiceName: string, callback: (error: Error) => void): void ;
     connectAsync(endpointPair: Object, protectionLevel: SocketProtectionLevel, callback: (error: Error) => void): void ;
-    connectAsync(remoteHostName: Object, remoteServiceName: String, protectionLevel: SocketProtectionLevel, callback: (error: Error) => void): void ;
-    connectAsync(remoteHostName: Object, remoteServiceName: String, protectionLevel: SocketProtectionLevel, adapter: Object, callback: (error: Error) => void): void ;
+    connectAsync(remoteHostName: Object, remoteServiceName: string, protectionLevel: SocketProtectionLevel, callback: (error: Error) => void): void ;
+    connectAsync(remoteHostName: Object, remoteServiceName: string, protectionLevel: SocketProtectionLevel, adapter: Object, callback: (error: Error) => void): void ;
 
     upgradeToSslAsync(protectionLevel: SocketProtectionLevel, validationHostName: Object, callback: (error: Error) => void): void ;
 
     cancelIOAsync(callback: (error: Error) => void): void ;
 
     close(): void;
-    enableTransferOwnership(taskId: String): void;
-    enableTransferOwnership(taskId: String, connectedStandbyAction: SocketActivityConnectedStandbyAction): void;
+    enableTransferOwnership(taskId: string): void;
+    enableTransferOwnership(taskId: string, connectedStandbyAction: SocketActivityConnectedStandbyAction): void;
 
-    transferOwnership(socketId: String): void;
-    transferOwnership(socketId: String, data: SocketActivityContext): void;
-    transferOwnership(socketId: String, data: SocketActivityContext, keepAliveTime: Number): void;
+    transferOwnership(socketId: string): void;
+    transferOwnership(socketId: string, data: SocketActivityContext): void;
+    transferOwnership(socketId: string, data: SocketActivityContext, keepAliveTime: number): void;
 
   }
 
@@ -219,20 +219,20 @@
     information: StreamSocketListenerInformation;
     constructor();
 
-    bindServiceNameAsync(localServiceName: String, callback: (error: Error) => void): void ;
-    bindServiceNameAsync(localServiceName: String, protectionLevel: SocketProtectionLevel, callback: (error: Error) => void): void ;
-    bindServiceNameAsync(localServiceName: String, protectionLevel: SocketProtectionLevel, adapter: Object, callback: (error: Error) => void): void ;
+    bindServiceNameAsync(localServiceName: string, callback: (error: Error) => void): void ;
+    bindServiceNameAsync(localServiceName: string, protectionLevel: SocketProtectionLevel, callback: (error: Error) => void): void ;
+    bindServiceNameAsync(localServiceName: string, protectionLevel: SocketProtectionLevel, adapter: Object, callback: (error: Error) => void): void ;
 
-    bindEndpointAsync(localHostName: Object, localServiceName: String, callback: (error: Error) => void): void ;
+    bindEndpointAsync(localHostName: Object, localServiceName: string, callback: (error: Error) => void): void ;
 
     cancelIOAsync(callback: (error: Error) => void): void ;
 
     close(): void;
-    enableTransferOwnership(taskId: String): void;
-    enableTransferOwnership(taskId: String, connectedStandbyAction: SocketActivityConnectedStandbyAction): void;
+    enableTransferOwnership(taskId: string): void;
+    enableTransferOwnership(taskId: string, connectedStandbyAction: SocketActivityConnectedStandbyAction): void;
 
-    transferOwnership(socketId: String): void;
-    transferOwnership(socketId: String, data: SocketActivityContext): void;
+    transferOwnership(socketId: string): void;
+    transferOwnership(socketId: string, data: SocketActivityContext): void;
 
     addListener(type: "ConnectionReceived", listener: (ev: Event) => void): void ;
     removeListener(type: "ConnectionReceived", listener: (ev: Event) => void): void ;
@@ -251,30 +251,30 @@
     static allSockets: Object;
     context: SocketActivityContext;
     datagramSocket: DatagramSocket;
-    id: String;
+    id: string;
     socketKind: SocketActivityKind;
     streamSocket: StreamSocket;
     streamSocketListener: StreamSocketListener;
-    taskId: String;
+    taskId: string;
     constructor();
 
   }
 
   export class DatagramSocketControl {
     qualityOfService: SocketQualityOfService;
-    outboundUnicastHopLimit: Number;
-    inboundBufferSizeInBytes: Number;
-    dontFragment: Boolean;
-    multicastOnly: Boolean;
+    outboundUnicastHopLimit: number;
+    inboundBufferSizeInBytes: number;
+    dontFragment: boolean;
+    multicastOnly: boolean;
     constructor();
 
   }
 
   export class DatagramSocketInformation {
     localAddress: Object;
-    localPort: String;
+    localPort: string;
     remoteAddress: Object;
-    remotePort: String;
+    remotePort: string;
     constructor();
 
   }
@@ -282,7 +282,7 @@
   export class DatagramSocketMessageReceivedEventArgs {
     localAddress: Object;
     remoteAddress: Object;
-    remotePort: String;
+    remotePort: string;
     constructor();
 
     getDataReader(): Object;
@@ -293,12 +293,12 @@
 
   export class StreamSocketControl {
     qualityOfService: SocketQualityOfService;
-    outboundUnicastHopLimit: Number;
-    outboundBufferSizeInBytes: Number;
-    noDelay: Boolean;
-    keepAlive: Boolean;
+    outboundUnicastHopLimit: number;
+    outboundBufferSizeInBytes: number;
+    noDelay: boolean;
+    keepAlive: boolean;
     ignorableServerCertificateErrors: Object;
-    serializeConnectionAttempts: Boolean;
+    serializeConnectionAttempts: boolean;
     clientCertificate: Object;
     minProtectionLevel: SocketProtectionLevel;
     constructor();
@@ -308,12 +308,12 @@
   export class StreamSocketInformation {
     bandwidthStatistics: BandwidthStatistics;
     localAddress: Object;
-    localPort: String;
+    localPort: string;
     protectionLevel: SocketProtectionLevel;
     remoteAddress: Object;
     remoteHostName: Object;
-    remotePort: String;
-    remoteServiceName: String;
+    remotePort: string;
+    remoteServiceName: string;
     roundTripTimeStatistics: RoundTripTimeStatistics;
     sessionKey: Object;
     serverCertificate: Object;
@@ -326,16 +326,16 @@
 
   export class StreamSocketListenerControl {
     qualityOfService: SocketQualityOfService;
-    outboundUnicastHopLimit: Number;
-    outboundBufferSizeInBytes: Number;
-    noDelay: Boolean;
-    keepAlive: Boolean;
+    outboundUnicastHopLimit: number;
+    outboundBufferSizeInBytes: number;
+    noDelay: boolean;
+    keepAlive: boolean;
     constructor();
 
   }
 
   export class StreamSocketListenerInformation {
-    localPort: String;
+    localPort: string;
     constructor();
 
   }
@@ -347,7 +347,7 @@
   }
 
   export class IWebSocketControl {
-    outboundBufferSizeInBytes: Number;
+    outboundBufferSizeInBytes: number;
     proxyCredential: Object;
     serverCredential: Object;
     supportedProtocols: Object;
@@ -364,7 +364,7 @@
   export class IWebSocketInformation {
     bandwidthStatistics: BandwidthStatistics;
     localAddress: Object;
-    protocol: String;
+    protocol: string;
     constructor();
 
   }
@@ -384,7 +384,7 @@
 
     connectAsync(uri: Object, callback: (error: Error) => void): void ;
 
-    setRequestHeader(headerName: String, headerValue: String): void;
+    setRequestHeader(headerName: string, headerValue: string): void;
 
     addListener(type: "Closed", listener: (ev: Event) => void): void ;
     removeListener(type: "Closed", listener: (ev: Event) => void): void ;
@@ -400,22 +400,22 @@
   }
 
   export class WebSocketClosedEventArgs {
-    code: Number;
-    reason: String;
+    code: number;
+    reason: string;
     constructor();
 
   }
 
   export class MessageWebSocketControl {
     messageType: SocketMessageType;
-    maxMessageSize: Number;
+    maxMessageSize: number;
     receiveMode: MessageWebSocketReceiveMode;
-    desiredUnsolicitedPongInterval: Number;
+    desiredUnsolicitedPongInterval: number;
     clientCertificate: Object;
-    actualUnsolicitedPongInterval: Number;
+    actualUnsolicitedPongInterval: number;
     serverCredential: Object;
     proxyCredential: Object;
-    outboundBufferSizeInBytes: Number;
+    outboundBufferSizeInBytes: number;
     supportedProtocols: Object;
     ignorableServerCertificateErrors: Object;
     constructor();
@@ -425,7 +425,7 @@
   export class MessageWebSocketInformation {
     bandwidthStatistics: BandwidthStatistics;
     localAddress: Object;
-    protocol: String;
+    protocol: string;
     serverCertificate: Object;
     serverCertificateErrorSeverity: SocketSslErrorSeverity;
     serverCertificateErrors: Object;
@@ -442,11 +442,11 @@
 
     connectAsync(uri: Object, callback: (error: Error) => void): void ;
 
-    sendNonfinalFrameAsync(data: Object, callback: (error: Error, result: Number) => void): void ;
+    sendNonfinalFrameAsync(data: Object, callback: (error: Error, result: number) => void): void ;
 
-    sendFinalFrameAsync(data: Object, callback: (error: Error, result: Number) => void): void ;
+    sendFinalFrameAsync(data: Object, callback: (error: Error, result: number) => void): void ;
 
-    setRequestHeader(headerName: String, headerValue: String): void;
+    setRequestHeader(headerName: string, headerValue: string): void;
 
     close(): void;
     addListener(type: "MessageReceived", listener: (ev: Event) => void): void ;
@@ -474,7 +474,7 @@
 
   export class MessageWebSocketMessageReceivedEventArgs {
     messageType: SocketMessageType;
-    isMessageComplete: Boolean;
+    isMessageComplete: boolean;
     constructor();
 
     getDataReader(): Object;
@@ -497,13 +497,13 @@
   }
 
   export class StreamWebSocketControl {
-    noDelay: Boolean;
-    desiredUnsolicitedPongInterval: Number;
+    noDelay: boolean;
+    desiredUnsolicitedPongInterval: number;
     clientCertificate: Object;
-    actualUnsolicitedPongInterval: Number;
+    actualUnsolicitedPongInterval: number;
     serverCredential: Object;
     proxyCredential: Object;
-    outboundBufferSizeInBytes: Number;
+    outboundBufferSizeInBytes: number;
     supportedProtocols: Object;
     ignorableServerCertificateErrors: Object;
     constructor();
@@ -513,7 +513,7 @@
   export class StreamWebSocketInformation {
     bandwidthStatistics: BandwidthStatistics;
     localAddress: Object;
-    protocol: String;
+    protocol: string;
     serverCertificate: Object;
     serverCertificateErrorSeverity: SocketSslErrorSeverity;
     serverCertificateErrors: Object;
@@ -531,7 +531,7 @@
 
     connectAsync(uri: Object, callback: (error: Error) => void): void ;
 
-    setRequestHeader(headerName: String, headerValue: String): void;
+    setRequestHeader(headerName: string, headerValue: string): void;
 
     close(): void;
     addListener(type: "Closed", listener: (ev: Event) => void): void ;
@@ -586,7 +586,7 @@
   export class ServerMessageWebSocketInformation {
     bandwidthStatistics: BandwidthStatistics;
     localAddress: Object;
-    protocol: String;
+    protocol: string;
     constructor();
 
   }
@@ -594,7 +594,7 @@
   export class ServerStreamWebSocketInformation {
     bandwidthStatistics: BandwidthStatistics;
     localAddress: Object;
-    protocol: String;
+    protocol: string;
     constructor();
 
   }
@@ -629,7 +629,7 @@
   export class SocketError {
     constructor();
 
-    static getStatus(hresult: Number): SocketErrorStatus;
+    static getStatus(hresult: number): SocketErrorStatus;
 
 
   }
@@ -637,7 +637,7 @@
   export class WebSocketError {
     constructor();
 
-    static getStatus(hresult: Number): Number;
+    static getStatus(hresult: number): number;
 
 
   }
@@ -650,16 +650,16 @@
   }
 
   export class ControlChannelTrigger {
-    serverKeepAliveIntervalInMinutes: Number;
-    controlChannelTriggerId: String;
-    currentKeepAliveIntervalInMinutes: Number;
+    serverKeepAliveIntervalInMinutes: number;
+    controlChannelTriggerId: string;
+    currentKeepAliveIntervalInMinutes: number;
     keepAliveTrigger: Object;
     pushNotificationTrigger: Object;
     transportObject: Object;
-    isWakeFromLowPowerSupported: Boolean;
+    isWakeFromLowPowerSupported: boolean;
     constructor();
-    constructor(channelId: String, serverKeepAliveIntervalInMinutes: Number);
-    constructor(channelId: String, serverKeepAliveIntervalInMinutes: Number, resourceRequestType: ControlChannelTriggerResourceType);
+    constructor(channelId: string, serverKeepAliveIntervalInMinutes: number);
+    constructor(channelId: string, serverKeepAliveIntervalInMinutes: number, resourceRequestType: ControlChannelTriggerResourceType);
 
     usingTransport(transport: Object): void;
 
@@ -679,9 +679,9 @@
   }
 
   export class IControlChannelTriggerResetEventDetails {
-    hardwareSlotReset: Boolean;
+    hardwareSlotReset: boolean;
     resetReason: ControlChannelTriggerResetReason;
-    softwareSlotReset: Boolean;
+    softwareSlotReset: boolean;
     constructor();
 
   }

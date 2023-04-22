@@ -11,8 +11,8 @@
   }
 
   export class ImageScannerResolution {
-    dpiX: Number;
-    dpiY: Number;
+    dpiX: number;
+    dpiY: number;
     constructor();
   }
 
@@ -51,7 +51,7 @@
     format: ImageScannerFormat;
     constructor();
 
-    isFormatSupported(value: ImageScannerFormat): Boolean;
+    isFormatSupported(value: ImageScannerFormat): boolean;
 
   }
 
@@ -60,37 +60,37 @@
     defaultFormat: ImageScannerFormat;
     constructor();
 
-    isFormatSupported(value: ImageScannerFormat): Boolean;
+    isFormatSupported(value: ImageScannerFormat): boolean;
 
   }
 
   export class IImageScannerSourceConfiguration {
     actualResolution: ImageScannerResolution;
     autoCroppingMode: ImageScannerAutoCroppingMode;
-    brightness: Number;
-    brightnessStep: Number;
+    brightness: number;
+    brightnessStep: number;
     colorMode: ImageScannerColorMode;
-    contrast: Number;
-    contrastStep: Number;
-    defaultBrightness: Number;
+    contrast: number;
+    contrastStep: number;
+    defaultBrightness: number;
     defaultColorMode: ImageScannerColorMode;
-    defaultContrast: Number;
+    defaultContrast: number;
     desiredResolution: ImageScannerResolution;
-    maxBrightness: Number;
-    maxContrast: Number;
+    maxBrightness: number;
+    maxContrast: number;
     maxResolution: ImageScannerResolution;
     maxScanArea: Object;
-    minBrightness: Number;
-    minContrast: Number;
+    minBrightness: number;
+    minContrast: number;
     minResolution: ImageScannerResolution;
     minScanArea: Object;
     opticalResolution: ImageScannerResolution;
     selectedScanRegion: Object;
     constructor();
 
-    isAutoCroppingModeSupported(value: ImageScannerAutoCroppingMode): Boolean;
+    isAutoCroppingModeSupported(value: ImageScannerAutoCroppingMode): boolean;
 
-    isColorModeSupported(value: ImageScannerColorMode): Boolean;
+    isColorModeSupported(value: ImageScannerColorMode): boolean;
 
   }
 
@@ -99,78 +99,78 @@
     defaultFormat: ImageScannerFormat;
     selectedScanRegion: Object;
     desiredResolution: ImageScannerResolution;
-    contrast: Number;
-    brightness: Number;
+    contrast: number;
+    brightness: number;
     autoCroppingMode: ImageScannerAutoCroppingMode;
     colorMode: ImageScannerColorMode;
-    contrastStep: Number;
-    defaultBrightness: Number;
+    contrastStep: number;
+    defaultBrightness: number;
     defaultColorMode: ImageScannerColorMode;
-    defaultContrast: Number;
+    defaultContrast: number;
     actualResolution: ImageScannerResolution;
-    maxBrightness: Number;
-    maxContrast: Number;
+    maxBrightness: number;
+    maxContrast: number;
     maxResolution: ImageScannerResolution;
     maxScanArea: Object;
-    minBrightness: Number;
-    brightnessStep: Number;
-    minContrast: Number;
+    minBrightness: number;
+    brightnessStep: number;
+    minContrast: number;
     minResolution: ImageScannerResolution;
     opticalResolution: ImageScannerResolution;
     minScanArea: Object;
     constructor();
 
-    isFormatSupported(value: ImageScannerFormat): Boolean;
+    isFormatSupported(value: ImageScannerFormat): boolean;
 
-    isAutoCroppingModeSupported(value: ImageScannerAutoCroppingMode): Boolean;
+    isAutoCroppingModeSupported(value: ImageScannerAutoCroppingMode): boolean;
 
-    isColorModeSupported(value: ImageScannerColorMode): Boolean;
+    isColorModeSupported(value: ImageScannerColorMode): boolean;
 
   }
 
   export class ImageScannerFeederConfiguration {
-    scanAhead: Boolean;
-    autoDetectPageSize: Boolean;
-    duplex: Boolean;
-    maxNumberOfPages: Number;
-    pageOrientation: Number;
-    pageSize: Number;
+    scanAhead: boolean;
+    autoDetectPageSize: boolean;
+    duplex: boolean;
+    maxNumberOfPages: number;
+    pageOrientation: number;
+    pageSize: number;
     pageSizeDimensions: Object;
-    canScanDuplex: Boolean;
-    canScanAhead: Boolean;
-    canAutoDetectPageSize: Boolean;
+    canScanDuplex: boolean;
+    canScanAhead: boolean;
+    canAutoDetectPageSize: boolean;
     format: ImageScannerFormat;
     defaultFormat: ImageScannerFormat;
     desiredResolution: ImageScannerResolution;
-    contrast: Number;
+    contrast: number;
     colorMode: ImageScannerColorMode;
     autoCroppingMode: ImageScannerAutoCroppingMode;
-    brightness: Number;
+    brightness: number;
     selectedScanRegion: Object;
-    minBrightness: Number;
-    minContrast: Number;
+    minBrightness: number;
+    minContrast: number;
     minResolution: ImageScannerResolution;
     minScanArea: Object;
     opticalResolution: ImageScannerResolution;
     maxScanArea: Object;
     maxResolution: ImageScannerResolution;
-    maxContrast: Number;
-    maxBrightness: Number;
-    defaultContrast: Number;
+    maxContrast: number;
+    maxBrightness: number;
+    defaultContrast: number;
     defaultColorMode: ImageScannerColorMode;
-    defaultBrightness: Number;
-    contrastStep: Number;
-    brightnessStep: Number;
+    defaultBrightness: number;
+    contrastStep: number;
+    brightnessStep: number;
     actualResolution: ImageScannerResolution;
     constructor();
 
-    isFormatSupported(value: ImageScannerFormat): Boolean;
+    isFormatSupported(value: ImageScannerFormat): boolean;
 
-    isAutoCroppingModeSupported(value: ImageScannerAutoCroppingMode): Boolean;
+    isAutoCroppingModeSupported(value: ImageScannerAutoCroppingMode): boolean;
 
-    isColorModeSupported(value: ImageScannerColorMode): Boolean;
+    isColorModeSupported(value: ImageScannerColorMode): boolean;
 
-    isPageSizeSupported(pageSize: Number, pageOrientation: Number): Boolean;
+    isPageSizeSupported(pageSize: number, pageOrientation: number): boolean;
 
   }
 
@@ -182,7 +182,7 @@
 
   export class ImageScannerPreviewResult {
     format: ImageScannerFormat;
-    succeeded: Boolean;
+    succeeded: boolean;
     constructor();
 
   }
@@ -190,24 +190,24 @@
   export class ImageScanner {
     autoConfiguration: ImageScannerAutoConfiguration;
     defaultScanSource: ImageScannerScanSource;
-    deviceId: String;
+    deviceId: string;
     feederConfiguration: ImageScannerFeederConfiguration;
     flatbedConfiguration: ImageScannerFlatbedConfiguration;
     constructor();
 
-    static fromIdAsync(deviceId: String, callback: (error: Error, result: ImageScanner) => void): void ;
+    static fromIdAsync(deviceId: string, callback: (error: Error, result: ImageScanner) => void): void ;
 
 
-    static getDeviceSelector(): String;
+    static getDeviceSelector(): string;
 
 
     scanPreviewToStreamAsync(scanSource: ImageScannerScanSource, targetStream: Object, callback: (error: Error, result: ImageScannerPreviewResult) => void): void ;
 
     scanFilesToFolderAsync(scanSource: ImageScannerScanSource, storageFolder: Object, callback: (error: Error, result: ImageScannerScanResult) => void): void ;
 
-    isScanSourceSupported(value: ImageScannerScanSource): Boolean;
+    isScanSourceSupported(value: ImageScannerScanSource): boolean;
 
-    isPreviewSupported(scanSource: ImageScannerScanSource): Boolean;
+    isPreviewSupported(scanSource: ImageScannerScanSource): boolean;
 
   }
 

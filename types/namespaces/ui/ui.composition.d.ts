@@ -7,81 +7,81 @@
   }
 
   export class SizeInt32 {
-    width: Number;
-    height: Number;
+    width: number;
+    height: number;
     constructor();
   }
 
   export class Vector2 {
-    x: Number;
-    y: Number;
+    x: number;
+    y: number;
     constructor();
   }
 
   export class Matrix3x2 {
-    m11: Number;
-    m12: Number;
-    m21: Number;
-    m22: Number;
-    m31: Number;
-    m32: Number;
+    m11: number;
+    m12: number;
+    m21: number;
+    m22: number;
+    m31: number;
+    m32: number;
     constructor();
   }
 
   export class Matrix4x4 {
-    m11: Number;
-    m12: Number;
-    m13: Number;
-    m14: Number;
-    m21: Number;
-    m22: Number;
-    m23: Number;
-    m24: Number;
-    m31: Number;
-    m32: Number;
-    m33: Number;
-    m34: Number;
-    m41: Number;
-    m42: Number;
-    m43: Number;
-    m44: Number;
+    m11: number;
+    m12: number;
+    m13: number;
+    m14: number;
+    m21: number;
+    m22: number;
+    m23: number;
+    m24: number;
+    m31: number;
+    m32: number;
+    m33: number;
+    m34: number;
+    m41: number;
+    m42: number;
+    m43: number;
+    m44: number;
     constructor();
   }
 
   export class Quaternion {
-    x: Number;
-    y: Number;
-    z: Number;
-    w: Number;
+    x: number;
+    y: number;
+    z: number;
+    w: number;
     constructor();
   }
 
   export class Vector3 {
-    x: Number;
-    y: Number;
-    z: Number;
+    x: number;
+    y: number;
+    z: number;
     constructor();
   }
 
   export class Vector4 {
-    x: Number;
-    y: Number;
-    z: Number;
-    w: Number;
+    x: number;
+    y: number;
+    z: number;
+    w: number;
     constructor();
   }
 
   export class PointInt32 {
-    x: Number;
-    y: Number;
+    x: number;
+    y: number;
     constructor();
   }
 
   export class RectInt32 {
-    x: Number;
-    y: Number;
-    width: Number;
-    height: Number;
+    x: number;
+    y: number;
+    width: number;
+    height: number;
     constructor();
   }
 
@@ -201,20 +201,20 @@
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
-    startAnimation(propertyName: String, animation: CompositionAnimation): void;
+    startAnimation(propertyName: string, animation: CompositionAnimation): void;
 
-    stopAnimation(propertyName: String): void;
+    stopAnimation(propertyName: string): void;
 
     close(): void;
     startAnimationGroup(value: ICompositionAnimationBase): void;
 
     stopAnimationGroup(value: ICompositionAnimationBase): void;
 
-    tryGetAnimationController(propertyName: String): AnimationController;
+    tryGetAnimationController(propertyName: string): AnimationController;
 
   }
 
@@ -223,19 +223,19 @@
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
-    lookup(key: String): String;
+    lookup(key: string): string;
 
-    hasKey(key: String): Boolean;
+    hasKey(key: string): boolean;
 
     getView(): Object;
 
-    insert(key: String, value: String): Boolean;
+    insert(key: string, value: string): boolean;
 
-    remove(key: String): void;
+    remove(key: string): void;
 
     clear(): void;
 
@@ -254,9 +254,9 @@
     static getForCurrentView(): CompositionCapabilities;
 
 
-    areEffectsSupported(): Boolean;
+    areEffectsSupported(): boolean;
 
-    areEffectsFast(): Boolean;
+    areEffectsFast(): boolean;
 
     addListener(type: "Changed", listener: (ev: Event) => void): void ;
     removeListener(type: "Changed", listener: (ev: Event) => void): void ;
@@ -272,13 +272,13 @@
   }
 
   export class CompositionColorGradientStop {
-    offset: Number;
+    offset: number;
     color: Object;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -289,7 +289,7 @@
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -300,21 +300,21 @@
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
-    getAt(index: Number): CompositionShape;
+    getAt(index: number): CompositionShape;
 
     getView(): Object;
 
-    indexOf(value: CompositionShape, index: Number): Boolean;
+    indexOf(value: CompositionShape, index: number): boolean;
 
-    setAt(index: Number, value: CompositionShape): void;
+    setAt(index: number, value: CompositionShape): void;
 
-    insertAt(index: Number, value: CompositionShape): void;
+    insertAt(index: number, value: CompositionShape): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: CompositionShape): void;
 
@@ -334,7 +334,7 @@
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -345,7 +345,7 @@
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -356,37 +356,37 @@
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
-    getSourceParameter(name: String): CompositionBrush;
+    getSourceParameter(name: string): CompositionBrush;
 
-    setSourceParameter(name: String, source: CompositionBrush): void;
+    setSourceParameter(name: string, source: CompositionBrush): void;
 
   }
 
   export class CompositionEffectSourceParameter {
-    name: String;
+    name: string;
     constructor();
-    constructor(name: String);
+    constructor(name: string);
 
   }
 
   export class CompositionColorGradientStopCollection {
     constructor();
 
-    getAt(index: Number): CompositionColorGradientStop;
+    getAt(index: number): CompositionColorGradientStop;
 
     getView(): Object;
 
-    indexOf(value: CompositionColorGradientStop, index: Number): Boolean;
+    indexOf(value: CompositionColorGradientStop, index: number): boolean;
 
-    setAt(index: Number, value: CompositionColorGradientStop): void;
+    setAt(index: number, value: CompositionColorGradientStop): void;
 
-    insertAt(index: Number, value: CompositionColorGradientStop): void;
+    insertAt(index: number, value: CompositionColorGradientStop): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: CompositionColorGradientStop): void;
 
@@ -406,15 +406,15 @@
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
-    createDrawingSurface(sizePixels: Object, pixelFormat: Number, alphaMode: Number): CompositionDrawingSurface;
+    createDrawingSurface(sizePixels: Object, pixelFormat: number, alphaMode: number): CompositionDrawingSurface;
 
-    createDrawingSurface2(sizePixels: SizeInt32, pixelFormat: Number, alphaMode: Number): CompositionDrawingSurface;
+    createDrawingSurface2(sizePixels: SizeInt32, pixelFormat: number, alphaMode: number): CompositionDrawingSurface;
 
-    createVirtualDrawingSurface(sizePixels: SizeInt32, pixelFormat: Number, alphaMode: Number): CompositionVirtualDrawingSurface;
+    createVirtualDrawingSurface(sizePixels: SizeInt32, pixelFormat: number, alphaMode: number): CompositionVirtualDrawingSurface;
 
     addListener(type: "RenderingDeviceReplaced", listener: (ev: Event) => void): void ;
     removeListener(type: "RenderingDeviceReplaced", listener: (ev: Event) => void): void ;
@@ -430,10 +430,10 @@
   }
 
   export class Compositor {
-    static maxGlobalPlaybackRate: Number;
-    static minGlobalPlaybackRate: Number;
-    globalPlaybackRate: Number;
-    comment: String;
+    static maxGlobalPlaybackRate: number;
+    static minGlobalPlaybackRate: number;
+    globalPlaybackRate: number;
+    comment: string;
     constructor();
 
     requestCommitAsync(callback: (error: Error) => void): void ;
@@ -477,10 +477,10 @@
     createEffectFactory(graphicsEffect: Object, animatableProperties: Object): CompositionEffectFactory;
 
     createExpressionAnimation(): ExpressionAnimation;
-    createExpressionAnimation(expression: String): ExpressionAnimation;
+    createExpressionAnimation(expression: string): ExpressionAnimation;
 
     createInsetClip(): InsetClip;
-    createInsetClip(leftInset: Number, topInset: Number, rightInset: Number, bottomInset: Number): InsetClip;
+    createInsetClip(leftInset: number, topInset: number, rightInset: number, bottomInset: number): InsetClip;
 
     createLinearEasingFunction(): LinearEasingFunction;
 
@@ -531,12 +531,12 @@
     createSpotLight(): SpotLight;
 
     createStepEasingFunction(): StepEasingFunction;
-    createStepEasingFunction(stepCount: Number): StepEasingFunction;
+    createStepEasingFunction(stepCount: number): StepEasingFunction;
 
     createHostBackdropBrush(): CompositionBackdropBrush;
 
     createColorGradientStop(): CompositionColorGradientStop;
-    createColorGradientStop(offset: Number, color: Object): CompositionColorGradientStop;
+    createColorGradientStop(offset: number, color: Object): CompositionColorGradientStop;
 
     createLinearGradientBrush(): CompositionLinearGradientBrush;
 
@@ -551,16 +551,16 @@
   }
 
   export class AnimationController {
-    static maxPlaybackRate: Number;
-    static minPlaybackRate: Number;
+    static maxPlaybackRate: number;
+    static minPlaybackRate: number;
     progressBehavior: AnimationControllerProgressBehavior;
-    progress: Number;
-    playbackRate: Number;
+    progress: number;
+    playbackRate: number;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -581,57 +581,57 @@
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
-    insertColor(propertyName: String, value: Object): void;
+    insertColor(propertyName: string, value: Object): void;
 
-    insertMatrix3x2(propertyName: String, value: Matrix3x2): void;
+    insertMatrix3x2(propertyName: string, value: Matrix3x2): void;
 
-    insertMatrix4x4(propertyName: String, value: Matrix4x4): void;
+    insertMatrix4x4(propertyName: string, value: Matrix4x4): void;
 
-    insertQuaternion(propertyName: String, value: Quaternion): void;
+    insertQuaternion(propertyName: string, value: Quaternion): void;
 
-    insertScalar(propertyName: String, value: Number): void;
+    insertScalar(propertyName: string, value: number): void;
 
-    insertVector2(propertyName: String, value: Vector2): void;
+    insertVector2(propertyName: string, value: Vector2): void;
 
-    insertVector3(propertyName: String, value: Vector3): void;
+    insertVector3(propertyName: string, value: Vector3): void;
 
-    insertVector4(propertyName: String, value: Vector4): void;
+    insertVector4(propertyName: string, value: Vector4): void;
 
-    tryGetColor(propertyName: String, value: Object): CompositionGetValueStatus;
+    tryGetColor(propertyName: string, value: Object): CompositionGetValueStatus;
 
-    tryGetMatrix3x2(propertyName: String, value: Matrix3x2): CompositionGetValueStatus;
+    tryGetMatrix3x2(propertyName: string, value: Matrix3x2): CompositionGetValueStatus;
 
-    tryGetMatrix4x4(propertyName: String, value: Matrix4x4): CompositionGetValueStatus;
+    tryGetMatrix4x4(propertyName: string, value: Matrix4x4): CompositionGetValueStatus;
 
-    tryGetQuaternion(propertyName: String, value: Quaternion): CompositionGetValueStatus;
+    tryGetQuaternion(propertyName: string, value: Quaternion): CompositionGetValueStatus;
 
-    tryGetScalar(propertyName: String, value: Number): CompositionGetValueStatus;
+    tryGetScalar(propertyName: string, value: number): CompositionGetValueStatus;
 
-    tryGetVector2(propertyName: String, value: Vector2): CompositionGetValueStatus;
+    tryGetVector2(propertyName: string, value: Vector2): CompositionGetValueStatus;
 
-    tryGetVector3(propertyName: String, value: Vector3): CompositionGetValueStatus;
+    tryGetVector3(propertyName: string, value: Vector3): CompositionGetValueStatus;
 
-    tryGetVector4(propertyName: String, value: Vector4): CompositionGetValueStatus;
+    tryGetVector4(propertyName: string, value: Vector4): CompositionGetValueStatus;
 
-    insertBoolean(propertyName: String, value: Boolean): void;
+    insertBoolean(propertyName: string, value: boolean): void;
 
-    tryGetBoolean(propertyName: String, value: Boolean): CompositionGetValueStatus;
+    tryGetBoolean(propertyName: string, value: boolean): CompositionGetValueStatus;
 
   }
 
   export class CompositionGeometry {
-    trimStart: Number;
-    trimOffset: Number;
-    trimEnd: Number;
+    trimStart: number;
+    trimOffset: number;
+    trimEnd: number;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -642,30 +642,30 @@
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
-    getAt(index: Number): Number;
+    getAt(index: number): number;
 
     getView(): Object;
 
-    indexOf(value: Number, index: Number): Boolean;
+    indexOf(value: number, index: number): boolean;
 
-    setAt(index: Number, value: Number): void;
+    setAt(index: number, value: number): void;
 
-    insertAt(index: Number, value: Number): void;
+    insertAt(index: number, value: number): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
-    append(value: Number): void;
+    append(value: number): void;
 
     removeAtEnd(): void;
 
     clear(): void;
 
     getMany();
-    replaceAll(items: Array<Number>): void;
+    replaceAll(items: Array<number>): void;
 
     first(): Object;
 
@@ -677,15 +677,15 @@
   }
 
   export class CompositionDrawingSurface {
-    alphaMode: Number;
-    pixelFormat: Number;
+    alphaMode: number;
+    pixelFormat: number;
     size: Object;
     sizeInt32: SizeInt32;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -700,15 +700,15 @@
   }
 
   export class CompositionVirtualDrawingSurface {
-    alphaMode: Number;
-    pixelFormat: Number;
+    alphaMode: number;
+    pixelFormat: number;
     size: Object;
     sizeInt32: SizeInt32;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -722,20 +722,20 @@
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
   }
 
   export class CompositionEffectFactory {
-    extendedError: Number;
+    extendedError: number;
     loadStatus: CompositionEffectFactoryLoadStatus;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -744,13 +744,13 @@
   }
 
   export class CompositionScopedBatch {
-    isActive: Boolean;
-    isEnded: Boolean;
+    isActive: boolean;
+    isEnded: boolean;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -774,23 +774,23 @@
   }
 
   export class CompositionSurfaceBrush {
-    verticalAlignmentRatio: Number;
+    verticalAlignmentRatio: number;
     surface: ICompositionSurface;
     stretch: CompositionStretch;
-    horizontalAlignmentRatio: Number;
+    horizontalAlignmentRatio: number;
     bitmapInterpolationMode: CompositionBitmapInterpolationMode;
     anchorPoint: Vector2;
     transformMatrix: Matrix3x2;
     scale: Vector2;
-    rotationAngleInDegrees: Number;
-    rotationAngle: Number;
+    rotationAngleInDegrees: number;
+    rotationAngle: number;
     offset: Vector2;
     centerPoint: Vector2;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -802,20 +802,20 @@
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
   }
 
   export class CompositionCommitBatch {
-    isActive: Boolean;
-    isEnded: Boolean;
+    isActive: boolean;
+    isEnded: boolean;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -833,12 +833,12 @@
   }
 
   export class CompositionAnimationGroup {
-    count: Number;
+    count: number;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -857,7 +857,7 @@
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -870,50 +870,50 @@
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
   }
 
   export class CompositionNineGridBrush {
-    topInsetScale: Number;
-    topInset: Number;
+    topInsetScale: number;
+    topInset: number;
     source: CompositionBrush;
-    rightInsetScale: Number;
-    rightInset: Number;
-    leftInsetScale: Number;
-    leftInset: Number;
-    isCenterHollow: Boolean;
-    bottomInsetScale: Number;
-    bottomInset: Number;
+    rightInsetScale: number;
+    rightInset: number;
+    leftInsetScale: number;
+    leftInset: number;
+    isCenterHollow: boolean;
+    bottomInsetScale: number;
+    bottomInset: number;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
-    setInsets(inset: Number): void;
-    setInsets(left: Number, top: Number, right: Number, bottom: Number): void;
+    setInsets(inset: number): void;
+    setInsets(left: number, top: number, right: number, bottom: number): void;
 
-    setInsetScales(scale: Number): void;
-    setInsetScales(left: Number, top: Number, right: Number, bottom: Number): void;
+    setInsetScales(scale: number): void;
+    setInsetScales(left: number, top: number, right: number, bottom: number): void;
 
   }
 
   export class CompositionEllipseGeometry {
     radius: Vector2;
     center: Vector2;
-    trimStart: Number;
-    trimOffset: Number;
-    trimEnd: Number;
+    trimStart: number;
+    trimOffset: number;
+    trimEnd: number;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -922,14 +922,14 @@
   export class CompositionLineGeometry {
     start: Vector2;
     end: Vector2;
-    trimStart: Number;
-    trimOffset: Number;
-    trimEnd: Number;
+    trimStart: number;
+    trimOffset: number;
+    trimEnd: number;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -937,14 +937,14 @@
 
   export class CompositionPathGeometry {
     path: CompositionPath;
-    trimStart: Number;
-    trimOffset: Number;
-    trimEnd: Number;
+    trimStart: number;
+    trimOffset: number;
+    trimEnd: number;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -953,14 +953,14 @@
   export class CompositionRectangleGeometry {
     size: Vector2;
     offset: Vector2;
-    trimStart: Number;
-    trimOffset: Number;
-    trimEnd: Number;
+    trimStart: number;
+    trimOffset: number;
+    trimEnd: number;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -970,30 +970,30 @@
     size: Vector2;
     offset: Vector2;
     cornerRadius: Vector2;
-    trimStart: Number;
-    trimOffset: Number;
-    trimEnd: Number;
+    trimStart: number;
+    trimOffset: number;
+    trimEnd: number;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
   }
 
   export class CompositionViewBox {
-    verticalAlignmentRatio: Number;
+    verticalAlignmentRatio: number;
     stretch: CompositionStretch;
     size: Vector2;
     offset: Vector2;
-    horizontalAlignmentRatio: Number;
+    horizontalAlignmentRatio: number;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -1006,7 +1006,7 @@
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -1017,19 +1017,19 @@
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
-    lookup(key: String): ICompositionAnimationBase;
+    lookup(key: string): ICompositionAnimationBase;
 
-    hasKey(key: String): Boolean;
+    hasKey(key: string): boolean;
 
     getView(): Object;
 
-    insert(key: String, value: ICompositionAnimationBase): Boolean;
+    insert(key: string, value: ICompositionAnimationBase): boolean;
 
-    remove(key: String): void;
+    remove(key: string): void;
 
     clear(): void;
 
@@ -1042,24 +1042,24 @@
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
   }
 
   export class DropShadow {
-    opacity: Number;
+    opacity: number;
     offset: Vector3;
     mask: CompositionBrush;
     color: Object;
-    blurRadius: Number;
+    blurRadius: number;
     sourcePolicy: CompositionDropShadowSourcePolicy;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -1070,7 +1070,7 @@
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -1082,23 +1082,23 @@
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
   }
 
   export class StepEasingFunction {
-    stepCount: Number;
-    isInitialStepSingleFrame: Boolean;
-    isFinalStepSingleFrame: Boolean;
-    initialStep: Number;
-    finalStep: Number;
+    stepCount: number;
+    isInitialStepSingleFrame: boolean;
+    isFinalStepSingleFrame: boolean;
+    initialStep: number;
+    finalStep: number;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -1107,8 +1107,8 @@
   export class CompositionClip {
     transformMatrix: Matrix3x2;
     scale: Vector2;
-    rotationAngleInDegrees: Number;
-    rotationAngle: Number;
+    rotationAngleInDegrees: number;
+    rotationAngle: number;
     offset: Vector2;
     centerPoint: Vector2;
     anchorPoint: Vector2;
@@ -1116,21 +1116,21 @@
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
   }
 
   export class InsetClip {
-    topInset: Number;
-    rightInset: Number;
-    leftInset: Number;
-    bottomInset: Number;
+    topInset: number;
+    rightInset: number;
+    leftInset: number;
+    bottomInset: number;
     transformMatrix: Matrix3x2;
     scale: Vector2;
-    rotationAngleInDegrees: Number;
-    rotationAngle: Number;
+    rotationAngleInDegrees: number;
+    rotationAngle: number;
     offset: Vector2;
     centerPoint: Vector2;
     anchorPoint: Vector2;
@@ -1138,19 +1138,19 @@
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
   }
 
   export class VisualCollection {
-    count: Number;
+    count: number;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -1171,12 +1171,12 @@
   }
 
   export class VisualUnorderedCollection {
-    count: Number;
+    count: number;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -1191,51 +1191,51 @@
   }
 
   export class CompositionAnimation {
-    target: String;
+    target: string;
     initialValueExpressions: InitialValueExpressionCollection;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
     clearAllParameters(): void;
 
-    clearParameter(key: String): void;
+    clearParameter(key: string): void;
 
-    setColorParameter(key: String, value: Object): void;
+    setColorParameter(key: string, value: Object): void;
 
-    setMatrix3x2Parameter(key: String, value: Matrix3x2): void;
+    setMatrix3x2Parameter(key: string, value: Matrix3x2): void;
 
-    setMatrix4x4Parameter(key: String, value: Matrix4x4): void;
+    setMatrix4x4Parameter(key: string, value: Matrix4x4): void;
 
-    setQuaternionParameter(key: String, value: Quaternion): void;
+    setQuaternionParameter(key: string, value: Quaternion): void;
 
-    setReferenceParameter(key: String, compositionObject: CompositionObject): void;
+    setReferenceParameter(key: string, compositionObject: CompositionObject): void;
 
-    setScalarParameter(key: String, value: Number): void;
+    setScalarParameter(key: string, value: number): void;
 
-    setVector2Parameter(key: String, value: Vector2): void;
+    setVector2Parameter(key: string, value: Vector2): void;
 
-    setVector3Parameter(key: String, value: Vector3): void;
+    setVector3Parameter(key: string, value: Vector3): void;
 
-    setVector4Parameter(key: String, value: Vector4): void;
+    setVector4Parameter(key: string, value: Vector4): void;
 
-    setBooleanParameter(key: String, value: Boolean): void;
+    setBooleanParameter(key: string, value: boolean): void;
 
   }
 
   export class ExpressionAnimation {
-    expression: String;
-    target: String;
+    expression: string;
+    target: string;
     initialValueExpressions: InitialValueExpressionCollection;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -1243,8 +1243,8 @@
 
   export class Visual {
     orientation: Quaternion;
-    opacity: Number;
-    isVisible: Boolean;
+    opacity: number;
+    isVisible: boolean;
     compositeMode: CompositionCompositeMode;
     centerPoint: Vector3;
     borderMode: CompositionBorderMode;
@@ -1256,8 +1256,8 @@
     size: Vector2;
     scale: Vector3;
     rotationAxis: Vector3;
-    rotationAngleInDegrees: Number;
-    rotationAngle: Number;
+    rotationAngleInDegrees: number;
+    rotationAngle: number;
     parent: ContainerVisual;
     relativeOffsetAdjustment: Vector3;
     parentForTransform: Visual;
@@ -1266,7 +1266,7 @@
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -1275,8 +1275,8 @@
   export class ContainerVisual {
     children: VisualCollection;
     orientation: Quaternion;
-    opacity: Number;
-    isVisible: Boolean;
+    opacity: number;
+    isVisible: boolean;
     compositeMode: CompositionCompositeMode;
     centerPoint: Vector3;
     borderMode: CompositionBorderMode;
@@ -1288,8 +1288,8 @@
     size: Vector2;
     scale: Vector3;
     rotationAxis: Vector3;
-    rotationAngleInDegrees: Number;
-    rotationAngle: Number;
+    rotationAngleInDegrees: number;
+    rotationAngle: number;
     parent: ContainerVisual;
     relativeOffsetAdjustment: Vector3;
     parentForTransform: Visual;
@@ -1298,7 +1298,7 @@
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -1309,8 +1309,8 @@
     shadow: CompositionShadow;
     children: VisualCollection;
     orientation: Quaternion;
-    opacity: Number;
-    isVisible: Boolean;
+    opacity: number;
+    isVisible: boolean;
     compositeMode: CompositionCompositeMode;
     centerPoint: Vector3;
     borderMode: CompositionBorderMode;
@@ -1322,8 +1322,8 @@
     size: Vector2;
     scale: Vector3;
     rotationAxis: Vector3;
-    rotationAngleInDegrees: Number;
-    rotationAngle: Number;
+    rotationAngleInDegrees: number;
+    rotationAngle: number;
     parent: ContainerVisual;
     relativeOffsetAdjustment: Vector3;
     parentForTransform: Visual;
@@ -1332,7 +1332,7 @@
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -1343,8 +1343,8 @@
     shadow: CompositionShadow;
     children: VisualCollection;
     orientation: Quaternion;
-    opacity: Number;
-    isVisible: Boolean;
+    opacity: number;
+    isVisible: boolean;
     compositeMode: CompositionCompositeMode;
     centerPoint: Vector3;
     borderMode: CompositionBorderMode;
@@ -1356,8 +1356,8 @@
     size: Vector2;
     scale: Vector3;
     rotationAxis: Vector3;
-    rotationAngleInDegrees: Number;
-    rotationAngle: Number;
+    rotationAngleInDegrees: number;
+    rotationAngle: number;
     parent: ContainerVisual;
     relativeOffsetAdjustment: Vector3;
     parentForTransform: Visual;
@@ -1366,7 +1366,7 @@
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -1377,8 +1377,8 @@
     shapes: CompositionShapeCollection;
     children: VisualCollection;
     orientation: Quaternion;
-    opacity: Number;
-    isVisible: Boolean;
+    opacity: number;
+    isVisible: boolean;
     compositeMode: CompositionCompositeMode;
     centerPoint: Vector3;
     borderMode: CompositionBorderMode;
@@ -1390,8 +1390,8 @@
     size: Vector2;
     scale: Vector3;
     rotationAxis: Vector3;
-    rotationAngleInDegrees: Number;
-    rotationAngle: Number;
+    rotationAngleInDegrees: number;
+    rotationAngle: number;
     parent: ContainerVisual;
     relativeOffsetAdjustment: Vector3;
     parentForTransform: Visual;
@@ -1400,7 +1400,7 @@
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -1409,12 +1409,12 @@
   export class CompositionLight {
     targets: VisualUnorderedCollection;
     exclusionsFromTargets: VisualUnorderedCollection;
-    isEnabled: Boolean;
+    isEnabled: boolean;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -1422,15 +1422,15 @@
 
   export class AmbientLight {
     color: Object;
-    intensity: Number;
+    intensity: number;
     targets: VisualUnorderedCollection;
     exclusionsFromTargets: VisualUnorderedCollection;
-    isEnabled: Boolean;
+    isEnabled: boolean;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -1440,38 +1440,38 @@
     direction: Vector3;
     coordinateSpace: Visual;
     color: Object;
-    intensity: Number;
+    intensity: number;
     targets: VisualUnorderedCollection;
     exclusionsFromTargets: VisualUnorderedCollection;
-    isEnabled: Boolean;
+    isEnabled: boolean;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
   }
 
   export class PointLight {
-    quadraticAttenuation: Number;
+    quadraticAttenuation: number;
     offset: Vector3;
-    linearAttenuation: Number;
+    linearAttenuation: number;
     coordinateSpace: Visual;
-    constantAttenuation: Number;
+    constantAttenuation: number;
     color: Object;
-    intensity: Number;
-    minAttenuationCutoff: Number;
-    maxAttenuationCutoff: Number;
+    intensity: number;
+    minAttenuationCutoff: number;
+    maxAttenuationCutoff: number;
     targets: VisualUnorderedCollection;
     exclusionsFromTargets: VisualUnorderedCollection;
-    isEnabled: Boolean;
+    isEnabled: boolean;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -1479,29 +1479,29 @@
 
   export class SpotLight {
     offset: Vector3;
-    linearAttenuation: Number;
+    linearAttenuation: number;
     innerConeColor: Object;
-    innerConeAngleInDegrees: Number;
-    innerConeAngle: Number;
+    innerConeAngleInDegrees: number;
+    innerConeAngle: number;
     direction: Vector3;
     coordinateSpace: Visual;
-    constantAttenuation: Number;
-    quadraticAttenuation: Number;
+    constantAttenuation: number;
+    quadraticAttenuation: number;
     outerConeColor: Object;
-    outerConeAngleInDegrees: Number;
-    outerConeAngle: Number;
-    outerConeIntensity: Number;
-    innerConeIntensity: Number;
-    minAttenuationCutoff: Number;
-    maxAttenuationCutoff: Number;
+    outerConeAngleInDegrees: number;
+    outerConeAngle: number;
+    outerConeIntensity: number;
+    innerConeIntensity: number;
+    minAttenuationCutoff: number;
+    maxAttenuationCutoff: number;
     targets: VisualUnorderedCollection;
     exclusionsFromTargets: VisualUnorderedCollection;
-    isEnabled: Boolean;
+    isEnabled: boolean;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -1510,8 +1510,8 @@
   export class CompositionGradientBrush {
     transformMatrix: Matrix3x2;
     scale: Vector2;
-    rotationAngleInDegrees: Number;
-    rotationAngle: Number;
+    rotationAngleInDegrees: number;
+    rotationAngle: number;
     offset: Vector2;
     interpolationSpace: CompositionColorSpace;
     extendMode: CompositionGradientExtendMode;
@@ -1522,7 +1522,7 @@
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -1533,8 +1533,8 @@
     endPoint: Vector2;
     transformMatrix: Matrix3x2;
     scale: Vector2;
-    rotationAngleInDegrees: Number;
-    rotationAngle: Number;
+    rotationAngleInDegrees: number;
+    rotationAngle: number;
     offset: Vector2;
     interpolationSpace: CompositionColorSpace;
     extendMode: CompositionGradientExtendMode;
@@ -1545,7 +1545,7 @@
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -1554,15 +1554,15 @@
   export class CompositionShape {
     transformMatrix: Matrix3x2;
     scale: Vector2;
-    rotationAngleInDegrees: Number;
-    rotationAngle: Number;
+    rotationAngleInDegrees: number;
+    rotationAngle: number;
     offset: Vector2;
     centerPoint: Vector2;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -1572,15 +1572,15 @@
     shapes: CompositionShapeCollection;
     transformMatrix: Matrix3x2;
     scale: Vector2;
-    rotationAngleInDegrees: Number;
-    rotationAngle: Number;
+    rotationAngleInDegrees: number;
+    rotationAngle: number;
     offset: Vector2;
     centerPoint: Vector2;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -1589,27 +1589,27 @@
   export class CompositionSpriteShape {
     strokeDashCap: CompositionStrokeCap;
     strokeBrush: CompositionBrush;
-    isStrokeNonScaling: Boolean;
+    isStrokeNonScaling: boolean;
     geometry: CompositionGeometry;
     fillBrush: CompositionBrush;
-    strokeThickness: Number;
+    strokeThickness: number;
     strokeStartCap: CompositionStrokeCap;
-    strokeMiterLimit: Number;
+    strokeMiterLimit: number;
     strokeLineJoin: CompositionStrokeLineJoin;
     strokeEndCap: CompositionStrokeCap;
-    strokeDashOffset: Number;
+    strokeDashOffset: number;
     strokeDashArray: CompositionStrokeDashArray;
     transformMatrix: Matrix3x2;
     scale: Vector2;
-    rotationAngleInDegrees: Number;
-    rotationAngle: Number;
+    rotationAngleInDegrees: number;
+    rotationAngle: number;
     offset: Vector2;
     centerPoint: Vector2;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -1617,269 +1617,269 @@
 
   export class KeyFrameAnimation {
     stopBehavior: AnimationStopBehavior;
-    iterationCount: Number;
+    iterationCount: number;
     iterationBehavior: AnimationIterationBehavior;
-    duration: Number;
-    delayTime: Number;
-    keyFrameCount: Number;
+    duration: number;
+    delayTime: number;
+    keyFrameCount: number;
     direction: AnimationDirection;
     delayBehavior: AnimationDelayBehavior;
-    target: String;
+    target: string;
     initialValueExpressions: InitialValueExpressionCollection;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
-    insertExpressionKeyFrame(normalizedProgressKey: Number, value: String): void;
-    insertExpressionKeyFrame(normalizedProgressKey: Number, value: String, easingFunction: CompositionEasingFunction): void;
+    insertExpressionKeyFrame(normalizedProgressKey: number, value: string): void;
+    insertExpressionKeyFrame(normalizedProgressKey: number, value: string, easingFunction: CompositionEasingFunction): void;
 
   }
 
   export class ColorKeyFrameAnimation {
     interpolationColorSpace: CompositionColorSpace;
     stopBehavior: AnimationStopBehavior;
-    iterationCount: Number;
+    iterationCount: number;
     iterationBehavior: AnimationIterationBehavior;
-    duration: Number;
-    delayTime: Number;
-    keyFrameCount: Number;
+    duration: number;
+    delayTime: number;
+    keyFrameCount: number;
     direction: AnimationDirection;
     delayBehavior: AnimationDelayBehavior;
-    target: String;
+    target: string;
     initialValueExpressions: InitialValueExpressionCollection;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
-    insertKeyFrame(normalizedProgressKey: Number, value: Object): void;
-    insertKeyFrame(normalizedProgressKey: Number, value: Object, easingFunction: CompositionEasingFunction): void;
+    insertKeyFrame(normalizedProgressKey: number, value: Object): void;
+    insertKeyFrame(normalizedProgressKey: number, value: Object, easingFunction: CompositionEasingFunction): void;
 
   }
 
   export class QuaternionKeyFrameAnimation {
     stopBehavior: AnimationStopBehavior;
-    iterationCount: Number;
+    iterationCount: number;
     iterationBehavior: AnimationIterationBehavior;
-    duration: Number;
-    delayTime: Number;
-    keyFrameCount: Number;
+    duration: number;
+    delayTime: number;
+    keyFrameCount: number;
     direction: AnimationDirection;
     delayBehavior: AnimationDelayBehavior;
-    target: String;
+    target: string;
     initialValueExpressions: InitialValueExpressionCollection;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
-    insertKeyFrame(normalizedProgressKey: Number, value: Quaternion): void;
-    insertKeyFrame(normalizedProgressKey: Number, value: Quaternion, easingFunction: CompositionEasingFunction): void;
+    insertKeyFrame(normalizedProgressKey: number, value: Quaternion): void;
+    insertKeyFrame(normalizedProgressKey: number, value: Quaternion, easingFunction: CompositionEasingFunction): void;
 
   }
 
   export class ScalarKeyFrameAnimation {
     stopBehavior: AnimationStopBehavior;
-    iterationCount: Number;
+    iterationCount: number;
     iterationBehavior: AnimationIterationBehavior;
-    duration: Number;
-    delayTime: Number;
-    keyFrameCount: Number;
+    duration: number;
+    delayTime: number;
+    keyFrameCount: number;
     direction: AnimationDirection;
     delayBehavior: AnimationDelayBehavior;
-    target: String;
+    target: string;
     initialValueExpressions: InitialValueExpressionCollection;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
-    insertKeyFrame(normalizedProgressKey: Number, value: Number): void;
-    insertKeyFrame(normalizedProgressKey: Number, value: Number, easingFunction: CompositionEasingFunction): void;
+    insertKeyFrame(normalizedProgressKey: number, value: number): void;
+    insertKeyFrame(normalizedProgressKey: number, value: number, easingFunction: CompositionEasingFunction): void;
 
   }
 
   export class Vector2KeyFrameAnimation {
     stopBehavior: AnimationStopBehavior;
-    iterationCount: Number;
+    iterationCount: number;
     iterationBehavior: AnimationIterationBehavior;
-    duration: Number;
-    delayTime: Number;
-    keyFrameCount: Number;
+    duration: number;
+    delayTime: number;
+    keyFrameCount: number;
     direction: AnimationDirection;
     delayBehavior: AnimationDelayBehavior;
-    target: String;
+    target: string;
     initialValueExpressions: InitialValueExpressionCollection;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
-    insertKeyFrame(normalizedProgressKey: Number, value: Vector2): void;
-    insertKeyFrame(normalizedProgressKey: Number, value: Vector2, easingFunction: CompositionEasingFunction): void;
+    insertKeyFrame(normalizedProgressKey: number, value: Vector2): void;
+    insertKeyFrame(normalizedProgressKey: number, value: Vector2, easingFunction: CompositionEasingFunction): void;
 
   }
 
   export class Vector3KeyFrameAnimation {
     stopBehavior: AnimationStopBehavior;
-    iterationCount: Number;
+    iterationCount: number;
     iterationBehavior: AnimationIterationBehavior;
-    duration: Number;
-    delayTime: Number;
-    keyFrameCount: Number;
+    duration: number;
+    delayTime: number;
+    keyFrameCount: number;
     direction: AnimationDirection;
     delayBehavior: AnimationDelayBehavior;
-    target: String;
+    target: string;
     initialValueExpressions: InitialValueExpressionCollection;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
-    insertKeyFrame(normalizedProgressKey: Number, value: Vector3): void;
-    insertKeyFrame(normalizedProgressKey: Number, value: Vector3, easingFunction: CompositionEasingFunction): void;
+    insertKeyFrame(normalizedProgressKey: number, value: Vector3): void;
+    insertKeyFrame(normalizedProgressKey: number, value: Vector3, easingFunction: CompositionEasingFunction): void;
 
   }
 
   export class Vector4KeyFrameAnimation {
     stopBehavior: AnimationStopBehavior;
-    iterationCount: Number;
+    iterationCount: number;
     iterationBehavior: AnimationIterationBehavior;
-    duration: Number;
-    delayTime: Number;
-    keyFrameCount: Number;
+    duration: number;
+    delayTime: number;
+    keyFrameCount: number;
     direction: AnimationDirection;
     delayBehavior: AnimationDelayBehavior;
-    target: String;
+    target: string;
     initialValueExpressions: InitialValueExpressionCollection;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
-    insertKeyFrame(normalizedProgressKey: Number, value: Vector4): void;
-    insertKeyFrame(normalizedProgressKey: Number, value: Vector4, easingFunction: CompositionEasingFunction): void;
+    insertKeyFrame(normalizedProgressKey: number, value: Vector4): void;
+    insertKeyFrame(normalizedProgressKey: number, value: Vector4, easingFunction: CompositionEasingFunction): void;
 
   }
 
   export class PathKeyFrameAnimation {
     stopBehavior: AnimationStopBehavior;
-    iterationCount: Number;
+    iterationCount: number;
     iterationBehavior: AnimationIterationBehavior;
-    duration: Number;
-    delayTime: Number;
-    keyFrameCount: Number;
+    duration: number;
+    delayTime: number;
+    keyFrameCount: number;
     direction: AnimationDirection;
     delayBehavior: AnimationDelayBehavior;
-    target: String;
+    target: string;
     initialValueExpressions: InitialValueExpressionCollection;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
-    insertKeyFrame(normalizedProgressKey: Number, path: CompositionPath): void;
-    insertKeyFrame(normalizedProgressKey: Number, path: CompositionPath, easingFunction: CompositionEasingFunction): void;
+    insertKeyFrame(normalizedProgressKey: number, path: CompositionPath): void;
+    insertKeyFrame(normalizedProgressKey: number, path: CompositionPath, easingFunction: CompositionEasingFunction): void;
 
   }
 
   export class NaturalMotionAnimation {
     stopBehavior: AnimationStopBehavior;
-    delayTime: Number;
+    delayTime: number;
     delayBehavior: AnimationDelayBehavior;
-    target: String;
+    target: string;
     initialValueExpressions: InitialValueExpressionCollection;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
   }
 
   export class ScalarNaturalMotionAnimation {
-    initialVelocity: Number;
-    initialValue: Number;
-    finalValue: Number;
+    initialVelocity: number;
+    initialValue: number;
+    finalValue: number;
     stopBehavior: AnimationStopBehavior;
-    delayTime: Number;
+    delayTime: number;
     delayBehavior: AnimationDelayBehavior;
-    target: String;
+    target: string;
     initialValueExpressions: InitialValueExpressionCollection;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
   }
 
   export class SpringScalarNaturalMotionAnimation {
-    period: Number;
-    dampingRatio: Number;
-    initialVelocity: Number;
-    initialValue: Number;
-    finalValue: Number;
+    period: number;
+    dampingRatio: number;
+    initialVelocity: number;
+    initialValue: number;
+    finalValue: number;
     stopBehavior: AnimationStopBehavior;
-    delayTime: Number;
+    delayTime: number;
     delayBehavior: AnimationDelayBehavior;
-    target: String;
+    target: string;
     initialValueExpressions: InitialValueExpressionCollection;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
   }
 
   export class BounceScalarNaturalMotionAnimation {
-    restitution: Number;
-    acceleration: Number;
-    initialVelocity: Number;
-    initialValue: Number;
-    finalValue: Number;
+    restitution: number;
+    acceleration: number;
+    initialVelocity: number;
+    initialValue: number;
+    finalValue: number;
     stopBehavior: AnimationStopBehavior;
-    delayTime: Number;
+    delayTime: number;
     delayBehavior: AnimationDelayBehavior;
-    target: String;
+    target: string;
     initialValueExpressions: InitialValueExpressionCollection;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -1890,57 +1890,57 @@
     initialValue: Vector2;
     finalValue: Vector2;
     stopBehavior: AnimationStopBehavior;
-    delayTime: Number;
+    delayTime: number;
     delayBehavior: AnimationDelayBehavior;
-    target: String;
+    target: string;
     initialValueExpressions: InitialValueExpressionCollection;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
   }
 
   export class SpringVector2NaturalMotionAnimation {
-    period: Number;
-    dampingRatio: Number;
+    period: number;
+    dampingRatio: number;
     initialVelocity: Vector2;
     initialValue: Vector2;
     finalValue: Vector2;
     stopBehavior: AnimationStopBehavior;
-    delayTime: Number;
+    delayTime: number;
     delayBehavior: AnimationDelayBehavior;
-    target: String;
+    target: string;
     initialValueExpressions: InitialValueExpressionCollection;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
   }
 
   export class BounceVector2NaturalMotionAnimation {
-    restitution: Number;
-    acceleration: Number;
+    restitution: number;
+    acceleration: number;
     initialVelocity: Vector2;
     initialValue: Vector2;
     finalValue: Vector2;
     stopBehavior: AnimationStopBehavior;
-    delayTime: Number;
+    delayTime: number;
     delayBehavior: AnimationDelayBehavior;
-    target: String;
+    target: string;
     initialValueExpressions: InitialValueExpressionCollection;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -1951,57 +1951,57 @@
     initialValue: Vector3;
     finalValue: Vector3;
     stopBehavior: AnimationStopBehavior;
-    delayTime: Number;
+    delayTime: number;
     delayBehavior: AnimationDelayBehavior;
-    target: String;
+    target: string;
     initialValueExpressions: InitialValueExpressionCollection;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
   }
 
   export class SpringVector3NaturalMotionAnimation {
-    period: Number;
-    dampingRatio: Number;
+    period: number;
+    dampingRatio: number;
     initialVelocity: Vector3;
     initialValue: Vector3;
     finalValue: Vector3;
     stopBehavior: AnimationStopBehavior;
-    delayTime: Number;
+    delayTime: number;
     delayBehavior: AnimationDelayBehavior;
-    target: String;
+    target: string;
     initialValueExpressions: InitialValueExpressionCollection;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
   }
 
   export class BounceVector3NaturalMotionAnimation {
-    restitution: Number;
-    acceleration: Number;
+    restitution: number;
+    acceleration: number;
     initialVelocity: Vector3;
     initialValue: Vector3;
     finalValue: Vector3;
     stopBehavior: AnimationStopBehavior;
-    delayTime: Number;
+    delayTime: number;
     delayBehavior: AnimationDelayBehavior;
-    target: String;
+    target: string;
     initialValueExpressions: InitialValueExpressionCollection;
     compositor: Compositor;
     dispatcher: Object;
     properties: CompositionPropertySet;
     implicitAnimations: ImplicitAnimationCollection;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 

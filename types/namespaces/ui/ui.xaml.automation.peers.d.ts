@@ -7,8 +7,8 @@
   }
 
   export class RawElementProviderRuntimeId {
-    part1: Number;
-    part2: Number;
+    part1: number;
+    part2: number;
     constructor();
   }
 
@@ -207,22 +207,22 @@
     static generateRawElementProviderRuntimeId(): RawElementProviderRuntimeId;
 
 
-    static listenerExists(eventId: AutomationEvents): Boolean;
+    static listenerExists(eventId: AutomationEvents): boolean;
 
 
-    isContentElementCore(): Boolean;
+    isContentElementCore(): boolean;
 
-    isControlElementCore(): Boolean;
+    isControlElementCore(): boolean;
 
-    isEnabledCore(): Boolean;
+    isEnabledCore(): boolean;
 
-    isKeyboardFocusableCore(): Boolean;
+    isKeyboardFocusableCore(): boolean;
 
-    isOffscreenCore(): Boolean;
+    isOffscreenCore(): boolean;
 
-    isPasswordCore(): Boolean;
+    isPasswordCore(): boolean;
 
-    isRequiredForFormCore(): Boolean;
+    isRequiredForFormCore(): boolean;
 
     setFocusCore(): void;
 
@@ -252,13 +252,13 @@
 
     setParent(peer: AutomationPeer): void;
 
-    raiseTextEditTextChangedEvent(automationTextEditChangeType: Number, changedData: Object): void;
+    raiseTextEditTextChangedEvent(automationTextEditChangeType: number, changedData: Object): void;
 
-    getPositionInSet(): Number;
+    getPositionInSet(): number;
 
-    getSizeOfSet(): Number;
+    getSizeOfSet(): number;
 
-    getLevel(): Number;
+    getLevel(): number;
 
     raiseStructureChangedEvent(structureChangeType: AutomationStructureChangeType, child: AutomationPeer): void;
 
@@ -270,31 +270,31 @@
 
     getAnnotationsCore(): Object;
 
-    getPositionInSetCore(): Number;
+    getPositionInSetCore(): number;
 
-    getSizeOfSetCore(): Number;
+    getSizeOfSetCore(): number;
 
-    getLevelCore(): Number;
+    getLevelCore(): number;
 
     getLandmarkType(): AutomationLandmarkType;
 
-    getLocalizedLandmarkType(): String;
+    getLocalizedLandmarkType(): string;
 
     getLandmarkTypeCore(): AutomationLandmarkType;
 
-    getLocalizedLandmarkTypeCore(): String;
+    getLocalizedLandmarkTypeCore(): string;
 
-    isPeripheral(): Boolean;
+    isPeripheral(): boolean;
 
-    isDataValidForForm(): Boolean;
+    isDataValidForForm(): boolean;
 
-    getFullDescription(): String;
+    getFullDescription(): string;
 
-    isPeripheralCore(): Boolean;
+    isPeripheralCore(): boolean;
 
-    isDataValidForFormCore(): Boolean;
+    isDataValidForFormCore(): boolean;
 
-    getFullDescriptionCore(): String;
+    getFullDescriptionCore(): string;
 
     getDescribedByCore(): Object;
 
@@ -302,11 +302,11 @@
 
     getFlowsFromCore(): Object;
 
-    getCulture(): Number;
+    getCulture(): number;
 
-    getCultureCore(): Number;
+    getCultureCore(): number;
 
-    raiseNotificationEvent(notificationKind: AutomationNotificationKind, notificationProcessing: AutomationNotificationProcessing, displayString: String, activityId: String): void;
+    raiseNotificationEvent(notificationKind: AutomationNotificationKind, notificationProcessing: AutomationNotificationProcessing, displayString: string, activityId: string): void;
 
     getHeadingLevel(): AutomationHeadingLevel;
 
@@ -318,51 +318,51 @@
 
     raisePropertyChangedEvent(automationProperty: Object, oldValue: Object, newValue: Object): void;
 
-    getAcceleratorKey(): String;
+    getAcceleratorKey(): string;
 
-    getAccessKey(): String;
+    getAccessKey(): string;
 
     getAutomationControlType(): AutomationControlType;
 
-    getAutomationId(): String;
+    getAutomationId(): string;
 
     getBoundingRectangle(): Object;
 
     getChildren(): Object;
 
-    getClassName(): String;
+    getClassName(): string;
 
     getClickablePoint(): Object;
 
-    getHelpText(): String;
+    getHelpText(): string;
 
-    getItemStatus(): String;
+    getItemStatus(): string;
 
-    getItemType(): String;
+    getItemType(): string;
 
     getLabeledBy(): AutomationPeer;
 
-    getLocalizedControlType(): String;
+    getLocalizedControlType(): string;
 
-    getName(): String;
+    getName(): string;
 
     getOrientation(): AutomationOrientation;
 
-    hasKeyboardFocus(): Boolean;
+    hasKeyboardFocus(): boolean;
 
-    isContentElement(): Boolean;
+    isContentElement(): boolean;
 
-    isControlElement(): Boolean;
+    isControlElement(): boolean;
 
-    isEnabled(): Boolean;
+    isEnabled(): boolean;
 
-    isKeyboardFocusable(): Boolean;
+    isKeyboardFocusable(): boolean;
 
-    isOffscreen(): Boolean;
+    isOffscreen(): boolean;
 
-    isPassword(): Boolean;
+    isPassword(): boolean;
 
-    isRequiredForForm(): Boolean;
+    isRequiredForForm(): boolean;
 
     setFocus(): void;
 
@@ -376,49 +376,49 @@
 
     getPatternCore(patternInterface: PatternInterface): Object;
 
-    getAcceleratorKeyCore(): String;
+    getAcceleratorKeyCore(): string;
 
-    getAccessKeyCore(): String;
+    getAccessKeyCore(): string;
 
     getAutomationControlTypeCore(): AutomationControlType;
 
-    getAutomationIdCore(): String;
+    getAutomationIdCore(): string;
 
     getBoundingRectangleCore(): Object;
 
     getChildrenCore(): Object;
 
-    getClassNameCore(): String;
+    getClassNameCore(): string;
 
     getClickablePointCore(): Object;
 
-    getHelpTextCore(): String;
+    getHelpTextCore(): string;
 
-    getItemStatusCore(): String;
+    getItemStatusCore(): string;
 
-    getItemTypeCore(): String;
+    getItemTypeCore(): string;
 
     getLabeledByCore(): AutomationPeer;
 
-    getLocalizedControlTypeCore(): String;
+    getLocalizedControlTypeCore(): string;
 
-    getNameCore(): String;
+    getNameCore(): string;
 
     getOrientationCore(): AutomationOrientation;
 
-    hasKeyboardFocusCore(): Boolean;
+    hasKeyboardFocusCore(): boolean;
 
   }
 
   export class AutomationPeerAnnotation {
     static peerProperty: Object;
     static typeProperty: Object;
-    type: Number;
+    type: number;
     peer: AutomationPeer;
     dispatcher: Object;
     constructor();
-    constructor(type: Number);
-    constructor(type: Number, peer: AutomationPeer);
+    constructor(type: number);
+    constructor(type: number, peer: AutomationPeer);
 
   }
 
@@ -733,7 +733,7 @@
   }
 
   export class TreeViewItemAutomationPeer {
-    expandCollapseState: Number;
+    expandCollapseState: number;
     owner: Object;
     eventsSource: AutomationPeer;
     dispatcher: Object;
@@ -835,29 +835,29 @@
   }
 
   export class RangeBaseAutomationPeer {
-    isReadOnly: Boolean;
-    largeChange: Number;
-    maximum: Number;
-    minimum: Number;
-    smallChange: Number;
-    value: Number;
+    isReadOnly: boolean;
+    largeChange: number;
+    maximum: number;
+    minimum: number;
+    smallChange: number;
+    value: number;
     owner: Object;
     eventsSource: AutomationPeer;
     dispatcher: Object;
     constructor();
     constructor(owner: Object);
 
-    setValue(value: Number): void;
+    setValue(value: number): void;
 
   }
 
   export class ProgressBarAutomationPeer {
-    isReadOnly: Boolean;
-    largeChange: Number;
-    maximum: Number;
-    minimum: Number;
-    smallChange: Number;
-    value: Number;
+    isReadOnly: boolean;
+    largeChange: number;
+    maximum: number;
+    minimum: number;
+    smallChange: number;
+    value: number;
     owner: Object;
     eventsSource: AutomationPeer;
     dispatcher: Object;
@@ -867,12 +867,12 @@
   }
 
   export class ScrollBarAutomationPeer {
-    isReadOnly: Boolean;
-    largeChange: Number;
-    maximum: Number;
-    minimum: Number;
-    smallChange: Number;
-    value: Number;
+    isReadOnly: boolean;
+    largeChange: number;
+    maximum: number;
+    minimum: number;
+    smallChange: number;
+    value: number;
     owner: Object;
     eventsSource: AutomationPeer;
     dispatcher: Object;
@@ -882,12 +882,12 @@
   }
 
   export class SliderAutomationPeer {
-    isReadOnly: Boolean;
-    largeChange: Number;
-    maximum: Number;
-    minimum: Number;
-    smallChange: Number;
-    value: Number;
+    isReadOnly: boolean;
+    largeChange: number;
+    maximum: number;
+    minimum: number;
+    smallChange: number;
+    value: number;
     owner: Object;
     eventsSource: AutomationPeer;
     dispatcher: Object;
@@ -897,12 +897,12 @@
   }
 
   export class ColorPickerSliderAutomationPeer {
-    isReadOnly: Boolean;
-    largeChange: Number;
-    maximum: Number;
-    minimum: Number;
-    smallChange: Number;
-    value: Number;
+    isReadOnly: boolean;
+    largeChange: number;
+    maximum: number;
+    minimum: number;
+    smallChange: number;
+    value: number;
     owner: Object;
     eventsSource: AutomationPeer;
     dispatcher: Object;
@@ -923,27 +923,27 @@
   }
 
   export class ScrollViewerAutomationPeer {
-    horizontalScrollPercent: Number;
-    horizontalViewSize: Number;
-    horizontallyScrollable: Boolean;
-    verticalScrollPercent: Number;
-    verticalViewSize: Number;
-    verticallyScrollable: Boolean;
+    horizontalScrollPercent: number;
+    horizontalViewSize: number;
+    horizontallyScrollable: boolean;
+    verticalScrollPercent: number;
+    verticalViewSize: number;
+    verticallyScrollable: boolean;
     owner: Object;
     eventsSource: AutomationPeer;
     dispatcher: Object;
     constructor();
     constructor(owner: Object);
 
-    scroll(horizontalAmount: Number, verticalAmount: Number): void;
+    scroll(horizontalAmount: number, verticalAmount: number): void;
 
-    setScrollPercent(horizontalPercent: Number, verticalPercent: Number): void;
+    setScrollPercent(horizontalPercent: number, verticalPercent: number): void;
 
   }
 
   export class SelectorAutomationPeer {
-    canSelectMultiple: Boolean;
-    isSelectionRequired: Boolean;
+    canSelectMultiple: boolean;
+    isSelectionRequired: boolean;
     owner: Object;
     eventsSource: AutomationPeer;
     dispatcher: Object;
@@ -955,8 +955,8 @@
   }
 
   export class TreeViewListAutomationPeer {
-    canSelectMultiple: Boolean;
-    isSelectionRequired: Boolean;
+    canSelectMultiple: boolean;
+    isSelectionRequired: boolean;
     owner: Object;
     eventsSource: AutomationPeer;
     dispatcher: Object;
@@ -966,8 +966,8 @@
   }
 
   export class FlipViewAutomationPeer {
-    canSelectMultiple: Boolean;
-    isSelectionRequired: Boolean;
+    canSelectMultiple: boolean;
+    isSelectionRequired: boolean;
     owner: Object;
     eventsSource: AutomationPeer;
     dispatcher: Object;
@@ -977,8 +977,8 @@
   }
 
   export class ListBoxAutomationPeer {
-    canSelectMultiple: Boolean;
-    isSelectionRequired: Boolean;
+    canSelectMultiple: boolean;
+    isSelectionRequired: boolean;
     owner: Object;
     eventsSource: AutomationPeer;
     dispatcher: Object;
@@ -988,10 +988,10 @@
   }
 
   export class ListViewBaseAutomationPeer {
-    dropEffect: String;
-    dropEffects: Array<String>;
-    canSelectMultiple: Boolean;
-    isSelectionRequired: Boolean;
+    dropEffect: string;
+    dropEffects: Array<string>;
+    canSelectMultiple: boolean;
+    isSelectionRequired: boolean;
     owner: Object;
     eventsSource: AutomationPeer;
     dispatcher: Object;
@@ -1001,10 +1001,10 @@
   }
 
   export class GridViewAutomationPeer {
-    dropEffect: String;
-    dropEffects: Array<String>;
-    canSelectMultiple: Boolean;
-    isSelectionRequired: Boolean;
+    dropEffect: string;
+    dropEffects: Array<string>;
+    canSelectMultiple: boolean;
+    isSelectionRequired: boolean;
     owner: Object;
     eventsSource: AutomationPeer;
     dispatcher: Object;
@@ -1014,10 +1014,10 @@
   }
 
   export class ListViewAutomationPeer {
-    dropEffect: String;
-    dropEffects: Array<String>;
-    canSelectMultiple: Boolean;
-    isSelectionRequired: Boolean;
+    dropEffect: string;
+    dropEffects: Array<string>;
+    canSelectMultiple: boolean;
+    isSelectionRequired: boolean;
     owner: Object;
     eventsSource: AutomationPeer;
     dispatcher: Object;
@@ -1027,7 +1027,7 @@
   }
 
   export class SemanticZoomAutomationPeer {
-    toggleState: Number;
+    toggleState: number;
     owner: Object;
     eventsSource: AutomationPeer;
     dispatcher: Object;
@@ -1039,7 +1039,7 @@
   }
 
   export class ToggleSwitchAutomationPeer {
-    toggleState: Number;
+    toggleState: number;
     owner: Object;
     eventsSource: AutomationPeer;
     dispatcher: Object;
@@ -1051,7 +1051,7 @@
   }
 
   export class ToggleButtonAutomationPeer {
-    toggleState: Number;
+    toggleState: number;
     owner: Object;
     eventsSource: AutomationPeer;
     dispatcher: Object;
@@ -1063,7 +1063,7 @@
   }
 
   export class CheckBoxAutomationPeer {
-    toggleState: Number;
+    toggleState: number;
     owner: Object;
     eventsSource: AutomationPeer;
     dispatcher: Object;
@@ -1073,9 +1073,9 @@
   }
 
   export class RadioButtonAutomationPeer {
-    isSelected: Boolean;
+    isSelected: boolean;
     selectionContainer: Object;
-    toggleState: Number;
+    toggleState: number;
     owner: Object;
     eventsSource: AutomationPeer;
     dispatcher: Object;
@@ -1091,7 +1091,7 @@
   }
 
   export class ToggleMenuFlyoutItemAutomationPeer {
-    toggleState: Number;
+    toggleState: number;
     owner: Object;
     eventsSource: AutomationPeer;
     dispatcher: Object;
@@ -1103,7 +1103,7 @@
   }
 
   export class AppBarToggleButtonAutomationPeer {
-    toggleState: Number;
+    toggleState: number;
     owner: Object;
     eventsSource: AutomationPeer;
     dispatcher: Object;
@@ -1113,8 +1113,8 @@
   }
 
   export class CalendarDatePickerAutomationPeer {
-    isReadOnly: Boolean;
-    value: String;
+    isReadOnly: boolean;
+    value: string;
     owner: Object;
     eventsSource: AutomationPeer;
     dispatcher: Object;
@@ -1123,7 +1123,7 @@
 
     invoke(): void;
 
-    setValue(value: String): void;
+    setValue(value: string): void;
 
   }
 
@@ -1140,7 +1140,7 @@
   }
 
   export class SelectorItemAutomationPeer {
-    isSelected: Boolean;
+    isSelected: boolean;
     selectionContainer: Object;
     item: Object;
     itemsControlAutomationPeer: ItemsControlAutomationPeer;
@@ -1158,7 +1158,7 @@
   }
 
   export class ComboBoxItemDataAutomationPeer {
-    isSelected: Boolean;
+    isSelected: boolean;
     selectionContainer: Object;
     item: Object;
     itemsControlAutomationPeer: ItemsControlAutomationPeer;
@@ -1172,7 +1172,7 @@
   }
 
   export class FlipViewItemDataAutomationPeer {
-    isSelected: Boolean;
+    isSelected: boolean;
     selectionContainer: Object;
     item: Object;
     itemsControlAutomationPeer: ItemsControlAutomationPeer;
@@ -1186,7 +1186,7 @@
   }
 
   export class ListBoxItemDataAutomationPeer {
-    isSelected: Boolean;
+    isSelected: boolean;
     selectionContainer: Object;
     item: Object;
     itemsControlAutomationPeer: ItemsControlAutomationPeer;
@@ -1200,7 +1200,7 @@
   }
 
   export class GridViewItemDataAutomationPeer {
-    isSelected: Boolean;
+    isSelected: boolean;
     selectionContainer: Object;
     item: Object;
     itemsControlAutomationPeer: ItemsControlAutomationPeer;
@@ -1214,7 +1214,7 @@
   }
 
   export class ListViewItemDataAutomationPeer {
-    isSelected: Boolean;
+    isSelected: boolean;
     selectionContainer: Object;
     item: Object;
     itemsControlAutomationPeer: ItemsControlAutomationPeer;
@@ -1228,17 +1228,17 @@
   }
 
   export class ComboBoxAutomationPeer {
-    expandCollapseState: Number;
-    isReadOnly: Boolean;
-    value: String;
-    interactionState: Number;
-    isModal: Boolean;
-    isTopmost: Boolean;
-    maximizable: Boolean;
-    minimizable: Boolean;
-    visualState: Number;
-    canSelectMultiple: Boolean;
-    isSelectionRequired: Boolean;
+    expandCollapseState: number;
+    isReadOnly: boolean;
+    value: string;
+    interactionState: number;
+    isModal: boolean;
+    isTopmost: boolean;
+    maximizable: boolean;
+    minimizable: boolean;
+    visualState: number;
+    canSelectMultiple: boolean;
+    isSelectionRequired: boolean;
     owner: Object;
     eventsSource: AutomationPeer;
     dispatcher: Object;
@@ -1249,25 +1249,25 @@
 
     expand(): void;
 
-    setValue(value: String): void;
+    setValue(value: string): void;
 
     close(): void;
 
-    setVisualState(state: Number): void;
+    setVisualState(state: number): void;
 
-    waitForInputIdle(milliseconds: Number): Boolean;
+    waitForInputIdle(milliseconds: number): boolean;
 
   }
 
   export class AppBarAutomationPeer {
-    expandCollapseState: Number;
-    toggleState: Number;
-    interactionState: Number;
-    isModal: Boolean;
-    isTopmost: Boolean;
-    maximizable: Boolean;
-    minimizable: Boolean;
-    visualState: Number;
+    expandCollapseState: number;
+    toggleState: number;
+    interactionState: number;
+    isModal: boolean;
+    isTopmost: boolean;
+    maximizable: boolean;
+    minimizable: boolean;
+    visualState: number;
     owner: Object;
     eventsSource: AutomationPeer;
     dispatcher: Object;
@@ -1282,9 +1282,9 @@
 
     close(): void;
 
-    setVisualState(state: Number): void;
+    setVisualState(state: number): void;
 
-    waitForInputIdle(milliseconds: Number): Boolean;
+    waitForInputIdle(milliseconds: number): boolean;
 
   }
 
@@ -1297,37 +1297,37 @@
   }
 
   export class MapControlAutomationPeer {
-    horizontalScrollPercent: Number;
-    horizontalViewSize: Number;
-    horizontallyScrollable: Boolean;
-    verticalScrollPercent: Number;
-    verticalViewSize: Number;
-    verticallyScrollable: Boolean;
-    canRotate: Boolean;
-    canMove: Boolean;
-    canResize: Boolean;
-    zoomLevel: Number;
-    canZoom: Boolean;
-    maxZoom: Number;
-    minZoom: Number;
+    horizontalScrollPercent: number;
+    horizontalViewSize: number;
+    horizontallyScrollable: boolean;
+    verticalScrollPercent: number;
+    verticalViewSize: number;
+    verticallyScrollable: boolean;
+    canRotate: boolean;
+    canMove: boolean;
+    canResize: boolean;
+    zoomLevel: number;
+    canZoom: boolean;
+    maxZoom: number;
+    minZoom: number;
     owner: Object;
     eventsSource: AutomationPeer;
     dispatcher: Object;
     constructor();
 
-    scroll(horizontalAmount: Number, verticalAmount: Number): void;
+    scroll(horizontalAmount: number, verticalAmount: number): void;
 
-    setScrollPercent(horizontalPercent: Number, verticalPercent: Number): void;
+    setScrollPercent(horizontalPercent: number, verticalPercent: number): void;
 
-    zoom(zoom: Number): void;
+    zoom(zoom: number): void;
 
-    zoomByUnit(zoomUnit: Number): void;
+    zoomByUnit(zoomUnit: number): void;
 
-    move(x: Number, y: Number): void;
+    move(x: number, y: number): void;
 
-    resize(width: Number, height: Number): void;
+    resize(width: number, height: number): void;
 
-    rotate(degrees: Number): void;
+    rotate(degrees: number): void;
 
   }
 
@@ -1357,15 +1357,15 @@
   }
 
   export class LoopingSelectorAutomationPeer {
-    expandCollapseState: Number;
-    horizontalScrollPercent: Number;
-    horizontalViewSize: Number;
-    horizontallyScrollable: Boolean;
-    verticalScrollPercent: Number;
-    verticalViewSize: Number;
-    verticallyScrollable: Boolean;
-    canSelectMultiple: Boolean;
-    isSelectionRequired: Boolean;
+    expandCollapseState: number;
+    horizontalScrollPercent: number;
+    horizontalViewSize: number;
+    horizontallyScrollable: boolean;
+    verticalScrollPercent: number;
+    verticalViewSize: number;
+    verticallyScrollable: boolean;
+    canSelectMultiple: boolean;
+    isSelectionRequired: boolean;
     owner: Object;
     eventsSource: AutomationPeer;
     dispatcher: Object;
@@ -1377,16 +1377,16 @@
 
     findItemByProperty(startAfter: Object, automationProperty: Object, value: Object): Object;
 
-    scroll(horizontalAmount: Number, verticalAmount: Number): void;
+    scroll(horizontalAmount: number, verticalAmount: number): void;
 
-    setScrollPercent(horizontalPercent: Number, verticalPercent: Number): void;
+    setScrollPercent(horizontalPercent: number, verticalPercent: number): void;
 
     getSelection(): Array<Object>;
 
   }
 
   export class LoopingSelectorItemAutomationPeer {
-    isSelected: Boolean;
+    isSelected: boolean;
     selectionContainer: Object;
     owner: Object;
     eventsSource: AutomationPeer;
@@ -1421,7 +1421,7 @@
   }
 
   export class PivotItemDataAutomationPeer {
-    isSelected: Boolean;
+    isSelected: boolean;
     selectionContainer: Object;
     item: Object;
     itemsControlAutomationPeer: ItemsControlAutomationPeer;
@@ -1451,23 +1451,23 @@
   }
 
   export class PivotAutomationPeer {
-    horizontalScrollPercent: Number;
-    horizontalViewSize: Number;
-    horizontallyScrollable: Boolean;
-    verticalScrollPercent: Number;
-    verticalViewSize: Number;
-    verticallyScrollable: Boolean;
-    canSelectMultiple: Boolean;
-    isSelectionRequired: Boolean;
+    horizontalScrollPercent: number;
+    horizontalViewSize: number;
+    horizontallyScrollable: boolean;
+    verticalScrollPercent: number;
+    verticalViewSize: number;
+    verticallyScrollable: boolean;
+    canSelectMultiple: boolean;
+    isSelectionRequired: boolean;
     owner: Object;
     eventsSource: AutomationPeer;
     dispatcher: Object;
     constructor();
     constructor(owner: Object);
 
-    scroll(horizontalAmount: Number, verticalAmount: Number): void;
+    scroll(horizontalAmount: number, verticalAmount: number): void;
 
-    setScrollPercent(horizontalPercent: Number, verticalPercent: Number): void;
+    setScrollPercent(horizontalPercent: number, verticalPercent: number): void;
 
     getSelection(): Array<Object>;
 

@@ -42,20 +42,20 @@
   export class MicrosoftAccountMultiFactorSessionInfo {
     approvalStatus: MicrosoftAccountMultiFactorSessionApprovalStatus;
     authenticationType: MicrosoftAccountMultiFactorAuthenticationType;
-    displaySessionId: String;
+    displaySessionId: string;
     expirationTime: Date;
     requestTime: Date;
-    sessionId: String;
-    userAccountId: String;
+    sessionId: string;
+    userAccountId: string;
     constructor();
 
   }
 
   export class MicrosoftAccountMultiFactorOneTimeCodedInfo {
-    code: String;
+    code: string;
     serviceResponse: MicrosoftAccountMultiFactorServiceResponse;
-    timeInterval: Number;
-    timeToLive: Number;
+    timeInterval: number;
+    timeToLive: number;
     constructor();
 
   }
@@ -79,23 +79,23 @@
     static current: MicrosoftAccountMultiFactorAuthenticationManager;
     constructor();
 
-    getOneTimePassCodeAsync(userAccountId: String, codeLength: Number, callback: (error: Error, result: MicrosoftAccountMultiFactorOneTimeCodedInfo) => void): void ;
+    getOneTimePassCodeAsync(userAccountId: string, codeLength: number, callback: (error: Error, result: MicrosoftAccountMultiFactorOneTimeCodedInfo) => void): void ;
 
-    addDeviceAsync(userAccountId: String, authenticationToken: String, wnsChannelId: String, callback: (error: Error, result: MicrosoftAccountMultiFactorServiceResponse) => void): void ;
+    addDeviceAsync(userAccountId: string, authenticationToken: string, wnsChannelId: string, callback: (error: Error, result: MicrosoftAccountMultiFactorServiceResponse) => void): void ;
 
-    removeDeviceAsync(userAccountId: String, callback: (error: Error, result: MicrosoftAccountMultiFactorServiceResponse) => void): void ;
+    removeDeviceAsync(userAccountId: string, callback: (error: Error, result: MicrosoftAccountMultiFactorServiceResponse) => void): void ;
 
-    updateWnsChannelAsync(userAccountId: String, channelUri: String, callback: (error: Error, result: MicrosoftAccountMultiFactorServiceResponse) => void): void ;
+    updateWnsChannelAsync(userAccountId: string, channelUri: string, callback: (error: Error, result: MicrosoftAccountMultiFactorServiceResponse) => void): void ;
 
     getSessionsAsync(userAccountIdList: Object, callback: (error: Error, result: MicrosoftAccountMultiFactorGetSessionsResult) => void): void ;
 
     getSessionsAndUnregisteredAccountsAsync(userAccountIdList: Object, callback: (error: Error, result: MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo) => void): void ;
 
     approveSessionAsync(sessionAuthentictionStatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, authenticationSessionInfo: MicrosoftAccountMultiFactorSessionInfo, callback: (error: Error, result: MicrosoftAccountMultiFactorServiceResponse) => void): void ;
-    approveSessionAsync(sessionAuthentictionStatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, userAccountId: String, sessionId: String, sessionAuthenticationType: MicrosoftAccountMultiFactorAuthenticationType, callback: (error: Error, result: MicrosoftAccountMultiFactorServiceResponse) => void): void ;
+    approveSessionAsync(sessionAuthentictionStatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, userAccountId: string, sessionId: string, sessionAuthenticationType: MicrosoftAccountMultiFactorAuthenticationType, callback: (error: Error, result: MicrosoftAccountMultiFactorServiceResponse) => void): void ;
 
     denySessionAsync(authenticationSessionInfo: MicrosoftAccountMultiFactorSessionInfo, callback: (error: Error, result: MicrosoftAccountMultiFactorServiceResponse) => void): void ;
-    denySessionAsync(userAccountId: String, sessionId: String, sessionAuthenticationType: MicrosoftAccountMultiFactorAuthenticationType, callback: (error: Error, result: MicrosoftAccountMultiFactorServiceResponse) => void): void ;
+    denySessionAsync(userAccountId: string, sessionId: string, sessionAuthenticationType: MicrosoftAccountMultiFactorAuthenticationType, callback: (error: Error, result: MicrosoftAccountMultiFactorServiceResponse) => void): void ;
 
   }
 

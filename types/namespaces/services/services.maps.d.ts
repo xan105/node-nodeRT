@@ -155,30 +155,30 @@
   }
 
   export class MapAddress {
-    buildingFloor: String;
-    buildingName: String;
-    buildingRoom: String;
-    buildingWing: String;
-    continent: String;
-    country: String;
-    countryCode: String;
-    district: String;
-    neighborhood: String;
-    postCode: String;
-    region: String;
-    regionCode: String;
-    street: String;
-    streetNumber: String;
-    town: String;
-    formattedAddress: String;
+    buildingFloor: string;
+    buildingName: string;
+    buildingRoom: string;
+    buildingWing: string;
+    continent: string;
+    country: string;
+    countryCode: string;
+    district: string;
+    neighborhood: string;
+    postCode: string;
+    region: string;
+    regionCode: string;
+    street: string;
+    streetNumber: string;
+    town: string;
+    formattedAddress: string;
     constructor();
 
   }
 
   export class MapLocation {
     address: MapAddress;
-    description: String;
-    displayName: String;
+    description: string;
+    displayName: string;
     point: Object;
     constructor();
 
@@ -192,15 +192,15 @@
   }
 
   export class MapRouteManeuver {
-    exitNumber: String;
-    instructionText: String;
+    exitNumber: string;
+    instructionText: string;
     kind: MapRouteManeuverKind;
-    lengthInMeters: Number;
+    lengthInMeters: number;
     maneuverNotices: MapManeuverNotices;
     startingPoint: Object;
-    endHeading: Number;
-    startHeading: Number;
-    streetName: String;
+    endHeading: number;
+    startHeading: number;
+    streetName: string;
     warnings: Object;
     constructor();
 
@@ -208,11 +208,11 @@
 
   export class MapRouteLeg {
     boundingBox: Object;
-    estimatedDuration: Number;
-    lengthInMeters: Number;
+    estimatedDuration: number;
+    lengthInMeters: number;
     maneuvers: Object;
     path: Object;
-    durationWithoutTraffic: Number;
+    durationWithoutTraffic: number;
     trafficCongestion: TrafficCongestion;
     constructor();
 
@@ -220,16 +220,16 @@
 
   export class MapRoute {
     boundingBox: Object;
-    estimatedDuration: Number;
-    isTrafficBased: Boolean;
+    estimatedDuration: number;
+    isTrafficBased: boolean;
     legs: Object;
-    lengthInMeters: Number;
+    lengthInMeters: number;
     path: Object;
-    hasBlockedRoads: Boolean;
+    hasBlockedRoads: boolean;
     violatedRestrictions: MapRouteRestrictions;
-    durationWithoutTraffic: Number;
+    durationWithoutTraffic: number;
     trafficCongestion: TrafficCongestion;
-    isScenic: Boolean;
+    isScenic: boolean;
     constructor();
 
   }
@@ -260,44 +260,44 @@
   export class MapRouteDrivingOptions {
     routeRestrictions: MapRouteRestrictions;
     routeOptimization: MapRouteOptimization;
-    maxAlternateRouteCount: Number;
-    initialHeading: Number;
+    maxAlternateRouteCount: number;
+    initialHeading: number;
     departureTime: Date;
     constructor();
 
   }
 
   export class PlaceInfo {
-    static isShowSupported: Boolean;
-    displayAddress: String;
-    displayName: String;
+    static isShowSupported: boolean;
+    displayAddress: string;
+    displayName: string;
     geoshape: Object;
-    identifier: String;
+    identifier: string;
     constructor();
 
-    static createFromAddress(displayAddress: String): PlaceInfo;
-    static createFromAddress(displayAddress: String, displayName: String): PlaceInfo;
+    static createFromAddress(displayAddress: string): PlaceInfo;
+    static createFromAddress(displayAddress: string, displayName: string): PlaceInfo;
 
 
     static create(referencePoint: Object): PlaceInfo;
     static create(referencePoint: Object, options: PlaceInfoCreateOptions): PlaceInfo;
 
 
-    static createFromIdentifier(identifier: String): PlaceInfo;
-    static createFromIdentifier(identifier: String, defaultPoint: Object, options: PlaceInfoCreateOptions): PlaceInfo;
+    static createFromIdentifier(identifier: string): PlaceInfo;
+    static createFromIdentifier(identifier: string, defaultPoint: Object, options: PlaceInfoCreateOptions): PlaceInfo;
 
 
     static createFromMapLocation(location: MapLocation): PlaceInfo;
 
 
     show(selection: Object): void;
-    show(selection: Object, preferredPlacement: Number): void;
+    show(selection: Object, preferredPlacement: number): void;
 
   }
 
   export class PlaceInfoCreateOptions {
-    displayName: String;
-    displayAddress: String;
+    displayName: string;
+    displayAddress: string;
     constructor();
 
   }
@@ -309,8 +309,8 @@
     static findLocationsAtAsync(queryPoint: Object, callback: (error: Error, result: MapLocationFinderResult) => void): void ;
 
 
-    static findLocationsAsync(searchText: String, referencePoint: Object, callback: (error: Error, result: MapLocationFinderResult) => void): void ;
-    static findLocationsAsync(searchText: String, referencePoint: Object, maxCount: Number, callback: (error: Error, result: MapLocationFinderResult) => void): void ;
+    static findLocationsAsync(searchText: string, referencePoint: Object, callback: (error: Error, result: MapLocationFinderResult) => void): void ;
+    static findLocationsAsync(searchText: string, referencePoint: Object, maxCount: number, callback: (error: Error, result: MapLocationFinderResult) => void): void ;
 
 
   }
@@ -326,13 +326,13 @@
     static getDrivingRouteAsync(startPoint: Object, endPoint: Object, callback: (error: Error, result: MapRouteFinderResult) => void): void ;
     static getDrivingRouteAsync(startPoint: Object, endPoint: Object, optimization: MapRouteOptimization, callback: (error: Error, result: MapRouteFinderResult) => void): void ;
     static getDrivingRouteAsync(startPoint: Object, endPoint: Object, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, callback: (error: Error, result: MapRouteFinderResult) => void): void ;
-    static getDrivingRouteAsync(startPoint: Object, endPoint: Object, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, headingInDegrees: Number, callback: (error: Error, result: MapRouteFinderResult) => void): void ;
+    static getDrivingRouteAsync(startPoint: Object, endPoint: Object, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, headingInDegrees: number, callback: (error: Error, result: MapRouteFinderResult) => void): void ;
 
 
     static getDrivingRouteFromWaypointsAsync(wayPoints: Object, callback: (error: Error, result: MapRouteFinderResult) => void): void ;
     static getDrivingRouteFromWaypointsAsync(wayPoints: Object, optimization: MapRouteOptimization, callback: (error: Error, result: MapRouteFinderResult) => void): void ;
     static getDrivingRouteFromWaypointsAsync(wayPoints: Object, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, callback: (error: Error, result: MapRouteFinderResult) => void): void ;
-    static getDrivingRouteFromWaypointsAsync(wayPoints: Object, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, headingInDegrees: Number, callback: (error: Error, result: MapRouteFinderResult) => void): void ;
+    static getDrivingRouteFromWaypointsAsync(wayPoints: Object, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, headingInDegrees: number, callback: (error: Error, result: MapRouteFinderResult) => void): void ;
 
 
     static getWalkingRouteAsync(startPoint: Object, endPoint: Object, callback: (error: Error, result: MapRouteFinderResult) => void): void ;
@@ -344,9 +344,9 @@
   }
 
   export class MapService {
-    static serviceToken: String;
-    static worldViewRegionCode: String;
-    static dataAttributions: String;
+    static serviceToken: string;
+    static worldViewRegionCode: string;
+    static dataAttributions: string;
     static dataUsagePreference: MapServiceDataUsagePreference;
     constructor();
 

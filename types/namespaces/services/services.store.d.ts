@@ -3,11 +3,11 @@
   }
 
   export class StorePackageUpdateStatus {
-    packageFamilyName: String;
-    packageDownloadSizeInBytes: Number;
-    packageBytesDownloaded: Number;
-    packageDownloadProgress: Number;
-    totalDownloadProgress: Number;
+    packageFamilyName: string;
+    packageDownloadSizeInBytes: number;
+    packageBytesDownloaded: number;
+    packageDownloadProgress: number;
+    totalDownloadProgress: number;
     packageUpdateState: StorePackageUpdateState;
     constructor();
   }
@@ -97,24 +97,24 @@
   }
 
   export class StoreProduct {
-    description: String;
-    extendedJsonData: String;
-    hasDigitalDownload: Boolean;
+    description: string;
+    extendedJsonData: string;
+    hasDigitalDownload: boolean;
     images: Object;
-    inAppOfferToken: String;
-    isInUserCollection: Boolean;
+    inAppOfferToken: string;
+    isInUserCollection: boolean;
     keywords: Object;
-    language: String;
+    language: string;
     linkUri: Object;
     price: StorePrice;
-    productKind: String;
+    productKind: string;
     skus: Object;
-    storeId: String;
-    title: String;
+    storeId: string;
+    title: string;
     videos: Object;
     constructor();
 
-    getIsAnySkuInstalledAsync(callback: (error: Error, result: Boolean) => void): void ;
+    getIsAnySkuInstalledAsync(callback: (error: Error, result: boolean) => void): void ;
 
     requestPurchaseAsync(callback: (error: Error, result: StorePurchaseResult) => void): void ;
     requestPurchaseAsync(storePurchaseProperties: StorePurchaseProperties, callback: (error: Error, result: StorePurchaseResult) => void): void ;
@@ -122,8 +122,8 @@
   }
 
   export class StoreProductPagedQueryResult {
-    extendedError: Number;
-    hasMoreResults: Boolean;
+    extendedError: number;
+    hasMoreResults: boolean;
     products: Object;
     constructor();
 
@@ -132,40 +132,40 @@
   }
 
   export class StorePurchaseProperties {
-    name: String;
-    extendedJsonData: String;
+    name: string;
+    extendedJsonData: string;
     constructor();
-    constructor(name: String);
+    constructor(name: string);
 
   }
 
   export class StoreLicense {
     expirationDate: Date;
-    extendedJsonData: String;
-    inAppOfferToken: String;
-    isActive: Boolean;
-    skuStoreId: String;
+    extendedJsonData: string;
+    inAppOfferToken: string;
+    isActive: boolean;
+    skuStoreId: string;
     constructor();
 
   }
 
   export class StoreImage {
-    caption: String;
-    height: Number;
-    imagePurposeTag: String;
+    caption: string;
+    height: number;
+    imagePurposeTag: string;
     uri: Object;
-    width: Number;
+    width: number;
     constructor();
 
   }
 
   export class StoreVideo {
-    caption: String;
-    height: Number;
+    caption: string;
+    height: number;
     previewImage: StoreImage;
     uri: Object;
-    videoPurposeTag: String;
-    width: Number;
+    videoPurposeTag: string;
+    width: number;
     constructor();
 
   }
@@ -174,22 +174,22 @@
     availabilities: Object;
     bundledSkus: Object;
     collectionData: StoreCollectionData;
-    customDeveloperData: String;
-    description: String;
-    extendedJsonData: String;
+    customDeveloperData: string;
+    description: string;
+    extendedJsonData: string;
     images: Object;
-    isInUserCollection: Boolean;
-    isSubscription: Boolean;
-    isTrial: Boolean;
-    language: String;
+    isInUserCollection: boolean;
+    isSubscription: boolean;
+    isTrial: boolean;
+    language: string;
     price: StorePrice;
-    storeId: String;
+    storeId: string;
     subscriptionInfo: StoreSubscriptionInfo;
-    title: String;
+    title: string;
     videos: Object;
     constructor();
 
-    getIsInstalledAsync(callback: (error: Error, result: Boolean) => void): void ;
+    getIsInstalledAsync(callback: (error: Error, result: boolean) => void): void ;
 
     requestPurchaseAsync(callback: (error: Error, result: StorePurchaseResult) => void): void ;
     requestPurchaseAsync(storePurchaseProperties: StorePurchaseProperties, callback: (error: Error, result: StorePurchaseResult) => void): void ;
@@ -197,18 +197,18 @@
   }
 
   export class StorePrice {
-    currencyCode: String;
-    formattedBasePrice: String;
-    formattedPrice: String;
-    formattedRecurrencePrice: String;
-    isOnSale: Boolean;
+    currencyCode: string;
+    formattedBasePrice: string;
+    formattedPrice: string;
+    formattedRecurrencePrice: string;
+    isOnSale: boolean;
     saleEndDate: Date;
     constructor();
 
   }
 
   export class StorePurchaseResult {
-    extendedError: Number;
+    extendedError: number;
     status: StorePurchaseStatus;
     constructor();
 
@@ -216,9 +216,9 @@
 
   export class StoreAvailability {
     endDate: Date;
-    extendedJsonData: String;
+    extendedJsonData: string;
     price: StorePrice;
-    storeId: String;
+    storeId: string;
     constructor();
 
     requestPurchaseAsync(callback: (error: Error, result: StorePurchaseResult) => void): void ;
@@ -228,22 +228,22 @@
 
   export class StoreCollectionData {
     acquiredDate: Date;
-    campaignId: String;
-    developerOfferId: String;
+    campaignId: string;
+    developerOfferId: string;
     endDate: Date;
-    extendedJsonData: String;
-    isTrial: Boolean;
+    extendedJsonData: string;
+    isTrial: boolean;
     startDate: Date;
-    trialTimeRemaining: Number;
+    trialTimeRemaining: number;
     constructor();
 
   }
 
   export class StoreSubscriptionInfo {
-    billingPeriod: Number;
+    billingPeriod: number;
     billingPeriodUnit: StoreDurationUnit;
-    hasTrialPeriod: Boolean;
-    trialPeriod: Number;
+    hasTrialPeriod: boolean;
+    trialPeriod: number;
     trialPeriodUnit: StoreDurationUnit;
     constructor();
 
@@ -251,7 +251,7 @@
 
   export class StoreContext {
     user: Object;
-    canSilentlyDownloadStorePackageUpdates: Boolean;
+    canSilentlyDownloadStorePackageUpdates: boolean;
     constructor();
 
     static getDefault(): StoreContext;
@@ -260,9 +260,9 @@
     static getForUser(user: Object): StoreContext;
 
 
-    getCustomerPurchaseIdAsync(serviceTicket: String, publisherUserId: String, callback: (error: Error, result: String) => void): void ;
+    getCustomerPurchaseIdAsync(serviceTicket: string, publisherUserId: string, callback: (error: Error, result: string) => void): void ;
 
-    getCustomerCollectionsIdAsync(serviceTicket: String, publisherUserId: String, callback: (error: Error, result: String) => void): void ;
+    getCustomerCollectionsIdAsync(serviceTicket: string, publisherUserId: string, callback: (error: Error, result: string) => void): void ;
 
     getAppLicenseAsync(callback: (error: Error, result: StoreAppLicense) => void): void ;
 
@@ -273,20 +273,20 @@
 
     getAssociatedStoreProductsAsync(productKinds: Object, callback: (error: Error, result: StoreProductQueryResult) => void): void ;
 
-    getAssociatedStoreProductsWithPagingAsync(productKinds: Object, maxItemsToRetrievePerPage: Number, callback: (error: Error, result: StoreProductPagedQueryResult) => void): void ;
+    getAssociatedStoreProductsWithPagingAsync(productKinds: Object, maxItemsToRetrievePerPage: number, callback: (error: Error, result: StoreProductPagedQueryResult) => void): void ;
 
     getUserCollectionAsync(productKinds: Object, callback: (error: Error, result: StoreProductQueryResult) => void): void ;
 
-    getUserCollectionWithPagingAsync(productKinds: Object, maxItemsToRetrievePerPage: Number, callback: (error: Error, result: StoreProductPagedQueryResult) => void): void ;
+    getUserCollectionWithPagingAsync(productKinds: Object, maxItemsToRetrievePerPage: number, callback: (error: Error, result: StoreProductPagedQueryResult) => void): void ;
 
-    reportConsumableFulfillmentAsync(productStoreId: String, quantity: Number, trackingId: String, callback: (error: Error, result: StoreConsumableResult) => void): void ;
+    reportConsumableFulfillmentAsync(productStoreId: string, quantity: number, trackingId: string, callback: (error: Error, result: StoreConsumableResult) => void): void ;
 
-    getConsumableBalanceRemainingAsync(productStoreId: String, callback: (error: Error, result: StoreConsumableResult) => void): void ;
+    getConsumableBalanceRemainingAsync(productStoreId: string, callback: (error: Error, result: StoreConsumableResult) => void): void ;
 
     acquireStoreLicenseForOptionalPackageAsync(optionalPackage: Object, callback: (error: Error, result: StoreAcquireLicenseResult) => void): void ;
 
-    requestPurchaseAsync(storeId: String, callback: (error: Error, result: StorePurchaseResult) => void): void ;
-    requestPurchaseAsync(storeId: String, storePurchaseProperties: StorePurchaseProperties, callback: (error: Error, result: StorePurchaseResult) => void): void ;
+    requestPurchaseAsync(storeId: string, callback: (error: Error, result: StorePurchaseResult) => void): void ;
+    requestPurchaseAsync(storeId: string, storePurchaseProperties: StorePurchaseProperties, callback: (error: Error, result: StorePurchaseResult) => void): void ;
 
     getAppAndOptionalStorePackageUpdatesAsync(callback: (error: Error, result: Object) => void): void ;
 
@@ -305,7 +305,7 @@
 
     canAcquireStoreLicenseForOptionalPackageAsync(optionalPackage: Object, callback: (error: Error, result: StoreCanAcquireLicenseResult) => void): void ;
 
-    canAcquireStoreLicenseAsync(productStoreId: String, callback: (error: Error, result: StoreCanAcquireLicenseResult) => void): void ;
+    canAcquireStoreLicenseAsync(productStoreId: string, callback: (error: Error, result: StoreCanAcquireLicenseResult) => void): void ;
 
     getAssociatedStoreQueueItemsAsync(callback: (error: Error, result: Object) => void): void ;
 
@@ -315,11 +315,11 @@
 
     requestUninstallStorePackageAsync(package: Object, callback: (error: Error, result: StoreUninstallStorePackageResult) => void): void ;
 
-    requestUninstallStorePackageByStoreIdAsync(storeId: String, callback: (error: Error, result: StoreUninstallStorePackageResult) => void): void ;
+    requestUninstallStorePackageByStoreIdAsync(storeId: string, callback: (error: Error, result: StoreUninstallStorePackageResult) => void): void ;
 
     uninstallStorePackageAsync(package: Object, callback: (error: Error, result: StoreUninstallStorePackageResult) => void): void ;
 
-    uninstallStorePackageByStoreIdAsync(storeId: String, callback: (error: Error, result: StoreUninstallStorePackageResult) => void): void ;
+    uninstallStorePackageByStoreIdAsync(storeId: string, callback: (error: Error, result: StoreUninstallStorePackageResult) => void): void ;
 
     addListener(type: "OfflineLicensesChanged", listener: (ev: Event) => void): void ;
     removeListener(type: "OfflineLicensesChanged", listener: (ev: Event) => void): void ;
@@ -335,9 +335,9 @@
   }
 
   export class StoreSendRequestResult {
-    extendedError: Number;
-    response: String;
-    httpStatusCode: Number;
+    extendedError: number;
+    response: string;
+    httpStatusCode: number;
     constructor();
 
   }
@@ -345,49 +345,49 @@
   export class StoreAppLicense {
     addOnLicenses: Object;
     expirationDate: Date;
-    extendedJsonData: String;
-    isActive: Boolean;
-    isTrial: Boolean;
-    isTrialOwnedByThisUser: Boolean;
-    skuStoreId: String;
-    trialTimeRemaining: Number;
-    trialUniqueId: String;
+    extendedJsonData: string;
+    isActive: boolean;
+    isTrial: boolean;
+    isTrialOwnedByThisUser: boolean;
+    skuStoreId: string;
+    trialTimeRemaining: number;
+    trialUniqueId: string;
     constructor();
 
   }
 
   export class StoreProductResult {
-    extendedError: Number;
+    extendedError: number;
     product: StoreProduct;
     constructor();
 
   }
 
   export class StoreProductQueryResult {
-    extendedError: Number;
+    extendedError: number;
     products: Object;
     constructor();
 
   }
 
   export class StoreConsumableResult {
-    balanceRemaining: Number;
-    extendedError: Number;
+    balanceRemaining: number;
+    extendedError: number;
     status: StoreConsumableStatus;
-    trackingId: String;
+    trackingId: string;
     constructor();
 
   }
 
   export class StoreAcquireLicenseResult {
-    extendedError: Number;
+    extendedError: number;
     storePackageLicense: StorePackageLicense;
     constructor();
 
   }
 
   export class StorePackageUpdate {
-    mandatory: Boolean;
+    mandatory: boolean;
     package: Object;
     constructor();
 
@@ -402,8 +402,8 @@
   }
 
   export class StoreCanAcquireLicenseResult {
-    extendedError: Number;
-    licensableSku: String;
+    extendedError: number;
+    licensableSku: string;
     status: StoreCanLicenseStatus;
     constructor();
 
@@ -417,8 +417,8 @@
 
   export class StoreQueueItem {
     installKind: StoreQueueItemKind;
-    packageFamilyName: String;
-    productId: String;
+    packageFamilyName: string;
+    productId: string;
     constructor();
 
     getCurrentStatus(): StoreQueueItemStatus;
@@ -442,20 +442,20 @@
   }
 
   export class StorePackageInstallOptions {
-    allowForcedAppRestart: Boolean;
+    allowForcedAppRestart: boolean;
     constructor();
 
   }
 
   export class StoreUninstallStorePackageResult {
-    extendedError: Number;
+    extendedError: number;
     status: StoreUninstallStorePackageStatus;
     constructor();
 
   }
 
   export class StoreQueueItemStatus {
-    extendedError: Number;
+    extendedError: number;
     packageInstallExtendedState: StoreQueueItemExtendedState;
     packageInstallState: StoreQueueItemState;
     updateStatus: StorePackageUpdateStatus;
@@ -470,7 +470,7 @@
   }
 
   export class StorePackageLicense {
-    isValid: Boolean;
+    isValid: boolean;
     package: Object;
     constructor();
 
@@ -493,7 +493,7 @@
   export class StoreRequestHelper {
     constructor();
 
-    static sendRequestAsync(context: StoreContext, requestKind: Number, parametersAsJson: String, callback: (error: Error, result: StoreSendRequestResult) => void): void ;
+    static sendRequestAsync(context: StoreContext, requestKind: number, parametersAsJson: string, callback: (error: Error, result: StoreSendRequestResult) => void): void ;
 
 
   }

@@ -46,14 +46,14 @@
   }
 
   export class DnssdServiceInstance {
-    weight: Number;
-    priority: Number;
-    port: Number;
+    weight: number;
+    priority: number;
+    port: number;
     hostName: Object;
-    dnssdServiceInstanceName: String;
+    dnssdServiceInstanceName: string;
     textAttributes: Object;
     constructor();
-    constructor(dnssdServiceInstanceName: String, hostName: Object, port: Number);
+    constructor(dnssdServiceInstanceName: string, hostName: Object, port: number);
 
     registerStreamSocketListenerAsync(socket: Object, callback: (error: Error, result: DnssdRegistrationResult) => void): void ;
     registerStreamSocketListenerAsync(socket: Object, adapter: Object, callback: (error: Error, result: DnssdRegistrationResult) => void): void ;
@@ -61,26 +61,26 @@
     registerDatagramSocketAsync(socket: Object, callback: (error: Error, result: DnssdRegistrationResult) => void): void ;
     registerDatagramSocketAsync(socket: Object, adapter: Object, callback: (error: Error, result: DnssdRegistrationResult) => void): void ;
 
-    toString(): String;
+    toString(): string;
 
   }
 
   export class DnssdRegistrationResult {
-    hasInstanceNameChanged: Boolean;
+    hasInstanceNameChanged: boolean;
     iPAddress: Object;
     status: DnssdRegistrationStatus;
     constructor();
 
-    toString(): String;
+    toString(): string;
 
   }
 
   export class DnssdServiceInstanceCollection {
     constructor();
 
-    getAt(index: Number): DnssdServiceInstance;
+    getAt(index: number): DnssdServiceInstance;
 
-    indexOf(value: DnssdServiceInstance, index: Number): Boolean;
+    indexOf(value: DnssdServiceInstance, index: number): boolean;
 
     getMany();
     first(): Object;

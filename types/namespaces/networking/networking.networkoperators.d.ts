@@ -1,11 +1,11 @@
   export class ESimProfileInstallProgress {
-    totalSizeInBytes: Number;
-    installedSizeInBytes: Number;
+    totalSizeInBytes: number;
+    installedSizeInBytes: number;
     constructor();
   }
 
   export class ProfileUsage {
-    usageInMegabytes: Number;
+    usageInMegabytes: number;
     lastSyncTime: Date;
     constructor();
   }
@@ -284,13 +284,13 @@
     static availableNetworkAccountIds: Object;
     currentDeviceInformation: MobileBroadbandDeviceInformation;
     currentNetwork: MobileBroadbandNetwork;
-    networkAccountId: String;
-    serviceProviderGuid: String;
-    serviceProviderName: String;
+    networkAccountId: string;
+    serviceProviderGuid: string;
+    serviceProviderName: string;
     accountExperienceUrl: Object;
     constructor();
 
-    static createFromNetworkAccountId(networkAccountId: String): MobileBroadbandAccount;
+    static createFromNetworkAccountId(networkAccountId: string): MobileBroadbandAccount;
 
 
     getConnectionProfiles(): Object;
@@ -298,19 +298,19 @@
   }
 
   export class MobileBroadbandNetwork {
-    accessPointName: String;
-    activationNetworkError: Number;
+    accessPointName: string;
+    activationNetworkError: number;
     networkAdapter: Object;
     networkRegistrationState: NetworkRegistrationState;
-    packetAttachNetworkError: Number;
+    packetAttachNetworkError: number;
     registeredDataClass: DataClasses;
-    registeredProviderId: String;
-    registeredProviderName: String;
-    registrationNetworkError: Number;
+    registeredProviderId: string;
+    registeredProviderName: string;
+    registrationNetworkError: number;
     registrationUiccApps: Object;
     constructor();
 
-    getVoiceCallSupportAsync(callback: (error: Error, result: Boolean) => void): void ;
+    getVoiceCallSupportAsync(callback: (error: Error, result: boolean) => void): void ;
 
     getCellsInfoAsync(callback: (error: Error, result: MobileBroadbandCellsInfo) => void): void ;
 
@@ -319,26 +319,26 @@
   }
 
   export class MobileBroadbandDeviceInformation {
-    cellularClass: Number;
+    cellularClass: number;
     currentRadioState: MobileBroadbandRadioState;
-    customDataClass: String;
+    customDataClass: string;
     dataClasses: DataClasses;
-    deviceId: String;
+    deviceId: string;
     deviceType: MobileBroadbandDeviceType;
-    firmwareInformation: String;
-    manufacturer: String;
-    mobileEquipmentId: String;
-    model: String;
+    firmwareInformation: string;
+    manufacturer: string;
+    mobileEquipmentId: string;
+    model: string;
     networkDeviceStatus: NetworkDeviceStatus;
-    simIccId: String;
-    subscriberId: String;
+    simIccId: string;
+    subscriberId: string;
     telephoneNumbers: Object;
     pinManager: MobileBroadbandPinManager;
-    revision: String;
-    serialNumber: String;
-    simGid1: String;
-    simPnn: String;
-    simSpn: String;
+    revision: string;
+    serialNumber: string;
+    simGid1: string;
+    simPnn: string;
+    simSpn: string;
     constructor();
 
   }
@@ -358,7 +358,7 @@
 
     getRecordDetailsAsync(uiccFilePath: Object, callback: (error: Error, result: MobileBroadbandUiccAppRecordDetailsResult) => void): void ;
 
-    readRecordAsync(uiccFilePath: Object, recordIndex: Number, callback: (error: Error, result: MobileBroadbandUiccAppReadRecordResult) => void): void ;
+    readRecordAsync(uiccFilePath: Object, recordIndex: number, callback: (error: Error, result: MobileBroadbandUiccAppReadRecordResult) => void): void ;
 
   }
 
@@ -384,32 +384,32 @@
   }
 
   export class TetheringEntitlementCheckTriggerDetails {
-    networkAccountId: String;
+    networkAccountId: string;
     constructor();
 
     allowTethering(): void;
 
-    denyTethering(entitlementFailureReason: String): void;
+    denyTethering(entitlementFailureReason: string): void;
 
   }
 
   export class NetworkOperatorTetheringAccessPointConfiguration {
-    ssid: String;
-    passphrase: String;
+    ssid: string;
+    passphrase: string;
     constructor();
 
   }
 
   export class NetworkOperatorTetheringOperationResult {
-    additionalErrorMessage: String;
+    additionalErrorMessage: string;
     status: TetheringOperationStatus;
     constructor();
 
   }
 
   export class NetworkOperatorTetheringManager {
-    clientCount: Number;
-    maxClientCount: Number;
+    clientCount: number;
+    maxClientCount: number;
     tetheringOperationalState: TetheringOperationalState;
     constructor();
 
@@ -420,10 +420,10 @@
     static getTetheringCapabilityFromConnectionProfile(profile: Object): TetheringCapability;
 
 
-    static getTetheringCapability(networkAccountId: String): TetheringCapability;
+    static getTetheringCapability(networkAccountId: string): TetheringCapability;
 
 
-    static createFromNetworkAccountId(networkAccountId: String): NetworkOperatorTetheringManager;
+    static createFromNetworkAccountId(networkAccountId: string): NetworkOperatorTetheringManager;
 
 
     configureAccessPointAsync(configuration: NetworkOperatorTetheringAccessPointConfiguration, callback: (error: Error) => void): void ;
@@ -440,21 +440,21 @@
 
   export class NetworkOperatorTetheringClient {
     hostNames: Object;
-    macAddress: String;
+    macAddress: string;
     constructor();
 
   }
 
   export class MobileBroadbandAccountEventArgs {
-    networkAccountId: String;
+    networkAccountId: string;
     constructor();
 
   }
 
   export class MobileBroadbandAccountUpdatedEventArgs {
-    hasDeviceInformationChanged: Boolean;
-    hasNetworkChanged: Boolean;
-    networkAccountId: String;
+    hasDeviceInformationChanged: boolean;
+    hasNetworkChanged: boolean;
+    networkAccountId: string;
     constructor();
 
   }
@@ -505,16 +505,16 @@
     currentNetwork: MobileBroadbandNetwork;
     deviceInformation: MobileBroadbandDeviceInformation;
     deviceServices: Object;
-    isResetSupported: Boolean;
-    maxDeviceServiceCommandSizeInBytes: Number;
-    maxDeviceServiceDataSizeInBytes: Number;
-    isInEmergencyCallMode: Boolean;
+    isResetSupported: boolean;
+    maxDeviceServiceCommandSizeInBytes: number;
+    maxDeviceServiceDataSizeInBytes: number;
+    isInEmergencyCallMode: boolean;
     constructor();
 
-    static getDeviceSelector(): String;
+    static getDeviceSelector(): string;
 
 
-    static fromId(deviceId: String): MobileBroadbandModem;
+    static fromId(deviceId: string): MobileBroadbandModem;
 
 
     static getDefault(): MobileBroadbandModem;
@@ -524,13 +524,13 @@
 
     getCurrentConfigurationAsync(callback: (error: Error, result: MobileBroadbandModemConfiguration) => void): void ;
 
-    getIsPassthroughEnabledAsync(callback: (error: Error, result: Boolean) => void): void ;
+    getIsPassthroughEnabledAsync(callback: (error: Error, result: boolean) => void): void ;
 
-    setIsPassthroughEnabledAsync(value: Boolean, callback: (error: Error, result: MobileBroadbandModemStatus) => void): void ;
+    setIsPassthroughEnabledAsync(value: boolean, callback: (error: Error, result: MobileBroadbandModemStatus) => void): void ;
 
     tryGetPcoAsync(callback: (error: Error, result: MobileBroadbandPco) => void): void ;
 
-    getDeviceService(deviceServiceId: String): MobileBroadbandDeviceService;
+    getDeviceService(deviceServiceId: string): MobileBroadbandDeviceService;
 
     addListener(type: "IsInEmergencyCallModeChanged", listener: (ev: Event) => void): void ;
     removeListener(type: "IsInEmergencyCallModeChanged", listener: (ev: Event) => void): void ;
@@ -546,7 +546,7 @@
   }
 
   export class MobileBroadbandUicc {
-    simIccId: String;
+    simIccId: string;
     constructor();
 
     getUiccAppsAsync(callback: (error: Error, result: MobileBroadbandUiccAppsResult) => void): void ;
@@ -555,10 +555,10 @@
 
   export class MobileBroadbandSarManager {
     antennas: Object;
-    hysteresisTimerPeriod: Number;
-    isBackoffEnabled: Boolean;
-    isSarControlledByHardware: Boolean;
-    isWiFiHardwareIntegrated: Boolean;
+    hysteresisTimerPeriod: number;
+    isBackoffEnabled: boolean;
+    isSarControlledByHardware: boolean;
+    isWiFiHardwareIntegrated: boolean;
     constructor();
 
     enableBackoffAsync(callback: (error: Error) => void): void ;
@@ -569,9 +569,9 @@
 
     revertSarToHardwareControlAsync(callback: (error: Error) => void): void ;
 
-    setTransmissionStateChangedHysteresisAsync(timerPeriod: Number, callback: (error: Error) => void): void ;
+    setTransmissionStateChangedHysteresisAsync(timerPeriod: number, callback: (error: Error) => void): void ;
 
-    getIsTransmittingAsync(callback: (error: Error, result: Boolean) => void): void ;
+    getIsTransmittingAsync(callback: (error: Error, result: boolean) => void): void ;
 
     startTransmissionStateMonitoring(): void;
 
@@ -591,8 +591,8 @@
   }
 
   export class MobileBroadbandModemConfiguration {
-    homeProviderId: String;
-    homeProviderName: String;
+    homeProviderId: string;
+    homeProviderName: string;
     uicc: MobileBroadbandUicc;
     sarManager: MobileBroadbandSarManager;
     constructor();
@@ -600,15 +600,15 @@
   }
 
   export class MobileBroadbandDeviceServiceInformation {
-    deviceServiceId: String;
-    isDataReadSupported: Boolean;
-    isDataWriteSupported: Boolean;
+    deviceServiceId: string;
+    isDataReadSupported: boolean;
+    isDataWriteSupported: boolean;
     constructor();
 
   }
 
   export class MobileBroadbandDeviceService {
-    deviceServiceId: String;
+    deviceServiceId: string;
     supportedCommands: Object;
     constructor();
 
@@ -620,37 +620,37 @@
 
   export class MobileBroadbandPco {
     data: Object;
-    deviceId: String;
-    isComplete: Boolean;
+    deviceId: string;
+    isComplete: boolean;
     constructor();
 
   }
 
   export class MobileBroadbandPin {
-    attemptsRemaining: Number;
-    enabled: Boolean;
+    attemptsRemaining: number;
+    enabled: boolean;
     format: MobileBroadbandPinFormat;
     lockState: MobileBroadbandPinLockState;
-    maxLength: Number;
-    minLength: Number;
+    maxLength: number;
+    minLength: number;
     type: MobileBroadbandPinType;
     constructor();
 
-    enableAsync(currentPin: String, callback: (error: Error, result: MobileBroadbandPinOperationResult) => void): void ;
+    enableAsync(currentPin: string, callback: (error: Error, result: MobileBroadbandPinOperationResult) => void): void ;
 
-    disableAsync(currentPin: String, callback: (error: Error, result: MobileBroadbandPinOperationResult) => void): void ;
+    disableAsync(currentPin: string, callback: (error: Error, result: MobileBroadbandPinOperationResult) => void): void ;
 
-    enterAsync(currentPin: String, callback: (error: Error, result: MobileBroadbandPinOperationResult) => void): void ;
+    enterAsync(currentPin: string, callback: (error: Error, result: MobileBroadbandPinOperationResult) => void): void ;
 
-    changeAsync(currentPin: String, newPin: String, callback: (error: Error, result: MobileBroadbandPinOperationResult) => void): void ;
+    changeAsync(currentPin: string, newPin: string, callback: (error: Error, result: MobileBroadbandPinOperationResult) => void): void ;
 
-    unblockAsync(pinUnblockKey: String, newPin: String, callback: (error: Error, result: MobileBroadbandPinOperationResult) => void): void ;
+    unblockAsync(pinUnblockKey: string, newPin: string, callback: (error: Error, result: MobileBroadbandPinOperationResult) => void): void ;
 
   }
 
   export class MobileBroadbandPinOperationResult {
-    attemptsRemaining: Number;
-    isSuccessful: Boolean;
+    attemptsRemaining: number;
+    isSuccessful: boolean;
     constructor();
 
   }
@@ -678,9 +678,9 @@
   export class MobileBroadbandDeviceServiceCommandSession {
     constructor();
 
-    sendQueryCommandAsync(commandId: Number, data: Object, callback: (error: Error, result: MobileBroadbandDeviceServiceCommandResult) => void): void ;
+    sendQueryCommandAsync(commandId: number, data: Object, callback: (error: Error, result: MobileBroadbandDeviceServiceCommandResult) => void): void ;
 
-    sendSetCommandAsync(commandId: Number, data: Object, callback: (error: Error, result: MobileBroadbandDeviceServiceCommandResult) => void): void ;
+    sendSetCommandAsync(commandId: number, data: Object, callback: (error: Error, result: MobileBroadbandDeviceServiceCommandResult) => void): void ;
 
     closeSession(): void;
 
@@ -694,7 +694,7 @@
 
   export class MobileBroadbandDeviceServiceCommandResult {
     responseData: Object;
-    statusCode: Number;
+    statusCode: number;
     constructor();
 
   }
@@ -709,8 +709,8 @@
   export class MobileBroadbandUiccAppRecordDetailsResult {
     kind: UiccAppRecordKind;
     readAccessCondition: UiccAccessCondition;
-    recordCount: Number;
-    recordSize: Number;
+    recordCount: number;
+    recordSize: number;
     status: MobileBroadbandUiccAppOperationStatus;
     writeAccessCondition: UiccAccessCondition;
     constructor();
@@ -725,7 +725,7 @@
   }
 
   export class MobileBroadbandNetworkRegistrationStateChange {
-    deviceId: String;
+    deviceId: string;
     network: MobileBroadbandNetwork;
     constructor();
 
@@ -738,7 +738,7 @@
   }
 
   export class MobileBroadbandRadioStateChange {
-    deviceId: String;
+    deviceId: string;
     radioState: MobileBroadbandRadioState;
     constructor();
 
@@ -751,7 +751,7 @@
   }
 
   export class MobileBroadbandPinLockStateChange {
-    deviceId: String;
+    deviceId: string;
     pinLockState: MobileBroadbandPinLockState;
     pinType: MobileBroadbandPinType;
     constructor();
@@ -765,8 +765,8 @@
   }
 
   export class MobileBroadbandDeviceServiceTriggerDetails {
-    deviceId: String;
-    deviceServiceId: String;
+    deviceId: string;
+    deviceServiceId: string;
     receivedData: Object;
     constructor();
 
@@ -808,72 +808,72 @@
   }
 
   export class MobileBroadbandCellCdma {
-    baseStationId: Number;
-    baseStationLastBroadcastGpsTime: Number;
-    baseStationLatitude: Number;
-    baseStationLongitude: Number;
-    baseStationPNCode: Number;
-    networkId: Number;
-    pilotSignalStrengthInDB: Number;
-    systemId: Number;
+    baseStationId: number;
+    baseStationLastBroadcastGpsTime: number;
+    baseStationLatitude: number;
+    baseStationLongitude: number;
+    baseStationPNCode: number;
+    networkId: number;
+    pilotSignalStrengthInDB: number;
+    systemId: number;
     constructor();
 
   }
 
   export class MobileBroadbandCellGsm {
-    baseStationId: Number;
-    cellId: Number;
-    channelNumber: Number;
-    locationAreaCode: Number;
-    providerId: String;
-    receivedSignalStrengthInDBm: Number;
-    timingAdvanceInBitPeriods: Number;
+    baseStationId: number;
+    cellId: number;
+    channelNumber: number;
+    locationAreaCode: number;
+    providerId: string;
+    receivedSignalStrengthInDBm: number;
+    timingAdvanceInBitPeriods: number;
     constructor();
 
   }
 
   export class MobileBroadbandCellLte {
-    cellId: Number;
-    channelNumber: Number;
-    physicalCellId: Number;
-    providerId: String;
-    referenceSignalReceivedPowerInDBm: Number;
-    referenceSignalReceivedQualityInDBm: Number;
-    timingAdvanceInBitPeriods: Number;
-    trackingAreaCode: Number;
+    cellId: number;
+    channelNumber: number;
+    physicalCellId: number;
+    providerId: string;
+    referenceSignalReceivedPowerInDBm: number;
+    referenceSignalReceivedQualityInDBm: number;
+    timingAdvanceInBitPeriods: number;
+    trackingAreaCode: number;
     constructor();
 
   }
 
   export class MobileBroadbandCellTdscdma {
-    cellId: Number;
-    cellParameterId: Number;
-    channelNumber: Number;
-    locationAreaCode: Number;
-    pathLossInDB: Number;
-    providerId: String;
-    receivedSignalCodePowerInDBm: Number;
-    timingAdvanceInBitPeriods: Number;
+    cellId: number;
+    cellParameterId: number;
+    channelNumber: number;
+    locationAreaCode: number;
+    pathLossInDB: number;
+    providerId: string;
+    receivedSignalCodePowerInDBm: number;
+    timingAdvanceInBitPeriods: number;
     constructor();
 
   }
 
   export class MobileBroadbandCellUmts {
-    cellId: Number;
-    channelNumber: Number;
-    locationAreaCode: Number;
-    pathLossInDB: Number;
-    primaryScramblingCode: Number;
-    providerId: String;
-    receivedSignalCodePowerInDBm: Number;
-    signalToNoiseRatioInDB: Number;
+    cellId: number;
+    channelNumber: number;
+    locationAreaCode: number;
+    pathLossInDB: number;
+    primaryScramblingCode: number;
+    providerId: string;
+    receivedSignalCodePowerInDBm: number;
+    signalToNoiseRatioInDB: number;
     constructor();
 
   }
 
   export class MobileBroadbandModemIsolation {
     constructor();
-    constructor(modemDeviceId: String, ruleGroupId: String);
+    constructor(modemDeviceId: string, ruleGroupId: string);
 
     applyConfigurationAsync(callback: (error: Error) => void): void ;
 
@@ -892,33 +892,33 @@
   }
 
   export class MobileBroadbandAntennaSar {
-    antennaIndex: Number;
-    sarBackoffIndex: Number;
+    antennaIndex: number;
+    sarBackoffIndex: number;
     constructor();
-    constructor(antennaIndex: Number, sarBackoffIndex: Number);
+    constructor(antennaIndex: number, sarBackoffIndex: number);
 
   }
 
   export class MobileBroadbandTransmissionStateChangedEventArgs {
-    isTransmitting: Boolean;
+    isTransmitting: boolean;
     constructor();
 
   }
 
   export class ESimPolicy {
-    shouldEnableManagingUi: Boolean;
+    shouldEnableManagingUi: boolean;
     constructor();
 
   }
 
   export class ESimProfile {
     class: ESimProfileClass;
-    id: String;
-    nickname: String;
+    id: string;
+    nickname: string;
     policy: ESimProfilePolicy;
     providerIcon: Object;
-    providerId: String;
-    providerName: String;
+    providerId: string;
+    providerName: string;
     state: ESimProfileState;
     constructor();
 
@@ -926,7 +926,7 @@
 
     enableAsync(callback: (error: Error, result: ESimOperationResult) => void): void ;
 
-    setNicknameAsync(newNickname: String, callback: (error: Error, result: ESimOperationResult) => void): void ;
+    setNicknameAsync(newNickname: string, callback: (error: Error, result: ESimOperationResult) => void): void ;
 
   }
 
@@ -944,17 +944,17 @@
   }
 
   export class ESim {
-    availableMemoryInBytes: Number;
-    eid: String;
-    firmwareVersion: String;
-    mobileBroadbandModemDeviceId: String;
+    availableMemoryInBytes: number;
+    eid: string;
+    firmwareVersion: string;
+    mobileBroadbandModemDeviceId: string;
     policy: ESimPolicy;
     state: ESimState;
     constructor();
 
-    deleteProfileAsync(profileId: String, callback: (error: Error, result: ESimOperationResult) => void): void ;
+    deleteProfileAsync(profileId: string, callback: (error: Error, result: ESimOperationResult) => void): void ;
 
-    downloadProfileMetadataAsync(activationCode: String, callback: (error: Error, result: ESimDownloadProfileMetadataResult) => void): void ;
+    downloadProfileMetadataAsync(activationCode: string, callback: (error: Error, result: ESimDownloadProfileMetadataResult) => void): void ;
 
     resetAsync(callback: (error: Error, result: ESimOperationResult) => void): void ;
 
@@ -980,19 +980,19 @@
   }
 
   export class ESimProfileMetadata {
-    id: String;
-    isConfirmationCodeRequired: Boolean;
+    id: string;
+    isConfirmationCodeRequired: boolean;
     policy: ESimProfilePolicy;
     providerIcon: Object;
-    providerId: String;
-    providerName: String;
+    providerId: string;
+    providerName: string;
     state: ESimProfileMetadataState;
     constructor();
 
     denyInstallAsync(callback: (error: Error, result: ESimOperationResult) => void): void ;
 
     confirmInstallAsync(callback: (error: Error, result: ESimOperationResult) => void): void ;
-    confirmInstallAsync(confirmationCode: String, callback: (error: Error, result: ESimOperationResult) => void): void ;
+    confirmInstallAsync(confirmationCode: string, callback: (error: Error, result: ESimOperationResult) => void): void ;
 
     postponeInstallAsync(callback: (error: Error, result: ESimOperationResult) => void): void ;
 
@@ -1011,7 +1011,7 @@
 
   export class ESimServiceInfo {
     authenticationPreference: ESimAuthenticationPreference;
-    isESimUiEnabled: Boolean;
+    isESimUiEnabled: boolean;
     constructor();
 
   }
@@ -1078,9 +1078,9 @@
   }
 
   export class ESimProfilePolicy {
-    canDelete: Boolean;
-    canDisable: Boolean;
-    isManagedByEnterprise: Boolean;
+    canDelete: boolean;
+    canDisable: boolean;
+    isManagedByEnterprise: boolean;
     constructor();
 
   }
@@ -1098,7 +1098,7 @@
   }
 
   export class HotspotAuthenticationEventDetails {
-    eventToken: String;
+    eventToken: string;
     constructor();
 
   }
@@ -1108,27 +1108,27 @@
     networkAdapter: Object;
     redirectMessageUrl: Object;
     redirectMessageXml: Object;
-    wirelessNetworkId: Array<Number>;
+    wirelessNetworkId: Array<number>;
     constructor();
 
-    static tryGetAuthenticationContext(evenToken: String, context: Object): Boolean;
+    static tryGetAuthenticationContext(evenToken: string, context: Object): boolean;
 
 
-    issueCredentialsAsync(userName: String, password: String, extraParameters: String, markAsManualConnectOnFailure: Boolean, callback: (error: Error, result: HotspotCredentialsAuthenticationResult) => void): void ;
+    issueCredentialsAsync(userName: string, password: string, extraParameters: string, markAsManualConnectOnFailure: boolean, callback: (error: Error, result: HotspotCredentialsAuthenticationResult) => void): void ;
 
-    issueCredentials(userName: String, password: String, extraParameters: String, markAsManualConnectOnFailure: Boolean): void;
+    issueCredentials(userName: string, password: string, extraParameters: string, markAsManualConnectOnFailure: boolean): void;
 
-    abortAuthentication(markAsManual: Boolean): void;
+    abortAuthentication(markAsManual: boolean): void;
 
     skipAuthentication(): void;
 
-    triggerAttentionRequired(packageRelativeApplicationId: String, applicationParameters: String): void;
+    triggerAttentionRequired(packageRelativeApplicationId: string, applicationParameters: string): void;
 
   }
 
   export class HotspotCredentialsAuthenticationResult {
     authenticationReplyXml: Object;
-    hasNetworkErrorOccurred: Boolean;
+    hasNetworkErrorOccurred: boolean;
     logoffUrl: Object;
     responseCode: HotspotAuthenticationResponseCode;
     constructor();
@@ -1136,8 +1136,8 @@
   }
 
   export class ProvisionFromXmlDocumentResults {
-    allElementsProvisioned: Boolean;
-    provisionResultsXml: String;
+    allElementsProvisioned: boolean;
+    provisionResultsXml: string;
     constructor();
 
   }
@@ -1145,7 +1145,7 @@
   export class ProvisionedProfile {
     constructor();
 
-    updateCost(value: Number): void;
+    updateCost(value: number): void;
 
     updateUsage(value: ProfileUsage): void;
 
@@ -1154,24 +1154,24 @@
   export class ProvisioningAgent {
     constructor();
 
-    static createFromNetworkAccountId(networkAccountId: String): ProvisioningAgent;
+    static createFromNetworkAccountId(networkAccountId: string): ProvisioningAgent;
 
 
-    provisionFromXmlDocumentAsync(provisioningXmlDocument: String, callback: (error: Error, result: ProvisionFromXmlDocumentResults) => void): void ;
+    provisionFromXmlDocumentAsync(provisioningXmlDocument: string, callback: (error: Error, result: ProvisionFromXmlDocumentResults) => void): void ;
 
-    getProvisionedProfile(mediaType: ProfileMediaType, profileName: String): ProvisionedProfile;
+    getProvisionedProfile(mediaType: ProfileMediaType, profileName: string): ProvisionedProfile;
 
   }
 
   export class UssdMessage {
-    payloadAsText: String;
-    dataCodingScheme: Number;
+    payloadAsText: string;
+    dataCodingScheme: number;
     constructor();
-    constructor(messageText: String);
+    constructor(messageText: string);
 
-    getPayload(): Array<Number>;
+    getPayload(): Array<number>;
 
-    setPayload(value: Array<Number>): void;
+    setPayload(value: Array<number>): void;
 
   }
 
@@ -1185,10 +1185,10 @@
   export class UssdSession {
     constructor();
 
-    static createFromNetworkAccountId(networkAccountId: String): UssdSession;
+    static createFromNetworkAccountId(networkAccountId: string): UssdSession;
 
 
-    static createFromNetworkInterfaceId(networkInterfaceId: String): UssdSession;
+    static createFromNetworkInterfaceId(networkInterfaceId: string): UssdSession;
 
 
     sendMessageAndGetReplyAsync(message: UssdMessage, callback: (error: Error, result: UssdReply) => void): void ;
@@ -1198,22 +1198,22 @@
   }
 
   export class NetworkOperatorNotificationEventDetails {
-    encodingType: Number;
-    message: String;
-    networkAccountId: String;
+    encodingType: number;
+    message: string;
+    networkAccountId: string;
     notificationType: NetworkOperatorEventMessageType;
-    ruleId: String;
+    ruleId: string;
     smsMessage: Object;
     constructor();
 
-    authorizeTethering(allow: Boolean, entitlementFailureReason: String): void;
+    authorizeTethering(allow: boolean, entitlementFailureReason: string): void;
 
   }
 
   export class FdnAccessManager {
     constructor();
 
-    static requestUnlockAsync(contactListId: String, callback: (error: Error, result: Boolean) => void): void ;
+    static requestUnlockAsync(contactListId: string, callback: (error: Error, result: boolean) => void): void ;
 
 
   }

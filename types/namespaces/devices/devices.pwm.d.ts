@@ -6,12 +6,12 @@
   export class PwmPin {
     polarity: PwmPulsePolarity;
     controller: PwmController;
-    isStarted: Boolean;
+    isStarted: boolean;
     constructor();
 
-    getActiveDutyCyclePercentage(): Number;
+    getActiveDutyCyclePercentage(): number;
 
-    setActiveDutyCyclePercentage(dutyCyclePercentage: Number): void;
+    setActiveDutyCyclePercentage(dutyCyclePercentage: number): void;
 
     start(): void;
 
@@ -21,13 +21,13 @@
   }
 
   export class PwmController {
-    actualFrequency: Number;
-    maxFrequency: Number;
-    minFrequency: Number;
-    pinCount: Number;
+    actualFrequency: number;
+    maxFrequency: number;
+    minFrequency: number;
+    pinCount: number;
     constructor();
 
-    static fromIdAsync(deviceId: String, callback: (error: Error, result: PwmController) => void): void ;
+    static fromIdAsync(deviceId: string, callback: (error: Error, result: PwmController) => void): void ;
 
 
     static getDefaultAsync(callback: (error: Error, result: PwmController) => void): void ;
@@ -36,13 +36,13 @@
     static getControllersAsync(provider: Object, callback: (error: Error, result: Object) => void): void ;
 
 
-    static getDeviceSelector(): String;
-    static getDeviceSelector(friendlyName: String): String;
+    static getDeviceSelector(): string;
+    static getDeviceSelector(friendlyName: string): string;
 
 
-    setDesiredFrequency(desiredFrequency: Number): Number;
+    setDesiredFrequency(desiredFrequency: number): number;
 
-    openPin(pinNumber: Number): PwmPin;
+    openPin(pinNumber: number): PwmPin;
 
   }
 

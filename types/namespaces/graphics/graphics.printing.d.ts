@@ -5,8 +5,8 @@
   export class PrintPageDescription {
     pageSize: Object;
     imageableRect: Object;
-    dpiX: Number;
-    dpiY: Number;
+    dpiX: number;
+    dpiY: number;
     constructor();
   }
 
@@ -333,18 +333,18 @@
   }
 
   export class PrintPageRange {
-    firstPageNumber: Number;
-    lastPageNumber: Number;
+    firstPageNumber: number;
+    lastPageNumber: number;
     constructor();
-    constructor(firstPage: Number, lastPage: Number);
-    constructor(page: Number);
+    constructor(firstPage: number, lastPage: number);
+    constructor(page: number);
 
   }
 
   export class PrintPageRangeOptions {
-    allowCustomSetOfPages: Boolean;
-    allowCurrentPage: Boolean;
-    allowAllPages: Boolean;
+    allowCustomSetOfPages: boolean;
+    allowCurrentPage: boolean;
+    allowAllPages: boolean;
     constructor();
 
   }
@@ -355,11 +355,11 @@
     colorMode: PrintColorMode;
     duplex: PrintDuplex;
     holePunch: PrintHolePunch;
-    maxCopies: Number;
+    maxCopies: number;
     mediaSize: PrintMediaSize;
     mediaType: PrintMediaType;
-    minCopies: Number;
-    numberOfCopies: Number;
+    minCopies: number;
+    numberOfCopies: number;
     orientation: PrintOrientation;
     printQuality: PrintQuality;
     staple: PrintStaple;
@@ -371,8 +371,8 @@
     pageSize: Object;
     orientation: PrintOrientation;
     mediaSize: PrintMediaSize;
-    dpiY: Number;
-    dpiX: Number;
+    dpiY: number;
+    dpiX: number;
     constructor();
 
   }
@@ -386,7 +386,7 @@
   export class IPrintTaskOptionsCore {
     constructor();
 
-    getPageDescription(jobPageNumber: Number): PrintPageDescription;
+    getPageDescription(jobPageNumber: number): PrintPageDescription;
 
   }
 
@@ -404,34 +404,34 @@
     printQuality: PrintQuality;
     orientation: PrintOrientation;
     mediaSize: PrintMediaSize;
-    numberOfCopies: Number;
-    maxCopies: Number;
-    minCopies: Number;
+    numberOfCopies: number;
+    maxCopies: number;
+    minCopies: number;
     displayedOptions: Object;
     constructor();
 
-    getPageDescription(jobPageNumber: Number): PrintPageDescription;
+    getPageDescription(jobPageNumber: number): PrintPageDescription;
 
     getPagePrintTicket(printPageInfo: PrintPageInfo): Object;
 
   }
 
   export class StandardPrintTaskOptions {
-    static copies: String;
-    static binding: String;
-    static collation: String;
-    static colorMode: String;
-    static mediaType: String;
-    static duplex: String;
-    static holePunch: String;
-    static inputBin: String;
-    static mediaSize: String;
-    static nUp: String;
-    static orientation: String;
-    static printQuality: String;
-    static staple: String;
-    static bordering: String;
-    static customPageRanges: String;
+    static copies: string;
+    static binding: string;
+    static collation: string;
+    static colorMode: string;
+    static mediaType: string;
+    static duplex: string;
+    static holePunch: string;
+    static inputBin: string;
+    static mediaSize: string;
+    static nUp: string;
+    static orientation: string;
+    static printQuality: string;
+    static staple: string;
+    static bordering: string;
+    static customPageRanges: string;
     constructor();
 
   }
@@ -442,7 +442,7 @@
   }
 
   export class PrintTaskProgressingEventArgs {
-    documentPageCount: Number;
+    documentPageCount: number;
     constructor();
 
   }
@@ -457,9 +457,9 @@
     options: PrintTaskOptions;
     properties: Object;
     source: IPrintDocumentSource;
-    isPreviewEnabled: Boolean;
-    isPrinterTargetEnabled: Boolean;
-    is3DManufacturingTargetEnabled: Boolean;
+    isPreviewEnabled: boolean;
+    isPrinterTargetEnabled: boolean;
+    is3DManufacturingTargetEnabled: boolean;
     constructor();
 
     addListener(type: "Completed", listener: (ev: Event) => void): void ;
@@ -518,7 +518,7 @@
     deadline: Date;
     constructor();
 
-    createPrintTask(title: String, handler: Object): PrintTask;
+    createPrintTask(title: string, handler: Object): PrintTask;
 
     getDeferral(): PrintTaskRequestedDeferral;
 
@@ -533,10 +533,10 @@
   export class PrintManager {
     constructor();
 
-    static showPrintUIAsync(callback: (error: Error, result: Boolean) => void): void ;
+    static showPrintUIAsync(callback: (error: Error, result: boolean) => void): void ;
 
 
-    static isSupported(): Boolean;
+    static isSupported(): boolean;
 
 
     static getForCurrentView(): PrintManager;

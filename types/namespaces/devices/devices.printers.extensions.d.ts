@@ -63,8 +63,8 @@
   }
 
   export class PrintNotificationEventDetails {
-    eventData: String;
-    printerName: String;
+    eventData: string;
+    printerName: string;
     constructor();
 
   }
@@ -72,7 +72,7 @@
   export class PrintExtensionContext {
     constructor();
 
-    static fromDeviceId(deviceId: String): Object;
+    static fromDeviceId(deviceId: string): Object;
 
 
   }
@@ -85,19 +85,19 @@
 
     setSource(source: Object): void;
 
-    setSourceChanged(value: Boolean): void;
+    setSourceChanged(value: boolean): void;
 
   }
 
   export class Print3DWorkflowPrinterChangedEventArgs {
-    newDeviceId: String;
+    newDeviceId: string;
     constructor();
 
   }
 
   export class Print3DWorkflow {
-    isPrintReady: Boolean;
-    deviceID: String;
+    isPrintReady: boolean;
+    deviceID: string;
     constructor();
 
     getPrintModelPackage(): Object;

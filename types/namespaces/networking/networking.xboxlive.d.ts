@@ -69,30 +69,30 @@
   }
 
   export class XboxLiveDeviceAddress {
-    static maxSnapshotBytesSize: Number;
-    isLocal: Boolean;
-    isValid: Boolean;
+    static maxSnapshotBytesSize: number;
+    isLocal: boolean;
+    isValid: boolean;
     networkAccessKind: XboxLiveNetworkAccessKind;
     constructor();
 
-    static createFromSnapshotBase64(base64: String): XboxLiveDeviceAddress;
+    static createFromSnapshotBase64(base64: string): XboxLiveDeviceAddress;
 
 
     static createFromSnapshotBuffer(buffer: Object): XboxLiveDeviceAddress;
 
 
-    static createFromSnapshotBytes(buffer: Array<Number>): XboxLiveDeviceAddress;
+    static createFromSnapshotBytes(buffer: Array<number>): XboxLiveDeviceAddress;
 
 
     static getLocal(): XboxLiveDeviceAddress;
 
 
-    getSnapshotAsBase64(): String;
+    getSnapshotAsBase64(): string;
 
     getSnapshotAsBuffer(): Object;
 
     getSnapshotAsBytes();
-    compare(otherDeviceAddress: XboxLiveDeviceAddress): Number;
+    compare(otherDeviceAddress: XboxLiveDeviceAddress): number;
 
     addListener(type: "SnapshotChanged", listener: (ev: Event) => void): void ;
     removeListener(type: "SnapshotChanged", listener: (ev: Event) => void): void ;
@@ -109,18 +109,18 @@
 
   export class XboxLiveEndpointPair {
     localHostName: Object;
-    localPort: String;
+    localPort: string;
     remoteDeviceAddress: XboxLiveDeviceAddress;
     remoteHostName: Object;
-    remotePort: String;
+    remotePort: string;
     state: XboxLiveEndpointPairState;
     template: XboxLiveEndpointPairTemplate;
     constructor();
 
-    static findEndpointPairBySocketAddressBytes(localSocketAddress: Array<Number>, remoteSocketAddress: Array<Number>): XboxLiveEndpointPair;
+    static findEndpointPairBySocketAddressBytes(localSocketAddress: Array<number>, remoteSocketAddress: Array<number>): XboxLiveEndpointPair;
 
 
-    static findEndpointPairByHostNamesAndPorts(localHostName: Object, localPort: String, remoteHostName: Object, remotePort: String): XboxLiveEndpointPair;
+    static findEndpointPairByHostNamesAndPorts(localHostName: Object, localPort: string, remoteHostName: Object, remotePort: string): XboxLiveEndpointPair;
 
 
     deleteAsync(callback: (error: Error) => void): void ;
@@ -142,23 +142,23 @@
 
   export class XboxLiveEndpointPairTemplate {
     static templates: Object;
-    acceptorBoundPortRangeLower: Number;
-    acceptorBoundPortRangeUpper: Number;
+    acceptorBoundPortRangeLower: number;
+    acceptorBoundPortRangeUpper: number;
     endpointPairs: Object;
-    initiatorBoundPortRangeLower: Number;
-    initiatorBoundPortRangeUpper: Number;
-    name: String;
+    initiatorBoundPortRangeLower: number;
+    initiatorBoundPortRangeUpper: number;
+    name: string;
     socketKind: XboxLiveSocketKind;
     constructor();
 
-    static getTemplateByName(name: String): XboxLiveEndpointPairTemplate;
+    static getTemplateByName(name: string): XboxLiveEndpointPairTemplate;
 
 
     createEndpointPairAsync(deviceAddress: XboxLiveDeviceAddress, callback: (error: Error, result: XboxLiveEndpointPairCreationResult) => void): void ;
     createEndpointPairAsync(deviceAddress: XboxLiveDeviceAddress, behaviors: XboxLiveEndpointPairCreationBehaviors, callback: (error: Error, result: XboxLiveEndpointPairCreationResult) => void): void ;
 
-    createEndpointPairForPortsAsync(deviceAddress: XboxLiveDeviceAddress, initiatorPort: String, acceptorPort: String, callback: (error: Error, result: XboxLiveEndpointPairCreationResult) => void): void ;
-    createEndpointPairForPortsAsync(deviceAddress: XboxLiveDeviceAddress, initiatorPort: String, acceptorPort: String, behaviors: XboxLiveEndpointPairCreationBehaviors, callback: (error: Error, result: XboxLiveEndpointPairCreationResult) => void): void ;
+    createEndpointPairForPortsAsync(deviceAddress: XboxLiveDeviceAddress, initiatorPort: string, acceptorPort: string, callback: (error: Error, result: XboxLiveEndpointPairCreationResult) => void): void ;
+    createEndpointPairForPortsAsync(deviceAddress: XboxLiveDeviceAddress, initiatorPort: string, acceptorPort: string, behaviors: XboxLiveEndpointPairCreationBehaviors, callback: (error: Error, result: XboxLiveEndpointPairCreationResult) => void): void ;
 
     addListener(type: "InboundEndpointPairCreated", listener: (ev: Event) => void): void ;
     removeListener(type: "InboundEndpointPairCreated", listener: (ev: Event) => void): void ;
@@ -182,7 +182,7 @@
   export class XboxLiveEndpointPairCreationResult {
     deviceAddress: XboxLiveDeviceAddress;
     endpointPair: XboxLiveEndpointPair;
-    isExistingPathEvaluation: Boolean;
+    isExistingPathEvaluation: boolean;
     status: XboxLiveEndpointPairCreationStatus;
     constructor();
 
@@ -199,7 +199,7 @@
     deviceAddress: XboxLiveDeviceAddress;
     metric: XboxLiveQualityOfServiceMetric;
     status: XboxLiveQualityOfServiceMeasurementStatus;
-    value: Number;
+    value: number;
     constructor();
 
   }
@@ -214,21 +214,21 @@
 
   export class XboxLiveQualityOfServiceMeasurement {
     static publishedPrivatePayload: Object;
-    static maxSimultaneousProbeConnections: Number;
-    static isSystemOutboundBandwidthConstrained: Boolean;
-    static isSystemInboundBandwidthConstrained: Boolean;
-    static maxPrivatePayloadSize: Number;
-    timeoutInMilliseconds: Number;
-    shouldRequestPrivatePayloads: Boolean;
-    numberOfProbesToAttempt: Number;
+    static maxSimultaneousProbeConnections: number;
+    static isSystemOutboundBandwidthConstrained: boolean;
+    static isSystemInboundBandwidthConstrained: boolean;
+    static maxPrivatePayloadSize: number;
+    timeoutInMilliseconds: number;
+    shouldRequestPrivatePayloads: boolean;
+    numberOfProbesToAttempt: number;
     deviceAddresses: Object;
     metricResults: Object;
     metrics: Object;
-    numberOfResultsPending: Number;
+    numberOfResultsPending: number;
     privatePayloadResults: Object;
     constructor();
 
-    static publishPrivatePayloadBytes(payload: Array<Number>): void;
+    static publishPrivatePayloadBytes(payload: Array<number>): void;
 
 
     static clearPrivatePayload(): void;

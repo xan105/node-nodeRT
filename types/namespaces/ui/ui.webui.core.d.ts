@@ -17,7 +17,7 @@
   }
 
   export class WebUICommandBarItemInvokedEventArgs {
-    isPrimaryCommand: Boolean;
+    isPrimaryCommand: boolean;
     constructor();
 
   }
@@ -33,11 +33,11 @@
   }
 
   export class WebUICommandBarIconButton {
-    label: String;
-    isToggleButton: Boolean;
-    isChecked: Boolean;
+    label: string;
+    isToggleButton: boolean;
+    isChecked: boolean;
     icon: IWebUICommandBarIcon;
-    enabled: Boolean;
+    enabled: boolean;
     constructor();
 
     addListener(type: "ItemInvoked", listener: (ev: Event) => void): void ;
@@ -54,7 +54,7 @@
   }
 
   export class WebUICommandBarConfirmationButton {
-    text: String;
+    text: string;
     constructor();
 
     addListener(type: "ItemInvoked", listener: (ev: Event) => void): void ;
@@ -78,9 +78,9 @@
   }
 
   export class WebUICommandBarSymbolIcon {
-    symbol: String;
+    symbol: string;
     constructor();
-    constructor(symbol: String);
+    constructor(symbol: string);
 
   }
 
@@ -91,9 +91,9 @@
   }
 
   export class WebUICommandBar {
-    visible: Boolean;
-    opacity: Number;
-    isOpen: Boolean;
+    visible: boolean;
+    opacity: number;
+    isOpen: boolean;
     foregroundColor: Object;
     closedDisplayMode: WebUICommandBarClosedDisplayMode;
     backgroundColor: Object;

@@ -188,13 +188,13 @@
     smartCard: SmartCard;
     constructor();
 
-    tryLaunchCurrentAppAsync(arguments: String, callback: (error: Error, result: Boolean) => void): void ;
-    tryLaunchCurrentAppAsync(arguments: String, behavior: SmartCardLaunchBehavior, callback: (error: Error, result: Boolean) => void): void ;
+    tryLaunchCurrentAppAsync(arguments: string, callback: (error: Error, result: boolean) => void): void ;
+    tryLaunchCurrentAppAsync(arguments: string, behavior: SmartCardLaunchBehavior, callback: (error: Error, result: boolean) => void): void ;
 
   }
 
   export class SmartCardEmulator {
-    static maxAppletIdGroupRegistrations: Number;
+    static maxAppletIdGroupRegistrations: number;
     enablementPolicy: SmartCardEmulatorEnablementPolicy;
     constructor();
 
@@ -210,12 +210,12 @@
     static getDefaultAsync(callback: (error: Error, result: SmartCardEmulator) => void): void ;
 
 
-    static isSupported(): Boolean;
+    static isSupported(): boolean;
 
 
     start(): void;
 
-    isHostCardEmulationSupported(): Boolean;
+    isHostCardEmulationSupported(): boolean;
 
     addListener(type: "ApduReceived", listener: (ev: Event) => void): void ;
     removeListener(type: "ApduReceived", listener: (ev: Event) => void): void ;
@@ -238,7 +238,7 @@
   export class SmartCardAppletIdGroupRegistration {
     activationPolicy: SmartCardAppletIdGroupActivationPolicy;
     appletIdGroup: SmartCardAppletIdGroup;
-    id: String;
+    id: string;
     constructor();
 
     requestActivationPolicyChangeAsync(policy: SmartCardAppletIdGroupActivationPolicy, callback: (error: Error, result: SmartCardActivationPolicyChangeResult) => void): void ;
@@ -248,14 +248,14 @@
   }
 
   export class SmartCardAppletIdGroup {
-    static maxAppletIds: Number;
+    static maxAppletIds: number;
     smartCardEmulationType: SmartCardEmulationType;
     smartCardEmulationCategory: SmartCardEmulationCategory;
-    displayName: String;
-    automaticEnablement: Boolean;
+    displayName: string;
+    automaticEnablement: boolean;
     appletIds: Object;
     constructor();
-    constructor(displayName: String, appletIds: Object, emulationCategory: SmartCardEmulationCategory, emulationType: SmartCardEmulationType);
+    constructor(displayName: string, appletIds: Object, emulationCategory: SmartCardEmulationCategory, emulationType: SmartCardEmulationType);
 
   }
 
@@ -263,14 +263,14 @@
     automaticResponseStatus: SmartCardAutomaticResponseStatus;
     commandApdu: Object;
     connectionProperties: SmartCardEmulatorConnectionProperties;
-    state: Number;
+    state: number;
     constructor();
 
-    tryRespondAsync(responseApdu: Object, callback: (error: Error, result: Boolean) => void): void ;
-    tryRespondAsync(responseApdu: Object, nextState: Number, callback: (error: Error, result: Boolean) => void): void ;
+    tryRespondAsync(responseApdu: Object, callback: (error: Error, result: boolean) => void): void ;
+    tryRespondAsync(responseApdu: Object, nextState: number, callback: (error: Error, result: boolean) => void): void ;
 
     tryRespondWithCryptogramsAsync(responseTemplate: Object, cryptogramPlacementSteps: Object, callback: (error: Error, result: SmartCardCryptogramGeneratorOperationStatus) => void): void ;
-    tryRespondWithCryptogramsAsync(responseTemplate: Object, cryptogramPlacementSteps: Object, nextState: Number, callback: (error: Error, result: SmartCardCryptogramGeneratorOperationStatus) => void): void ;
+    tryRespondWithCryptogramsAsync(responseTemplate: Object, cryptogramPlacementSteps: Object, nextState: number, callback: (error: Error, result: SmartCardCryptogramGeneratorOperationStatus) => void): void ;
 
   }
 
@@ -282,34 +282,34 @@
   }
 
   export class SmartCardEmulatorConnectionProperties {
-    id: String;
+    id: string;
     source: SmartCardEmulatorConnectionSource;
     constructor();
 
   }
 
   export class SmartCardAutomaticResponseApdu {
-    shouldMatchLength: Boolean;
+    shouldMatchLength: boolean;
     responseApdu: Object;
     commandApduBitMask: Object;
     commandApdu: Object;
     appletId: Object;
-    outputState: Number;
-    inputState: Number;
-    allowWhenCryptogramGeneratorNotPrepared: Boolean;
+    outputState: number;
+    inputState: number;
+    allowWhenCryptogramGeneratorNotPrepared: boolean;
     constructor();
     constructor(commandApdu: Object, responseApdu: Object);
 
   }
 
   export class SmartCardCryptogramPlacementStep {
-    templateOffset: Number;
+    templateOffset: number;
     sourceData: Object;
     cryptogramPlacementOptions: SmartCardCryptogramPlacementOptions;
-    cryptogramOffset: Number;
-    cryptogramMaterialPackageName: String;
-    cryptogramMaterialName: String;
-    cryptogramLength: Number;
+    cryptogramOffset: number;
+    cryptogramMaterialPackageName: string;
+    cryptogramMaterialName: string;
+    cryptogramLength: number;
     chainedOutputStep: SmartCardCryptogramPlacementStep;
     algorithm: SmartCardCryptogramAlgorithm;
     constructor();
@@ -320,7 +320,7 @@
     algorithm: SmartCardCryptogramStorageKeyAlgorithm;
     capabilities: SmartCardCryptogramStorageKeyCapabilities;
     dateCreated: Date;
-    storageKeyName: String;
+    storageKeyName: string;
     constructor();
 
   }
@@ -328,8 +328,8 @@
   export class SmartCardCryptogramMaterialPackageCharacteristics {
     dateImported: Date;
     packageFormat: SmartCardCryptogramMaterialPackageFormat;
-    packageName: String;
-    storageKeyName: String;
+    packageName: string;
+    storageKeyName: string;
     constructor();
 
   }
@@ -338,11 +338,11 @@
     allowedAlgorithms: Object;
     allowedProofOfPossessionAlgorithms: Object;
     allowedValidations: Object;
-    materialLength: Number;
-    materialName: String;
+    materialLength: number;
+    materialName: string;
     materialType: SmartCardCryptogramMaterialType;
     protectionMethod: SmartCardCryptogramMaterialProtectionMethod;
-    protectionVersion: Number;
+    protectionVersion: number;
     constructor();
 
   }
@@ -358,31 +358,31 @@
     static getSmartCardCryptogramGeneratorAsync(callback: (error: Error, result: SmartCardCryptogramGenerator) => void): void ;
 
 
-    static isSupported(): Boolean;
+    static isSupported(): boolean;
 
 
-    deleteCryptogramMaterialStorageKeyAsync(storageKeyName: String, callback: (error: Error, result: SmartCardCryptogramGeneratorOperationStatus) => void): void ;
+    deleteCryptogramMaterialStorageKeyAsync(storageKeyName: string, callback: (error: Error, result: SmartCardCryptogramGeneratorOperationStatus) => void): void ;
 
-    createCryptogramMaterialStorageKeyAsync(promptingBehavior: SmartCardUnlockPromptingBehavior, storageKeyName: String, algorithm: SmartCardCryptogramStorageKeyAlgorithm, capabilities: SmartCardCryptogramStorageKeyCapabilities, callback: (error: Error, result: SmartCardCryptogramGeneratorOperationStatus) => void): void ;
+    createCryptogramMaterialStorageKeyAsync(promptingBehavior: SmartCardUnlockPromptingBehavior, storageKeyName: string, algorithm: SmartCardCryptogramStorageKeyAlgorithm, capabilities: SmartCardCryptogramStorageKeyCapabilities, callback: (error: Error, result: SmartCardCryptogramGeneratorOperationStatus) => void): void ;
 
-    requestCryptogramMaterialStorageKeyInfoAsync(promptingBehavior: SmartCardUnlockPromptingBehavior, storageKeyName: String, format: Number, callback: (error: Error, result: SmartCardCryptogramStorageKeyInfo) => void): void ;
+    requestCryptogramMaterialStorageKeyInfoAsync(promptingBehavior: SmartCardUnlockPromptingBehavior, storageKeyName: string, format: number, callback: (error: Error, result: SmartCardCryptogramStorageKeyInfo) => void): void ;
 
-    importCryptogramMaterialPackageAsync(format: SmartCardCryptogramMaterialPackageFormat, storageKeyName: String, materialPackageName: String, cryptogramMaterialPackage: Object, callback: (error: Error, result: SmartCardCryptogramGeneratorOperationStatus) => void): void ;
+    importCryptogramMaterialPackageAsync(format: SmartCardCryptogramMaterialPackageFormat, storageKeyName: string, materialPackageName: string, cryptogramMaterialPackage: Object, callback: (error: Error, result: SmartCardCryptogramGeneratorOperationStatus) => void): void ;
 
-    tryProvePossessionOfCryptogramMaterialPackageAsync(promptingBehavior: SmartCardUnlockPromptingBehavior, responseFormat: SmartCardCryptogramMaterialPackageConfirmationResponseFormat, materialPackageName: String, materialName: String, challenge: Object, callback: (error: Error, result: SmartCardCryptogramMaterialPossessionProof) => void): void ;
+    tryProvePossessionOfCryptogramMaterialPackageAsync(promptingBehavior: SmartCardUnlockPromptingBehavior, responseFormat: SmartCardCryptogramMaterialPackageConfirmationResponseFormat, materialPackageName: string, materialName: string, challenge: Object, callback: (error: Error, result: SmartCardCryptogramMaterialPossessionProof) => void): void ;
 
     requestUnlockCryptogramMaterialForUseAsync(promptingBehavior: SmartCardUnlockPromptingBehavior, callback: (error: Error, result: SmartCardCryptogramGeneratorOperationStatus) => void): void ;
 
-    deleteCryptogramMaterialPackageAsync(materialPackageName: String, callback: (error: Error, result: SmartCardCryptogramGeneratorOperationStatus) => void): void ;
+    deleteCryptogramMaterialPackageAsync(materialPackageName: string, callback: (error: Error, result: SmartCardCryptogramGeneratorOperationStatus) => void): void ;
 
     validateRequestApduAsync(promptingBehavior: SmartCardUnlockPromptingBehavior, apduToValidate: Object, cryptogramPlacementSteps: Object, callback: (error: Error, result: SmartCardCryptogramGeneratorOperationStatus) => void): void ;
 
     getAllCryptogramStorageKeyCharacteristicsAsync(callback: (error: Error, result: SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult) => void): void ;
 
     getAllCryptogramMaterialPackageCharacteristicsAsync(callback: (error: Error, result: SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult) => void): void ;
-    getAllCryptogramMaterialPackageCharacteristicsAsync(storageKeyName: String, callback: (error: Error, result: SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult) => void): void ;
+    getAllCryptogramMaterialPackageCharacteristicsAsync(storageKeyName: string, callback: (error: Error, result: SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult) => void): void ;
 
-    getAllCryptogramMaterialCharacteristicsAsync(promptingBehavior: SmartCardUnlockPromptingBehavior, materialPackageName: String, callback: (error: Error, result: SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult) => void): void ;
+    getAllCryptogramMaterialCharacteristicsAsync(promptingBehavior: SmartCardUnlockPromptingBehavior, materialPackageName: string, callback: (error: Error, result: SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult) => void): void ;
 
   }
 
@@ -393,8 +393,8 @@
     capabilities: SmartCardCryptogramStorageKeyCapabilities;
     operationStatus: SmartCardCryptogramGeneratorOperationStatus;
     publicKey: Object;
-    publicKeyBlobType: Number;
-    operationalRequirements: String;
+    publicKeyBlobType: number;
+    operationalRequirements: string;
     constructor();
 
   }
@@ -428,16 +428,16 @@
   }
 
   export class SmartCardReader {
-    deviceId: String;
+    deviceId: string;
     kind: SmartCardReaderKind;
-    name: String;
+    name: string;
     constructor();
 
-    static fromIdAsync(deviceId: String, callback: (error: Error, result: SmartCardReader) => void): void ;
+    static fromIdAsync(deviceId: string, callback: (error: Error, result: SmartCardReader) => void): void ;
 
 
-    static getDeviceSelector(): String;
-    static getDeviceSelector(kind: SmartCardReaderKind): String;
+    static getDeviceSelector(): string;
+    static getDeviceSelector(kind: SmartCardReaderKind): string;
 
 
     getStatusAsync(callback: (error: Error, result: SmartCardReaderStatus) => void): void ;
@@ -490,39 +490,39 @@
     smartCard: SmartCard;
     constructor();
 
-    static requestAttestedVirtualSmartCardCreationAsync(friendlyName: String, administrativeKey: Object, pinPolicy: SmartCardPinPolicy, callback: (error: Error, result: SmartCardProvisioning) => void): void ;
-    static requestAttestedVirtualSmartCardCreationAsync(friendlyName: String, administrativeKey: Object, pinPolicy: SmartCardPinPolicy, cardId: String, callback: (error: Error, result: SmartCardProvisioning) => void): void ;
+    static requestAttestedVirtualSmartCardCreationAsync(friendlyName: string, administrativeKey: Object, pinPolicy: SmartCardPinPolicy, callback: (error: Error, result: SmartCardProvisioning) => void): void ;
+    static requestAttestedVirtualSmartCardCreationAsync(friendlyName: string, administrativeKey: Object, pinPolicy: SmartCardPinPolicy, cardId: string, callback: (error: Error, result: SmartCardProvisioning) => void): void ;
 
 
     static fromSmartCardAsync(card: SmartCard, callback: (error: Error, result: SmartCardProvisioning) => void): void ;
 
 
-    static requestVirtualSmartCardCreationAsync(friendlyName: String, administrativeKey: Object, pinPolicy: SmartCardPinPolicy, callback: (error: Error, result: SmartCardProvisioning) => void): void ;
-    static requestVirtualSmartCardCreationAsync(friendlyName: String, administrativeKey: Object, pinPolicy: SmartCardPinPolicy, cardId: String, callback: (error: Error, result: SmartCardProvisioning) => void): void ;
+    static requestVirtualSmartCardCreationAsync(friendlyName: string, administrativeKey: Object, pinPolicy: SmartCardPinPolicy, callback: (error: Error, result: SmartCardProvisioning) => void): void ;
+    static requestVirtualSmartCardCreationAsync(friendlyName: string, administrativeKey: Object, pinPolicy: SmartCardPinPolicy, cardId: string, callback: (error: Error, result: SmartCardProvisioning) => void): void ;
 
 
-    static requestVirtualSmartCardDeletionAsync(card: SmartCard, callback: (error: Error, result: Boolean) => void): void ;
+    static requestVirtualSmartCardDeletionAsync(card: SmartCard, callback: (error: Error, result: boolean) => void): void ;
 
 
-    getIdAsync(callback: (error: Error, result: String) => void): void ;
+    getIdAsync(callback: (error: Error, result: string) => void): void ;
 
-    getNameAsync(callback: (error: Error, result: String) => void): void ;
+    getNameAsync(callback: (error: Error, result: string) => void): void ;
 
     getChallengeContextAsync(callback: (error: Error, result: SmartCardChallengeContext) => void): void ;
 
-    requestPinChangeAsync(callback: (error: Error, result: Boolean) => void): void ;
+    requestPinChangeAsync(callback: (error: Error, result: boolean) => void): void ;
 
-    requestPinResetAsync(handler: Object, callback: (error: Error, result: Boolean) => void): void ;
+    requestPinResetAsync(handler: Object, callback: (error: Error, result: boolean) => void): void ;
 
-    getAuthorityKeyContainerNameAsync(callback: (error: Error, result: String) => void): void ;
+    getAuthorityKeyContainerNameAsync(callback: (error: Error, result: string) => void): void ;
 
   }
 
   export class SmartCardPinPolicy {
     uppercaseLetters: SmartCardPinCharacterPolicyOption;
     specialCharacters: SmartCardPinCharacterPolicyOption;
-    minLength: Number;
-    maxLength: Number;
+    minLength: number;
+    maxLength: number;
     lowercaseLetters: SmartCardPinCharacterPolicyOption;
     digits: SmartCardPinCharacterPolicyOption;
     constructor();
@@ -533,10 +533,10 @@
     challenge: Object;
     constructor();
 
-    verifyResponseAsync(response: Object, callback: (error: Error, result: Boolean) => void): void ;
+    verifyResponseAsync(response: Object, callback: (error: Error, result: boolean) => void): void ;
 
-    provisionAsync(response: Object, formatCard: Boolean, callback: (error: Error) => void): void ;
-    provisionAsync(response: Object, formatCard: Boolean, newCardId: String, callback: (error: Error) => void): void ;
+    provisionAsync(response: Object, formatCard: boolean, callback: (error: Error) => void): void ;
+    provisionAsync(response: Object, formatCard: boolean, newCardId: string, callback: (error: Error) => void): void ;
 
     changeAdministrativeKeyAsync(response: Object, newAdministrativeKey: Object, callback: (error: Error) => void): void ;
 

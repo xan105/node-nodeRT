@@ -7,12 +7,12 @@
   }
 
   export class CorePhysicalKeyStatus {
-    repeatCount: Number;
-    scanCode: Number;
-    isExtendedKey: Boolean;
-    isMenuKeyDown: Boolean;
-    wasKeyDown: Boolean;
-    isKeyReleased: Boolean;
+    repeatCount: number;
+    scanCode: number;
+    isExtendedKey: boolean;
+    isMenuKeyDown: boolean;
+    wasKeyDown: boolean;
+    isKeyReleased: boolean;
     constructor();
   }
 
@@ -34,13 +34,13 @@
   }
 
   export class WebViewControlProcess {
-    enterpriseId: String;
-    isPrivateNetworkClientServerCapabilityEnabled: Boolean;
-    processId: Number;
+    enterpriseId: string;
+    isPrivateNetworkClientServerCapabilityEnabled: boolean;
+    processId: number;
     constructor();
     constructor(processOptions: WebViewControlProcessOptions);
 
-    createWebViewControlAsync(hostWindowHandle: Number, bounds: Object, callback: (error: Error, result: WebViewControl) => void): void ;
+    createWebViewControlAsync(hostWindowHandle: number, bounds: Object, callback: (error: Error, result: WebViewControl) => void): void ;
 
     getWebViewControls(): Object;
 
@@ -60,21 +60,21 @@
   }
 
   export class WebViewControl {
-    scale: Number;
-    isVisible: Boolean;
+    scale: number;
+    isVisible: boolean;
     bounds: Object;
     process: WebViewControlProcess;
     source: Object;
     defaultBackgroundColor: Object;
-    canGoBack: Boolean;
-    canGoForward: Boolean;
-    containsFullScreenElement: Boolean;
+    canGoBack: boolean;
+    canGoForward: boolean;
+    containsFullScreenElement: boolean;
     deferredPermissionRequests: Object;
-    documentTitle: String;
+    documentTitle: string;
     settings: Object;
     constructor();
 
-    invokeScriptAsync(scriptName: String, arguments: Object, callback: (error: Error, result: String) => void): void ;
+    invokeScriptAsync(scriptName: string, arguments: Object, callback: (error: Error, result: string) => void): void ;
 
     capturePreviewToStreamAsync(stream: Object, callback: (error: Error) => void): void ;
 
@@ -94,15 +94,15 @@
 
     navigate(source: Object): void;
 
-    navigateToString(text: String): void;
+    navigateToString(text: string): void;
 
     navigateToLocalStreamUri(source: Object, streamResolver: Object): void;
 
     navigateWithHttpRequestMessage(requestMessage: Object): void;
 
-    buildLocalStreamUri(contentIdentifier: String, relativePath: String): Object;
+    buildLocalStreamUri(contentIdentifier: string, relativePath: string): Object;
 
-    getDeferredPermissionRequestById(id: Number, result: Object): void;
+    getDeferredPermissionRequestById(id: number, result: Object): void;
 
     addListener(type: "ContainsFullScreenElementChanged", listener: (ev: Event) => void): void ;
     removeListener(type: "ContainsFullScreenElementChanged", listener: (ev: Event) => void): void ;
@@ -214,18 +214,18 @@
   }
 
   export class WebViewControlAcceleratorKeyPressedEventArgs {
-    handled: Boolean;
-    eventType: Number;
+    handled: boolean;
+    eventType: number;
     keyStatus: CorePhysicalKeyStatus;
     routingStage: WebViewControlAcceleratorKeyRoutingStage;
-    virtualKey: Number;
+    virtualKey: number;
     constructor();
 
   }
 
   export class WebViewControlProcessOptions {
     privateNetworkClientServerCapability: WebViewControlProcessCapabilityState;
-    enterpriseId: String;
+    enterpriseId: string;
     constructor();
 
   }

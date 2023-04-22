@@ -19,10 +19,10 @@
 
   export class PdfPageRenderOptions {
     sourceRect: Object;
-    isIgnoringHighContrast: Boolean;
-    destinationWidth: Number;
-    destinationHeight: Number;
-    bitmapEncoderId: String;
+    isIgnoringHighContrast: boolean;
+    destinationWidth: number;
+    destinationHeight: number;
+    bitmapEncoderId: string;
     backgroundColor: Object;
     constructor();
 
@@ -40,8 +40,8 @@
 
   export class PdfPage {
     dimensions: PdfPageDimensions;
-    index: Number;
-    preferredZoom: Number;
+    index: number;
+    preferredZoom: number;
     rotation: PdfPageRotation;
     size: Object;
     constructor();
@@ -55,19 +55,19 @@
   }
 
   export class PdfDocument {
-    isPasswordProtected: Boolean;
-    pageCount: Number;
+    isPasswordProtected: boolean;
+    pageCount: number;
     constructor();
 
     static loadFromFileAsync(file: Object, callback: (error: Error, result: PdfDocument) => void): void ;
-    static loadFromFileAsync(file: Object, password: String, callback: (error: Error, result: PdfDocument) => void): void ;
+    static loadFromFileAsync(file: Object, password: string, callback: (error: Error, result: PdfDocument) => void): void ;
 
 
     static loadFromStreamAsync(inputStream: Object, callback: (error: Error, result: PdfDocument) => void): void ;
-    static loadFromStreamAsync(inputStream: Object, password: String, callback: (error: Error, result: PdfDocument) => void): void ;
+    static loadFromStreamAsync(inputStream: Object, password: string, callback: (error: Error, result: PdfDocument) => void): void ;
 
 
-    getPage(pageIndex: Number): PdfPage;
+    getPage(pageIndex: number): PdfPage;
 
   }
 

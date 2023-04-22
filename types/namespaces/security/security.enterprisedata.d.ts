@@ -63,10 +63,10 @@
   }
 
   export class FileProtectionInfo {
-    identity: String;
-    isRoamable: Boolean;
+    identity: string;
+    isRoamable: boolean;
     status: FileProtectionStatus;
-    isProtectWhileOpenSupported: Boolean;
+    isProtectWhileOpenSupported: boolean;
     constructor();
 
   }
@@ -94,9 +94,9 @@
   }
 
   export class FileUnprotectOptions {
-    audit: Boolean;
+    audit: boolean;
     constructor();
-    constructor(audit: Boolean);
+    constructor(audit: boolean);
 
   }
 
@@ -108,20 +108,20 @@
   }
 
   export class DataProtectionInfo {
-    identity: String;
+    identity: string;
     status: DataProtectionStatus;
     constructor();
 
   }
 
   export class ProtectionPolicyAuditInfo {
-    targetDescription: String;
-    sourceDescription: String;
-    dataDescription: String;
+    targetDescription: string;
+    sourceDescription: string;
+    dataDescription: string;
     action: ProtectionPolicyAuditAction;
     constructor();
-    constructor(action: ProtectionPolicyAuditAction, dataDescription: String, sourceDescription: String, targetDescription: String);
-    constructor(action: ProtectionPolicyAuditAction, dataDescription: String);
+    constructor(action: ProtectionPolicyAuditAction, dataDescription: string, sourceDescription: string, targetDescription: string);
+    constructor(action: ProtectionPolicyAuditAction, dataDescription: string);
 
   }
 
@@ -132,84 +132,84 @@
   }
 
   export class ProtectionPolicyManager {
-    static isProtectionEnabled: Boolean;
-    static primaryManagedIdentity: String;
-    identity: String;
-    showEnterpriseIndicator: Boolean;
+    static isProtectionEnabled: boolean;
+    static primaryManagedIdentity: string;
+    identity: string;
+    showEnterpriseIndicator: boolean;
     constructor();
 
-    static requestAccessAsync(sourceIdentity: String, targetIdentity: String, auditInfo: ProtectionPolicyAuditInfo, messageFromApp: String, behavior: ProtectionPolicyRequestAccessBehavior, callback: (error: Error, result: ProtectionPolicyEvaluationResult) => void): void ;
-    static requestAccessAsync(sourceIdentity: String, targetIdentity: String, auditInfo: ProtectionPolicyAuditInfo, callback: (error: Error, result: ProtectionPolicyEvaluationResult) => void): void ;
-    static requestAccessAsync(sourceIdentity: String, targetIdentity: String, auditInfo: ProtectionPolicyAuditInfo, messageFromApp: String, callback: (error: Error, result: ProtectionPolicyEvaluationResult) => void): void ;
-    static requestAccessAsync(sourceIdentity: String, targetIdentity: String, callback: (error: Error, result: ProtectionPolicyEvaluationResult) => void): void ;
+    static requestAccessAsync(sourceIdentity: string, targetIdentity: string, auditInfo: ProtectionPolicyAuditInfo, messageFromApp: string, behavior: ProtectionPolicyRequestAccessBehavior, callback: (error: Error, result: ProtectionPolicyEvaluationResult) => void): void ;
+    static requestAccessAsync(sourceIdentity: string, targetIdentity: string, auditInfo: ProtectionPolicyAuditInfo, callback: (error: Error, result: ProtectionPolicyEvaluationResult) => void): void ;
+    static requestAccessAsync(sourceIdentity: string, targetIdentity: string, auditInfo: ProtectionPolicyAuditInfo, messageFromApp: string, callback: (error: Error, result: ProtectionPolicyEvaluationResult) => void): void ;
+    static requestAccessAsync(sourceIdentity: string, targetIdentity: string, callback: (error: Error, result: ProtectionPolicyEvaluationResult) => void): void ;
 
 
-    static requestAccessForAppAsync(sourceIdentity: String, appPackageFamilyName: String, auditInfo: ProtectionPolicyAuditInfo, messageFromApp: String, behavior: ProtectionPolicyRequestAccessBehavior, callback: (error: Error, result: ProtectionPolicyEvaluationResult) => void): void ;
-    static requestAccessForAppAsync(sourceIdentity: String, appPackageFamilyName: String, auditInfo: ProtectionPolicyAuditInfo, callback: (error: Error, result: ProtectionPolicyEvaluationResult) => void): void ;
-    static requestAccessForAppAsync(sourceIdentity: String, appPackageFamilyName: String, auditInfo: ProtectionPolicyAuditInfo, messageFromApp: String, callback: (error: Error, result: ProtectionPolicyEvaluationResult) => void): void ;
-    static requestAccessForAppAsync(sourceIdentity: String, appPackageFamilyName: String, callback: (error: Error, result: ProtectionPolicyEvaluationResult) => void): void ;
+    static requestAccessForAppAsync(sourceIdentity: string, appPackageFamilyName: string, auditInfo: ProtectionPolicyAuditInfo, messageFromApp: string, behavior: ProtectionPolicyRequestAccessBehavior, callback: (error: Error, result: ProtectionPolicyEvaluationResult) => void): void ;
+    static requestAccessForAppAsync(sourceIdentity: string, appPackageFamilyName: string, auditInfo: ProtectionPolicyAuditInfo, callback: (error: Error, result: ProtectionPolicyEvaluationResult) => void): void ;
+    static requestAccessForAppAsync(sourceIdentity: string, appPackageFamilyName: string, auditInfo: ProtectionPolicyAuditInfo, messageFromApp: string, callback: (error: Error, result: ProtectionPolicyEvaluationResult) => void): void ;
+    static requestAccessForAppAsync(sourceIdentity: string, appPackageFamilyName: string, callback: (error: Error, result: ProtectionPolicyEvaluationResult) => void): void ;
 
 
-    static requestAccessToFilesForAppAsync(sourceItemList: Object, appPackageFamilyName: String, auditInfo: ProtectionPolicyAuditInfo, callback: (error: Error, result: ProtectionPolicyEvaluationResult) => void): void ;
-    static requestAccessToFilesForAppAsync(sourceItemList: Object, appPackageFamilyName: String, auditInfo: ProtectionPolicyAuditInfo, messageFromApp: String, behavior: ProtectionPolicyRequestAccessBehavior, callback: (error: Error, result: ProtectionPolicyEvaluationResult) => void): void ;
+    static requestAccessToFilesForAppAsync(sourceItemList: Object, appPackageFamilyName: string, auditInfo: ProtectionPolicyAuditInfo, callback: (error: Error, result: ProtectionPolicyEvaluationResult) => void): void ;
+    static requestAccessToFilesForAppAsync(sourceItemList: Object, appPackageFamilyName: string, auditInfo: ProtectionPolicyAuditInfo, messageFromApp: string, behavior: ProtectionPolicyRequestAccessBehavior, callback: (error: Error, result: ProtectionPolicyEvaluationResult) => void): void ;
 
 
-    static requestAccessToFilesForProcessAsync(sourceItemList: Object, processId: Number, auditInfo: ProtectionPolicyAuditInfo, callback: (error: Error, result: ProtectionPolicyEvaluationResult) => void): void ;
-    static requestAccessToFilesForProcessAsync(sourceItemList: Object, processId: Number, auditInfo: ProtectionPolicyAuditInfo, messageFromApp: String, behavior: ProtectionPolicyRequestAccessBehavior, callback: (error: Error, result: ProtectionPolicyEvaluationResult) => void): void ;
+    static requestAccessToFilesForProcessAsync(sourceItemList: Object, processId: number, auditInfo: ProtectionPolicyAuditInfo, callback: (error: Error, result: ProtectionPolicyEvaluationResult) => void): void ;
+    static requestAccessToFilesForProcessAsync(sourceItemList: Object, processId: number, auditInfo: ProtectionPolicyAuditInfo, messageFromApp: string, behavior: ProtectionPolicyRequestAccessBehavior, callback: (error: Error, result: ProtectionPolicyEvaluationResult) => void): void ;
 
 
-    static isFileProtectionRequiredAsync(target: Object, identity: String, callback: (error: Error, result: Boolean) => void): void ;
+    static isFileProtectionRequiredAsync(target: Object, identity: string, callback: (error: Error, result: boolean) => void): void ;
 
 
-    static isFileProtectionRequiredForNewFileAsync(parentFolder: Object, identity: String, desiredName: String, callback: (error: Error, result: Boolean) => void): void ;
+    static isFileProtectionRequiredForNewFileAsync(parentFolder: Object, identity: string, desiredName: string, callback: (error: Error, result: boolean) => void): void ;
 
 
-    static getPrimaryManagedIdentityForNetworkEndpointAsync(endpointHost: Object, callback: (error: Error, result: String) => void): void ;
+    static getPrimaryManagedIdentityForNetworkEndpointAsync(endpointHost: Object, callback: (error: Error, result: string) => void): void ;
 
 
-    static isRoamableProtectionEnabled(identity: String): Boolean;
+    static isRoamableProtectionEnabled(identity: string): boolean;
 
 
-    static getPrimaryManagedIdentityForIdentity(identity: String): String;
+    static getPrimaryManagedIdentityForIdentity(identity: string): string;
 
 
-    static logAuditEvent(sourceIdentity: String, targetIdentity: String, auditInfo: ProtectionPolicyAuditInfo): void;
+    static logAuditEvent(sourceIdentity: string, targetIdentity: string, auditInfo: ProtectionPolicyAuditInfo): void;
 
 
-    static hasContentBeenRevokedSince(identity: String, since: Date): Boolean;
+    static hasContentBeenRevokedSince(identity: string, since: Date): boolean;
 
 
-    static checkAccessForApp(sourceIdentity: String, appPackageFamilyName: String): ProtectionPolicyEvaluationResult;
+    static checkAccessForApp(sourceIdentity: string, appPackageFamilyName: string): ProtectionPolicyEvaluationResult;
 
 
-    static getEnforcementLevel(identity: String): EnforcementLevel;
+    static getEnforcementLevel(identity: string): EnforcementLevel;
 
 
-    static isUserDecryptionAllowed(identity: String): Boolean;
+    static isUserDecryptionAllowed(identity: string): boolean;
 
 
-    static isProtectionUnderLockRequired(identity: String): Boolean;
+    static isProtectionUnderLockRequired(identity: string): boolean;
 
 
-    static isIdentityManaged(identity: String): Boolean;
+    static isIdentityManaged(identity: string): boolean;
 
 
-    static tryApplyProcessUIPolicy(identity: String): Boolean;
+    static tryApplyProcessUIPolicy(identity: string): boolean;
 
 
     static clearProcessUIPolicy(): void;
 
 
-    static createCurrentThreadNetworkContext(identity: String): ThreadNetworkContext;
+    static createCurrentThreadNetworkContext(identity: string): ThreadNetworkContext;
 
 
-    static revokeContent(identity: String): void;
+    static revokeContent(identity: string): void;
 
 
     static getForCurrentView(): ProtectionPolicyManager;
 
 
-    static checkAccess(sourceIdentity: String, targetIdentity: String): ProtectionPolicyEvaluationResult;
+    static checkAccess(sourceIdentity: string, targetIdentity: string): ProtectionPolicyEvaluationResult;
 
 
     addListener(type: "PolicyChanged", listener: (ev: Event) => void): void ;
@@ -264,16 +264,16 @@
   export class FileRevocationManager {
     constructor();
 
-    static protectAsync(storageItem: Object, enterpriseIdentity: String, callback: (error: Error, result: FileProtectionStatus) => void): void ;
+    static protectAsync(storageItem: Object, enterpriseIdentity: string, callback: (error: Error, result: FileProtectionStatus) => void): void ;
 
 
-    static copyProtectionAsync(sourceStorageItem: Object, targetStorageItem: Object, callback: (error: Error, result: Boolean) => void): void ;
+    static copyProtectionAsync(sourceStorageItem: Object, targetStorageItem: Object, callback: (error: Error, result: boolean) => void): void ;
 
 
     static getStatusAsync(storageItem: Object, callback: (error: Error, result: FileProtectionStatus) => void): void ;
 
 
-    static revoke(enterpriseIdentity: String): void;
+    static revoke(enterpriseIdentity: string): void;
 
 
   }
@@ -285,10 +285,10 @@
     static unprotectAsync(target: Object, options: FileUnprotectOptions, callback: (error: Error, result: FileProtectionInfo) => void): void ;
 
 
-    static isContainerAsync(file: Object, callback: (error: Error, result: Boolean) => void): void ;
+    static isContainerAsync(file: Object, callback: (error: Error, result: boolean) => void): void ;
 
 
-    static loadFileFromContainerAsync(containerFile: Object, target: Object, collisionOption: Number, callback: (error: Error, result: ProtectedContainerImportResult) => void): void ;
+    static loadFileFromContainerAsync(containerFile: Object, target: Object, collisionOption: number, callback: (error: Error, result: ProtectedContainerImportResult) => void): void ;
     static loadFileFromContainerAsync(containerFile: Object, callback: (error: Error, result: ProtectedContainerImportResult) => void): void ;
     static loadFileFromContainerAsync(containerFile: Object, target: Object, callback: (error: Error, result: ProtectedContainerImportResult) => void): void ;
 
@@ -297,16 +297,16 @@
     static saveFileAsContainerAsync(protectedFile: Object, callback: (error: Error, result: ProtectedContainerExportResult) => void): void ;
 
 
-    static protectAsync(target: Object, identity: String, callback: (error: Error, result: FileProtectionInfo) => void): void ;
+    static protectAsync(target: Object, identity: string, callback: (error: Error, result: FileProtectionInfo) => void): void ;
 
 
-    static copyProtectionAsync(source: Object, target: Object, callback: (error: Error, result: Boolean) => void): void ;
+    static copyProtectionAsync(source: Object, target: Object, callback: (error: Error, result: boolean) => void): void ;
 
 
     static getProtectionInfoAsync(source: Object, callback: (error: Error, result: FileProtectionInfo) => void): void ;
 
 
-    static createProtectedAndOpenAsync(parentFolder: Object, desiredName: String, identity: String, collisionOption: Number, callback: (error: Error, result: ProtectedFileCreateResult) => void): void ;
+    static createProtectedAndOpenAsync(parentFolder: Object, desiredName: string, identity: string, collisionOption: number, callback: (error: Error, result: ProtectedFileCreateResult) => void): void ;
 
 
   }
@@ -314,13 +314,13 @@
   export class DataProtectionManager {
     constructor();
 
-    static protectAsync(data: Object, identity: String, callback: (error: Error, result: BufferProtectUnprotectResult) => void): void ;
+    static protectAsync(data: Object, identity: string, callback: (error: Error, result: BufferProtectUnprotectResult) => void): void ;
 
 
     static unprotectAsync(data: Object, callback: (error: Error, result: BufferProtectUnprotectResult) => void): void ;
 
 
-    static protectStreamAsync(unprotectedStream: Object, identity: String, protectedStream: Object, callback: (error: Error, result: DataProtectionInfo) => void): void ;
+    static protectStreamAsync(unprotectedStream: Object, identity: string, protectedStream: Object, callback: (error: Error, result: DataProtectionInfo) => void): void ;
 
 
     static unprotectStreamAsync(protectedStream: Object, unprotectedStream: Object, callback: (error: Error, result: DataProtectionInfo) => void): void ;

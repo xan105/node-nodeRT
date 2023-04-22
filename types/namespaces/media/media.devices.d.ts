@@ -197,21 +197,21 @@
   }
 
   export class IDefaultAudioDeviceChangedEventArgs {
-    id: String;
+    id: string;
     role: AudioDeviceRole;
     constructor();
 
   }
 
   export class DefaultAudioCaptureDeviceChangedEventArgs {
-    id: String;
+    id: string;
     role: AudioDeviceRole;
     constructor();
 
   }
 
   export class DefaultAudioRenderDeviceChangedEventArgs {
-    id: String;
+    id: string;
     role: AudioDeviceRole;
     constructor();
 
@@ -226,9 +226,9 @@
 
   export class AudioDeviceModulesManager {
     constructor();
-    constructor(deviceId: String);
+    constructor(deviceId: string);
 
-    findAllById(moduleId: String): Object;
+    findAllById(moduleId: string): Object;
 
     findAll(): Object;
 
@@ -253,11 +253,11 @@
   }
 
   export class AudioDeviceModule {
-    classId: String;
-    displayName: String;
-    instanceId: Number;
-    majorVersion: Number;
-    minorVersion: Number;
+    classId: string;
+    displayName: string;
+    instanceId: number;
+    majorVersion: number;
+    minorVersion: number;
     constructor();
 
     sendCommandAsync(Command: Object, callback: (error: Error, result: ModuleCommandResult) => void): void ;
@@ -267,19 +267,19 @@
   export class MediaDevice {
     constructor();
 
-    static getAudioCaptureSelector(): String;
+    static getAudioCaptureSelector(): string;
 
 
-    static getAudioRenderSelector(): String;
+    static getAudioRenderSelector(): string;
 
 
-    static getVideoCaptureSelector(): String;
+    static getVideoCaptureSelector(): string;
 
 
-    static getDefaultAudioCaptureId(role: AudioDeviceRole): String;
+    static getDefaultAudioCaptureId(role: AudioDeviceRole): string;
 
 
-    static getDefaultAudioRenderId(role: AudioDeviceRole): String;
+    static getDefaultAudioRenderId(role: AudioDeviceRole): string;
 
 
     addListener(type: "DefaultAudioCaptureDeviceChanged", listener: (ev: Event) => void): void ;
@@ -310,102 +310,102 @@
   }
 
   export class TorchControl {
-    powerPercent: Number;
-    enabled: Boolean;
-    powerSupported: Boolean;
-    supported: Boolean;
+    powerPercent: number;
+    enabled: boolean;
+    powerSupported: boolean;
+    supported: boolean;
     constructor();
 
   }
 
   export class FlashControl {
-    redEyeReduction: Boolean;
-    powerPercent: Number;
-    enabled: Boolean;
-    auto: Boolean;
-    powerSupported: Boolean;
-    redEyeReductionSupported: Boolean;
-    supported: Boolean;
-    assistantLightEnabled: Boolean;
-    assistantLightSupported: Boolean;
+    redEyeReduction: boolean;
+    powerPercent: number;
+    enabled: boolean;
+    auto: boolean;
+    powerSupported: boolean;
+    redEyeReductionSupported: boolean;
+    supported: boolean;
+    assistantLightEnabled: boolean;
+    assistantLightSupported: boolean;
     constructor();
 
   }
 
   export class ExposureCompensationControl {
-    max: Number;
-    min: Number;
-    step: Number;
-    supported: Boolean;
-    value: Number;
+    max: number;
+    min: number;
+    step: number;
+    supported: boolean;
+    value: number;
     constructor();
 
-    setValueAsync(value: Number, callback: (error: Error) => void): void ;
+    setValueAsync(value: number, callback: (error: Error) => void): void ;
 
   }
 
   export class IsoSpeedControl {
     preset: IsoSpeedPreset;
-    supported: Boolean;
+    supported: boolean;
     supportedPresets: Object;
-    auto: Boolean;
-    max: Number;
-    min: Number;
-    step: Number;
-    value: Number;
+    auto: boolean;
+    max: number;
+    min: number;
+    step: number;
+    value: number;
     constructor();
 
     setPresetAsync(preset: IsoSpeedPreset, callback: (error: Error) => void): void ;
 
-    setValueAsync(isoSpeed: Number, callback: (error: Error) => void): void ;
+    setValueAsync(isoSpeed: number, callback: (error: Error) => void): void ;
 
     setAutoAsync(callback: (error: Error) => void): void ;
 
   }
 
   export class WhiteBalanceControl {
-    max: Number;
-    min: Number;
+    max: number;
+    min: number;
     preset: ColorTemperaturePreset;
-    step: Number;
-    supported: Boolean;
-    value: Number;
+    step: number;
+    supported: boolean;
+    value: number;
     constructor();
 
     setPresetAsync(preset: ColorTemperaturePreset, callback: (error: Error) => void): void ;
 
-    setValueAsync(temperature: Number, callback: (error: Error) => void): void ;
+    setValueAsync(temperature: number, callback: (error: Error) => void): void ;
 
   }
 
   export class ExposureControl {
-    auto: Boolean;
-    max: Number;
-    min: Number;
-    step: Number;
-    supported: Boolean;
-    value: Number;
+    auto: boolean;
+    max: number;
+    min: number;
+    step: number;
+    supported: boolean;
+    value: number;
     constructor();
 
-    setAutoAsync(value: Boolean, callback: (error: Error) => void): void ;
+    setAutoAsync(value: boolean, callback: (error: Error) => void): void ;
 
-    setValueAsync(shutterDuration: Number, callback: (error: Error) => void): void ;
+    setValueAsync(shutterDuration: number, callback: (error: Error) => void): void ;
 
   }
 
   export class ZoomSettings {
-    value: Number;
+    value: number;
     mode: ZoomTransitionMode;
     constructor();
 
   }
 
   export class ZoomControl {
-    value: Number;
-    max: Number;
-    min: Number;
-    step: Number;
-    supported: Boolean;
+    value: number;
+    max: number;
+    min: number;
+    step: number;
+    supported: boolean;
     mode: ZoomTransitionMode;
     supportedModes: Object;
     constructor();
@@ -415,37 +415,37 @@
   }
 
   export class FocusSettings {
-    waitForFocus: Boolean;
-    value: Number;
+    waitForFocus: boolean;
+    value: number;
     mode: FocusMode;
     distance: ManualFocusDistance;
-    disableDriverFallback: Boolean;
+    disableDriverFallback: boolean;
     autoFocusRange: AutoFocusRange;
     constructor();
 
   }
 
   export class FocusControl {
-    max: Number;
-    min: Number;
+    max: number;
+    min: number;
     preset: FocusPreset;
-    step: Number;
-    supported: Boolean;
+    step: number;
+    supported: boolean;
     supportedPresets: Object;
-    value: Number;
-    focusChangedSupported: Boolean;
+    value: number;
+    focusChangedSupported: boolean;
     focusState: MediaCaptureFocusState;
     mode: FocusMode;
     supportedFocusDistances: Object;
     supportedFocusModes: Object;
     supportedFocusRanges: Object;
-    waitForFocusSupported: Boolean;
+    waitForFocusSupported: boolean;
     constructor();
 
     setPresetAsync(preset: FocusPreset, callback: (error: Error) => void): void ;
-    setPresetAsync(preset: FocusPreset, completeBeforeFocus: Boolean, callback: (error: Error) => void): void ;
+    setPresetAsync(preset: FocusPreset, completeBeforeFocus: boolean, callback: (error: Error) => void): void ;
 
-    setValueAsync(focus: Number, callback: (error: Error) => void): void ;
+    setValueAsync(focus: number, callback: (error: Error) => void): void ;
 
     focusAsync(callback: (error: Error) => void): void ;
 
@@ -459,40 +459,40 @@
 
   export class RegionOfInterest {
     bounds: Object;
-    autoWhiteBalanceEnabled: Boolean;
-    autoFocusEnabled: Boolean;
-    autoExposureEnabled: Boolean;
-    weight: Number;
+    autoWhiteBalanceEnabled: boolean;
+    autoFocusEnabled: boolean;
+    autoExposureEnabled: boolean;
+    weight: number;
     type: RegionOfInterestType;
-    boundsNormalized: Boolean;
+    boundsNormalized: boolean;
     constructor();
 
   }
 
   export class RegionsOfInterestControl {
-    autoExposureSupported: Boolean;
-    autoFocusSupported: Boolean;
-    autoWhiteBalanceSupported: Boolean;
-    maxRegions: Number;
+    autoExposureSupported: boolean;
+    autoFocusSupported: boolean;
+    autoWhiteBalanceSupported: boolean;
+    maxRegions: number;
     constructor();
 
     setRegionsAsync(regions: Object, callback: (error: Error) => void): void ;
-    setRegionsAsync(regions: Object, lockValues: Boolean, callback: (error: Error) => void): void ;
+    setRegionsAsync(regions: Object, lockValues: boolean, callback: (error: Error) => void): void ;
 
     clearRegionsAsync(callback: (error: Error) => void): void ;
 
   }
 
   export class ExposurePriorityVideoControl {
-    enabled: Boolean;
-    supported: Boolean;
+    enabled: boolean;
+    supported: boolean;
     constructor();
 
   }
 
   export class HdrVideoControl {
     mode: HdrVideoMode;
-    supported: Boolean;
+    supported: boolean;
     supportedModes: Object;
     constructor();
 
@@ -506,7 +506,7 @@
 
   export class AdvancedPhotoControl {
     mode: AdvancedPhotoMode;
-    supported: Boolean;
+    supported: boolean;
     supportedModes: Object;
     constructor();
 
@@ -516,7 +516,7 @@
 
   export class OpticalImageStabilizationControl {
     mode: OpticalImageStabilizationMode;
-    supported: Boolean;
+    supported: boolean;
     supportedModes: Object;
     constructor();
 
@@ -524,7 +524,7 @@
 
   export class VideoTemporalDenoisingControl {
     mode: VideoTemporalDenoisingMode;
-    supported: Boolean;
+    supported: boolean;
     supportedModes: Object;
     constructor();
 
@@ -533,11 +533,11 @@
   export class IMediaDeviceController {
     constructor();
 
-    setMediaStreamPropertiesAsync(mediaStreamType: Number, mediaEncodingProperties: Object, callback: (error: Error) => void): void ;
+    setMediaStreamPropertiesAsync(mediaStreamType: number, mediaEncodingProperties: Object, callback: (error: Error) => void): void ;
 
-    getAvailableMediaStreamProperties(mediaStreamType: Number): Object;
+    getAvailableMediaStreamProperties(mediaStreamType: number): Object;
 
-    getMediaStreamProperties(mediaStreamType: Number): Object;
+    getMediaStreamProperties(mediaStreamType: number): Object;
 
   }
 
@@ -545,26 +545,26 @@
     capabilities: MediaDeviceControlCapabilities;
     constructor();
 
-    tryGetValue(value: Number): Boolean;
+    tryGetValue(value: number): boolean;
 
-    trySetValue(value: Number): Boolean;
+    trySetValue(value: number): boolean;
 
-    tryGetAuto(value: Boolean): Boolean;
+    tryGetAuto(value: boolean): boolean;
 
-    trySetAuto(value: Boolean): Boolean;
+    trySetAuto(value: boolean): boolean;
 
   }
 
   export class LowLagPhotoSequenceControl {
-    thumbnailFormat: Number;
-    thumbnailEnabled: Boolean;
-    photosPerSecondLimit: Number;
-    pastPhotoLimit: Number;
-    desiredThumbnailSize: Number;
-    hardwareAcceleratedThumbnailSupported: Number;
-    maxPastPhotos: Number;
-    maxPhotosPerSecond: Number;
-    supported: Boolean;
+    thumbnailFormat: number;
+    thumbnailEnabled: boolean;
+    photosPerSecondLimit: number;
+    pastPhotoLimit: number;
+    desiredThumbnailSize: number;
+    hardwareAcceleratedThumbnailSupported: number;
+    maxPastPhotos: number;
+    maxPhotosPerSecond: number;
+    supported: boolean;
     constructor();
 
     getHighestConcurrentFrameRate(captureProperties: Object): Object;
@@ -574,10 +574,10 @@
   }
 
   export class LowLagPhotoControl {
-    thumbnailFormat: Number;
-    thumbnailEnabled: Boolean;
-    desiredThumbnailSize: Number;
-    hardwareAcceleratedThumbnailSupported: Number;
+    thumbnailFormat: number;
+    thumbnailEnabled: boolean;
+    desiredThumbnailSize: number;
+    hardwareAcceleratedThumbnailSupported: number;
     constructor();
 
     getHighestConcurrentFrameRate(captureProperties: Object): Object;
@@ -587,9 +587,9 @@
   }
 
   export class PhotoConfirmationControl {
-    pixelFormat: Number;
-    enabled: Boolean;
-    supported: Boolean;
+    pixelFormat: number;
+    enabled: boolean;
+    supported: boolean;
     constructor();
 
   }
@@ -602,12 +602,12 @@
   }
 
   export class MediaDeviceControlCapabilities {
-    autoModeSupported: Boolean;
-    default: Number;
-    max: Number;
-    min: Number;
-    step: Number;
-    supported: Boolean;
+    autoModeSupported: boolean;
+    default: number;
+    max: number;
+    min: number;
+    step: number;
+    supported: boolean;
     constructor();
 
   }
@@ -633,7 +633,7 @@
     exposurePriorityVideoControl: ExposurePriorityVideoControl;
     hdrVideoControl: HdrVideoControl;
     opticalImageStabilizationControl: OpticalImageStabilizationControl;
-    id: String;
+    id: string;
     videoTemporalDenoisingControl: VideoTemporalDenoisingControl;
     pan: MediaDeviceControl;
     hue: MediaDeviceControl;
@@ -648,40 +648,40 @@
     roll: MediaDeviceControl;
     constructor();
 
-    setMediaStreamPropertiesAsync(mediaStreamType: Number, mediaEncodingProperties: Object, callback: (error: Error) => void): void ;
+    setMediaStreamPropertiesAsync(mediaStreamType: number, mediaEncodingProperties: Object, callback: (error: Error) => void): void ;
 
-    trySetPowerlineFrequency(value: Number): Boolean;
+    trySetPowerlineFrequency(value: number): boolean;
 
-    tryGetPowerlineFrequency(value: Number): Boolean;
+    tryGetPowerlineFrequency(value: number): boolean;
 
-    getAvailableMediaStreamProperties(mediaStreamType: Number): Object;
+    getAvailableMediaStreamProperties(mediaStreamType: number): Object;
 
-    getMediaStreamProperties(mediaStreamType: Number): Object;
+    getMediaStreamProperties(mediaStreamType: number): Object;
 
-    setDeviceProperty(propertyId: String, propertyValue: Object): void;
+    setDeviceProperty(propertyId: string, propertyValue: Object): void;
 
-    getDeviceProperty(propertyId: String): Object;
+    getDeviceProperty(propertyId: string): Object;
 
-    getDevicePropertyById(propertyId: String, maxPropertyValueSize: Number): VideoDeviceControllerGetDevicePropertyResult;
+    getDevicePropertyById(propertyId: string, maxPropertyValueSize: number): VideoDeviceControllerGetDevicePropertyResult;
 
-    setDevicePropertyById(propertyId: String, propertyValue: Object): VideoDeviceControllerSetDevicePropertyStatus;
+    setDevicePropertyById(propertyId: string, propertyValue: Object): VideoDeviceControllerSetDevicePropertyStatus;
 
-    getDevicePropertyByExtendedId(extendedPropertyId: Array<Number>, maxPropertyValueSize: Number): VideoDeviceControllerGetDevicePropertyResult;
+    getDevicePropertyByExtendedId(extendedPropertyId: Array<number>, maxPropertyValueSize: number): VideoDeviceControllerGetDevicePropertyResult;
 
-    setDevicePropertyByExtendedId(extendedPropertyId: Array<Number>, propertyValue: Array<Number>): VideoDeviceControllerSetDevicePropertyStatus;
+    setDevicePropertyByExtendedId(extendedPropertyId: Array<number>, propertyValue: Array<number>): VideoDeviceControllerSetDevicePropertyStatus;
 
   }
 
   export class AudioDeviceController {
-    volumePercent: Number;
-    muted: Boolean;
+    volumePercent: number;
+    muted: boolean;
     constructor();
 
-    setMediaStreamPropertiesAsync(mediaStreamType: Number, mediaEncodingProperties: Object, callback: (error: Error) => void): void ;
+    setMediaStreamPropertiesAsync(mediaStreamType: number, mediaEncodingProperties: Object, callback: (error: Error) => void): void ;
 
-    getAvailableMediaStreamProperties(mediaStreamType: Number): Object;
+    getAvailableMediaStreamProperties(mediaStreamType: number): Object;
 
-    getMediaStreamProperties(mediaStreamType: Number): Object;
+    getMediaStreamProperties(mediaStreamType: number): Object;
 
   }
 
@@ -707,22 +707,22 @@
   }
 
   export class CallControl {
-    hasRinger: Boolean;
+    hasRinger: boolean;
     constructor();
 
     static getDefault(): CallControl;
 
 
-    static fromId(deviceId: String): CallControl;
+    static fromId(deviceId: string): CallControl;
 
 
-    indicateNewIncomingCall(enableRinger: Boolean, callerId: String): Number;
+    indicateNewIncomingCall(enableRinger: boolean, callerId: string): number;
 
-    indicateNewOutgoingCall(): Number;
+    indicateNewOutgoingCall(): number;
 
-    indicateActiveCall(callToken: Number): void;
+    indicateActiveCall(callToken: number): void;
 
-    endCall(callToken: Number): void;
+    endCall(callToken: number): void;
 
     addListener(type: "AnswerRequested", listener: (ev: Event) => void): void ;
     removeListener(type: "AnswerRequested", listener: (ev: Event) => void): void ;

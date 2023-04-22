@@ -3,37 +3,37 @@
   }
 
   export class SearchPaneVisibilityChangedEventArgs {
-    visible: Boolean;
+    visible: boolean;
     constructor();
 
   }
 
   export class ISearchPaneQueryChangedEventArgs {
-    language: String;
+    language: string;
     linguisticDetails: SearchPaneQueryLinguisticDetails;
-    queryText: String;
+    queryText: string;
     constructor();
 
   }
 
   export class SearchPaneQueryChangedEventArgs {
-    language: String;
+    language: string;
     linguisticDetails: SearchPaneQueryLinguisticDetails;
-    queryText: String;
+    queryText: string;
     constructor();
 
   }
 
   export class SearchPaneQuerySubmittedEventArgs {
-    language: String;
-    queryText: String;
+    language: string;
+    queryText: string;
     linguisticDetails: SearchPaneQueryLinguisticDetails;
     constructor();
 
   }
 
   export class SearchPaneResultSuggestionChosenEventArgs {
-    tag: String;
+    tag: string;
     constructor();
 
   }
@@ -46,7 +46,7 @@
   }
 
   export class SearchPaneSuggestionsRequest {
-    isCanceled: Boolean;
+    isCanceled: boolean;
     searchSuggestionCollection: SearchSuggestionCollection;
     constructor();
 
@@ -55,22 +55,22 @@
   }
 
   export class SearchPaneSuggestionsRequestedEventArgs {
-    language: String;
+    language: string;
     linguisticDetails: SearchPaneQueryLinguisticDetails;
-    queryText: String;
+    queryText: string;
     request: SearchPaneSuggestionsRequest;
     constructor();
 
   }
 
   export class SearchPane {
-    showOnKeyboardInput: Boolean;
-    searchHistoryEnabled: Boolean;
-    searchHistoryContext: String;
-    placeholderText: String;
-    language: String;
-    queryText: String;
-    visible: Boolean;
+    showOnKeyboardInput: boolean;
+    searchHistoryEnabled: boolean;
+    searchHistoryContext: string;
+    placeholderText: string;
+    language: string;
+    queryText: string;
+    visible: boolean;
     constructor();
 
     static hideThisApplication(): void;
@@ -82,9 +82,9 @@
     setLocalContentSuggestionSettings(settings: LocalContentSuggestionSettings): void;
 
     show(): void;
-    show(query: String): void;
+    show(query: string): void;
 
-    trySetQueryText(query: String): Boolean;
+    trySetQueryText(query: string): boolean;
 
     addListener(type: "QueryChanged", listener: (ev: Event) => void): void ;
     removeListener(type: "QueryChanged", listener: (ev: Event) => void): void ;
@@ -121,29 +121,29 @@
 
   export class SearchPaneQueryLinguisticDetails {
     queryTextAlternatives: Object;
-    queryTextCompositionLength: Number;
-    queryTextCompositionStart: Number;
+    queryTextCompositionLength: number;
+    queryTextCompositionStart: number;
     constructor();
 
   }
 
   export class SearchSuggestionCollection {
-    size: Number;
+    size: number;
     constructor();
 
-    appendQuerySuggestion(text: String): void;
+    appendQuerySuggestion(text: string): void;
 
     appendQuerySuggestions(suggestions: Object): void;
 
-    appendResultSuggestion(text: String, detailText: String, tag: String, image: Object, imageAlternateText: String): void;
+    appendResultSuggestion(text: string, detailText: string, tag: string, image: Object, imageAlternateText: string): void;
 
-    appendSearchSeparator(label: String): void;
+    appendSearchSeparator(label: string): void;
 
   }
 
   export class LocalContentSuggestionSettings {
-    enabled: Boolean;
-    aqsFilter: String;
+    enabled: boolean;
+    aqsFilter: string;
     locations: Object;
     propertiesToMatch: Object;
     constructor();
@@ -152,10 +152,10 @@
 
   export class SearchQueryLinguisticDetails {
     queryTextAlternatives: Object;
-    queryTextCompositionLength: Number;
-    queryTextCompositionStart: Number;
+    queryTextCompositionLength: number;
+    queryTextCompositionStart: number;
     constructor();
-    constructor(queryTextAlternatives: Object, queryTextCompositionStart: Number, queryTextCompositionLength: Number);
+    constructor(queryTextAlternatives: Object, queryTextCompositionStart: number, queryTextCompositionLength: number);
 
   }
 
@@ -167,7 +167,7 @@
   }
 
   export class SearchSuggestionsRequest {
-    isCanceled: Boolean;
+    isCanceled: boolean;
     searchSuggestionCollection: SearchSuggestionCollection;
     constructor();
 

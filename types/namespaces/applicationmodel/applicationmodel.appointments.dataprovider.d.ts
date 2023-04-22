@@ -96,7 +96,7 @@
   }
 
   export class AppointmentCalendarSyncManagerSyncRequest {
-    appointmentCalendarLocalId: String;
+    appointmentCalendarLocalId: string;
     constructor();
 
     reportCompletedAsync(callback: (error: Error) => void): void ;
@@ -107,9 +107,9 @@
 
   export class AppointmentCalendarCreateOrUpdateAppointmentRequest {
     appointment: Object;
-    appointmentCalendarLocalId: String;
+    appointmentCalendarLocalId: string;
     changedProperties: Object;
-    notifyInvitees: Boolean;
+    notifyInvitees: boolean;
     constructor();
 
     reportCompletedAsync(createdOrUpdatedAppointment: Object, callback: (error: Error) => void): void ;
@@ -119,12 +119,12 @@
   }
 
   export class AppointmentCalendarCancelMeetingRequest {
-    appointmentCalendarLocalId: String;
-    appointmentLocalId: String;
+    appointmentCalendarLocalId: string;
+    appointmentLocalId: string;
     appointmentOriginalStartTime: Date;
-    comment: String;
-    notifyInvitees: Boolean;
-    subject: String;
+    comment: string;
+    notifyInvitees: boolean;
+    subject: string;
     constructor();
 
     reportCompletedAsync(callback: (error: Error) => void): void ;
@@ -134,13 +134,13 @@
   }
 
   export class AppointmentCalendarForwardMeetingRequest {
-    appointmentCalendarLocalId: String;
-    appointmentLocalId: String;
+    appointmentCalendarLocalId: string;
+    appointmentLocalId: string;
     appointmentOriginalStartTime: Date;
-    comment: String;
-    forwardHeader: String;
+    comment: string;
+    forwardHeader: string;
     invitees: Object;
-    subject: String;
+    subject: string;
     constructor();
 
     reportCompletedAsync(callback: (error: Error) => void): void ;
@@ -150,13 +150,13 @@
   }
 
   export class AppointmentCalendarProposeNewTimeForMeetingRequest {
-    appointmentCalendarLocalId: String;
-    appointmentLocalId: String;
+    appointmentCalendarLocalId: string;
+    appointmentLocalId: string;
     appointmentOriginalStartTime: Date;
-    comment: String;
-    newDuration: Number;
+    comment: string;
+    newDuration: number;
     newStartTime: Date;
-    subject: String;
+    subject: string;
     constructor();
 
     reportCompletedAsync(callback: (error: Error) => void): void ;
@@ -166,13 +166,13 @@
   }
 
   export class AppointmentCalendarUpdateMeetingResponseRequest {
-    appointmentCalendarLocalId: String;
-    appointmentLocalId: String;
+    appointmentCalendarLocalId: string;
+    appointmentLocalId: string;
     appointmentOriginalStartTime: Date;
-    comment: String;
-    response: Number;
-    sendUpdate: Boolean;
-    subject: String;
+    comment: string;
+    response: number;
+    sendUpdate: boolean;
+    subject: string;
     constructor();
 
     reportCompletedAsync(callback: (error: Error) => void): void ;

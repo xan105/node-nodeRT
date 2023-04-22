@@ -11,26 +11,26 @@
   }
 
   export class OnlineIdServiceTicketRequest {
-    policy: String;
-    service: String;
+    policy: string;
+    service: string;
     constructor();
-    constructor(service: String, policy: String);
-    constructor(service: String);
+    constructor(service: string, policy: string);
+    constructor(service: string);
 
   }
 
   export class OnlineIdServiceTicket {
-    errorCode: Number;
+    errorCode: number;
     request: OnlineIdServiceTicketRequest;
-    value: String;
+    value: string;
     constructor();
 
   }
 
   export class UserAuthenticationOperation {
-    errorCode: Number;
-    id: Number;
-    status: Number;
+    errorCode: number;
+    id: number;
+    status: number;
     completed: Object;
     constructor();
 
@@ -43,9 +43,9 @@
   }
 
   export class SignOutUserOperation {
-    errorCode: Number;
-    id: Number;
-    status: Number;
+    errorCode: number;
+    id: number;
+    status: number;
     completed: Object;
     constructor();
 
@@ -58,22 +58,22 @@
   }
 
   export class UserIdentity {
-    firstName: String;
-    id: String;
-    isBetaAccount: Boolean;
-    isConfirmedPC: Boolean;
-    lastName: String;
-    safeCustomerId: String;
-    signInName: String;
+    firstName: string;
+    id: string;
+    isBetaAccount: boolean;
+    isConfirmedPC: boolean;
+    lastName: string;
+    safeCustomerId: string;
+    signInName: string;
     tickets: Object;
     constructor();
 
   }
 
   export class OnlineIdAuthenticator {
-    applicationId: String;
-    authenticatedSafeCustomerId: String;
-    canSignOut: Boolean;
+    applicationId: string;
+    authenticatedSafeCustomerId: string;
+    canSignOut: boolean;
     constructor();
 
     authenticateUserAsync(request: OnlineIdServiceTicketRequest, callback: (error: Error, result: UserIdentity) => void): void ;
@@ -84,14 +84,14 @@
   }
 
   export class OnlineIdSystemIdentity {
-    id: String;
+    id: string;
     ticket: OnlineIdServiceTicket;
     constructor();
 
   }
 
   export class OnlineIdSystemTicketResult {
-    extendedError: Number;
+    extendedError: number;
     identity: OnlineIdSystemIdentity;
     status: OnlineIdSystemTicketStatus;
     constructor();
@@ -99,7 +99,7 @@
   }
 
   export class OnlineIdSystemAuthenticatorForUser {
-    applicationId: String;
+    applicationId: string;
     user: Object;
     constructor();
 

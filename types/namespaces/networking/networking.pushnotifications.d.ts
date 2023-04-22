@@ -8,7 +8,7 @@
 
   export class PushNotificationChannel {
     expirationTime: Date;
-    uri: String;
+    uri: string;
     constructor();
 
     close(): void;
@@ -31,17 +31,17 @@
     constructor();
 
     createPushNotificationChannelForApplicationAsync(callback: (error: Error, result: PushNotificationChannel) => void): void ;
-    createPushNotificationChannelForApplicationAsync(applicationId: String, callback: (error: Error, result: PushNotificationChannel) => void): void ;
+    createPushNotificationChannelForApplicationAsync(applicationId: string, callback: (error: Error, result: PushNotificationChannel) => void): void ;
 
-    createPushNotificationChannelForSecondaryTileAsync(tileId: String, callback: (error: Error, result: PushNotificationChannel) => void): void ;
+    createPushNotificationChannelForSecondaryTileAsync(tileId: string, callback: (error: Error, result: PushNotificationChannel) => void): void ;
 
-    createRawPushNotificationChannelWithAlternateKeyForApplicationAsync(appServerKey: Object, channelId: String, callback: (error: Error, result: PushNotificationChannel) => void): void ;
-    createRawPushNotificationChannelWithAlternateKeyForApplicationAsync(appServerKey: Object, channelId: String, appId: String, callback: (error: Error, result: PushNotificationChannel) => void): void ;
+    createRawPushNotificationChannelWithAlternateKeyForApplicationAsync(appServerKey: Object, channelId: string, callback: (error: Error, result: PushNotificationChannel) => void): void ;
+    createRawPushNotificationChannelWithAlternateKeyForApplicationAsync(appServerKey: Object, channelId: string, appId: string, callback: (error: Error, result: PushNotificationChannel) => void): void ;
 
   }
 
   export class PushNotificationReceivedEventArgs {
-    cancel: Boolean;
+    cancel: boolean;
     badgeNotification: Object;
     notificationType: PushNotificationType;
     rawNotification: RawNotification;
@@ -52,8 +52,8 @@
   }
 
   export class RawNotification {
-    content: String;
-    channelId: String;
+    content: string;
+    channelId: string;
     headers: Object;
     constructor();
 
@@ -63,10 +63,10 @@
     constructor();
 
     static createPushNotificationChannelForApplicationAsync(callback: (error: Error, result: PushNotificationChannel) => void): void ;
-    static createPushNotificationChannelForApplicationAsync(applicationId: String, callback: (error: Error, result: PushNotificationChannel) => void): void ;
+    static createPushNotificationChannelForApplicationAsync(applicationId: string, callback: (error: Error, result: PushNotificationChannel) => void): void ;
 
 
-    static createPushNotificationChannelForSecondaryTileAsync(tileId: String, callback: (error: Error, result: PushNotificationChannel) => void): void ;
+    static createPushNotificationChannelForSecondaryTileAsync(tileId: string, callback: (error: Error, result: PushNotificationChannel) => void): void ;
 
 
     static getDefault(): PushNotificationChannelManagerForUser;

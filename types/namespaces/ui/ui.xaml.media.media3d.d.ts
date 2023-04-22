@@ -17,18 +17,18 @@
     static translateXProperty: Object;
     static translateYProperty: Object;
     static translateZProperty: Object;
-    rotationZ: Number;
-    rotationY: Number;
-    rotationX: Number;
-    centerZ: Number;
-    centerY: Number;
-    centerX: Number;
-    translateZ: Number;
-    translateY: Number;
-    translateX: Number;
-    scaleZ: Number;
-    scaleY: Number;
-    scaleX: Number;
+    rotationZ: number;
+    rotationY: number;
+    rotationX: number;
+    centerZ: number;
+    centerY: number;
+    centerX: number;
+    translateZ: number;
+    translateY: number;
+    translateX: number;
+    scaleZ: number;
+    scaleY: number;
+    scaleX: number;
     dispatcher: Object;
     constructor();
 
@@ -38,9 +38,9 @@
     static depthProperty: Object;
     static offsetXProperty: Object;
     static offsetYProperty: Object;
-    offsetY: Number;
-    offsetX: Number;
-    depth: Number;
+    offsetY: number;
+    offsetX: number;
+    depth: number;
     dispatcher: Object;
     constructor();
 

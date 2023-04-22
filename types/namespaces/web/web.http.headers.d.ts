@@ -1,5 +1,5 @@
   export class HttpContentHeaderCollection {
-    contentLength: Number;
+    contentLength: number;
     contentMD5: Object;
     contentLocation: Object;
     contentDisposition: HttpContentDispositionHeaderValue;
@@ -11,37 +11,37 @@
     contentLanguage: HttpLanguageHeaderValueCollection;
     constructor();
 
-    append(name: String, value: String): void;
+    append(name: string, value: string): void;
 
-    tryAppendWithoutValidation(name: String, value: String): Boolean;
+    tryAppendWithoutValidation(name: string, value: string): boolean;
 
-    lookup(key: String): String;
+    lookup(key: string): string;
 
-    hasKey(key: String): Boolean;
+    hasKey(key: string): boolean;
 
     getView(): Object;
 
-    insert(key: String, value: String): Boolean;
+    insert(key: string, value: string): boolean;
 
-    remove(key: String): void;
+    remove(key: string): void;
 
     clear(): void;
 
     first(): Object;
 
-    toString(): String;
+    toString(): string;
 
   }
 
   export class HttpRequestHeaderCollection {
     authorization: HttpCredentialsHeaderValue;
     proxyAuthorization: HttpCredentialsHeaderValue;
-    from: String;
+    from: string;
     referer: Object;
     ifUnmodifiedSince: Date;
     date: Date;
     host: Object;
-    maxForwards: Number;
+    maxForwards: number;
     ifModifiedSince: Date;
     cookie: HttpCookiePairHeaderValueCollection;
     accept: HttpMediaTypeWithQualityHeaderValueCollection;
@@ -54,32 +54,32 @@
     expect: HttpExpectationHeaderValueCollection;
     constructor();
 
-    append(name: String, value: String): void;
+    append(name: string, value: string): void;
 
-    tryAppendWithoutValidation(name: String, value: String): Boolean;
+    tryAppendWithoutValidation(name: string, value: string): boolean;
 
-    lookup(key: String): String;
+    lookup(key: string): string;
 
-    hasKey(key: String): Boolean;
+    hasKey(key: string): boolean;
 
     getView(): Object;
 
-    insert(key: String, value: String): Boolean;
+    insert(key: string, value: string): boolean;
 
-    remove(key: String): void;
+    remove(key: string): void;
 
     clear(): void;
 
     first(): Object;
 
-    toString(): String;
+    toString(): string;
 
   }
 
   export class HttpResponseHeaderCollection {
     date: Date;
     location: Object;
-    age: Number;
+    age: number;
     retryAfter: HttpDateOrDeltaHeaderValue;
     allow: HttpMethodHeaderValueCollection;
     cacheControl: HttpCacheDirectiveHeaderValueCollection;
@@ -89,66 +89,66 @@
     wwwAuthenticate: HttpChallengeHeaderValueCollection;
     constructor();
 
-    append(name: String, value: String): void;
+    append(name: string, value: string): void;
 
-    tryAppendWithoutValidation(name: String, value: String): Boolean;
+    tryAppendWithoutValidation(name: string, value: string): boolean;
 
-    lookup(key: String): String;
+    lookup(key: string): string;
 
-    hasKey(key: String): Boolean;
+    hasKey(key: string): boolean;
 
     getView(): Object;
 
-    insert(key: String, value: String): Boolean;
+    insert(key: string, value: string): boolean;
 
-    remove(key: String): void;
+    remove(key: string): void;
 
     clear(): void;
 
     first(): Object;
 
-    toString(): String;
+    toString(): string;
 
   }
 
   export class HttpContentDispositionHeaderValue {
-    size: Number;
-    name: String;
-    fileNameStar: String;
-    fileName: String;
-    dispositionType: String;
+    size: number;
+    name: string;
+    fileNameStar: string;
+    fileName: string;
+    dispositionType: string;
     parameters: Object;
     constructor();
-    constructor(dispositionType: String);
+    constructor(dispositionType: string);
 
-    static parse(input: String): HttpContentDispositionHeaderValue;
-
-
-    static tryParse(input: String, contentDispositionHeaderValue: Object): Boolean;
+    static parse(input: string): HttpContentDispositionHeaderValue;
 
 
-    toString(): String;
+    static tryParse(input: string, contentDispositionHeaderValue: Object): boolean;
+
+
+    toString(): string;
 
   }
 
   export class HttpContentCodingHeaderValueCollection {
     constructor();
 
-    parseAdd(input: String): void;
+    parseAdd(input: string): void;
 
-    tryParseAdd(input: String): Boolean;
+    tryParseAdd(input: string): boolean;
 
-    getAt(index: Number): HttpContentCodingHeaderValue;
+    getAt(index: number): HttpContentCodingHeaderValue;
 
     getView(): Object;
 
-    indexOf(value: HttpContentCodingHeaderValue, index: Number): Boolean;
+    indexOf(value: HttpContentCodingHeaderValue, index: number): boolean;
 
-    setAt(index: Number, value: HttpContentCodingHeaderValue): void;
+    setAt(index: number, value: HttpContentCodingHeaderValue): void;
 
-    insertAt(index: Number, value: HttpContentCodingHeaderValue): void;
+    insertAt(index: number, value: HttpContentCodingHeaderValue): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: HttpContentCodingHeaderValue): void;
 
@@ -161,28 +161,28 @@
 
     first(): Object;
 
-    toString(): String;
+    toString(): string;
 
   }
 
   export class HttpLanguageHeaderValueCollection {
     constructor();
 
-    parseAdd(input: String): void;
+    parseAdd(input: string): void;
 
-    tryParseAdd(input: String): Boolean;
+    tryParseAdd(input: string): boolean;
 
-    getAt(index: Number): Object;
+    getAt(index: number): Object;
 
     getView(): Object;
 
-    indexOf(value: Object, index: Number): Boolean;
+    indexOf(value: Object, index: number): boolean;
 
-    setAt(index: Number, value: Object): void;
+    setAt(index: number, value: Object): void;
 
-    insertAt(index: Number, value: Object): void;
+    insertAt(index: number, value: Object): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: Object): void;
 
@@ -195,65 +195,65 @@
 
     first(): Object;
 
-    toString(): String;
+    toString(): string;
 
   }
 
   export class HttpContentRangeHeaderValue {
-    unit: String;
-    firstBytePosition: Number;
-    lastBytePosition: Number;
-    length: Number;
+    unit: string;
+    firstBytePosition: number;
+    lastBytePosition: number;
+    length: number;
     constructor();
-    constructor(length: Number);
-    constructor(from: Number, to: Number);
-    constructor(from: Number, to: Number, length: Number);
+    constructor(length: number);
+    constructor(from: number, to: number);
+    constructor(from: number, to: number, length: number);
 
-    static parse(input: String): HttpContentRangeHeaderValue;
-
-
-    static tryParse(input: String, contentRangeHeaderValue: Object): Boolean;
+    static parse(input: string): HttpContentRangeHeaderValue;
 
 
-    toString(): String;
+    static tryParse(input: string, contentRangeHeaderValue: Object): boolean;
+
+
+    toString(): string;
 
   }
 
   export class HttpMediaTypeHeaderValue {
-    mediaType: String;
-    charSet: String;
+    mediaType: string;
+    charSet: string;
     parameters: Object;
     constructor();
-    constructor(mediaType: String);
+    constructor(mediaType: string);
 
-    static parse(input: String): HttpMediaTypeHeaderValue;
-
-
-    static tryParse(input: String, mediaTypeHeaderValue: Object): Boolean;
+    static parse(input: string): HttpMediaTypeHeaderValue;
 
 
-    toString(): String;
+    static tryParse(input: string, mediaTypeHeaderValue: Object): boolean;
+
+
+    toString(): string;
 
   }
 
   export class HttpMediaTypeWithQualityHeaderValueCollection {
     constructor();
 
-    parseAdd(input: String): void;
+    parseAdd(input: string): void;
 
-    tryParseAdd(input: String): Boolean;
+    tryParseAdd(input: string): boolean;
 
-    getAt(index: Number): HttpMediaTypeWithQualityHeaderValue;
+    getAt(index: number): HttpMediaTypeWithQualityHeaderValue;
 
     getView(): Object;
 
-    indexOf(value: HttpMediaTypeWithQualityHeaderValue, index: Number): Boolean;
+    indexOf(value: HttpMediaTypeWithQualityHeaderValue, index: number): boolean;
 
-    setAt(index: Number, value: HttpMediaTypeWithQualityHeaderValue): void;
+    setAt(index: number, value: HttpMediaTypeWithQualityHeaderValue): void;
 
-    insertAt(index: Number, value: HttpMediaTypeWithQualityHeaderValue): void;
+    insertAt(index: number, value: HttpMediaTypeWithQualityHeaderValue): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: HttpMediaTypeWithQualityHeaderValue): void;
 
@@ -266,28 +266,28 @@
 
     first(): Object;
 
-    toString(): String;
+    toString(): string;
 
   }
 
   export class HttpContentCodingWithQualityHeaderValueCollection {
     constructor();
 
-    parseAdd(input: String): void;
+    parseAdd(input: string): void;
 
-    tryParseAdd(input: String): Boolean;
+    tryParseAdd(input: string): boolean;
 
-    getAt(index: Number): HttpContentCodingWithQualityHeaderValue;
+    getAt(index: number): HttpContentCodingWithQualityHeaderValue;
 
     getView(): Object;
 
-    indexOf(value: HttpContentCodingWithQualityHeaderValue, index: Number): Boolean;
+    indexOf(value: HttpContentCodingWithQualityHeaderValue, index: number): boolean;
 
-    setAt(index: Number, value: HttpContentCodingWithQualityHeaderValue): void;
+    setAt(index: number, value: HttpContentCodingWithQualityHeaderValue): void;
 
-    insertAt(index: Number, value: HttpContentCodingWithQualityHeaderValue): void;
+    insertAt(index: number, value: HttpContentCodingWithQualityHeaderValue): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: HttpContentCodingWithQualityHeaderValue): void;
 
@@ -300,28 +300,28 @@
 
     first(): Object;
 
-    toString(): String;
+    toString(): string;
 
   }
 
   export class HttpLanguageRangeWithQualityHeaderValueCollection {
     constructor();
 
-    parseAdd(input: String): void;
+    parseAdd(input: string): void;
 
-    tryParseAdd(input: String): Boolean;
+    tryParseAdd(input: string): boolean;
 
-    getAt(index: Number): HttpLanguageRangeWithQualityHeaderValue;
+    getAt(index: number): HttpLanguageRangeWithQualityHeaderValue;
 
     getView(): Object;
 
-    indexOf(value: HttpLanguageRangeWithQualityHeaderValue, index: Number): Boolean;
+    indexOf(value: HttpLanguageRangeWithQualityHeaderValue, index: number): boolean;
 
-    setAt(index: Number, value: HttpLanguageRangeWithQualityHeaderValue): void;
+    setAt(index: number, value: HttpLanguageRangeWithQualityHeaderValue): void;
 
-    insertAt(index: Number, value: HttpLanguageRangeWithQualityHeaderValue): void;
+    insertAt(index: number, value: HttpLanguageRangeWithQualityHeaderValue): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: HttpLanguageRangeWithQualityHeaderValue): void;
 
@@ -334,50 +334,50 @@
 
     first(): Object;
 
-    toString(): String;
+    toString(): string;
 
   }
 
   export class HttpCredentialsHeaderValue {
     parameters: Object;
-    scheme: String;
-    token: String;
+    scheme: string;
+    token: string;
     constructor();
-    constructor(scheme: String);
-    constructor(scheme: String, token: String);
+    constructor(scheme: string);
+    constructor(scheme: string, token: string);
 
-    static parse(input: String): HttpCredentialsHeaderValue;
-
-
-    static tryParse(input: String, credentialsHeaderValue: Object): Boolean;
+    static parse(input: string): HttpCredentialsHeaderValue;
 
 
-    toString(): String;
+    static tryParse(input: string, credentialsHeaderValue: Object): boolean;
+
+
+    toString(): string;
 
   }
 
   export class HttpCacheDirectiveHeaderValueCollection {
-    sharedMaxAge: Number;
-    minFresh: Number;
-    maxStale: Number;
-    maxAge: Number;
+    sharedMaxAge: number;
+    minFresh: number;
+    maxStale: number;
+    maxAge: number;
     constructor();
 
-    parseAdd(input: String): void;
+    parseAdd(input: string): void;
 
-    tryParseAdd(input: String): Boolean;
+    tryParseAdd(input: string): boolean;
 
-    getAt(index: Number): HttpNameValueHeaderValue;
+    getAt(index: number): HttpNameValueHeaderValue;
 
     getView(): Object;
 
-    indexOf(value: HttpNameValueHeaderValue, index: Number): Boolean;
+    indexOf(value: HttpNameValueHeaderValue, index: number): boolean;
 
-    setAt(index: Number, value: HttpNameValueHeaderValue): void;
+    setAt(index: number, value: HttpNameValueHeaderValue): void;
 
-    insertAt(index: Number, value: HttpNameValueHeaderValue): void;
+    insertAt(index: number, value: HttpNameValueHeaderValue): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: HttpNameValueHeaderValue): void;
 
@@ -390,28 +390,28 @@
 
     first(): Object;
 
-    toString(): String;
+    toString(): string;
 
   }
 
   export class HttpConnectionOptionHeaderValueCollection {
     constructor();
 
-    parseAdd(input: String): void;
+    parseAdd(input: string): void;
 
-    tryParseAdd(input: String): Boolean;
+    tryParseAdd(input: string): boolean;
 
-    getAt(index: Number): HttpConnectionOptionHeaderValue;
+    getAt(index: number): HttpConnectionOptionHeaderValue;
 
     getView(): Object;
 
-    indexOf(value: HttpConnectionOptionHeaderValue, index: Number): Boolean;
+    indexOf(value: HttpConnectionOptionHeaderValue, index: number): boolean;
 
-    setAt(index: Number, value: HttpConnectionOptionHeaderValue): void;
+    setAt(index: number, value: HttpConnectionOptionHeaderValue): void;
 
-    insertAt(index: Number, value: HttpConnectionOptionHeaderValue): void;
+    insertAt(index: number, value: HttpConnectionOptionHeaderValue): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: HttpConnectionOptionHeaderValue): void;
 
@@ -424,28 +424,28 @@
 
     first(): Object;
 
-    toString(): String;
+    toString(): string;
 
   }
 
   export class HttpCookiePairHeaderValueCollection {
     constructor();
 
-    parseAdd(input: String): void;
+    parseAdd(input: string): void;
 
-    tryParseAdd(input: String): Boolean;
+    tryParseAdd(input: string): boolean;
 
-    getAt(index: Number): HttpCookiePairHeaderValue;
+    getAt(index: number): HttpCookiePairHeaderValue;
 
     getView(): Object;
 
-    indexOf(value: HttpCookiePairHeaderValue, index: Number): Boolean;
+    indexOf(value: HttpCookiePairHeaderValue, index: number): boolean;
 
-    setAt(index: Number, value: HttpCookiePairHeaderValue): void;
+    setAt(index: number, value: HttpCookiePairHeaderValue): void;
 
-    insertAt(index: Number, value: HttpCookiePairHeaderValue): void;
+    insertAt(index: number, value: HttpCookiePairHeaderValue): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: HttpCookiePairHeaderValue): void;
 
@@ -458,28 +458,28 @@
 
     first(): Object;
 
-    toString(): String;
+    toString(): string;
 
   }
 
   export class HttpExpectationHeaderValueCollection {
     constructor();
 
-    parseAdd(input: String): void;
+    parseAdd(input: string): void;
 
-    tryParseAdd(input: String): Boolean;
+    tryParseAdd(input: string): boolean;
 
-    getAt(index: Number): HttpExpectationHeaderValue;
+    getAt(index: number): HttpExpectationHeaderValue;
 
     getView(): Object;
 
-    indexOf(value: HttpExpectationHeaderValue, index: Number): Boolean;
+    indexOf(value: HttpExpectationHeaderValue, index: number): boolean;
 
-    setAt(index: Number, value: HttpExpectationHeaderValue): void;
+    setAt(index: number, value: HttpExpectationHeaderValue): void;
 
-    insertAt(index: Number, value: HttpExpectationHeaderValue): void;
+    insertAt(index: number, value: HttpExpectationHeaderValue): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: HttpExpectationHeaderValue): void;
 
@@ -492,28 +492,28 @@
 
     first(): Object;
 
-    toString(): String;
+    toString(): string;
 
   }
 
   export class HttpTransferCodingHeaderValueCollection {
     constructor();
 
-    parseAdd(input: String): void;
+    parseAdd(input: string): void;
 
-    tryParseAdd(input: String): Boolean;
+    tryParseAdd(input: string): boolean;
 
-    getAt(index: Number): HttpTransferCodingHeaderValue;
+    getAt(index: number): HttpTransferCodingHeaderValue;
 
     getView(): Object;
 
-    indexOf(value: HttpTransferCodingHeaderValue, index: Number): Boolean;
+    indexOf(value: HttpTransferCodingHeaderValue, index: number): boolean;
 
-    setAt(index: Number, value: HttpTransferCodingHeaderValue): void;
+    setAt(index: number, value: HttpTransferCodingHeaderValue): void;
 
-    insertAt(index: Number, value: HttpTransferCodingHeaderValue): void;
+    insertAt(index: number, value: HttpTransferCodingHeaderValue): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: HttpTransferCodingHeaderValue): void;
 
@@ -526,28 +526,28 @@
 
     first(): Object;
 
-    toString(): String;
+    toString(): string;
 
   }
 
   export class HttpProductInfoHeaderValueCollection {
     constructor();
 
-    parseAdd(input: String): void;
+    parseAdd(input: string): void;
 
-    tryParseAdd(input: String): Boolean;
+    tryParseAdd(input: string): boolean;
 
-    getAt(index: Number): HttpProductInfoHeaderValue;
+    getAt(index: number): HttpProductInfoHeaderValue;
 
     getView(): Object;
 
-    indexOf(value: HttpProductInfoHeaderValue, index: Number): Boolean;
+    indexOf(value: HttpProductInfoHeaderValue, index: number): boolean;
 
-    setAt(index: Number, value: HttpProductInfoHeaderValue): void;
+    setAt(index: number, value: HttpProductInfoHeaderValue): void;
 
-    insertAt(index: Number, value: HttpProductInfoHeaderValue): void;
+    insertAt(index: number, value: HttpProductInfoHeaderValue): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: HttpProductInfoHeaderValue): void;
 
@@ -560,28 +560,28 @@
 
     first(): Object;
 
-    toString(): String;
+    toString(): string;
 
   }
 
   export class HttpMethodHeaderValueCollection {
     constructor();
 
-    parseAdd(input: String): void;
+    parseAdd(input: string): void;
 
-    tryParseAdd(input: String): Boolean;
+    tryParseAdd(input: string): boolean;
 
-    getAt(index: Number): Object;
+    getAt(index: number): Object;
 
     getView(): Object;
 
-    indexOf(value: Object, index: Number): Boolean;
+    indexOf(value: Object, index: number): boolean;
 
-    setAt(index: Number, value: Object): void;
+    setAt(index: number, value: Object): void;
 
-    insertAt(index: Number, value: Object): void;
+    insertAt(index: number, value: Object): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: Object): void;
 
@@ -594,28 +594,28 @@
 
     first(): Object;
 
-    toString(): String;
+    toString(): string;
 
   }
 
   export class HttpChallengeHeaderValueCollection {
     constructor();
 
-    parseAdd(input: String): void;
+    parseAdd(input: string): void;
 
-    tryParseAdd(input: String): Boolean;
+    tryParseAdd(input: string): boolean;
 
-    getAt(index: Number): HttpChallengeHeaderValue;
+    getAt(index: number): HttpChallengeHeaderValue;
 
     getView(): Object;
 
-    indexOf(value: HttpChallengeHeaderValue, index: Number): Boolean;
+    indexOf(value: HttpChallengeHeaderValue, index: number): boolean;
 
-    setAt(index: Number, value: HttpChallengeHeaderValue): void;
+    setAt(index: number, value: HttpChallengeHeaderValue): void;
 
-    insertAt(index: Number, value: HttpChallengeHeaderValue): void;
+    insertAt(index: number, value: HttpChallengeHeaderValue): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: HttpChallengeHeaderValue): void;
 
@@ -628,225 +628,225 @@
 
     first(): Object;
 
-    toString(): String;
+    toString(): string;
 
   }
 
   export class HttpDateOrDeltaHeaderValue {
     date: Date;
-    delta: Number;
+    delta: number;
     constructor();
 
-    static parse(input: String): HttpDateOrDeltaHeaderValue;
+    static parse(input: string): HttpDateOrDeltaHeaderValue;
 
 
-    static tryParse(input: String, dateOrDeltaHeaderValue: Object): Boolean;
+    static tryParse(input: string, dateOrDeltaHeaderValue: Object): boolean;
 
 
-    toString(): String;
+    toString(): string;
 
   }
 
   export class HttpNameValueHeaderValue {
-    value: String;
-    name: String;
+    value: string;
+    name: string;
     constructor();
-    constructor(name: String);
-    constructor(name: String, value: String);
+    constructor(name: string);
+    constructor(name: string, value: string);
 
-    static parse(input: String): HttpNameValueHeaderValue;
-
-
-    static tryParse(input: String, nameValueHeaderValue: Object): Boolean;
+    static parse(input: string): HttpNameValueHeaderValue;
 
 
-    toString(): String;
+    static tryParse(input: string, nameValueHeaderValue: Object): boolean;
+
+
+    toString(): string;
 
   }
 
   export class HttpChallengeHeaderValue {
     parameters: Object;
-    scheme: String;
-    token: String;
+    scheme: string;
+    token: string;
     constructor();
-    constructor(scheme: String);
-    constructor(scheme: String, token: String);
+    constructor(scheme: string);
+    constructor(scheme: string, token: string);
 
-    static parse(input: String): HttpChallengeHeaderValue;
-
-
-    static tryParse(input: String, challengeHeaderValue: Object): Boolean;
+    static parse(input: string): HttpChallengeHeaderValue;
 
 
-    toString(): String;
+    static tryParse(input: string, challengeHeaderValue: Object): boolean;
+
+
+    toString(): string;
 
   }
 
   export class HttpConnectionOptionHeaderValue {
-    token: String;
+    token: string;
     constructor();
-    constructor(token: String);
+    constructor(token: string);
 
-    static parse(input: String): HttpConnectionOptionHeaderValue;
-
-
-    static tryParse(input: String, connectionOptionHeaderValue: Object): Boolean;
+    static parse(input: string): HttpConnectionOptionHeaderValue;
 
 
-    toString(): String;
+    static tryParse(input: string, connectionOptionHeaderValue: Object): boolean;
+
+
+    toString(): string;
 
   }
 
   export class HttpContentCodingHeaderValue {
-    contentCoding: String;
+    contentCoding: string;
     constructor();
-    constructor(contentCoding: String);
+    constructor(contentCoding: string);
 
-    static parse(input: String): HttpContentCodingHeaderValue;
-
-
-    static tryParse(input: String, contentCodingHeaderValue: Object): Boolean;
+    static parse(input: string): HttpContentCodingHeaderValue;
 
 
-    toString(): String;
+    static tryParse(input: string, contentCodingHeaderValue: Object): boolean;
+
+
+    toString(): string;
 
   }
 
   export class HttpCookiePairHeaderValue {
-    value: String;
-    name: String;
+    value: string;
+    name: string;
     constructor();
-    constructor(name: String);
-    constructor(name: String, value: String);
+    constructor(name: string);
+    constructor(name: string, value: string);
 
-    static parse(input: String): HttpCookiePairHeaderValue;
-
-
-    static tryParse(input: String, cookiePairHeaderValue: Object): Boolean;
+    static parse(input: string): HttpCookiePairHeaderValue;
 
 
-    toString(): String;
+    static tryParse(input: string, cookiePairHeaderValue: Object): boolean;
+
+
+    toString(): string;
 
   }
 
   export class HttpExpectationHeaderValue {
-    value: String;
-    name: String;
+    value: string;
+    name: string;
     parameters: Object;
     constructor();
-    constructor(name: String);
-    constructor(name: String, value: String);
+    constructor(name: string);
+    constructor(name: string, value: string);
 
-    static parse(input: String): HttpExpectationHeaderValue;
-
-
-    static tryParse(input: String, expectationHeaderValue: Object): Boolean;
+    static parse(input: string): HttpExpectationHeaderValue;
 
 
-    toString(): String;
+    static tryParse(input: string, expectationHeaderValue: Object): boolean;
+
+
+    toString(): string;
 
   }
 
   export class HttpLanguageRangeWithQualityHeaderValue {
-    languageRange: String;
-    quality: Number;
+    languageRange: string;
+    quality: number;
     constructor();
-    constructor(languageRange: String);
-    constructor(languageRange: String, quality: Number);
+    constructor(languageRange: string);
+    constructor(languageRange: string, quality: number);
 
-    static parse(input: String): HttpLanguageRangeWithQualityHeaderValue;
-
-
-    static tryParse(input: String, languageRangeWithQualityHeaderValue: Object): Boolean;
+    static parse(input: string): HttpLanguageRangeWithQualityHeaderValue;
 
 
-    toString(): String;
+    static tryParse(input: string, languageRangeWithQualityHeaderValue: Object): boolean;
+
+
+    toString(): string;
 
   }
 
   export class HttpMediaTypeWithQualityHeaderValue {
-    quality: Number;
-    mediaType: String;
-    charSet: String;
+    quality: number;
+    mediaType: string;
+    charSet: string;
     parameters: Object;
     constructor();
-    constructor(mediaType: String);
-    constructor(mediaType: String, quality: Number);
+    constructor(mediaType: string);
+    constructor(mediaType: string, quality: number);
 
-    static parse(input: String): HttpMediaTypeWithQualityHeaderValue;
-
-
-    static tryParse(input: String, mediaTypeWithQualityHeaderValue: Object): Boolean;
+    static parse(input: string): HttpMediaTypeWithQualityHeaderValue;
 
 
-    toString(): String;
+    static tryParse(input: string, mediaTypeWithQualityHeaderValue: Object): boolean;
+
+
+    toString(): string;
 
   }
 
   export class HttpProductHeaderValue {
-    name: String;
-    version: String;
+    name: string;
+    version: string;
     constructor();
-    constructor(productName: String);
-    constructor(productName: String, productVersion: String);
+    constructor(productName: string);
+    constructor(productName: string, productVersion: string);
 
-    static parse(input: String): HttpProductHeaderValue;
-
-
-    static tryParse(input: String, productHeaderValue: Object): Boolean;
+    static parse(input: string): HttpProductHeaderValue;
 
 
-    toString(): String;
+    static tryParse(input: string, productHeaderValue: Object): boolean;
+
+
+    toString(): string;
 
   }
 
   export class HttpProductInfoHeaderValue {
-    comment: String;
+    comment: string;
     product: HttpProductHeaderValue;
     constructor();
-    constructor(productComment: String);
-    constructor(productName: String, productVersion: String);
+    constructor(productComment: string);
+    constructor(productName: string, productVersion: string);
 
-    static parse(input: String): HttpProductInfoHeaderValue;
-
-
-    static tryParse(input: String, productInfoHeaderValue: Object): Boolean;
+    static parse(input: string): HttpProductInfoHeaderValue;
 
 
-    toString(): String;
+    static tryParse(input: string, productInfoHeaderValue: Object): boolean;
+
+
+    toString(): string;
 
   }
 
   export class HttpContentCodingWithQualityHeaderValue {
-    contentCoding: String;
-    quality: Number;
+    contentCoding: string;
+    quality: number;
     constructor();
-    constructor(contentCoding: String);
-    constructor(contentCoding: String, quality: Number);
+    constructor(contentCoding: string);
+    constructor(contentCoding: string, quality: number);
 
-    static parse(input: String): HttpContentCodingWithQualityHeaderValue;
-
-
-    static tryParse(input: String, contentCodingWithQualityHeaderValue: Object): Boolean;
+    static parse(input: string): HttpContentCodingWithQualityHeaderValue;
 
 
-    toString(): String;
+    static tryParse(input: string, contentCodingWithQualityHeaderValue: Object): boolean;
+
+
+    toString(): string;
 
   }
 
   export class HttpTransferCodingHeaderValue {
     parameters: Object;
-    value: String;
+    value: string;
     constructor();
-    constructor(input: String);
+    constructor(input: string);
 
-    static parse(input: String): HttpTransferCodingHeaderValue;
-
-
-    static tryParse(input: String, transferCodingHeaderValue: Object): Boolean;
+    static parse(input: string): HttpTransferCodingHeaderValue;
 
 
-    toString(): String;
+    static tryParse(input: string, transferCodingHeaderValue: Object): boolean;
+
+
+    toString(): string;
 
   }
 

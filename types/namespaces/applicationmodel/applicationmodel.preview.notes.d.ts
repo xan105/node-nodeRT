@@ -7,26 +7,26 @@
   }
 
   export class NotePlacementChangedPreviewEventArgs {
-    viewId: Number;
+    viewId: number;
     constructor();
 
   }
 
   export class NoteVisibilityChangedPreviewEventArgs {
-    isVisible: Boolean;
-    viewId: Number;
+    isVisible: boolean;
+    viewId: number;
     constructor();
 
   }
 
   export class NotesWindowManagerPreviewShowNoteOptions {
-    showWithFocus: Boolean;
+    showWithFocus: boolean;
     constructor();
 
   }
 
   export class NotesWindowManagerPreview {
-    isScreenLocked: Boolean;
+    isScreenLocked: boolean;
     constructor();
 
     static getForCurrentApp(): NotesWindowManagerPreview;
@@ -36,19 +36,19 @@
 
     setThumbnailImageForTaskSwitcherAsync(bitmap: Object, callback: (error: Error) => void): void ;
 
-    showNote(noteViewId: Number): void;
+    showNote(noteViewId: number): void;
 
-    showNoteRelativeTo(noteViewId: Number, anchorNoteViewId: Number): void;
-    showNoteRelativeTo(noteViewId: Number, anchorNoteViewId: Number, options: NotesWindowManagerPreviewShowNoteOptions): void;
+    showNoteRelativeTo(noteViewId: number, anchorNoteViewId: number): void;
+    showNoteRelativeTo(noteViewId: number, anchorNoteViewId: number, options: NotesWindowManagerPreviewShowNoteOptions): void;
 
-    showNoteWithPlacement(noteViewId: Number, data: Object): void;
-    showNoteWithPlacement(noteViewId: Number, data: Object, options: NotesWindowManagerPreviewShowNoteOptions): void;
+    showNoteWithPlacement(noteViewId: number, data: Object): void;
+    showNoteWithPlacement(noteViewId: number, data: Object, options: NotesWindowManagerPreviewShowNoteOptions): void;
 
-    hideNote(noteViewId: Number): void;
+    hideNote(noteViewId: number): void;
 
-    getNotePlacement(noteViewId: Number): Object;
+    getNotePlacement(noteViewId: number): Object;
 
-    trySetNoteSize(noteViewId: Number, size: Object): Boolean;
+    trySetNoteSize(noteViewId: number, size: Object): boolean;
 
     setFocusToNextView(): void;
 

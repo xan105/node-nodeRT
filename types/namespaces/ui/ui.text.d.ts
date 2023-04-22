@@ -7,7 +7,7 @@
   }
 
   export class FontWeight {
-    weight: Number;
+    weight: number;
     constructor();
   }
 
@@ -364,35 +364,35 @@
 
   export class TextConstants {
     static autoColor: Object;
-    static maxUnitCount: Number;
-    static minUnitCount: Number;
+    static maxUnitCount: number;
+    static minUnitCount: number;
     static undefinedColor: Object;
-    static undefinedFloatValue: Number;
+    static undefinedFloatValue: number;
     static undefinedFontStretch: FontStretch;
     static undefinedFontStyle: FontStyle;
-    static undefinedInt32Value: Number;
+    static undefinedInt32Value: number;
     constructor();
 
   }
 
   export class ITextDocument {
     caretType: CaretType;
-    defaultTabStop: Number;
+    defaultTabStop: number;
     selection: ITextSelection;
-    undoLimit: Number;
+    undoLimit: number;
     constructor();
 
-    canCopy(): Boolean;
+    canCopy(): boolean;
 
-    canPaste(): Boolean;
+    canPaste(): boolean;
 
-    canRedo(): Boolean;
+    canRedo(): boolean;
 
-    canUndo(): Boolean;
+    canUndo(): boolean;
 
-    applyDisplayUpdates(): Number;
+    applyDisplayUpdates(): number;
 
-    batchDisplayUpdates(): Number;
+    batchDisplayUpdates(): number;
 
     beginUndoGroup(): void;
 
@@ -402,11 +402,11 @@
 
     getDefaultParagraphFormat(): ITextParagraphFormat;
 
-    getRange(startPosition: Number, endPosition: Number): ITextRange;
+    getRange(startPosition: number, endPosition: number): ITextRange;
 
     getRangeFromPoint(point: Object, options: PointOptions): ITextRange;
 
-    getText(options: TextGetOptions, value: String): void;
+    getText(options: TextGetOptions, value: string): void;
 
     loadFromStream(options: TextSetOptions, value: Object): void;
 
@@ -418,89 +418,89 @@
 
     setDefaultParagraphFormat(value: ITextParagraphFormat): void;
 
-    setText(options: TextSetOptions, value: String): void;
+    setText(options: TextSetOptions, value: string): void;
 
     undo(): void;
 
   }
 
   export class ITextRange {
-    character: String;
+    character: string;
     characterFormat: ITextCharacterFormat;
-    endPosition: Number;
+    endPosition: number;
     formattedText: ITextRange;
     gravity: RangeGravity;
-    length: Number;
-    link: String;
+    length: number;
+    link: string;
     paragraphFormat: ITextParagraphFormat;
-    startPosition: Number;
-    storyLength: Number;
-    text: String;
+    startPosition: number;
+    storyLength: number;
+    text: string;
     constructor();
 
-    canPaste(format: Number): Boolean;
+    canPaste(format: number): boolean;
 
     changeCase(value: LetterCase): void;
 
-    collapse(value: Boolean): void;
+    collapse(value: boolean): void;
 
     copy(): void;
 
     cut(): void;
 
-    delete(unit: TextRangeUnit, count: Number): Number;
+    delete(unit: TextRangeUnit, count: number): number;
 
-    endOf(unit: TextRangeUnit, extend: Boolean): Number;
+    endOf(unit: TextRangeUnit, extend: boolean): number;
 
-    expand(unit: TextRangeUnit): Number;
+    expand(unit: TextRangeUnit): number;
 
-    findText(value: String, scanLength: Number, options: FindOptions): Number;
+    findText(value: string, scanLength: number, options: FindOptions): number;
 
-    getCharacterUtf32(value: Number, offset: Number): void;
+    getCharacterUtf32(value: number, offset: number): void;
 
     getClone(): ITextRange;
 
-    getIndex(unit: TextRangeUnit): Number;
+    getIndex(unit: TextRangeUnit): number;
 
     getPoint(horizontalAlign: HorizontalCharacterAlignment, verticalAlign: VerticalCharacterAlignment, options: PointOptions, point: Object): void;
 
-    getRect(options: PointOptions, rect: Object, hit: Number): void;
+    getRect(options: PointOptions, rect: Object, hit: number): void;
 
-    getText(options: TextGetOptions, value: String): void;
+    getText(options: TextGetOptions, value: string): void;
 
     getTextViaStream(options: TextGetOptions, value: Object): void;
 
-    inRange(range: ITextRange): Boolean;
+    inRange(range: ITextRange): boolean;
 
-    insertImage(width: Number, height: Number, ascent: Number, verticalAlign: VerticalCharacterAlignment, alternateText: String, value: Object): void;
+    insertImage(width: number, height: number, ascent: number, verticalAlign: VerticalCharacterAlignment, alternateText: string, value: Object): void;
 
-    inStory(range: ITextRange): Boolean;
+    inStory(range: ITextRange): boolean;
 
-    isEqual(range: ITextRange): Boolean;
+    isEqual(range: ITextRange): boolean;
 
-    move(unit: TextRangeUnit, count: Number): Number;
+    move(unit: TextRangeUnit, count: number): number;
 
-    moveEnd(unit: TextRangeUnit, count: Number): Number;
+    moveEnd(unit: TextRangeUnit, count: number): number;
 
-    moveStart(unit: TextRangeUnit, count: Number): Number;
+    moveStart(unit: TextRangeUnit, count: number): number;
 
-    paste(format: Number): void;
+    paste(format: number): void;
 
     scrollIntoView(value: PointOptions): void;
 
     matchSelection(): void;
 
-    setIndex(unit: TextRangeUnit, index: Number, extend: Boolean): void;
+    setIndex(unit: TextRangeUnit, index: number, extend: boolean): void;
 
-    setPoint(point: Object, options: PointOptions, extend: Boolean): void;
+    setPoint(point: Object, options: PointOptions, extend: boolean): void;
 
-    setRange(startPosition: Number, endPosition: Number): void;
+    setRange(startPosition: number, endPosition: number): void;
 
-    setText(options: TextSetOptions, value: String): void;
+    setText(options: TextSetOptions, value: string): void;
 
     setTextViaStream(options: TextSetOptions, value: Object): void;
 
-    startOf(unit: TextRangeUnit, extend: Boolean): Number;
+    startOf(unit: TextRangeUnit, extend: boolean): number;
 
   }
 
@@ -509,19 +509,19 @@
     type: SelectionType;
     constructor();
 
-    endKey(unit: TextRangeUnit, extend: Boolean): Number;
+    endKey(unit: TextRangeUnit, extend: boolean): number;
 
-    homeKey(unit: TextRangeUnit, extend: Boolean): Number;
+    homeKey(unit: TextRangeUnit, extend: boolean): number;
 
-    moveDown(unit: TextRangeUnit, count: Number, extend: Boolean): Number;
+    moveDown(unit: TextRangeUnit, count: number, extend: boolean): number;
 
-    moveLeft(unit: TextRangeUnit, count: Number, extend: Boolean): Number;
+    moveLeft(unit: TextRangeUnit, count: number, extend: boolean): number;
 
-    moveRight(unit: TextRangeUnit, count: Number, extend: Boolean): Number;
+    moveRight(unit: TextRangeUnit, count: number, extend: boolean): number;
 
-    moveUp(unit: TextRangeUnit, count: Number, extend: Boolean): Number;
+    moveUp(unit: TextRangeUnit, count: number, extend: boolean): number;
 
-    typeText(value: String): void;
+    typeText(value: string): void;
 
   }
 
@@ -534,97 +534,97 @@
     foregroundColor: Object;
     hidden: FormatEffect;
     italic: FormatEffect;
-    kerning: Number;
-    languageTag: String;
+    kerning: number;
+    languageTag: string;
     linkType: LinkType;
-    name: String;
+    name: string;
     outline: FormatEffect;
-    position: Number;
+    position: number;
     protectedText: FormatEffect;
-    size: Number;
+    size: number;
     smallCaps: FormatEffect;
-    spacing: Number;
+    spacing: number;
     strikethrough: FormatEffect;
     subscript: FormatEffect;
     superscript: FormatEffect;
     textScript: TextScript;
     underline: UnderlineType;
-    weight: Number;
+    weight: number;
     constructor();
 
     setClone(value: ITextCharacterFormat): void;
 
     getClone(): ITextCharacterFormat;
 
-    isEqual(format: ITextCharacterFormat): Boolean;
+    isEqual(format: ITextCharacterFormat): boolean;
 
   }
 
   export class ITextParagraphFormat {
     alignment: ParagraphAlignment;
-    firstLineIndent: Number;
+    firstLineIndent: number;
     keepTogether: FormatEffect;
     keepWithNext: FormatEffect;
-    leftIndent: Number;
-    lineSpacing: Number;
+    leftIndent: number;
+    lineSpacing: number;
     lineSpacingRule: LineSpacingRule;
     listAlignment: MarkerAlignment;
-    listLevelIndex: Number;
-    listStart: Number;
+    listLevelIndex: number;
+    listStart: number;
     listStyle: MarkerStyle;
-    listTab: Number;
+    listTab: number;
     listType: MarkerType;
     noLineNumber: FormatEffect;
     pageBreakBefore: FormatEffect;
-    rightIndent: Number;
+    rightIndent: number;
     rightToLeft: FormatEffect;
-    spaceAfter: Number;
-    spaceBefore: Number;
+    spaceAfter: number;
+    spaceBefore: number;
     style: ParagraphStyle;
-    tabCount: Number;
+    tabCount: number;
     widowControl: FormatEffect;
     constructor();
 
-    addTab(position: Number, align: TabAlignment, leader: TabLeader): void;
+    addTab(position: number, align: TabAlignment, leader: TabLeader): void;
 
     clearAllTabs(): void;
 
-    deleteTab(position: Number): void;
+    deleteTab(position: number): void;
 
     getClone(): ITextParagraphFormat;
 
-    getTab(index: Number, position: Number, align: TabAlignment, leader: TabLeader): void;
+    getTab(index: number, position: number, align: TabAlignment, leader: TabLeader): void;
 
-    isEqual(format: ITextParagraphFormat): Boolean;
+    isEqual(format: ITextParagraphFormat): boolean;
 
     setClone(format: ITextParagraphFormat): void;
 
-    setIndents(start: Number, left: Number, right: Number): void;
+    setIndents(start: number, left: number, right: number): void;
 
-    setLineSpacing(rule: LineSpacingRule, spacing: Number): void;
+    setLineSpacing(rule: LineSpacingRule, spacing: number): void;
 
   }
 
   export class RichEditTextDocument {
-    undoLimit: Number;
-    defaultTabStop: Number;
+    undoLimit: number;
+    defaultTabStop: number;
     caretType: CaretType;
     selection: ITextSelection;
-    ignoreTrailingCharacterSpacing: Boolean;
-    alignmentIncludesTrailingWhitespace: Boolean;
+    ignoreTrailingCharacterSpacing: boolean;
+    alignmentIncludesTrailingWhitespace: boolean;
     constructor();
 
-    canCopy(): Boolean;
+    canCopy(): boolean;
 
-    canPaste(): Boolean;
+    canPaste(): boolean;
 
-    canRedo(): Boolean;
+    canRedo(): boolean;
 
-    canUndo(): Boolean;
+    canUndo(): boolean;
 
-    applyDisplayUpdates(): Number;
+    applyDisplayUpdates(): number;
 
-    batchDisplayUpdates(): Number;
+    batchDisplayUpdates(): number;
 
     beginUndoGroup(): void;
 
@@ -634,11 +634,11 @@
 
     getDefaultParagraphFormat(): ITextParagraphFormat;
 
-    getRange(startPosition: Number, endPosition: Number): ITextRange;
+    getRange(startPosition: number, endPosition: number): ITextRange;
 
     getRangeFromPoint(point: Object, options: PointOptions): ITextRange;
 
-    getText(options: TextGetOptions, value: String): void;
+    getText(options: TextGetOptions, value: string): void;
 
     loadFromStream(options: TextSetOptions, value: Object): void;
 
@@ -650,7 +650,7 @@
 
     setDefaultParagraphFormat(value: ITextParagraphFormat): void;
 
-    setText(options: TextSetOptions, value: String): void;
+    setText(options: TextSetOptions, value: string): void;
 
     undo(): void;
 
@@ -658,80 +658,80 @@
 
   export class RichEditTextRange {
     contentLinkInfo: ContentLinkInfo;
-    text: String;
-    startPosition: Number;
+    text: string;
+    startPosition: number;
     paragraphFormat: ITextParagraphFormat;
-    link: String;
+    link: string;
     gravity: RangeGravity;
     formattedText: ITextRange;
-    endPosition: Number;
+    endPosition: number;
     characterFormat: ITextCharacterFormat;
-    character: String;
-    length: Number;
-    storyLength: Number;
+    character: string;
+    length: number;
+    storyLength: number;
     constructor();
 
-    startOf(unit: TextRangeUnit, extend: Boolean): Number;
+    startOf(unit: TextRangeUnit, extend: boolean): number;
 
-    canPaste(format: Number): Boolean;
+    canPaste(format: number): boolean;
 
     changeCase(value: LetterCase): void;
 
-    collapse(value: Boolean): void;
+    collapse(value: boolean): void;
 
     copy(): void;
 
     cut(): void;
 
-    delete(unit: TextRangeUnit, count: Number): Number;
+    delete(unit: TextRangeUnit, count: number): number;
 
-    endOf(unit: TextRangeUnit, extend: Boolean): Number;
+    endOf(unit: TextRangeUnit, extend: boolean): number;
 
-    expand(unit: TextRangeUnit): Number;
+    expand(unit: TextRangeUnit): number;
 
-    findText(value: String, scanLength: Number, options: FindOptions): Number;
+    findText(value: string, scanLength: number, options: FindOptions): number;
 
-    getCharacterUtf32(value: Number, offset: Number): void;
+    getCharacterUtf32(value: number, offset: number): void;
 
     getClone(): ITextRange;
 
-    getIndex(unit: TextRangeUnit): Number;
+    getIndex(unit: TextRangeUnit): number;
 
     getPoint(horizontalAlign: HorizontalCharacterAlignment, verticalAlign: VerticalCharacterAlignment, options: PointOptions, point: Object): void;
 
-    getRect(options: PointOptions, rect: Object, hit: Number): void;
+    getRect(options: PointOptions, rect: Object, hit: number): void;
 
-    getText(options: TextGetOptions, value: String): void;
+    getText(options: TextGetOptions, value: string): void;
 
     getTextViaStream(options: TextGetOptions, value: Object): void;
 
-    inRange(range: ITextRange): Boolean;
+    inRange(range: ITextRange): boolean;
 
-    insertImage(width: Number, height: Number, ascent: Number, verticalAlign: VerticalCharacterAlignment, alternateText: String, value: Object): void;
+    insertImage(width: number, height: number, ascent: number, verticalAlign: VerticalCharacterAlignment, alternateText: string, value: Object): void;
 
-    inStory(range: ITextRange): Boolean;
+    inStory(range: ITextRange): boolean;
 
-    isEqual(range: ITextRange): Boolean;
+    isEqual(range: ITextRange): boolean;
 
-    move(unit: TextRangeUnit, count: Number): Number;
+    move(unit: TextRangeUnit, count: number): number;
 
-    moveEnd(unit: TextRangeUnit, count: Number): Number;
+    moveEnd(unit: TextRangeUnit, count: number): number;
 
-    moveStart(unit: TextRangeUnit, count: Number): Number;
+    moveStart(unit: TextRangeUnit, count: number): number;
 
-    paste(format: Number): void;
+    paste(format: number): void;
 
     scrollIntoView(value: PointOptions): void;
 
     matchSelection(): void;
 
-    setIndex(unit: TextRangeUnit, index: Number, extend: Boolean): void;
+    setIndex(unit: TextRangeUnit, index: number, extend: boolean): void;
 
-    setPoint(point: Object, options: PointOptions, extend: Boolean): void;
+    setPoint(point: Object, options: PointOptions, extend: boolean): void;
 
-    setRange(startPosition: Number, endPosition: Number): void;
+    setRange(startPosition: number, endPosition: number): void;
 
-    setText(options: TextSetOptions, value: String): void;
+    setText(options: TextSetOptions, value: string): void;
 
     setTextViaStream(options: TextSetOptions, value: Object): void;
 
@@ -739,10 +739,10 @@
 
   export class ContentLinkInfo {
     uri: Object;
-    secondaryText: String;
-    linkContentKind: String;
-    id: Number;
-    displayText: String;
+    secondaryText: string;
+    linkContentKind: string;
+    id: number;
+    displayText: string;
     constructor();
 
   }

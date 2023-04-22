@@ -1,26 +1,26 @@
   export class PointInt32 {
-    x: Number;
-    y: Number;
+    x: number;
+    y: number;
     constructor();
   }
 
   export class SizeInt32 {
-    width: Number;
-    height: Number;
+    width: number;
+    height: number;
     constructor();
   }
 
   export class RectInt32 {
-    x: Number;
-    y: Number;
-    width: Number;
-    height: Number;
+    x: number;
+    y: number;
+    width: number;
+    height: number;
     constructor();
   }
 
   export class DisplayAdapterId {
-    lowPart: Number;
-    highPart: Number;
+    lowPart: number;
+    highPart: number;
     constructor();
   }
 

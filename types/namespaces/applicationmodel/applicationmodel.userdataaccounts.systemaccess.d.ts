@@ -38,51 +38,51 @@
   }
 
   export class DeviceAccountConfiguration {
-    emailAddress: String;
-    domain: String;
-    deviceAccountTypeId: String;
-    outgoingServerAddress: String;
-    contactsSyncEnabled: Boolean;
-    calendarSyncEnabled: Boolean;
-    accountName: String;
-    incomingServerUsername: String;
-    incomingServerRequiresSsl: Boolean;
-    incomingServerPort: Number;
-    incomingServerAddress: String;
-    emailSyncEnabled: Boolean;
+    emailAddress: string;
+    domain: string;
+    deviceAccountTypeId: string;
+    outgoingServerAddress: string;
+    contactsSyncEnabled: boolean;
+    calendarSyncEnabled: boolean;
+    accountName: string;
+    incomingServerUsername: string;
+    incomingServerRequiresSsl: boolean;
+    incomingServerPort: number;
+    incomingServerAddress: string;
+    emailSyncEnabled: boolean;
     serverType: DeviceAccountServerType;
-    outgoingServerUsername: String;
-    outgoingServerRequiresSsl: Boolean;
-    outgoingServerPort: Number;
+    outgoingServerUsername: string;
+    outgoingServerRequiresSsl: boolean;
+    outgoingServerPort: number;
     accountIconId: DeviceAccountIconId;
     calDavServerUrl: Object;
-    calDavRequiresSsl: Boolean;
-    autoSelectAuthenticationCertificate: Boolean;
+    calDavRequiresSsl: boolean;
+    autoSelectAuthenticationCertificate: boolean;
     authenticationType: DeviceAccountAuthenticationType;
-    authenticationCertificateId: String;
-    isOutgoingServerAuthenticationEnabled: Boolean;
-    isClientAuthenticationCertificateRequired: Boolean;
+    authenticationCertificateId: string;
+    isOutgoingServerAuthenticationEnabled: boolean;
+    isClientAuthenticationCertificateRequired: boolean;
     incomingServerCredential: Object;
-    isOutgoingServerAuthenticationRequired: Boolean;
+    isOutgoingServerAuthenticationRequired: boolean;
     cardDavSyncScheduleKind: DeviceAccountSyncScheduleKind;
-    alwaysDownloadFullMessage: Boolean;
+    alwaysDownloadFullMessage: boolean;
     cardDavServerUrl: Object;
-    cardDavRequiresSsl: Boolean;
+    cardDavRequiresSsl: boolean;
     calDavSyncScheduleKind: DeviceAccountSyncScheduleKind;
-    incomingServerCertificateHash: String;
-    wasOutgoingServerCertificateHashConfirmed: Boolean;
-    wasModifiedByUser: Boolean;
+    incomingServerCertificateHash: string;
+    wasOutgoingServerCertificateHashConfirmed: boolean;
+    wasModifiedByUser: boolean;
     syncScheduleKind: DeviceAccountSyncScheduleKind;
-    ssoAccountId: String;
-    wasIncomingServerCertificateHashConfirmed: Boolean;
-    oAuthRefreshToken: String;
-    isExternallyManaged: Boolean;
+    ssoAccountId: string;
+    wasIncomingServerCertificateHashConfirmed: boolean;
+    oAuthRefreshToken: string;
+    isExternallyManaged: boolean;
     mailAgeFilter: DeviceAccountMailAgeFilter;
-    isSyncScheduleManagedBySystem: Boolean;
-    outgoingServerCertificateHash: String;
+    isSyncScheduleManagedBySystem: boolean;
+    outgoingServerCertificateHash: string;
     outgoingServerCredential: Object;
-    doesPolicyAllowMailSync: Boolean;
-    isSsoAuthenticationSupported: Boolean;
+    doesPolicyAllowMailSync: boolean;
+    isSsoAuthenticationSupported: boolean;
     constructor();
 
   }
@@ -90,16 +90,16 @@
   export class UserDataAccountSystemAccessManager {
     constructor();
 
-    static suppressLocalAccountWithAccountAsync(userDataAccountId: String, callback: (error: Error) => void): void ;
+    static suppressLocalAccountWithAccountAsync(userDataAccountId: string, callback: (error: Error) => void): void ;
 
 
-    static createDeviceAccountAsync(account: DeviceAccountConfiguration, callback: (error: Error, result: String) => void): void ;
+    static createDeviceAccountAsync(account: DeviceAccountConfiguration, callback: (error: Error, result: string) => void): void ;
 
 
-    static deleteDeviceAccountAsync(accountId: String, callback: (error: Error) => void): void ;
+    static deleteDeviceAccountAsync(accountId: string, callback: (error: Error) => void): void ;
 
 
-    static getDeviceAccountConfigurationAsync(accountId: String, callback: (error: Error, result: DeviceAccountConfiguration) => void): void ;
+    static getDeviceAccountConfigurationAsync(accountId: string, callback: (error: Error, result: DeviceAccountConfiguration) => void): void ;
 
 
     static addAndShowDeviceAccountsAsync(accounts: Object, callback: (error: Error, result: Object) => void): void ;

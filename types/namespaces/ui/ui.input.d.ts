@@ -8,24 +8,24 @@
 
   export class ManipulationDelta {
     translation: Object;
-    scale: Number;
-    rotation: Number;
-    expansion: Number;
+    scale: number;
+    rotation: number;
+    expansion: number;
     constructor();
   }
 
   export class ManipulationVelocities {
     linear: Object;
-    angular: Number;
-    expansion: Number;
+    angular: number;
+    expansion: number;
     constructor();
   }
 
   export class CrossSlideThresholds {
-    selectionStart: Number;
-    speedBumpStart: Number;
-    speedBumpEnd: Number;
-    rearrangeStart: Number;
+    selectionStart: number;
+    speedBumpStart: number;
+    speedBumpEnd: number;
+    rearrangeStart: number;
     constructor();
   }
 
@@ -148,7 +148,7 @@
   }
 
   export class KeyboardDeliveryInterceptor {
-    isInterceptionEnabledWhenInForeground: Boolean;
+    isInterceptionEnabledWhenInForeground: boolean;
     constructor();
 
     static getForCurrentView(): KeyboardDeliveryInterceptor;
@@ -174,35 +174,35 @@
 
   export class MouseWheelParameters {
     pageTranslation: Object;
-    deltaScale: Number;
-    deltaRotationAngle: Number;
+    deltaScale: number;
+    deltaRotationAngle: number;
     charTranslation: Object;
     constructor();
 
   }
 
   export class GestureRecognizer {
-    inertiaRotationDeceleration: Number;
-    inertiaTranslationDeceleration: Number;
-    inertiaExpansionDeceleration: Number;
-    inertiaExpansion: Number;
-    autoProcessInertia: Boolean;
+    inertiaRotationDeceleration: number;
+    inertiaTranslationDeceleration: number;
+    inertiaExpansionDeceleration: number;
+    inertiaExpansion: number;
+    autoProcessInertia: boolean;
     crossSlideThresholds: CrossSlideThresholds;
-    crossSlideExact: Boolean;
+    crossSlideExact: boolean;
     gestureSettings: GestureSettings;
-    inertiaRotationAngle: Number;
-    showGestureFeedback: Boolean;
-    pivotRadius: Number;
-    crossSlideHorizontally: Boolean;
+    inertiaRotationAngle: number;
+    showGestureFeedback: boolean;
+    pivotRadius: number;
+    crossSlideHorizontally: boolean;
     pivotCenter: Object;
-    manipulationExact: Boolean;
-    inertiaTranslationDisplacement: Number;
-    isActive: Boolean;
-    isInertial: Boolean;
+    manipulationExact: boolean;
+    inertiaTranslationDisplacement: number;
+    isActive: boolean;
+    isInertial: boolean;
     mouseWheelParameters: MouseWheelParameters;
     constructor();
 
-    canBeDoubleTap(value: PointerPoint): Boolean;
+    canBeDoubleTap(value: PointerPoint): boolean;
 
     processDownEvent(value: PointerPoint): void;
 
@@ -210,7 +210,7 @@
 
     processUpEvent(value: PointerPoint): void;
 
-    processMouseWheelEvent(value: PointerPoint, isShiftKeyDown: Boolean, isControlKeyDown: Boolean): void;
+    processMouseWheelEvent(value: PointerPoint, isShiftKeyDown: boolean, isControlKeyDown: boolean): void;
 
     processInertia(): void;
 
@@ -270,15 +270,15 @@
   }
 
   export class TappedEventArgs {
-    pointerDeviceType: Number;
+    pointerDeviceType: number;
     position: Object;
-    tapCount: Number;
+    tapCount: number;
     constructor();
 
   }
 
   export class RightTappedEventArgs {
-    pointerDeviceType: Number;
+    pointerDeviceType: number;
     position: Object;
     constructor();
 
@@ -286,7 +286,7 @@
 
   export class HoldingEventArgs {
     holdingState: HoldingState;
-    pointerDeviceType: Number;
+    pointerDeviceType: number;
     position: Object;
     constructor();
 
@@ -294,7 +294,7 @@
 
   export class DraggingEventArgs {
     draggingState: DraggingState;
-    pointerDeviceType: Number;
+    pointerDeviceType: number;
     position: Object;
     constructor();
 
@@ -302,7 +302,7 @@
 
   export class ManipulationStartedEventArgs {
     cumulative: ManipulationDelta;
-    pointerDeviceType: Number;
+    pointerDeviceType: number;
     position: Object;
     constructor();
 
@@ -311,7 +311,7 @@
   export class ManipulationUpdatedEventArgs {
     cumulative: ManipulationDelta;
     delta: ManipulationDelta;
-    pointerDeviceType: Number;
+    pointerDeviceType: number;
     position: Object;
     velocities: ManipulationVelocities;
     constructor();
@@ -321,7 +321,7 @@
   export class ManipulationInertiaStartingEventArgs {
     cumulative: ManipulationDelta;
     delta: ManipulationDelta;
-    pointerDeviceType: Number;
+    pointerDeviceType: number;
     position: Object;
     velocities: ManipulationVelocities;
     constructor();
@@ -330,7 +330,7 @@
 
   export class ManipulationCompletedEventArgs {
     cumulative: ManipulationDelta;
-    pointerDeviceType: Number;
+    pointerDeviceType: number;
     position: Object;
     velocities: ManipulationVelocities;
     constructor();
@@ -339,29 +339,29 @@
 
   export class CrossSlidingEventArgs {
     crossSlidingState: CrossSlidingState;
-    pointerDeviceType: Number;
+    pointerDeviceType: number;
     position: Object;
     constructor();
 
   }
 
   export class PointerPoint {
-    frameId: Number;
-    isInContact: Boolean;
+    frameId: number;
+    isInContact: boolean;
     pointerDevice: Object;
-    pointerId: Number;
+    pointerId: number;
     position: Object;
     properties: PointerPointProperties;
     rawPosition: Object;
-    timestamp: Number;
+    timestamp: number;
     constructor();
 
-    static getCurrentPoint(pointerId: Number): PointerPoint;
-    static getCurrentPoint(pointerId: Number, transform: IPointerPointTransform): PointerPoint;
+    static getCurrentPoint(pointerId: number): PointerPoint;
+    static getCurrentPoint(pointerId: number, transform: IPointerPointTransform): PointerPoint;
 
 
-    static getIntermediatePoints(pointerId: Number): Object;
-    static getIntermediatePoints(pointerId: Number, transform: IPointerPointTransform): Object;
+    static getIntermediatePoints(pointerId: number): Object;
+    static getIntermediatePoints(pointerId: number, transform: IPointerPointTransform): Object;
 
 
   }
@@ -370,7 +370,7 @@
     inverse: IPointerPointTransform;
     constructor();
 
-    tryTransform(inPoint: Object, outPoint: Object): Boolean;
+    tryTransform(inPoint: Object, outPoint: Object): boolean;
 
     transformBounds(rect: Object): Object;
 
@@ -379,38 +379,38 @@
   export class PointerPointProperties {
     contactRect: Object;
     contactRectRaw: Object;
-    isBarrelButtonPressed: Boolean;
-    isCanceled: Boolean;
-    isEraser: Boolean;
-    isHorizontalMouseWheel: Boolean;
-    isInRange: Boolean;
-    isInverted: Boolean;
-    isLeftButtonPressed: Boolean;
-    isMiddleButtonPressed: Boolean;
-    isPrimary: Boolean;
-    isRightButtonPressed: Boolean;
-    isXButton1Pressed: Boolean;
-    isXButton2Pressed: Boolean;
-    mouseWheelDelta: Number;
-    orientation: Number;
+    isBarrelButtonPressed: boolean;
+    isCanceled: boolean;
+    isEraser: boolean;
+    isHorizontalMouseWheel: boolean;
+    isInRange: boolean;
+    isInverted: boolean;
+    isLeftButtonPressed: boolean;
+    isMiddleButtonPressed: boolean;
+    isPrimary: boolean;
+    isRightButtonPressed: boolean;
+    isXButton1Pressed: boolean;
+    isXButton2Pressed: boolean;
+    mouseWheelDelta: number;
+    orientation: number;
     pointerUpdateKind: PointerUpdateKind;
-    pressure: Number;
-    touchConfidence: Boolean;
-    twist: Number;
-    xTilt: Number;
-    yTilt: Number;
-    zDistance: Number;
+    pressure: number;
+    touchConfidence: boolean;
+    twist: number;
+    xTilt: number;
+    yTilt: number;
+    zDistance: number;
     constructor();
 
-    hasUsage(usagePage: Number, usageId: Number): Boolean;
+    hasUsage(usagePage: number, usageId: number): boolean;
 
-    getUsageValue(usagePage: Number, usageId: Number): Number;
+    getUsageValue(usagePage: number, usageId: number): number;
 
   }
 
   export class PointerVisualizationSettings {
-    isContactFeedbackEnabled: Boolean;
-    isBarrelButtonFeedbackEnabled: Boolean;
+    isContactFeedbackEnabled: boolean;
+    isBarrelButtonFeedbackEnabled: boolean;
     constructor();
 
     static getForCurrentView(): PointerVisualizationSettings;
@@ -426,7 +426,7 @@
   }
 
   export class RadialControllerMenu {
-    isEnabled: Boolean;
+    isEnabled: boolean;
     items: Object;
     constructor();
 
@@ -434,17 +434,17 @@
 
     selectMenuItem(menuItem: RadialControllerMenuItem): void;
 
-    trySelectPreviouslySelectedMenuItem(): Boolean;
+    trySelectPreviouslySelectedMenuItem(): boolean;
 
   }
 
   export class RadialController {
-    useAutomaticHapticFeedback: Boolean;
-    rotationResolutionInDegrees: Number;
+    useAutomaticHapticFeedback: boolean;
+    rotationResolutionInDegrees: number;
     menu: RadialControllerMenu;
     constructor();
 
-    static isSupported(): Boolean;
+    static isSupported(): boolean;
 
 
     static createForCurrentView(): RadialController;
@@ -510,7 +510,7 @@
 
   export class RadialControllerScreenContactStartedEventArgs {
     contact: RadialControllerScreenContact;
-    isButtonPressed: Boolean;
+    isButtonPressed: boolean;
     simpleHapticsController: Object;
     constructor();
 
@@ -518,7 +518,7 @@
 
   export class RadialControllerScreenContactContinuedEventArgs {
     contact: RadialControllerScreenContact;
-    isButtonPressed: Boolean;
+    isButtonPressed: boolean;
     simpleHapticsController: Object;
     constructor();
 
@@ -526,8 +526,8 @@
 
   export class RadialControllerRotationChangedEventArgs {
     contact: RadialControllerScreenContact;
-    rotationDeltaInDegrees: Number;
-    isButtonPressed: Boolean;
+    rotationDeltaInDegrees: number;
+    isButtonPressed: boolean;
     simpleHapticsController: Object;
     constructor();
 
@@ -542,7 +542,7 @@
 
   export class RadialControllerControlAcquiredEventArgs {
     contact: RadialControllerScreenContact;
-    isButtonPressed: Boolean;
+    isButtonPressed: boolean;
     simpleHapticsController: Object;
     constructor();
 
@@ -571,17 +571,17 @@
 
   export class RadialControllerMenuItem {
     tag: Object;
-    displayText: String;
+    displayText: string;
     constructor();
 
-    static createFromFontGlyph(displayText: String, glyph: String, fontFamily: String): RadialControllerMenuItem;
-    static createFromFontGlyph(displayText: String, glyph: String, fontFamily: String, fontUri: Object): RadialControllerMenuItem;
+    static createFromFontGlyph(displayText: string, glyph: string, fontFamily: string): RadialControllerMenuItem;
+    static createFromFontGlyph(displayText: string, glyph: string, fontFamily: string, fontUri: Object): RadialControllerMenuItem;
 
 
-    static createFromIcon(displayText: String, icon: Object): RadialControllerMenuItem;
+    static createFromIcon(displayText: string, icon: Object): RadialControllerMenuItem;
 
 
-    static createFromKnownIcon(displayText: String, value: RadialControllerMenuKnownIcon): RadialControllerMenuItem;
+    static createFromKnownIcon(displayText: string, value: RadialControllerMenuKnownIcon): RadialControllerMenuItem;
 
 
     addListener(type: "Invoked", listener: (ev: Event) => void): void ;
@@ -598,9 +598,9 @@
   }
 
   export class RadialControllerConfiguration {
-    static isAppControllerEnabled: Boolean;
+    static isAppControllerEnabled: boolean;
     static appController: RadialController;
-    isMenuSuppressed: Boolean;
+    isMenuSuppressed: boolean;
     activeControllerWhenMenuIsSuppressed: RadialController;
     constructor();
 
@@ -611,12 +611,12 @@
 
     resetToDefaultMenuItems(): void;
 
-    trySelectDefaultMenuItem(type: RadialControllerSystemMenuItemKind): Boolean;
+    trySelectDefaultMenuItem(type: RadialControllerSystemMenuItemKind): boolean;
 
   }
 
   export class RadialControllerScreenContactEndedEventArgs {
-    isButtonPressed: Boolean;
+    isButtonPressed: boolean;
     simpleHapticsController: Object;
     constructor();
 

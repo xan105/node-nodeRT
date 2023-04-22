@@ -92,14 +92,14 @@
   }
 
   export class RemoteSystem {
-    displayName: String;
-    id: String;
-    isAvailableByProximity: Boolean;
-    kind: String;
+    displayName: string;
+    id: string;
+    isAvailableByProximity: boolean;
+    kind: string;
     status: RemoteSystemStatus;
-    isAvailableBySpatialProximity: Boolean;
-    manufacturerDisplayName: String;
-    modelDisplayName: String;
+    isAvailableBySpatialProximity: boolean;
+    manufacturerDisplayName: string;
+    modelDisplayName: string;
     platform: RemoteSystemPlatform;
     constructor();
 
@@ -109,14 +109,14 @@
     static requestAccessAsync(callback: (error: Error, result: RemoteSystemAccessStatus) => void): void ;
 
 
-    static isAuthorizationKindEnabled(kind: RemoteSystemAuthorizationKind): Boolean;
+    static isAuthorizationKindEnabled(kind: RemoteSystemAuthorizationKind): boolean;
 
 
     static createWatcher(): RemoteSystemWatcher;
     static createWatcher(filters: Object): RemoteSystemWatcher;
 
 
-    getCapabilitySupportedAsync(capabilityName: String, callback: (error: Error, result: Boolean) => void): void ;
+    getCapabilitySupportedAsync(capabilityName: string, callback: (error: Error, result: boolean) => void): void ;
 
   }
 
@@ -161,10 +161,10 @@
   }
 
   export class KnownRemoteSystemCapabilities {
-    static appService: String;
-    static launchUri: String;
-    static remoteSession: String;
-    static spatialEntity: String;
+    static appService: string;
+    static launchUri: string;
+    static remoteSession: string;
+    static spatialEntity: string;
     constructor();
 
   }
@@ -189,7 +189,7 @@
   }
 
   export class RemoteSystemRemovedEventArgs {
-    remoteSystemId: String;
+    remoteSystemId: string;
     constructor();
 
   }
@@ -213,14 +213,14 @@
   }
 
   export class RemoteSystemKinds {
-    static desktop: String;
-    static holographic: String;
-    static hub: String;
-    static phone: String;
-    static xbox: String;
-    static iot: String;
-    static laptop: String;
-    static tablet: String;
+    static desktop: string;
+    static holographic: string;
+    static hub: string;
+    static phone: string;
+    static xbox: string;
+    static iot: string;
+    static laptop: string;
+    static tablet: string;
     constructor();
 
   }
@@ -247,15 +247,15 @@
   }
 
   export class RemoteSystemSession {
-    controllerDisplayName: String;
-    displayName: String;
-    id: String;
+    controllerDisplayName: string;
+    displayName: string;
+    id: string;
     constructor();
 
     static createWatcher(): RemoteSystemSessionWatcher;
 
 
-    sendInvitationAsync(invitee: RemoteSystem, callback: (error: Error, result: Boolean) => void): void ;
+    sendInvitationAsync(invitee: RemoteSystem, callback: (error: Error, result: boolean) => void): void ;
 
     createParticipantWatcher(): RemoteSystemSessionParticipantWatcher;
 
@@ -281,8 +281,8 @@
   }
 
   export class RemoteSystemSessionInfo {
-    controllerDisplayName: String;
-    displayName: String;
+    controllerDisplayName: string;
+    displayName: string;
     constructor();
 
     joinAsync(callback: (error: Error, result: RemoteSystemSessionJoinResult) => void): void ;
@@ -442,17 +442,17 @@
   }
 
   export class RemoteSystemSessionOptions {
-    isInviteOnly: Boolean;
+    isInviteOnly: boolean;
     constructor();
 
   }
 
   export class RemoteSystemSessionController {
     constructor();
-    constructor(displayName: String);
-    constructor(displayName: String, options: RemoteSystemSessionOptions);
+    constructor(displayName: string);
+    constructor(displayName: string, options: RemoteSystemSessionOptions);
 
-    removeParticipantAsync(pParticipant: RemoteSystemSessionParticipant, callback: (error: Error, result: Boolean) => void): void ;
+    removeParticipantAsync(pParticipant: RemoteSystemSessionParticipant, callback: (error: Error, result: boolean) => void): void ;
 
     createSessionAsync(callback: (error: Error, result: RemoteSystemSessionCreationResult) => void): void ;
 
@@ -485,14 +485,14 @@
   export class RemoteSystemSessionMessageChannel {
     session: RemoteSystemSession;
     constructor();
-    constructor(session: RemoteSystemSession, channelName: String);
-    constructor(session: RemoteSystemSession, channelName: String, reliability: RemoteSystemSessionMessageChannelReliability);
+    constructor(session: RemoteSystemSession, channelName: string);
+    constructor(session: RemoteSystemSession, channelName: string, reliability: RemoteSystemSessionMessageChannelReliability);
 
-    broadcastValueSetAsync(messageData: Object, callback: (error: Error, result: Boolean) => void): void ;
+    broadcastValueSetAsync(messageData: Object, callback: (error: Error, result: boolean) => void): void ;
 
-    sendValueSetAsync(messageData: Object, participant: RemoteSystemSessionParticipant, callback: (error: Error, result: Boolean) => void): void ;
+    sendValueSetAsync(messageData: Object, participant: RemoteSystemSessionParticipant, callback: (error: Error, result: boolean) => void): void ;
 
-    sendValueSetToParticipantsAsync(messageData: Object, participants: Object, callback: (error: Error, result: Boolean) => void): void ;
+    sendValueSetToParticipantsAsync(messageData: Object, participants: Object, callback: (error: Error, result: boolean) => void): void ;
 
     addListener(type: "ValueSetReceived", listener: (ev: Event) => void): void ;
     removeListener(type: "ValueSetReceived", listener: (ev: Event) => void): void ;

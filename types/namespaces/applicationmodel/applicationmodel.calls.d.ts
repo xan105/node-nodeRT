@@ -139,26 +139,26 @@
   }
 
   export class PhoneLine {
-    canDial: Boolean;
+    canDial: boolean;
     cellularDetails: PhoneLineCellularDetails;
     displayColor: Object;
-    displayName: String;
-    id: String;
+    displayName: string;
+    id: string;
     lineConfiguration: PhoneLineConfiguration;
-    networkName: String;
+    networkName: string;
     networkState: PhoneNetworkState;
-    supportsTile: Boolean;
+    supportsTile: boolean;
     transport: PhoneLineTransport;
     videoCallingCapabilities: PhoneCallVideoCapabilities;
     voicemail: PhoneVoicemail;
     constructor();
 
-    static fromIdAsync(lineId: String, callback: (error: Error, result: PhoneLine) => void): void ;
+    static fromIdAsync(lineId: string, callback: (error: Error, result: PhoneLine) => void): void ;
 
 
-    isImmediateDialNumberAsync(number: String, callback: (error: Error, result: Boolean) => void): void ;
+    isImmediateDialNumberAsync(number: string, callback: (error: Error, result: boolean) => void): void ;
 
-    dial(number: String, displayName: String): void;
+    dial(number: string, displayName: string): void;
 
     dialWithOptions(options: PhoneDialOptions): void;
 
@@ -176,8 +176,8 @@
   }
 
   export class PhoneVoicemail {
-    messageCount: Number;
-    number: String;
+    messageCount: number;
+    number: string;
     type: PhoneVoicemailType;
     constructor();
 
@@ -186,33 +186,33 @@
   }
 
   export class PhoneLineCellularDetails {
-    isModemOn: Boolean;
-    registrationRejectCode: Number;
-    simSlotIndex: Number;
+    isModemOn: boolean;
+    registrationRejectCode: number;
+    simSlotIndex: number;
     simState: PhoneSimState;
     constructor();
 
-    getNetworkOperatorDisplayText(location: PhoneLineNetworkOperatorDisplayTextLocation): String;
+    getNetworkOperatorDisplayText(location: PhoneLineNetworkOperatorDisplayTextLocation): string;
 
   }
 
   export class PhoneCallVideoCapabilities {
-    isVideoCallingCapable: Boolean;
+    isVideoCallingCapable: boolean;
     constructor();
 
   }
 
   export class PhoneLineConfiguration {
     extendedProperties: Object;
-    isVideoCallingEnabled: Boolean;
+    isVideoCallingEnabled: boolean;
     constructor();
 
   }
 
   export class PhoneDialOptions {
-    number: String;
+    number: string;
     media: PhoneCallMedia;
-    displayName: String;
+    displayName: string;
     contactPhone: Object;
     contact: Object;
     audioEndpoint: PhoneAudioRoutingEndpoint;
@@ -262,7 +262,7 @@
   }
 
   export class PhoneLineWatcherEventArgs {
-    lineId: String;
+    lineId: string;
     constructor();
 
   }
@@ -270,17 +270,17 @@
   export class PhoneCallStore {
     constructor();
 
-    isEmergencyPhoneNumberAsync(number: String, callback: (error: Error, result: Boolean) => void): void ;
+    isEmergencyPhoneNumberAsync(number: string, callback: (error: Error, result: boolean) => void): void ;
 
-    getDefaultLineAsync(callback: (error: Error, result: String) => void): void ;
+    getDefaultLineAsync(callback: (error: Error, result: string) => void): void ;
 
     requestLineWatcher(): PhoneLineWatcher;
 
   }
 
   export class PhoneCallManager {
-    static isCallActive: Boolean;
-    static isCallIncoming: Boolean;
+    static isCallActive: boolean;
+    static isCallIncoming: boolean;
     constructor();
 
     static requestStoreAsync(callback: (error: Error, result: PhoneCallStore) => void): void ;
@@ -289,7 +289,7 @@
     static showPhoneCallSettingsUI(): void;
 
 
-    static showPhoneCallUI(phoneNumber: String, displayName: String): void;
+    static showPhoneCallUI(phoneNumber: string, displayName: string): void;
 
 
     addListener(type: "CallStateChanged", listener: (ev: Event) => void): void ;
@@ -308,17 +308,17 @@
   export class PhoneCallVideoCapabilitiesManager {
     constructor();
 
-    static getCapabilitiesAsync(phoneNumber: String, callback: (error: Error, result: PhoneCallVideoCapabilities) => void): void ;
+    static getCapabilitiesAsync(phoneNumber: string, callback: (error: Error, result: PhoneCallVideoCapabilities) => void): void ;
 
 
   }
 
   export class PhoneCallBlocking {
-    static blockUnknownNumbers: Boolean;
-    static blockPrivateNumbers: Boolean;
+    static blockUnknownNumbers: boolean;
+    static blockPrivateNumbers: boolean;
     constructor();
 
-    static setCallBlockingListAsync(phoneNumberList: Object, callback: (error: Error, result: Boolean) => void): void ;
+    static setCallBlockingListAsync(phoneNumberList: Object, callback: (error: Error, result: boolean) => void): void ;
 
 
   }
@@ -343,7 +343,7 @@
 
   export class VoipPhoneCall {
     startTime: Date;
-    contactName: String;
+    contactName: string;
     callMedia: VoipPhoneCallMedia;
     constructor();
 
@@ -393,7 +393,7 @@
   }
 
   export class MuteChangeEventArgs {
-    muted: Boolean;
+    muted: boolean;
     constructor();
 
   }
@@ -404,28 +404,28 @@
     static getDefault(): VoipCallCoordinator;
 
 
-    reserveCallResourcesAsync(taskEntryPoint: String, callback: (error: Error, result: VoipPhoneCallResourceReservationStatus) => void): void ;
+    reserveCallResourcesAsync(taskEntryPoint: string, callback: (error: Error, result: VoipPhoneCallResourceReservationStatus) => void): void ;
 
-    requestNewIncomingCall(context: String, contactName: String, contactNumber: String, contactImage: Object, serviceName: String, brandingImage: Object, callDetails: String, ringtone: Object, media: VoipPhoneCallMedia, ringTimeout: Number): VoipPhoneCall;
-    requestNewIncomingCall(context: String, contactName: String, contactNumber: String, contactImage: Object, serviceName: String, brandingImage: Object, callDetails: String, ringtone: Object, media: VoipPhoneCallMedia, ringTimeout: Number, contactRemoteId: String): VoipPhoneCall;
+    requestNewIncomingCall(context: string, contactName: string, contactNumber: string, contactImage: Object, serviceName: string, brandingImage: Object, callDetails: string, ringtone: Object, media: VoipPhoneCallMedia, ringTimeout: number): VoipPhoneCall;
+    requestNewIncomingCall(context: string, contactName: string, contactNumber: string, contactImage: Object, serviceName: string, brandingImage: Object, callDetails: string, ringtone: Object, media: VoipPhoneCallMedia, ringTimeout: number, contactRemoteId: string): VoipPhoneCall;
 
-    requestNewOutgoingCall(context: String, contactName: String, serviceName: String, media: VoipPhoneCallMedia): VoipPhoneCall;
+    requestNewOutgoingCall(context: string, contactName: string, serviceName: string, media: VoipPhoneCallMedia): VoipPhoneCall;
 
     notifyMuted(): void;
 
     notifyUnmuted(): void;
 
-    requestOutgoingUpgradeToVideoCall(callUpgradeGuid: String, context: String, contactName: String, serviceName: String): VoipPhoneCall;
+    requestOutgoingUpgradeToVideoCall(callUpgradeGuid: string, context: string, contactName: string, serviceName: string): VoipPhoneCall;
 
-    requestIncomingUpgradeToVideoCall(context: String, contactName: String, contactNumber: String, contactImage: Object, serviceName: String, brandingImage: Object, callDetails: String, ringtone: Object, ringTimeout: Number): VoipPhoneCall;
+    requestIncomingUpgradeToVideoCall(context: string, contactName: string, contactNumber: string, contactImage: Object, serviceName: string, brandingImage: Object, callDetails: string, ringtone: Object, ringTimeout: number): VoipPhoneCall;
 
-    terminateCellularCall(callUpgradeGuid: String): void;
+    terminateCellularCall(callUpgradeGuid: string): void;
 
-    cancelUpgrade(callUpgradeGuid: String): void;
+    cancelUpgrade(callUpgradeGuid: string): void;
 
-    setupNewAcceptedCall(context: String, contactName: String, contactNumber: String, serviceName: String, media: VoipPhoneCallMedia): VoipPhoneCall;
+    setupNewAcceptedCall(context: string, contactName: string, contactNumber: string, serviceName: string, media: VoipPhoneCallMedia): VoipPhoneCall;
 
-    requestNewAppInitiatedCall(context: String, contactName: String, contactNumber: String, serviceName: String, media: VoipPhoneCallMedia): VoipPhoneCall;
+    requestNewAppInitiatedCall(context: string, contactName: string, contactNumber: string, serviceName: string, media: VoipPhoneCallMedia): VoipPhoneCall;
 
     addListener(type: "MuteStateChanged", listener: (ev: Event) => void): void ;
     removeListener(type: "MuteStateChanged", listener: (ev: Event) => void): void ;
@@ -448,7 +448,7 @@
   }
 
   export class LockScreenCallUI {
-    callTitle: String;
+    callTitle: string;
     constructor();
 
     dismiss(): void;
@@ -481,33 +481,33 @@
 
   export class PhoneCallHistoryEntryAddress {
     rawAddressKind: PhoneCallHistoryEntryRawAddressKind;
-    rawAddress: String;
-    displayName: String;
-    contactId: String;
+    rawAddress: string;
+    displayName: string;
+    contactId: string;
     constructor();
-    constructor(rawAddress: String, rawAddressKind: PhoneCallHistoryEntryRawAddressKind);
+    constructor(rawAddress: string, rawAddressKind: PhoneCallHistoryEntryRawAddressKind);
 
   }
 
   export class PhoneCallHistoryEntry {
     media: PhoneCallHistoryEntryMedia;
-    isMissed: Boolean;
-    isIncoming: Boolean;
-    isCallerIdBlocked: Boolean;
-    isSeen: Boolean;
-    duration: Number;
-    isEmergency: Boolean;
-    isSuppressed: Boolean;
+    isMissed: boolean;
+    isIncoming: boolean;
+    isCallerIdBlocked: boolean;
+    isSeen: boolean;
+    duration: number;
+    isEmergency: boolean;
+    isSuppressed: boolean;
     startTime: Date;
     sourceIdKind: PhoneCallHistorySourceIdKind;
     address: PhoneCallHistoryEntryAddress;
-    sourceId: String;
-    remoteId: String;
+    sourceId: string;
+    remoteId: string;
     otherAppReadAccess: PhoneCallHistoryEntryOtherAppReadAccess;
-    isRinging: Boolean;
-    isVoicemail: Boolean;
-    id: String;
-    sourceDisplayName: String;
+    isRinging: boolean;
+    isVoicemail: boolean;
+    id: string;
+    sourceDisplayName: string;
     constructor();
 
   }
@@ -529,7 +529,7 @@
   export class PhoneCallHistoryStore {
     constructor();
 
-    getEntryAsync(callHistoryEntryId: String, callback: (error: Error, result: PhoneCallHistoryEntry) => void): void ;
+    getEntryAsync(callHistoryEntryId: string, callback: (error: Error, result: PhoneCallHistoryEntry) => void): void ;
 
     saveEntryAsync(callHistoryEntry: PhoneCallHistoryEntry, callback: (error: Error) => void): void ;
 
@@ -541,11 +541,11 @@
 
     markEntriesAsSeenAsync(callHistoryEntries: Object, callback: (error: Error) => void): void ;
 
-    getUnseenCountAsync(callback: (error: Error, result: Number) => void): void ;
+    getUnseenCountAsync(callback: (error: Error, result: number) => void): void ;
 
     markAllAsSeenAsync(callback: (error: Error) => void): void ;
 
-    getSourcesUnseenCountAsync(sourceIds: Object, callback: (error: Error, result: Number) => void): void ;
+    getSourcesUnseenCountAsync(sourceIds: Object, callback: (error: Error, result: number) => void): void ;
 
     markSourcesAsSeenAsync(sourceIds: Object, callback: (error: Error) => void): void ;
 

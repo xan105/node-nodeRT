@@ -28,10 +28,10 @@
   }
 
   export class VariablePhotoCapturedEventArgs {
-    captureTimeOffset: Number;
+    captureTimeOffset: number;
     capturedFrameControlValues: Object;
     frame: Object;
-    usedFrameControllerIndex: Number;
+    usedFrameControllerIndex: number;
     constructor();
 
   }

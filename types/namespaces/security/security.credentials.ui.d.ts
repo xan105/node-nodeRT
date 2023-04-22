@@ -33,28 +33,28 @@
   }
 
   export class CredentialPickerOptions {
-    targetName: String;
+    targetName: string;
     previousCredential: Object;
-    message: String;
-    errorCode: Number;
-    customAuthenticationProtocol: String;
+    message: string;
+    errorCode: number;
+    customAuthenticationProtocol: string;
     credentialSaveOption: CredentialSaveOption;
-    caption: String;
-    callerSavesCredential: Boolean;
+    caption: string;
+    callerSavesCredential: boolean;
     authenticationProtocol: AuthenticationProtocol;
-    alwaysDisplayDialog: Boolean;
+    alwaysDisplayDialog: boolean;
     constructor();
 
   }
 
   export class CredentialPickerResults {
     credential: Object;
-    credentialDomainName: String;
-    credentialPassword: String;
+    credentialDomainName: string;
+    credentialPassword: string;
     credentialSaveOption: CredentialSaveOption;
-    credentialSaved: Boolean;
-    credentialUserName: String;
-    errorCode: Number;
+    credentialSaved: boolean;
+    credentialUserName: string;
+    errorCode: number;
     constructor();
 
   }
@@ -63,8 +63,8 @@
     constructor();
 
     static pickAsync(options: CredentialPickerOptions, callback: (error: Error, result: CredentialPickerResults) => void): void ;
-    static pickAsync(targetName: String, message: String, callback: (error: Error, result: CredentialPickerResults) => void): void ;
-    static pickAsync(targetName: String, message: String, caption: String, callback: (error: Error, result: CredentialPickerResults) => void): void ;
+    static pickAsync(targetName: string, message: string, callback: (error: Error, result: CredentialPickerResults) => void): void ;
+    static pickAsync(targetName: string, message: string, caption: string, callback: (error: Error, result: CredentialPickerResults) => void): void ;
 
 
   }
@@ -75,7 +75,7 @@
     static checkAvailabilityAsync(callback: (error: Error, result: UserConsentVerifierAvailability) => void): void ;
 
 
-    static requestVerificationAsync(message: String, callback: (error: Error, result: UserConsentVerificationResult) => void): void ;
+    static requestVerificationAsync(message: string, callback: (error: Error, result: UserConsentVerificationResult) => void): void ;
 
 
   }

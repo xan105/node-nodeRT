@@ -1,21 +1,21 @@
   export class ResourceLoader {
     constructor();
-    constructor(name: String);
+    constructor(name: string);
 
     static getForCurrentView(): ResourceLoader;
-    static getForCurrentView(name: String): ResourceLoader;
+    static getForCurrentView(name: string): ResourceLoader;
 
 
     static getForViewIndependentUse(): ResourceLoader;
-    static getForViewIndependentUse(name: String): ResourceLoader;
+    static getForViewIndependentUse(name: string): ResourceLoader;
 
 
-    static getStringForReference(uri: Object): String;
+    static getStringForReference(uri: Object): string;
 
 
-    getString(resource: String): String;
+    getString(resource: string): string;
 
-    getStringForUri(uri: Object): String;
+    getStringForUri(uri: Object): string;
 
   }
 

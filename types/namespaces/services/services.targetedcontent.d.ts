@@ -54,13 +54,13 @@
   }
 
   export class TargetedContentSubscription {
-    id: String;
+    id: string;
     constructor();
 
-    static getAsync(subscriptionId: String, callback: (error: Error, result: TargetedContentSubscription) => void): void ;
+    static getAsync(subscriptionId: string, callback: (error: Error, result: TargetedContentSubscription) => void): void ;
 
 
-    static getOptions(subscriptionId: String): TargetedContentSubscriptionOptions;
+    static getOptions(subscriptionId: string): TargetedContentSubscriptionOptions;
 
 
     getContentContainerAsync(callback: (error: Error, result: TargetedContentContainer) => void): void ;
@@ -89,10 +89,10 @@
   }
 
   export class TargetedContentSubscriptionOptions {
-    allowPartialContentAvailability: Boolean;
+    allowPartialContentAvailability: boolean;
     cloudQueryParameters: Object;
     localFilters: Object;
-    subscriptionId: String;
+    subscriptionId: string;
     constructor();
 
     update(): void;
@@ -102,19 +102,19 @@
   export class TargetedContentContainer {
     availability: TargetedContentAvailability;
     content: TargetedContentCollection;
-    id: String;
+    id: string;
     timestamp: Date;
     constructor();
 
-    static getAsync(contentId: String, callback: (error: Error, result: TargetedContentContainer) => void): void ;
+    static getAsync(contentId: string, callback: (error: Error, result: TargetedContentContainer) => void): void ;
 
 
-    selectSingleObject(path: String): TargetedContentObject;
+    selectSingleObject(path: string): TargetedContentObject;
 
   }
 
   export class TargetedContentChangedEventArgs {
-    hasPreviousContentExpired: Boolean;
+    hasPreviousContentExpired: boolean;
     constructor();
 
     getDeferral(): Object;
@@ -137,15 +137,15 @@
 
   export class TargetedContentCollection {
     collections: Object;
-    id: String;
+    id: string;
     items: Object;
-    path: String;
+    path: string;
     properties: Object;
     constructor();
 
     reportInteraction(interaction: TargetedContentInteraction): void;
 
-    reportCustomInteraction(customInteractionName: String): void;
+    reportCustomInteraction(customInteractionName: string): void;
 
   }
 
@@ -160,30 +160,30 @@
 
   export class TargetedContentItem {
     collections: Object;
-    path: String;
+    path: string;
     properties: Object;
     state: TargetedContentItemState;
     constructor();
 
     reportInteraction(interaction: TargetedContentInteraction): void;
 
-    reportCustomInteraction(customInteractionName: String): void;
+    reportCustomInteraction(customInteractionName: string): void;
 
   }
 
   export class TargetedContentValue {
     action: TargetedContentAction;
     actions: Object;
-    boolean: Boolean;
+    boolean: boolean;
     booleans: Object;
     file: TargetedContentFile;
     files: Object;
     imageFile: TargetedContentImage;
     imageFiles: Object;
-    number: Number;
+    number: number;
     numbers: Object;
-    path: String;
-    string: String;
+    path: string;
+    string: string;
     strings: Object;
     uri: Object;
     uris: Object;
@@ -194,7 +194,7 @@
 
   export class TargetedContentItemState {
     appInstallationState: TargetedContentAppInstallationState;
-    shouldDisplay: Boolean;
+    shouldDisplay: boolean;
     constructor();
 
   }
@@ -207,8 +207,8 @@
   }
 
   export class TargetedContentImage {
-    height: Number;
-    width: Number;
+    height: number;
+    width: number;
     constructor();
 
     openReadAsync(callback: (error: Error, result: Object) => void): void ;

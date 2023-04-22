@@ -1,6 +1,6 @@
   export class Battery {
-    remainingChargePercent: Number;
-    remainingDischargeTime: Number;
+    remainingChargePercent: number;
+    remainingDischargeTime: number;
     constructor();
 
     static getDefault(): Battery;

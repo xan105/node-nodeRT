@@ -10,15 +10,15 @@
   export class ProcessDiagnosticInfo {
     cpuUsage: ProcessCpuUsage;
     diskUsage: ProcessDiskUsage;
-    executableFileName: String;
+    executableFileName: string;
     memoryUsage: ProcessMemoryUsage;
     parent: ProcessDiagnosticInfo;
-    processId: Number;
+    processId: number;
     processStartTime: Date;
-    isPackaged: Boolean;
+    isPackaged: boolean;
     constructor();
 
-    static tryGetForProcessId(processId: Number): ProcessDiagnosticInfo;
+    static tryGetForProcessId(processId: number): ProcessDiagnosticInfo;
 
 
     static getForProcesses(): Object;
@@ -53,36 +53,36 @@
   }
 
   export class ProcessMemoryUsageReport {
-    nonPagedPoolSizeInBytes: Number;
-    pageFaultCount: Number;
-    pageFileSizeInBytes: Number;
-    pagedPoolSizeInBytes: Number;
-    peakNonPagedPoolSizeInBytes: Number;
-    peakPageFileSizeInBytes: Number;
-    peakPagedPoolSizeInBytes: Number;
-    peakVirtualMemorySizeInBytes: Number;
-    peakWorkingSetSizeInBytes: Number;
-    privatePageCount: Number;
-    virtualMemorySizeInBytes: Number;
-    workingSetSizeInBytes: Number;
+    nonPagedPoolSizeInBytes: number;
+    pageFaultCount: number;
+    pageFileSizeInBytes: number;
+    pagedPoolSizeInBytes: number;
+    peakNonPagedPoolSizeInBytes: number;
+    peakPageFileSizeInBytes: number;
+    peakPagedPoolSizeInBytes: number;
+    peakVirtualMemorySizeInBytes: number;
+    peakWorkingSetSizeInBytes: number;
+    privatePageCount: number;
+    virtualMemorySizeInBytes: number;
+    workingSetSizeInBytes: number;
     constructor();
 
   }
 
   export class ProcessDiskUsageReport {
-    bytesReadCount: Number;
-    bytesWrittenCount: Number;
-    otherBytesCount: Number;
-    otherOperationCount: Number;
-    readOperationCount: Number;
-    writeOperationCount: Number;
+    bytesReadCount: number;
+    bytesWrittenCount: number;
+    otherBytesCount: number;
+    otherOperationCount: number;
+    readOperationCount: number;
+    writeOperationCount: number;
     constructor();
 
   }
 
   export class ProcessCpuUsageReport {
-    kernelTime: Number;
-    userTime: Number;
+    kernelTime: number;
+    userTime: number;
     constructor();
 
   }
@@ -112,23 +112,23 @@
   }
 
   export class SystemMemoryUsageReport {
-    availableSizeInBytes: Number;
-    committedSizeInBytes: Number;
-    totalPhysicalSizeInBytes: Number;
+    availableSizeInBytes: number;
+    committedSizeInBytes: number;
+    totalPhysicalSizeInBytes: number;
     constructor();
 
   }
 
   export class SystemCpuUsageReport {
-    idleTime: Number;
-    kernelTime: Number;
-    userTime: Number;
+    idleTime: number;
+    kernelTime: number;
+    userTime: number;
     constructor();
 
   }
 
   export class DiagnosticInvoker {
-    static isSupported: Boolean;
+    static isSupported: boolean;
     constructor();
 
     static getDefault(): DiagnosticInvoker;
@@ -139,12 +139,12 @@
 
     runDiagnosticActionAsync(context: Object, callback: (error: Error, result: DiagnosticActionResult) => void): void ;
 
-    runDiagnosticActionFromStringAsync(context: String, callback: (error: Error, result: DiagnosticActionResult) => void): void ;
+    runDiagnosticActionFromStringAsync(context: string, callback: (error: Error, result: DiagnosticActionResult) => void): void ;
 
   }
 
   export class DiagnosticActionResult {
-    extendedError: Number;
+    extendedError: number;
     results: Object;
     constructor();
 

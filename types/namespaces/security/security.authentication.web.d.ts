@@ -19,8 +19,8 @@
   }
 
   export class WebAuthenticationResult {
-    responseData: String;
-    responseErrorDetail: Number;
+    responseData: string;
+    responseErrorDetail: number;
     responseStatus: WebAuthenticationStatus;
     constructor();
 

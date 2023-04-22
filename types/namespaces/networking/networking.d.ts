@@ -16,30 +16,30 @@
   }
 
   export class HostName {
-    canonicalName: String;
-    displayName: String;
+    canonicalName: string;
+    displayName: string;
     iPInformation: Object;
-    rawName: String;
+    rawName: string;
     type: HostNameType;
     constructor();
-    constructor(hostName: String);
+    constructor(hostName: string);
 
-    static compare(value1: String, value2: String): Number;
+    static compare(value1: string, value2: string): number;
 
 
-    isEqual(hostName: HostName): Boolean;
+    isEqual(hostName: HostName): boolean;
 
-    toString(): String;
+    toString(): string;
 
   }
 
   export class EndpointPair {
-    remoteServiceName: String;
+    remoteServiceName: string;
     remoteHostName: HostName;
-    localServiceName: String;
+    localServiceName: string;
     localHostName: HostName;
     constructor();
-    constructor(localHostName: HostName, localServiceName: String, remoteHostName: HostName, remoteServiceName: String);
+    constructor(localHostName: HostName, localServiceName: string, remoteHostName: HostName, remoteServiceName: string);
 
   }
 

@@ -11,13 +11,13 @@
 
   export class LocalLocation {
     address: Object;
-    dataAttribution: String;
-    description: String;
-    displayName: String;
-    identifier: String;
-    phoneNumber: String;
+    dataAttribution: string;
+    description: string;
+    displayName: string;
+    identifier: string;
+    phoneNumber: string;
     point: Object;
-    category: String;
+    category: string;
     hoursOfOperation: Object;
     ratingInfo: LocalLocationRatingInfo;
     constructor();
@@ -32,17 +32,17 @@
   }
 
   export class LocalLocationRatingInfo {
-    aggregateRating: Number;
-    providerIdentifier: String;
-    ratingCount: Number;
+    aggregateRating: number;
+    providerIdentifier: string;
+    ratingCount: number;
     constructor();
 
   }
 
   export class LocalLocationHoursOfOperationItem {
-    day: Number;
-    span: Number;
-    start: Number;
+    day: number;
+    span: number;
+    start: number;
     constructor();
 
   }
@@ -50,20 +50,20 @@
   export class LocalLocationFinder {
     constructor();
 
-    static findLocalLocationsAsync(searchTerm: String, searchArea: Object, localCategory: String, maxResults: Number, callback: (error: Error, result: LocalLocationFinderResult) => void): void ;
+    static findLocalLocationsAsync(searchTerm: string, searchArea: Object, localCategory: string, maxResults: number, callback: (error: Error, result: LocalLocationFinderResult) => void): void ;
 
 
   }
 
   export class LocalCategories {
-    static all: String;
-    static bankAndCreditUnions: String;
-    static eatDrink: String;
-    static hospitals: String;
-    static hotelsAndMotels: String;
-    static parking: String;
-    static seeDo: String;
-    static shop: String;
+    static all: string;
+    static bankAndCreditUnions: string;
+    static eatDrink: string;
+    static hospitals: string;
+    static hotelsAndMotels: string;
+    static parking: string;
+    static seeDo: string;
+    static shop: string;
     constructor();
 
   }

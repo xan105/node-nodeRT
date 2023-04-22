@@ -15,33 +15,33 @@
   }
 
   export class RatedContentDescription {
-    title: String;
+    title: string;
     ratings: Object;
     image: Object;
-    id: String;
+    id: string;
     category: RatedContentCategory;
     constructor();
-    constructor(id: String, title: String, category: RatedContentCategory);
+    constructor(id: string, title: string, category: RatedContentCategory);
 
   }
 
   export class ContentRestrictionsBrowsePolicy {
-    geographicRegion: String;
-    maxBrowsableAgeRating: Number;
-    preferredAgeRating: Number;
+    geographicRegion: string;
+    maxBrowsableAgeRating: number;
+    preferredAgeRating: number;
     constructor();
 
   }
 
   export class RatedContentRestrictions {
     constructor();
-    constructor(maxAgeRating: Number);
+    constructor(maxAgeRating: number);
 
     getBrowsePolicyAsync(callback: (error: Error, result: ContentRestrictionsBrowsePolicy) => void): void ;
 
     getRestrictionLevelAsync(RatedContentDescription: RatedContentDescription, callback: (error: Error, result: ContentAccessRestrictionLevel) => void): void ;
 
-    requestContentAccessAsync(RatedContentDescription: RatedContentDescription, callback: (error: Error, result: Boolean) => void): void ;
+    requestContentAccessAsync(RatedContentDescription: RatedContentDescription, callback: (error: Error, result: boolean) => void): void ;
 
     addListener(type: "RestrictionsChanged", listener: (ev: Event) => void): void ;
     removeListener(type: "RestrictionsChanged", listener: (ev: Event) => void): void ;

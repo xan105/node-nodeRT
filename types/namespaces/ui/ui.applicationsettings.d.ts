@@ -26,11 +26,11 @@
 
   export class SettingsCommand {
     static accountsCommand: SettingsCommand;
-    label: String;
+    label: string;
     invoked: Object;
     id: Object;
     constructor();
-    constructor(settingsCommandId: Object, label: String, handler: Object);
+    constructor(settingsCommandId: Object, label: string, handler: Object);
 
   }
 
@@ -74,7 +74,7 @@
   }
 
   export class AccountsSettingsPaneCommandsRequestedEventArgs {
-    headerText: String;
+    headerText: string;
     commands: Object;
     credentialCommands: Object;
     webAccountCommands: Object;

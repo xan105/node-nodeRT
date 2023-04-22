@@ -91,7 +91,7 @@
   }
 
   export class CachedFileUpdaterUI {
-    title: String;
+    title: string;
     uIStatus: UIStatus;
     updateTarget: CachedFileTarget;
     updateRequest: FileUpdateRequest;
@@ -125,9 +125,9 @@
 
   export class FileUpdateRequest {
     status: FileUpdateStatus;
-    contentId: String;
+    contentId: string;
     file: Object;
-    userInputNeededMessage: String;
+    userInputNeededMessage: string;
     constructor();
 
     getDeferral(): FileUpdateRequestDeferral;
@@ -146,7 +146,7 @@
   export class CachedFileUpdater {
     constructor();
 
-    static setUpdateInformation(file: Object, contentId: String, readMode: ReadActivationMode, writeMode: WriteActivationMode, options: CachedFileOptions): void;
+    static setUpdateInformation(file: Object, contentId: string, readMode: ReadActivationMode, writeMode: WriteActivationMode, options: CachedFileOptions): void;
 
 
   }
@@ -154,14 +154,14 @@
   export class IStorageProviderPropertyCapabilities {
     constructor();
 
-    isPropertySupported(propertyCanonicalName: String): Boolean;
+    isPropertySupported(propertyCanonicalName: string): boolean;
 
   }
 
   export class StorageProviderItemProperty {
-    value: String;
-    id: Number;
-    iconResource: String;
+    value: string;
+    id: number;
+    iconResource: string;
     constructor();
 
   }
@@ -177,33 +177,33 @@
   export class IStorageProviderItemPropertySource {
     constructor();
 
-    getItemProperties(itemPath: String): Object;
+    getItemProperties(itemPath: string): Object;
 
   }
 
   export class StorageProviderItemPropertyDefinition {
-    id: Number;
-    displayNameResource: String;
+    id: number;
+    displayNameResource: string;
     constructor();
 
   }
 
   export class StorageProviderSyncRootInfo {
-    version: String;
-    showSiblingsAsGroup: Boolean;
+    version: string;
+    showSiblingsAsGroup: boolean;
     recycleBinUri: Object;
     protectionMode: StorageProviderProtectionMode;
     populationPolicy: StorageProviderPopulationPolicy;
     path: Object;
     inSyncPolicy: StorageProviderInSyncPolicy;
-    id: String;
-    iconResource: String;
+    id: string;
+    iconResource: string;
     hydrationPolicyModifier: StorageProviderHydrationPolicyModifier;
     hydrationPolicy: StorageProviderHydrationPolicy;
     hardlinkPolicy: StorageProviderHardlinkPolicy;
-    displayNameResource: String;
+    displayNameResource: string;
     context: Object;
-    allowPinning: Boolean;
+    allowPinning: boolean;
     storageProviderItemPropertyDefinitions: Object;
     constructor();
 
@@ -211,15 +211,15 @@
 
   export class StorageProviderGetContentInfoForPathResult {
     status: StorageProviderUriSourceStatus;
-    contentUri: String;
-    contentId: String;
+    contentUri: string;
+    contentId: string;
     constructor();
 
   }
 
   export class StorageProviderGetPathForContentUriResult {
     status: StorageProviderUriSourceStatus;
-    path: String;
+    path: string;
     constructor();
 
   }
@@ -227,9 +227,9 @@
   export class IStorageProviderUriSource {
     constructor();
 
-    getPathForContentUri(contentUri: String, result: StorageProviderGetPathForContentUriResult): void;
+    getPathForContentUri(contentUri: string, result: StorageProviderGetPathForContentUriResult): void;
 
-    getContentInfoForPath(path: String, result: StorageProviderGetContentInfoForPathResult): void;
+    getContentInfoForPath(path: string, result: StorageProviderGetContentInfoForPathResult): void;
 
   }
 
@@ -239,13 +239,13 @@
     static register(syncRootInformation: StorageProviderSyncRootInfo): void;
 
 
-    static unregister(id: String): void;
+    static unregister(id: string): void;
 
 
     static getSyncRootInformationForFolder(folder: Object): StorageProviderSyncRootInfo;
 
 
-    static getSyncRootInformationForId(id: String): StorageProviderSyncRootInfo;
+    static getSyncRootInformationForId(id: string): StorageProviderSyncRootInfo;
 
 
     static getCurrentSyncRoots(): Object;

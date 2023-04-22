@@ -3,27 +3,27 @@
   }
 
   export class CorePhysicalKeyStatus {
-    repeatCount: Number;
-    scanCode: Number;
-    isExtendedKey: Boolean;
-    isMenuKeyDown: Boolean;
-    wasKeyDown: Boolean;
-    isKeyReleased: Boolean;
+    repeatCount: number;
+    scanCode: number;
+    isExtendedKey: boolean;
+    isMenuKeyDown: boolean;
+    wasKeyDown: boolean;
+    isKeyReleased: boolean;
     constructor();
   }
 
   export class ManipulationDelta {
     translation: Object;
-    scale: Number;
-    rotation: Number;
-    expansion: Number;
+    scale: number;
+    rotation: number;
+    expansion: number;
     constructor();
   }
 
   export class ManipulationVelocities {
     linear: Object;
-    angular: Number;
-    expansion: Number;
+    angular: number;
+    expansion: number;
     constructor();
   }
 
@@ -154,16 +154,16 @@
   }
 
   export class Pointer {
-    isInContact: Boolean;
-    isInRange: Boolean;
-    pointerDeviceType: Number;
-    pointerId: Number;
+    isInContact: boolean;
+    isInRange: boolean;
+    pointerDeviceType: number;
+    pointerId: number;
     constructor();
 
   }
 
   export class AccessKeyDisplayRequestedEventArgs {
-    pressedKeys: String;
+    pressedKeys: string;
     constructor();
 
   }
@@ -174,21 +174,21 @@
   }
 
   export class AccessKeyInvokedEventArgs {
-    handled: Boolean;
+    handled: boolean;
     constructor();
 
   }
 
   export class ProcessKeyboardAcceleratorEventArgs {
-    handled: Boolean;
-    key: Number;
-    modifiers: Number;
+    handled: boolean;
+    key: number;
+    modifiers: number;
     constructor();
 
   }
 
   export class KeyboardAcceleratorInvokedEventArgs {
-    handled: Boolean;
+    handled: boolean;
     element: Object;
     keyboardAccelerator: KeyboardAccelerator;
     constructor();
@@ -196,8 +196,8 @@
   }
 
   export class AccessKeyManager {
-    static isDisplayModeEnabled: Boolean;
-    static areKeyTipsEnabled: Boolean;
+    static isDisplayModeEnabled: boolean;
+    static areKeyTipsEnabled: boolean;
     constructor();
 
     static exitDisplayMode(): void;
@@ -217,37 +217,37 @@
   }
 
   export class InertiaExpansionBehavior {
-    desiredExpansion: Number;
-    desiredDeceleration: Number;
+    desiredExpansion: number;
+    desiredDeceleration: number;
     constructor();
 
   }
 
   export class InertiaRotationBehavior {
-    desiredRotation: Number;
-    desiredDeceleration: Number;
+    desiredRotation: number;
+    desiredDeceleration: number;
     constructor();
 
   }
 
   export class InertiaTranslationBehavior {
-    desiredDisplacement: Number;
-    desiredDeceleration: Number;
+    desiredDisplacement: number;
+    desiredDeceleration: number;
     constructor();
 
   }
 
   export class ManipulationPivot {
-    radius: Number;
+    radius: number;
     center: Object;
     constructor();
-    constructor(center: Object, radius: Number);
+    constructor(center: Object, radius: number);
 
   }
 
   export class CharacterReceivedRoutedEventArgs {
-    handled: Boolean;
-    character: String;
+    handled: boolean;
+    character: string;
     keyStatus: CorePhysicalKeyStatus;
     originalSource: Object;
     constructor();
@@ -255,17 +255,17 @@
   }
 
   export class ContextRequestedEventArgs {
-    handled: Boolean;
+    handled: boolean;
     originalSource: Object;
     constructor();
 
-    tryGetPosition(relativeTo: Object, point: Object): Boolean;
+    tryGetPosition(relativeTo: Object, point: Object): boolean;
 
   }
 
   export class DoubleTappedRoutedEventArgs {
-    handled: Boolean;
-    pointerDeviceType: Number;
+    handled: boolean;
+    pointerDeviceType: number;
     originalSource: Object;
     constructor();
 
@@ -275,25 +275,25 @@
 
   export class GettingFocusEventArgs {
     newFocusedElement: Object;
-    handled: Boolean;
-    cancel: Boolean;
+    handled: boolean;
+    cancel: boolean;
     direction: FocusNavigationDirection;
-    focusState: Number;
+    focusState: number;
     inputDevice: FocusInputDeviceKind;
     oldFocusedElement: Object;
     originalSource: Object;
     constructor();
 
-    tryCancel(): Boolean;
+    tryCancel(): boolean;
 
-    trySetNewFocusedElement(element: Object): Boolean;
+    trySetNewFocusedElement(element: Object): boolean;
 
   }
 
   export class HoldingRoutedEventArgs {
-    handled: Boolean;
-    holdingState: Number;
-    pointerDeviceType: Number;
+    handled: boolean;
+    holdingState: number;
+    pointerDeviceType: number;
     originalSource: Object;
     constructor();
 
@@ -322,9 +322,9 @@
     static modifiersProperty: Object;
     static scopeOwnerProperty: Object;
     scopeOwner: Object;
-    modifiers: Number;
-    key: Number;
-    isEnabled: Boolean;
+    modifiers: number;
+    key: number;
+    isEnabled: boolean;
     dispatcher: Object;
     constructor();
 
@@ -342,11 +342,11 @@
   }
 
   export class KeyRoutedEventArgs {
-    handled: Boolean;
-    key: Number;
+    handled: boolean;
+    key: number;
     keyStatus: CorePhysicalKeyStatus;
-    originalKey: Number;
-    deviceId: String;
+    originalKey: number;
+    deviceId: string;
     originalSource: Object;
     constructor();
 
@@ -354,27 +354,27 @@
 
   export class LosingFocusEventArgs {
     newFocusedElement: Object;
-    handled: Boolean;
-    cancel: Boolean;
+    handled: boolean;
+    cancel: boolean;
     direction: FocusNavigationDirection;
-    focusState: Number;
+    focusState: number;
     inputDevice: FocusInputDeviceKind;
     oldFocusedElement: Object;
     originalSource: Object;
     constructor();
 
-    tryCancel(): Boolean;
+    tryCancel(): boolean;
 
-    trySetNewFocusedElement(element: Object): Boolean;
+    trySetNewFocusedElement(element: Object): boolean;
 
   }
 
   export class ManipulationCompletedRoutedEventArgs {
-    handled: Boolean;
+    handled: boolean;
     container: Object;
     cumulative: ManipulationDelta;
-    isInertial: Boolean;
-    pointerDeviceType: Number;
+    isInertial: boolean;
+    pointerDeviceType: number;
     position: Object;
     velocities: ManipulationVelocities;
     originalSource: Object;
@@ -383,12 +383,12 @@
   }
 
   export class ManipulationDeltaRoutedEventArgs {
-    handled: Boolean;
+    handled: boolean;
     container: Object;
     cumulative: ManipulationDelta;
     delta: ManipulationDelta;
-    isInertial: Boolean;
-    pointerDeviceType: Number;
+    isInertial: boolean;
+    pointerDeviceType: number;
     position: Object;
     velocities: ManipulationVelocities;
     originalSource: Object;
@@ -401,12 +401,12 @@
   export class ManipulationInertiaStartingRoutedEventArgs {
     translationBehavior: InertiaTranslationBehavior;
     rotationBehavior: InertiaRotationBehavior;
-    handled: Boolean;
+    handled: boolean;
     expansionBehavior: InertiaExpansionBehavior;
     container: Object;
     cumulative: ManipulationDelta;
     delta: ManipulationDelta;
-    pointerDeviceType: Number;
+    pointerDeviceType: number;
     velocities: ManipulationVelocities;
     originalSource: Object;
     constructor();
@@ -414,10 +414,10 @@
   }
 
   export class ManipulationStartedRoutedEventArgs {
-    handled: Boolean;
+    handled: boolean;
     container: Object;
     cumulative: ManipulationDelta;
-    pointerDeviceType: Number;
+    pointerDeviceType: number;
     position: Object;
     originalSource: Object;
     constructor();
@@ -429,7 +429,7 @@
   export class ManipulationStartingRoutedEventArgs {
     pivot: ManipulationPivot;
     mode: ManipulationModes;
-    handled: Boolean;
+    handled: boolean;
     container: Object;
     originalSource: Object;
     constructor();
@@ -437,7 +437,7 @@
   }
 
   export class NoFocusCandidateFoundEventArgs {
-    handled: Boolean;
+    handled: boolean;
     direction: FocusNavigationDirection;
     inputDevice: FocusInputDeviceKind;
     originalSource: Object;
@@ -446,10 +446,10 @@
   }
 
   export class PointerRoutedEventArgs {
-    handled: Boolean;
-    keyModifiers: Number;
+    handled: boolean;
+    keyModifiers: number;
     pointer: Pointer;
-    isGenerated: Boolean;
+    isGenerated: boolean;
     originalSource: Object;
     constructor();
 
@@ -460,8 +460,8 @@
   }
 
   export class RightTappedRoutedEventArgs {
-    handled: Boolean;
-    pointerDeviceType: Number;
+    handled: boolean;
+    pointerDeviceType: number;
     originalSource: Object;
     constructor();
 
@@ -470,8 +470,8 @@
   }
 
   export class TappedRoutedEventArgs {
-    handled: Boolean;
-    pointerDeviceType: Number;
+    handled: boolean;
+    pointerDeviceType: number;
     originalSource: Object;
     constructor();
 
@@ -489,7 +489,7 @@
   }
 
   export class FocusMovementResult {
-    succeeded: Boolean;
+    succeeded: boolean;
     constructor();
 
   }
@@ -497,15 +497,15 @@
   export class FocusManager {
     constructor();
 
-    static tryFocusAsync(element: Object, value: Number, callback: (error: Error, result: FocusMovementResult) => void): void ;
+    static tryFocusAsync(element: Object, value: number, callback: (error: Error, result: FocusMovementResult) => void): void ;
 
 
     static tryMoveFocusAsync(focusNavigationDirection: FocusNavigationDirection, callback: (error: Error, result: FocusMovementResult) => void): void ;
     static tryMoveFocusAsync(focusNavigationDirection: FocusNavigationDirection, focusNavigationOptions: FindNextElementOptions, callback: (error: Error, result: FocusMovementResult) => void): void ;
 
 
-    static tryMoveFocus(focusNavigationDirection: FocusNavigationDirection, focusNavigationOptions: FindNextElementOptions): Boolean;
-    static tryMoveFocus(focusNavigationDirection: FocusNavigationDirection): Boolean;
+    static tryMoveFocus(focusNavigationDirection: FocusNavigationDirection, focusNavigationOptions: FindNextElementOptions): boolean;
+    static tryMoveFocus(focusNavigationDirection: FocusNavigationDirection): boolean;
 
 
     static findNextElement(focusNavigationDirection: FocusNavigationDirection): Object;

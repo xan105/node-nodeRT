@@ -20,15 +20,15 @@
   }
 
   export class MessageDialog {
-    title: String;
+    title: string;
     options: MessageDialogOptions;
-    defaultCommandIndex: Number;
-    content: String;
-    cancelCommandIndex: Number;
+    defaultCommandIndex: number;
+    content: string;
+    cancelCommandIndex: number;
     commands: Object;
     constructor();
-    constructor(content: String);
-    constructor(content: String, title: String);
+    constructor(content: string);
+    constructor(content: string, title: string);
 
     showAsync(callback: (error: Error, result: IUICommand) => void): void ;
 
@@ -37,24 +37,24 @@
   export class IUICommand {
     id: Object;
     invoked: Object;
-    label: String;
+    label: string;
     constructor();
 
   }
 
   export class UICommand {
-    label: String;
+    label: string;
     invoked: Object;
     id: Object;
     constructor();
-    constructor(label: String);
-    constructor(label: String, action: Object);
-    constructor(label: String, action: Object, commandId: Object);
+    constructor(label: string);
+    constructor(label: string, action: Object);
+    constructor(label: string, action: Object, commandId: Object);
 
   }
 
   export class UICommandSeparator {
-    label: String;
+    label: string;
     invoked: Object;
     id: Object;
     constructor();

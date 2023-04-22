@@ -17,25 +17,25 @@
   }
 
   export class FileRemovedEventArgs {
-    id: String;
+    id: string;
     constructor();
 
   }
 
   export class FileOpenPickerUI {
-    title: String;
+    title: string;
     allowedFileTypes: Object;
     selectionMode: FileSelectionMode;
-    settingsIdentifier: String;
+    settingsIdentifier: string;
     constructor();
 
-    addFile(id: String, file: Object): AddFileResult;
+    addFile(id: string, file: Object): AddFileResult;
 
-    removeFile(id: String): void;
+    removeFile(id: string): void;
 
-    containsFile(id: String): Boolean;
+    containsFile(id: string): boolean;
 
-    canAddFile(file: Object): Boolean;
+    canAddFile(file: Object): boolean;
 
     addListener(type: "Closing", listener: (ev: Event) => void): void ;
     removeListener(type: "Closing", listener: (ev: Event) => void): void ;
@@ -57,7 +57,7 @@
 
   export class PickerClosingEventArgs {
     closingOperation: PickerClosingOperation;
-    isCanceled: Boolean;
+    isCanceled: boolean;
     constructor();
 
   }
@@ -78,13 +78,13 @@
   }
 
   export class FileSavePickerUI {
-    title: String;
+    title: string;
     allowedFileTypes: Object;
-    fileName: String;
-    settingsIdentifier: String;
+    fileName: string;
+    settingsIdentifier: string;
     constructor();
 
-    trySetFileName(value: String): SetFileNameResult;
+    trySetFileName(value: string): SetFileNameResult;
 
     addListener(type: "FileNameChanged", listener: (ev: Event) => void): void ;
     removeListener(type: "FileNameChanged", listener: (ev: Event) => void): void ;

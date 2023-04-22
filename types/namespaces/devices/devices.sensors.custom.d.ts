@@ -1,15 +1,15 @@
   export class CustomSensor {
-    reportInterval: Number;
-    deviceId: String;
-    minimumReportInterval: Number;
-    reportLatency: Number;
-    maxBatchSize: Number;
+    reportInterval: number;
+    deviceId: string;
+    minimumReportInterval: number;
+    reportLatency: number;
+    maxBatchSize: number;
     constructor();
 
-    static fromIdAsync(sensorId: String, callback: (error: Error, result: CustomSensor) => void): void ;
+    static fromIdAsync(sensorId: string, callback: (error: Error, result: CustomSensor) => void): void ;
 
 
-    static getDeviceSelector(interfaceId: String): String;
+    static getDeviceSelector(interfaceId: string): string;
 
 
     getCurrentReading(): CustomSensorReading;
@@ -30,7 +30,7 @@
   export class CustomSensorReading {
     properties: Object;
     timestamp: Date;
-    performanceCount: Number;
+    performanceCount: number;
     constructor();
 
   }

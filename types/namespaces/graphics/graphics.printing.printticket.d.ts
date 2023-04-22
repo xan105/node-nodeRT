@@ -19,39 +19,39 @@
     type: PrintTicketValueType;
     constructor();
 
-    getValueAsInteger(): Number;
+    getValueAsInteger(): number;
 
-    getValueAsString(): String;
+    getValueAsString(): string;
 
   }
 
   export class PrintTicketOption {
-    displayName: String;
-    name: String;
-    xmlNamespace: String;
+    displayName: string;
+    name: string;
+    xmlNamespace: string;
     xmlNode: Object;
     constructor();
 
-    getPropertyNode(name: String, xmlNamespace: String): Object;
+    getPropertyNode(name: string, xmlNamespace: string): Object;
 
-    getScoredPropertyNode(name: String, xmlNamespace: String): Object;
+    getScoredPropertyNode(name: string, xmlNamespace: string): Object;
 
-    getPropertyValue(name: String, xmlNamespace: String): PrintTicketValue;
+    getPropertyValue(name: string, xmlNamespace: string): PrintTicketValue;
 
-    getScoredPropertyValue(name: String, xmlNamespace: String): PrintTicketValue;
+    getScoredPropertyValue(name: string, xmlNamespace: string): PrintTicketValue;
 
   }
 
   export class PrintTicketFeature {
-    displayName: String;
-    name: String;
+    displayName: string;
+    name: string;
     options: Object;
     selectionType: PrintTicketFeatureSelectionType;
-    xmlNamespace: String;
+    xmlNamespace: string;
     xmlNode: Object;
     constructor();
 
-    getOption(name: String, xmlNamespace: String): PrintTicketOption;
+    getOption(name: string, xmlNamespace: string): PrintTicketOption;
 
     getSelectedOption(): PrintTicketOption;
 
@@ -61,11 +61,11 @@
 
   export class PrintTicketParameterDefinition {
     dataType: PrintTicketParameterDataType;
-    name: String;
-    rangeMax: Number;
-    rangeMin: Number;
-    unitType: String;
-    xmlNamespace: String;
+    name: string;
+    rangeMax: number;
+    rangeMin: number;
+    unitType: string;
+    xmlNamespace: string;
     xmlNode: Object;
     constructor();
 
@@ -80,7 +80,7 @@
     documentNUpFeature: PrintTicketFeature;
     documentStapleFeature: PrintTicketFeature;
     jobPasscodeFeature: PrintTicketFeature;
-    name: String;
+    name: string;
     pageBorderlessFeature: PrintTicketFeature;
     pageMediaSizeFeature: PrintTicketFeature;
     pageMediaTypeFeature: PrintTicketFeature;
@@ -88,28 +88,28 @@
     pageOutputColorFeature: PrintTicketFeature;
     pageOutputQualityFeature: PrintTicketFeature;
     pageResolutionFeature: PrintTicketFeature;
-    xmlNamespace: String;
+    xmlNamespace: string;
     xmlNode: Object;
     constructor();
 
-    getFeature(name: String, xmlNamespace: String): PrintTicketFeature;
+    getFeature(name: string, xmlNamespace: string): PrintTicketFeature;
 
-    getParameterDefinition(name: String, xmlNamespace: String): PrintTicketParameterDefinition;
+    getParameterDefinition(name: string, xmlNamespace: string): PrintTicketParameterDefinition;
 
   }
 
   export class PrintTicketParameterInitializer {
     value: PrintTicketValue;
-    name: String;
-    xmlNamespace: String;
+    name: string;
+    xmlNamespace: string;
     xmlNode: Object;
     constructor();
 
   }
 
   export class WorkflowPrintTicketValidationResult {
-    extendedError: Number;
-    validated: Boolean;
+    extendedError: number;
+    validated: boolean;
     constructor();
 
   }
@@ -123,7 +123,7 @@
     documentNUpFeature: PrintTicketFeature;
     documentStapleFeature: PrintTicketFeature;
     jobPasscodeFeature: PrintTicketFeature;
-    name: String;
+    name: string;
     pageBorderlessFeature: PrintTicketFeature;
     pageMediaSizeFeature: PrintTicketFeature;
     pageMediaTypeFeature: PrintTicketFeature;
@@ -131,7 +131,7 @@
     pageOutputColorFeature: PrintTicketFeature;
     pageOutputQualityFeature: PrintTicketFeature;
     pageResolutionFeature: PrintTicketFeature;
-    xmlNamespace: String;
+    xmlNamespace: string;
     xmlNode: Object;
     constructor();
 
@@ -141,13 +141,13 @@
 
     getCapabilities(): PrintTicketCapabilities;
 
-    getFeature(name: String, xmlNamespace: String): PrintTicketFeature;
+    getFeature(name: string, xmlNamespace: string): PrintTicketFeature;
 
-    getParameterInitializer(name: String, xmlNamespace: String): PrintTicketParameterInitializer;
+    getParameterInitializer(name: string, xmlNamespace: string): PrintTicketParameterInitializer;
 
-    setParameterInitializerAsInteger(name: String, xmlNamespace: String, integerValue: Number): PrintTicketParameterInitializer;
+    setParameterInitializerAsInteger(name: string, xmlNamespace: string, integerValue: number): PrintTicketParameterInitializer;
 
-    setParameterInitializerAsString(name: String, xmlNamespace: String, stringValue: String): PrintTicketParameterInitializer;
+    setParameterInitializerAsString(name: string, xmlNamespace: string, stringValue: string): PrintTicketParameterInitializer;
 
     mergeAndValidateTicket(deltaShemaTicket: WorkflowPrintTicket): WorkflowPrintTicket;
 

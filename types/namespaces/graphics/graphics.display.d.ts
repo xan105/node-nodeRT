@@ -3,9 +3,9 @@
   }
 
   export class NitRange {
-    minNits: Number;
-    maxNits: Number;
-    stepSizeNits: Number;
+    minNits: number;
+    maxNits: number;
+    stepSizeNits: number;
     constructor();
   }
 
@@ -73,16 +73,16 @@
   export class DisplayInformation {
     static autoRotationPreferences: DisplayOrientations;
     currentOrientation: DisplayOrientations;
-    logicalDpi: Number;
+    logicalDpi: number;
     nativeOrientation: DisplayOrientations;
-    rawDpiX: Number;
-    rawDpiY: Number;
+    rawDpiX: number;
+    rawDpiY: number;
     resolutionScale: ResolutionScale;
-    stereoEnabled: Boolean;
-    rawPixelsPerViewPixel: Number;
-    diagonalSizeInInches: Number;
-    screenHeightInRawPixels: Number;
-    screenWidthInRawPixels: Number;
+    stereoEnabled: boolean;
+    rawPixelsPerViewPixel: number;
+    diagonalSizeInInches: number;
+    screenHeightInRawPixels: number;
+    screenWidthInRawPixels: number;
     constructor();
 
     static getForCurrentView(): DisplayInformation;
@@ -134,27 +134,27 @@
     bluePrimary: Object;
     currentAdvancedColorKind: AdvancedColorKind;
     greenPrimary: Object;
-    maxAverageFullFrameLuminanceInNits: Number;
-    maxLuminanceInNits: Number;
-    minLuminanceInNits: Number;
+    maxAverageFullFrameLuminanceInNits: number;
+    maxLuminanceInNits: number;
+    minLuminanceInNits: number;
     redPrimary: Object;
-    sdrWhiteLevelInNits: Number;
+    sdrWhiteLevelInNits: number;
     whitePoint: Object;
     constructor();
 
-    isHdrMetadataFormatCurrentlySupported(format: HdrMetadataFormat): Boolean;
+    isHdrMetadataFormatCurrentlySupported(format: HdrMetadataFormat): boolean;
 
-    isAdvancedColorKindAvailable(kind: AdvancedColorKind): Boolean;
+    isAdvancedColorKindAvailable(kind: AdvancedColorKind): boolean;
 
   }
 
   export class DisplayProperties {
     static autoRotationPreferences: DisplayOrientations;
     static currentOrientation: DisplayOrientations;
-    static logicalDpi: Number;
+    static logicalDpi: number;
     static nativeOrientation: DisplayOrientations;
     static resolutionScale: ResolutionScale;
-    static stereoEnabled: Boolean;
+    static stereoEnabled: boolean;
     constructor();
 
     static getColorProfileAsync(callback: (error: Error, result: Object) => void): void ;
@@ -194,12 +194,12 @@
   }
 
   export class BrightnessOverride {
-    brightnessLevel: Number;
-    isOverrideActive: Boolean;
-    isSupported: Boolean;
+    brightnessLevel: number;
+    isOverrideActive: boolean;
+    isSupported: boolean;
     constructor();
 
-    static saveForSystemAsync(value: BrightnessOverride, callback: (error: Error, result: Boolean) => void): void ;
+    static saveForSystemAsync(value: BrightnessOverride, callback: (error: Error, result: boolean) => void): void ;
 
 
     static getDefaultForSystem(): BrightnessOverride;
@@ -208,11 +208,11 @@
     static getForCurrentView(): BrightnessOverride;
 
 
-    setBrightnessLevel(brightnessLevel: Number, options: DisplayBrightnessOverrideOptions): void;
+    setBrightnessLevel(brightnessLevel: number, options: DisplayBrightnessOverrideOptions): void;
 
     setBrightnessScenario(scenario: DisplayBrightnessScenario, options: DisplayBrightnessOverrideOptions): void;
 
-    getLevelForScenario(scenario: DisplayBrightnessScenario): Number;
+    getLevelForScenario(scenario: DisplayBrightnessScenario): number;
 
     startOverride(): void;
 
@@ -242,14 +242,14 @@
   }
 
   export class BrightnessOverrideSettings {
-    desiredLevel: Number;
-    desiredNits: Number;
+    desiredLevel: number;
+    desiredNits: number;
     constructor();
 
-    static createFromLevel(level: Number): BrightnessOverrideSettings;
+    static createFromLevel(level: number): BrightnessOverrideSettings;
 
 
-    static createFromNits(nits: Number): BrightnessOverrideSettings;
+    static createFromNits(nits: number): BrightnessOverrideSettings;
 
 
     static createFromDisplayBrightnessOverrideScenario(overrideScenario: DisplayBrightnessOverrideScenario): BrightnessOverrideSettings;
@@ -267,8 +267,8 @@
   }
 
   export class DisplayEnhancementOverrideCapabilities {
-    isBrightnessControlSupported: Boolean;
-    isBrightnessNitsControlSupported: Boolean;
+    isBrightnessControlSupported: boolean;
+    isBrightnessNitsControlSupported: boolean;
     constructor();
 
     getSupportedNitRanges(): Object;
@@ -284,8 +284,8 @@
   export class DisplayEnhancementOverride {
     colorOverrideSettings: ColorOverrideSettings;
     brightnessOverrideSettings: BrightnessOverrideSettings;
-    canOverride: Boolean;
-    isOverrideActive: Boolean;
+    canOverride: boolean;
+    isOverrideActive: boolean;
     constructor();
 
     static getForCurrentView(): DisplayEnhancementOverride;

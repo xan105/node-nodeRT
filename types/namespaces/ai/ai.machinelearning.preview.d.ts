@@ -49,9 +49,9 @@
     static loadModelFromStreamAsync(modelStream: Object, callback: (error: Error, result: LearningModelPreview) => void): void ;
 
 
-    evaluateAsync(binding: LearningModelBindingPreview, correlationId: String, callback: (error: Error, result: LearningModelEvaluationResultPreview) => void): void ;
+    evaluateAsync(binding: LearningModelBindingPreview, correlationId: string, callback: (error: Error, result: LearningModelEvaluationResultPreview) => void): void ;
 
-    evaluateFeaturesAsync(features: Object, correlationId: String, callback: (error: Error, result: LearningModelEvaluationResultPreview) => void): void ;
+    evaluateFeaturesAsync(features: Object, correlationId: string, callback: (error: Error, result: LearningModelEvaluationResultPreview) => void): void ;
 
   }
 
@@ -59,14 +59,14 @@
     constructor();
     constructor(model: LearningModelPreview);
 
-    bind(name: String, value: Object): void;
-    bind(name: String, value: Object, metadata: Object): void;
+    bind(name: string, value: Object): void;
+    bind(name: string, value: Object, metadata: Object): void;
 
     clear(): void;
 
-    lookup(key: String): Object;
+    lookup(key: string): Object;
 
-    hasKey(key: String): Boolean;
+    hasKey(key: string): boolean;
 
     split(first: Object, second: Object): void;
 
@@ -75,58 +75,58 @@
   }
 
   export class LearningModelEvaluationResultPreview {
-    correlationId: String;
+    correlationId: string;
     outputs: Object;
     constructor();
 
   }
 
   export class LearningModelDescriptionPreview {
-    author: String;
-    description: String;
-    domain: String;
+    author: string;
+    description: string;
+    domain: string;
     inputFeatures: Object;
     metadata: Object;
-    name: String;
+    name: string;
     outputFeatures: Object;
-    version: Number;
+    version: number;
     constructor();
 
   }
 
   export class InferencingOptionsPreview {
-    reclaimMemoryAfterEvaluation: Boolean;
+    reclaimMemoryAfterEvaluation: boolean;
     preferredDeviceKind: LearningModelDeviceKindPreview;
-    minimizeMemoryAllocation: Boolean;
-    maxBatchSize: Number;
-    isTracingEnabled: Boolean;
+    minimizeMemoryAllocation: boolean;
+    maxBatchSize: number;
+    isTracingEnabled: boolean;
     constructor();
 
   }
 
   export class ILearningModelVariableDescriptorPreview {
-    description: String;
-    isRequired: Boolean;
+    description: string;
+    isRequired: boolean;
     modelFeatureKind: LearningModelFeatureKindPreview;
-    name: String;
+    name: string;
     constructor();
 
   }
 
   export class LearningModelVariableDescriptorPreview {
-    description: String;
-    isRequired: Boolean;
+    description: string;
+    isRequired: boolean;
     modelFeatureKind: LearningModelFeatureKindPreview;
-    name: String;
+    name: string;
     constructor();
 
   }
 
   export class TensorVariableDescriptorPreview {
-    description: String;
-    isRequired: Boolean;
+    description: string;
+    isRequired: boolean;
     modelFeatureKind: LearningModelFeatureKindPreview;
-    name: String;
+    name: string;
     dataType: FeatureElementKindPreview;
     shape: Object;
     constructor();
@@ -134,20 +134,20 @@
   }
 
   export class SequenceVariableDescriptorPreview {
-    description: String;
-    isRequired: Boolean;
+    description: string;
+    isRequired: boolean;
     modelFeatureKind: LearningModelFeatureKindPreview;
-    name: String;
+    name: string;
     elementType: ILearningModelVariableDescriptorPreview;
     constructor();
 
   }
 
   export class MapVariableDescriptorPreview {
-    description: String;
-    isRequired: Boolean;
+    description: string;
+    isRequired: boolean;
     modelFeatureKind: LearningModelFeatureKindPreview;
-    name: String;
+    name: string;
     fields: ILearningModelVariableDescriptorPreview;
     keyKind: FeatureElementKindPreview;
     validIntegerKeys: Object;
@@ -157,13 +157,13 @@
   }
 
   export class ImageVariableDescriptorPreview {
-    bitmapPixelFormat: Number;
-    height: Number;
-    width: Number;
-    description: String;
-    isRequired: Boolean;
+    bitmapPixelFormat: number;
+    height: number;
+    width: number;
+    description: string;
+    isRequired: boolean;
     modelFeatureKind: LearningModelFeatureKindPreview;
-    name: String;
+    name: string;
     constructor();
 
   }

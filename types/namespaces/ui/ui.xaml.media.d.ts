@@ -168,14 +168,14 @@
 
     static findElementsInHostCoordinates(intersectingPoint: Object, subtree: Object): Object;
     static findElementsInHostCoordinates(intersectingRect: Object, subtree: Object): Object;
-    static findElementsInHostCoordinates(intersectingPoint: Object, subtree: Object, includeAllElements: Boolean): Object;
-    static findElementsInHostCoordinates(intersectingRect: Object, subtree: Object, includeAllElements: Boolean): Object;
+    static findElementsInHostCoordinates(intersectingPoint: Object, subtree: Object, includeAllElements: boolean): Object;
+    static findElementsInHostCoordinates(intersectingRect: Object, subtree: Object, includeAllElements: boolean): Object;
 
 
-    static getChild(reference: Object, childIndex: Number): Object;
+    static getChild(reference: Object, childIndex: number): Object;
 
 
-    static getChildrenCount(reference: Object): Number;
+    static getChildrenCount(reference: Object): number;
 
 
     static getParent(reference: Object): Object;
@@ -187,8 +187,8 @@
   }
 
   export class PartialMediaFailureDetectedEventArgs {
-    streamKind: Number;
-    extendedError: Number;
+    streamKind: number;
+    extendedError: number;
     constructor();
 
   }
@@ -196,17 +196,17 @@
   export class BrushCollection {
     constructor();
 
-    getAt(index: Number): Brush;
+    getAt(index: number): Brush;
 
     getView(): Object;
 
-    indexOf(value: Brush, index: Number): Boolean;
+    indexOf(value: Brush, index: number): boolean;
 
-    setAt(index: Number, value: Brush): void;
+    setAt(index: number, value: Brush): void;
 
-    insertAt(index: Number, value: Brush): void;
+    insertAt(index: number, value: Brush): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: Brush): void;
 
@@ -222,7 +222,7 @@
   }
 
   export class RenderedEventArgs {
-    frameDuration: Number;
+    frameDuration: number;
     constructor();
 
   }
@@ -256,26 +256,26 @@
   export class DoubleCollection {
     constructor();
 
-    getAt(index: Number): Number;
+    getAt(index: number): number;
 
     getView(): Object;
 
-    indexOf(value: Number, index: Number): Boolean;
+    indexOf(value: number, index: number): boolean;
 
-    setAt(index: Number, value: Number): void;
+    setAt(index: number, value: number): void;
 
-    insertAt(index: Number, value: Number): void;
+    insertAt(index: number, value: number): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
-    append(value: Number): void;
+    append(value: number): void;
 
     removeAtEnd(): void;
 
     clear(): void;
 
     getMany();
-    replaceAll(items: Array<Number>): void;
+    replaceAll(items: Array<number>): void;
 
     first(): Object;
 
@@ -283,9 +283,9 @@
 
   export class FontFamily {
     static xamlAutoFontFamily: FontFamily;
-    source: String;
+    source: string;
     constructor();
-    constructor(familyName: String);
+    constructor(familyName: string);
 
   }
 
@@ -301,17 +301,17 @@
   export class PointCollection {
     constructor();
 
-    getAt(index: Number): Object;
+    getAt(index: number): Object;
 
     getView(): Object;
 
-    indexOf(value: Object, index: Number): Boolean;
+    indexOf(value: Object, index: number): boolean;
 
-    setAt(index: Number, value: Object): void;
+    setAt(index: number, value: Object): void;
 
-    insertAt(index: Number, value: Object): void;
+    insertAt(index: number, value: Object): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: Object): void;
 
@@ -327,7 +327,7 @@
   }
 
   export class RenderingEventArgs {
-    renderingTime: Number;
+    renderingTime: number;
     constructor();
 
   }
@@ -335,17 +335,17 @@
   export class TimelineMarkerCollection {
     constructor();
 
-    getAt(index: Number): TimelineMarker;
+    getAt(index: number): TimelineMarker;
 
     getView(): Object;
 
-    indexOf(value: TimelineMarker, index: Number): Boolean;
+    indexOf(value: TimelineMarker, index: number): boolean;
 
-    setAt(index: Number, value: TimelineMarker): void;
+    setAt(index: number, value: TimelineMarker): void;
 
-    insertAt(index: Number, value: TimelineMarker): void;
+    insertAt(index: number, value: TimelineMarker): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: TimelineMarker): void;
 
@@ -363,17 +363,17 @@
   export class TransformCollection {
     constructor();
 
-    getAt(index: Number): Transform;
+    getAt(index: number): Transform;
 
     getView(): Object;
 
-    indexOf(value: Transform, index: Number): Boolean;
+    indexOf(value: Transform, index: number): boolean;
 
-    setAt(index: Number, value: Transform): void;
+    setAt(index: number, value: Transform): void;
 
-    insertAt(index: Number, value: Transform): void;
+    insertAt(index: number, value: Transform): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: Transform): void;
 
@@ -394,7 +394,7 @@
     static transformProperty: Object;
     transform: Transform;
     relativeTransform: Transform;
-    opacity: Number;
+    opacity: number;
     dispatcher: Object;
     constructor();
 
@@ -413,11 +413,11 @@
 
     transformPoint(point: Object): Object;
 
-    tryTransform(inPoint: Object, outPoint: Object): Boolean;
+    tryTransform(inPoint: Object, outPoint: Object): boolean;
 
     transformBounds(rect: Object): Object;
 
-    tryTransformCore(inPoint: Object, outPoint: Object): Boolean;
+    tryTransformCore(inPoint: Object, outPoint: Object): boolean;
 
     transformBoundsCore(rect: Object): Object;
 
@@ -425,7 +425,7 @@
 
   export class Geometry {
     static empty: Geometry;
-    static standardFlatteningTolerance: Number;
+    static standardFlatteningTolerance: number;
     static transformProperty: Object;
     transform: Transform;
     bounds: Object;
@@ -462,9 +462,9 @@
     static textProperty: Object;
     static timeProperty: Object;
     static typeProperty: Object;
-    type: String;
-    time: Number;
-    text: String;
+    type: string;
+    time: number;
+    text: string;
     dispatcher: Object;
     constructor();
 
@@ -481,19 +481,19 @@
     dispatcher: Object;
     constructor();
 
-    static addTargetElement(lightId: String, element: Object): void;
+    static addTargetElement(lightId: string, element: Object): void;
 
 
-    static removeTargetElement(lightId: String, element: Object): void;
+    static removeTargetElement(lightId: string, element: Object): void;
 
 
-    static addTargetBrush(lightId: String, brush: Brush): void;
+    static addTargetBrush(lightId: string, brush: Brush): void;
 
 
-    static removeTargetBrush(lightId: String, brush: Brush): void;
+    static removeTargetBrush(lightId: string, brush: Brush): void;
 
 
-    getId(): String;
+    getId(): string;
 
     onConnected(newElement: Object): void;
 
@@ -529,18 +529,18 @@
     static rotationXProperty: Object;
     static rotationYProperty: Object;
     static rotationZProperty: Object;
-    globalOffsetZ: Number;
-    globalOffsetY: Number;
-    globalOffsetX: Number;
-    centerOfRotationZ: Number;
-    centerOfRotationY: Number;
-    centerOfRotationX: Number;
-    rotationZ: Number;
-    rotationY: Number;
-    rotationX: Number;
-    localOffsetZ: Number;
-    localOffsetY: Number;
-    localOffsetX: Number;
+    globalOffsetZ: number;
+    globalOffsetY: number;
+    globalOffsetX: number;
+    centerOfRotationZ: number;
+    centerOfRotationY: number;
+    centerOfRotationX: number;
+    rotationZ: number;
+    rotationY: number;
+    rotationX: number;
+    localOffsetZ: number;
+    localOffsetY: number;
+    localOffsetX: number;
     projectionMatrix: Matrix3D;
     dispatcher: Object;
     constructor();
@@ -550,7 +550,7 @@
   export class RectangleGeometry {
     static rectProperty: Object;
     static empty: Geometry;
-    static standardFlatteningTolerance: Number;
+    static standardFlatteningTolerance: number;
     static transformProperty: Object;
     rect: Object;
     transform: Transform;
@@ -568,7 +568,7 @@
     color: Object;
     transform: Transform;
     relativeTransform: Transform;
-    opacity: Number;
+    opacity: number;
     dispatcher: Object;
     constructor();
     constructor(color: Object);
@@ -592,15 +592,15 @@
     static skewYProperty: Object;
     static translateXProperty: Object;
     static translateYProperty: Object;
-    translateY: Number;
-    translateX: Number;
-    skewY: Number;
-    skewX: Number;
-    scaleY: Number;
-    scaleX: Number;
-    rotation: Number;
-    centerY: Number;
-    centerX: Number;
+    translateY: number;
+    translateX: number;
+    skewY: number;
+    skewX: number;
+    scaleY: number;
+    scaleX: number;
+    rotation: number;
+    centerY: number;
+    centerX: number;
     inverse: GeneralTransform;
     dispatcher: Object;
     constructor();
@@ -620,9 +620,9 @@
     static angleProperty: Object;
     static centerXProperty: Object;
     static centerYProperty: Object;
-    centerY: Number;
-    centerX: Number;
-    angle: Number;
+    centerY: number;
+    centerX: number;
+    angle: number;
     inverse: GeneralTransform;
     dispatcher: Object;
     constructor();
@@ -634,10 +634,10 @@
     static centerYProperty: Object;
     static scaleXProperty: Object;
     static scaleYProperty: Object;
-    scaleY: Number;
-    scaleX: Number;
-    centerY: Number;
-    centerX: Number;
+    scaleY: number;
+    scaleX: number;
+    centerY: number;
+    centerX: number;
     inverse: GeneralTransform;
     dispatcher: Object;
     constructor();
@@ -649,10 +649,10 @@
     static angleYProperty: Object;
     static centerXProperty: Object;
     static centerYProperty: Object;
-    centerY: Number;
-    centerX: Number;
-    angleY: Number;
-    angleX: Number;
+    centerY: number;
+    centerX: number;
+    angleY: number;
+    angleX: number;
     inverse: GeneralTransform;
     dispatcher: Object;
     constructor();
@@ -672,8 +672,8 @@
   export class TranslateTransform {
     static xProperty: Object;
     static yProperty: Object;
-    y: Number;
-    x: Number;
+    y: number;
+    x: number;
     inverse: GeneralTransform;
     dispatcher: Object;
     constructor();
@@ -683,17 +683,17 @@
   export class GeometryCollection {
     constructor();
 
-    getAt(index: Number): Geometry;
+    getAt(index: number): Geometry;
 
     getView(): Object;
 
-    indexOf(value: Geometry, index: Number): Boolean;
+    indexOf(value: Geometry, index: number): boolean;
 
-    setAt(index: Number, value: Geometry): void;
+    setAt(index: number, value: Geometry): void;
 
-    insertAt(index: Number, value: Geometry): void;
+    insertAt(index: number, value: Geometry): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: Geometry): void;
 
@@ -711,17 +711,17 @@
   export class GradientStopCollection {
     constructor();
 
-    getAt(index: Number): GradientStop;
+    getAt(index: number): GradientStop;
 
     getView(): Object;
 
-    indexOf(value: GradientStop, index: Number): Boolean;
+    indexOf(value: GradientStop, index: number): boolean;
 
-    setAt(index: Number, value: GradientStop): void;
+    setAt(index: number, value: GradientStop): void;
 
-    insertAt(index: Number, value: GradientStop): void;
+    insertAt(index: number, value: GradientStop): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: GradientStop): void;
 
@@ -773,17 +773,17 @@
   export class PathFigureCollection {
     constructor();
 
-    getAt(index: Number): PathFigure;
+    getAt(index: number): PathFigure;
 
     getView(): Object;
 
-    indexOf(value: PathFigure, index: Number): Boolean;
+    indexOf(value: PathFigure, index: number): boolean;
 
-    setAt(index: Number, value: PathFigure): void;
+    setAt(index: number, value: PathFigure): void;
 
-    insertAt(index: Number, value: PathFigure): void;
+    insertAt(index: number, value: PathFigure): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: PathFigure): void;
 
@@ -801,17 +801,17 @@
   export class PathSegmentCollection {
     constructor();
 
-    getAt(index: Number): PathSegment;
+    getAt(index: number): PathSegment;
 
     getView(): Object;
 
-    indexOf(value: PathSegment, index: Number): Boolean;
+    indexOf(value: PathSegment, index: number): boolean;
 
-    setAt(index: Number, value: PathSegment): void;
+    setAt(index: number, value: PathSegment): void;
 
-    insertAt(index: Number, value: PathSegment): void;
+    insertAt(index: number, value: PathSegment): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: PathSegment): void;
 
@@ -829,7 +829,7 @@
   export class GradientStop {
     static colorProperty: Object;
     static offsetProperty: Object;
-    offset: Number;
+    offset: number;
     color: Object;
     dispatcher: Object;
     constructor();
@@ -843,8 +843,8 @@
     static startPointProperty: Object;
     startPoint: Object;
     segments: PathSegmentCollection;
-    isFilled: Boolean;
-    isClosed: Boolean;
+    isFilled: boolean;
+    isClosed: boolean;
     dispatcher: Object;
     constructor();
 
@@ -858,9 +858,9 @@
     static sweepDirectionProperty: Object;
     sweepDirection: SweepDirection;
     size: Object;
-    rotationAngle: Number;
+    rotationAngle: number;
     point: Object;
-    isLargeArc: Boolean;
+    isLargeArc: boolean;
     dispatcher: Object;
     constructor();
 
@@ -883,10 +883,10 @@
     static radiusXProperty: Object;
     static radiusYProperty: Object;
     static empty: Geometry;
-    static standardFlatteningTolerance: Number;
+    static standardFlatteningTolerance: number;
     static transformProperty: Object;
-    radiusY: Number;
-    radiusX: Number;
+    radiusY: number;
+    radiusX: number;
     center: Object;
     transform: Transform;
     bounds: Object;
@@ -899,7 +899,7 @@
     static childrenProperty: Object;
     static fillRuleProperty: Object;
     static empty: Geometry;
-    static standardFlatteningTolerance: Number;
+    static standardFlatteningTolerance: number;
     static transformProperty: Object;
     fillRule: FillRule;
     children: GeometryCollection;
@@ -924,7 +924,7 @@
     colorInterpolationMode: ColorInterpolationMode;
     transform: Transform;
     relativeTransform: Transform;
-    opacity: Number;
+    opacity: number;
     dispatcher: Object;
     constructor();
 
@@ -934,7 +934,7 @@
     static endPointProperty: Object;
     static startPointProperty: Object;
     static empty: Geometry;
-    static standardFlatteningTolerance: Number;
+    static standardFlatteningTolerance: number;
     static transformProperty: Object;
     startPoint: Object;
     endPoint: Object;
@@ -957,7 +957,7 @@
     static figuresProperty: Object;
     static fillRuleProperty: Object;
     static empty: Geometry;
-    static standardFlatteningTolerance: Number;
+    static standardFlatteningTolerance: number;
     static transformProperty: Object;
     fillRule: FillRule;
     figures: PathFigureCollection;
@@ -1014,7 +1014,7 @@
     alignmentX: AlignmentX;
     transform: Transform;
     relativeTransform: Transform;
-    opacity: Number;
+    opacity: number;
     dispatcher: Object;
     constructor();
 
@@ -1028,7 +1028,7 @@
     fallbackColor: Object;
     transform: Transform;
     relativeTransform: Transform;
-    opacity: Number;
+    opacity: number;
     dispatcher: Object;
     constructor();
 
@@ -1048,15 +1048,15 @@
     static opacityProperty: Object;
     static relativeTransformProperty: Object;
     static transformProperty: Object;
-    tintTransitionDuration: Number;
-    tintOpacity: Number;
+    tintTransitionDuration: number;
+    tintOpacity: number;
     tintColor: Object;
     backgroundSource: AcrylicBackgroundSource;
-    alwaysUseFallback: Boolean;
+    alwaysUseFallback: boolean;
     fallbackColor: Object;
     transform: Transform;
     relativeTransform: Transform;
-    opacity: Number;
+    opacity: number;
     dispatcher: Object;
     constructor();
 
@@ -1071,13 +1071,13 @@
     static opacityProperty: Object;
     static relativeTransformProperty: Object;
     static transformProperty: Object;
-    targetTheme: Number;
+    targetTheme: number;
     color: Object;
-    alwaysUseFallback: Boolean;
+    alwaysUseFallback: boolean;
     fallbackColor: Object;
     transform: Transform;
     relativeTransform: Transform;
-    opacity: Number;
+    opacity: number;
     dispatcher: Object;
     constructor();
 
@@ -1098,13 +1098,13 @@
     static opacityProperty: Object;
     static relativeTransformProperty: Object;
     static transformProperty: Object;
-    targetTheme: Number;
+    targetTheme: number;
     color: Object;
-    alwaysUseFallback: Boolean;
+    alwaysUseFallback: boolean;
     fallbackColor: Object;
     transform: Transform;
     relativeTransform: Transform;
-    opacity: Number;
+    opacity: number;
     dispatcher: Object;
     constructor();
 
@@ -1119,13 +1119,13 @@
     static opacityProperty: Object;
     static relativeTransformProperty: Object;
     static transformProperty: Object;
-    targetTheme: Number;
+    targetTheme: number;
     color: Object;
-    alwaysUseFallback: Boolean;
+    alwaysUseFallback: boolean;
     fallbackColor: Object;
     transform: Transform;
     relativeTransform: Transform;
-    opacity: Number;
+    opacity: number;
     dispatcher: Object;
     constructor();
 
@@ -1145,7 +1145,7 @@
     alignmentX: AlignmentX;
     transform: Transform;
     relativeTransform: Transform;
-    opacity: Number;
+    opacity: number;
     dispatcher: Object;
     constructor();
 
@@ -1185,10 +1185,10 @@
     colorInterpolationMode: ColorInterpolationMode;
     transform: Transform;
     relativeTransform: Transform;
-    opacity: Number;
+    opacity: number;
     dispatcher: Object;
     constructor();
-    constructor(gradientStopCollection: GradientStopCollection, angle: Number);
+    constructor(gradientStopCollection: GradientStopCollection, angle: number);
 
   }
 

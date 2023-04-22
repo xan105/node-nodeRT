@@ -128,34 +128,34 @@
   }
 
   export class Appointment {
-    location: String;
-    allDay: Boolean;
+    location: string;
+    allDay: boolean;
     organizer: AppointmentOrganizer;
-    duration: Number;
-    details: String;
+    duration: number;
+    details: string;
     busyStatus: AppointmentBusyStatus;
     recurrence: AppointmentRecurrence;
-    subject: String;
+    subject: string;
     uri: Object;
     startTime: Date;
     sensitivity: AppointmentSensitivity;
-    reminder: Number;
+    reminder: number;
     invitees: Object;
-    allowNewTimeProposal: Boolean;
+    allowNewTimeProposal: boolean;
     userResponse: AppointmentParticipantResponse;
-    roamingId: String;
+    roamingId: string;
     replyTime: Date;
-    isResponseRequested: Boolean;
-    isOrganizedByUser: Boolean;
-    isCanceledMeeting: Boolean;
-    onlineMeetingLink: String;
-    hasInvitees: Boolean;
-    calendarId: String;
-    localId: String;
+    isResponseRequested: boolean;
+    isOrganizedByUser: boolean;
+    isCanceledMeeting: boolean;
+    onlineMeetingLink: string;
+    hasInvitees: boolean;
+    calendarId: string;
+    localId: string;
     originalStartTime: Date;
-    remoteChangeNumber: Number;
+    remoteChangeNumber: number;
     detailsKind: AppointmentDetailsKind;
-    changeNumber: Number;
+    changeNumber: number;
     constructor();
 
   }
@@ -164,42 +164,42 @@
     changeTracker: AppointmentStoreChangeTracker;
     constructor();
 
-    createAppointmentCalendarAsync(name: String, callback: (error: Error, result: AppointmentCalendar) => void): void ;
-    createAppointmentCalendarAsync(name: String, userDataAccountId: String, callback: (error: Error, result: AppointmentCalendar) => void): void ;
+    createAppointmentCalendarAsync(name: string, callback: (error: Error, result: AppointmentCalendar) => void): void ;
+    createAppointmentCalendarAsync(name: string, userDataAccountId: string, callback: (error: Error, result: AppointmentCalendar) => void): void ;
 
-    getAppointmentCalendarAsync(calendarId: String, callback: (error: Error, result: AppointmentCalendar) => void): void ;
+    getAppointmentCalendarAsync(calendarId: string, callback: (error: Error, result: AppointmentCalendar) => void): void ;
 
-    getAppointmentAsync(localId: String, callback: (error: Error, result: Appointment) => void): void ;
+    getAppointmentAsync(localId: string, callback: (error: Error, result: Appointment) => void): void ;
 
-    getAppointmentInstanceAsync(localId: String, instanceStartTime: Date, callback: (error: Error, result: Appointment) => void): void ;
+    getAppointmentInstanceAsync(localId: string, instanceStartTime: Date, callback: (error: Error, result: Appointment) => void): void ;
 
     findAppointmentCalendarsAsync(callback: (error: Error, result: Object) => void): void ;
     findAppointmentCalendarsAsync(options: FindAppointmentCalendarsOptions, callback: (error: Error, result: Object) => void): void ;
 
-    findAppointmentsAsync(rangeStart: Date, rangeLength: Number, callback: (error: Error, result: Object) => void): void ;
-    findAppointmentsAsync(rangeStart: Date, rangeLength: Number, options: FindAppointmentsOptions, callback: (error: Error, result: Object) => void): void ;
+    findAppointmentsAsync(rangeStart: Date, rangeLength: number, callback: (error: Error, result: Object) => void): void ;
+    findAppointmentsAsync(rangeStart: Date, rangeLength: number, options: FindAppointmentsOptions, callback: (error: Error, result: Object) => void): void ;
 
     findConflictAsync(appointment: Appointment, callback: (error: Error, result: AppointmentConflictResult) => void): void ;
     findConflictAsync(appointment: Appointment, instanceStartTime: Date, callback: (error: Error, result: AppointmentConflictResult) => void): void ;
 
     moveAppointmentAsync(appointment: Appointment, destinationCalendar: AppointmentCalendar, callback: (error: Error) => void): void ;
 
-    showAddAppointmentAsync(appointment: Appointment, selection: Object, callback: (error: Error, result: String) => void): void ;
+    showAddAppointmentAsync(appointment: Appointment, selection: Object, callback: (error: Error, result: string) => void): void ;
 
-    showReplaceAppointmentAsync(localId: String, appointment: Appointment, selection: Object, callback: (error: Error, result: String) => void): void ;
-    showReplaceAppointmentAsync(localId: String, appointment: Appointment, selection: Object, preferredPlacement: Number, instanceStartDate: Date, callback: (error: Error, result: String) => void): void ;
+    showReplaceAppointmentAsync(localId: string, appointment: Appointment, selection: Object, callback: (error: Error, result: string) => void): void ;
+    showReplaceAppointmentAsync(localId: string, appointment: Appointment, selection: Object, preferredPlacement: number, instanceStartDate: Date, callback: (error: Error, result: string) => void): void ;
 
-    showRemoveAppointmentAsync(localId: String, selection: Object, callback: (error: Error, result: Boolean) => void): void ;
-    showRemoveAppointmentAsync(localId: String, selection: Object, preferredPlacement: Number, instanceStartDate: Date, callback: (error: Error, result: Boolean) => void): void ;
+    showRemoveAppointmentAsync(localId: string, selection: Object, callback: (error: Error, result: boolean) => void): void ;
+    showRemoveAppointmentAsync(localId: string, selection: Object, preferredPlacement: number, instanceStartDate: Date, callback: (error: Error, result: boolean) => void): void ;
 
-    showAppointmentDetailsAsync(localId: String, callback: (error: Error) => void): void ;
-    showAppointmentDetailsAsync(localId: String, instanceStartDate: Date, callback: (error: Error) => void): void ;
+    showAppointmentDetailsAsync(localId: string, callback: (error: Error) => void): void ;
+    showAppointmentDetailsAsync(localId: string, instanceStartDate: Date, callback: (error: Error) => void): void ;
 
-    showEditNewAppointmentAsync(appointment: Appointment, callback: (error: Error, result: String) => void): void ;
+    showEditNewAppointmentAsync(appointment: Appointment, callback: (error: Error, result: string) => void): void ;
 
-    findLocalIdsFromRoamingIdAsync(roamingId: String, callback: (error: Error, result: Object) => void): void ;
+    findLocalIdsFromRoamingIdAsync(roamingId: string, callback: (error: Error, result: Object) => void): void ;
 
-    getChangeTracker(identity: String): AppointmentStoreChangeTracker;
+    getChangeTracker(identity: string): AppointmentStoreChangeTracker;
 
     addListener(type: "StoreChanged", listener: (ev: Event) => void): void ;
     removeListener(type: "StoreChanged", listener: (ev: Event) => void): void ;
@@ -218,38 +218,38 @@
     user: Object;
     constructor();
 
-    showAddAppointmentAsync(appointment: Appointment, selection: Object, callback: (error: Error, result: String) => void): void ;
-    showAddAppointmentAsync(appointment: Appointment, selection: Object, preferredPlacement: Number, callback: (error: Error, result: String) => void): void ;
+    showAddAppointmentAsync(appointment: Appointment, selection: Object, callback: (error: Error, result: string) => void): void ;
+    showAddAppointmentAsync(appointment: Appointment, selection: Object, preferredPlacement: number, callback: (error: Error, result: string) => void): void ;
 
-    showReplaceAppointmentAsync(appointmentId: String, appointment: Appointment, selection: Object, callback: (error: Error, result: String) => void): void ;
-    showReplaceAppointmentAsync(appointmentId: String, appointment: Appointment, selection: Object, preferredPlacement: Number, callback: (error: Error, result: String) => void): void ;
-    showReplaceAppointmentAsync(appointmentId: String, appointment: Appointment, selection: Object, preferredPlacement: Number, instanceStartDate: Date, callback: (error: Error, result: String) => void): void ;
+    showReplaceAppointmentAsync(appointmentId: string, appointment: Appointment, selection: Object, callback: (error: Error, result: string) => void): void ;
+    showReplaceAppointmentAsync(appointmentId: string, appointment: Appointment, selection: Object, preferredPlacement: number, callback: (error: Error, result: string) => void): void ;
+    showReplaceAppointmentAsync(appointmentId: string, appointment: Appointment, selection: Object, preferredPlacement: number, instanceStartDate: Date, callback: (error: Error, result: string) => void): void ;
 
-    showRemoveAppointmentAsync(appointmentId: String, selection: Object, callback: (error: Error, result: Boolean) => void): void ;
-    showRemoveAppointmentAsync(appointmentId: String, selection: Object, preferredPlacement: Number, callback: (error: Error, result: Boolean) => void): void ;
-    showRemoveAppointmentAsync(appointmentId: String, selection: Object, preferredPlacement: Number, instanceStartDate: Date, callback: (error: Error, result: Boolean) => void): void ;
+    showRemoveAppointmentAsync(appointmentId: string, selection: Object, callback: (error: Error, result: boolean) => void): void ;
+    showRemoveAppointmentAsync(appointmentId: string, selection: Object, preferredPlacement: number, callback: (error: Error, result: boolean) => void): void ;
+    showRemoveAppointmentAsync(appointmentId: string, selection: Object, preferredPlacement: number, instanceStartDate: Date, callback: (error: Error, result: boolean) => void): void ;
 
-    showTimeFrameAsync(timeToShow: Date, duration: Number, callback: (error: Error) => void): void ;
+    showTimeFrameAsync(timeToShow: Date, duration: number, callback: (error: Error) => void): void ;
 
-    showAppointmentDetailsAsync(appointmentId: String, callback: (error: Error) => void): void ;
-    showAppointmentDetailsAsync(appointmentId: String, instanceStartDate: Date, callback: (error: Error) => void): void ;
+    showAppointmentDetailsAsync(appointmentId: string, callback: (error: Error) => void): void ;
+    showAppointmentDetailsAsync(appointmentId: string, instanceStartDate: Date, callback: (error: Error) => void): void ;
 
-    showEditNewAppointmentAsync(appointment: Appointment, callback: (error: Error, result: String) => void): void ;
+    showEditNewAppointmentAsync(appointment: Appointment, callback: (error: Error, result: string) => void): void ;
 
     requestStoreAsync(options: AppointmentStoreAccessType, callback: (error: Error, result: AppointmentStore) => void): void ;
 
   }
 
   export class IAppointmentParticipant {
-    address: String;
-    displayName: String;
+    address: string;
+    displayName: string;
     constructor();
 
   }
 
   export class AppointmentOrganizer {
-    displayName: String;
-    address: String;
+    displayName: string;
+    address: string;
     constructor();
 
   }
@@ -257,24 +257,24 @@
   export class AppointmentInvitee {
     role: AppointmentParticipantRole;
     response: AppointmentParticipantResponse;
-    displayName: String;
-    address: String;
+    displayName: string;
+    address: string;
     constructor();
 
   }
 
   export class AppointmentRecurrence {
     unit: AppointmentRecurrenceUnit;
-    occurrences: Number;
-    month: Number;
-    interval: Number;
+    occurrences: number;
+    month: number;
+    interval: number;
     daysOfWeek: AppointmentDaysOfWeek;
-    day: Number;
+    day: number;
     weekOfMonth: AppointmentWeekOfMonth;
     until: Date;
-    timeZone: String;
+    timeZone: string;
     recurrenceType: RecurrenceType;
-    calendarIdentifier: String;
+    calendarIdentifier: string;
     constructor();
 
   }
@@ -282,31 +282,31 @@
   export class AppointmentManager {
     constructor();
 
-    static showAppointmentDetailsAsync(appointmentId: String, callback: (error: Error) => void): void ;
-    static showAppointmentDetailsAsync(appointmentId: String, instanceStartDate: Date, callback: (error: Error) => void): void ;
+    static showAppointmentDetailsAsync(appointmentId: string, callback: (error: Error) => void): void ;
+    static showAppointmentDetailsAsync(appointmentId: string, instanceStartDate: Date, callback: (error: Error) => void): void ;
 
 
-    static showEditNewAppointmentAsync(appointment: Appointment, callback: (error: Error, result: String) => void): void ;
+    static showEditNewAppointmentAsync(appointment: Appointment, callback: (error: Error, result: string) => void): void ;
 
 
     static requestStoreAsync(options: AppointmentStoreAccessType, callback: (error: Error, result: AppointmentStore) => void): void ;
 
 
-    static showAddAppointmentAsync(appointment: Appointment, selection: Object, callback: (error: Error, result: String) => void): void ;
-    static showAddAppointmentAsync(appointment: Appointment, selection: Object, preferredPlacement: Number, callback: (error: Error, result: String) => void): void ;
+    static showAddAppointmentAsync(appointment: Appointment, selection: Object, callback: (error: Error, result: string) => void): void ;
+    static showAddAppointmentAsync(appointment: Appointment, selection: Object, preferredPlacement: number, callback: (error: Error, result: string) => void): void ;
 
 
-    static showReplaceAppointmentAsync(appointmentId: String, appointment: Appointment, selection: Object, callback: (error: Error, result: String) => void): void ;
-    static showReplaceAppointmentAsync(appointmentId: String, appointment: Appointment, selection: Object, preferredPlacement: Number, callback: (error: Error, result: String) => void): void ;
-    static showReplaceAppointmentAsync(appointmentId: String, appointment: Appointment, selection: Object, preferredPlacement: Number, instanceStartDate: Date, callback: (error: Error, result: String) => void): void ;
+    static showReplaceAppointmentAsync(appointmentId: string, appointment: Appointment, selection: Object, callback: (error: Error, result: string) => void): void ;
+    static showReplaceAppointmentAsync(appointmentId: string, appointment: Appointment, selection: Object, preferredPlacement: number, callback: (error: Error, result: string) => void): void ;
+    static showReplaceAppointmentAsync(appointmentId: string, appointment: Appointment, selection: Object, preferredPlacement: number, instanceStartDate: Date, callback: (error: Error, result: string) => void): void ;
 
 
-    static showRemoveAppointmentAsync(appointmentId: String, selection: Object, callback: (error: Error, result: Boolean) => void): void ;
-    static showRemoveAppointmentAsync(appointmentId: String, selection: Object, preferredPlacement: Number, callback: (error: Error, result: Boolean) => void): void ;
-    static showRemoveAppointmentAsync(appointmentId: String, selection: Object, preferredPlacement: Number, instanceStartDate: Date, callback: (error: Error, result: Boolean) => void): void ;
+    static showRemoveAppointmentAsync(appointmentId: string, selection: Object, callback: (error: Error, result: boolean) => void): void ;
+    static showRemoveAppointmentAsync(appointmentId: string, selection: Object, preferredPlacement: number, callback: (error: Error, result: boolean) => void): void ;
+    static showRemoveAppointmentAsync(appointmentId: string, selection: Object, preferredPlacement: number, instanceStartDate: Date, callback: (error: Error, result: boolean) => void): void ;
 
 
-    static showTimeFrameAsync(timeToShow: Date, duration: Number, callback: (error: Error) => void): void ;
+    static showTimeFrameAsync(timeToShow: Date, duration: number, callback: (error: Error) => void): void ;
 
 
     static getForUser(user: Object): AppointmentManagerForUser;
@@ -315,8 +315,8 @@
   }
 
   export class FindAppointmentsOptions {
-    maxCount: Number;
-    includeHidden: Boolean;
+    maxCount: number;
+    includeHidden: boolean;
     calendarIds: Object;
     fetchProperties: Object;
     constructor();
@@ -326,7 +326,7 @@
   export class AppointmentException {
     appointment: Appointment;
     exceptionProperties: Object;
-    isDeleted: Boolean;
+    isDeleted: boolean;
     constructor();
 
   }
@@ -337,7 +337,7 @@
     lastAttemptedSyncTime: Date;
     constructor();
 
-    syncAsync(callback: (error: Error, result: Boolean) => void): void ;
+    syncAsync(callback: (error: Error, result: boolean) => void): void ;
 
     addListener(type: "SyncStatusChanged", listener: (ev: Event) => void): void ;
     removeListener(type: "SyncStatusChanged", listener: (ev: Event) => void): void ;
@@ -356,36 +356,36 @@
     summaryCardView: AppointmentSummaryCardView;
     otherAppWriteAccess: AppointmentCalendarOtherAppWriteAccess;
     displayColor: Object;
-    isHidden: Boolean;
-    displayName: String;
+    isHidden: boolean;
+    displayName: string;
     otherAppReadAccess: AppointmentCalendarOtherAppReadAccess;
-    localId: String;
-    sourceDisplayName: String;
-    canCancelMeetings: Boolean;
-    canNotifyInvitees: Boolean;
-    remoteId: String;
-    mustNofityInvitees: Boolean;
-    canUpdateMeetingResponses: Boolean;
-    canProposeNewTimeForMeetings: Boolean;
-    canCreateOrUpdateAppointments: Boolean;
-    canForwardMeetings: Boolean;
+    localId: string;
+    sourceDisplayName: string;
+    canCancelMeetings: boolean;
+    canNotifyInvitees: boolean;
+    remoteId: string;
+    mustNofityInvitees: boolean;
+    canUpdateMeetingResponses: boolean;
+    canProposeNewTimeForMeetings: boolean;
+    canCreateOrUpdateAppointments: boolean;
+    canForwardMeetings: boolean;
     syncManager: AppointmentCalendarSyncManager;
-    userDataAccountId: String;
+    userDataAccountId: string;
     constructor();
 
     registerSyncManagerAsync(callback: (error: Error) => void): void ;
 
-    findAppointmentsAsync(rangeStart: Date, rangeLength: Number, callback: (error: Error, result: Object) => void): void ;
-    findAppointmentsAsync(rangeStart: Date, rangeLength: Number, options: FindAppointmentsOptions, callback: (error: Error, result: Object) => void): void ;
+    findAppointmentsAsync(rangeStart: Date, rangeLength: number, callback: (error: Error, result: Object) => void): void ;
+    findAppointmentsAsync(rangeStart: Date, rangeLength: number, options: FindAppointmentsOptions, callback: (error: Error, result: Object) => void): void ;
 
-    findExceptionsFromMasterAsync(masterLocalId: String, callback: (error: Error, result: Object) => void): void ;
+    findExceptionsFromMasterAsync(masterLocalId: string, callback: (error: Error, result: Object) => void): void ;
 
-    findAllInstancesAsync(masterLocalId: String, rangeStart: Date, rangeLength: Number, callback: (error: Error, result: Object) => void): void ;
-    findAllInstancesAsync(masterLocalId: String, rangeStart: Date, rangeLength: Number, pOptions: FindAppointmentsOptions, callback: (error: Error, result: Object) => void): void ;
+    findAllInstancesAsync(masterLocalId: string, rangeStart: Date, rangeLength: number, callback: (error: Error, result: Object) => void): void ;
+    findAllInstancesAsync(masterLocalId: string, rangeStart: Date, rangeLength: number, pOptions: FindAppointmentsOptions, callback: (error: Error, result: Object) => void): void ;
 
-    getAppointmentAsync(localId: String, callback: (error: Error, result: Appointment) => void): void ;
+    getAppointmentAsync(localId: string, callback: (error: Error, result: Appointment) => void): void ;
 
-    getAppointmentInstanceAsync(localId: String, instanceStartTime: Date, callback: (error: Error, result: Appointment) => void): void ;
+    getAppointmentInstanceAsync(localId: string, instanceStartTime: Date, callback: (error: Error, result: Appointment) => void): void ;
 
     findUnexpandedAppointmentsAsync(callback: (error: Error, result: Object) => void): void ;
     findUnexpandedAppointmentsAsync(options: FindAppointmentsOptions, callback: (error: Error, result: Object) => void): void ;
@@ -394,21 +394,21 @@
 
     saveAsync(callback: (error: Error) => void): void ;
 
-    deleteAppointmentAsync(localId: String, callback: (error: Error) => void): void ;
+    deleteAppointmentAsync(localId: string, callback: (error: Error) => void): void ;
 
-    deleteAppointmentInstanceAsync(localId: String, instanceStartTime: Date, callback: (error: Error) => void): void ;
+    deleteAppointmentInstanceAsync(localId: string, instanceStartTime: Date, callback: (error: Error) => void): void ;
 
     saveAppointmentAsync(pAppointment: Appointment, callback: (error: Error) => void): void ;
 
-    tryCreateOrUpdateAppointmentAsync(appointment: Appointment, notifyInvitees: Boolean, callback: (error: Error, result: Boolean) => void): void ;
+    tryCreateOrUpdateAppointmentAsync(appointment: Appointment, notifyInvitees: boolean, callback: (error: Error, result: boolean) => void): void ;
 
-    tryCancelMeetingAsync(meeting: Appointment, subject: String, comment: String, notifyInvitees: Boolean, callback: (error: Error, result: Boolean) => void): void ;
+    tryCancelMeetingAsync(meeting: Appointment, subject: string, comment: string, notifyInvitees: boolean, callback: (error: Error, result: boolean) => void): void ;
 
-    tryForwardMeetingAsync(meeting: Appointment, invitees: Object, subject: String, forwardHeader: String, comment: String, callback: (error: Error, result: Boolean) => void): void ;
+    tryForwardMeetingAsync(meeting: Appointment, invitees: Object, subject: string, forwardHeader: string, comment: string, callback: (error: Error, result: boolean) => void): void ;
 
-    tryProposeNewTimeForMeetingAsync(meeting: Appointment, newStartTime: Date, newDuration: Number, subject: String, comment: String, callback: (error: Error, result: Boolean) => void): void ;
+    tryProposeNewTimeForMeetingAsync(meeting: Appointment, newStartTime: Date, newDuration: number, subject: string, comment: string, callback: (error: Error, result: boolean) => void): void ;
 
-    tryUpdateMeetingResponseAsync(meeting: Appointment, response: AppointmentParticipantResponse, subject: String, comment: String, sendUpdate: Boolean, callback: (error: Error, result: Boolean) => void): void ;
+    tryUpdateMeetingResponseAsync(meeting: Appointment, response: AppointmentParticipantResponse, subject: string, comment: string, sendUpdate: boolean, callback: (error: Error, result: boolean) => void): void ;
 
   }
 
@@ -439,7 +439,7 @@
   }
 
   export class AppointmentStoreChangeTracker {
-    isTracking: Boolean;
+    isTracking: boolean;
     constructor();
 
     getChangeReader(): AppointmentStoreChangeReader;
@@ -465,32 +465,32 @@
   }
 
   export class AppointmentProperties {
-    static hasInvitees: String;
-    static allDay: String;
-    static allowNewTimeProposal: String;
-    static busyStatus: String;
+    static hasInvitees: string;
+    static allDay: string;
+    static allowNewTimeProposal: string;
+    static busyStatus: string;
     static defaultProperties: Object;
-    static details: String;
-    static duration: String;
-    static recurrence: String;
-    static invitees: String;
-    static isCanceledMeeting: String;
-    static isOrganizedByUser: String;
-    static isResponseRequested: String;
-    static location: String;
-    static onlineMeetingLink: String;
-    static organizer: String;
-    static originalStartTime: String;
-    static reminder: String;
-    static replyTime: String;
-    static sensitivity: String;
-    static startTime: String;
-    static subject: String;
-    static uri: String;
-    static userResponse: String;
-    static detailsKind: String;
-    static remoteChangeNumber: String;
-    static changeNumber: String;
+    static details: string;
+    static duration: string;
+    static recurrence: string;
+    static invitees: string;
+    static isCanceledMeeting: string;
+    static isOrganizedByUser: string;
+    static isResponseRequested: string;
+    static location: string;
+    static onlineMeetingLink: string;
+    static organizer: string;
+    static originalStartTime: string;
+    static reminder: string;
+    static replyTime: string;
+    static sensitivity: string;
+    static startTime: string;
+    static subject: string;
+    static uri: string;
+    static userResponse: string;
+    static detailsKind: string;
+    static remoteChangeNumber: string;
+    static changeNumber: string;
     constructor();
 
   }

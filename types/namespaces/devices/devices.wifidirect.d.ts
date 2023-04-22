@@ -40,15 +40,15 @@
 
   export class WiFiDirectDevice {
     connectionStatus: WiFiDirectConnectionStatus;
-    deviceId: String;
+    deviceId: string;
     constructor();
 
-    static fromIdAsync(deviceId: String, connectionParameters: WiFiDirectConnectionParameters, callback: (error: Error, result: WiFiDirectDevice) => void): void ;
-    static fromIdAsync(deviceId: String, callback: (error: Error, result: WiFiDirectDevice) => void): void ;
+    static fromIdAsync(deviceId: string, connectionParameters: WiFiDirectConnectionParameters, callback: (error: Error, result: WiFiDirectDevice) => void): void ;
+    static fromIdAsync(deviceId: string, callback: (error: Error, result: WiFiDirectDevice) => void): void ;
 
 
-    static getDeviceSelector(type: WiFiDirectDeviceSelectorType): String;
-    static getDeviceSelector(): String;
+    static getDeviceSelector(type: WiFiDirectDeviceSelectorType): string;
+    static getDeviceSelector(): string;
 
 
     getConnectionEndpointPairs(): Object;
@@ -68,19 +68,19 @@
   }
 
   export class WiFiDirectConnectionParameters {
-    groupOwnerIntent: Number;
+    groupOwnerIntent: number;
     preferredPairingProcedure: WiFiDirectPairingProcedure;
     preferenceOrderedConfigurationMethods: Object;
     constructor();
 
-    static getDevicePairingKinds(configurationMethod: WiFiDirectConfigurationMethod): Number;
+    static getDevicePairingKinds(configurationMethod: WiFiDirectConfigurationMethod): number;
 
 
   }
 
   export class WiFiDirectInformationElement {
     value: Object;
-    ouiType: Number;
+    ouiType: number;
     oui: Object;
     constructor();
 
@@ -93,16 +93,16 @@
   }
 
   export class WiFiDirectLegacySettings {
-    ssid: String;
+    ssid: string;
     passphrase: Object;
-    isEnabled: Boolean;
+    isEnabled: boolean;
     constructor();
 
   }
 
   export class WiFiDirectAdvertisement {
     listenStateDiscoverability: WiFiDirectAdvertisementListenStateDiscoverability;
-    isAutonomousGroupOwnerEnabled: Boolean;
+    isAutonomousGroupOwnerEnabled: boolean;
     informationElements: Object;
     legacySettings: WiFiDirectLegacySettings;
     supportedConfigurationMethods: Object;

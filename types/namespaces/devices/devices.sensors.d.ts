@@ -75,26 +75,26 @@
   }
 
   export class SensorDataThresholdTriggerDetails {
-    deviceId: String;
+    deviceId: string;
     sensorType: SensorType;
     constructor();
 
   }
 
   export class Accelerometer {
-    reportInterval: Number;
-    minimumReportInterval: Number;
-    readingTransform: Number;
-    reportLatency: Number;
-    maxBatchSize: Number;
+    reportInterval: number;
+    minimumReportInterval: number;
+    readingTransform: number;
+    reportLatency: number;
+    maxBatchSize: number;
     readingType: AccelerometerReadingType;
-    deviceId: String;
+    deviceId: string;
     constructor();
 
-    static fromIdAsync(deviceId: String, callback: (error: Error, result: Accelerometer) => void): void ;
+    static fromIdAsync(deviceId: string, callback: (error: Error, result: Accelerometer) => void): void ;
 
 
-    static getDeviceSelector(readingType: AccelerometerReadingType): String;
+    static getDeviceSelector(readingType: AccelerometerReadingType): string;
 
 
     static getDefault(readingType: AccelerometerReadingType): Accelerometer;
@@ -122,11 +122,11 @@
   }
 
   export class AccelerometerReading {
-    accelerationX: Number;
-    accelerationY: Number;
-    accelerationZ: Number;
+    accelerationX: number;
+    accelerationY: number;
+    accelerationZ: number;
     timestamp: Date;
-    performanceCount: Number;
+    performanceCount: number;
     properties: Object;
     constructor();
 
@@ -145,19 +145,19 @@
   }
 
   export class Inclinometer {
-    reportInterval: Number;
-    minimumReportInterval: Number;
-    readingTransform: Number;
+    reportInterval: number;
+    minimumReportInterval: number;
+    readingTransform: number;
     readingType: SensorReadingType;
-    reportLatency: Number;
-    maxBatchSize: Number;
-    deviceId: String;
+    reportLatency: number;
+    maxBatchSize: number;
+    deviceId: string;
     constructor();
 
-    static fromIdAsync(deviceId: String, callback: (error: Error, result: Inclinometer) => void): void ;
+    static fromIdAsync(deviceId: string, callback: (error: Error, result: Inclinometer) => void): void ;
 
 
-    static getDeviceSelector(readingType: SensorReadingType): String;
+    static getDeviceSelector(readingType: SensorReadingType): string;
 
 
     static getDefault(sensorReadingtype: SensorReadingType): Inclinometer;
@@ -183,11 +183,11 @@
   }
 
   export class InclinometerReading {
-    pitchDegrees: Number;
-    rollDegrees: Number;
+    pitchDegrees: number;
+    rollDegrees: number;
     timestamp: Date;
-    yawDegrees: Number;
-    performanceCount: Number;
+    yawDegrees: number;
+    performanceCount: number;
     properties: Object;
     yawAccuracy: MagnetometerAccuracy;
     constructor();
@@ -201,18 +201,18 @@
   }
 
   export class Gyrometer {
-    reportInterval: Number;
-    minimumReportInterval: Number;
-    readingTransform: Number;
-    reportLatency: Number;
-    maxBatchSize: Number;
-    deviceId: String;
+    reportInterval: number;
+    minimumReportInterval: number;
+    readingTransform: number;
+    reportLatency: number;
+    maxBatchSize: number;
+    deviceId: string;
     constructor();
 
-    static fromIdAsync(deviceId: String, callback: (error: Error, result: Gyrometer) => void): void ;
+    static fromIdAsync(deviceId: string, callback: (error: Error, result: Gyrometer) => void): void ;
 
 
-    static getDeviceSelector(): String;
+    static getDeviceSelector(): string;
 
 
     static getDefault(): Gyrometer;
@@ -234,11 +234,11 @@
   }
 
   export class GyrometerReading {
-    angularVelocityX: Number;
-    angularVelocityY: Number;
-    angularVelocityZ: Number;
+    angularVelocityX: number;
+    angularVelocityY: number;
+    angularVelocityZ: number;
     timestamp: Date;
-    performanceCount: Number;
+    performanceCount: number;
     properties: Object;
     constructor();
 
@@ -251,18 +251,18 @@
   }
 
   export class Compass {
-    reportInterval: Number;
-    minimumReportInterval: Number;
-    readingTransform: Number;
-    reportLatency: Number;
-    maxBatchSize: Number;
-    deviceId: String;
+    reportInterval: number;
+    minimumReportInterval: number;
+    readingTransform: number;
+    reportLatency: number;
+    maxBatchSize: number;
+    deviceId: string;
     constructor();
 
-    static fromIdAsync(deviceId: String, callback: (error: Error, result: Compass) => void): void ;
+    static fromIdAsync(deviceId: string, callback: (error: Error, result: Compass) => void): void ;
 
 
-    static getDeviceSelector(): String;
+    static getDeviceSelector(): string;
 
 
     static getDefault(): Compass;
@@ -284,10 +284,10 @@
   }
 
   export class CompassReading {
-    headingMagneticNorth: Number;
-    headingTrueNorth: Number;
+    headingMagneticNorth: number;
+    headingTrueNorth: number;
     timestamp: Date;
-    performanceCount: Number;
+    performanceCount: number;
     properties: Object;
     headingAccuracy: MagnetometerAccuracy;
     constructor();
@@ -301,17 +301,17 @@
   }
 
   export class LightSensor {
-    reportInterval: Number;
-    minimumReportInterval: Number;
-    reportLatency: Number;
-    maxBatchSize: Number;
-    deviceId: String;
+    reportInterval: number;
+    minimumReportInterval: number;
+    reportLatency: number;
+    maxBatchSize: number;
+    deviceId: string;
     constructor();
 
-    static fromIdAsync(deviceId: String, callback: (error: Error, result: LightSensor) => void): void ;
+    static fromIdAsync(deviceId: string, callback: (error: Error, result: LightSensor) => void): void ;
 
 
-    static getDeviceSelector(): String;
+    static getDeviceSelector(): string;
 
 
     static getDefault(): LightSensor;
@@ -333,9 +333,9 @@
   }
 
   export class LightSensorReading {
-    illuminanceInLux: Number;
+    illuminanceInLux: number;
     timestamp: Date;
-    performanceCount: Number;
+    performanceCount: number;
     properties: Object;
     constructor();
 
@@ -348,43 +348,43 @@
   }
 
   export class SensorRotationMatrix {
-    m11: Number;
-    m12: Number;
-    m13: Number;
-    m21: Number;
-    m22: Number;
-    m23: Number;
-    m31: Number;
-    m32: Number;
-    m33: Number;
+    m11: number;
+    m12: number;
+    m13: number;
+    m21: number;
+    m22: number;
+    m23: number;
+    m31: number;
+    m32: number;
+    m33: number;
     constructor();
 
   }
 
   export class SensorQuaternion {
-    w: Number;
-    x: Number;
-    y: Number;
-    z: Number;
+    w: number;
+    x: number;
+    y: number;
+    z: number;
     constructor();
 
   }
 
   export class OrientationSensor {
-    reportInterval: Number;
-    minimumReportInterval: Number;
-    readingTransform: Number;
+    reportInterval: number;
+    minimumReportInterval: number;
+    readingTransform: number;
     readingType: SensorReadingType;
-    reportLatency: Number;
-    maxBatchSize: Number;
-    deviceId: String;
+    reportLatency: number;
+    maxBatchSize: number;
+    deviceId: string;
     constructor();
 
-    static fromIdAsync(deviceId: String, callback: (error: Error, result: OrientationSensor) => void): void ;
+    static fromIdAsync(deviceId: string, callback: (error: Error, result: OrientationSensor) => void): void ;
 
 
-    static getDeviceSelector(readingType: SensorReadingType): String;
-    static getDeviceSelector(readingType: SensorReadingType, optimizationGoal: SensorOptimizationGoal): String;
+    static getDeviceSelector(readingType: SensorReadingType): string;
+    static getDeviceSelector(readingType: SensorReadingType, optimizationGoal: SensorOptimizationGoal): string;
 
 
     static getDefault(sensorReadingtype: SensorReadingType): OrientationSensor;
@@ -414,7 +414,7 @@
     quaternion: SensorQuaternion;
     rotationMatrix: SensorRotationMatrix;
     timestamp: Date;
-    performanceCount: Number;
+    performanceCount: number;
     properties: Object;
     yawAccuracy: MagnetometerAccuracy;
     constructor();
@@ -428,8 +428,8 @@
   }
 
   export class SimpleOrientationSensor {
-    readingTransform: Number;
-    deviceId: String;
+    readingTransform: number;
+    deviceId: string;
     constructor();
 
     static getDefault(): SimpleOrientationSensor;
@@ -458,18 +458,18 @@
   }
 
   export class Magnetometer {
-    reportInterval: Number;
-    minimumReportInterval: Number;
-    readingTransform: Number;
-    reportLatency: Number;
-    maxBatchSize: Number;
-    deviceId: String;
+    reportInterval: number;
+    minimumReportInterval: number;
+    readingTransform: number;
+    reportLatency: number;
+    maxBatchSize: number;
+    deviceId: string;
     constructor();
 
-    static fromIdAsync(deviceId: String, callback: (error: Error, result: Magnetometer) => void): void ;
+    static fromIdAsync(deviceId: string, callback: (error: Error, result: Magnetometer) => void): void ;
 
 
-    static getDeviceSelector(): String;
+    static getDeviceSelector(): string;
 
 
     static getDefault(): Magnetometer;
@@ -492,11 +492,11 @@
 
   export class MagnetometerReading {
     directionalAccuracy: MagnetometerAccuracy;
-    magneticFieldX: Number;
-    magneticFieldY: Number;
-    magneticFieldZ: Number;
+    magneticFieldX: number;
+    magneticFieldY: number;
+    magneticFieldZ: number;
     timestamp: Date;
-    performanceCount: Number;
+    performanceCount: number;
     properties: Object;
     constructor();
 
@@ -509,9 +509,9 @@
   }
 
   export class ActivitySensor {
-    deviceId: String;
-    minimumReportInterval: Number;
-    powerInMilliwatts: Number;
+    deviceId: string;
+    minimumReportInterval: number;
+    powerInMilliwatts: number;
     subscribedActivities: Object;
     supportedActivities: Object;
     constructor();
@@ -519,14 +519,14 @@
     static getDefaultAsync(callback: (error: Error, result: ActivitySensor) => void): void ;
 
 
-    static fromIdAsync(deviceId: String, callback: (error: Error, result: ActivitySensor) => void): void ;
+    static fromIdAsync(deviceId: string, callback: (error: Error, result: ActivitySensor) => void): void ;
 
 
     static getSystemHistoryAsync(fromTime: Date, callback: (error: Error, result: Object) => void): void ;
-    static getSystemHistoryAsync(fromTime: Date, duration: Number, callback: (error: Error, result: Object) => void): void ;
+    static getSystemHistoryAsync(fromTime: Date, duration: number, callback: (error: Error, result: Object) => void): void ;
 
 
-    static getDeviceSelector(): String;
+    static getDeviceSelector(): string;
 
 
     getCurrentReadingAsync(callback: (error: Error, result: ActivitySensorReading) => void): void ;
@@ -572,17 +572,17 @@
   }
 
   export class Barometer {
-    reportInterval: Number;
-    deviceId: String;
-    minimumReportInterval: Number;
-    reportLatency: Number;
-    maxBatchSize: Number;
+    reportInterval: number;
+    deviceId: string;
+    minimumReportInterval: number;
+    reportLatency: number;
+    maxBatchSize: number;
     constructor();
 
-    static fromIdAsync(deviceId: String, callback: (error: Error, result: Barometer) => void): void ;
+    static fromIdAsync(deviceId: string, callback: (error: Error, result: Barometer) => void): void ;
 
 
-    static getDeviceSelector(): String;
+    static getDeviceSelector(): string;
 
 
     static getDefault(): Barometer;
@@ -604,9 +604,9 @@
   }
 
   export class BarometerReading {
-    stationPressureInHectopascals: Number;
+    stationPressureInHectopascals: number;
     timestamp: Date;
-    performanceCount: Number;
+    performanceCount: number;
     properties: Object;
     constructor();
 
@@ -619,8 +619,8 @@
   }
 
   export class PedometerReading {
-    cumulativeSteps: Number;
-    cumulativeStepsDuration: Number;
+    cumulativeSteps: number;
+    cumulativeStepsDuration: number;
     stepKind: PedometerStepKind;
     timestamp: Date;
     constructor();
@@ -628,26 +628,26 @@
   }
 
   export class Pedometer {
-    reportInterval: Number;
-    deviceId: String;
-    minimumReportInterval: Number;
-    powerInMilliwatts: Number;
+    reportInterval: number;
+    deviceId: string;
+    minimumReportInterval: number;
+    powerInMilliwatts: number;
     constructor();
 
-    static fromIdAsync(deviceId: String, callback: (error: Error, result: Pedometer) => void): void ;
+    static fromIdAsync(deviceId: string, callback: (error: Error, result: Pedometer) => void): void ;
 
 
     static getDefaultAsync(callback: (error: Error, result: Pedometer) => void): void ;
 
 
     static getSystemHistoryAsync(fromTime: Date, callback: (error: Error, result: Object) => void): void ;
-    static getSystemHistoryAsync(fromTime: Date, duration: Number, callback: (error: Error, result: Object) => void): void ;
+    static getSystemHistoryAsync(fromTime: Date, duration: number, callback: (error: Error, result: Object) => void): void ;
 
 
     static getReadingsFromTriggerDetails(triggerDetails: SensorDataThresholdTriggerDetails): Object;
 
 
-    static getDeviceSelector(): String;
+    static getDeviceSelector(): string;
 
 
     getCurrentReadings(): Object;
@@ -673,23 +673,23 @@
 
   export class PedometerDataThreshold {
     constructor();
-    constructor(sensor: Pedometer, stepGoal: Number);
+    constructor(sensor: Pedometer, stepGoal: number);
 
   }
 
   export class ProximitySensor {
-    deviceId: String;
-    maxDistanceInMillimeters: Number;
-    minDistanceInMillimeters: Number;
+    deviceId: string;
+    maxDistanceInMillimeters: number;
+    minDistanceInMillimeters: number;
     constructor();
 
     static getReadingsFromTriggerDetails(triggerDetails: SensorDataThresholdTriggerDetails): Object;
 
 
-    static getDeviceSelector(): String;
+    static getDeviceSelector(): string;
 
 
-    static fromId(sensorId: String): ProximitySensor;
+    static fromId(sensorId: string): ProximitySensor;
 
 
     getCurrentReading(): ProximitySensorReading;
@@ -710,8 +710,8 @@
   }
 
   export class ProximitySensorReading {
-    distanceInMillimeters: Number;
-    isDetected: Boolean;
+    distanceInMillimeters: number;
+    isDetected: boolean;
     timestamp: Date;
     constructor();
 
@@ -736,11 +736,11 @@
   }
 
   export class Altimeter {
-    reportInterval: Number;
-    deviceId: String;
-    minimumReportInterval: Number;
-    reportLatency: Number;
-    maxBatchSize: Number;
+    reportInterval: number;
+    deviceId: string;
+    minimumReportInterval: number;
+    reportLatency: number;
+    maxBatchSize: number;
     constructor();
 
     static getDefault(): Altimeter;
@@ -762,9 +762,9 @@
   }
 
   export class AltimeterReading {
-    altitudeChangeInMeters: Number;
+    altitudeChangeInMeters: number;
     timestamp: Date;
-    performanceCount: Number;
+    performanceCount: number;
     properties: Object;
     constructor();
 

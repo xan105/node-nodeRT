@@ -5,23 +5,23 @@
   }
 
   export class ContactRemovedEventArgs {
-    id: String;
+    id: string;
     constructor();
 
   }
 
   export class ContactPickerUI {
     desiredFields: Object;
-    selectionMode: Number;
+    selectionMode: number;
     desiredFieldsWithContactFieldType: Object;
     constructor();
 
-    addContact(id: String, contact: Object): AddContactResult;
+    addContact(id: string, contact: Object): AddContactResult;
     addContact(contact: Object): AddContactResult;
 
-    removeContact(id: String): void;
+    removeContact(id: string): void;
 
-    containsContact(id: String): Boolean;
+    containsContact(id: string): boolean;
 
     addListener(type: "ContactRemoved", listener: (ev: Event) => void): void ;
     removeListener(type: "ContactRemoved", listener: (ev: Event) => void): void ;

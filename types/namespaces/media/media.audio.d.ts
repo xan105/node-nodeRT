@@ -1,15 +1,15 @@
   export class Vector3 {
-    x: Number;
-    y: Number;
-    z: Number;
+    x: number;
+    y: number;
+    z: number;
     constructor();
   }
 
   export class Quaternion {
-    x: Number;
-    y: Number;
-    z: Number;
-    w: Number;
+    x: number;
+    y: number;
+    z: number;
+    w: number;
     constructor();
   }
 
@@ -77,23 +77,23 @@
   }
 
   export class AudioStateMonitor {
-    soundLevel: Number;
+    soundLevel: number;
     constructor();
 
     static createForRenderMonitoring(): AudioStateMonitor;
-    static createForRenderMonitoring(category: Number): AudioStateMonitor;
-    static createForRenderMonitoring(category: Number, role: Number): AudioStateMonitor;
+    static createForRenderMonitoring(category: number): AudioStateMonitor;
+    static createForRenderMonitoring(category: number, role: number): AudioStateMonitor;
 
 
-    static createForRenderMonitoringWithCategoryAndDeviceId(category: Number, deviceId: String): AudioStateMonitor;
+    static createForRenderMonitoringWithCategoryAndDeviceId(category: number, deviceId: string): AudioStateMonitor;
 
 
     static createForCaptureMonitoring(): AudioStateMonitor;
-    static createForCaptureMonitoring(category: Number): AudioStateMonitor;
-    static createForCaptureMonitoring(category: Number, role: Number): AudioStateMonitor;
+    static createForCaptureMonitoring(category: number): AudioStateMonitor;
+    static createForCaptureMonitoring(category: number, role: number): AudioStateMonitor;
 
 
-    static createForCaptureMonitoringWithCategoryAndDeviceId(category: Number, deviceId: String): AudioStateMonitor;
+    static createForCaptureMonitoringWithCategoryAndDeviceId(category: number, deviceId: string): AudioStateMonitor;
 
 
     addListener(type: "SoundLevelChanged", listener: (ev: Event) => void): void ;
@@ -110,21 +110,21 @@
   }
 
   export class AudioGraph {
-    completedQuantumCount: Number;
+    completedQuantumCount: number;
     encodingProperties: Object;
-    latencyInSamples: Number;
+    latencyInSamples: number;
     primaryRenderDevice: Object;
-    renderDeviceAudioProcessing: Number;
-    samplesPerQuantum: Number;
+    renderDeviceAudioProcessing: number;
+    samplesPerQuantum: number;
     constructor();
 
     static createAsync(settings: AudioGraphSettings, callback: (error: Error, result: CreateAudioGraphResult) => void): void ;
 
 
-    createDeviceInputNodeAsync(category: Number, callback: (error: Error, result: CreateAudioDeviceInputNodeResult) => void): void ;
-    createDeviceInputNodeAsync(category: Number, encodingProperties: Object, callback: (error: Error, result: CreateAudioDeviceInputNodeResult) => void): void ;
-    createDeviceInputNodeAsync(category: Number, encodingProperties: Object, device: Object, callback: (error: Error, result: CreateAudioDeviceInputNodeResult) => void): void ;
-    createDeviceInputNodeAsync(category: Number, encodingProperties: Object, device: Object, emitter: AudioNodeEmitter, callback: (error: Error, result: CreateAudioDeviceInputNodeResult) => void): void ;
+    createDeviceInputNodeAsync(category: number, callback: (error: Error, result: CreateAudioDeviceInputNodeResult) => void): void ;
+    createDeviceInputNodeAsync(category: number, encodingProperties: Object, callback: (error: Error, result: CreateAudioDeviceInputNodeResult) => void): void ;
+    createDeviceInputNodeAsync(category: number, encodingProperties: Object, device: Object, callback: (error: Error, result: CreateAudioDeviceInputNodeResult) => void): void ;
+    createDeviceInputNodeAsync(category: number, encodingProperties: Object, device: Object, emitter: AudioNodeEmitter, callback: (error: Error, result: CreateAudioDeviceInputNodeResult) => void): void ;
 
     createDeviceOutputNodeAsync(callback: (error: Error, result: CreateAudioDeviceOutputNodeResult) => void): void ;
 
@@ -191,12 +191,12 @@
     quantumSizeSelectionMode: QuantumSizeSelectionMode;
     primaryRenderDevice: Object;
     encodingProperties: Object;
-    desiredSamplesPerQuantum: Number;
-    desiredRenderDeviceAudioProcessing: Number;
-    audioRenderCategory: Number;
-    maxPlaybackSpeedFactor: Number;
+    desiredSamplesPerQuantum: number;
+    desiredRenderDeviceAudioProcessing: number;
+    audioRenderCategory: number;
+    maxPlaybackSpeedFactor: number;
     constructor();
-    constructor(audioRenderCategory: Number);
+    constructor(audioRenderCategory: number);
 
   }
 
@@ -204,14 +204,14 @@
     device: Object;
     outgoingConnections: Object;
     emitter: AudioNodeEmitter;
-    outgoingGain: Number;
-    consumeInput: Boolean;
+    outgoingGain: number;
+    consumeInput: boolean;
     effectDefinitions: Object;
     encodingProperties: Object;
     constructor();
 
     addOutgoingConnection(destination: IAudioNode): void;
-    addOutgoingConnection(destination: IAudioNode, gain: Number): void;
+    addOutgoingConnection(destination: IAudioNode, gain: number): void;
 
     removeOutgoingConnection(destination: IAudioNode): void;
 
@@ -237,8 +237,8 @@
 
   export class AudioDeviceOutputNode {
     device: Object;
-    outgoingGain: Number;
-    consumeInput: Boolean;
+    outgoingGain: number;
+    consumeInput: boolean;
     effectDefinitions: Object;
     encodingProperties: Object;
     listener: AudioNodeListener;
@@ -265,25 +265,25 @@
   }
 
   export class AudioFileInputNode {
-    playbackSpeedFactor: Number;
-    loopCount: Number;
-    endTime: Number;
-    startTime: Number;
-    position: Number;
+    playbackSpeedFactor: number;
+    loopCount: number;
+    endTime: number;
+    startTime: number;
+    position: number;
     sourceFile: Object;
-    duration: Number;
+    duration: number;
     outgoingConnections: Object;
     emitter: AudioNodeEmitter;
-    outgoingGain: Number;
-    consumeInput: Boolean;
+    outgoingGain: number;
+    consumeInput: boolean;
     effectDefinitions: Object;
     encodingProperties: Object;
     constructor();
 
-    seek(position: Number): void;
+    seek(position: number): void;
 
     addOutgoingConnection(destination: IAudioNode): void;
-    addOutgoingConnection(destination: IAudioNode, gain: Number): void;
+    addOutgoingConnection(destination: IAudioNode, gain: number): void;
 
     removeOutgoingConnection(destination: IAudioNode): void;
 
@@ -321,13 +321,13 @@
   export class AudioFileOutputNode {
     file: Object;
     fileEncodingProfile: Object;
-    outgoingGain: Number;
-    consumeInput: Boolean;
+    outgoingGain: number;
+    consumeInput: boolean;
     effectDefinitions: Object;
     encodingProperties: Object;
     constructor();
 
-    finalizeAsync(callback: (error: Error, result: Number) => void): void ;
+    finalizeAsync(callback: (error: Error, result: number) => void): void ;
 
     start(): void;
 
@@ -352,23 +352,23 @@
   export class MediaSourceAudioInputNode {
     outgoingConnections: Object;
     emitter: AudioNodeEmitter;
-    outgoingGain: Number;
-    consumeInput: Boolean;
+    outgoingGain: number;
+    consumeInput: boolean;
     effectDefinitions: Object;
     encodingProperties: Object;
-    startTime: Number;
-    playbackSpeedFactor: Number;
-    loopCount: Number;
-    endTime: Number;
-    duration: Number;
+    startTime: number;
+    playbackSpeedFactor: number;
+    loopCount: number;
+    endTime: number;
+    duration: number;
     mediaSource: Object;
-    position: Number;
+    position: number;
     constructor();
 
-    seek(position: Number): void;
+    seek(position: number): void;
 
     addOutgoingConnection(destination: IAudioNode): void;
-    addOutgoingConnection(destination: IAudioNode, gain: Number): void;
+    addOutgoingConnection(destination: IAudioNode, gain: number): void;
 
     removeOutgoingConnection(destination: IAudioNode): void;
 
@@ -416,12 +416,12 @@
   }
 
   export class AudioFrameInputNode {
-    playbackSpeedFactor: Number;
-    queuedSampleCount: Number;
+    playbackSpeedFactor: number;
+    queuedSampleCount: number;
     outgoingConnections: Object;
     emitter: AudioNodeEmitter;
-    outgoingGain: Number;
-    consumeInput: Boolean;
+    outgoingGain: number;
+    consumeInput: boolean;
     effectDefinitions: Object;
     encodingProperties: Object;
     constructor();
@@ -431,7 +431,7 @@
     discardQueuedFrames(): void;
 
     addOutgoingConnection(destination: IAudioNode): void;
-    addOutgoingConnection(destination: IAudioNode, gain: Number): void;
+    addOutgoingConnection(destination: IAudioNode, gain: number): void;
 
     removeOutgoingConnection(destination: IAudioNode): void;
 
@@ -465,8 +465,8 @@
   }
 
   export class AudioFrameOutputNode {
-    outgoingGain: Number;
-    consumeInput: Boolean;
+    outgoingGain: number;
+    consumeInput: boolean;
     effectDefinitions: Object;
     encodingProperties: Object;
     constructor();
@@ -489,14 +489,14 @@
   export class AudioSubmixNode {
     outgoingConnections: Object;
     emitter: AudioNodeEmitter;
-    outgoingGain: Number;
-    consumeInput: Boolean;
+    outgoingGain: number;
+    consumeInput: boolean;
     effectDefinitions: Object;
     encodingProperties: Object;
     constructor();
 
     addOutgoingConnection(destination: IAudioNode): void;
-    addOutgoingConnection(destination: IAudioNode, gain: Number): void;
+    addOutgoingConnection(destination: IAudioNode, gain: number): void;
 
     removeOutgoingConnection(destination: IAudioNode): void;
 
@@ -515,13 +515,13 @@
 
   export class AudioNodeEmitter {
     position: Vector3;
-    gain: Number;
+    gain: number;
     dopplerVelocity: Vector3;
-    dopplerScale: Number;
-    distanceScale: Number;
+    dopplerScale: number;
+    distanceScale: number;
     direction: Vector3;
     decayModel: AudioNodeEmitterDecayModel;
-    isDopplerDisabled: Boolean;
+    isDopplerDisabled: boolean;
     shape: AudioNodeEmitterShape;
     spatialAudioModel: SpatialAudioModel;
     constructor();
@@ -530,10 +530,10 @@
   }
 
   export class IAudioNode {
-    consumeInput: Boolean;
+    consumeInput: boolean;
     effectDefinitions: Object;
     encodingProperties: Object;
-    outgoingGain: Number;
+    outgoingGain: number;
     constructor();
 
     start(): void;
@@ -555,7 +555,7 @@
   }
 
   export class AudioNodeListener {
-    speedOfSound: Number;
+    speedOfSound: number;
     position: Vector3;
     orientation: Quaternion;
     dopplerVelocity: Vector3;
@@ -568,14 +568,14 @@
     constructor();
 
     addOutgoingConnection(destination: IAudioNode): void;
-    addOutgoingConnection(destination: IAudioNode, gain: Number): void;
+    addOutgoingConnection(destination: IAudioNode, gain: number): void;
 
     removeOutgoingConnection(destination: IAudioNode): void;
 
   }
 
   export class AudioGraphConnection {
-    gain: Number;
+    gain: number;
     destination: IAudioNode;
     constructor();
 
@@ -594,22 +594,22 @@
   }
 
   export class FrameInputNodeQuantumStartedEventArgs {
-    requiredSamples: Number;
+    requiredSamples: number;
     constructor();
 
   }
 
   export class EqualizerBand {
-    gain: Number;
-    frequencyCenter: Number;
-    bandwidth: Number;
+    gain: number;
+    frequencyCenter: number;
+    bandwidth: number;
     constructor();
 
   }
 
   export class EqualizerEffectDefinition {
     bands: Object;
-    activatableClassId: String;
+    activatableClassId: string;
     properties: Object;
     constructor();
     constructor(audioGraph: AudioGraph);
@@ -617,30 +617,30 @@
   }
 
   export class ReverbEffectDefinition {
-    highEQGain: Number;
-    highEQCutoff: Number;
-    disableLateField: Boolean;
-    density: Number;
-    positionRight: Number;
-    decayTime: Number;
-    lateDiffusion: Number;
-    positionMatrixRight: Number;
-    positionMatrixLeft: Number;
-    positionLeft: Number;
-    lowEQGain: Number;
-    lowEQCutoff: Number;
-    roomFilterFreq: Number;
-    reverbGain: Number;
-    reverbDelay: Number;
-    reflectionsGain: Number;
-    reflectionsDelay: Number;
-    rearDelay: Number;
-    wetDryMix: Number;
-    earlyDiffusion: Number;
-    roomSize: Number;
-    roomFilterMain: Number;
-    roomFilterHF: Number;
-    activatableClassId: String;
+    highEQGain: number;
+    highEQCutoff: number;
+    disableLateField: boolean;
+    density: number;
+    positionRight: number;
+    decayTime: number;
+    lateDiffusion: number;
+    positionMatrixRight: number;
+    positionMatrixLeft: number;
+    positionLeft: number;
+    lowEQGain: number;
+    lowEQCutoff: number;
+    roomFilterFreq: number;
+    reverbGain: number;
+    reverbDelay: number;
+    reflectionsGain: number;
+    reflectionsDelay: number;
+    rearDelay: number;
+    wetDryMix: number;
+    earlyDiffusion: number;
+    roomSize: number;
+    roomFilterMain: number;
+    roomFilterHF: number;
+    activatableClassId: string;
     properties: Object;
     constructor();
     constructor(audioGraph: AudioGraph);
@@ -648,10 +648,10 @@
   }
 
   export class EchoEffectDefinition {
-    wetDryMix: Number;
-    feedback: Number;
-    delay: Number;
-    activatableClassId: String;
+    wetDryMix: number;
+    feedback: number;
+    delay: number;
+    activatableClassId: string;
     properties: Object;
     constructor();
     constructor(audioGraph: AudioGraph);
@@ -659,9 +659,9 @@
   }
 
   export class LimiterEffectDefinition {
-    release: Number;
-    loudness: Number;
-    activatableClassId: String;
+    release: number;
+    loudness: number;
+    activatableClassId: string;
     properties: Object;
     constructor();
     constructor(audioGraph: AudioGraph);
@@ -669,9 +669,9 @@
   }
 
   export class AudioNodeEmitterConeProperties {
-    innerAngle: Number;
-    outerAngle: Number;
-    outerAngleGain: Number;
+    innerAngle: number;
+    outerAngle: number;
+    outerAngleGain: number;
     constructor();
 
   }
@@ -681,7 +681,7 @@
     kind: AudioNodeEmitterShapeKind;
     constructor();
 
-    static createCone(innerAngle: Number, outerAngle: Number, outerAngleGain: Number): AudioNodeEmitterShape;
+    static createCone(innerAngle: number, outerAngle: number, outerAngleGain: number): AudioNodeEmitterShape;
 
 
     static createOmnidirectional(): AudioNodeEmitterShape;
@@ -690,23 +690,23 @@
   }
 
   export class AudioNodeEmitterNaturalDecayModelProperties {
-    cutoffDistance: Number;
-    unityGainDistance: Number;
+    cutoffDistance: number;
+    unityGainDistance: number;
     constructor();
 
   }
 
   export class AudioNodeEmitterDecayModel {
     kind: AudioNodeEmitterDecayKind;
-    maxGain: Number;
-    minGain: Number;
+    maxGain: number;
+    minGain: number;
     naturalProperties: AudioNodeEmitterNaturalDecayModelProperties;
     constructor();
 
-    static createNatural(minGain: Number, maxGain: Number, unityGainDistance: Number, cutoffDistance: Number): AudioNodeEmitterDecayModel;
+    static createNatural(minGain: number, maxGain: number, unityGainDistance: number, cutoffDistance: number): AudioNodeEmitterDecayModel;
 
 
-    static createCustom(minGain: Number, maxGain: Number): AudioNodeEmitterDecayModel;
+    static createCustom(minGain: number, maxGain: number): AudioNodeEmitterDecayModel;
 
 
   }

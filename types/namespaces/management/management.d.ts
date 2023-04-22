@@ -24,21 +24,21 @@
   }
 
   export class MdmAlert {
-    type: String;
-    target: String;
-    source: String;
+    type: string;
+    target: string;
+    source: string;
     mark: MdmAlertMark;
     format: MdmAlertDataType;
-    data: String;
-    status: Number;
+    data: string;
+    status: number;
     constructor();
 
   }
 
   export class MdmSession {
     alerts: Object;
-    extendedError: Number;
-    id: String;
+    extendedError: number;
+    id: string;
     state: MdmSessionState;
     constructor();
 
@@ -58,10 +58,10 @@
     static tryCreateSession(): MdmSession;
 
 
-    static deleteSessionById(sessionId: String): void;
+    static deleteSessionById(sessionId: string): void;
 
 
-    static getSessionById(sessionId: String): MdmSession;
+    static getSessionById(sessionId: string): MdmSession;
 
 
   }

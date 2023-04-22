@@ -1,5 +1,5 @@
   export class PerceptionTimestamp {
-    predictionAmount: Number;
+    predictionAmount: number;
     targetTime: Date;
     constructor();
 

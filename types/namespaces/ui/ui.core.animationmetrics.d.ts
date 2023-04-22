@@ -77,8 +77,8 @@
   export class IPropertyAnimation {
     control1: Object;
     control2: Object;
-    delay: Number;
-    duration: Number;
+    delay: number;
+    duration: number;
     type: PropertyAnimationType;
     constructor();
 
@@ -86,10 +86,10 @@
 
   export class AnimationDescription {
     animations: Object;
-    delayLimit: Number;
-    staggerDelay: Number;
-    staggerDelayFactor: Number;
-    zOrder: Number;
+    delayLimit: number;
+    staggerDelay: number;
+    staggerDelayFactor: number;
+    zOrder: number;
     constructor();
     constructor(effect: AnimationEffect, target: AnimationEffectTarget);
 
@@ -98,8 +98,8 @@
   export class PropertyAnimation {
     control1: Object;
     control2: Object;
-    delay: Number;
-    duration: Number;
+    delay: number;
+    duration: number;
     type: PropertyAnimationType;
     constructor();
 
@@ -108,13 +108,13 @@
   export class ScaleAnimation {
     control1: Object;
     control2: Object;
-    delay: Number;
-    duration: Number;
+    delay: number;
+    duration: number;
     type: PropertyAnimationType;
-    finalScaleX: Number;
-    finalScaleY: Number;
-    initialScaleX: Number;
-    initialScaleY: Number;
+    finalScaleX: number;
+    finalScaleY: number;
+    initialScaleX: number;
+    initialScaleY: number;
     normalizedOrigin: Object;
     constructor();
 
@@ -123,20 +123,20 @@
   export class TranslationAnimation {
     control1: Object;
     control2: Object;
-    delay: Number;
-    duration: Number;
+    delay: number;
+    duration: number;
     type: PropertyAnimationType;
     constructor();
 
   }
 
   export class OpacityAnimation {
-    finalOpacity: Number;
-    initialOpacity: Number;
+    finalOpacity: number;
+    initialOpacity: number;
     control1: Object;
     control2: Object;
-    delay: Number;
-    duration: Number;
+    delay: number;
+    duration: number;
     type: PropertyAnimationType;
     constructor();
 

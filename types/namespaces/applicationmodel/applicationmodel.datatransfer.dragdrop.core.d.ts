@@ -10,30 +10,30 @@
   export class ICoreDropOperationTarget {
     constructor();
 
-    enterAsync(dragInfo: CoreDragInfo, dragUIOverride: CoreDragUIOverride, callback: (error: Error, result: Number) => void): void ;
+    enterAsync(dragInfo: CoreDragInfo, dragUIOverride: CoreDragUIOverride, callback: (error: Error, result: number) => void): void ;
 
-    overAsync(dragInfo: CoreDragInfo, dragUIOverride: CoreDragUIOverride, callback: (error: Error, result: Number) => void): void ;
+    overAsync(dragInfo: CoreDragInfo, dragUIOverride: CoreDragUIOverride, callback: (error: Error, result: number) => void): void ;
 
     leaveAsync(dragInfo: CoreDragInfo, callback: (error: Error) => void): void ;
 
-    dropAsync(dragInfo: CoreDragInfo, callback: (error: Error, result: Number) => void): void ;
+    dropAsync(dragInfo: CoreDragInfo, callback: (error: Error, result: number) => void): void ;
 
   }
 
   export class CoreDragInfo {
     data: Object;
-    modifiers: Number;
+    modifiers: number;
     position: Object;
-    allowedOperations: Number;
+    allowedOperations: number;
     constructor();
 
   }
 
   export class CoreDragUIOverride {
-    isGlyphVisible: Boolean;
-    isContentVisible: Boolean;
-    isCaptionVisible: Boolean;
-    caption: String;
+    isGlyphVisible: boolean;
+    isContentVisible: boolean;
+    isCaptionVisible: boolean;
+    caption: string;
     constructor();
 
     setContentFromSoftwareBitmap(softwareBitmap: Object): void;
@@ -44,7 +44,7 @@
   }
 
   export class CoreDragDropManager {
-    areConcurrentOperationsEnabled: Boolean;
+    areConcurrentOperationsEnabled: boolean;
     constructor();
 
     static getForCurrentView(): CoreDragDropManager;
@@ -73,12 +73,12 @@
   export class CoreDragOperation {
     dragUIContentMode: CoreDragUIContentMode;
     data: Object;
-    allowedOperations: Number;
+    allowedOperations: number;
     constructor();
 
-    startAsync(callback: (error: Error, result: Number) => void): void ;
+    startAsync(callback: (error: Error, result: number) => void): void ;
 
-    setPointerId(pointerId: Number): void;
+    setPointerId(pointerId: number): void;
 
     setDragUIContentFromSoftwareBitmap(softwareBitmap: Object): void;
     setDragUIContentFromSoftwareBitmap(softwareBitmap: Object, anchorPoint: Object): void;

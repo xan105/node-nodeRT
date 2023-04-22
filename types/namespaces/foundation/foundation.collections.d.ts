@@ -7,7 +7,7 @@
 
   export class IVectorChangedEventArgs {
     collectionChange: CollectionChange;
-    index: Number;
+    index: number;
     constructor();
 
   }
@@ -20,15 +20,15 @@
   export class PropertySet {
     constructor();
 
-    lookup(key: String): Object;
+    lookup(key: string): Object;
 
-    hasKey(key: String): Boolean;
+    hasKey(key: string): boolean;
 
     getView(): Object;
 
-    insert(key: String, value: Object): Boolean;
+    insert(key: string, value: Object): boolean;
 
-    remove(key: String): void;
+    remove(key: string): void;
 
     clear(): void;
 
@@ -50,15 +50,15 @@
   export class ValueSet {
     constructor();
 
-    lookup(key: String): Object;
+    lookup(key: string): Object;
 
-    hasKey(key: String): Boolean;
+    hasKey(key: string): boolean;
 
     getView(): Object;
 
-    insert(key: String, value: Object): Boolean;
+    insert(key: string, value: Object): boolean;
 
-    remove(key: String): void;
+    remove(key: string): void;
 
     clear(): void;
 
@@ -80,15 +80,15 @@
   export class StringMap {
     constructor();
 
-    lookup(key: String): String;
+    lookup(key: string): string;
 
-    hasKey(key: String): Boolean;
+    hasKey(key: string): boolean;
 
     getView(): Object;
 
-    insert(key: String, value: String): Boolean;
+    insert(key: string, value: string): boolean;
 
-    remove(key: String): void;
+    remove(key: string): void;
 
     clear(): void;
 

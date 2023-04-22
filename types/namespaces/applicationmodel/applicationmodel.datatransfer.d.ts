@@ -20,38 +20,38 @@
   }
 
   export class StandardDataFormats {
-    static bitmap: String;
-    static html: String;
-    static rtf: String;
-    static storageItems: String;
-    static text: String;
-    static uri: String;
-    static applicationLink: String;
-    static webLink: String;
-    static userActivityJsonArray: String;
+    static bitmap: string;
+    static html: string;
+    static rtf: string;
+    static storageItems: string;
+    static text: string;
+    static uri: string;
+    static applicationLink: string;
+    static webLink: string;
+    static userActivityJsonArray: string;
     constructor();
 
   }
 
   export class DataPackagePropertySetView {
     applicationListingUri: Object;
-    applicationName: String;
-    description: String;
+    applicationName: string;
+    description: string;
     fileTypes: Object;
     thumbnail: Object;
-    title: String;
+    title: string;
     contentSourceApplicationLink: Object;
     contentSourceWebLink: Object;
     logoBackgroundColor: Object;
-    packageFamilyName: String;
+    packageFamilyName: string;
     square30x30Logo: Object;
-    enterpriseId: String;
-    contentSourceUserActivityJson: String;
+    enterpriseId: string;
+    contentSourceUserActivityJson: string;
     constructor();
 
-    lookup(key: String): Object;
+    lookup(key: string): Object;
 
-    hasKey(key: String): Boolean;
+    hasKey(key: string): boolean;
 
     split(first: Object, second: Object): void;
 
@@ -60,30 +60,30 @@
   }
 
   export class DataPackagePropertySet {
-    title: String;
+    title: string;
     thumbnail: Object;
-    description: String;
-    applicationName: String;
+    description: string;
+    applicationName: string;
     applicationListingUri: Object;
     fileTypes: Object;
     square30x30Logo: Object;
-    packageFamilyName: String;
+    packageFamilyName: string;
     logoBackgroundColor: Object;
     contentSourceWebLink: Object;
     contentSourceApplicationLink: Object;
-    enterpriseId: String;
-    contentSourceUserActivityJson: String;
+    enterpriseId: string;
+    contentSourceUserActivityJson: string;
     constructor();
 
-    lookup(key: String): Object;
+    lookup(key: string): Object;
 
-    hasKey(key: String): Boolean;
+    hasKey(key: string): boolean;
 
     getView(): Object;
 
-    insert(key: String, value: Object): Boolean;
+    insert(key: string, value: Object): boolean;
 
-    remove(key: String): void;
+    remove(key: string): void;
 
     clear(): void;
 
@@ -100,7 +100,7 @@
 
   export class DataProviderRequest {
     deadline: Date;
-    formatId: String;
+    formatId: string;
     constructor();
 
     getDeferral(): DataProviderDeferral;
@@ -111,7 +111,7 @@
 
   export class OperationCompletedEventArgs {
     operation: DataPackageOperation;
-    acceptedFormatId: String;
+    acceptedFormatId: string;
     constructor();
 
   }
@@ -129,9 +129,9 @@
     tag: Object;
     backgroundColor: Object;
     displayIcon: Object;
-    title: String;
+    title: string;
     constructor();
-    constructor(title: String, displayIcon: Object, backgroundColor: Object, handler: Object);
+    constructor(title: string, displayIcon: Object, backgroundColor: Object, handler: Object);
 
   }
 
@@ -141,18 +141,18 @@
     requestedOperation: DataPackageOperation;
     constructor();
 
-    getDataAsync(formatId: String, callback: (error: Error, result: Object) => void): void ;
+    getDataAsync(formatId: string, callback: (error: Error, result: Object) => void): void ;
 
-    getTextAsync(callback: (error: Error, result: String) => void): void ;
-    getTextAsync(formatId: String, callback: (error: Error, result: String) => void): void ;
+    getTextAsync(callback: (error: Error, result: string) => void): void ;
+    getTextAsync(formatId: string, callback: (error: Error, result: string) => void): void ;
 
     getUriAsync(callback: (error: Error, result: Object) => void): void ;
 
-    getHtmlFormatAsync(callback: (error: Error, result: String) => void): void ;
+    getHtmlFormatAsync(callback: (error: Error, result: string) => void): void ;
 
     getResourceMapAsync(callback: (error: Error, result: Object) => void): void ;
 
-    getRtfAsync(callback: (error: Error, result: String) => void): void ;
+    getRtfAsync(callback: (error: Error, result: string) => void): void ;
 
     getBitmapAsync(callback: (error: Error, result: Object) => void): void ;
 
@@ -162,21 +162,21 @@
 
     getWebLinkAsync(callback: (error: Error, result: Object) => void): void ;
 
-    requestAccessAsync(callback: (error: Error, result: Number) => void): void ;
-    requestAccessAsync(enterpriseId: String, callback: (error: Error, result: Number) => void): void ;
+    requestAccessAsync(callback: (error: Error, result: number) => void): void ;
+    requestAccessAsync(enterpriseId: string, callback: (error: Error, result: number) => void): void ;
 
     reportOperationCompleted(value: DataPackageOperation): void;
 
-    contains(formatId: String): Boolean;
+    contains(formatId: string): boolean;
 
-    unlockAndAssumeEnterpriseIdentity(): Number;
+    unlockAndAssumeEnterpriseIdentity(): number;
 
-    setAcceptedFormatId(formatId: String): void;
+    setAcceptedFormatId(formatId: string): void;
 
   }
 
   export class ShareTargetInfo {
-    appUserModelId: String;
+    appUserModelId: string;
     shareProvider: ShareProvider;
     constructor();
 
@@ -196,22 +196,22 @@
 
     getView(): DataPackageView;
 
-    setData(formatId: String, value: Object): void;
+    setData(formatId: string, value: Object): void;
 
-    setDataProvider(formatId: String, delayRenderer: Object): void;
+    setDataProvider(formatId: string, delayRenderer: Object): void;
 
-    setText(value: String): void;
+    setText(value: string): void;
 
     setUri(value: Object): void;
 
-    setHtmlFormat(value: String): void;
+    setHtmlFormat(value: string): void;
 
-    setRtf(value: String): void;
+    setRtf(value: string): void;
 
     setBitmap(value: Object): void;
 
     setStorageItems(value: Object): void;
-    setStorageItems(value: Object, readOnly: Boolean): void;
+    setStorageItems(value: Object, readOnly: boolean): void;
 
     setApplicationLink(value: Object): void;
 
@@ -243,10 +243,10 @@
   export class HtmlFormatHelper {
     constructor();
 
-    static getStaticFragment(htmlFormat: String): String;
+    static getStaticFragment(htmlFormat: string): string;
 
 
-    static createHtmlFormat(htmlFragment: String): String;
+    static createHtmlFormat(htmlFragment: string): string;
 
 
   }
@@ -298,7 +298,7 @@
     deadline: Date;
     constructor();
 
-    failWithDisplayText(value: String): void;
+    failWithDisplayText(value: string): void;
 
     getDeferral(): DataRequestDeferral;
 
@@ -320,7 +320,7 @@
   }
 
   export class TargetApplicationChosenEventArgs {
-    applicationName: String;
+    applicationName: string;
     constructor();
 
   }
@@ -332,7 +332,7 @@
     static showShareUI(): void;
 
 
-    static isSupported(): Boolean;
+    static isSupported(): boolean;
 
 
     static getForCurrentView(): DataTransferManager;
@@ -364,13 +364,13 @@
   export class SharedStorageAccessManager {
     constructor();
 
-    static redeemTokenForFileAsync(token: String, callback: (error: Error, result: Object) => void): void ;
+    static redeemTokenForFileAsync(token: string, callback: (error: Error, result: Object) => void): void ;
 
 
-    static addFile(file: Object): String;
+    static addFile(file: Object): string;
 
 
-    static removeFile(token: String): void;
+    static removeFile(token: string): void;
 
 
   }

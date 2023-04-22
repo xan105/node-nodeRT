@@ -50,11 +50,11 @@
   export class InkAnalysisRoot {
     boundingRect: Object;
     children: Object;
-    id: Number;
+    id: number;
     kind: InkAnalysisNodeKind;
     parent: IInkAnalysisNode;
     rotatedBoundingRect: Object;
-    recognizedText: String;
+    recognizedText: string;
     constructor();
 
     findNodes(nodeKind: InkAnalysisNodeKind): Object;
@@ -71,7 +71,7 @@
 
   export class InkAnalyzer {
     analysisRoot: InkAnalysisRoot;
-    isAnalyzing: Boolean;
+    isAnalyzing: boolean;
     constructor();
 
     analyzeAsync(callback: (error: Error, result: InkAnalysisResult) => void): void ;
@@ -82,13 +82,13 @@
 
     clearDataForAllStrokes(): void;
 
-    removeDataForStroke(strokeId: Number): void;
+    removeDataForStroke(strokeId: number): void;
 
     removeDataForStrokes(strokeIds: Object): void;
 
     replaceDataForStroke(stroke: Object): void;
 
-    setStrokeDataKind(strokeId: Number, strokeKind: InkAnalysisStrokeKind): void;
+    setStrokeDataKind(strokeId: number, strokeKind: InkAnalysisStrokeKind): void;
 
   }
 
@@ -102,7 +102,7 @@
   export class IInkAnalysisNode {
     boundingRect: Object;
     children: Object;
-    id: Number;
+    id: number;
     kind: InkAnalysisNodeKind;
     parent: IInkAnalysisNode;
     rotatedBoundingRect: Object;
@@ -115,7 +115,7 @@
   export class InkAnalysisNode {
     boundingRect: Object;
     children: Object;
-    id: Number;
+    id: number;
     kind: InkAnalysisNodeKind;
     parent: IInkAnalysisNode;
     rotatedBoundingRect: Object;
@@ -128,11 +128,11 @@
   export class InkAnalysisWritingRegion {
     boundingRect: Object;
     children: Object;
-    id: Number;
+    id: number;
     kind: InkAnalysisNodeKind;
     parent: IInkAnalysisNode;
     rotatedBoundingRect: Object;
-    recognizedText: String;
+    recognizedText: string;
     constructor();
 
     getStrokeIds(): Object;
@@ -142,11 +142,11 @@
   export class InkAnalysisParagraph {
     boundingRect: Object;
     children: Object;
-    id: Number;
+    id: number;
     kind: InkAnalysisNodeKind;
     parent: IInkAnalysisNode;
     rotatedBoundingRect: Object;
-    recognizedText: String;
+    recognizedText: string;
     constructor();
 
     getStrokeIds(): Object;
@@ -154,10 +154,10 @@
   }
 
   export class InkAnalysisListItem {
-    recognizedText: String;
+    recognizedText: string;
     boundingRect: Object;
     children: Object;
-    id: Number;
+    id: number;
     kind: InkAnalysisNodeKind;
     parent: IInkAnalysisNode;
     rotatedBoundingRect: Object;
@@ -168,10 +168,10 @@
   }
 
   export class InkAnalysisInkBullet {
-    recognizedText: String;
+    recognizedText: string;
     boundingRect: Object;
     children: Object;
-    id: Number;
+    id: number;
     kind: InkAnalysisNodeKind;
     parent: IInkAnalysisNode;
     rotatedBoundingRect: Object;
@@ -182,11 +182,11 @@
   }
 
   export class InkAnalysisLine {
-    indentLevel: Number;
-    recognizedText: String;
+    indentLevel: number;
+    recognizedText: string;
     boundingRect: Object;
     children: Object;
-    id: Number;
+    id: number;
     kind: InkAnalysisNodeKind;
     parent: IInkAnalysisNode;
     rotatedBoundingRect: Object;
@@ -197,11 +197,11 @@
   }
 
   export class InkAnalysisInkWord {
-    recognizedText: String;
+    recognizedText: string;
     textAlternates: Object;
     boundingRect: Object;
     children: Object;
-    id: Number;
+    id: number;
     kind: InkAnalysisNodeKind;
     parent: IInkAnalysisNode;
     rotatedBoundingRect: Object;
@@ -217,7 +217,7 @@
     points: Object;
     boundingRect: Object;
     children: Object;
-    id: Number;
+    id: number;
     kind: InkAnalysisNodeKind;
     parent: IInkAnalysisNode;
     rotatedBoundingRect: Object;

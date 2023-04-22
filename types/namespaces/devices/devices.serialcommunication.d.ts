@@ -36,35 +36,35 @@
   }
 
   export class SerialDevice {
-    isDataTerminalReadyEnabled: Boolean;
-    dataBits: Number;
+    isDataTerminalReadyEnabled: boolean;
+    dataBits: number;
     handshake: SerialHandshake;
-    breakSignalState: Boolean;
-    baudRate: Number;
-    writeTimeout: Number;
+    breakSignalState: boolean;
+    baudRate: number;
+    writeTimeout: number;
     stopBits: SerialStopBitCount;
-    readTimeout: Number;
+    readTimeout: number;
     parity: SerialParity;
-    isRequestToSendEnabled: Boolean;
-    bytesReceived: Number;
-    carrierDetectState: Boolean;
-    clearToSendState: Boolean;
-    dataSetReadyState: Boolean;
+    isRequestToSendEnabled: boolean;
+    bytesReceived: number;
+    carrierDetectState: boolean;
+    clearToSendState: boolean;
+    dataSetReadyState: boolean;
     inputStream: Object;
     outputStream: Object;
-    portName: String;
-    usbProductId: Number;
-    usbVendorId: Number;
+    portName: string;
+    usbProductId: number;
+    usbVendorId: number;
     constructor();
 
-    static fromIdAsync(deviceId: String, callback: (error: Error, result: SerialDevice) => void): void ;
+    static fromIdAsync(deviceId: string, callback: (error: Error, result: SerialDevice) => void): void ;
 
 
-    static getDeviceSelector(): String;
-    static getDeviceSelector(portName: String): String;
+    static getDeviceSelector(): string;
+    static getDeviceSelector(portName: string): string;
 
 
-    static getDeviceSelectorFromUsbVidPid(vendorId: Number, productId: Number): String;
+    static getDeviceSelectorFromUsbVidPid(vendorId: number, productId: number): string;
 
 
     close(): void;

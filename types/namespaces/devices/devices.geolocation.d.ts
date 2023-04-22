@@ -1,7 +1,7 @@
   export class BasicGeoposition {
-    latitude: Number;
-    longitude: Number;
-    altitude: Number;
+    latitude: number;
+    longitude: number;
+    altitude: number;
     constructor();
   }
 
@@ -65,7 +65,7 @@
   export class IGeoshape {
     altitudeReferenceSystem: AltitudeReferenceSystem;
     geoshapeType: GeoshapeType;
-    spatialReferenceId: Number;
+    spatialReferenceId: number;
     constructor();
 
   }
@@ -74,11 +74,11 @@
     position: BasicGeoposition;
     altitudeReferenceSystem: AltitudeReferenceSystem;
     geoshapeType: GeoshapeType;
-    spatialReferenceId: Number;
+    spatialReferenceId: number;
     constructor();
     constructor(position: BasicGeoposition);
     constructor(position: BasicGeoposition, altitudeReferenceSystem: AltitudeReferenceSystem);
-    constructor(position: BasicGeoposition, altitudeReferenceSystem: AltitudeReferenceSystem, spatialReferenceId: Number);
+    constructor(position: BasicGeoposition, altitudeReferenceSystem: AltitudeReferenceSystem, spatialReferenceId: number);
 
   }
 
@@ -86,58 +86,58 @@
     positions: Object;
     altitudeReferenceSystem: AltitudeReferenceSystem;
     geoshapeType: GeoshapeType;
-    spatialReferenceId: Number;
+    spatialReferenceId: number;
     constructor();
     constructor(positions: Object);
     constructor(positions: Object, altitudeReferenceSystem: AltitudeReferenceSystem);
-    constructor(positions: Object, altitudeReferenceSystem: AltitudeReferenceSystem, spatialReferenceId: Number);
+    constructor(positions: Object, altitudeReferenceSystem: AltitudeReferenceSystem, spatialReferenceId: number);
 
   }
 
   export class GeoboundingBox {
     center: BasicGeoposition;
-    maxAltitude: Number;
-    minAltitude: Number;
+    maxAltitude: number;
+    minAltitude: number;
     northwestCorner: BasicGeoposition;
     southeastCorner: BasicGeoposition;
     altitudeReferenceSystem: AltitudeReferenceSystem;
     geoshapeType: GeoshapeType;
-    spatialReferenceId: Number;
+    spatialReferenceId: number;
     constructor();
     constructor(northwestCorner: BasicGeoposition, southeastCorner: BasicGeoposition);
     constructor(northwestCorner: BasicGeoposition, southeastCorner: BasicGeoposition, altitudeReferenceSystem: AltitudeReferenceSystem);
-    constructor(northwestCorner: BasicGeoposition, southeastCorner: BasicGeoposition, altitudeReferenceSystem: AltitudeReferenceSystem, spatialReferenceId: Number);
+    constructor(northwestCorner: BasicGeoposition, southeastCorner: BasicGeoposition, altitudeReferenceSystem: AltitudeReferenceSystem, spatialReferenceId: number);
 
     static tryCompute(positions: Object): GeoboundingBox;
     static tryCompute(positions: Object, altitudeRefSystem: AltitudeReferenceSystem): GeoboundingBox;
-    static tryCompute(positions: Object, altitudeRefSystem: AltitudeReferenceSystem, spatialReferenceId: Number): GeoboundingBox;
+    static tryCompute(positions: Object, altitudeRefSystem: AltitudeReferenceSystem, spatialReferenceId: number): GeoboundingBox;
 
 
   }
 
   export class GeocoordinateSatelliteData {
-    horizontalDilutionOfPrecision: Number;
-    positionDilutionOfPrecision: Number;
-    verticalDilutionOfPrecision: Number;
+    horizontalDilutionOfPrecision: number;
+    positionDilutionOfPrecision: number;
+    verticalDilutionOfPrecision: number;
     constructor();
 
   }
 
   export class VenueData {
-    id: String;
-    level: String;
+    id: string;
+    level: string;
     constructor();
 
   }
 
   export class Geocoordinate {
-    accuracy: Number;
-    altitude: Number;
-    altitudeAccuracy: Number;
-    heading: Number;
-    latitude: Number;
-    longitude: Number;
-    speed: Number;
+    accuracy: number;
+    altitude: number;
+    altitudeAccuracy: number;
+    heading: number;
+    latitude: number;
+    longitude: number;
+    speed: number;
     timestamp: Date;
     point: Geopoint;
     positionSource: PositionSource;
@@ -148,10 +148,10 @@
   }
 
   export class CivicAddress {
-    city: String;
-    country: String;
-    postalCode: String;
-    state: String;
+    city: string;
+    country: string;
+    postalCode: string;
+    state: string;
     timestamp: Date;
     constructor();
 
@@ -179,23 +179,23 @@
 
   export class Geolocator {
     static defaultGeoposition: BasicGeoposition;
-    static isDefaultGeopositionRecommended: Boolean;
-    reportInterval: Number;
-    movementThreshold: Number;
+    static isDefaultGeopositionRecommended: boolean;
+    reportInterval: number;
+    movementThreshold: number;
     desiredAccuracy: PositionAccuracy;
     locationStatus: PositionStatus;
-    desiredAccuracyInMeters: Number;
+    desiredAccuracyInMeters: number;
     constructor();
 
     static requestAccessAsync(callback: (error: Error, result: GeolocationAccessStatus) => void): void ;
 
 
     static getGeopositionHistoryAsync(startTime: Date, callback: (error: Error, result: Object) => void): void ;
-    static getGeopositionHistoryAsync(startTime: Date, duration: Number, callback: (error: Error, result: Object) => void): void ;
+    static getGeopositionHistoryAsync(startTime: Date, duration: number, callback: (error: Error, result: Object) => void): void ;
 
 
     getGeopositionAsync(callback: (error: Error, result: Geoposition) => void): void ;
-    getGeopositionAsync(maximumAge: Number, timeout: Number, callback: (error: Error, result: Geoposition) => void): void ;
+    getGeopositionAsync(maximumAge: number, timeout: number, callback: (error: Error, result: Geoposition) => void): void ;
 
     allowFallbackToConsentlessPositions(): void;
 
@@ -219,14 +219,14 @@
 
   export class Geocircle {
     center: BasicGeoposition;
-    radius: Number;
+    radius: number;
     altitudeReferenceSystem: AltitudeReferenceSystem;
     geoshapeType: GeoshapeType;
-    spatialReferenceId: Number;
+    spatialReferenceId: number;
     constructor();
-    constructor(position: BasicGeoposition, radius: Number);
-    constructor(position: BasicGeoposition, radius: Number, altitudeReferenceSystem: AltitudeReferenceSystem);
-    constructor(position: BasicGeoposition, radius: Number, altitudeReferenceSystem: AltitudeReferenceSystem, spatialReferenceId: Number);
+    constructor(position: BasicGeoposition, radius: number);
+    constructor(position: BasicGeoposition, radius: number, altitudeReferenceSystem: AltitudeReferenceSystem);
+    constructor(position: BasicGeoposition, radius: number, altitudeReferenceSystem: AltitudeReferenceSystem, spatialReferenceId: number);
 
   }
 

@@ -16,17 +16,17 @@
   }
 
   export class UserDataAccount {
-    userDisplayName: String;
+    userDisplayName: string;
     otherAppReadAccess: UserDataAccountOtherAppReadAccess;
     icon: Object;
-    deviceAccountTypeId: String;
-    id: String;
-    packageFamilyName: String;
-    isProtectedUnderLock: Boolean;
-    enterpriseId: String;
-    displayName: String;
+    deviceAccountTypeId: string;
+    id: string;
+    packageFamilyName: string;
+    isProtectedUnderLock: boolean;
+    enterpriseId: string;
+    displayName: string;
     explictReadAccessPackageFamilyNames: Object;
-    canShowCreateContactGroup: Boolean;
+    canShowCreateContactGroup: boolean;
     providerProperties: Object;
     constructor();
 
@@ -46,7 +46,7 @@
 
     findContactGroupsAsync(callback: (error: Error, result: Object) => void): void ;
 
-    tryShowCreateContactGroupAsync(callback: (error: Error, result: String) => void): void ;
+    tryShowCreateContactGroupAsync(callback: (error: Error, result: string) => void): void ;
 
   }
 
@@ -55,11 +55,11 @@
 
     findAccountsAsync(callback: (error: Error, result: Object) => void): void ;
 
-    getAccountAsync(id: String, callback: (error: Error, result: UserDataAccount) => void): void ;
+    getAccountAsync(id: string, callback: (error: Error, result: UserDataAccount) => void): void ;
 
-    createAccountAsync(userDisplayName: String, callback: (error: Error, result: UserDataAccount) => void): void ;
-    createAccountAsync(userDisplayName: String, packageRelativeAppId: String, callback: (error: Error, result: UserDataAccount) => void): void ;
-    createAccountAsync(userDisplayName: String, packageRelativeAppId: String, enterpriseId: String, callback: (error: Error, result: UserDataAccount) => void): void ;
+    createAccountAsync(userDisplayName: string, callback: (error: Error, result: UserDataAccount) => void): void ;
+    createAccountAsync(userDisplayName: string, packageRelativeAppId: string, callback: (error: Error, result: UserDataAccount) => void): void ;
+    createAccountAsync(userDisplayName: string, packageRelativeAppId: string, enterpriseId: string, callback: (error: Error, result: UserDataAccount) => void): void ;
 
     addListener(type: "StoreChanged", listener: (ev: Event) => void): void ;
     removeListener(type: "StoreChanged", listener: (ev: Event) => void): void ;
@@ -95,13 +95,13 @@
     static requestStoreAsync(storeAccessType: UserDataAccountStoreAccessType, callback: (error: Error, result: UserDataAccountStore) => void): void ;
 
 
-    static showAddAccountAsync(contentKinds: UserDataAccountContentKinds, callback: (error: Error, result: String) => void): void ;
+    static showAddAccountAsync(contentKinds: UserDataAccountContentKinds, callback: (error: Error, result: string) => void): void ;
 
 
-    static showAccountSettingsAsync(id: String, callback: (error: Error) => void): void ;
+    static showAccountSettingsAsync(id: string, callback: (error: Error) => void): void ;
 
 
-    static showAccountErrorResolverAsync(id: String, callback: (error: Error) => void): void ;
+    static showAccountErrorResolverAsync(id: string, callback: (error: Error) => void): void ;
 
 
     static getForUser(user: Object): UserDataAccountManagerForUser;

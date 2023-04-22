@@ -101,7 +101,7 @@
   export class MediaProtectionServiceCompletion {
     constructor();
 
-    complete(success: Boolean): void;
+    complete(success: boolean): void;
 
   }
 
@@ -112,11 +112,11 @@
   }
 
   export class RevocationAndRenewalItem {
-    headerHash: String;
-    name: String;
-    publicKeyHash: String;
+    headerHash: string;
+    name: string;
+    publicKeyHash: string;
     reasons: RevocationAndRenewalReasons;
-    renewalId: String;
+    renewalId: string;
     constructor();
 
   }
@@ -129,8 +129,8 @@
   }
 
   export class IMediaProtectionServiceRequest {
-    protectionSystem: String;
-    type: String;
+    protectionSystem: string;
+    type: string;
     constructor();
 
   }
@@ -138,7 +138,7 @@
   export class ProtectionCapabilities {
     constructor();
 
-    isTypeSupported(type: String, keySystem: String): ProtectionCapabilityResult;
+    isTypeSupported(type: string, keySystem: string): ProtectionCapabilityResult;
 
   }
 
@@ -147,7 +147,7 @@
 
     setDesiredMinProtectionAsync(protection: HdcpProtection, callback: (error: Error, result: HdcpSetProtectionResult) => void): void ;
 
-    isEffectiveProtectionAtLeast(protection: HdcpProtection): Boolean;
+    isEffectiveProtectionAtLeast(protection: HdcpProtection): boolean;
 
     getEffectiveProtection(): HdcpProtection;
 

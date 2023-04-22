@@ -49,17 +49,17 @@
   export class TransitionCollection {
     constructor();
 
-    getAt(index: Number): Transition;
+    getAt(index: number): Transition;
 
     getView(): Object;
 
-    indexOf(value: Transition, index: Number): Boolean;
+    indexOf(value: Transition, index: number): boolean;
 
-    setAt(index: Number, value: Transition): void;
+    setAt(index: number, value: Transition): void;
 
-    insertAt(index: Number, value: Transition): void;
+    insertAt(index: number, value: Transition): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: Transition): void;
 
@@ -77,17 +77,17 @@
   export class DoubleKeyFrameCollection {
     constructor();
 
-    getAt(index: Number): DoubleKeyFrame;
+    getAt(index: number): DoubleKeyFrame;
 
     getView(): Object;
 
-    indexOf(value: DoubleKeyFrame, index: Number): Boolean;
+    indexOf(value: DoubleKeyFrame, index: number): boolean;
 
-    setAt(index: Number, value: DoubleKeyFrame): void;
+    setAt(index: number, value: DoubleKeyFrame): void;
 
-    insertAt(index: Number, value: DoubleKeyFrame): void;
+    insertAt(index: number, value: DoubleKeyFrame): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: DoubleKeyFrame): void;
 
@@ -105,17 +105,17 @@
   export class ObjectKeyFrameCollection {
     constructor();
 
-    getAt(index: Number): ObjectKeyFrame;
+    getAt(index: number): ObjectKeyFrame;
 
     getView(): Object;
 
-    indexOf(value: ObjectKeyFrame, index: Number): Boolean;
+    indexOf(value: ObjectKeyFrame, index: number): boolean;
 
-    setAt(index: Number, value: ObjectKeyFrame): void;
+    setAt(index: number, value: ObjectKeyFrame): void;
 
-    insertAt(index: Number, value: ObjectKeyFrame): void;
+    insertAt(index: number, value: ObjectKeyFrame): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: ObjectKeyFrame): void;
 
@@ -133,17 +133,17 @@
   export class TimelineCollection {
     constructor();
 
-    getAt(index: Number): Timeline;
+    getAt(index: number): Timeline;
 
     getView(): Object;
 
-    indexOf(value: Timeline, index: Number): Boolean;
+    indexOf(value: Timeline, index: number): boolean;
 
-    setAt(index: Number, value: Timeline): void;
+    setAt(index: number, value: Timeline): void;
 
-    insertAt(index: Number, value: Timeline): void;
+    insertAt(index: number, value: Timeline): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: Timeline): void;
 
@@ -161,7 +161,7 @@
   export class DoubleKeyFrame {
     static keyTimeProperty: Object;
     static valueProperty: Object;
-    value: Number;
+    value: number;
     keyTime: KeyTime;
     dispatcher: Object;
     constructor();
@@ -174,7 +174,7 @@
     dispatcher: Object;
     constructor();
 
-    ease(normalizedTime: Number): Number;
+    ease(normalizedTime: number): number;
 
   }
 
@@ -190,9 +190,9 @@
     dispatcher: Object;
     constructor();
 
-    getNavigationStateCore(): String;
+    getNavigationStateCore(): string;
 
-    setNavigationStateCore(navigationState: String): void;
+    setNavigationStateCore(navigationState: string): void;
 
   }
 
@@ -207,19 +207,19 @@
   }
 
   export class Timeline {
-    static allowDependentAnimations: Boolean;
+    static allowDependentAnimations: boolean;
     static autoReverseProperty: Object;
     static beginTimeProperty: Object;
     static durationProperty: Object;
     static fillBehaviorProperty: Object;
     static repeatBehaviorProperty: Object;
     static speedRatioProperty: Object;
-    speedRatio: Number;
+    speedRatio: number;
     repeatBehavior: RepeatBehavior;
     fillBehavior: FillBehavior;
     duration: Duration;
-    beginTime: Number;
-    autoReverse: Boolean;
+    beginTime: number;
+    autoReverse: boolean;
     dispatcher: Object;
     constructor();
 
@@ -251,7 +251,7 @@
   export class BackEase {
     static amplitudeProperty: Object;
     static easingModeProperty: Object;
-    amplitude: Number;
+    amplitude: number;
     easingMode: EasingMode;
     dispatcher: Object;
     constructor();
@@ -270,8 +270,8 @@
     static bouncesProperty: Object;
     static bouncinessProperty: Object;
     static easingModeProperty: Object;
-    bounciness: Number;
-    bounces: Number;
+    bounciness: number;
+    bounces: number;
     easingMode: EasingMode;
     dispatcher: Object;
     constructor();
@@ -292,7 +292,7 @@
     static enableDependentAnimationProperty: Object;
     static fromProperty: Object;
     static toProperty: Object;
-    static allowDependentAnimations: Boolean;
+    static allowDependentAnimations: boolean;
     static autoReverseProperty: Object;
     static beginTimeProperty: Object;
     static durationProperty: Object;
@@ -301,15 +301,15 @@
     static speedRatioProperty: Object;
     to: Object;
     from: Object;
-    enableDependentAnimation: Boolean;
+    enableDependentAnimation: boolean;
     easingFunction: EasingFunctionBase;
     by: Object;
-    speedRatio: Number;
+    speedRatio: number;
     repeatBehavior: RepeatBehavior;
     fillBehavior: FillBehavior;
     duration: Duration;
-    beginTime: Number;
-    autoReverse: Boolean;
+    beginTime: number;
+    autoReverse: boolean;
     dispatcher: Object;
     constructor();
 
@@ -329,8 +329,8 @@
   export class ContentThemeTransition {
     static horizontalOffsetProperty: Object;
     static verticalOffsetProperty: Object;
-    verticalOffset: Number;
-    horizontalOffset: Number;
+    verticalOffset: number;
+    horizontalOffset: number;
     dispatcher: Object;
     constructor();
 
@@ -347,7 +347,7 @@
   export class DiscreteDoubleKeyFrame {
     static keyTimeProperty: Object;
     static valueProperty: Object;
-    value: Number;
+    value: number;
     keyTime: KeyTime;
     dispatcher: Object;
     constructor();
@@ -370,24 +370,24 @@
     static enableDependentAnimationProperty: Object;
     static fromProperty: Object;
     static toProperty: Object;
-    static allowDependentAnimations: Boolean;
+    static allowDependentAnimations: boolean;
     static autoReverseProperty: Object;
     static beginTimeProperty: Object;
     static durationProperty: Object;
     static fillBehaviorProperty: Object;
     static repeatBehaviorProperty: Object;
     static speedRatioProperty: Object;
-    to: Number;
-    from: Number;
-    enableDependentAnimation: Boolean;
+    to: number;
+    from: number;
+    enableDependentAnimation: boolean;
     easingFunction: EasingFunctionBase;
-    by: Number;
-    speedRatio: Number;
+    by: number;
+    speedRatio: number;
     repeatBehavior: RepeatBehavior;
     fillBehavior: FillBehavior;
     duration: Duration;
-    beginTime: Number;
-    autoReverse: Boolean;
+    beginTime: number;
+    autoReverse: boolean;
     dispatcher: Object;
     constructor();
 
@@ -406,21 +406,21 @@
 
   export class DoubleAnimationUsingKeyFrames {
     static enableDependentAnimationProperty: Object;
-    static allowDependentAnimations: Boolean;
+    static allowDependentAnimations: boolean;
     static autoReverseProperty: Object;
     static beginTimeProperty: Object;
     static durationProperty: Object;
     static fillBehaviorProperty: Object;
     static repeatBehaviorProperty: Object;
     static speedRatioProperty: Object;
-    enableDependentAnimation: Boolean;
+    enableDependentAnimation: boolean;
     keyFrames: DoubleKeyFrameCollection;
-    speedRatio: Number;
+    speedRatio: number;
     repeatBehavior: RepeatBehavior;
     fillBehavior: FillBehavior;
     duration: Duration;
-    beginTime: Number;
-    autoReverse: Boolean;
+    beginTime: number;
+    autoReverse: boolean;
     dispatcher: Object;
     constructor();
 
@@ -442,7 +442,7 @@
     static keyTimeProperty: Object;
     static valueProperty: Object;
     easingFunction: EasingFunctionBase;
-    value: Number;
+    value: number;
     keyTime: KeyTime;
     dispatcher: Object;
     constructor();
@@ -451,7 +451,7 @@
 
   export class EdgeUIThemeTransition {
     static edgeProperty: Object;
-    edge: Number;
+    edge: number;
     dispatcher: Object;
     constructor();
 
@@ -461,8 +461,8 @@
     static oscillationsProperty: Object;
     static springinessProperty: Object;
     static easingModeProperty: Object;
-    springiness: Number;
-    oscillations: Number;
+    springiness: number;
+    oscillations: number;
     easingMode: EasingMode;
     dispatcher: Object;
     constructor();
@@ -473,9 +473,9 @@
     static fromHorizontalOffsetProperty: Object;
     static fromVerticalOffsetProperty: Object;
     static isStaggeringEnabledProperty: Object;
-    isStaggeringEnabled: Boolean;
-    fromVerticalOffset: Number;
-    fromHorizontalOffset: Number;
+    isStaggeringEnabled: boolean;
+    fromVerticalOffset: number;
+    fromHorizontalOffset: number;
     dispatcher: Object;
     constructor();
 
@@ -484,7 +484,7 @@
   export class ExponentialEase {
     static exponentProperty: Object;
     static easingModeProperty: Object;
-    exponent: Number;
+    exponent: number;
     easingMode: EasingMode;
     dispatcher: Object;
     constructor();
@@ -494,7 +494,7 @@
   export class LinearDoubleKeyFrame {
     static keyTimeProperty: Object;
     static valueProperty: Object;
-    value: Number;
+    value: number;
     keyTime: KeyTime;
     dispatcher: Object;
     constructor();
@@ -503,21 +503,21 @@
 
   export class ObjectAnimationUsingKeyFrames {
     static enableDependentAnimationProperty: Object;
-    static allowDependentAnimations: Boolean;
+    static allowDependentAnimations: boolean;
     static autoReverseProperty: Object;
     static beginTimeProperty: Object;
     static durationProperty: Object;
     static fillBehaviorProperty: Object;
     static repeatBehaviorProperty: Object;
     static speedRatioProperty: Object;
-    enableDependentAnimation: Boolean;
+    enableDependentAnimation: boolean;
     keyFrames: ObjectKeyFrameCollection;
-    speedRatio: Number;
+    speedRatio: number;
     repeatBehavior: RepeatBehavior;
     fillBehavior: FillBehavior;
     duration: Duration;
-    beginTime: Number;
-    autoReverse: Boolean;
+    beginTime: number;
+    autoReverse: boolean;
     dispatcher: Object;
     constructor();
 
@@ -536,7 +536,7 @@
 
   export class PaneThemeTransition {
     static edgeProperty: Object;
-    edge: Number;
+    edge: number;
     dispatcher: Object;
     constructor();
 
@@ -548,7 +548,7 @@
     static enableDependentAnimationProperty: Object;
     static fromProperty: Object;
     static toProperty: Object;
-    static allowDependentAnimations: Boolean;
+    static allowDependentAnimations: boolean;
     static autoReverseProperty: Object;
     static beginTimeProperty: Object;
     static durationProperty: Object;
@@ -557,15 +557,15 @@
     static speedRatioProperty: Object;
     to: Object;
     from: Object;
-    enableDependentAnimation: Boolean;
+    enableDependentAnimation: boolean;
     easingFunction: EasingFunctionBase;
     by: Object;
-    speedRatio: Number;
+    speedRatio: number;
     repeatBehavior: RepeatBehavior;
     fillBehavior: FillBehavior;
     duration: Duration;
-    beginTime: Number;
-    autoReverse: Boolean;
+    beginTime: number;
+    autoReverse: boolean;
     dispatcher: Object;
     constructor();
 
@@ -585,8 +585,8 @@
   export class PopupThemeTransition {
     static fromHorizontalOffsetProperty: Object;
     static fromVerticalOffsetProperty: Object;
-    fromVerticalOffset: Number;
-    fromHorizontalOffset: Number;
+    fromVerticalOffset: number;
+    fromHorizontalOffset: number;
     dispatcher: Object;
     constructor();
 
@@ -595,7 +595,7 @@
   export class PowerEase {
     static powerProperty: Object;
     static easingModeProperty: Object;
-    power: Number;
+    power: number;
     easingMode: EasingMode;
     dispatcher: Object;
     constructor();
@@ -634,7 +634,7 @@
 
   export class RepositionThemeTransition {
     static isStaggeringEnabledProperty: Object;
-    isStaggeringEnabled: Boolean;
+    isStaggeringEnabled: boolean;
     dispatcher: Object;
     constructor();
 
@@ -653,7 +653,7 @@
     static keyTimeProperty: Object;
     static valueProperty: Object;
     keySpline: KeySpline;
-    value: Number;
+    value: number;
     keyTime: KeyTime;
     dispatcher: Object;
     constructor();
@@ -663,7 +663,7 @@
   export class Storyboard {
     static targetNameProperty: Object;
     static targetPropertyProperty: Object;
-    static allowDependentAnimations: Boolean;
+    static allowDependentAnimations: boolean;
     static autoReverseProperty: Object;
     static beginTimeProperty: Object;
     static durationProperty: Object;
@@ -671,31 +671,31 @@
     static repeatBehaviorProperty: Object;
     static speedRatioProperty: Object;
     children: TimelineCollection;
-    speedRatio: Number;
+    speedRatio: number;
     repeatBehavior: RepeatBehavior;
     fillBehavior: FillBehavior;
     duration: Duration;
-    beginTime: Number;
-    autoReverse: Boolean;
+    beginTime: number;
+    autoReverse: boolean;
     dispatcher: Object;
     constructor();
 
-    static getTargetProperty(element: Timeline): String;
+    static getTargetProperty(element: Timeline): string;
 
 
-    static setTargetProperty(element: Timeline, path: String): void;
+    static setTargetProperty(element: Timeline, path: string): void;
 
 
-    static getTargetName(element: Timeline): String;
+    static getTargetName(element: Timeline): string;
 
 
-    static setTargetName(element: Timeline, name: String): void;
+    static setTargetName(element: Timeline, name: string): void;
 
 
     static setTarget(timeline: Timeline, target: Object): void;
 
 
-    seek(offset: Number): void;
+    seek(offset: number): void;
 
     stop(): void;
 
@@ -707,9 +707,9 @@
 
     getCurrentState(): ClockState;
 
-    getCurrentTime(): Number;
+    getCurrentTime(): number;
 
-    seekAlignedToLastTick(offset: Number): void;
+    seekAlignedToLastTick(offset: number): void;
 
     skipToFill(): void;
 
@@ -729,17 +729,17 @@
   export class ColorKeyFrameCollection {
     constructor();
 
-    getAt(index: Number): ColorKeyFrame;
+    getAt(index: number): ColorKeyFrame;
 
     getView(): Object;
 
-    indexOf(value: ColorKeyFrame, index: Number): Boolean;
+    indexOf(value: ColorKeyFrame, index: number): boolean;
 
-    setAt(index: Number, value: ColorKeyFrame): void;
+    setAt(index: number, value: ColorKeyFrame): void;
 
-    insertAt(index: Number, value: ColorKeyFrame): void;
+    insertAt(index: number, value: ColorKeyFrame): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: ColorKeyFrame): void;
 
@@ -755,11 +755,11 @@
   }
 
   export class ConnectedAnimation {
-    isScaleAnimationEnabled: Boolean;
+    isScaleAnimationEnabled: boolean;
     constructor();
 
-    tryStart(destination: Object): Boolean;
-    tryStart(destination: Object, coordinatedElements: Object): Boolean;
+    tryStart(destination: Object): boolean;
+    tryStart(destination: Object, coordinatedElements: Object): boolean;
 
     cancel(): void;
 
@@ -780,32 +780,32 @@
 
   export class ConnectedAnimationService {
     defaultEasingFunction: Object;
-    defaultDuration: Number;
+    defaultDuration: number;
     constructor();
 
     static getForCurrentView(): ConnectedAnimationService;
 
 
-    prepareToAnimate(key: String, source: Object): ConnectedAnimation;
+    prepareToAnimate(key: string, source: Object): ConnectedAnimation;
 
-    getAnimation(key: String): ConnectedAnimation;
+    getAnimation(key: string): ConnectedAnimation;
 
   }
 
   export class PointKeyFrameCollection {
     constructor();
 
-    getAt(index: Number): PointKeyFrame;
+    getAt(index: number): PointKeyFrame;
 
     getView(): Object;
 
-    indexOf(value: PointKeyFrame, index: Number): Boolean;
+    indexOf(value: PointKeyFrame, index: number): boolean;
 
-    setAt(index: Number, value: PointKeyFrame): void;
+    setAt(index: number, value: PointKeyFrame): void;
 
-    insertAt(index: Number, value: PointKeyFrame): void;
+    insertAt(index: number, value: PointKeyFrame): void;
 
-    removeAt(index: Number): void;
+    removeAt(index: number): void;
 
     append(value: PointKeyFrame): void;
 
@@ -842,21 +842,21 @@
 
   export class ColorAnimationUsingKeyFrames {
     static enableDependentAnimationProperty: Object;
-    static allowDependentAnimations: Boolean;
+    static allowDependentAnimations: boolean;
     static autoReverseProperty: Object;
     static beginTimeProperty: Object;
     static durationProperty: Object;
     static fillBehaviorProperty: Object;
     static repeatBehaviorProperty: Object;
     static speedRatioProperty: Object;
-    enableDependentAnimation: Boolean;
+    enableDependentAnimation: boolean;
     keyFrames: ColorKeyFrameCollection;
-    speedRatio: Number;
+    speedRatio: number;
     repeatBehavior: RepeatBehavior;
     fillBehavior: FillBehavior;
     duration: Duration;
-    beginTime: Number;
-    autoReverse: Boolean;
+    beginTime: number;
+    autoReverse: boolean;
     dispatcher: Object;
     constructor();
 
@@ -895,20 +895,20 @@
 
   export class DragItemThemeAnimation {
     static targetNameProperty: Object;
-    static allowDependentAnimations: Boolean;
+    static allowDependentAnimations: boolean;
     static autoReverseProperty: Object;
     static beginTimeProperty: Object;
     static durationProperty: Object;
     static fillBehaviorProperty: Object;
     static repeatBehaviorProperty: Object;
     static speedRatioProperty: Object;
-    targetName: String;
-    speedRatio: Number;
+    targetName: string;
+    speedRatio: number;
     repeatBehavior: RepeatBehavior;
     fillBehavior: FillBehavior;
     duration: Duration;
-    beginTime: Number;
-    autoReverse: Boolean;
+    beginTime: number;
+    autoReverse: boolean;
     dispatcher: Object;
     constructor();
 
@@ -929,22 +929,22 @@
     static directionProperty: Object;
     static targetNameProperty: Object;
     static toOffsetProperty: Object;
-    static allowDependentAnimations: Boolean;
+    static allowDependentAnimations: boolean;
     static autoReverseProperty: Object;
     static beginTimeProperty: Object;
     static durationProperty: Object;
     static fillBehaviorProperty: Object;
     static repeatBehaviorProperty: Object;
     static speedRatioProperty: Object;
-    toOffset: Number;
-    targetName: String;
-    direction: Number;
-    speedRatio: Number;
+    toOffset: number;
+    targetName: string;
+    direction: number;
+    speedRatio: number;
     repeatBehavior: RepeatBehavior;
     fillBehavior: FillBehavior;
     duration: Duration;
-    beginTime: Number;
-    autoReverse: Boolean;
+    beginTime: number;
+    autoReverse: boolean;
     dispatcher: Object;
     constructor();
 
@@ -966,23 +966,23 @@
     static entranceTargetProperty: Object;
     static exitTargetNameProperty: Object;
     static exitTargetProperty: Object;
-    static allowDependentAnimations: Boolean;
+    static allowDependentAnimations: boolean;
     static autoReverseProperty: Object;
     static beginTimeProperty: Object;
     static durationProperty: Object;
     static fillBehaviorProperty: Object;
     static repeatBehaviorProperty: Object;
     static speedRatioProperty: Object;
-    exitTargetName: String;
+    exitTargetName: string;
     exitTarget: Object;
-    entranceTargetName: String;
+    entranceTargetName: string;
     entranceTarget: Object;
-    speedRatio: Number;
+    speedRatio: number;
     repeatBehavior: RepeatBehavior;
     fillBehavior: FillBehavior;
     duration: Duration;
-    beginTime: Number;
-    autoReverse: Boolean;
+    beginTime: number;
+    autoReverse: boolean;
     dispatcher: Object;
     constructor();
 
@@ -1004,23 +1004,23 @@
     static entranceTargetProperty: Object;
     static exitTargetNameProperty: Object;
     static exitTargetProperty: Object;
-    static allowDependentAnimations: Boolean;
+    static allowDependentAnimations: boolean;
     static autoReverseProperty: Object;
     static beginTimeProperty: Object;
     static durationProperty: Object;
     static fillBehaviorProperty: Object;
     static repeatBehaviorProperty: Object;
     static speedRatioProperty: Object;
-    exitTargetName: String;
+    exitTargetName: string;
     exitTarget: Object;
-    entranceTargetName: String;
+    entranceTargetName: string;
     entranceTarget: Object;
-    speedRatio: Number;
+    speedRatio: number;
     repeatBehavior: RepeatBehavior;
     fillBehavior: FillBehavior;
     duration: Duration;
-    beginTime: Number;
-    autoReverse: Boolean;
+    beginTime: number;
+    autoReverse: boolean;
     dispatcher: Object;
     constructor();
 
@@ -1039,20 +1039,20 @@
 
   export class DropTargetItemThemeAnimation {
     static targetNameProperty: Object;
-    static allowDependentAnimations: Boolean;
+    static allowDependentAnimations: boolean;
     static autoReverseProperty: Object;
     static beginTimeProperty: Object;
     static durationProperty: Object;
     static fillBehaviorProperty: Object;
     static repeatBehaviorProperty: Object;
     static speedRatioProperty: Object;
-    targetName: String;
-    speedRatio: Number;
+    targetName: string;
+    speedRatio: number;
     repeatBehavior: RepeatBehavior;
     fillBehavior: FillBehavior;
     duration: Duration;
-    beginTime: Number;
-    autoReverse: Boolean;
+    beginTime: number;
+    autoReverse: boolean;
     dispatcher: Object;
     constructor();
 
@@ -1095,20 +1095,20 @@
 
   export class FadeInThemeAnimation {
     static targetNameProperty: Object;
-    static allowDependentAnimations: Boolean;
+    static allowDependentAnimations: boolean;
     static autoReverseProperty: Object;
     static beginTimeProperty: Object;
     static durationProperty: Object;
     static fillBehaviorProperty: Object;
     static repeatBehaviorProperty: Object;
     static speedRatioProperty: Object;
-    targetName: String;
-    speedRatio: Number;
+    targetName: string;
+    speedRatio: number;
     repeatBehavior: RepeatBehavior;
     fillBehavior: FillBehavior;
     duration: Duration;
-    beginTime: Number;
-    autoReverse: Boolean;
+    beginTime: number;
+    autoReverse: boolean;
     dispatcher: Object;
     constructor();
 
@@ -1127,20 +1127,20 @@
 
   export class FadeOutThemeAnimation {
     static targetNameProperty: Object;
-    static allowDependentAnimations: Boolean;
+    static allowDependentAnimations: boolean;
     static autoReverseProperty: Object;
     static beginTimeProperty: Object;
     static durationProperty: Object;
     static fillBehaviorProperty: Object;
     static repeatBehaviorProperty: Object;
     static speedRatioProperty: Object;
-    targetName: String;
-    speedRatio: Number;
+    targetName: string;
+    speedRatio: number;
     repeatBehavior: RepeatBehavior;
     fillBehavior: FillBehavior;
     duration: Duration;
-    beginTime: Number;
-    autoReverse: Boolean;
+    beginTime: number;
+    autoReverse: boolean;
     dispatcher: Object;
     constructor();
 
@@ -1179,21 +1179,21 @@
 
   export class PointAnimationUsingKeyFrames {
     static enableDependentAnimationProperty: Object;
-    static allowDependentAnimations: Boolean;
+    static allowDependentAnimations: boolean;
     static autoReverseProperty: Object;
     static beginTimeProperty: Object;
     static durationProperty: Object;
     static fillBehaviorProperty: Object;
     static repeatBehaviorProperty: Object;
     static speedRatioProperty: Object;
-    enableDependentAnimation: Boolean;
+    enableDependentAnimation: boolean;
     keyFrames: PointKeyFrameCollection;
-    speedRatio: Number;
+    speedRatio: number;
     repeatBehavior: RepeatBehavior;
     fillBehavior: FillBehavior;
     duration: Duration;
-    beginTime: Number;
-    autoReverse: Boolean;
+    beginTime: number;
+    autoReverse: boolean;
     dispatcher: Object;
     constructor();
 
@@ -1212,20 +1212,20 @@
 
   export class PointerDownThemeAnimation {
     static targetNameProperty: Object;
-    static allowDependentAnimations: Boolean;
+    static allowDependentAnimations: boolean;
     static autoReverseProperty: Object;
     static beginTimeProperty: Object;
     static durationProperty: Object;
     static fillBehaviorProperty: Object;
     static repeatBehaviorProperty: Object;
     static speedRatioProperty: Object;
-    targetName: String;
-    speedRatio: Number;
+    targetName: string;
+    speedRatio: number;
     repeatBehavior: RepeatBehavior;
     fillBehavior: FillBehavior;
     duration: Duration;
-    beginTime: Number;
-    autoReverse: Boolean;
+    beginTime: number;
+    autoReverse: boolean;
     dispatcher: Object;
     constructor();
 
@@ -1244,20 +1244,20 @@
 
   export class PointerUpThemeAnimation {
     static targetNameProperty: Object;
-    static allowDependentAnimations: Boolean;
+    static allowDependentAnimations: boolean;
     static autoReverseProperty: Object;
     static beginTimeProperty: Object;
     static durationProperty: Object;
     static fillBehaviorProperty: Object;
     static repeatBehaviorProperty: Object;
     static speedRatioProperty: Object;
-    targetName: String;
-    speedRatio: Number;
+    targetName: string;
+    speedRatio: number;
     repeatBehavior: RepeatBehavior;
     fillBehavior: FillBehavior;
     duration: Duration;
-    beginTime: Number;
-    autoReverse: Boolean;
+    beginTime: number;
+    autoReverse: boolean;
     dispatcher: Object;
     constructor();
 
@@ -1278,22 +1278,22 @@
     static fromHorizontalOffsetProperty: Object;
     static fromVerticalOffsetProperty: Object;
     static targetNameProperty: Object;
-    static allowDependentAnimations: Boolean;
+    static allowDependentAnimations: boolean;
     static autoReverseProperty: Object;
     static beginTimeProperty: Object;
     static durationProperty: Object;
     static fillBehaviorProperty: Object;
     static repeatBehaviorProperty: Object;
     static speedRatioProperty: Object;
-    targetName: String;
-    fromVerticalOffset: Number;
-    fromHorizontalOffset: Number;
-    speedRatio: Number;
+    targetName: string;
+    fromVerticalOffset: number;
+    fromHorizontalOffset: number;
+    speedRatio: number;
     repeatBehavior: RepeatBehavior;
     fillBehavior: FillBehavior;
     duration: Duration;
-    beginTime: Number;
-    autoReverse: Boolean;
+    beginTime: number;
+    autoReverse: boolean;
     dispatcher: Object;
     constructor();
 
@@ -1312,20 +1312,20 @@
 
   export class PopOutThemeAnimation {
     static targetNameProperty: Object;
-    static allowDependentAnimations: Boolean;
+    static allowDependentAnimations: boolean;
     static autoReverseProperty: Object;
     static beginTimeProperty: Object;
     static durationProperty: Object;
     static fillBehaviorProperty: Object;
     static repeatBehaviorProperty: Object;
     static speedRatioProperty: Object;
-    targetName: String;
-    speedRatio: Number;
+    targetName: string;
+    speedRatio: number;
     repeatBehavior: RepeatBehavior;
     fillBehavior: FillBehavior;
     duration: Duration;
-    beginTime: Number;
-    autoReverse: Boolean;
+    beginTime: number;
+    autoReverse: boolean;
     dispatcher: Object;
     constructor();
 
@@ -1346,22 +1346,22 @@
     static fromHorizontalOffsetProperty: Object;
     static fromVerticalOffsetProperty: Object;
     static targetNameProperty: Object;
-    static allowDependentAnimations: Boolean;
+    static allowDependentAnimations: boolean;
     static autoReverseProperty: Object;
     static beginTimeProperty: Object;
     static durationProperty: Object;
     static fillBehaviorProperty: Object;
     static repeatBehaviorProperty: Object;
     static speedRatioProperty: Object;
-    targetName: String;
-    fromVerticalOffset: Number;
-    fromHorizontalOffset: Number;
-    speedRatio: Number;
+    targetName: string;
+    fromVerticalOffset: number;
+    fromHorizontalOffset: number;
+    speedRatio: number;
     repeatBehavior: RepeatBehavior;
     fillBehavior: FillBehavior;
     duration: Duration;
-    beginTime: Number;
-    autoReverse: Boolean;
+    beginTime: number;
+    autoReverse: boolean;
     dispatcher: Object;
     constructor();
 
@@ -1414,30 +1414,30 @@
     static openedLengthProperty: Object;
     static openedTargetNameProperty: Object;
     static openedTargetProperty: Object;
-    static allowDependentAnimations: Boolean;
+    static allowDependentAnimations: boolean;
     static autoReverseProperty: Object;
     static beginTimeProperty: Object;
     static durationProperty: Object;
     static fillBehaviorProperty: Object;
     static repeatBehaviorProperty: Object;
     static speedRatioProperty: Object;
-    contentTargetName: String;
+    contentTargetName: string;
     contentTarget: Object;
-    closedTargetName: String;
+    closedTargetName: string;
     closedTarget: Object;
-    closedLength: Number;
-    openedTargetName: String;
+    closedLength: number;
+    openedTargetName: string;
     openedTarget: Object;
-    openedLength: Number;
-    offsetFromCenter: Number;
-    contentTranslationOffset: Number;
-    contentTranslationDirection: Number;
-    speedRatio: Number;
+    openedLength: number;
+    offsetFromCenter: number;
+    contentTranslationOffset: number;
+    contentTranslationDirection: number;
+    speedRatio: number;
     repeatBehavior: RepeatBehavior;
     fillBehavior: FillBehavior;
     duration: Duration;
-    beginTime: Number;
-    autoReverse: Boolean;
+    beginTime: number;
+    autoReverse: boolean;
     dispatcher: Object;
     constructor();
 
@@ -1466,30 +1466,30 @@
     static openedLengthProperty: Object;
     static openedTargetNameProperty: Object;
     static openedTargetProperty: Object;
-    static allowDependentAnimations: Boolean;
+    static allowDependentAnimations: boolean;
     static autoReverseProperty: Object;
     static beginTimeProperty: Object;
     static durationProperty: Object;
     static fillBehaviorProperty: Object;
     static repeatBehaviorProperty: Object;
     static speedRatioProperty: Object;
-    contentTargetName: String;
+    contentTargetName: string;
     contentTarget: Object;
-    closedTargetName: String;
+    closedTargetName: string;
     closedTarget: Object;
-    closedLength: Number;
-    openedTargetName: String;
+    closedLength: number;
+    openedTargetName: string;
     openedTarget: Object;
-    openedLength: Number;
-    offsetFromCenter: Number;
-    contentTranslationOffset: Number;
-    contentTranslationDirection: Number;
-    speedRatio: Number;
+    openedLength: number;
+    offsetFromCenter: number;
+    contentTranslationOffset: number;
+    contentTranslationDirection: number;
+    speedRatio: number;
     repeatBehavior: RepeatBehavior;
     fillBehavior: FillBehavior;
     duration: Duration;
-    beginTime: Number;
-    autoReverse: Boolean;
+    beginTime: number;
+    autoReverse: boolean;
     dispatcher: Object;
     constructor();
 
@@ -1510,22 +1510,22 @@
     static fromHorizontalOffsetProperty: Object;
     static fromVerticalOffsetProperty: Object;
     static targetNameProperty: Object;
-    static allowDependentAnimations: Boolean;
+    static allowDependentAnimations: boolean;
     static autoReverseProperty: Object;
     static beginTimeProperty: Object;
     static durationProperty: Object;
     static fillBehaviorProperty: Object;
     static repeatBehaviorProperty: Object;
     static speedRatioProperty: Object;
-    targetName: String;
-    fromVerticalOffset: Number;
-    fromHorizontalOffset: Number;
-    speedRatio: Number;
+    targetName: string;
+    fromVerticalOffset: number;
+    fromHorizontalOffset: number;
+    speedRatio: number;
     repeatBehavior: RepeatBehavior;
     fillBehavior: FillBehavior;
     duration: Duration;
-    beginTime: Number;
-    autoReverse: Boolean;
+    beginTime: number;
+    autoReverse: boolean;
     dispatcher: Object;
     constructor();
 
@@ -1546,22 +1546,22 @@
     static targetNameProperty: Object;
     static toHorizontalOffsetProperty: Object;
     static toVerticalOffsetProperty: Object;
-    static allowDependentAnimations: Boolean;
+    static allowDependentAnimations: boolean;
     static autoReverseProperty: Object;
     static beginTimeProperty: Object;
     static durationProperty: Object;
     static fillBehaviorProperty: Object;
     static repeatBehaviorProperty: Object;
     static speedRatioProperty: Object;
-    toVerticalOffset: Number;
-    toHorizontalOffset: Number;
-    targetName: String;
-    speedRatio: Number;
+    toVerticalOffset: number;
+    toHorizontalOffset: number;
+    targetName: string;
+    speedRatio: number;
     repeatBehavior: RepeatBehavior;
     fillBehavior: FillBehavior;
     duration: Duration;
-    beginTime: Number;
-    autoReverse: Boolean;
+    beginTime: number;
+    autoReverse: boolean;
     dispatcher: Object;
     constructor();
 
@@ -1581,14 +1581,14 @@
   export class CommonNavigationTransitionInfo {
     static isStaggerElementProperty: Object;
     static isStaggeringEnabledProperty: Object;
-    isStaggeringEnabled: Boolean;
+    isStaggeringEnabled: boolean;
     dispatcher: Object;
     constructor();
 
-    static getIsStaggerElement(element: Object): Boolean;
+    static getIsStaggerElement(element: Object): boolean;
 
 
-    static setIsStaggerElement(element: Object, value: Boolean): void;
+    static setIsStaggerElement(element: Object, value: boolean): void;
 
 
   }
@@ -1602,22 +1602,22 @@
     dispatcher: Object;
     constructor();
 
-    static getIsEntranceElement(element: Object): Boolean;
+    static getIsEntranceElement(element: Object): boolean;
 
 
-    static setIsEntranceElement(element: Object, value: Boolean): void;
+    static setIsEntranceElement(element: Object, value: boolean): void;
 
 
-    static getIsExitElement(element: Object): Boolean;
+    static getIsExitElement(element: Object): boolean;
 
 
-    static setIsExitElement(element: Object, value: Boolean): void;
+    static setIsExitElement(element: Object, value: boolean): void;
 
 
-    static getExitElementContainer(element: Object): Boolean;
+    static getExitElementContainer(element: Object): boolean;
 
 
-    static setExitElementContainer(element: Object, value: Boolean): void;
+    static setExitElementContainer(element: Object, value: boolean): void;
 
 
   }
@@ -1633,10 +1633,10 @@
     dispatcher: Object;
     constructor();
 
-    static getIsTargetElement(element: Object): Boolean;
+    static getIsTargetElement(element: Object): boolean;
 
 
-    static setIsTargetElement(element: Object, value: Boolean): void;
+    static setIsTargetElement(element: Object, value: boolean): void;
 
 
   }

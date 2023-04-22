@@ -68,21 +68,21 @@
     static findAllAdaptersAsync(callback: (error: Error, result: Object) => void): void ;
 
 
-    static fromIdAsync(deviceId: String, callback: (error: Error, result: WiFiAdapter) => void): void ;
+    static fromIdAsync(deviceId: string, callback: (error: Error, result: WiFiAdapter) => void): void ;
 
 
     static requestAccessAsync(callback: (error: Error, result: WiFiAccessStatus) => void): void ;
 
 
-    static getDeviceSelector(): String;
+    static getDeviceSelector(): string;
 
 
     scanAsync(callback: (error: Error) => void): void ;
 
     connectAsync(availableNetwork: WiFiAvailableNetwork, reconnectionKind: WiFiReconnectionKind, callback: (error: Error, result: WiFiConnectionResult) => void): void ;
     connectAsync(availableNetwork: WiFiAvailableNetwork, reconnectionKind: WiFiReconnectionKind, passwordCredential: Object, callback: (error: Error, result: WiFiConnectionResult) => void): void ;
-    connectAsync(availableNetwork: WiFiAvailableNetwork, reconnectionKind: WiFiReconnectionKind, passwordCredential: Object, ssid: String, callback: (error: Error, result: WiFiConnectionResult) => void): void ;
-    connectAsync(availableNetwork: WiFiAvailableNetwork, reconnectionKind: WiFiReconnectionKind, passwordCredential: Object, ssid: String, connectionMethod: WiFiConnectionMethod, callback: (error: Error, result: WiFiConnectionResult) => void): void ;
+    connectAsync(availableNetwork: WiFiAvailableNetwork, reconnectionKind: WiFiReconnectionKind, passwordCredential: Object, ssid: string, callback: (error: Error, result: WiFiConnectionResult) => void): void ;
+    connectAsync(availableNetwork: WiFiAvailableNetwork, reconnectionKind: WiFiReconnectionKind, passwordCredential: Object, ssid: string, connectionMethod: WiFiConnectionMethod, callback: (error: Error, result: WiFiConnectionResult) => void): void ;
 
     getWpsConfigurationAsync(availableNetwork: WiFiAvailableNetwork, callback: (error: Error, result: WiFiWpsConfigurationResult) => void): void ;
 
@@ -109,17 +109,17 @@
   }
 
   export class WiFiAvailableNetwork {
-    beaconInterval: Number;
-    bssid: String;
-    channelCenterFrequencyInKilohertz: Number;
-    isWiFiDirect: Boolean;
+    beaconInterval: number;
+    bssid: string;
+    channelCenterFrequencyInKilohertz: number;
+    isWiFiDirect: boolean;
     networkKind: WiFiNetworkKind;
-    networkRssiInDecibelMilliwatts: Number;
+    networkRssiInDecibelMilliwatts: number;
     phyKind: WiFiPhyKind;
     securitySettings: Object;
-    signalBars: Number;
-    ssid: String;
-    uptime: Number;
+    signalBars: number;
+    ssid: string;
+    uptime: number;
     constructor();
 
   }

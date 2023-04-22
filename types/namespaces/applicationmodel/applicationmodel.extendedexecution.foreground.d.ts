@@ -23,7 +23,7 @@
 
   export class ExtendedExecutionForegroundSession {
     reason: ExtendedExecutionForegroundReason;
-    description: String;
+    description: string;
     constructor();
 
     requestExtensionAsync(callback: (error: Error, result: ExtendedExecutionForegroundResult) => void): void ;

@@ -1,5 +1,5 @@
   export class SystemNavigationCloseRequestedPreviewEventArgs {
-    handled: Boolean;
+    handled: boolean;
     constructor();
 
     getDeferral(): Object;

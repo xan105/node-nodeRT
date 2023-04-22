@@ -1,7 +1,7 @@
   export class SocialFeedUpdater {
     items: Object;
-    kind: Number;
-    ownerRemoteId: String;
+    kind: number;
+    ownerRemoteId: string;
     constructor();
 
     commitAsync(callback: (error: Error) => void): void ;
@@ -13,7 +13,7 @@
     thumbnail: Object;
     targetUri: Object;
     content: Object;
-    ownerRemoteId: String;
+    ownerRemoteId: string;
     constructor();
 
     commitAsync(callback: (error: Error) => void): void ;
@@ -23,22 +23,22 @@
   export class SocialInfoProviderManager {
     constructor();
 
-    static createSocialFeedUpdaterAsync(kind: Number, mode: Number, ownerRemoteId: String, callback: (error: Error, result: SocialFeedUpdater) => void): void ;
+    static createSocialFeedUpdaterAsync(kind: number, mode: number, ownerRemoteId: string, callback: (error: Error, result: SocialFeedUpdater) => void): void ;
 
 
-    static createDashboardItemUpdaterAsync(ownerRemoteId: String, callback: (error: Error, result: SocialDashboardItemUpdater) => void): void ;
+    static createDashboardItemUpdaterAsync(ownerRemoteId: string, callback: (error: Error, result: SocialDashboardItemUpdater) => void): void ;
 
 
-    static provisionAsync(callback: (error: Error, result: Boolean) => void): void ;
+    static provisionAsync(callback: (error: Error, result: boolean) => void): void ;
 
 
     static deprovisionAsync(callback: (error: Error) => void): void ;
 
 
-    static updateBadgeCountValue(itemRemoteId: String, newCount: Number): void;
+    static updateBadgeCountValue(itemRemoteId: string, newCount: number): void;
 
 
-    static reportNewContentAvailable(contactRemoteId: String, kind: Number): void;
+    static reportNewContentAvailable(contactRemoteId: string, kind: number): void;
 
 
   }

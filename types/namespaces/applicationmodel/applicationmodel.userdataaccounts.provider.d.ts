@@ -17,25 +17,25 @@
 
   export class UserDataAccountPartnerAccountInfo {
     accountKind: UserDataAccountProviderPartnerAccountKind;
-    displayName: String;
-    priority: Number;
+    displayName: string;
+    priority: number;
     constructor();
 
   }
 
   export class UserDataAccountProviderAddAccountOperation {
-    contentKinds: Number;
+    contentKinds: number;
     partnerAccountInfos: Object;
     kind: UserDataAccountProviderOperationKind;
     constructor();
 
-    reportCompleted(userDataAccountId: String): void;
+    reportCompleted(userDataAccountId: string): void;
 
   }
 
   export class UserDataAccountProviderSettingsOperation {
     kind: UserDataAccountProviderOperationKind;
-    userDataAccountId: String;
+    userDataAccountId: string;
     constructor();
 
     reportCompleted(): void;
@@ -44,7 +44,7 @@
 
   export class UserDataAccountProviderResolveErrorsOperation {
     kind: UserDataAccountProviderOperationKind;
-    userDataAccountId: String;
+    userDataAccountId: string;
     constructor();
 
     reportCompleted(): void;

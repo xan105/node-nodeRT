@@ -1,7 +1,7 @@
   export class Vector3 {
-    x: Number;
-    y: Number;
-    z: Number;
+    x: number;
+    y: number;
+    z: number;
     constructor();
   }
 
@@ -47,45 +47,45 @@
   }
 
   export class InteractionTrackerCustomAnimationStateEnteredArgs {
-    requestId: Number;
+    requestId: number;
     constructor();
 
   }
 
   export class InteractionTrackerIdleStateEnteredArgs {
-    requestId: Number;
+    requestId: number;
     constructor();
 
   }
 
   export class InteractionTrackerInertiaStateEnteredArgs {
     modifiedRestingPosition: Vector3;
-    modifiedRestingScale: Number;
+    modifiedRestingScale: number;
     naturalRestingPosition: Vector3;
-    naturalRestingScale: Number;
+    naturalRestingScale: number;
     positionVelocityInPixelsPerSecond: Vector3;
-    requestId: Number;
-    scaleVelocityInPercentPerSecond: Number;
+    requestId: number;
+    scaleVelocityInPercentPerSecond: number;
     constructor();
 
   }
 
   export class InteractionTrackerInteractingStateEnteredArgs {
-    requestId: Number;
+    requestId: number;
     constructor();
 
   }
 
   export class InteractionTrackerRequestIgnoredArgs {
-    requestId: Number;
+    requestId: number;
     constructor();
 
   }
 
   export class InteractionTrackerValuesChangedArgs {
     position: Vector3;
-    requestId: Number;
-    scale: Number;
+    requestId: number;
+    scale: number;
     constructor();
 
   }
@@ -97,7 +97,7 @@
     dispatcher: Object;
     properties: Object;
     implicitAnimations: Object;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -107,12 +107,12 @@
   }
 
   export class CompositionInteractionSourceCollection {
-    count: Number;
+    count: number;
     compositor: Object;
     dispatcher: Object;
     properties: Object;
     implicitAnimations: Object;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -127,26 +127,26 @@
   }
 
   export class InteractionTracker {
-    scaleInertiaDecayRate: Number;
+    scaleInertiaDecayRate: number;
     positionInertiaDecayRate: Vector3;
-    maxScale: Number;
-    minScale: Number;
+    maxScale: number;
+    minScale: number;
     maxPosition: Vector3;
     minPosition: Vector3;
     naturalRestingPosition: Vector3;
-    naturalRestingScale: Number;
+    naturalRestingScale: number;
     owner: IInteractionTrackerOwner;
     position: Vector3;
     interactionSources: CompositionInteractionSourceCollection;
     positionVelocityInPixelsPerSecond: Vector3;
-    scale: Number;
-    isPositionRoundingSuggested: Boolean;
-    scaleVelocityInPercentPerSecond: Number;
+    scale: number;
+    isPositionRoundingSuggested: boolean;
+    scaleVelocityInPercentPerSecond: number;
     compositor: Object;
     dispatcher: Object;
     properties: Object;
     implicitAnimations: Object;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -156,9 +156,9 @@
     static createWithOwner(compositor: Object, owner: IInteractionTrackerOwner): InteractionTracker;
 
 
-    adjustPositionXIfGreaterThanThreshold(adjustment: Number, positionThreshold: Number): void;
+    adjustPositionXIfGreaterThanThreshold(adjustment: number, positionThreshold: number): void;
 
-    adjustPositionYIfGreaterThanThreshold(adjustment: Number, positionThreshold: Number): void;
+    adjustPositionYIfGreaterThanThreshold(adjustment: number, positionThreshold: number): void;
 
     configurePositionXInertiaModifiers(modifiers: Object): void;
 
@@ -166,19 +166,19 @@
 
     configureScaleInertiaModifiers(modifiers: Object): void;
 
-    tryUpdatePosition(value: Vector3): Number;
+    tryUpdatePosition(value: Vector3): number;
 
-    tryUpdatePositionBy(amount: Vector3): Number;
+    tryUpdatePositionBy(amount: Vector3): number;
 
-    tryUpdatePositionWithAnimation(animation: Object): Number;
+    tryUpdatePositionWithAnimation(animation: Object): number;
 
-    tryUpdatePositionWithAdditionalVelocity(velocityInPixelsPerSecond: Vector3): Number;
+    tryUpdatePositionWithAdditionalVelocity(velocityInPixelsPerSecond: Vector3): number;
 
-    tryUpdateScale(value: Number, centerPoint: Vector3): Number;
+    tryUpdateScale(value: number, centerPoint: Vector3): number;
 
-    tryUpdateScaleWithAnimation(animation: Object, centerPoint: Vector3): Number;
+    tryUpdateScaleWithAnimation(animation: Object, centerPoint: Vector3): number;
 
-    tryUpdateScaleWithAdditionalVelocity(velocityInPercentPerSecond: Number, centerPoint: Vector3): Number;
+    tryUpdateScaleWithAdditionalVelocity(velocityInPercentPerSecond: number, centerPoint: Vector3): number;
 
     configureCenterPointXInertiaModifiers(conditionalValues: Object): void;
 
@@ -193,7 +193,7 @@
     dispatcher: Object;
     properties: Object;
     implicitAnimations: Object;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -204,7 +204,7 @@
     dispatcher: Object;
     properties: Object;
     implicitAnimations: Object;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -217,7 +217,7 @@
     dispatcher: Object;
     properties: Object;
     implicitAnimations: Object;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -233,7 +233,7 @@
     dispatcher: Object;
     properties: Object;
     implicitAnimations: Object;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -249,7 +249,7 @@
     dispatcher: Object;
     properties: Object;
     implicitAnimations: Object;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -265,21 +265,21 @@
     positionXSourceMode: InteractionSourceMode;
     positionXChainingMode: InteractionChainingMode;
     manipulationRedirectionMode: VisualInteractionSourceRedirectionMode;
-    isPositionYRailsEnabled: Boolean;
-    isPositionXRailsEnabled: Boolean;
+    isPositionYRailsEnabled: boolean;
+    isPositionXRailsEnabled: boolean;
     scaleSourceMode: InteractionSourceMode;
     source: Object;
     deltaPosition: Vector3;
-    deltaScale: Number;
+    deltaScale: number;
     position: Vector3;
     positionVelocity: Vector3;
-    scale: Number;
-    scaleVelocity: Number;
+    scale: number;
+    scaleVelocity: number;
     compositor: Object;
     dispatcher: Object;
     properties: Object;
     implicitAnimations: Object;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 
@@ -307,7 +307,7 @@
     dispatcher: Object;
     properties: Object;
     implicitAnimations: Object;
-    comment: String;
+    comment: string;
     dispatcherQueue: Object;
     constructor();
 

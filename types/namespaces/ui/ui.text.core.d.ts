@@ -3,8 +3,8 @@
   }
 
   export class CoreTextRange {
-    startCaretPosition: Number;
-    endCaretPosition: Number;
+    startCaretPosition: number;
+    endCaretPosition: number;
     constructor();
   }
 
@@ -107,8 +107,8 @@
   }
 
   export class CoreTextTextRequest {
-    text: String;
-    isCanceled: Boolean;
+    text: string;
+    isCanceled: boolean;
     range: CoreTextRange;
     constructor();
 
@@ -118,7 +118,7 @@
 
   export class CoreTextSelectionRequest {
     selection: CoreTextRange;
-    isCanceled: Boolean;
+    isCanceled: boolean;
     constructor();
 
     getDeferral(): Object;
@@ -133,7 +133,7 @@
   }
 
   export class CoreTextLayoutRequest {
-    isCanceled: Boolean;
+    isCanceled: boolean;
     layoutBounds: CoreTextLayoutBounds;
     range: CoreTextRange;
     constructor();
@@ -143,15 +143,15 @@
   }
 
   export class CoreTextCompositionSegment {
-    preconversionString: String;
+    preconversionString: string;
     range: CoreTextRange;
     constructor();
 
   }
 
   export class CoreTextEditContext {
-    name: String;
-    isReadOnly: Boolean;
+    name: string;
+    isReadOnly: boolean;
     inputScope: CoreTextInputScope;
     inputPaneDisplayPolicy: CoreTextInputPaneDisplayPolicy;
     constructor();
@@ -160,7 +160,7 @@
 
     notifyFocusLeave(): void;
 
-    notifyTextChanged(modifiedRange: CoreTextRange, newLength: Number, newSelection: CoreTextRange): void;
+    notifyTextChanged(modifiedRange: CoreTextRange, newLength: number, newSelection: CoreTextRange): void;
 
     notifySelectionChanged(selection: CoreTextRange): void;
 
@@ -245,10 +245,10 @@
   export class CoreTextTextUpdatingEventArgs {
     result: CoreTextTextUpdatingResult;
     inputLanguage: Object;
-    isCanceled: Boolean;
+    isCanceled: boolean;
     newSelection: CoreTextRange;
     range: CoreTextRange;
-    text: String;
+    text: string;
     constructor();
 
     getDeferral(): Object;
@@ -257,7 +257,7 @@
 
   export class CoreTextSelectionUpdatingEventArgs {
     result: CoreTextSelectionUpdatingResult;
-    isCanceled: Boolean;
+    isCanceled: boolean;
     selection: CoreTextRange;
     constructor();
 
@@ -267,13 +267,13 @@
 
   export class CoreTextFormatUpdatingEventArgs {
     result: CoreTextFormatUpdatingResult;
-    backgroundColor: Number;
-    isCanceled: Boolean;
+    backgroundColor: number;
+    isCanceled: boolean;
     range: CoreTextRange;
     reason: CoreTextFormatUpdatingReason;
-    textColor: Number;
-    underlineColor: Number;
-    underlineType: Number;
+    textColor: number;
+    underlineColor: number;
+    underlineType: number;
     constructor();
 
     getDeferral(): Object;
@@ -281,7 +281,7 @@
   }
 
   export class CoreTextCompositionStartedEventArgs {
-    isCanceled: Boolean;
+    isCanceled: boolean;
     constructor();
 
     getDeferral(): Object;
@@ -290,7 +290,7 @@
 
   export class CoreTextCompositionCompletedEventArgs {
     compositionSegments: Object;
-    isCanceled: Boolean;
+    isCanceled: boolean;
     constructor();
 
     getDeferral(): Object;
@@ -320,7 +320,7 @@
   }
 
   export class CoreTextServicesConstants {
-    static hiddenCharacter: String;
+    static hiddenCharacter: string;
     constructor();
 
   }

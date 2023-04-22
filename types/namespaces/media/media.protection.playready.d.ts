@@ -93,24 +93,24 @@
   }
 
   export class PlayReadyContentHeader {
-    customAttributes: String;
+    customAttributes: string;
     decryptorSetup: PlayReadyDecryptorSetup;
-    domainServiceId: String;
+    domainServiceId: string;
     encryptionType: PlayReadyEncryptionAlgorithm;
     headerWithEmbeddedUpdates: PlayReadyContentHeader;
-    keyId: String;
-    keyIdString: String;
+    keyId: string;
+    keyIdString: string;
     licenseAcquisitionUrl: Object;
     licenseAcquisitionUserInterfaceUrl: Object;
-    keyIdStrings: Array<String>;
-    keyIds: Array<String>;
+    keyIdStrings: Array<string>;
+    keyIds: Array<string>;
     constructor();
-    constructor(dwFlags: Number, contentKeyIds: Array<String>, contentKeyIdStrings: Array<String>, contentEncryptionAlgorithm: PlayReadyEncryptionAlgorithm, licenseAcquisitionUrl: Object, licenseAcquisitionUserInterfaceUrl: Object, customAttributes: String, domainServiceId: String);
-    constructor(headerBytes: Array<Number>, licenseAcquisitionUrl: Object, licenseAcquisitionUserInterfaceUrl: Object, customAttributes: String, domainServiceId: String);
-    constructor(contentKeyId: String, contentKeyIdString: String, contentEncryptionAlgorithm: PlayReadyEncryptionAlgorithm, licenseAcquisitionUrl: Object, licenseAcquisitionUserInterfaceUrl: Object, customAttributes: String, domainServiceId: String);
-    constructor(headerBytes: Array<Number>);
+    constructor(dwFlags: number, contentKeyIds: Array<string>, contentKeyIdStrings: Array<string>, contentEncryptionAlgorithm: PlayReadyEncryptionAlgorithm, licenseAcquisitionUrl: Object, licenseAcquisitionUserInterfaceUrl: Object, customAttributes: string, domainServiceId: string);
+    constructor(headerBytes: Array<number>, licenseAcquisitionUrl: Object, licenseAcquisitionUserInterfaceUrl: Object, customAttributes: string, domainServiceId: string);
+    constructor(contentKeyId: string, contentKeyIdString: string, contentEncryptionAlgorithm: PlayReadyEncryptionAlgorithm, licenseAcquisitionUrl: Object, licenseAcquisitionUserInterfaceUrl: Object, customAttributes: string, domainServiceId: string);
+    constructor(headerBytes: Array<number>);
 
-    getSerializedHeader(): Array<Number>;
+    getSerializedHeader(): Array<number>;
 
   }
 
@@ -119,7 +119,7 @@
     uri: Object;
     constructor();
 
-    getMessageBody(): Array<Number>;
+    getMessageBody(): Array<number>;
 
   }
 
@@ -132,11 +132,11 @@
   }
 
   export class PlayReadyIndividualizationServiceRequest {
-    protectionSystem: String;
-    type: String;
+    protectionSystem: string;
+    type: string;
     uri: Object;
-    challengeCustomData: String;
-    responseCustomData: String;
+    challengeCustomData: string;
+    responseCustomData: string;
     constructor();
 
     beginServiceRequest(callback: (error: Error) => void): void ;
@@ -145,19 +145,19 @@
 
     generateManualEnablingChallenge(): PlayReadySoapMessage;
 
-    processManualEnablingResponse(responseBytes: Array<Number>): Number;
+    processManualEnablingResponse(responseBytes: Array<number>): number;
 
   }
 
   export class PlayReadyDomainJoinServiceRequest {
-    protectionSystem: String;
-    type: String;
-    domainServiceId: String;
-    domainFriendlyName: String;
-    domainAccountId: String;
+    protectionSystem: string;
+    type: string;
+    domainServiceId: string;
+    domainFriendlyName: string;
+    domainAccountId: string;
     uri: Object;
-    challengeCustomData: String;
-    responseCustomData: String;
+    challengeCustomData: string;
+    responseCustomData: string;
     constructor();
 
     beginServiceRequest(callback: (error: Error) => void): void ;
@@ -166,18 +166,18 @@
 
     generateManualEnablingChallenge(): PlayReadySoapMessage;
 
-    processManualEnablingResponse(responseBytes: Array<Number>): Number;
+    processManualEnablingResponse(responseBytes: Array<number>): number;
 
   }
 
   export class PlayReadyDomainLeaveServiceRequest {
-    protectionSystem: String;
-    type: String;
-    domainServiceId: String;
-    domainAccountId: String;
+    protectionSystem: string;
+    type: string;
+    domainServiceId: string;
+    domainAccountId: string;
     uri: Object;
-    challengeCustomData: String;
-    responseCustomData: String;
+    challengeCustomData: string;
+    responseCustomData: string;
     constructor();
 
     beginServiceRequest(callback: (error: Error) => void): void ;
@@ -186,27 +186,27 @@
 
     generateManualEnablingChallenge(): PlayReadySoapMessage;
 
-    processManualEnablingResponse(responseBytes: Array<Number>): Number;
+    processManualEnablingResponse(responseBytes: Array<number>): number;
 
   }
 
   export class PlayReadyLicenseIterable {
     constructor();
-    constructor(contentHeader: PlayReadyContentHeader, fullyEvaluated: Boolean);
+    constructor(contentHeader: PlayReadyContentHeader, fullyEvaluated: boolean);
 
     first(): Object;
 
   }
 
   export class PlayReadyLicenseAcquisitionServiceRequest {
-    protectionSystem: String;
-    type: String;
-    domainServiceId: String;
+    protectionSystem: string;
+    type: string;
+    domainServiceId: string;
     contentHeader: PlayReadyContentHeader;
-    sessionId: String;
+    sessionId: string;
     uri: Object;
-    challengeCustomData: String;
-    responseCustomData: String;
+    challengeCustomData: string;
+    responseCustomData: string;
     constructor();
 
     beginServiceRequest(callback: (error: Error) => void): void ;
@@ -215,19 +215,19 @@
 
     generateManualEnablingChallenge(): PlayReadySoapMessage;
 
-    processManualEnablingResponse(responseBytes: Array<Number>): Number;
+    processManualEnablingResponse(responseBytes: Array<number>): number;
 
-    createLicenseIterable(contentHeader: PlayReadyContentHeader, fullyEvaluated: Boolean): PlayReadyLicenseIterable;
+    createLicenseIterable(contentHeader: PlayReadyContentHeader, fullyEvaluated: boolean): PlayReadyLicenseIterable;
 
   }
 
   export class PlayReadyMeteringReportServiceRequest {
-    protectionSystem: String;
-    type: String;
-    meteringCertificate: Array<Number>;
+    protectionSystem: string;
+    type: string;
+    meteringCertificate: Array<number>;
     uri: Object;
-    challengeCustomData: String;
-    responseCustomData: String;
+    challengeCustomData: string;
+    responseCustomData: string;
     constructor();
 
     beginServiceRequest(callback: (error: Error) => void): void ;
@@ -236,16 +236,16 @@
 
     generateManualEnablingChallenge(): PlayReadySoapMessage;
 
-    processManualEnablingResponse(responseBytes: Array<Number>): Number;
+    processManualEnablingResponse(responseBytes: Array<number>): number;
 
   }
 
   export class PlayReadyRevocationServiceRequest {
-    protectionSystem: String;
-    type: String;
+    protectionSystem: string;
+    type: string;
     uri: Object;
-    challengeCustomData: String;
-    responseCustomData: String;
+    challengeCustomData: string;
+    responseCustomData: string;
     constructor();
 
     beginServiceRequest(callback: (error: Error) => void): void ;
@@ -254,7 +254,7 @@
 
     generateManualEnablingChallenge(): PlayReadySoapMessage;
 
-    processManualEnablingResponse(responseBytes: Array<Number>): Number;
+    processManualEnablingResponse(responseBytes: Array<number>): number;
 
   }
 
@@ -267,68 +267,68 @@
   }
 
   export class IPlayReadyLicense {
-    chainDepth: Number;
-    domainAccountID: String;
+    chainDepth: number;
+    domainAccountID: string;
     expirationDate: Date;
-    expireAfterFirstPlay: Number;
-    fullyEvaluated: Boolean;
-    usableForPlay: Boolean;
+    expireAfterFirstPlay: number;
+    fullyEvaluated: boolean;
+    usableForPlay: boolean;
     constructor();
 
-    getKIDAtChainDepth(chainDepth: Number): String;
+    getKIDAtChainDepth(chainDepth: number): string;
 
   }
 
   export class PlayReadyLicense {
-    chainDepth: Number;
-    domainAccountID: String;
+    chainDepth: number;
+    domainAccountID: string;
     expirationDate: Date;
-    expireAfterFirstPlay: Number;
-    fullyEvaluated: Boolean;
-    usableForPlay: Boolean;
-    expiresInRealTime: Boolean;
-    inMemoryOnly: Boolean;
-    secureStopId: String;
-    securityLevel: Number;
+    expireAfterFirstPlay: number;
+    fullyEvaluated: boolean;
+    usableForPlay: boolean;
+    expiresInRealTime: boolean;
+    inMemoryOnly: boolean;
+    secureStopId: string;
+    securityLevel: number;
     constructor();
 
-    getKIDAtChainDepth(chainDepth: Number): String;
+    getKIDAtChainDepth(chainDepth: number): string;
 
   }
 
   export class PlayReadyLicenseIterator {
     current: IPlayReadyLicense;
-    hasCurrent: Boolean;
+    hasCurrent: boolean;
     constructor();
 
-    moveNext(): Boolean;
+    moveNext(): boolean;
 
     getMany();
   }
 
   export class IPlayReadyDomain {
-    accountId: String;
+    accountId: string;
     domainJoinUrl: Object;
-    friendlyName: String;
-    revision: Number;
-    serviceId: String;
+    friendlyName: string;
+    revision: number;
+    serviceId: string;
     constructor();
 
   }
 
   export class PlayReadyDomain {
-    accountId: String;
+    accountId: string;
     domainJoinUrl: Object;
-    friendlyName: String;
-    revision: Number;
-    serviceId: String;
+    friendlyName: string;
+    revision: number;
+    serviceId: string;
     constructor();
 
   }
 
   export class PlayReadyDomainIterable {
     constructor();
-    constructor(domainAccountId: String);
+    constructor(domainAccountId: string);
 
     first(): Object;
 
@@ -336,48 +336,48 @@
 
   export class PlayReadyDomainIterator {
     current: IPlayReadyDomain;
-    hasCurrent: Boolean;
+    hasCurrent: boolean;
     constructor();
 
-    moveNext(): Boolean;
+    moveNext(): boolean;
 
     getMany();
   }
 
   export class PlayReadyStatics {
-    static domainJoinServiceRequestType: String;
-    static domainLeaveServiceRequestType: String;
-    static individualizationServiceRequestType: String;
-    static licenseAcquirerServiceRequestType: String;
-    static mediaProtectionSystemId: String;
-    static meteringReportServiceRequestType: String;
-    static playReadySecurityVersion: Number;
-    static revocationServiceRequestType: String;
-    static playReadyCertificateSecurityLevel: Number;
-    static secureStopServiceRequestType: String;
-    static protectionSystemId: String;
-    static inputTrustAuthorityToCreate: String;
+    static domainJoinServiceRequestType: string;
+    static domainLeaveServiceRequestType: string;
+    static individualizationServiceRequestType: string;
+    static licenseAcquirerServiceRequestType: string;
+    static mediaProtectionSystemId: string;
+    static meteringReportServiceRequestType: string;
+    static playReadySecurityVersion: number;
+    static revocationServiceRequestType: string;
+    static playReadyCertificateSecurityLevel: number;
+    static secureStopServiceRequestType: string;
+    static protectionSystemId: string;
+    static inputTrustAuthorityToCreate: string;
     constructor();
 
-    static checkSupportedHardware(hwdrmFeature: PlayReadyHardwareDRMFeatures): Boolean;
+    static checkSupportedHardware(hwdrmFeature: PlayReadyHardwareDRMFeatures): boolean;
 
 
   }
 
   export class PlayReadySecureStopServiceRequest {
-    protectionSystem: String;
-    type: String;
-    publisherCertificate: Array<Number>;
-    sessionID: String;
+    protectionSystem: string;
+    type: string;
+    publisherCertificate: Array<number>;
+    sessionID: string;
     startTime: Date;
-    stopped: Boolean;
+    stopped: boolean;
     updateTime: Date;
     uri: Object;
-    challengeCustomData: String;
-    responseCustomData: String;
+    challengeCustomData: string;
+    responseCustomData: string;
     constructor();
-    constructor(publisherCertBytes: Array<Number>);
-    constructor(sessionID: String, publisherCertBytes: Array<Number>);
+    constructor(publisherCertBytes: Array<number>);
+    constructor(sessionID: string, publisherCertBytes: Array<number>);
 
     beginServiceRequest(callback: (error: Error) => void): void ;
 
@@ -385,13 +385,13 @@
 
     generateManualEnablingChallenge(): PlayReadySoapMessage;
 
-    processManualEnablingResponse(responseBytes: Array<Number>): Number;
+    processManualEnablingResponse(responseBytes: Array<number>): number;
 
   }
 
   export class PlayReadySecureStopIterable {
     constructor();
-    constructor(publisherCertBytes: Array<Number>);
+    constructor(publisherCertBytes: Array<number>);
 
     first(): Object;
 
@@ -399,10 +399,10 @@
 
   export class PlayReadySecureStopIterator {
     current: IPlayReadySecureStopServiceRequest;
-    hasCurrent: Boolean;
+    hasCurrent: boolean;
     constructor();
 
-    moveNext(): Boolean;
+    moveNext(): boolean;
 
     getMany();
   }
@@ -410,7 +410,7 @@
   export class PlayReadyITADataGenerator {
     constructor();
 
-    generateData(guidCPSystemId: String, countOfStreams: Number, configuration: Object, format: PlayReadyITADataFormat): Array<Number>;
+    generateData(guidCPSystemId: string, countOfStreams: number, configuration: Object, format: PlayReadyITADataFormat): Array<number>;
 
   }
 
@@ -426,7 +426,7 @@
   export class IPlayReadyLicenseSession2 {
     constructor();
 
-    createLicenseIterable(contentHeader: PlayReadyContentHeader, fullyEvaluated: Boolean): PlayReadyLicenseIterable;
+    createLicenseIterable(contentHeader: PlayReadyContentHeader, fullyEvaluated: boolean): PlayReadyLicenseIterable;
 
   }
 
@@ -438,18 +438,18 @@
 
     configureMediaProtectionManager(mpm: Object): void;
 
-    createLicenseIterable(contentHeader: PlayReadyContentHeader, fullyEvaluated: Boolean): PlayReadyLicenseIterable;
+    createLicenseIterable(contentHeader: PlayReadyContentHeader, fullyEvaluated: boolean): PlayReadyLicenseIterable;
 
   }
 
   export class INDDownloadEngine {
-    bufferFullMaxThresholdInSamples: Number;
-    bufferFullMinThresholdInSamples: Number;
-    canSeek: Boolean;
+    bufferFullMaxThresholdInSamples: number;
+    bufferFullMinThresholdInSamples: number;
+    canSeek: boolean;
     notifier: NDDownloadEngineNotifier;
     constructor();
 
-    open(uri: Object, sessionIDBytes: Array<Number>): void;
+    open(uri: Object, sessionIDBytes: Array<number>): void;
 
     pause(): void;
 
@@ -457,7 +457,7 @@
 
     close(): void;
 
-    seek(startPosition: Number): void;
+    seek(startPosition: number): void;
 
   }
 
@@ -466,11 +466,11 @@
 
     onStreamOpened(): void;
 
-    onPlayReadyObjectReceived(dataBytes: Array<Number>): void;
+    onPlayReadyObjectReceived(dataBytes: Array<number>): void;
 
     onContentIDReceived(licenseFetchDescriptor: INDLicenseFetchDescriptor): void;
 
-    onDataReceived(dataBytes: Array<Number>, bytesReceived: Number): void;
+    onDataReceived(dataBytes: Array<number>, bytesReceived: number): void;
 
     onEndOfStream(): void;
 
@@ -483,11 +483,11 @@
 
     onStreamOpened(): void;
 
-    onPlayReadyObjectReceived(dataBytes: Array<Number>): void;
+    onPlayReadyObjectReceived(dataBytes: Array<number>): void;
 
     onContentIDReceived(licenseFetchDescriptor: INDLicenseFetchDescriptor): void;
 
-    onDataReceived(dataBytes: Array<Number>, bytesReceived: Number): void;
+    onDataReceived(dataBytes: Array<number>, bytesReceived: number): void;
 
     onEndOfStream(): void;
 
@@ -496,7 +496,7 @@
   }
 
   export class INDLicenseFetchDescriptor {
-    contentID: Array<Number>;
+    contentID: Array<number>;
     contentIDType: NDContentIDType;
     licenseFetchChallengeCustomData: INDCustomData;
     constructor();
@@ -504,8 +504,8 @@
   }
 
   export class INDCustomData {
-    customData: Array<Number>;
-    customDataTypeID: Array<Number>;
+    customData: Array<number>;
+    customDataTypeID: Array<number>;
     constructor();
 
   }
@@ -514,9 +514,9 @@
     notifier: NDStreamParserNotifier;
     constructor();
 
-    parseData(dataBytes: Array<Number>): void;
+    parseData(dataBytes: Array<number>): void;
 
-    getStreamInformation(descriptor: Object, streamType: NDMediaStreamType): Number;
+    getStreamInformation(descriptor: Object, streamType: NDMediaStreamType): number;
 
     beginOfStream(): void;
 
@@ -531,9 +531,9 @@
 
     onMediaStreamDescriptorCreated(audioStreamDescriptors: Object, videoStreamDescriptors: Object): void;
 
-    onSampleParsed(streamID: Number, streamType: NDMediaStreamType, streamSample: Object, pts: Number, ccFormat: NDClosedCaptionFormat, ccDataBytes: Array<Number>): void;
+    onSampleParsed(streamID: number, streamType: NDMediaStreamType, streamSample: Object, pts: number, ccFormat: NDClosedCaptionFormat, ccDataBytes: Array<number>): void;
 
-    onBeginSetupDecryptor(descriptor: Object, keyID: String, proBytes: Array<Number>): void;
+    onBeginSetupDecryptor(descriptor: Object, keyID: string, proBytes: Array<number>): void;
 
   }
 
@@ -544,14 +544,14 @@
 
     onMediaStreamDescriptorCreated(audioStreamDescriptors: Object, videoStreamDescriptors: Object): void;
 
-    onSampleParsed(streamID: Number, streamType: NDMediaStreamType, streamSample: Object, pts: Number, ccFormat: NDClosedCaptionFormat, ccDataBytes: Array<Number>): void;
+    onSampleParsed(streamID: number, streamType: NDMediaStreamType, streamSample: Object, pts: number, ccFormat: NDClosedCaptionFormat, ccDataBytes: Array<number>): void;
 
-    onBeginSetupDecryptor(descriptor: Object, keyID: String, proBytes: Array<Number>): void;
+    onBeginSetupDecryptor(descriptor: Object, keyID: string, proBytes: Array<number>): void;
 
   }
 
   export class INDSendResult {
-    response: Array<Number>;
+    response: Array<number>;
     constructor();
 
   }
@@ -559,41 +559,41 @@
   export class INDMessenger {
     constructor();
 
-    sendRegistrationRequestAsync(sessionIDBytes: Array<Number>, challengeDataBytes: Array<Number>, callback: (error: Error, result: INDSendResult) => void): void ;
+    sendRegistrationRequestAsync(sessionIDBytes: Array<number>, challengeDataBytes: Array<number>, callback: (error: Error, result: INDSendResult) => void): void ;
 
-    sendProximityDetectionStartAsync(pdType: NDProximityDetectionType, transmitterChannelBytes: Array<Number>, sessionIDBytes: Array<Number>, challengeDataBytes: Array<Number>, callback: (error: Error, result: INDSendResult) => void): void ;
+    sendProximityDetectionStartAsync(pdType: NDProximityDetectionType, transmitterChannelBytes: Array<number>, sessionIDBytes: Array<number>, challengeDataBytes: Array<number>, callback: (error: Error, result: INDSendResult) => void): void ;
 
-    sendProximityDetectionResponseAsync(pdType: NDProximityDetectionType, transmitterChannelBytes: Array<Number>, sessionIDBytes: Array<Number>, responseDataBytes: Array<Number>, callback: (error: Error, result: INDSendResult) => void): void ;
+    sendProximityDetectionResponseAsync(pdType: NDProximityDetectionType, transmitterChannelBytes: Array<number>, sessionIDBytes: Array<number>, responseDataBytes: Array<number>, callback: (error: Error, result: INDSendResult) => void): void ;
 
-    sendLicenseFetchRequestAsync(sessionIDBytes: Array<Number>, challengeDataBytes: Array<Number>, callback: (error: Error, result: INDSendResult) => void): void ;
+    sendLicenseFetchRequestAsync(sessionIDBytes: Array<number>, challengeDataBytes: Array<number>, callback: (error: Error, result: INDSendResult) => void): void ;
 
   }
 
   export class NDTCPMessenger {
     constructor();
-    constructor(remoteHostName: String, remoteHostPort: Number);
+    constructor(remoteHostName: string, remoteHostPort: number);
 
-    sendRegistrationRequestAsync(sessionIDBytes: Array<Number>, challengeDataBytes: Array<Number>, callback: (error: Error, result: INDSendResult) => void): void ;
+    sendRegistrationRequestAsync(sessionIDBytes: Array<number>, challengeDataBytes: Array<number>, callback: (error: Error, result: INDSendResult) => void): void ;
 
-    sendProximityDetectionStartAsync(pdType: NDProximityDetectionType, transmitterChannelBytes: Array<Number>, sessionIDBytes: Array<Number>, challengeDataBytes: Array<Number>, callback: (error: Error, result: INDSendResult) => void): void ;
+    sendProximityDetectionStartAsync(pdType: NDProximityDetectionType, transmitterChannelBytes: Array<number>, sessionIDBytes: Array<number>, challengeDataBytes: Array<number>, callback: (error: Error, result: INDSendResult) => void): void ;
 
-    sendProximityDetectionResponseAsync(pdType: NDProximityDetectionType, transmitterChannelBytes: Array<Number>, sessionIDBytes: Array<Number>, responseDataBytes: Array<Number>, callback: (error: Error, result: INDSendResult) => void): void ;
+    sendProximityDetectionResponseAsync(pdType: NDProximityDetectionType, transmitterChannelBytes: Array<number>, sessionIDBytes: Array<number>, responseDataBytes: Array<number>, callback: (error: Error, result: INDSendResult) => void): void ;
 
-    sendLicenseFetchRequestAsync(sessionIDBytes: Array<Number>, challengeDataBytes: Array<Number>, callback: (error: Error, result: INDSendResult) => void): void ;
+    sendLicenseFetchRequestAsync(sessionIDBytes: Array<number>, challengeDataBytes: Array<number>, callback: (error: Error, result: INDSendResult) => void): void ;
 
   }
 
   export class INDTransmitterProperties {
     certificateType: NDCertificateType;
-    clientID: Array<Number>;
+    clientID: Array<number>;
     expirationDate: Date;
-    modelDigest: Array<Number>;
-    modelManufacturerName: String;
-    modelName: String;
-    modelNumber: String;
+    modelDigest: Array<number>;
+    modelManufacturerName: string;
+    modelName: string;
+    modelNumber: string;
     platformIdentifier: NDCertificatePlatformID;
-    securityLevel: Number;
-    securityVersion: Number;
+    securityLevel: number;
+    securityVersion: number;
     supportedFeatures: Array<NDCertificateFeature>;
     constructor();
 
@@ -613,31 +613,31 @@
 
   export class NDLicenseFetchDescriptor {
     licenseFetchChallengeCustomData: INDCustomData;
-    contentID: Array<Number>;
+    contentID: Array<number>;
     contentIDType: NDContentIDType;
     constructor();
-    constructor(contentIDType: NDContentIDType, contentIDBytes: Array<Number>, licenseFetchChallengeCustomData: INDCustomData);
+    constructor(contentIDType: NDContentIDType, contentIDBytes: Array<number>, licenseFetchChallengeCustomData: INDCustomData);
 
   }
 
   export class INDRegistrationCompletedEventArgs {
     responseCustomData: INDCustomData;
-    transmitterCertificateAccepted: Boolean;
+    transmitterCertificateAccepted: boolean;
     transmitterProperties: INDTransmitterProperties;
     constructor();
 
   }
 
   export class NDCustomData {
-    customData: Array<Number>;
-    customDataTypeID: Array<Number>;
+    customData: Array<number>;
+    customDataTypeID: Array<number>;
     constructor();
-    constructor(customDataTypeIDBytes: Array<Number>, customDataBytes: Array<Number>);
+    constructor(customDataTypeIDBytes: Array<number>, customDataBytes: Array<number>);
 
   }
 
   export class INDProximityDetectionCompletedEventArgs {
-    proximityDetectionRetryCount: Number;
+    proximityDetectionRetryCount: number;
     constructor();
 
   }
@@ -652,7 +652,7 @@
     constructor();
     constructor(downloadEngine: INDDownloadEngine, streamParser: INDStreamParser, pMessenger: INDMessenger);
 
-    startAsync(contentUrl: Object, startAsyncOptions: Number, registrationCustomData: INDCustomData, licenseFetchDescriptor: INDLicenseFetchDescriptor, callback: (error: Error, result: INDStartResult) => void): void ;
+    startAsync(contentUrl: Object, startAsyncOptions: number, registrationCustomData: INDCustomData, licenseFetchDescriptor: INDLicenseFetchDescriptor, callback: (error: Error, result: INDStartResult) => void): void ;
 
     licenseFetchAsync(licenseFetchDescriptor: INDLicenseFetchDescriptor, callback: (error: Error, result: INDLicenseFetchResult) => void): void ;
 
@@ -694,9 +694,9 @@
   }
 
   export class INDClosedCaptionDataReceivedEventArgs {
-    closedCaptionData: Array<Number>;
+    closedCaptionData: Array<number>;
     closedCaptionDataFormat: NDClosedCaptionFormat;
-    presentationTimestamp: Number;
+    presentationTimestamp: number;
     constructor();
 
   }
@@ -716,8 +716,8 @@
   }
 
   export class IPlayReadyServiceRequest {
-    challengeCustomData: String;
-    responseCustomData: String;
+    challengeCustomData: string;
+    responseCustomData: string;
     uri: Object;
     constructor();
 
@@ -727,22 +727,22 @@
 
     generateManualEnablingChallenge(): PlayReadySoapMessage;
 
-    processManualEnablingResponse(responseBytes: Array<Number>): Number;
+    processManualEnablingResponse(responseBytes: Array<number>): number;
 
   }
 
   export class IPlayReadyLicenseAcquisitionServiceRequest {
     contentHeader: PlayReadyContentHeader;
-    domainServiceId: String;
+    domainServiceId: string;
     constructor();
 
   }
 
   export class IPlayReadySecureStopServiceRequest {
-    publisherCertificate: Array<Number>;
-    sessionID: String;
+    publisherCertificate: Array<number>;
+    sessionID: string;
     startTime: Date;
-    stopped: Boolean;
+    stopped: boolean;
     updateTime: Date;
     constructor();
 

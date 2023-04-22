@@ -7,9 +7,9 @@
   }
 
   export class Vector3 {
-    x: Number;
-    y: Number;
-    z: Number;
+    x: number;
+    y: number;
+    z: number;
     constructor();
   }
 
@@ -18,7 +18,7 @@
   }
 
   export class FontWeight {
-    weight: Number;
+    weight: number;
     constructor();
   }
 
@@ -27,8 +27,8 @@
   }
 
   export class MapZoomLevelRange {
-    min: Number;
-    max: Number;
+    min: number;
+    max: number;
     constructor();
   }
 
@@ -118,78 +118,78 @@
   }
 
   export class MapStyleSheetEntries {
-    static adminDistrict: String;
-    static adminDistrictCapital: String;
-    static airport: String;
-    static area: String;
-    static arterialRoad: String;
-    static building: String;
-    static business: String;
-    static capital: String;
-    static cemetery: String;
-    static continent: String;
-    static controlledAccessHighway: String;
-    static countryRegion: String;
-    static countryRegionCapital: String;
-    static district: String;
-    static drivingRoute: String;
-    static education: String;
-    static educationBuilding: String;
-    static foodPoint: String;
-    static forest: String;
-    static golfCourse: String;
-    static highSpeedRamp: String;
-    static highway: String;
-    static indigenousPeoplesReserve: String;
-    static island: String;
-    static majorRoad: String;
-    static medical: String;
-    static medicalBuilding: String;
-    static military: String;
-    static naturalPoint: String;
-    static nautical: String;
-    static neighborhood: String;
-    static park: String;
-    static peak: String;
-    static playingField: String;
-    static point: String;
-    static pointOfInterest: String;
-    static political: String;
-    static populatedPlace: String;
-    static railway: String;
-    static ramp: String;
-    static reserve: String;
-    static river: String;
-    static road: String;
-    static roadExit: String;
-    static roadShield: String;
-    static routeLine: String;
-    static runway: String;
-    static sand: String;
-    static shoppingCenter: String;
-    static stadium: String;
-    static street: String;
-    static structure: String;
-    static tollRoad: String;
-    static trail: String;
-    static transit: String;
-    static transitBuilding: String;
-    static transportation: String;
-    static unpavedStreet: String;
-    static vegetation: String;
-    static volcanicPeak: String;
-    static walkingRoute: String;
-    static water: String;
-    static waterPoint: String;
-    static waterRoute: String;
+    static adminDistrict: string;
+    static adminDistrictCapital: string;
+    static airport: string;
+    static area: string;
+    static arterialRoad: string;
+    static building: string;
+    static business: string;
+    static capital: string;
+    static cemetery: string;
+    static continent: string;
+    static controlledAccessHighway: string;
+    static countryRegion: string;
+    static countryRegionCapital: string;
+    static district: string;
+    static drivingRoute: string;
+    static education: string;
+    static educationBuilding: string;
+    static foodPoint: string;
+    static forest: string;
+    static golfCourse: string;
+    static highSpeedRamp: string;
+    static highway: string;
+    static indigenousPeoplesReserve: string;
+    static island: string;
+    static majorRoad: string;
+    static medical: string;
+    static medicalBuilding: string;
+    static military: string;
+    static naturalPoint: string;
+    static nautical: string;
+    static neighborhood: string;
+    static park: string;
+    static peak: string;
+    static playingField: string;
+    static point: string;
+    static pointOfInterest: string;
+    static political: string;
+    static populatedPlace: string;
+    static railway: string;
+    static ramp: string;
+    static reserve: string;
+    static river: string;
+    static road: string;
+    static roadExit: string;
+    static roadShield: string;
+    static routeLine: string;
+    static runway: string;
+    static sand: string;
+    static shoppingCenter: string;
+    static stadium: string;
+    static street: string;
+    static structure: string;
+    static tollRoad: string;
+    static trail: string;
+    static transit: string;
+    static transitBuilding: string;
+    static transportation: string;
+    static unpavedStreet: string;
+    static vegetation: string;
+    static volcanicPeak: string;
+    static walkingRoute: string;
+    static water: string;
+    static waterPoint: string;
+    static waterRoute: string;
     constructor();
 
   }
 
   export class MapStyleSheetEntryStates {
-    static disabled: String;
-    static hover: String;
-    static selected: String;
+    static disabled: string;
+    static hover: string;
+    static selected: string;
     constructor();
 
   }
@@ -308,9 +308,9 @@
 
   export class MapTileBitmapRequestedEventArgs {
     request: MapTileBitmapRequest;
-    x: Number;
-    y: Number;
-    zoomLevel: Number;
+    x: number;
+    y: number;
+    zoomLevel: number;
     constructor();
 
   }
@@ -332,25 +332,25 @@
 
   export class MapTileUriRequestedEventArgs {
     request: MapTileUriRequest;
-    x: Number;
-    y: Number;
-    zoomLevel: Number;
+    x: number;
+    y: number;
+    zoomLevel: number;
     constructor();
 
   }
 
   export class MapCamera {
-    roll: Number;
-    pitch: Number;
+    roll: number;
+    pitch: number;
     location: Object;
-    heading: Number;
-    fieldOfView: Number;
+    heading: number;
+    fieldOfView: number;
     dispatcher: Object;
     constructor();
     constructor(location: Object);
-    constructor(location: Object, headingInDegrees: Number);
-    constructor(location: Object, headingInDegrees: Number, pitchInDegrees: Number);
-    constructor(location: Object, headingInDegrees: Number, pitchInDegrees: Number, rollInDegrees: Number, fieldOfViewInDegrees: Number);
+    constructor(location: Object, headingInDegrees: number);
+    constructor(location: Object, headingInDegrees: number, pitchInDegrees: number);
+    constructor(location: Object, headingInDegrees: number, pitchInDegrees: number, rollInDegrees: number, fieldOfViewInDegrees: number);
 
   }
 
@@ -368,13 +368,13 @@
     static mapStyleSheetEntryStateProperty: Object;
     static tagProperty: Object;
     static isEnabledProperty: Object;
-    zIndex: Number;
-    visible: Boolean;
-    mapTabIndex: Number;
+    zIndex: number;
+    visible: boolean;
+    mapTabIndex: number;
     tag: Object;
-    mapStyleSheetEntryState: String;
-    mapStyleSheetEntry: String;
-    isEnabled: Boolean;
+    mapStyleSheetEntryState: string;
+    mapStyleSheetEntry: string;
+    isEnabled: boolean;
     dispatcher: Object;
     constructor();
 
@@ -404,9 +404,9 @@
     static mapTabIndexProperty: Object;
     static visibleProperty: Object;
     static zIndexProperty: Object;
-    zIndex: Number;
-    visible: Boolean;
-    mapTabIndex: Number;
+    zIndex: number;
+    visible: boolean;
+    mapTabIndex: number;
     dispatcher: Object;
     constructor();
 
@@ -438,22 +438,22 @@
     constructor();
 
     static createFromBoundingBox(bounds: Object): MapScene;
-    static createFromBoundingBox(bounds: Object, headingInDegrees: Number, pitchInDegrees: Number): MapScene;
+    static createFromBoundingBox(bounds: Object, headingInDegrees: number, pitchInDegrees: number): MapScene;
 
 
     static createFromCamera(camera: MapCamera): MapScene;
 
 
     static createFromLocation(location: Object): MapScene;
-    static createFromLocation(location: Object, headingInDegrees: Number, pitchInDegrees: Number): MapScene;
+    static createFromLocation(location: Object, headingInDegrees: number, pitchInDegrees: number): MapScene;
 
 
-    static createFromLocationAndRadius(location: Object, radiusInMeters: Number): MapScene;
-    static createFromLocationAndRadius(location: Object, radiusInMeters: Number, headingInDegrees: Number, pitchInDegrees: Number): MapScene;
+    static createFromLocationAndRadius(location: Object, radiusInMeters: number): MapScene;
+    static createFromLocationAndRadius(location: Object, radiusInMeters: number, headingInDegrees: number, pitchInDegrees: number): MapScene;
 
 
     static createFromLocations(locations: Object): MapScene;
-    static createFromLocations(locations: Object, headingInDegrees: Number, pitchInDegrees: Number): MapScene;
+    static createFromLocations(locations: Object, headingInDegrees: number, pitchInDegrees: number): MapScene;
 
 
     addListener(type: "TargetCameraChanged", listener: (ev: Event) => void): void ;
@@ -494,10 +494,10 @@
     static combine(styleSheets: Object): MapStyleSheet;
 
 
-    static parseFromJson(styleAsJson: String): MapStyleSheet;
+    static parseFromJson(styleAsJson: string): MapStyleSheet;
 
 
-    static tryParseFromJson(styleAsJson: String, styleSheet: Object): Boolean;
+    static tryParseFromJson(styleAsJson: string, styleSheet: Object): boolean;
 
 
   }
@@ -520,23 +520,23 @@
     static visibleProperty: Object;
     static zIndexProperty: Object;
     static zoomLevelRangeProperty: Object;
-    isRetryEnabled: Boolean;
-    isFadingEnabled: Boolean;
+    isRetryEnabled: boolean;
+    isFadingEnabled: boolean;
     dataSource: MapTileDataSource;
     bounds: Object;
-    allowOverstretch: Boolean;
+    allowOverstretch: boolean;
     zoomLevelRange: MapZoomLevelRange;
-    zIndex: Number;
-    visible: Boolean;
-    tilePixelSize: Number;
+    zIndex: number;
+    visible: boolean;
+    tilePixelSize: number;
     layer: MapTileLayer;
-    isTransparencyEnabled: Boolean;
+    isTransparencyEnabled: boolean;
     dispatcher: Object;
     constructor();
     constructor(dataSource: MapTileDataSource);
     constructor(dataSource: MapTileDataSource, zoomLevelRange: MapZoomLevelRange);
     constructor(dataSource: MapTileDataSource, zoomLevelRange: MapZoomLevelRange, bounds: Object);
-    constructor(dataSource: MapTileDataSource, zoomLevelRange: MapZoomLevelRange, bounds: Object, tileSizeInPixels: Number);
+    constructor(dataSource: MapTileDataSource, zoomLevelRange: MapZoomLevelRange, bounds: Object, tileSizeInPixels: number);
 
   }
 
@@ -546,7 +546,7 @@
     constructor();
 
     static findNearbyAsync(location: Object, callback: (error: Error, result: StreetsidePanorama) => void): void ;
-    static findNearbyAsync(location: Object, radiusInMeters: Number, callback: (error: Error, result: StreetsidePanorama) => void): void ;
+    static findNearbyAsync(location: Object, radiusInMeters: number, callback: (error: Error, result: StreetsidePanorama) => void): void ;
 
 
   }
@@ -569,12 +569,12 @@
   }
 
   export class HttpMapTileDataSource {
-    uriFormatString: String;
-    allowCaching: Boolean;
+    uriFormatString: string;
+    allowCaching: boolean;
     additionalRequestHeaders: Object;
     dispatcher: Object;
     constructor();
-    constructor(uriFormatString: String);
+    constructor(uriFormatString: string);
 
     addListener(type: "UriRequested", listener: (ev: Event) => void): void ;
     removeListener(type: "UriRequested", listener: (ev: Event) => void): void ;
@@ -590,10 +590,10 @@
   }
 
   export class LocalMapTileDataSource {
-    uriFormatString: String;
+    uriFormatString: string;
     dispatcher: Object;
     constructor();
-    constructor(uriFormatString: String);
+    constructor(uriFormatString: string);
 
     addListener(type: "UriRequested", listener: (ev: Event) => void): void ;
     removeListener(type: "UriRequested", listener: (ev: Event) => void): void ;
@@ -624,13 +624,13 @@
     image: Object;
     collisionBehaviorDesired: MapElementCollisionBehavior;
     referenceCamera: MapCamera;
-    zIndex: Number;
-    visible: Boolean;
-    mapTabIndex: Number;
+    zIndex: number;
+    visible: boolean;
+    mapTabIndex: number;
     tag: Object;
-    mapStyleSheetEntryState: String;
-    mapStyleSheetEntry: String;
-    isEnabled: Boolean;
+    mapStyleSheetEntryState: string;
+    mapStyleSheetEntry: string;
+    isEnabled: boolean;
     dispatcher: Object;
     constructor();
     constructor(camera: MapCamera);
@@ -651,18 +651,18 @@
     static tagProperty: Object;
     static isEnabledProperty: Object;
     scale: Vector3;
-    roll: Number;
-    pitch: Number;
+    roll: number;
+    pitch: number;
     model: MapModel3D;
     location: Object;
-    heading: Number;
-    zIndex: Number;
-    visible: Boolean;
-    mapTabIndex: Number;
+    heading: number;
+    zIndex: number;
+    visible: boolean;
+    mapTabIndex: number;
     tag: Object;
-    mapStyleSheetEntryState: String;
-    mapStyleSheetEntry: String;
-    isEnabled: Boolean;
+    mapStyleSheetEntryState: string;
+    mapStyleSheetEntry: string;
+    isEnabled: boolean;
     dispatcher: Object;
     constructor();
 
@@ -674,9 +674,9 @@
     static visibleProperty: Object;
     static zIndexProperty: Object;
     mapElements: Object;
-    zIndex: Number;
-    visible: Boolean;
-    mapTabIndex: Number;
+    zIndex: number;
+    visible: boolean;
+    mapTabIndex: number;
     dispatcher: Object;
     constructor();
 
@@ -720,18 +720,18 @@
     static mapStyleSheetEntryStateProperty: Object;
     static tagProperty: Object;
     static isEnabledProperty: Object;
-    title: String;
+    title: string;
     normalizedAnchorPoint: Object;
     location: Object;
     image: Object;
     collisionBehaviorDesired: MapElementCollisionBehavior;
-    zIndex: Number;
-    visible: Boolean;
-    mapTabIndex: Number;
+    zIndex: number;
+    visible: boolean;
+    mapTabIndex: number;
     tag: Object;
-    mapStyleSheetEntryState: String;
-    mapStyleSheetEntry: String;
-    isEnabled: Boolean;
+    mapStyleSheetEntryState: string;
+    mapStyleSheetEntry: string;
+    isEnabled: boolean;
     dispatcher: Object;
     constructor();
 
@@ -748,19 +748,19 @@
     static mapStyleSheetEntryStateProperty: Object;
     static tagProperty: Object;
     static isEnabledProperty: Object;
-    strokeThickness: Number;
-    strokeDashed: Boolean;
+    strokeThickness: number;
+    strokeDashed: boolean;
     strokeColor: Object;
     path: Object;
     fillColor: Object;
     paths: Object;
-    zIndex: Number;
-    visible: Boolean;
-    mapTabIndex: Number;
+    zIndex: number;
+    visible: boolean;
+    mapTabIndex: number;
     tag: Object;
-    mapStyleSheetEntryState: String;
-    mapStyleSheetEntry: String;
-    isEnabled: Boolean;
+    mapStyleSheetEntryState: string;
+    mapStyleSheetEntry: string;
+    isEnabled: boolean;
     dispatcher: Object;
     constructor();
 
@@ -776,33 +776,33 @@
     static mapStyleSheetEntryStateProperty: Object;
     static tagProperty: Object;
     static isEnabledProperty: Object;
-    strokeThickness: Number;
-    strokeDashed: Boolean;
+    strokeThickness: number;
+    strokeDashed: boolean;
     strokeColor: Object;
     path: Object;
-    zIndex: Number;
-    visible: Boolean;
-    mapTabIndex: Number;
+    zIndex: number;
+    visible: boolean;
+    mapTabIndex: number;
     tag: Object;
-    mapStyleSheetEntryState: String;
-    mapStyleSheetEntry: String;
-    isEnabled: Boolean;
+    mapStyleSheetEntryState: string;
+    mapStyleSheetEntry: string;
+    isEnabled: boolean;
     dispatcher: Object;
     constructor();
 
   }
 
   export class StreetsideExperience {
-    zoomButtonsVisible: Boolean;
-    streetLabelsVisible: Boolean;
-    overviewMapVisible: Boolean;
-    exitButtonVisible: Boolean;
-    cursorVisible: Boolean;
-    addressTextVisible: Boolean;
+    zoomButtonsVisible: boolean;
+    streetLabelsVisible: boolean;
+    overviewMapVisible: boolean;
+    exitButtonVisible: boolean;
+    cursorVisible: boolean;
+    addressTextVisible: boolean;
     dispatcher: Object;
     constructor();
     constructor(panorama: StreetsidePanorama);
-    constructor(panorama: StreetsidePanorama, headingInDegrees: Number, pitchInDegrees: Number, fieldOfViewInDegrees: Number);
+    constructor(panorama: StreetsidePanorama, headingInDegrees: number, pitchInDegrees: number, fieldOfViewInDegrees: number);
 
   }
 
@@ -972,116 +972,116 @@
     static contextRequestedEvent: Object;
     static bringIntoViewRequestedEvent: Object;
     style: MapStyle;
-    desiredPitch: Number;
+    desiredPitch: number;
     colorScheme: MapColorScheme;
-    pedestrianFeaturesVisible: Boolean;
+    pedestrianFeaturesVisible: boolean;
     center: Object;
-    landmarksVisible: Boolean;
-    heading: Number;
+    landmarksVisible: boolean;
+    heading: number;
     watermarkMode: MapWatermarkMode;
-    mapServiceToken: String;
+    mapServiceToken: string;
     transformOrigin: Object;
-    trafficFlowVisible: Boolean;
-    zoomLevel: Number;
+    trafficFlowVisible: boolean;
+    zoomLevel: number;
     children: Object;
     loadingStatus: MapLoadingStatus;
     mapElements: Object;
-    maxZoomLevel: Number;
-    minZoomLevel: Number;
-    pitch: Number;
+    maxZoomLevel: number;
+    minZoomLevel: number;
+    pitch: number;
     routes: Object;
     tileSources: Object;
     customExperience: MapCustomExperience;
-    businessLandmarksVisible: Boolean;
+    businessLandmarksVisible: boolean;
     zoomInteractionMode: MapInteractionMode;
-    transitFeaturesVisible: Boolean;
+    transitFeaturesVisible: boolean;
     panInteractionMode: MapPanInteractionMode;
     tiltInteractionMode: MapInteractionMode;
     scene: MapScene;
     rotateInteractionMode: MapInteractionMode;
-    is3DSupported: Boolean;
-    isStreetsideSupported: Boolean;
+    is3DSupported: boolean;
+    isStreetsideSupported: boolean;
     targetCamera: MapCamera;
     actualCamera: MapCamera;
-    transitFeaturesEnabled: Boolean;
-    businessLandmarksEnabled: Boolean;
+    transitFeaturesEnabled: boolean;
+    businessLandmarksEnabled: boolean;
     viewPadding: Thickness;
     styleSheet: MapStyleSheet;
     mapProjection: MapProjection;
     layers: Object;
-    region: String;
-    fontSize: Number;
+    region: string;
+    fontSize: number;
     fontFamily: Object;
-    fontStyle: Number;
+    fontStyle: number;
     padding: Thickness;
-    horizontalContentAlignment: Number;
+    horizontalContentAlignment: number;
     borderThickness: Thickness;
     background: Object;
     foreground: Object;
-    isTabStop: Boolean;
-    isEnabled: Boolean;
+    isTabStop: boolean;
+    isEnabled: boolean;
     borderBrush: Object;
     fontWeight: FontWeight;
-    fontStretch: Number;
-    characterSpacing: Number;
+    fontStretch: number;
+    characterSpacing: number;
     template: Object;
-    tabNavigation: Number;
-    tabIndex: Number;
-    verticalContentAlignment: Number;
-    focusState: Number;
-    isTextScaleFactorEnabled: Boolean;
-    useSystemFocusVisuals: Boolean;
+    tabNavigation: number;
+    tabIndex: number;
+    verticalContentAlignment: number;
+    focusState: number;
+    isTextScaleFactorEnabled: boolean;
+    useSystemFocusVisuals: boolean;
     xYFocusDown: Object;
     xYFocusUp: Object;
-    isFocusEngagementEnabled: Boolean;
+    isFocusEngagementEnabled: boolean;
     xYFocusLeft: Object;
     xYFocusRight: Object;
-    requiresPointer: Number;
-    elementSoundMode: Number;
-    isFocusEngaged: Boolean;
+    requiresPointer: number;
+    elementSoundMode: number;
+    isFocusEngaged: boolean;
     defaultStyleResourceUri: Object;
-    flowDirection: Number;
-    minWidth: Number;
-    minHeight: Number;
-    maxWidth: Number;
-    maxHeight: Number;
+    flowDirection: number;
+    minWidth: number;
+    minHeight: number;
+    maxWidth: number;
+    maxHeight: number;
     margin: Thickness;
-    language: String;
-    name: String;
-    horizontalAlignment: Number;
-    height: Number;
+    language: string;
+    name: string;
+    horizontalAlignment: number;
+    height: number;
     dataContext: Object;
     resources: Object;
-    width: Number;
+    width: number;
     tag: Object;
     style: Object;
-    verticalAlignment: Number;
-    actualHeight: Number;
-    actualWidth: Number;
+    verticalAlignment: number;
+    actualHeight: number;
+    actualWidth: number;
     parent: Object;
     baseUri: Object;
     triggers: Object;
-    requestedTheme: Number;
+    requestedTheme: number;
     focusVisualSecondaryThickness: Thickness;
     focusVisualSecondaryBrush: Object;
     focusVisualPrimaryThickness: Thickness;
     focusVisualPrimaryBrush: Object;
     focusVisualMargin: Thickness;
-    allowFocusWhenDisabled: Boolean;
-    allowFocusOnInteraction: Boolean;
-    actualTheme: Number;
-    manipulationMode: Number;
-    isTapEnabled: Boolean;
-    isRightTapEnabled: Boolean;
-    isHoldingEnabled: Boolean;
-    isHitTestVisible: Boolean;
-    isDoubleTapEnabled: Boolean;
-    opacity: Number;
+    allowFocusWhenDisabled: boolean;
+    allowFocusOnInteraction: boolean;
+    actualTheme: number;
+    manipulationMode: number;
+    isTapEnabled: boolean;
+    isRightTapEnabled: boolean;
+    isHoldingEnabled: boolean;
+    isHitTestVisible: boolean;
+    isDoubleTapEnabled: boolean;
+    opacity: number;
     cacheMode: Object;
-    allowDrop: Boolean;
+    allowDrop: boolean;
     clip: Object;
-    visibility: Number;
-    useLayoutRounding: Boolean;
+    visibility: number;
+    useLayoutRounding: boolean;
     renderTransformOrigin: Object;
     projection: Object;
     renderTransform: Object;
@@ -1089,28 +1089,28 @@
     renderSize: Object;
     pointerCaptures: Object;
     desiredSize: Object;
-    compositeMode: Number;
+    compositeMode: number;
     transform3D: Object;
-    canDrag: Boolean;
-    accessKey: String;
+    canDrag: boolean;
+    accessKey: string;
     accessKeyScopeOwner: Object;
-    exitDisplayModeOnAccessKeyInvoked: Boolean;
+    exitDisplayModeOnAccessKeyInvoked: boolean;
     contextFlyout: Object;
-    isAccessKeyScope: Boolean;
-    xYFocusDownNavigationStrategy: Number;
-    xYFocusLeftNavigationStrategy: Number;
-    tabFocusNavigation: Number;
-    xYFocusKeyboardNavigation: Number;
-    keyTipVerticalOffset: Number;
-    keyTipPlacementMode: Number;
-    keyTipHorizontalOffset: Number;
-    highContrastAdjustment: Number;
-    xYFocusUpNavigationStrategy: Number;
-    xYFocusRightNavigationStrategy: Number;
+    isAccessKeyScope: boolean;
+    xYFocusDownNavigationStrategy: number;
+    xYFocusLeftNavigationStrategy: number;
+    tabFocusNavigation: number;
+    xYFocusKeyboardNavigation: number;
+    keyTipVerticalOffset: number;
+    keyTipPlacementMode: number;
+    keyTipHorizontalOffset: number;
+    highContrastAdjustment: number;
+    xYFocusUpNavigationStrategy: number;
+    xYFocusRightNavigationStrategy: number;
     lights: Object;
     keyboardAccelerators: Object;
     keyboardAcceleratorPlacementTarget: Object;
-    keyboardAcceleratorPlacementMode: Number;
+    keyboardAcceleratorPlacementMode: number;
     keyTipTarget: Object;
     dispatcher: Object;
     constructor();
@@ -1127,62 +1127,62 @@
     static setNormalizedAnchorPoint(element: Object, value: Object): void;
 
 
-    tryTiltAsync(degrees: Number, callback: (error: Error, result: Boolean) => void): void ;
+    tryTiltAsync(degrees: number, callback: (error: Error, result: boolean) => void): void ;
 
-    tryTiltToAsync(angleInDegrees: Number, callback: (error: Error, result: Boolean) => void): void ;
+    tryTiltToAsync(angleInDegrees: number, callback: (error: Error, result: boolean) => void): void ;
 
-    tryZoomInAsync(callback: (error: Error, result: Boolean) => void): void ;
+    tryZoomInAsync(callback: (error: Error, result: boolean) => void): void ;
 
-    tryZoomOutAsync(callback: (error: Error, result: Boolean) => void): void ;
+    tryZoomOutAsync(callback: (error: Error, result: boolean) => void): void ;
 
-    tryZoomToAsync(zoomLevel: Number, callback: (error: Error, result: Boolean) => void): void ;
+    tryZoomToAsync(zoomLevel: number, callback: (error: Error, result: boolean) => void): void ;
 
-    trySetSceneAsync(scene: MapScene, callback: (error: Error, result: Boolean) => void): void ;
-    trySetSceneAsync(scene: MapScene, animationKind: MapAnimationKind, callback: (error: Error, result: Boolean) => void): void ;
+    trySetSceneAsync(scene: MapScene, callback: (error: Error, result: boolean) => void): void ;
+    trySetSceneAsync(scene: MapScene, animationKind: MapAnimationKind, callback: (error: Error, result: boolean) => void): void ;
 
-    tryPanAsync(horizontalPixels: Number, verticalPixels: Number, callback: (error: Error, result: Boolean) => void): void ;
+    tryPanAsync(horizontalPixels: number, verticalPixels: number, callback: (error: Error, result: boolean) => void): void ;
 
-    tryPanToAsync(location: Object, callback: (error: Error, result: Boolean) => void): void ;
+    tryPanToAsync(location: Object, callback: (error: Error, result: boolean) => void): void ;
 
-    trySetViewBoundsAsync(bounds: Object, margin: Thickness, animation: MapAnimationKind, callback: (error: Error, result: Boolean) => void): void ;
+    trySetViewBoundsAsync(bounds: Object, margin: Thickness, animation: MapAnimationKind, callback: (error: Error, result: boolean) => void): void ;
 
-    trySetViewAsync(center: Object, callback: (error: Error, result: Boolean) => void): void ;
-    trySetViewAsync(center: Object, zoomLevel: Number, callback: (error: Error, result: Boolean) => void): void ;
-    trySetViewAsync(center: Object, zoomLevel: Number, heading: Number, desiredPitch: Number, callback: (error: Error, result: Boolean) => void): void ;
-    trySetViewAsync(center: Object, zoomLevel: Number, heading: Number, desiredPitch: Number, animation: MapAnimationKind, callback: (error: Error, result: Boolean) => void): void ;
+    trySetViewAsync(center: Object, callback: (error: Error, result: boolean) => void): void ;
+    trySetViewAsync(center: Object, zoomLevel: number, callback: (error: Error, result: boolean) => void): void ;
+    trySetViewAsync(center: Object, zoomLevel: number, heading: number, desiredPitch: number, callback: (error: Error, result: boolean) => void): void ;
+    trySetViewAsync(center: Object, zoomLevel: number, heading: number, desiredPitch: number, animation: MapAnimationKind, callback: (error: Error, result: boolean) => void): void ;
 
-    tryRotateAsync(degrees: Number, callback: (error: Error, result: Boolean) => void): void ;
+    tryRotateAsync(degrees: number, callback: (error: Error, result: boolean) => void): void ;
 
-    tryRotateToAsync(angleInDegrees: Number, callback: (error: Error, result: Boolean) => void): void ;
+    tryRotateToAsync(angleInDegrees: number, callback: (error: Error, result: boolean) => void): void ;
 
     getVisibleRegion(region: MapVisibleRegionKind): Object;
 
-    findMapElementsAtOffset(offset: Object, radius: Number): Object;
+    findMapElementsAtOffset(offset: Object, radius: number): Object;
     findMapElementsAtOffset(offset: Object): Object;
 
-    getLocationFromOffset(offset: Object, desiredReferenceSystem: Number, location: Object): void;
+    getLocationFromOffset(offset: Object, desiredReferenceSystem: number, location: Object): void;
     getLocationFromOffset(offset: Object, location: Object): void;
 
-    startContinuousPan(horizontalPixelsPerSecond: Number, verticalPixelsPerSecond: Number): void;
+    startContinuousPan(horizontalPixelsPerSecond: number, verticalPixelsPerSecond: number): void;
 
     stopContinuousPan(): void;
 
-    tryGetLocationFromOffset(offset: Object, location: Object): Boolean;
-    tryGetLocationFromOffset(offset: Object, desiredReferenceSystem: Number, location: Object): Boolean;
+    tryGetLocationFromOffset(offset: Object, location: Object): boolean;
+    tryGetLocationFromOffset(offset: Object, desiredReferenceSystem: number, location: Object): boolean;
 
     getOffsetFromLocation(location: Object, offset: Object): void;
 
-    isLocationInView(location: Object, isInView: Boolean): void;
+    isLocationInView(location: Object, isInView: boolean): void;
 
-    startContinuousRotate(rateInDegreesPerSecond: Number): void;
+    startContinuousRotate(rateInDegreesPerSecond: number): void;
 
     stopContinuousRotate(): void;
 
-    startContinuousTilt(rateInDegreesPerSecond: Number): void;
+    startContinuousTilt(rateInDegreesPerSecond: number): void;
 
     stopContinuousTilt(): void;
 
-    startContinuousZoom(rateOfChangePerSecond: Number): void;
+    startContinuousZoom(rateOfChangePerSecond: number): void;
 
     stopContinuousZoom(): void;
 
@@ -1541,7 +1541,7 @@
   }
 
   export class MapControlTransitFeatureClickEventArgs {
-    displayName: String;
+    displayName: string;
     location: Object;
     transitProperties: Object;
     constructor();
@@ -1555,7 +1555,7 @@
   }
 
   export class MapControlTransitFeatureRightTappedEventArgs {
-    displayName: String;
+    displayName: string;
     location: Object;
     transitProperties: Object;
     constructor();
@@ -1569,7 +1569,7 @@
   }
 
   export class MapControlTransitFeaturePointerEnteredEventArgs {
-    displayName: String;
+    displayName: string;
     location: Object;
     transitProperties: Object;
     constructor();
@@ -1583,7 +1583,7 @@
   }
 
   export class MapControlTransitFeaturePointerExitedEventArgs {
-    displayName: String;
+    displayName: string;
     location: Object;
     transitProperties: Object;
     constructor();
@@ -1595,7 +1595,7 @@
     constructor();
     constructor(map: MapControl);
 
-    static createMapControl(rasterRenderMode: Boolean): MapControl;
+    static createMapControl(rasterRenderMode: boolean): MapControl;
 
 
     addListener(type: "BusinessLandmarkClick", listener: (ev: Event) => void): void ;

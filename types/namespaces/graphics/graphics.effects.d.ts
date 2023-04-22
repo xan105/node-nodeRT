@@ -4,7 +4,7 @@
   }
 
   export class IGraphicsEffect {
-    name: String;
+    name: string;
     constructor();
 
   }
