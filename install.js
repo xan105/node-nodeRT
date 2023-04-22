@@ -16,6 +16,7 @@ import { isStringNotEmpty } from "@xan105/is";
 import { shouldArrayOfStringNotEmpty } from "@xan105/is/assert";
 import { getJSON, download } from "@xan105/request/h1";
 import Archive from "adm-zip";
+import nodeAbi from "node-abi";
 
 async function read(){
   const file = join(process.env.npm_config_local_prefix || process.cwd(), "package.json");
@@ -45,16 +46,21 @@ async function findABI(runtime){
       "electron",
       "package.json"
     ));
-    const major = version.split(".")[0];
-    
-    const url = "https://releases.electronjs.org/releases.json";
-    const releases = await getJSON(url, {
-      timeout: 7500,
-      maxRetry: 1
-    });
-    const abi = releases.find(release => release.version === `${major}.0.0`).modules
-    return abi;
-      
+
+    try{
+      const abi = nodeAbi.getAbi(version, "electron");
+      return abi;
+    }catch{
+      const major = version.split(".")[0];
+      const url = "https://releases.electronjs.org/releases.json";
+      const releases = await getJSON(url, {
+        timeout: 7500,
+        maxRetry: 1
+      });
+      const abi = releases.find(release => release.version === `${major}.0.0`).modules
+      return abi;
+    }
+ 
   }catch(err){
     throw new Failure("Failed to determine electron ABI", { code: 0, cause: err });
   }
