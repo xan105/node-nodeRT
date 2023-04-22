@@ -1,6 +1,6 @@
 {
   "name": "@xan105/nodert",
-  "version": "1.1.10",
+  "version": "1.1.12",
   "description": "NodeRT but precompiled (use WinRT API directly from node)",
   "type": "module",
   "exports": {
@@ -1393,6 +1393,7 @@
     "build:abi83": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 14.0.0 -abi abi83 -skip",
     "build:abi93": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 16.0.0 -abi abi93 -skip",
     "build:abi108": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 18.0.0 -abi abi108 -skip",
+    "build:abi115": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 20.0.0 -abi abi115 -skip",
     "build:electron:abi107": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 20.0.0 -abi abi107 -runtime electron -skip",
     "build:electron:abi109": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 21.0.0 -abi abi109 -runtime electron -skip",
     "build:electron:abi110": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 22.0.0 -abi abi110 -runtime electron -skip",
@@ -1437,7 +1438,8 @@
     "@xan105/fs": "^2.1.0",
     "@xan105/is": "^2.8.1",
     "@xan105/request": "^1.0.0",
-    "adm-zip": "^0.5.10"
+    "adm-zip": "^0.5.10",
+    "node-abi": "^3.40.0"
   },
   "devDependencies": {
     "@nodert-win10-20h1/windows.ai.machinelearning": "^0.1.0",
@@ -1765,7 +1767,6 @@
     "@typescript-eslint/eslint-plugin": "^5.44.0",
     "@typescript-eslint/parser": "^5.44.0",
     "eslint": "^8.28.0",
-    "node-abi": ">=3.35.0",
     "node-gyp": ">=9.3.1",
     "patch-package": "^6.4.7",
     "prebuildify": "^5.0.1",
