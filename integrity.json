@@ -4,7 +4,8 @@
     "node": {
       "abi83": "2f64dbcb2bc20ec22aa54c1e298c68bd06a195ed1be16c494ec600d6621e51bf",
       "abi93": "070430fb2f1bd92cdcc6c4f3a1010bf4c3df19496235681127231ab23a29840b",
-      "abi108": "00f437911eb9baf2e09476469978e86e08bf2d7abaddd2d16b8d1ca4c1be0c7e"
+      "abi108": "00f437911eb9baf2e09476469978e86e08bf2d7abaddd2d16b8d1ca4c1be0c7e",
+      "abi115": "caad87413cb3c4527b6fcfba8e01d1ead5370717f49d8797ff75264dbc710795"
     },
     "electron": {
       "abi107": "82c56cfa53f0a44c92c04825f93f829a60bba69cae351f7e53f1c78f095d8800",
