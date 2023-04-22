@@ -1,6 +1,6 @@
 {
   "name": "@xan105/nodert",
-  "version": "1.1.14",
+  "version": "1.1.15",
   "description": "NodeRT but precompiled (use WinRT API directly from node)",
   "type": "module",
   "exports": {
@@ -1378,10 +1378,6 @@
     }
   },
   "types": "./types/index.d.ts",
-  "engines": {
-    "node": ">=16.0.0",
-    "npm": "~8.5.0"
-  },
   "scripts": {
     "install": "node \"./install.js\"",
     "lint": "eslint \"./lib/**/*.{js,mjs}\" \"./types/**/*.d.ts\"",
@@ -1413,7 +1409,7 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/xan105/node-nodert"
+    "url": "https://github.com/xan105/node-nodert.git"
   },
   "bugs": {
     "url": "https://github.com/xan105/node-nodert/issues"
