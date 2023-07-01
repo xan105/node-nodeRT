@@ -1,6 +1,6 @@
 {
   "name": "@xan105/nodert",
-  "version": "1.1.15",
+  "version": "1.1.16",
   "description": "NodeRT but precompiled (use WinRT API directly from node)",
   "type": "module",
   "exports": {
@@ -1394,7 +1394,8 @@
     "build:electron:abi109": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 21.0.0 -abi abi109 -runtime electron -skip",
     "build:electron:abi110": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 22.0.0 -abi abi110 -runtime electron -skip",
     "build:electron:abi113": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 23.0.0 -abi abi113 -runtime electron -skip",
-    "build:electron:abi114": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 24.0.0 -abi abi114 -runtime electron -skip"
+    "build:electron:abi114": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 24.0.0 -abi abi114 -runtime electron -skip",
+    "build:electron:abi116": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 25.0.0 -abi abi116 -runtime electron -skip"
   },
   "keywords": [
     "nodeRT",
@@ -1435,7 +1436,7 @@
     "@xan105/is": "^2.8.1",
     "@xan105/request": "^1.0.0",
     "adm-zip": "^0.5.10",
-    "node-abi": "^3.40.0"
+    "node-abi": "^3.45.0"
   },
   "devDependencies": {
     "@nodert-win10-20h1/windows.ai.machinelearning": "^0.1.0",
