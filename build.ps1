@@ -5,12 +5,12 @@
 param (
   [Parameter(Mandatory)]
     [string]$target,
-	
+  
   [Parameter(Mandatory)]
     [string]$abi,
-	
+  
   [string]$runtime = "node",
-	
+  
   [switch]$skip = $False
 )
 
@@ -29,7 +29,7 @@ Clear-Content -Path .\logs\build\$runtime\failed.$abi.txt -Force -ErrorAction Si
 foreach($scope in Get-ChildItem .\packages -File){
   foreach($name in Get-Content .\packages\$scope) {
     Write-Host -NoNewline $scope/$name
-	
+  
     if ($skip -And (Test-Path .\prebuilds\$runtime\$abi\$name.node)) {
       Write-Host " [Skip]" -ForegroundColor Yellow
       continue
