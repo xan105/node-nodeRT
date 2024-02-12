@@ -85,7 +85,7 @@ async function downloadFile(runtime, abi){
   
   console.log(`Downloading NodeRT prebuild for ${runtime} ${arch} abi${abi}...`);
   
-  const { path } = await download(
+  const { file } = await download(
     url + filename, 
     join(tmpdir(), `${Date.now()}`), 
     {
@@ -93,7 +93,7 @@ async function downloadFile(runtime, abi){
     }
   );
                      
-  return path;
+  return file;
 }
 
 async function getModuleList(){  
@@ -133,7 +133,7 @@ async function install(){
   const runtime = await isElectron() ? "electron" : "node";
   const abi = await findABI(runtime);
   const file = await downloadFile(runtime, abi);
-  await unpack(file, runtime, abi);
+  await unpack(file.fullPath, runtime, abi);
 }
 
 install()
