@@ -113,7 +113,7 @@ They are a couple of them due to compilation failure.
 Build Env
 =========
 
-Visual Studio 2022:
+🆚 Visual Studio 2022:
 
   + Visual Studio Installer:
     - C/C++ Desktop
@@ -125,10 +125,11 @@ Visual Studio 2022:
   
   + Manual:
     - [Windows 10 SDK rs4 (10.0.17134.0)](https://go.microsoft.com/fwlink/p/?linkid=870807)
-    
-Node.js native addon:
 
-    - Node.js v18.15.0
-    - npm v9.5.0
-    - node-gyp v9.3.1
-    - Python3 v3.11
+    
+⬢ Node.js native addon:
+
+  - Node.js v18.15.0
+  - npm v9.5.0
+  - node-gyp v9.3.1
+  - Python3 v3.11
