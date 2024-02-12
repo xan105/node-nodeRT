@@ -2,13 +2,6 @@
     constructor();
   }
 
-  export enum CastingPlaybackTypes {
-    none,
-    audio,
-    video,
-    picture,
-  }
-
   export enum CastingConnectionErrorStatus {
     succeeded,
     deviceDidNotRespond,
@@ -27,41 +20,11 @@
     connecting,
   }
 
-  export class CastingSource {
-    preferredSourceUri: Object;
-    constructor();
-
-  }
-
-  export class CastingConnectionErrorOccurredEventArgs {
-    errorStatus: CastingConnectionErrorStatus;
-    message: string;
-    constructor();
-
-  }
-
-  export class CastingDevice {
-    friendlyName: string;
-    icon: Object;
-    id: string;
-    constructor();
-
-    static getDeviceSelectorFromCastingSourceAsync(castingSource: CastingSource, callback: (error: Error, result: string) => void): void ;
-
-
-    static fromIdAsync(value: string, callback: (error: Error, result: CastingDevice) => void): void ;
-
-
-    static deviceInfoSupportsCastingAsync(device: Object, callback: (error: Error, result: boolean) => void): void ;
-
-
-    static getDeviceSelector(type: CastingPlaybackTypes): string;
-
-
-    getSupportedCastingPlaybackTypesAsync(callback: (error: Error, result: CastingPlaybackTypes) => void): void ;
-
-    createCastingConnection(): CastingConnection;
-
+  export enum CastingPlaybackTypes {
+    none,
+    audio,
+    video,
+    picture,
   }
 
   export class CastingConnection {
@@ -93,18 +56,34 @@
 
   }
 
-  export class CastingDeviceSelectedEventArgs {
-    selectedCastingDevice: CastingDevice;
+  export class CastingConnectionErrorOccurredEventArgs {
+    errorStatus: CastingConnectionErrorStatus;
+    message: String;
     constructor();
 
   }
 
-  export class CastingDevicePickerFilter {
-    supportsVideo: boolean;
-    supportsPictures: boolean;
-    supportsAudio: boolean;
-    supportedCastingSources: Object;
+  export class CastingDevice {
+    friendlyName: String;
+    icon: Object;
+    id: String;
     constructor();
+
+    static getDeviceSelectorFromCastingSourceAsync(castingSource: CastingSource, callback: (error: Error, result: String) => void): void ;
+
+
+    static fromIdAsync(value: String, callback: (error: Error, result: CastingDevice) => void): void ;
+
+
+    static deviceInfoSupportsCastingAsync(device: Object, callback: (error: Error, result: Boolean) => void): void ;
+
+
+    static getDeviceSelector(type: CastingPlaybackTypes): String;
+
+
+    getSupportedCastingPlaybackTypesAsync(callback: (error: Error, result: CastingPlaybackTypes) => void): void ;
+
+    createCastingConnection(): CastingConnection;
 
   }
 
@@ -114,7 +93,7 @@
     constructor();
 
     show(selection: Object): void;
-    show(selection: Object, preferredPlacement: number): void;
+    show(selection: Object, preferredPlacement: Number): void;
 
     hide(): void;
 
@@ -133,6 +112,27 @@
     on(type: string, listener: (ev: Event) => void): void ;
     off(type: string, listener: (ev: Event) => void): void ;
     
+
+  }
+
+  export class CastingDevicePickerFilter {
+    supportsVideo: Boolean;
+    supportsPictures: Boolean;
+    supportsAudio: Boolean;
+    supportedCastingSources: Object;
+    constructor();
+
+  }
+
+  export class CastingDeviceSelectedEventArgs {
+    selectedCastingDevice: CastingDevice;
+    constructor();
+
+  }
+
+  export class CastingSource {
+    preferredSourceUri: Object;
+    constructor();
 
   }
 

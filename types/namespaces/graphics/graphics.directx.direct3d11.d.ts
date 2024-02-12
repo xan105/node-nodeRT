@@ -1,22 +1,15 @@
   export class Direct3DMultisampleDescription {
-    count: number;
-    quality: number;
+    count: Number;
+    quality: Number;
     constructor();
   }
 
   export class Direct3DSurfaceDescription {
-    width: number;
-    height: number;
-    format: number;
+    width: Number;
+    height: Number;
+    format: Number;
     multisampleDescription: Direct3DMultisampleDescription;
     constructor();
-  }
-
-  export enum Direct3DUsage {
-    default,
-    immutable,
-    dynamic,
-    staging,
   }
 
   export enum Direct3DBindings {
@@ -30,6 +23,13 @@
     unorderedAccess,
     decoder,
     videoEncoder,
+  }
+
+  export enum Direct3DUsage {
+    default,
+    immutable,
+    dynamic,
+    staging,
   }
 
   export class IDirect3DDevice {

@@ -16,26 +16,20 @@
     unavailable,
   }
 
-  export class FileRemovedEventArgs {
-    id: string;
-    constructor();
-
-  }
-
   export class FileOpenPickerUI {
-    title: string;
+    title: String;
     allowedFileTypes: Object;
     selectionMode: FileSelectionMode;
-    settingsIdentifier: string;
+    settingsIdentifier: String;
     constructor();
 
-    addFile(id: string, file: Object): AddFileResult;
+    addFile(id: String, file: Object): AddFileResult;
 
-    removeFile(id: string): void;
+    removeFile(id: String): void;
 
-    containsFile(id: string): boolean;
+    containsFile(id: String): Boolean;
 
-    canAddFile(file: Object): boolean;
+    canAddFile(file: Object): Boolean;
 
     addListener(type: "Closing", listener: (ev: Event) => void): void ;
     removeListener(type: "Closing", listener: (ev: Event) => void): void ;
@@ -55,36 +49,20 @@
 
   }
 
-  export class PickerClosingEventArgs {
-    closingOperation: PickerClosingOperation;
-    isCanceled: boolean;
+  export class FileRemovedEventArgs {
+    id: String;
     constructor();
-
-  }
-
-  export class PickerClosingOperation {
-    deadline: Date;
-    constructor();
-
-    getDeferral(): PickerClosingDeferral;
-
-  }
-
-  export class PickerClosingDeferral {
-    constructor();
-
-    complete(): void;
 
   }
 
   export class FileSavePickerUI {
-    title: string;
+    title: String;
     allowedFileTypes: Object;
-    fileName: string;
-    settingsIdentifier: string;
+    fileName: String;
+    settingsIdentifier: String;
     constructor();
 
-    trySetFileName(value: string): SetFileNameResult;
+    trySetFileName(value: String): SetFileNameResult;
 
     addListener(type: "FileNameChanged", listener: (ev: Event) => void): void ;
     removeListener(type: "FileNameChanged", listener: (ev: Event) => void): void ;
@@ -104,9 +82,25 @@
 
   }
 
-  export class TargetFileRequestedEventArgs {
-    request: TargetFileRequest;
+  export class PickerClosingDeferral {
     constructor();
+
+    complete(): void;
+
+  }
+
+  export class PickerClosingEventArgs {
+    closingOperation: PickerClosingOperation;
+    isCanceled: Boolean;
+    constructor();
+
+  }
+
+  export class PickerClosingOperation {
+    deadline: Date;
+    constructor();
+
+    getDeferral(): PickerClosingDeferral;
 
   }
 
@@ -122,6 +116,12 @@
     constructor();
 
     complete(): void;
+
+  }
+
+  export class TargetFileRequestedEventArgs {
+    request: TargetFileRequest;
+    constructor();
 
   }
 

@@ -1,8 +1,8 @@
-  export class Size {
+  export class Color {
     constructor();
   }
 
-  export class Color {
+  export class Size {
     constructor();
   }
 
@@ -16,12 +16,6 @@
     compact,
   }
 
-  export class WebUICommandBarItemInvokedEventArgs {
-    isPrimaryCommand: boolean;
-    constructor();
-
-  }
-
   export class IWebUICommandBarElement {
     constructor();
 
@@ -32,68 +26,10 @@
 
   }
 
-  export class WebUICommandBarIconButton {
-    label: string;
-    isToggleButton: boolean;
-    isChecked: boolean;
-    icon: IWebUICommandBarIcon;
-    enabled: boolean;
-    constructor();
-
-    addListener(type: "ItemInvoked", listener: (ev: Event) => void): void ;
-    removeListener(type: "ItemInvoked", listener: (ev: Event) => void): void ;
-    on(type: "ItemInvoked", listener: (ev: Event) => void): void ;
-    off(type: "ItemInvoked", listener: (ev: Event) => void): void ;
-    
-    addListener(type: string, listener: (ev: Event) => void): void ;
-    removeListener(type: string, listener: (ev: Event) => void): void ;
-    on(type: string, listener: (ev: Event) => void): void ;
-    off(type: string, listener: (ev: Event) => void): void ;
-    
-
-  }
-
-  export class WebUICommandBarConfirmationButton {
-    text: string;
-    constructor();
-
-    addListener(type: "ItemInvoked", listener: (ev: Event) => void): void ;
-    removeListener(type: "ItemInvoked", listener: (ev: Event) => void): void ;
-    on(type: "ItemInvoked", listener: (ev: Event) => void): void ;
-    off(type: "ItemInvoked", listener: (ev: Event) => void): void ;
-    
-    addListener(type: string, listener: (ev: Event) => void): void ;
-    removeListener(type: string, listener: (ev: Event) => void): void ;
-    on(type: string, listener: (ev: Event) => void): void ;
-    off(type: string, listener: (ev: Event) => void): void ;
-    
-
-  }
-
-  export class WebUICommandBarBitmapIcon {
-    uri: Object;
-    constructor();
-    constructor(uri: Object);
-
-  }
-
-  export class WebUICommandBarSymbolIcon {
-    symbol: string;
-    constructor();
-    constructor(symbol: string);
-
-  }
-
-  export class WebUICommandBarSizeChangedEventArgs {
-    size: Object;
-    constructor();
-
-  }
-
   export class WebUICommandBar {
-    visible: boolean;
-    opacity: number;
-    isOpen: boolean;
+    visible: Boolean;
+    opacity: Number;
+    isOpen: Boolean;
     foregroundColor: Object;
     closedDisplayMode: WebUICommandBarClosedDisplayMode;
     backgroundColor: Object;
@@ -125,6 +61,70 @@
     on(type: string, listener: (ev: Event) => void): void ;
     off(type: string, listener: (ev: Event) => void): void ;
     
+
+  }
+
+  export class WebUICommandBarBitmapIcon {
+    uri: Object;
+    constructor();
+    constructor(uri: Object);
+
+  }
+
+  export class WebUICommandBarConfirmationButton {
+    text: String;
+    constructor();
+
+    addListener(type: "ItemInvoked", listener: (ev: Event) => void): void ;
+    removeListener(type: "ItemInvoked", listener: (ev: Event) => void): void ;
+    on(type: "ItemInvoked", listener: (ev: Event) => void): void ;
+    off(type: "ItemInvoked", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
+
+  }
+
+  export class WebUICommandBarIconButton {
+    label: String;
+    isToggleButton: Boolean;
+    isChecked: Boolean;
+    icon: IWebUICommandBarIcon;
+    enabled: Boolean;
+    constructor();
+
+    addListener(type: "ItemInvoked", listener: (ev: Event) => void): void ;
+    removeListener(type: "ItemInvoked", listener: (ev: Event) => void): void ;
+    on(type: "ItemInvoked", listener: (ev: Event) => void): void ;
+    off(type: "ItemInvoked", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
+
+  }
+
+  export class WebUICommandBarItemInvokedEventArgs {
+    isPrimaryCommand: Boolean;
+    constructor();
+
+  }
+
+  export class WebUICommandBarSizeChangedEventArgs {
+    size: Object;
+    constructor();
+
+  }
+
+  export class WebUICommandBarSymbolIcon {
+    symbol: String;
+    constructor();
+    constructor(symbol: String);
 
   }
 

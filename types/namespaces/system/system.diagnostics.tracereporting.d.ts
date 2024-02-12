@@ -1,12 +1,18 @@
+  export enum PlatformDiagnosticActionState {
+    success,
+    freeNetworkNotAvailable,
+    aCPowerNotAvailable,
+  }
+
   export enum PlatformDiagnosticEscalationType {
     onCompletion,
     onFailure,
   }
 
-  export enum PlatformDiagnosticTraceSlotType {
-    alternative,
-    alwaysOn,
-    mini,
+  export enum PlatformDiagnosticEventBufferLatencies {
+    normal,
+    costDeferred,
+    realtime,
   }
 
   export enum PlatformDiagnosticTracePriority {
@@ -20,55 +26,31 @@
     throttled,
   }
 
-  export enum PlatformDiagnosticActionState {
-    success,
-    freeNetworkNotAvailable,
-    aCPowerNotAvailable,
-  }
-
-  export enum PlatformDiagnosticEventBufferLatencies {
-    normal,
-    costDeferred,
-    realtime,
-  }
-
-  export class PlatformDiagnosticTraceInfo {
-    isAutoLogger: boolean;
-    isExclusive: boolean;
-    maxTraceDurationFileTime: number;
-    priority: PlatformDiagnosticTracePriority;
-    profileHash: number;
-    scenarioId: string;
-    constructor();
-
-  }
-
-  export class PlatformDiagnosticTraceRuntimeInfo {
-    etwRuntimeFileTime: number;
-    runtimeFileTime: number;
-    constructor();
-
+  export enum PlatformDiagnosticTraceSlotType {
+    alternative,
+    alwaysOn,
+    mini,
   }
 
   export class PlatformDiagnosticActions {
     constructor();
 
-    static isScenarioEnabled(scenarioId: string): boolean;
+    static isScenarioEnabled(scenarioId: String): Boolean;
 
 
-    static tryEscalateScenario(scenarioId: string, escalationType: PlatformDiagnosticEscalationType, outputDirectory: string, timestampOutputDirectory: boolean, forceEscalationUpload: boolean, triggers: Object): boolean;
+    static tryEscalateScenario(scenarioId: String, escalationType: PlatformDiagnosticEscalationType, outputDirectory: String, timestampOutputDirectory: Boolean, forceEscalationUpload: Boolean, triggers: Object): Boolean;
 
 
-    static downloadLatestSettingsForNamespace(partner: string, feature: string, isScenarioNamespace: boolean, downloadOverCostedNetwork: boolean, downloadOverBattery: boolean): PlatformDiagnosticActionState;
+    static downloadLatestSettingsForNamespace(partner: String, feature: String, isScenarioNamespace: Boolean, downloadOverCostedNetwork: Boolean, downloadOverBattery: Boolean): PlatformDiagnosticActionState;
 
 
     static getActiveScenarioList(): Object;
 
 
-    static forceUpload(latency: PlatformDiagnosticEventBufferLatencies, uploadOverCostedNetwork: boolean, uploadOverBattery: boolean): PlatformDiagnosticActionState;
+    static forceUpload(latency: PlatformDiagnosticEventBufferLatencies, uploadOverCostedNetwork: Boolean, uploadOverBattery: Boolean): PlatformDiagnosticActionState;
 
 
-    static isTraceRunning(slotType: PlatformDiagnosticTraceSlotType, scenarioId: string, traceProfileHash: number): PlatformDiagnosticTraceSlotState;
+    static isTraceRunning(slotType: PlatformDiagnosticTraceSlotType, scenarioId: String, traceProfileHash: Number): PlatformDiagnosticTraceSlotState;
 
 
     static getActiveTraceRuntime(slotType: PlatformDiagnosticTraceSlotType): PlatformDiagnosticTraceRuntimeInfo;
@@ -76,6 +58,24 @@
 
     static getKnownTraceList(slotType: PlatformDiagnosticTraceSlotType): Object;
 
+
+  }
+
+  export class PlatformDiagnosticTraceInfo {
+    isAutoLogger: Boolean;
+    isExclusive: Boolean;
+    maxTraceDurationFileTime: Number;
+    priority: PlatformDiagnosticTracePriority;
+    profileHash: Number;
+    scenarioId: String;
+    constructor();
+
+  }
+
+  export class PlatformDiagnosticTraceRuntimeInfo {
+    etwRuntimeFileTime: Number;
+    runtimeFileTime: Number;
+    constructor();
 
   }
 

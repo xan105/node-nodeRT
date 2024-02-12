@@ -1,15 +1,15 @@
   export class Vector3 {
-    x: number;
-    y: number;
-    z: number;
+    x: Number;
+    y: Number;
+    z: Number;
     constructor();
   }
 
   export class Quaternion {
-    x: number;
-    y: number;
-    z: number;
-    w: number;
+    x: Number;
+    y: Number;
+    z: Number;
+    w: Number;
     constructor();
   }
 
@@ -27,13 +27,6 @@
     navigationRailsZ,
   }
 
-  export enum SpatialInteractionSourceKind {
-    other,
-    hand,
-    voice,
-    controller,
-  }
-
   export enum SpatialInteractionPressKind {
     none,
     select,
@@ -49,15 +42,16 @@
     right,
   }
 
+  export enum SpatialInteractionSourceKind {
+    other,
+    hand,
+    voice,
+    controller,
+  }
+
   export enum SpatialInteractionSourcePositionAccuracy {
     high,
     approximate,
-  }
-
-  export class SpatialManipulationDelta {
-    translation: Vector3;
-    constructor();
-
   }
 
   export class SpatialGestureRecognizer {
@@ -69,7 +63,7 @@
 
     cancelPendingGestures(): void;
 
-    trySetGestureSettings(settings: SpatialGestureSettings): boolean;
+    trySetGestureSettings(settings: SpatialGestureSettings): Boolean;
 
     addListener(type: "HoldCanceled", listener: (ev: Event) => void): void ;
     removeListener(type: "HoldCanceled", listener: (ev: Event) => void): void ;
@@ -149,28 +143,15 @@
 
   }
 
-  export class SpatialRecognitionStartedEventArgs {
-    interactionSourceKind: SpatialInteractionSourceKind;
-    constructor();
-
-    tryGetPointerPose(coordinateSystem: Object): SpatialPointerPose;
-
-    isGesturePossible(gesture: SpatialGestureSettings): boolean;
-
-  }
-
-  export class SpatialRecognitionEndedEventArgs {
+  export class SpatialHoldCanceledEventArgs {
     interactionSourceKind: SpatialInteractionSourceKind;
     constructor();
 
   }
 
-  export class SpatialTappedEventArgs {
+  export class SpatialHoldCompletedEventArgs {
     interactionSourceKind: SpatialInteractionSourceKind;
-    tapCount: number;
     constructor();
-
-    tryGetPointerPose(coordinateSystem: Object): SpatialPointerPose;
 
   }
 
@@ -182,96 +163,19 @@
 
   }
 
-  export class SpatialHoldCompletedEventArgs {
-    interactionSourceKind: SpatialInteractionSourceKind;
-    constructor();
-
-  }
-
-  export class SpatialHoldCanceledEventArgs {
-    interactionSourceKind: SpatialInteractionSourceKind;
-    constructor();
-
-  }
-
-  export class SpatialManipulationStartedEventArgs {
-    interactionSourceKind: SpatialInteractionSourceKind;
-    constructor();
-
-    tryGetPointerPose(coordinateSystem: Object): SpatialPointerPose;
-
-  }
-
-  export class SpatialManipulationUpdatedEventArgs {
-    interactionSourceKind: SpatialInteractionSourceKind;
-    constructor();
-
-    tryGetCumulativeDelta(coordinateSystem: Object): SpatialManipulationDelta;
-
-  }
-
-  export class SpatialManipulationCompletedEventArgs {
-    interactionSourceKind: SpatialInteractionSourceKind;
-    constructor();
-
-    tryGetCumulativeDelta(coordinateSystem: Object): SpatialManipulationDelta;
-
-  }
-
-  export class SpatialManipulationCanceledEventArgs {
-    interactionSourceKind: SpatialInteractionSourceKind;
-    constructor();
-
-  }
-
-  export class SpatialNavigationStartedEventArgs {
-    interactionSourceKind: SpatialInteractionSourceKind;
-    isNavigatingX: boolean;
-    isNavigatingY: boolean;
-    isNavigatingZ: boolean;
-    constructor();
-
-    tryGetPointerPose(coordinateSystem: Object): SpatialPointerPose;
-
-  }
-
-  export class SpatialNavigationUpdatedEventArgs {
-    interactionSourceKind: SpatialInteractionSourceKind;
-    normalizedOffset: Vector3;
-    constructor();
-
-  }
-
-  export class SpatialNavigationCompletedEventArgs {
-    interactionSourceKind: SpatialInteractionSourceKind;
-    normalizedOffset: Vector3;
-    constructor();
-
-  }
-
-  export class SpatialNavigationCanceledEventArgs {
-    interactionSourceKind: SpatialInteractionSourceKind;
-    constructor();
-
-  }
-
-  export class SpatialPointerInteractionSourcePose {
-    forwardDirection: Vector3;
-    position: Vector3;
-    upDirection: Vector3;
-    orientation: Quaternion;
-    positionAccuracy: SpatialInteractionSourcePositionAccuracy;
+  export class SpatialInteraction {
+    sourceState: SpatialInteractionSourceState;
     constructor();
 
   }
 
   export class SpatialInteractionController {
-    hasThumbstick: boolean;
-    hasTouchpad: boolean;
-    productId: number;
+    hasThumbstick: Boolean;
+    hasTouchpad: Boolean;
+    productId: Number;
     simpleHapticsController: Object;
-    vendorId: number;
-    version: number;
+    vendorId: Number;
+    version: Number;
     constructor();
 
     tryGetRenderableModelAsync(callback: (error: Error, result: Object) => void): void ;
@@ -280,89 +184,33 @@
 
   }
 
-  export class SpatialInteractionSourceState {
-    isPressed: boolean;
-    properties: SpatialInteractionSourceProperties;
-    source: SpatialInteractionSource;
-    timestamp: Object;
-    controllerProperties: SpatialInteractionControllerProperties;
-    isGrasped: boolean;
-    isMenuPressed: boolean;
-    isSelectPressed: boolean;
-    selectPressedValue: number;
+  export class SpatialInteractionControllerProperties {
+    isThumbstickPressed: Boolean;
+    isTouchpadPressed: Boolean;
+    isTouchpadTouched: Boolean;
+    thumbstickX: Number;
+    thumbstickY: Number;
+    touchpadX: Number;
+    touchpadY: Number;
+    constructor();
+
+  }
+
+  export class SpatialInteractionDetectedEventArgs {
+    interaction: SpatialInteraction;
+    interactionSourceKind: SpatialInteractionSourceKind;
+    interactionSource: SpatialInteractionSource;
     constructor();
 
     tryGetPointerPose(coordinateSystem: Object): SpatialPointerPose;
 
   }
 
-  export class SpatialInteractionSourceLocation {
-    position: Vector3;
-    velocity: Vector3;
-    orientation: Quaternion;
-    angularVelocity: Vector3;
-    positionAccuracy: SpatialInteractionSourcePositionAccuracy;
-    sourcePointerPose: SpatialPointerInteractionSourcePose;
-    constructor();
-
-  }
-
-  export class SpatialInteractionSource {
-    id: number;
-    kind: SpatialInteractionSourceKind;
-    controller: SpatialInteractionController;
-    isGraspSupported: boolean;
-    isMenuSupported: boolean;
-    isPointingSupported: boolean;
-    handedness: SpatialInteractionSourceHandedness;
-    constructor();
-
-    tryGetStateAtTimestamp(timestamp: Object): SpatialInteractionSourceState;
-
-  }
-
-  export class SpatialPointerPose {
-    head: Object;
-    timestamp: Object;
-    constructor();
-
-    static tryGetAtTimestamp(coordinateSystem: Object, timestamp: Object): SpatialPointerPose;
-
-
-    tryGetInteractionSourcePose(source: SpatialInteractionSource): SpatialPointerInteractionSourcePose;
-
-  }
-
-  export class SpatialInteractionSourceProperties {
-    sourceLossRisk: number;
-    constructor();
-
-    tryGetSourceLossMitigationDirection(coordinateSystem: Object): Vector3;
-
-    tryGetLocation(coordinateSystem: Object): SpatialInteractionSourceLocation;
-
-  }
-
-  export class SpatialInteractionControllerProperties {
-    isThumbstickPressed: boolean;
-    isTouchpadPressed: boolean;
-    isTouchpadTouched: boolean;
-    thumbstickX: number;
-    thumbstickY: number;
-    touchpadX: number;
-    touchpadY: number;
-    constructor();
-
-  }
-
-  export class SpatialInteraction {
-    sourceState: SpatialInteractionSourceState;
-    constructor();
-
-  }
-
   export class SpatialInteractionManager {
     constructor();
+
+    static isSourceKindSupported(kind: SpatialInteractionSourceKind): Boolean;
+
 
     static getForCurrentView(): SpatialInteractionManager;
 
@@ -407,6 +255,24 @@
 
   }
 
+  export class SpatialInteractionSource {
+    id: Number;
+    kind: SpatialInteractionSourceKind;
+    controller: SpatialInteractionController;
+    isGraspSupported: Boolean;
+    isMenuSupported: Boolean;
+    isPointingSupported: Boolean;
+    handedness: SpatialInteractionSourceHandedness;
+    constructor();
+
+    tryCreateHandMeshObserverAsync(callback: (error: Error, result: Object) => void): void ;
+
+    tryGetStateAtTimestamp(timestamp: Object): SpatialInteractionSourceState;
+
+    tryCreateHandMeshObserver(): Object;
+
+  }
+
   export class SpatialInteractionSourceEventArgs {
     state: SpatialInteractionSourceState;
     pressKind: SpatialInteractionPressKind;
@@ -414,10 +280,155 @@
 
   }
 
-  export class SpatialInteractionDetectedEventArgs {
-    interaction: SpatialInteraction;
+  export class SpatialInteractionSourceLocation {
+    position: Vector3;
+    velocity: Vector3;
+    orientation: Quaternion;
+    angularVelocity: Vector3;
+    positionAccuracy: SpatialInteractionSourcePositionAccuracy;
+    sourcePointerPose: SpatialPointerInteractionSourcePose;
+    constructor();
+
+  }
+
+  export class SpatialInteractionSourceProperties {
+    sourceLossRisk: Number;
+    constructor();
+
+    tryGetSourceLossMitigationDirection(coordinateSystem: Object): Vector3;
+
+    tryGetLocation(coordinateSystem: Object): SpatialInteractionSourceLocation;
+
+  }
+
+  export class SpatialInteractionSourceState {
+    isPressed: Boolean;
+    properties: SpatialInteractionSourceProperties;
+    source: SpatialInteractionSource;
+    timestamp: Object;
+    controllerProperties: SpatialInteractionControllerProperties;
+    isGrasped: Boolean;
+    isMenuPressed: Boolean;
+    isSelectPressed: Boolean;
+    selectPressedValue: Number;
+    constructor();
+
+    tryGetPointerPose(coordinateSystem: Object): SpatialPointerPose;
+
+    tryGetHandPose(): Object;
+
+  }
+
+  export class SpatialManipulationCanceledEventArgs {
     interactionSourceKind: SpatialInteractionSourceKind;
-    interactionSource: SpatialInteractionSource;
+    constructor();
+
+  }
+
+  export class SpatialManipulationCompletedEventArgs {
+    interactionSourceKind: SpatialInteractionSourceKind;
+    constructor();
+
+    tryGetCumulativeDelta(coordinateSystem: Object): SpatialManipulationDelta;
+
+  }
+
+  export class SpatialManipulationDelta {
+    translation: Vector3;
+    constructor();
+
+  }
+
+  export class SpatialManipulationStartedEventArgs {
+    interactionSourceKind: SpatialInteractionSourceKind;
+    constructor();
+
+    tryGetPointerPose(coordinateSystem: Object): SpatialPointerPose;
+
+  }
+
+  export class SpatialManipulationUpdatedEventArgs {
+    interactionSourceKind: SpatialInteractionSourceKind;
+    constructor();
+
+    tryGetCumulativeDelta(coordinateSystem: Object): SpatialManipulationDelta;
+
+  }
+
+  export class SpatialNavigationCanceledEventArgs {
+    interactionSourceKind: SpatialInteractionSourceKind;
+    constructor();
+
+  }
+
+  export class SpatialNavigationCompletedEventArgs {
+    interactionSourceKind: SpatialInteractionSourceKind;
+    normalizedOffset: Vector3;
+    constructor();
+
+  }
+
+  export class SpatialNavigationStartedEventArgs {
+    interactionSourceKind: SpatialInteractionSourceKind;
+    isNavigatingX: Boolean;
+    isNavigatingY: Boolean;
+    isNavigatingZ: Boolean;
+    constructor();
+
+    tryGetPointerPose(coordinateSystem: Object): SpatialPointerPose;
+
+  }
+
+  export class SpatialNavigationUpdatedEventArgs {
+    interactionSourceKind: SpatialInteractionSourceKind;
+    normalizedOffset: Vector3;
+    constructor();
+
+  }
+
+  export class SpatialPointerInteractionSourcePose {
+    forwardDirection: Vector3;
+    position: Vector3;
+    upDirection: Vector3;
+    orientation: Quaternion;
+    positionAccuracy: SpatialInteractionSourcePositionAccuracy;
+    constructor();
+
+  }
+
+  export class SpatialPointerPose {
+    head: Object;
+    timestamp: Object;
+    eyes: Object;
+    isHeadCapturedBySystem: Boolean;
+    constructor();
+
+    static tryGetAtTimestamp(coordinateSystem: Object, timestamp: Object): SpatialPointerPose;
+
+
+    tryGetInteractionSourcePose(source: SpatialInteractionSource): SpatialPointerInteractionSourcePose;
+
+  }
+
+  export class SpatialRecognitionEndedEventArgs {
+    interactionSourceKind: SpatialInteractionSourceKind;
+    constructor();
+
+  }
+
+  export class SpatialRecognitionStartedEventArgs {
+    interactionSourceKind: SpatialInteractionSourceKind;
+    constructor();
+
+    tryGetPointerPose(coordinateSystem: Object): SpatialPointerPose;
+
+    isGesturePossible(gesture: SpatialGestureSettings): Boolean;
+
+  }
+
+  export class SpatialTappedEventArgs {
+    interactionSourceKind: SpatialInteractionSourceKind;
+    tapCount: Number;
     constructor();
 
     tryGetPointerPose(coordinateSystem: Object): SpatialPointerPose;

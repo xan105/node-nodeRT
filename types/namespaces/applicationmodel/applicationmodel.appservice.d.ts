@@ -14,6 +14,10 @@
     remoteSystemUnavailable,
     remoteSystemNotSupportedByApp,
     notAuthorized,
+    authenticationError,
+    networkNotAvailable,
+    disabledByPolicy,
+    webServiceUnavailable,
   }
 
   export enum AppServiceResponseStatus {
@@ -23,35 +27,53 @@
     unknown,
     remoteSystemUnavailable,
     messageSizeTooLarge,
+    appUnavailable,
+    authenticationError,
+    networkNotAvailable,
+    disabledByPolicy,
+    webServiceUnavailable,
   }
 
-  export class AppServiceRequest {
-    message: Object;
+  export enum StatelessAppServiceResponseStatus {
+    success,
+    appNotInstalled,
+    appUnavailable,
+    appServiceUnavailable,
+    remoteSystemUnavailable,
+    remoteSystemNotSupportedByApp,
+    notAuthorized,
+    resourceLimitsExceeded,
+    messageSizeTooLarge,
+    failure,
+    unknown,
+    authenticationError,
+    networkNotAvailable,
+    disabledByPolicy,
+    webServiceUnavailable,
+  }
+
+  export class AppServiceCatalog {
     constructor();
 
-    sendResponseAsync(message: Object, callback: (error: Error, result: AppServiceResponseStatus) => void): void ;
+    static findAppServiceProvidersAsync(appServiceName: String, callback: (error: Error, result: Object) => void): void ;
+
 
   }
 
-  export class AppServiceDeferral {
-    constructor();
-
-    complete(): void;
-
-  }
-
-  export class AppServiceResponse {
-    message: Object;
-    status: AppServiceResponseStatus;
+  export class AppServiceClosedEventArgs {
+    status: AppServiceClosedStatus;
     constructor();
 
   }
 
   export class AppServiceConnection {
-    packageFamilyName: string;
-    appServiceName: string;
+    packageFamilyName: String;
+    appServiceName: String;
     user: Object;
     constructor();
+
+    static sendStatelessMessageAsync(connection: AppServiceConnection, connectionRequest: Object, message: Object, callback: (error: Error, result: StatelessAppServiceResponse) => void): void ;
+
 
     openAsync(callback: (error: Error, result: AppServiceConnectionStatus) => void): void ;
 
@@ -78,6 +100,21 @@
 
   }
 
+  export class AppServiceDeferral {
+    constructor();
+
+    complete(): void;
+
+  }
+
+  export class AppServiceRequest {
+    message: Object;
+    constructor();
+
+    sendResponseAsync(message: Object, callback: (error: Error, result: AppServiceResponseStatus) => void): void ;
+
+  }
+
   export class AppServiceRequestReceivedEventArgs {
     request: AppServiceRequest;
     constructor();
@@ -86,28 +123,29 @@
 
   }
 
-  export class AppServiceClosedEventArgs {
-    status: AppServiceClosedStatus;
+  export class AppServiceResponse {
+    message: Object;
+    status: AppServiceResponseStatus;
     constructor();
 
   }
 
   export class AppServiceTriggerDetails {
     appServiceConnection: AppServiceConnection;
-    callerPackageFamilyName: string;
-    name: string;
-    isRemoteSystemConnection: boolean;
+    callerPackageFamilyName: String;
+    name: String;
+    isRemoteSystemConnection: Boolean;
+    callerRemoteConnectionToken: String;
     constructor();
 
-    checkCallerForCapabilityAsync(capabilityName: string, callback: (error: Error, result: boolean) => void): void ;
+    checkCallerForCapabilityAsync(capabilityName: String, callback: (error: Error, result: Boolean) => void): void ;
 
   }
 
-  export class AppServiceCatalog {
+  export class StatelessAppServiceResponse {
+    message: Object;
+    status: StatelessAppServiceResponseStatus;
     constructor();
-
-    static findAppServiceProvidersAsync(appServiceName: string, callback: (error: Error, result: Object) => void): void ;
-
 
   }
 

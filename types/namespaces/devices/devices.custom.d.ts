@@ -2,6 +2,17 @@
     constructor();
   }
 
+  export enum DeviceAccessMode {
+    read,
+    write,
+    readWrite,
+  }
+
+  export enum DeviceSharingMode {
+    shared,
+    exclusive,
+  }
+
   export enum IOControlAccessMode {
     any,
     read,
@@ -16,20 +27,20 @@
     neither,
   }
 
-  export enum DeviceAccessMode {
-    read,
-    write,
-    readWrite,
-  }
-
-  export enum DeviceSharingMode {
-    shared,
-    exclusive,
-  }
-
-  export class KnownDeviceTypes {
-    static unknown: Number;
+  export class CustomDevice {
+    inputStream: Object;
+    outputStream: Object;
     constructor();
+
+    static fromIdAsync(deviceId: String, desiredAccess: DeviceAccessMode, sharingMode: DeviceSharingMode, callback: (error: Error, result: CustomDevice) => void): void ;
+
+
+    static getDeviceSelector(classGuid: String): String;
+
+
+    sendIOControlAsync(ioControlCode: IIOControlCode, inputBuffer: Object, outputBuffer: Object, callback: (error: Error, result: Number) => void): void ;
+
+    trySendIOControlAsync(ioControlCode: IIOControlCode, inputBuffer: Object, outputBuffer: Object, callback: (error: Error, result: Boolean) => void): void ;
 
   }
 
@@ -54,20 +65,9 @@
 
   }
 
-  export class CustomDevice {
-    inputStream: Object;
-    outputStream: Object;
+  export class KnownDeviceTypes {
+    static unknown: Number;
     constructor();
-
-    static fromIdAsync(deviceId: String, desiredAccess: DeviceAccessMode, sharingMode: DeviceSharingMode, callback: (error: Error, result: CustomDevice) => void): void ;
-
-
-    static getDeviceSelector(classGuid: String): String;
-
-
-    sendIOControlAsync(ioControlCode: IIOControlCode, inputBuffer: Object, outputBuffer: Object, callback: (error: Error, result: Number) => void): void ;
-
-    trySendIOControlAsync(ioControlCode: IIOControlCode, inputBuffer: Object, outputBuffer: Object, callback: (error: Error, result: Boolean) => void): void ;
 
   }
 

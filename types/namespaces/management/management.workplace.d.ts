@@ -14,22 +14,22 @@
     static getMessagingSyncPolicy(): MessagingSyncPolicy;
 
 
-    static isBrowserAllowed(): boolean;
+    static isBrowserAllowed(): Boolean;
 
 
-    static isCameraAllowed(): boolean;
+    static isCameraAllowed(): Boolean;
 
 
-    static isMicrosoftAccountAllowed(): boolean;
+    static isMicrosoftAccountAllowed(): Boolean;
 
 
-    static isStoreAllowed(): boolean;
+    static isStoreAllowed(): Boolean;
 
 
   }
 
   export class WorkplaceSettings {
-    static isMicrosoftAccountOptional: boolean;
+    static isMicrosoftAccountOptional: Boolean;
     constructor();
 
   }

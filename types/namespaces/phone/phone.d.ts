@@ -1,7 +1,3 @@
-  export class PhoneContract {
-    constructor();
-  }
-
 export * as applicationmodel from "./phone.applicationmodel.js";
 export * as devices from "./phone.devices.js";
 export * as management from "./phone.management.js";

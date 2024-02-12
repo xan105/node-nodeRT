@@ -1,14 +1,14 @@
-  export class DeviceUseDetails {
-    arguments: string;
-    deviceId: string;
+  export class DeviceServicingDetails {
+    arguments: String;
+    deviceId: String;
+    expectedDuration: Number;
     constructor();
 
   }
 
-  export class DeviceServicingDetails {
-    arguments: string;
-    deviceId: string;
-    expectedDuration: number;
+  export class DeviceUseDetails {
+    arguments: String;
+    deviceId: String;
     constructor();
 
   }

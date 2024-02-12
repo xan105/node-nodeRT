@@ -1,10 +1,10 @@
   export class Matrix3x2 {
-    m11: number;
-    m12: number;
-    m21: number;
-    m22: number;
-    m31: number;
-    m32: number;
+    m11: Number;
+    m12: Number;
+    m21: Number;
+    m22: Number;
+    m31: Number;
+    m32: Number;
     constructor();
   }
 
@@ -18,8 +18,22 @@
     canceled,
   }
 
+  export class CoreIncrementalInkStroke {
+    boundingRect: Object;
+    drawingAttributes: Object;
+    pointTransform: Matrix3x2;
+    constructor();
+    constructor(drawingAttributes: Object, pointTransform: Matrix3x2);
+
+    appendInkPoints(inkPoints: Object): Object;
+
+    createInkStroke(): Object;
+
+  }
+
   export class CoreInkIndependentInputSource {
     inkPresenter: Object;
+    pointerCursor: Object;
     constructor();
 
     static create(inkPresenter: Object): CoreInkIndependentInputSource;
@@ -68,10 +82,17 @@
 
   }
 
+  export class CoreInkPresenterHost {
+    rootVisual: Object;
+    inkPresenter: Object;
+    constructor();
+
+  }
+
   export class CoreWetStrokeUpdateEventArgs {
     disposition: CoreWetStrokeDisposition;
     newInkPoints: Object;
-    pointerId: number;
+    pointerId: Number;
     constructor();
 
   }
@@ -113,26 +134,6 @@
     on(type: string, listener: (ev: Event) => void): void ;
     off(type: string, listener: (ev: Event) => void): void ;
     
-
-  }
-
-  export class CoreInkPresenterHost {
-    rootVisual: Object;
-    inkPresenter: Object;
-    constructor();
-
-  }
-
-  export class CoreIncrementalInkStroke {
-    boundingRect: Object;
-    drawingAttributes: Object;
-    pointTransform: Matrix3x2;
-    constructor();
-    constructor(drawingAttributes: Object, pointTransform: Matrix3x2);
-
-    appendInkPoints(inkPoints: Object): Object;
-
-    createInkStroke(): Object;
 
   }
 

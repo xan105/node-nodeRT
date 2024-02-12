@@ -7,30 +7,52 @@
     associationEndpoint,
     associationEndpointContainer,
     associationEndpointService,
+    devicePanel,
   }
 
-  export class PnpObjectUpdate {
-    id: string;
+  export class PnpObject {
+    id: String;
     properties: Object;
     type: PnpObjectType;
     constructor();
+
+    static createFromIdAsync(type: PnpObjectType, id: String, requestedProperties: Object, callback: (error: Error, result: PnpObject) => void): void ;
+
+
+    static findAllAsync(type: PnpObjectType, requestedProperties: Object, callback: (error: Error, result: PnpObjectCollection) => void): void ;
+    static findAllAsync(type: PnpObjectType, requestedProperties: Object, aqsFilter: String, callback: (error: Error, result: PnpObjectCollection) => void): void ;
+
+
+    static createWatcher(type: PnpObjectType, requestedProperties: Object): PnpObjectWatcher;
+    static createWatcher(type: PnpObjectType, requestedProperties: Object, aqsFilter: String): PnpObjectWatcher;
+
+
+    update(updateInfo: PnpObjectUpdate): void;
 
   }
 
   export class PnpObjectCollection {
     constructor();
 
-    getAt(index: number): PnpObject;
+    getAt(index: Number): PnpObject;
 
-    indexOf(value: PnpObject, index: number): boolean;
+    indexOf(value: PnpObject, index: Number): Boolean;
 
     getMany();
     first(): Object;
 
   }
 
+  export class PnpObjectUpdate {
+    id: String;
+    properties: Object;
+    type: PnpObjectType;
+    constructor();
+
+  }
+
   export class PnpObjectWatcher {
-    status: number;
+    status: Number;
     constructor();
 
     start(): void;
@@ -67,27 +89,6 @@
     on(type: string, listener: (ev: Event) => void): void ;
     off(type: string, listener: (ev: Event) => void): void ;
     
-
-  }
-
-  export class PnpObject {
-    id: string;
-    properties: Object;
-    type: PnpObjectType;
-    constructor();
-
-    static createFromIdAsync(type: PnpObjectType, id: string, requestedProperties: Object, callback: (error: Error, result: PnpObject) => void): void ;
-
-
-    static findAllAsync(type: PnpObjectType, requestedProperties: Object, callback: (error: Error, result: PnpObjectCollection) => void): void ;
-    static findAllAsync(type: PnpObjectType, requestedProperties: Object, aqsFilter: string, callback: (error: Error, result: PnpObjectCollection) => void): void ;
-
-
-    static createWatcher(type: PnpObjectType, requestedProperties: Object): PnpObjectWatcher;
-    static createWatcher(type: PnpObjectType, requestedProperties: Object, aqsFilter: string): PnpObjectWatcher;
-
-
-    update(updateInfo: PnpObjectUpdate): void;
 
   }
 

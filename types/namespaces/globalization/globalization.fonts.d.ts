@@ -1,14 +1,14 @@
   export class FontWeight {
-    weight: number;
+    weight: Number;
     constructor();
   }
 
   export class LanguageFont {
-    fontFamily: string;
-    fontStretch: number;
-    fontStyle: number;
+    fontFamily: String;
+    fontStretch: Number;
+    fontStyle: Number;
     fontWeight: FontWeight;
-    scaleFactor: number;
+    scaleFactor: Number;
     constructor();
 
   }
@@ -26,7 +26,7 @@
     uITextFont: LanguageFont;
     uITitleFont: LanguageFont;
     constructor();
-    constructor(languageTag: string);
+    constructor(languageTag: String);
 
   }
 

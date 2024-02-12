@@ -1,29 +1,16 @@
   export class Vector3 {
-    x: number;
-    y: number;
-    z: number;
+    x: Number;
+    y: Number;
+    z: Number;
     constructor();
   }
 
   export class Quaternion {
-    x: number;
-    y: number;
-    z: number;
-    w: number;
+    x: Number;
+    y: Number;
+    z: Number;
+    w: Number;
     constructor();
-  }
-
-  export enum AudioGraphCreationStatus {
-    success,
-    deviceNotAvailable,
-    formatNotSupported,
-    unknownFailure,
-  }
-
-  export enum QuantumSizeSelectionMode {
-    systemDefault,
-    lowestLatency,
-    closestToDesired,
   }
 
   export enum AudioDeviceNodeCreationStatus {
@@ -42,10 +29,10 @@
     unknownFailure,
   }
 
-  export enum MediaSourceAudioInputNodeCreationStatus {
+  export enum AudioGraphCreationStatus {
     success,
+    deviceNotAvailable,
     formatNotSupported,
-    networkError,
     unknownFailure,
   }
 
@@ -54,6 +41,11 @@
     audioDeviceLost,
     audioSessionDisconnected,
     unknownFailure,
+  }
+
+  export enum AudioNodeEmitterDecayKind {
+    natural,
+    custom,
   }
 
   export enum AudioNodeEmitterSettings {
@@ -66,9 +58,43 @@
     cone,
   }
 
-  export enum AudioNodeEmitterDecayKind {
-    natural,
-    custom,
+  export enum AudioPlaybackConnectionOpenResultStatus {
+    success,
+    requestTimedOut,
+    deniedBySystem,
+    unknownFailure,
+  }
+
+  export enum AudioPlaybackConnectionState {
+    closed,
+    opened,
+  }
+
+  export enum MediaSourceAudioInputNodeCreationStatus {
+    success,
+    formatNotSupported,
+    networkError,
+    unknownFailure,
+  }
+
+  export enum MixedRealitySpatialAudioFormatPolicy {
+    useMixedRealityDefaultSpatialAudioFormat,
+    useDeviceConfigurationDefaultSpatialAudioFormat,
+  }
+
+  export enum QuantumSizeSelectionMode {
+    systemDefault,
+    lowestLatency,
+    closestToDesired,
+  }
+
+  export enum SetDefaultSpatialAudioFormatStatus {
+    succeeded,
+    accessDenied,
+    licenseExpired,
+    licenseNotValidForAudioEndpoint,
+    notSupportedOnAudioEndpoint,
+    unknownError,
   }
 
   export enum SpatialAudioModel {
@@ -76,30 +102,94 @@
     foldDown,
   }
 
-  export class AudioStateMonitor {
-    soundLevel: number;
+  export class AudioDeviceInputNode {
+    device: Object;
+    outgoingConnections: Object;
+    emitter: AudioNodeEmitter;
+    outgoingGain: Number;
+    consumeInput: Boolean;
+    effectDefinitions: Object;
+    encodingProperties: Object;
     constructor();
 
-    static createForRenderMonitoring(): AudioStateMonitor;
-    static createForRenderMonitoring(category: number): AudioStateMonitor;
-    static createForRenderMonitoring(category: number, role: number): AudioStateMonitor;
+    addOutgoingConnection(destination: IAudioNode): void;
+    addOutgoingConnection(destination: IAudioNode, gain: Number): void;
 
+    removeOutgoingConnection(destination: IAudioNode): void;
 
-    static createForRenderMonitoringWithCategoryAndDeviceId(category: number, deviceId: string): AudioStateMonitor;
+    start(): void;
 
+    stop(): void;
 
-    static createForCaptureMonitoring(): AudioStateMonitor;
-    static createForCaptureMonitoring(category: number): AudioStateMonitor;
-    static createForCaptureMonitoring(category: number, role: number): AudioStateMonitor;
+    reset(): void;
 
+    disableEffectsByDefinition(definition: Object): void;
 
-    static createForCaptureMonitoringWithCategoryAndDeviceId(category: number, deviceId: string): AudioStateMonitor;
+    enableEffectsByDefinition(definition: Object): void;
 
+    close(): void;
+  }
 
-    addListener(type: "SoundLevelChanged", listener: (ev: Event) => void): void ;
-    removeListener(type: "SoundLevelChanged", listener: (ev: Event) => void): void ;
-    on(type: "SoundLevelChanged", listener: (ev: Event) => void): void ;
-    off(type: "SoundLevelChanged", listener: (ev: Event) => void): void ;
+  export class AudioDeviceOutputNode {
+    device: Object;
+    outgoingGain: Number;
+    consumeInput: Boolean;
+    effectDefinitions: Object;
+    encodingProperties: Object;
+    listener: AudioNodeListener;
+    constructor();
+
+    start(): void;
+
+    stop(): void;
+
+    reset(): void;
+
+    disableEffectsByDefinition(definition: Object): void;
+
+    enableEffectsByDefinition(definition: Object): void;
+
+    close(): void;
+  }
+
+  export class AudioFileInputNode {
+    playbackSpeedFactor: Number;
+    loopCount: Number;
+    endTime: Number;
+    startTime: Number;
+    position: Number;
+    sourceFile: Object;
+    duration: Number;
+    outgoingConnections: Object;
+    emitter: AudioNodeEmitter;
+    outgoingGain: Number;
+    consumeInput: Boolean;
+    effectDefinitions: Object;
+    encodingProperties: Object;
+    constructor();
+
+    seek(position: Number): void;
+
+    addOutgoingConnection(destination: IAudioNode): void;
+    addOutgoingConnection(destination: IAudioNode, gain: Number): void;
+
+    removeOutgoingConnection(destination: IAudioNode): void;
+
+    start(): void;
+
+    stop(): void;
+
+    reset(): void;
+
+    disableEffectsByDefinition(definition: Object): void;
+
+    enableEffectsByDefinition(definition: Object): void;
+
+    close(): void;
+    addListener(type: "FileCompleted", listener: (ev: Event) => void): void ;
+    removeListener(type: "FileCompleted", listener: (ev: Event) => void): void ;
+    on(type: "FileCompleted", listener: (ev: Event) => void): void ;
+    off(type: "FileCompleted", listener: (ev: Event) => void): void ;
     
     addListener(type: string, listener: (ev: Event) => void): void ;
     removeListener(type: string, listener: (ev: Event) => void): void ;
@@ -109,22 +199,123 @@
 
   }
 
-  export class AudioGraph {
-    completedQuantumCount: number;
+  export class AudioFileOutputNode {
+    file: Object;
+    fileEncodingProfile: Object;
+    outgoingGain: Number;
+    consumeInput: Boolean;
+    effectDefinitions: Object;
     encodingProperties: Object;
-    latencyInSamples: number;
+    constructor();
+
+    finalizeAsync(callback: (error: Error, result: Number) => void): void ;
+
+    start(): void;
+
+    stop(): void;
+
+    reset(): void;
+
+    disableEffectsByDefinition(definition: Object): void;
+
+    enableEffectsByDefinition(definition: Object): void;
+
+    close(): void;
+  }
+
+  export class AudioFrameCompletedEventArgs {
+    frame: Object;
+    constructor();
+
+  }
+
+  export class AudioFrameInputNode {
+    playbackSpeedFactor: Number;
+    queuedSampleCount: Number;
+    outgoingConnections: Object;
+    emitter: AudioNodeEmitter;
+    outgoingGain: Number;
+    consumeInput: Boolean;
+    effectDefinitions: Object;
+    encodingProperties: Object;
+    constructor();
+
+    addFrame(frame: Object): void;
+
+    discardQueuedFrames(): void;
+
+    addOutgoingConnection(destination: IAudioNode): void;
+    addOutgoingConnection(destination: IAudioNode, gain: Number): void;
+
+    removeOutgoingConnection(destination: IAudioNode): void;
+
+    start(): void;
+
+    stop(): void;
+
+    reset(): void;
+
+    disableEffectsByDefinition(definition: Object): void;
+
+    enableEffectsByDefinition(definition: Object): void;
+
+    close(): void;
+    addListener(type: "AudioFrameCompleted", listener: (ev: Event) => void): void ;
+    removeListener(type: "AudioFrameCompleted", listener: (ev: Event) => void): void ;
+    on(type: "AudioFrameCompleted", listener: (ev: Event) => void): void ;
+    off(type: "AudioFrameCompleted", listener: (ev: Event) => void): void ;
+    
+    addListener(type: "QuantumStarted", listener: (ev: Event) => void): void ;
+    removeListener(type: "QuantumStarted", listener: (ev: Event) => void): void ;
+    on(type: "QuantumStarted", listener: (ev: Event) => void): void ;
+    off(type: "QuantumStarted", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
+
+  }
+
+  export class AudioFrameOutputNode {
+    outgoingGain: Number;
+    consumeInput: Boolean;
+    effectDefinitions: Object;
+    encodingProperties: Object;
+    constructor();
+
+    getFrame(): Object;
+
+    start(): void;
+
+    stop(): void;
+
+    reset(): void;
+
+    disableEffectsByDefinition(definition: Object): void;
+
+    enableEffectsByDefinition(definition: Object): void;
+
+    close(): void;
+  }
+
+  export class AudioGraph {
+    completedQuantumCount: Number;
+    encodingProperties: Object;
+    latencyInSamples: Number;
     primaryRenderDevice: Object;
-    renderDeviceAudioProcessing: number;
-    samplesPerQuantum: number;
+    renderDeviceAudioProcessing: Number;
+    samplesPerQuantum: Number;
     constructor();
 
     static createAsync(settings: AudioGraphSettings, callback: (error: Error, result: CreateAudioGraphResult) => void): void ;
 
 
-    createDeviceInputNodeAsync(category: number, callback: (error: Error, result: CreateAudioDeviceInputNodeResult) => void): void ;
-    createDeviceInputNodeAsync(category: number, encodingProperties: Object, callback: (error: Error, result: CreateAudioDeviceInputNodeResult) => void): void ;
-    createDeviceInputNodeAsync(category: number, encodingProperties: Object, device: Object, callback: (error: Error, result: CreateAudioDeviceInputNodeResult) => void): void ;
-    createDeviceInputNodeAsync(category: number, encodingProperties: Object, device: Object, emitter: AudioNodeEmitter, callback: (error: Error, result: CreateAudioDeviceInputNodeResult) => void): void ;
+    createDeviceInputNodeAsync(category: Number, callback: (error: Error, result: CreateAudioDeviceInputNodeResult) => void): void ;
+    createDeviceInputNodeAsync(category: Number, encodingProperties: Object, callback: (error: Error, result: CreateAudioDeviceInputNodeResult) => void): void ;
+    createDeviceInputNodeAsync(category: Number, encodingProperties: Object, device: Object, callback: (error: Error, result: CreateAudioDeviceInputNodeResult) => void): void ;
+    createDeviceInputNodeAsync(category: Number, encodingProperties: Object, device: Object, emitter: AudioNodeEmitter, callback: (error: Error, result: CreateAudioDeviceInputNodeResult) => void): void ;
 
     createDeviceOutputNodeAsync(callback: (error: Error, result: CreateAudioDeviceOutputNodeResult) => void): void ;
 
@@ -180,9 +371,15 @@
 
   }
 
-  export class CreateAudioGraphResult {
-    graph: AudioGraph;
-    status: AudioGraphCreationStatus;
+  export class AudioGraphBatchUpdater {
+    constructor();
+
+    close(): void;
+  }
+
+  export class AudioGraphConnection {
+    gain: Number;
+    destination: IAudioNode;
     constructor();
 
   }
@@ -191,27 +388,173 @@
     quantumSizeSelectionMode: QuantumSizeSelectionMode;
     primaryRenderDevice: Object;
     encodingProperties: Object;
-    desiredSamplesPerQuantum: number;
-    desiredRenderDeviceAudioProcessing: number;
-    audioRenderCategory: number;
-    maxPlaybackSpeedFactor: number;
+    desiredSamplesPerQuantum: Number;
+    desiredRenderDeviceAudioProcessing: Number;
+    audioRenderCategory: Number;
+    maxPlaybackSpeedFactor: Number;
     constructor();
-    constructor(audioRenderCategory: number);
+    constructor(audioRenderCategory: Number);
 
   }
 
-  export class AudioDeviceInputNode {
-    device: Object;
+  export class AudioGraphUnrecoverableErrorOccurredEventArgs {
+    error: AudioGraphUnrecoverableError;
+    constructor();
+
+  }
+
+  export class AudioNodeEmitter {
+    position: Vector3;
+    gain: Number;
+    dopplerVelocity: Vector3;
+    dopplerScale: Number;
+    distanceScale: Number;
+    direction: Vector3;
+    decayModel: AudioNodeEmitterDecayModel;
+    isDopplerDisabled: Boolean;
+    shape: AudioNodeEmitterShape;
+    spatialAudioModel: SpatialAudioModel;
+    constructor();
+    constructor(shape: AudioNodeEmitterShape, decayModel: AudioNodeEmitterDecayModel, settings: AudioNodeEmitterSettings);
+
+  }
+
+  export class AudioNodeEmitterConeProperties {
+    innerAngle: Number;
+    outerAngle: Number;
+    outerAngleGain: Number;
+    constructor();
+
+  }
+
+  export class AudioNodeEmitterDecayModel {
+    kind: AudioNodeEmitterDecayKind;
+    maxGain: Number;
+    minGain: Number;
+    naturalProperties: AudioNodeEmitterNaturalDecayModelProperties;
+    constructor();
+
+    static createNatural(minGain: Number, maxGain: Number, unityGainDistance: Number, cutoffDistance: Number): AudioNodeEmitterDecayModel;
+
+
+    static createCustom(minGain: Number, maxGain: Number): AudioNodeEmitterDecayModel;
+
+
+  }
+
+  export class AudioNodeEmitterNaturalDecayModelProperties {
+    cutoffDistance: Number;
+    unityGainDistance: Number;
+    constructor();
+
+  }
+
+  export class AudioNodeEmitterShape {
+    coneProperties: AudioNodeEmitterConeProperties;
+    kind: AudioNodeEmitterShapeKind;
+    constructor();
+
+    static createCone(innerAngle: Number, outerAngle: Number, outerAngleGain: Number): AudioNodeEmitterShape;
+
+
+    static createOmnidirectional(): AudioNodeEmitterShape;
+
+
+  }
+
+  export class AudioNodeListener {
+    speedOfSound: Number;
+    position: Vector3;
+    orientation: Quaternion;
+    dopplerVelocity: Vector3;
+    constructor();
+
+  }
+
+  export class AudioPlaybackConnection {
+    deviceId: String;
+    state: AudioPlaybackConnectionState;
+    constructor();
+
+    static getDeviceSelector(): String;
+
+
+    static tryCreateFromId(id: String): AudioPlaybackConnection;
+
+
+    startAsync(callback: (error: Error) => void): void ;
+
+    openAsync(callback: (error: Error, result: AudioPlaybackConnectionOpenResult) => void): void ;
+
+    start(): void;
+
+    open(): AudioPlaybackConnectionOpenResult;
+
+    close(): void;
+    addListener(type: "StateChanged", listener: (ev: Event) => void): void ;
+    removeListener(type: "StateChanged", listener: (ev: Event) => void): void ;
+    on(type: "StateChanged", listener: (ev: Event) => void): void ;
+    off(type: "StateChanged", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
+
+  }
+
+  export class AudioPlaybackConnectionOpenResult {
+    extendedError: Number;
+    status: AudioPlaybackConnectionOpenResultStatus;
+    constructor();
+
+  }
+
+  export class AudioStateMonitor {
+    soundLevel: Number;
+    constructor();
+
+    static createForRenderMonitoring(): AudioStateMonitor;
+    static createForRenderMonitoring(category: Number): AudioStateMonitor;
+    static createForRenderMonitoring(category: Number, role: Number): AudioStateMonitor;
+
+
+    static createForRenderMonitoringWithCategoryAndDeviceId(category: Number, deviceId: String): AudioStateMonitor;
+
+
+    static createForCaptureMonitoring(): AudioStateMonitor;
+    static createForCaptureMonitoring(category: Number): AudioStateMonitor;
+    static createForCaptureMonitoring(category: Number, role: Number): AudioStateMonitor;
+
+
+    static createForCaptureMonitoringWithCategoryAndDeviceId(category: Number, deviceId: String): AudioStateMonitor;
+
+
+    addListener(type: "SoundLevelChanged", listener: (ev: Event) => void): void ;
+    removeListener(type: "SoundLevelChanged", listener: (ev: Event) => void): void ;
+    on(type: "SoundLevelChanged", listener: (ev: Event) => void): void ;
+    off(type: "SoundLevelChanged", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
+
+  }
+
+  export class AudioSubmixNode {
     outgoingConnections: Object;
     emitter: AudioNodeEmitter;
-    outgoingGain: number;
-    consumeInput: boolean;
+    outgoingGain: Number;
+    consumeInput: Boolean;
     effectDefinitions: Object;
     encodingProperties: Object;
     constructor();
 
     addOutgoingConnection(destination: IAudioNode): void;
-    addOutgoingConnection(destination: IAudioNode, gain: number): void;
+    addOutgoingConnection(destination: IAudioNode, gain: Number): void;
 
     removeOutgoingConnection(destination: IAudioNode): void;
 
@@ -231,103 +574,108 @@
   export class CreateAudioDeviceInputNodeResult {
     deviceInputNode: AudioDeviceInputNode;
     status: AudioDeviceNodeCreationStatus;
+    extendedError: Number;
     constructor();
 
-  }
-
-  export class AudioDeviceOutputNode {
-    device: Object;
-    outgoingGain: number;
-    consumeInput: boolean;
-    effectDefinitions: Object;
-    encodingProperties: Object;
-    listener: AudioNodeListener;
-    constructor();
-
-    start(): void;
-
-    stop(): void;
-
-    reset(): void;
-
-    disableEffectsByDefinition(definition: Object): void;
-
-    enableEffectsByDefinition(definition: Object): void;
-
-    close(): void;
   }
 
   export class CreateAudioDeviceOutputNodeResult {
     deviceOutputNode: AudioDeviceOutputNode;
     status: AudioDeviceNodeCreationStatus;
+    extendedError: Number;
     constructor();
-
-  }
-
-  export class AudioFileInputNode {
-    playbackSpeedFactor: number;
-    loopCount: number;
-    endTime: number;
-    startTime: number;
-    position: number;
-    sourceFile: Object;
-    duration: number;
-    outgoingConnections: Object;
-    emitter: AudioNodeEmitter;
-    outgoingGain: number;
-    consumeInput: boolean;
-    effectDefinitions: Object;
-    encodingProperties: Object;
-    constructor();
-
-    seek(position: number): void;
-
-    addOutgoingConnection(destination: IAudioNode): void;
-    addOutgoingConnection(destination: IAudioNode, gain: number): void;
-
-    removeOutgoingConnection(destination: IAudioNode): void;
-
-    start(): void;
-
-    stop(): void;
-
-    reset(): void;
-
-    disableEffectsByDefinition(definition: Object): void;
-
-    enableEffectsByDefinition(definition: Object): void;
-
-    close(): void;
-    addListener(type: "FileCompleted", listener: (ev: Event) => void): void ;
-    removeListener(type: "FileCompleted", listener: (ev: Event) => void): void ;
-    on(type: "FileCompleted", listener: (ev: Event) => void): void ;
-    off(type: "FileCompleted", listener: (ev: Event) => void): void ;
-    
-    addListener(type: string, listener: (ev: Event) => void): void ;
-    removeListener(type: string, listener: (ev: Event) => void): void ;
-    on(type: string, listener: (ev: Event) => void): void ;
-    off(type: string, listener: (ev: Event) => void): void ;
-    
 
   }
 
   export class CreateAudioFileInputNodeResult {
     fileInputNode: AudioFileInputNode;
     status: AudioFileNodeCreationStatus;
+    extendedError: Number;
     constructor();
 
   }
 
-  export class AudioFileOutputNode {
-    file: Object;
-    fileEncodingProfile: Object;
-    outgoingGain: number;
-    consumeInput: boolean;
-    effectDefinitions: Object;
-    encodingProperties: Object;
+  export class CreateAudioFileOutputNodeResult {
+    fileOutputNode: AudioFileOutputNode;
+    status: AudioFileNodeCreationStatus;
+    extendedError: Number;
     constructor();
 
-    finalizeAsync(callback: (error: Error, result: number) => void): void ;
+  }
+
+  export class CreateAudioGraphResult {
+    graph: AudioGraph;
+    status: AudioGraphCreationStatus;
+    extendedError: Number;
+    constructor();
+
+  }
+
+  export class CreateMediaSourceAudioInputNodeResult {
+    node: MediaSourceAudioInputNode;
+    status: MediaSourceAudioInputNodeCreationStatus;
+    extendedError: Number;
+    constructor();
+
+  }
+
+  export class EchoEffectDefinition {
+    wetDryMix: Number;
+    feedback: Number;
+    delay: Number;
+    activatableClassId: String;
+    properties: Object;
+    constructor();
+    constructor(audioGraph: AudioGraph);
+
+  }
+
+  export class EqualizerBand {
+    gain: Number;
+    frequencyCenter: Number;
+    bandwidth: Number;
+    constructor();
+
+  }
+
+  export class EqualizerEffectDefinition {
+    bands: Object;
+    activatableClassId: String;
+    properties: Object;
+    constructor();
+    constructor(audioGraph: AudioGraph);
+
+  }
+
+  export class FrameInputNodeQuantumStartedEventArgs {
+    requiredSamples: Number;
+    constructor();
+
+  }
+
+  export class IAudioInputNode {
+    outgoingConnections: Object;
+    constructor();
+
+    addOutgoingConnection(destination: IAudioNode): void;
+    addOutgoingConnection(destination: IAudioNode, gain: Number): void;
+
+    removeOutgoingConnection(destination: IAudioNode): void;
+
+  }
+
+  export class IAudioInputNode2 {
+    emitter: AudioNodeEmitter;
+    constructor();
+
+  }
+
+  export class IAudioNode {
+    consumeInput: Boolean;
+    effectDefinitions: Object;
+    encodingProperties: Object;
+    outgoingGain: Number;
+    constructor();
 
     start(): void;
 
@@ -339,36 +687,44 @@
 
     enableEffectsByDefinition(definition: Object): void;
 
-    close(): void;
   }
 
-  export class CreateAudioFileOutputNodeResult {
-    fileOutputNode: AudioFileOutputNode;
-    status: AudioFileNodeCreationStatus;
+  export class IAudioNodeWithListener {
+    listener: AudioNodeListener;
     constructor();
+
+  }
+
+  export class LimiterEffectDefinition {
+    release: Number;
+    loudness: Number;
+    activatableClassId: String;
+    properties: Object;
+    constructor();
+    constructor(audioGraph: AudioGraph);
 
   }
 
   export class MediaSourceAudioInputNode {
     outgoingConnections: Object;
     emitter: AudioNodeEmitter;
-    outgoingGain: number;
-    consumeInput: boolean;
+    outgoingGain: Number;
+    consumeInput: Boolean;
     effectDefinitions: Object;
     encodingProperties: Object;
-    startTime: number;
-    playbackSpeedFactor: number;
-    loopCount: number;
-    endTime: number;
-    duration: number;
+    startTime: Number;
+    playbackSpeedFactor: Number;
+    loopCount: Number;
+    endTime: Number;
+    duration: Number;
     mediaSource: Object;
-    position: number;
+    position: Number;
     constructor();
 
-    seek(position: number): void;
+    seek(position: Number): void;
 
     addOutgoingConnection(destination: IAudioNode): void;
-    addOutgoingConnection(destination: IAudioNode, gain: number): void;
+    addOutgoingConnection(destination: IAudioNode, gain: Number): void;
 
     removeOutgoingConnection(destination: IAudioNode): void;
 
@@ -396,65 +752,61 @@
 
   }
 
-  export class CreateMediaSourceAudioInputNodeResult {
-    node: MediaSourceAudioInputNode;
-    status: MediaSourceAudioInputNodeCreationStatus;
+  export class ReverbEffectDefinition {
+    highEQGain: Number;
+    highEQCutoff: Number;
+    disableLateField: Boolean;
+    density: Number;
+    positionRight: Number;
+    decayTime: Number;
+    lateDiffusion: Number;
+    positionMatrixRight: Number;
+    positionMatrixLeft: Number;
+    positionLeft: Number;
+    lowEQGain: Number;
+    lowEQCutoff: Number;
+    roomFilterFreq: Number;
+    reverbGain: Number;
+    reverbDelay: Number;
+    reflectionsGain: Number;
+    reflectionsDelay: Number;
+    rearDelay: Number;
+    wetDryMix: Number;
+    earlyDiffusion: Number;
+    roomSize: Number;
+    roomFilterMain: Number;
+    roomFilterHF: Number;
+    activatableClassId: String;
+    properties: Object;
+    constructor();
+    constructor(audioGraph: AudioGraph);
+
+  }
+
+  export class SetDefaultSpatialAudioFormatResult {
+    status: SetDefaultSpatialAudioFormatStatus;
     constructor();
 
   }
 
-  export class AudioGraphUnrecoverableErrorOccurredEventArgs {
-    error: AudioGraphUnrecoverableError;
+  export class SpatialAudioDeviceConfiguration {
+    activeSpatialAudioFormat: String;
+    defaultSpatialAudioFormat: String;
+    deviceId: String;
+    isSpatialAudioSupported: Boolean;
     constructor();
 
-  }
+    static getForDeviceId(deviceId: String): SpatialAudioDeviceConfiguration;
 
-  export class AudioGraphBatchUpdater {
-    constructor();
 
-    close(): void;
-  }
+    setDefaultSpatialAudioFormatAsync(subtype: String, callback: (error: Error, result: SetDefaultSpatialAudioFormatResult) => void): void ;
 
-  export class AudioFrameInputNode {
-    playbackSpeedFactor: number;
-    queuedSampleCount: number;
-    outgoingConnections: Object;
-    emitter: AudioNodeEmitter;
-    outgoingGain: number;
-    consumeInput: boolean;
-    effectDefinitions: Object;
-    encodingProperties: Object;
-    constructor();
+    isSpatialAudioFormatSupported(subtype: String): Boolean;
 
-    addFrame(frame: Object): void;
-
-    discardQueuedFrames(): void;
-
-    addOutgoingConnection(destination: IAudioNode): void;
-    addOutgoingConnection(destination: IAudioNode, gain: number): void;
-
-    removeOutgoingConnection(destination: IAudioNode): void;
-
-    start(): void;
-
-    stop(): void;
-
-    reset(): void;
-
-    disableEffectsByDefinition(definition: Object): void;
-
-    enableEffectsByDefinition(definition: Object): void;
-
-    close(): void;
-    addListener(type: "AudioFrameCompleted", listener: (ev: Event) => void): void ;
-    removeListener(type: "AudioFrameCompleted", listener: (ev: Event) => void): void ;
-    on(type: "AudioFrameCompleted", listener: (ev: Event) => void): void ;
-    off(type: "AudioFrameCompleted", listener: (ev: Event) => void): void ;
-    
-    addListener(type: "QuantumStarted", listener: (ev: Event) => void): void ;
-    removeListener(type: "QuantumStarted", listener: (ev: Event) => void): void ;
-    on(type: "QuantumStarted", listener: (ev: Event) => void): void ;
-    off(type: "QuantumStarted", listener: (ev: Event) => void): void ;
+    addListener(type: "ConfigurationChanged", listener: (ev: Event) => void): void ;
+    removeListener(type: "ConfigurationChanged", listener: (ev: Event) => void): void ;
+    on(type: "ConfigurationChanged", listener: (ev: Event) => void): void ;
+    off(type: "ConfigurationChanged", listener: (ev: Event) => void): void ;
     
     addListener(type: string, listener: (ev: Event) => void): void ;
     removeListener(type: string, listener: (ev: Event) => void): void ;
@@ -464,250 +816,28 @@
 
   }
 
-  export class AudioFrameOutputNode {
-    outgoingGain: number;
-    consumeInput: boolean;
-    effectDefinitions: Object;
-    encodingProperties: Object;
+  export class SpatialAudioFormatConfiguration {
+    mixedRealityExclusiveModePolicy: MixedRealitySpatialAudioFormatPolicy;
     constructor();
 
-    getFrame(): Object;
+    static getDefault(): SpatialAudioFormatConfiguration;
 
-    start(): void;
 
-    stop(): void;
+    reportLicenseChangedAsync(subtype: String, callback: (error: Error) => void): void ;
 
-    reset(): void;
-
-    disableEffectsByDefinition(definition: Object): void;
-
-    enableEffectsByDefinition(definition: Object): void;
-
-    close(): void;
-  }
-
-  export class AudioSubmixNode {
-    outgoingConnections: Object;
-    emitter: AudioNodeEmitter;
-    outgoingGain: number;
-    consumeInput: boolean;
-    effectDefinitions: Object;
-    encodingProperties: Object;
-    constructor();
-
-    addOutgoingConnection(destination: IAudioNode): void;
-    addOutgoingConnection(destination: IAudioNode, gain: number): void;
-
-    removeOutgoingConnection(destination: IAudioNode): void;
-
-    start(): void;
-
-    stop(): void;
-
-    reset(): void;
-
-    disableEffectsByDefinition(definition: Object): void;
-
-    enableEffectsByDefinition(definition: Object): void;
-
-    close(): void;
-  }
-
-  export class AudioNodeEmitter {
-    position: Vector3;
-    gain: number;
-    dopplerVelocity: Vector3;
-    dopplerScale: number;
-    distanceScale: number;
-    direction: Vector3;
-    decayModel: AudioNodeEmitterDecayModel;
-    isDopplerDisabled: boolean;
-    shape: AudioNodeEmitterShape;
-    spatialAudioModel: SpatialAudioModel;
-    constructor();
-    constructor(shape: AudioNodeEmitterShape, decayModel: AudioNodeEmitterDecayModel, settings: AudioNodeEmitterSettings);
+    reportConfigurationChangedAsync(subtype: String, callback: (error: Error) => void): void ;
 
   }
 
-  export class IAudioNode {
-    consumeInput: boolean;
-    effectDefinitions: Object;
-    encodingProperties: Object;
-    outgoingGain: number;
+  export class SpatialAudioFormatSubtype {
+    static dTSHeadphoneX: String;
+    static dTSXUltra: String;
+    static dolbyAtmosForHeadphones: String;
+    static dolbyAtmosForHomeTheater: String;
+    static dolbyAtmosForSpeakers: String;
+    static windowsSonic: String;
+    static dTSXForHomeTheater: String;
     constructor();
-
-    start(): void;
-
-    stop(): void;
-
-    reset(): void;
-
-    disableEffectsByDefinition(definition: Object): void;
-
-    enableEffectsByDefinition(definition: Object): void;
-
-  }
-
-  export class IAudioNodeWithListener {
-    listener: AudioNodeListener;
-    constructor();
-
-  }
-
-  export class AudioNodeListener {
-    speedOfSound: number;
-    position: Vector3;
-    orientation: Quaternion;
-    dopplerVelocity: Vector3;
-    constructor();
-
-  }
-
-  export class IAudioInputNode {
-    outgoingConnections: Object;
-    constructor();
-
-    addOutgoingConnection(destination: IAudioNode): void;
-    addOutgoingConnection(destination: IAudioNode, gain: number): void;
-
-    removeOutgoingConnection(destination: IAudioNode): void;
-
-  }
-
-  export class AudioGraphConnection {
-    gain: number;
-    destination: IAudioNode;
-    constructor();
-
-  }
-
-  export class IAudioInputNode2 {
-    emitter: AudioNodeEmitter;
-    constructor();
-
-  }
-
-  export class AudioFrameCompletedEventArgs {
-    frame: Object;
-    constructor();
-
-  }
-
-  export class FrameInputNodeQuantumStartedEventArgs {
-    requiredSamples: number;
-    constructor();
-
-  }
-
-  export class EqualizerBand {
-    gain: number;
-    frequencyCenter: number;
-    bandwidth: number;
-    constructor();
-
-  }
-
-  export class EqualizerEffectDefinition {
-    bands: Object;
-    activatableClassId: string;
-    properties: Object;
-    constructor();
-    constructor(audioGraph: AudioGraph);
-
-  }
-
-  export class ReverbEffectDefinition {
-    highEQGain: number;
-    highEQCutoff: number;
-    disableLateField: boolean;
-    density: number;
-    positionRight: number;
-    decayTime: number;
-    lateDiffusion: number;
-    positionMatrixRight: number;
-    positionMatrixLeft: number;
-    positionLeft: number;
-    lowEQGain: number;
-    lowEQCutoff: number;
-    roomFilterFreq: number;
-    reverbGain: number;
-    reverbDelay: number;
-    reflectionsGain: number;
-    reflectionsDelay: number;
-    rearDelay: number;
-    wetDryMix: number;
-    earlyDiffusion: number;
-    roomSize: number;
-    roomFilterMain: number;
-    roomFilterHF: number;
-    activatableClassId: string;
-    properties: Object;
-    constructor();
-    constructor(audioGraph: AudioGraph);
-
-  }
-
-  export class EchoEffectDefinition {
-    wetDryMix: number;
-    feedback: number;
-    delay: number;
-    activatableClassId: string;
-    properties: Object;
-    constructor();
-    constructor(audioGraph: AudioGraph);
-
-  }
-
-  export class LimiterEffectDefinition {
-    release: number;
-    loudness: number;
-    activatableClassId: string;
-    properties: Object;
-    constructor();
-    constructor(audioGraph: AudioGraph);
-
-  }
-
-  export class AudioNodeEmitterConeProperties {
-    innerAngle: number;
-    outerAngle: number;
-    outerAngleGain: number;
-    constructor();
-
-  }
-
-  export class AudioNodeEmitterShape {
-    coneProperties: AudioNodeEmitterConeProperties;
-    kind: AudioNodeEmitterShapeKind;
-    constructor();
-
-    static createCone(innerAngle: number, outerAngle: number, outerAngleGain: number): AudioNodeEmitterShape;
-
-
-    static createOmnidirectional(): AudioNodeEmitterShape;
-
-
-  }
-
-  export class AudioNodeEmitterNaturalDecayModelProperties {
-    cutoffDistance: number;
-    unityGainDistance: number;
-    constructor();
-
-  }
-
-  export class AudioNodeEmitterDecayModel {
-    kind: AudioNodeEmitterDecayKind;
-    maxGain: number;
-    minGain: number;
-    naturalProperties: AudioNodeEmitterNaturalDecayModelProperties;
-    constructor();
-
-    static createNatural(minGain: number, maxGain: number, unityGainDistance: number, cutoffDistance: number): AudioNodeEmitterDecayModel;
-
-
-    static createCustom(minGain: number, maxGain: number): AudioNodeEmitterDecayModel;
-
 
   }
 

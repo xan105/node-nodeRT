@@ -12,24 +12,24 @@
     tasksService,
   }
 
-  export class StorageDevice {
+  export class ServiceDevice {
     constructor();
 
-    static fromId(deviceId: string): Object;
+    static getDeviceSelector(serviceType: ServiceDeviceType): String;
 
 
-    static getDeviceSelector(): string;
+    static getDeviceSelectorFromServiceId(serviceId: String): String;
 
 
   }
 
-  export class ServiceDevice {
+  export class StorageDevice {
     constructor();
 
-    static getDeviceSelector(serviceType: ServiceDeviceType): string;
+    static fromId(deviceId: String): Object;
 
 
-    static getDeviceSelectorFromServiceId(serviceId: string): string;
+    static getDeviceSelector(): String;
 
 
   }

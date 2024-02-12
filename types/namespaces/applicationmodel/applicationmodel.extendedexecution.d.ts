@@ -22,8 +22,8 @@
 
   export class ExtendedExecutionSession {
     reason: ExtendedExecutionReason;
-    percentProgress: number;
-    description: string;
+    percentProgress: Number;
+    description: String;
     constructor();
 
     requestExtensionAsync(callback: (error: Error, result: ExtendedExecutionResult) => void): void ;
@@ -42,4 +42,9 @@
 
   }
 
+export const ExtendedExecutionReason: any;
+export const ExtendedExecutionResult: any;
+export const ExtendedExecutionRevokedReason: any;
+export const ExtendedExecutionRevokedEventArgs: any;
+export const ExtendedExecutionSession: any;
 export * as foreground from "./applicationmodel.extendedexecution.foreground.js";

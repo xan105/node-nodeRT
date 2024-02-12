@@ -31,19 +31,20 @@
 
   }
 
-  export class ContactListSyncManagerSyncRequestEventArgs {
-    request: ContactListSyncManagerSyncRequest;
+  export class ContactDataProviderTriggerDetails {
+    connection: ContactDataProviderConnection;
     constructor();
-
-    getDeferral(): Object;
 
   }
 
-  export class ContactListServerSearchReadBatchRequestEventArgs {
-    request: ContactListServerSearchReadBatchRequest;
+  export class ContactListCreateOrUpdateContactRequest {
+    contact: Object;
+    contactListId: String;
     constructor();
 
-    getDeferral(): Object;
+    reportCompletedAsync(createdOrUpdatedContact: Object, callback: (error: Error) => void): void ;
+
+    reportFailedAsync(callback: (error: Error) => void): void ;
 
   }
 
@@ -55,6 +56,17 @@
 
   }
 
+  export class ContactListDeleteContactRequest {
+    contactId: String;
+    contactListId: String;
+    constructor();
+
+    reportCompletedAsync(callback: (error: Error) => void): void ;
+
+    reportFailedAsync(callback: (error: Error) => void): void ;
+
+  }
+
   export class ContactListDeleteContactRequestEventArgs {
     request: ContactListDeleteContactRequest;
     constructor();
@@ -63,56 +75,44 @@
 
   }
 
-  export class ContactDataProviderTriggerDetails {
-    connection: ContactDataProviderConnection;
-    constructor();
-
-  }
-
-  export class ContactListSyncManagerSyncRequest {
-    contactListId: string;
-    constructor();
-
-    reportCompletedAsync(callback: (error: Error) => void): void ;
-
-    reportFailedAsync(callback: (error: Error) => void): void ;
-
-  }
-
   export class ContactListServerSearchReadBatchRequest {
-    contactListId: string;
+    contactListId: String;
     options: Object;
-    sessionId: string;
-    suggestedBatchSize: number;
+    sessionId: String;
+    suggestedBatchSize: Number;
     constructor();
 
     saveContactAsync(contact: Object, callback: (error: Error) => void): void ;
 
     reportCompletedAsync(callback: (error: Error) => void): void ;
 
-    reportFailedAsync(batchStatus: number, callback: (error: Error) => void): void ;
+    reportFailedAsync(batchStatus: Number, callback: (error: Error) => void): void ;
 
   }
 
-  export class ContactListCreateOrUpdateContactRequest {
-    contact: Object;
-    contactListId: string;
+  export class ContactListServerSearchReadBatchRequestEventArgs {
+    request: ContactListServerSearchReadBatchRequest;
     constructor();
 
-    reportCompletedAsync(createdOrUpdatedContact: Object, callback: (error: Error) => void): void ;
-
-    reportFailedAsync(callback: (error: Error) => void): void ;
+    getDeferral(): Object;
 
   }
 
-  export class ContactListDeleteContactRequest {
-    contactId: string;
-    contactListId: string;
+  export class ContactListSyncManagerSyncRequest {
+    contactListId: String;
     constructor();
 
     reportCompletedAsync(callback: (error: Error) => void): void ;
 
     reportFailedAsync(callback: (error: Error) => void): void ;
+
+  }
+
+  export class ContactListSyncManagerSyncRequestEventArgs {
+    request: ContactListSyncManagerSyncRequest;
+    constructor();
+
+    getDeferral(): Object;
 
   }
 

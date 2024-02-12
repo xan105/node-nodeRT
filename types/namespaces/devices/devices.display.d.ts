@@ -3,14 +3,14 @@
   }
 
   export class DisplayAdapterId {
-    lowPart: number;
-    highPart: number;
+    lowPart: Number;
+    highPart: Number;
     constructor();
   }
 
   export class SizeInt32 {
-    width: number;
-    height: number;
+    width: Number;
+    height: Number;
     constructor();
   }
 
@@ -25,6 +25,11 @@
     virtual,
   }
 
+  export enum DisplayMonitorDescriptorKind {
+    edid,
+    displayId,
+  }
+
   export enum DisplayMonitorPhysicalConnectorKind {
     unknown,
     hD15,
@@ -36,11 +41,6 @@
     displayPort,
   }
 
-  export enum DisplayMonitorDescriptorKind {
-    edid,
-    displayId,
-  }
-
   export enum DisplayMonitorUsageKind {
     standard,
     headMounted,
@@ -50,35 +50,42 @@
   export class DisplayMonitor {
     bluePrimary: Object;
     connectionKind: DisplayMonitorConnectionKind;
-    deviceId: string;
-    displayAdapterDeviceId: string;
+    deviceId: String;
+    displayAdapterDeviceId: String;
     displayAdapterId: DisplayAdapterId;
-    displayAdapterTargetId: number;
-    displayName: string;
+    displayAdapterTargetId: Number;
+    displayName: String;
     greenPrimary: Object;
-    maxAverageFullFrameLuminanceInNits: number;
-    maxLuminanceInNits: number;
-    minLuminanceInNits: number;
+    maxAverageFullFrameLuminanceInNits: Number;
+    maxLuminanceInNits: Number;
+    minLuminanceInNits: Number;
     nativeResolutionInRawPixels: SizeInt32;
     physicalConnector: DisplayMonitorPhysicalConnectorKind;
     physicalSizeInInches: Object;
-    rawDpiX: number;
-    rawDpiY: number;
+    rawDpiX: Number;
+    rawDpiY: Number;
     redPrimary: Object;
     usageKind: DisplayMonitorUsageKind;
     whitePoint: Object;
+    isDolbyVisionSupportedInHdrMode: Boolean;
     constructor();
 
-    static fromIdAsync(deviceId: string, callback: (error: Error, result: DisplayMonitor) => void): void ;
+    static fromIdAsync(deviceId: String, callback: (error: Error, result: DisplayMonitor) => void): void ;
 
 
-    static fromInterfaceIdAsync(deviceInterfaceId: string, callback: (error: Error, result: DisplayMonitor) => void): void ;
+    static fromInterfaceIdAsync(deviceInterfaceId: String, callback: (error: Error, result: DisplayMonitor) => void): void ;
 
 
-    static getDeviceSelector(): string;
+    static getDeviceSelector(): String;
 
 
-    getDescriptor(descriptorKind: DisplayMonitorDescriptorKind): Array<number>;
+    getDescriptor(descriptorKind: DisplayMonitorDescriptorKind): Array<Number>;
 
   }
 
+export const DisplayMonitorConnectionKind: any;
+export const DisplayMonitorDescriptorKind: any;
+export const DisplayMonitorPhysicalConnectorKind: any;
+export const DisplayMonitorUsageKind: any;
+export const DisplayMonitor: any;
+export * as core from "./devices.display.core.js";

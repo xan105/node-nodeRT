@@ -1,31 +1,28 @@
   export class SizeInt32 {
-    width: number;
-    height: number;
+    width: Number;
+    height: Number;
     constructor();
   }
 
-  export class GraphicsCaptureItem {
-    displayName: string;
-    size: SizeInt32;
+  export class WindowId {
+    value: Number;
     constructor();
+  }
 
-    addListener(type: "Closed", listener: (ev: Event) => void): void ;
-    removeListener(type: "Closed", listener: (ev: Event) => void): void ;
-    on(type: "Closed", listener: (ev: Event) => void): void ;
-    off(type: "Closed", listener: (ev: Event) => void): void ;
-    
-    addListener(type: string, listener: (ev: Event) => void): void ;
-    removeListener(type: string, listener: (ev: Event) => void): void ;
-    on(type: string, listener: (ev: Event) => void): void ;
-    off(type: string, listener: (ev: Event) => void): void ;
-    
+  export class DisplayId {
+    value: Number;
+    constructor();
+  }
 
+  export enum GraphicsCaptureAccessKind {
+    borderless,
+    programmatic,
   }
 
   export class Direct3D11CaptureFrame {
     contentSize: SizeInt32;
     surface: Object;
-    systemRelativeTime: number;
+    systemRelativeTime: Number;
     constructor();
 
     close(): void;
@@ -35,10 +32,13 @@
     dispatcherQueue: Object;
     constructor();
 
-    static create(device: Object, pixelFormat: number, numberOfBuffers: number, size: SizeInt32): Direct3D11CaptureFramePool;
+    static createFreeThreaded(device: Object, pixelFormat: Number, numberOfBuffers: Number, size: SizeInt32): Direct3D11CaptureFramePool;
 
 
-    recreate(device: Object, pixelFormat: number, numberOfBuffers: number, size: SizeInt32): void;
+    static create(device: Object, pixelFormat: Number, numberOfBuffers: Number, size: SizeInt32): Direct3D11CaptureFramePool;
+
+
+    recreate(device: Object, pixelFormat: Number, numberOfBuffers: Number, size: SizeInt32): void;
 
     tryGetNextFrame(): Direct3D11CaptureFrame;
 
@@ -58,15 +58,39 @@
 
   }
 
-  export class GraphicsCaptureSession {
+  export class GraphicsCaptureAccess {
     constructor();
 
-    static isSupported(): boolean;
+    static requestAccessAsync(request: GraphicsCaptureAccessKind, callback: (error: Error, result: Number) => void): void ;
 
 
-    startCapture(): void;
+  }
 
-    close(): void;
+  export class GraphicsCaptureItem {
+    displayName: String;
+    size: SizeInt32;
+    constructor();
+
+    static tryCreateFromWindowId(windowId: WindowId): GraphicsCaptureItem;
+
+
+    static tryCreateFromDisplayId(displayId: DisplayId): GraphicsCaptureItem;
+
+
+    static createFromVisual(visual: Object): GraphicsCaptureItem;
+
+
+    addListener(type: "Closed", listener: (ev: Event) => void): void ;
+    removeListener(type: "Closed", listener: (ev: Event) => void): void ;
+    on(type: "Closed", listener: (ev: Event) => void): void ;
+    off(type: "Closed", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
+
   }
 
   export class GraphicsCapturePicker {
@@ -74,5 +98,18 @@
 
     pickSingleItemAsync(callback: (error: Error, result: GraphicsCaptureItem) => void): void ;
 
+  }
+
+  export class GraphicsCaptureSession {
+    isCursorCaptureEnabled: Boolean;
+    isBorderRequired: Boolean;
+    constructor();
+
+    static isSupported(): Boolean;
+
+
+    startCapture(): void;
+
+    close(): void;
   }
 

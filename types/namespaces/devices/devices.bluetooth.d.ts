@@ -1,6 +1,37 @@
+  export enum BluetoothAddressType {
+    public,
+    random,
+    unspecified,
+  }
+
   export enum BluetoothCacheMode {
     cached,
     uncached,
+  }
+
+  export enum BluetoothConnectionStatus {
+    disconnected,
+    connected,
+  }
+
+  export enum BluetoothError {
+    success,
+    radioNotAvailable,
+    resourceInUse,
+    deviceNotConnected,
+    otherError,
+    disabledByPolicy,
+    notSupported,
+    disabledByUser,
+    consentRequired,
+    transportNotSupported,
+  }
+
+  export enum BluetoothLEPreferredConnectionParametersRequestStatus {
+    unspecified,
+    success,
+    deviceNotAvailable,
+    accessDenied,
   }
 
   export enum BluetoothMajorClass {
@@ -103,120 +134,91 @@
     informationService,
   }
 
-  export enum BluetoothConnectionStatus {
-    disconnected,
-    connected,
-  }
-
-  export enum BluetoothError {
-    success,
-    radioNotAvailable,
-    resourceInUse,
-    deviceNotConnected,
-    otherError,
-    disabledByPolicy,
-    notSupported,
-    disabledByUser,
-    consentRequired,
-    transportNotSupported,
-  }
-
-  export enum BluetoothAddressType {
-    public,
-    random,
-    unspecified,
-  }
-
   export class BluetoothAdapter {
-    bluetoothAddress: number;
-    deviceId: string;
-    isAdvertisementOffloadSupported: boolean;
-    isCentralRoleSupported: boolean;
-    isClassicSupported: boolean;
-    isLowEnergySupported: boolean;
-    isPeripheralRoleSupported: boolean;
-    areClassicSecureConnectionsSupported: boolean;
-    areLowEnergySecureConnectionsSupported: boolean;
+    bluetoothAddress: Number;
+    deviceId: String;
+    isAdvertisementOffloadSupported: Boolean;
+    isCentralRoleSupported: Boolean;
+    isClassicSupported: Boolean;
+    isLowEnergySupported: Boolean;
+    isPeripheralRoleSupported: Boolean;
+    areClassicSecureConnectionsSupported: Boolean;
+    areLowEnergySecureConnectionsSupported: Boolean;
+    isExtendedAdvertisingSupported: Boolean;
+    maxAdvertisementDataLength: Number;
     constructor();
 
-    static fromIdAsync(deviceId: string, callback: (error: Error, result: BluetoothAdapter) => void): void ;
+    static fromIdAsync(deviceId: String, callback: (error: Error, result: BluetoothAdapter) => void): void ;
 
 
     static getDefaultAsync(callback: (error: Error, result: BluetoothAdapter) => void): void ;
 
 
-    static getDeviceSelector(): string;
+    static getDeviceSelector(): String;
 
 
     getRadioAsync(callback: (error: Error, result: Object) => void): void ;
 
   }
 
-  export class BluetoothDeviceId {
-    id: string;
-    isClassicDevice: boolean;
-    isLowEnergyDevice: boolean;
+  export class BluetoothClassOfDevice {
+    majorClass: BluetoothMajorClass;
+    minorClass: BluetoothMinorClass;
+    rawValue: Number;
+    serviceCapabilities: BluetoothServiceCapabilities;
     constructor();
 
-    static fromId(deviceId: string): BluetoothDeviceId;
+    static fromRawValue(rawValue: Number): BluetoothClassOfDevice;
 
 
-  }
-
-  export class BluetoothUuidHelper {
-    constructor();
-
-    static fromShortId(shortId: number): string;
-
-
-    static tryGetShortId(uuid: string): number;
+    static fromParts(majorClass: BluetoothMajorClass, minorClass: BluetoothMinorClass, serviceCapabilities: BluetoothServiceCapabilities): BluetoothClassOfDevice;
 
 
   }
 
   export class BluetoothDevice {
-    bluetoothAddress: number;
+    bluetoothAddress: Number;
     classOfDevice: BluetoothClassOfDevice;
     connectionStatus: BluetoothConnectionStatus;
-    deviceId: string;
+    deviceId: String;
     hostName: Object;
-    name: string;
+    name: String;
     rfcommServices: Object;
     sdpRecords: Object;
     deviceInformation: Object;
     deviceAccessInformation: Object;
     bluetoothDeviceId: BluetoothDeviceId;
-    wasSecureConnectionUsedForPairing: boolean;
+    wasSecureConnectionUsedForPairing: Boolean;
     constructor();
 
-    static fromIdAsync(deviceId: string, callback: (error: Error, result: BluetoothDevice) => void): void ;
+    static fromIdAsync(deviceId: String, callback: (error: Error, result: BluetoothDevice) => void): void ;
 
 
     static fromHostNameAsync(hostName: Object, callback: (error: Error, result: BluetoothDevice) => void): void ;
 
 
-    static fromBluetoothAddressAsync(address: number, callback: (error: Error, result: BluetoothDevice) => void): void ;
+    static fromBluetoothAddressAsync(address: Number, callback: (error: Error, result: BluetoothDevice) => void): void ;
 
 
-    static getDeviceSelectorFromPairingState(pairingState: boolean): string;
+    static getDeviceSelectorFromPairingState(pairingState: Boolean): String;
 
 
-    static getDeviceSelectorFromConnectionStatus(connectionStatus: BluetoothConnectionStatus): string;
+    static getDeviceSelectorFromConnectionStatus(connectionStatus: BluetoothConnectionStatus): String;
 
 
-    static getDeviceSelectorFromDeviceName(deviceName: string): string;
+    static getDeviceSelectorFromDeviceName(deviceName: String): String;
 
 
-    static getDeviceSelectorFromBluetoothAddress(bluetoothAddress: number): string;
+    static getDeviceSelectorFromBluetoothAddress(bluetoothAddress: Number): String;
 
 
-    static getDeviceSelectorFromClassOfDevice(classOfDevice: BluetoothClassOfDevice): string;
+    static getDeviceSelectorFromClassOfDevice(classOfDevice: BluetoothClassOfDevice): String;
 
 
-    static getDeviceSelector(): string;
+    static getDeviceSelector(): String;
 
 
-    requestAccessAsync(callback: (error: Error, result: number) => void): void ;
+    requestAccessAsync(callback: (error: Error, result: Number) => void): void ;
 
     getRfcommServicesAsync(callback: (error: Error, result: Object) => void): void ;
     getRfcommServicesAsync(cacheMode: BluetoothCacheMode, callback: (error: Error, result: Object) => void): void ;
@@ -248,144 +250,169 @@
 
   }
 
-  export class BluetoothClassOfDevice {
-    majorClass: BluetoothMajorClass;
-    minorClass: BluetoothMinorClass;
-    rawValue: number;
-    serviceCapabilities: BluetoothServiceCapabilities;
+  export class BluetoothDeviceId {
+    id: String;
+    isClassicDevice: Boolean;
+    isLowEnergyDevice: Boolean;
     constructor();
 
-    static fromRawValue(rawValue: number): BluetoothClassOfDevice;
+    static fromId(deviceId: String): BluetoothDeviceId;
 
 
-    static fromParts(majorClass: BluetoothMajorClass, minorClass: BluetoothMinorClass, serviceCapabilities: BluetoothServiceCapabilities): BluetoothClassOfDevice;
+  }
+
+  export class BluetoothLEAppearance {
+    category: Number;
+    rawValue: Number;
+    subCategory: Number;
+    constructor();
+
+    static fromRawValue(rawValue: Number): BluetoothLEAppearance;
+
+
+    static fromParts(appearanceCategory: Number, appearanceSubCategory: Number): BluetoothLEAppearance;
 
 
   }
 
   export class BluetoothLEAppearanceCategories {
-    static barcodeScanner: number;
-    static bloodPressure: number;
-    static clock: number;
-    static computer: number;
-    static cycling: number;
-    static display: number;
-    static eyeGlasses: number;
-    static glucoseMeter: number;
-    static heartRate: number;
-    static humanInterfaceDevice: number;
-    static keyring: number;
-    static mediaPlayer: number;
-    static outdoorSportActivity: number;
-    static phone: number;
-    static pulseOximeter: number;
-    static remoteControl: number;
-    static runningWalking: number;
-    static tag: number;
-    static thermometer: number;
-    static uncategorized: number;
-    static watch: number;
-    static weightScale: number;
+    static barcodeScanner: Number;
+    static bloodPressure: Number;
+    static clock: Number;
+    static computer: Number;
+    static cycling: Number;
+    static display: Number;
+    static eyeGlasses: Number;
+    static glucoseMeter: Number;
+    static heartRate: Number;
+    static humanInterfaceDevice: Number;
+    static keyring: Number;
+    static mediaPlayer: Number;
+    static outdoorSportActivity: Number;
+    static phone: Number;
+    static pulseOximeter: Number;
+    static remoteControl: Number;
+    static runningWalking: Number;
+    static tag: Number;
+    static thermometer: Number;
+    static uncategorized: Number;
+    static watch: Number;
+    static weightScale: Number;
     constructor();
 
   }
 
   export class BluetoothLEAppearanceSubcategories {
-    static barcodeScanner: number;
-    static bloodPressureArm: number;
-    static bloodPressureWrist: number;
-    static cardReader: number;
-    static cyclingCadenceSensor: number;
-    static cyclingComputer: number;
-    static cyclingPowerSensor: number;
-    static cyclingSpeedCadenceSensor: number;
-    static cyclingSpeedSensor: number;
-    static digitalPen: number;
-    static digitizerTablet: number;
-    static gamepad: number;
-    static generic: number;
-    static heartRateBelt: number;
-    static joystick: number;
-    static keyboard: number;
-    static locationDisplay: number;
-    static locationNavigationDisplay: number;
-    static locationNavigationPod: number;
-    static locationPod: number;
-    static mouse: number;
-    static oximeterFingertip: number;
-    static oximeterWristWorn: number;
-    static runningWalkingInShoe: number;
-    static runningWalkingOnHip: number;
-    static runningWalkingOnShoe: number;
-    static sportsWatch: number;
-    static thermometerEar: number;
+    static barcodeScanner: Number;
+    static bloodPressureArm: Number;
+    static bloodPressureWrist: Number;
+    static cardReader: Number;
+    static cyclingCadenceSensor: Number;
+    static cyclingComputer: Number;
+    static cyclingPowerSensor: Number;
+    static cyclingSpeedCadenceSensor: Number;
+    static cyclingSpeedSensor: Number;
+    static digitalPen: Number;
+    static digitizerTablet: Number;
+    static gamepad: Number;
+    static generic: Number;
+    static heartRateBelt: Number;
+    static joystick: Number;
+    static keyboard: Number;
+    static locationDisplay: Number;
+    static locationNavigationDisplay: Number;
+    static locationNavigationPod: Number;
+    static locationPod: Number;
+    static mouse: Number;
+    static oximeterFingertip: Number;
+    static oximeterWristWorn: Number;
+    static runningWalkingInShoe: Number;
+    static runningWalkingOnHip: Number;
+    static runningWalkingOnShoe: Number;
+    static sportsWatch: Number;
+    static thermometerEar: Number;
     constructor();
 
   }
 
-  export class BluetoothLEAppearance {
-    category: number;
-    rawValue: number;
-    subCategory: number;
+  export class BluetoothLEConnectionParameters {
+    connectionInterval: Number;
+    connectionLatency: Number;
+    linkTimeout: Number;
     constructor();
 
-    static fromRawValue(rawValue: number): BluetoothLEAppearance;
+  }
 
+  export class BluetoothLEConnectionPhy {
+    receiveInfo: BluetoothLEConnectionPhyInfo;
+    transmitInfo: BluetoothLEConnectionPhyInfo;
+    constructor();
 
-    static fromParts(appearanceCategory: number, appearanceSubCategory: number): BluetoothLEAppearance;
+  }
 
+  export class BluetoothLEConnectionPhyInfo {
+    isCodedPhy: Boolean;
+    isUncoded1MPhy: Boolean;
+    isUncoded2MPhy: Boolean;
+    constructor();
 
   }
 
   export class BluetoothLEDevice {
-    bluetoothAddress: number;
+    bluetoothAddress: Number;
     connectionStatus: BluetoothConnectionStatus;
-    deviceId: string;
+    deviceId: String;
     gattServices: Object;
-    name: string;
+    name: String;
     appearance: BluetoothLEAppearance;
     bluetoothAddressType: BluetoothAddressType;
     deviceInformation: Object;
     deviceAccessInformation: Object;
     bluetoothDeviceId: BluetoothDeviceId;
-    wasSecureConnectionUsedForPairing: boolean;
+    wasSecureConnectionUsedForPairing: Boolean;
     constructor();
 
-    static fromBluetoothAddressAsync(bluetoothAddress: number, bluetoothAddressType: BluetoothAddressType, callback: (error: Error, result: BluetoothLEDevice) => void): void ;
-    static fromBluetoothAddressAsync(bluetoothAddress: number, callback: (error: Error, result: BluetoothLEDevice) => void): void ;
+    static fromBluetoothAddressAsync(bluetoothAddress: Number, bluetoothAddressType: BluetoothAddressType, callback: (error: Error, result: BluetoothLEDevice) => void): void ;
+    static fromBluetoothAddressAsync(bluetoothAddress: Number, callback: (error: Error, result: BluetoothLEDevice) => void): void ;
 
 
-    static fromIdAsync(deviceId: string, callback: (error: Error, result: BluetoothLEDevice) => void): void ;
+    static fromIdAsync(deviceId: String, callback: (error: Error, result: BluetoothLEDevice) => void): void ;
 
 
-    static getDeviceSelectorFromPairingState(pairingState: boolean): string;
+    static getDeviceSelectorFromPairingState(pairingState: Boolean): String;
 
 
-    static getDeviceSelectorFromConnectionStatus(connectionStatus: BluetoothConnectionStatus): string;
+    static getDeviceSelectorFromConnectionStatus(connectionStatus: BluetoothConnectionStatus): String;
 
 
-    static getDeviceSelectorFromDeviceName(deviceName: string): string;
+    static getDeviceSelectorFromDeviceName(deviceName: String): String;
 
 
-    static getDeviceSelectorFromBluetoothAddress(bluetoothAddress: number): string;
-    static getDeviceSelectorFromBluetoothAddress(bluetoothAddress: number, bluetoothAddressType: BluetoothAddressType): string;
+    static getDeviceSelectorFromBluetoothAddress(bluetoothAddress: Number): String;
+    static getDeviceSelectorFromBluetoothAddress(bluetoothAddress: Number, bluetoothAddressType: BluetoothAddressType): String;
 
 
-    static getDeviceSelectorFromAppearance(appearance: BluetoothLEAppearance): string;
+    static getDeviceSelectorFromAppearance(appearance: BluetoothLEAppearance): String;
 
 
-    static getDeviceSelector(): string;
+    static getDeviceSelector(): String;
 
 
-    requestAccessAsync(callback: (error: Error, result: number) => void): void ;
+    requestAccessAsync(callback: (error: Error, result: Number) => void): void ;
 
     getGattServicesAsync(callback: (error: Error, result: Object) => void): void ;
     getGattServicesAsync(cacheMode: BluetoothCacheMode, callback: (error: Error, result: Object) => void): void ;
 
-    getGattServicesForUuidAsync(serviceUuid: string, callback: (error: Error, result: Object) => void): void ;
-    getGattServicesForUuidAsync(serviceUuid: string, cacheMode: BluetoothCacheMode, callback: (error: Error, result: Object) => void): void ;
+    getGattServicesForUuidAsync(serviceUuid: String, callback: (error: Error, result: Object) => void): void ;
+    getGattServicesForUuidAsync(serviceUuid: String, cacheMode: BluetoothCacheMode, callback: (error: Error, result: Object) => void): void ;
 
-    getGattService(serviceUuid: string): Object;
+    getGattService(serviceUuid: String): Object;
+
+    getConnectionParameters(): BluetoothLEConnectionParameters;
+
+    getConnectionPhy(): BluetoothLEConnectionPhy;
+
+    requestPreferredConnectionParameters(preferredConnectionParameters: BluetoothLEPreferredConnectionParameters): BluetoothLEPreferredConnectionParametersRequest;
 
     close(): void;
     addListener(type: "ConnectionStatusChanged", listener: (ev: Event) => void): void ;
@@ -403,6 +430,16 @@
     on(type: "NameChanged", listener: (ev: Event) => void): void ;
     off(type: "NameChanged", listener: (ev: Event) => void): void ;
     
+    addListener(type: "ConnectionParametersChanged", listener: (ev: Event) => void): void ;
+    removeListener(type: "ConnectionParametersChanged", listener: (ev: Event) => void): void ;
+    on(type: "ConnectionParametersChanged", listener: (ev: Event) => void): void ;
+    off(type: "ConnectionParametersChanged", listener: (ev: Event) => void): void ;
+    
+    addListener(type: "ConnectionPhyChanged", listener: (ev: Event) => void): void ;
+    removeListener(type: "ConnectionPhyChanged", listener: (ev: Event) => void): void ;
+    on(type: "ConnectionPhyChanged", listener: (ev: Event) => void): void ;
+    off(type: "ConnectionPhyChanged", listener: (ev: Event) => void): void ;
+    
     addListener(type: string, listener: (ev: Event) => void): void ;
     removeListener(type: string, listener: (ev: Event) => void): void ;
     on(type: string, listener: (ev: Event) => void): void ;
@@ -411,15 +448,68 @@
 
   }
 
-  export class BluetoothSignalStrengthFilter {
-    samplingInterval: number;
-    outOfRangeTimeout: number;
-    outOfRangeThresholdInDBm: number;
-    inRangeThresholdInDBm: number;
+  export class BluetoothLEPreferredConnectionParameters {
+    static balanced: BluetoothLEPreferredConnectionParameters;
+    static powerOptimized: BluetoothLEPreferredConnectionParameters;
+    static throughputOptimized: BluetoothLEPreferredConnectionParameters;
+    connectionLatency: Number;
+    linkTimeout: Number;
+    maxConnectionInterval: Number;
+    minConnectionInterval: Number;
     constructor();
 
   }
 
+  export class BluetoothLEPreferredConnectionParametersRequest {
+    status: BluetoothLEPreferredConnectionParametersRequestStatus;
+    constructor();
+
+    close(): void;
+  }
+
+  export class BluetoothSignalStrengthFilter {
+    samplingInterval: Number;
+    outOfRangeTimeout: Number;
+    outOfRangeThresholdInDBm: Number;
+    inRangeThresholdInDBm: Number;
+    constructor();
+
+  }
+
+  export class BluetoothUuidHelper {
+    constructor();
+
+    static fromShortId(shortId: Number): String;
+
+
+    static tryGetShortId(uuid: String): Number;
+
+
+  }
+
+export const BluetoothAddressType: any;
+export const BluetoothCacheMode: any;
+export const BluetoothConnectionStatus: any;
+export const BluetoothError: any;
+export const BluetoothLEPreferredConnectionParametersRequestStatus: any;
+export const BluetoothMajorClass: any;
+export const BluetoothMinorClass: any;
+export const BluetoothServiceCapabilities: any;
+export const BluetoothAdapter: any;
+export const BluetoothClassOfDevice: any;
+export const BluetoothDevice: any;
+export const BluetoothDeviceId: any;
+export const BluetoothLEAppearance: any;
+export const BluetoothLEAppearanceCategories: any;
+export const BluetoothLEAppearanceSubcategories: any;
+export const BluetoothLEConnectionParameters: any;
+export const BluetoothLEConnectionPhy: any;
+export const BluetoothLEConnectionPhyInfo: any;
+export const BluetoothLEDevice: any;
+export const BluetoothLEPreferredConnectionParameters: any;
+export const BluetoothLEPreferredConnectionParametersRequest: any;
+export const BluetoothSignalStrengthFilter: any;
+export const BluetoothUuidHelper: any;
 export * as advertisement from "./devices.bluetooth.advertisement.js";
 export * as background from "./devices.bluetooth.background.js";
 export * as genericattributeprofile from "./devices.bluetooth.genericattributeprofile.js";

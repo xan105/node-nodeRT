@@ -9,18 +9,39 @@
     notSupported,
   }
 
+  export class LocalCategories {
+    static all: String;
+    static bankAndCreditUnions: String;
+    static eatDrink: String;
+    static hospitals: String;
+    static hotelsAndMotels: String;
+    static parking: String;
+    static seeDo: String;
+    static shop: String;
+    constructor();
+
+  }
+
   export class LocalLocation {
     address: Object;
-    dataAttribution: string;
-    description: string;
-    displayName: string;
-    identifier: string;
-    phoneNumber: string;
+    dataAttribution: String;
+    description: String;
+    displayName: String;
+    identifier: String;
+    phoneNumber: String;
     point: Object;
-    category: string;
+    category: String;
     hoursOfOperation: Object;
     ratingInfo: LocalLocationRatingInfo;
     constructor();
+
+  }
+
+  export class LocalLocationFinder {
+    constructor();
+
+    static findLocalLocationsAsync(searchTerm: String, searchArea: Object, localCategory: String, maxResults: Number, callback: (error: Error, result: LocalLocationFinderResult) => void): void ;
+
 
   }
 
@@ -31,39 +52,18 @@
 
   }
 
-  export class LocalLocationRatingInfo {
-    aggregateRating: number;
-    providerIdentifier: string;
-    ratingCount: number;
-    constructor();
-
-  }
-
   export class LocalLocationHoursOfOperationItem {
-    day: number;
-    span: number;
-    start: number;
+    day: Number;
+    span: Number;
+    start: Number;
     constructor();
 
   }
 
-  export class LocalLocationFinder {
-    constructor();
-
-    static findLocalLocationsAsync(searchTerm: string, searchArea: Object, localCategory: string, maxResults: number, callback: (error: Error, result: LocalLocationFinderResult) => void): void ;
-
-
-  }
-
-  export class LocalCategories {
-    static all: string;
-    static bankAndCreditUnions: string;
-    static eatDrink: string;
-    static hospitals: string;
-    static hotelsAndMotels: string;
-    static parking: string;
-    static seeDo: string;
-    static shop: string;
+  export class LocalLocationRatingInfo {
+    aggregateRating: Number;
+    providerIdentifier: String;
+    ratingCount: Number;
     constructor();
 
   }

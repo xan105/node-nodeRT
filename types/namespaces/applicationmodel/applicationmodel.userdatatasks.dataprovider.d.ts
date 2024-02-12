@@ -36,27 +36,20 @@
 
   }
 
-  export class UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
-    request: UserDataTaskListCreateOrUpdateTaskRequest;
+  export class UserDataTaskDataProviderTriggerDetails {
+    connection: UserDataTaskDataProviderConnection;
     constructor();
-
-    getDeferral(): Object;
 
   }
 
-  export class UserDataTaskListSyncManagerSyncRequestEventArgs {
-    request: UserDataTaskListSyncManagerSyncRequest;
+  export class UserDataTaskListCompleteTaskRequest {
+    taskId: String;
+    taskListId: String;
     constructor();
 
-    getDeferral(): Object;
+    reportCompletedAsync(completedTaskId: String, callback: (error: Error) => void): void ;
 
-  }
-
-  export class UserDataTaskListSkipOccurrenceRequestEventArgs {
-    request: UserDataTaskListSkipOccurrenceRequest;
-    constructor();
-
-    getDeferral(): Object;
+    reportFailedAsync(callback: (error: Error) => void): void ;
 
   }
 
@@ -68,23 +61,9 @@
 
   }
 
-  export class UserDataTaskListDeleteTaskRequestEventArgs {
-    request: UserDataTaskListDeleteTaskRequest;
-    constructor();
-
-    getDeferral(): Object;
-
-  }
-
-  export class UserDataTaskDataProviderTriggerDetails {
-    connection: UserDataTaskDataProviderConnection;
-    constructor();
-
-  }
-
   export class UserDataTaskListCreateOrUpdateTaskRequest {
     task: Object;
-    taskListId: string;
+    taskListId: String;
     constructor();
 
     reportCompletedAsync(createdOrUpdatedUserDataTask: Object, callback: (error: Error) => void): void ;
@@ -93,46 +72,67 @@
 
   }
 
-  export class UserDataTaskListSyncManagerSyncRequest {
-    taskListId: string;
+  export class UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
+    request: UserDataTaskListCreateOrUpdateTaskRequest;
     constructor();
 
-    reportCompletedAsync(callback: (error: Error) => void): void ;
-
-    reportFailedAsync(callback: (error: Error) => void): void ;
-
-  }
-
-  export class UserDataTaskListSkipOccurrenceRequest {
-    taskId: string;
-    taskListId: string;
-    constructor();
-
-    reportCompletedAsync(callback: (error: Error) => void): void ;
-
-    reportFailedAsync(callback: (error: Error) => void): void ;
-
-  }
-
-  export class UserDataTaskListCompleteTaskRequest {
-    taskId: string;
-    taskListId: string;
-    constructor();
-
-    reportCompletedAsync(completedTaskId: string, callback: (error: Error) => void): void ;
-
-    reportFailedAsync(callback: (error: Error) => void): void ;
+    getDeferral(): Object;
 
   }
 
   export class UserDataTaskListDeleteTaskRequest {
-    taskId: string;
-    taskListId: string;
+    taskId: String;
+    taskListId: String;
     constructor();
 
     reportCompletedAsync(callback: (error: Error) => void): void ;
 
     reportFailedAsync(callback: (error: Error) => void): void ;
+
+  }
+
+  export class UserDataTaskListDeleteTaskRequestEventArgs {
+    request: UserDataTaskListDeleteTaskRequest;
+    constructor();
+
+    getDeferral(): Object;
+
+  }
+
+  export class UserDataTaskListSkipOccurrenceRequest {
+    taskId: String;
+    taskListId: String;
+    constructor();
+
+    reportCompletedAsync(callback: (error: Error) => void): void ;
+
+    reportFailedAsync(callback: (error: Error) => void): void ;
+
+  }
+
+  export class UserDataTaskListSkipOccurrenceRequestEventArgs {
+    request: UserDataTaskListSkipOccurrenceRequest;
+    constructor();
+
+    getDeferral(): Object;
+
+  }
+
+  export class UserDataTaskListSyncManagerSyncRequest {
+    taskListId: String;
+    constructor();
+
+    reportCompletedAsync(callback: (error: Error) => void): void ;
+
+    reportFailedAsync(callback: (error: Error) => void): void ;
+
+  }
+
+  export class UserDataTaskListSyncManagerSyncRequestEventArgs {
+    request: UserDataTaskListSyncManagerSyncRequest;
+    constructor();
+
+    getDeferral(): Object;
 
   }
 

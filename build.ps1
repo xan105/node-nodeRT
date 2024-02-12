@@ -38,7 +38,7 @@ foreach($scope in Get-ChildItem .\packages -File){
     & { npx prebuildify --t $runtime@$target --strip --arch x64 --platform win32 --cwd "node_modules/@nodert-$scope/$name" } 2>&1 > .\logs\build\$runtime\$abi\$name.log
     if ($LASTEXITCODE -eq 0) {
       Write-Host " [Ok]" -ForegroundColor Green
-      Move-Item -Path .\node_modules\@nodert-$scope\$name\prebuilds\win32-x64\$runtime.$abi.node -Destination .\prebuilds\$runtime\$abi\$name.node -Force
+      Move-Item -Path .\node_modules\@nodert-$scope\$name\prebuilds\win32-x64\@nodert-$scope+$name.node -Destination .\prebuilds\$runtime\$abi\$name.node -Force
     } else {
       Write-Host " [Fail]" -ForegroundColor Red
       Write-Output $name >> .\logs\build\$runtime\failed.$abi.txt

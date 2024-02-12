@@ -1,31 +1,13 @@
   export class TextSegment {
-    startPosition: number;
-    length: number;
+    startPosition: Number;
+    length: Number;
     constructor();
   }
 
   export class SortEntry {
-    propertyName: string;
-    ascendingOrder: boolean;
+    propertyName: String;
+    ascendingOrder: Boolean;
     constructor();
-  }
-
-  export enum DateStackOption {
-    none,
-    year,
-    month,
-  }
-
-  export enum IndexerOption {
-    useIndexerWhenAvailable,
-    onlyUseIndexer,
-    doNotUseIndexer,
-    onlyUseIndexerAndOptimizeForIndexedProperties,
-  }
-
-  export enum FolderDepth {
-    shallow,
-    deep,
   }
 
   export enum CommonFileQuery {
@@ -53,6 +35,17 @@
     groupByType,
   }
 
+  export enum DateStackOption {
+    none,
+    year,
+    month,
+  }
+
+  export enum FolderDepth {
+    shallow,
+    deep,
+  }
+
   export enum IndexedState {
     unknown,
     notIndexed,
@@ -60,11 +53,18 @@
     fullyIndexed,
   }
 
+  export enum IndexerOption {
+    useIndexerWhenAvailable,
+    onlyUseIndexer,
+    doNotUseIndexer,
+    onlyUseIndexerAndOptimizeForIndexedProperties,
+  }
+
   export class ContentIndexer {
-    revision: number;
+    revision: Number;
     constructor();
 
-    static getIndexer(indexName: string): ContentIndexer;
+    static getIndexer(indexName: String): ContentIndexer;
     static getIndexer(): ContentIndexer;
 
 
@@ -72,33 +72,17 @@
 
     updateAsync(indexableContent: IIndexableContent, callback: (error: Error) => void): void ;
 
-    deleteAsync(contentId: string, callback: (error: Error) => void): void ;
+    deleteAsync(contentId: String, callback: (error: Error) => void): void ;
 
     deleteMultipleAsync(contentIds: Object, callback: (error: Error) => void): void ;
 
     deleteAllAsync(callback: (error: Error) => void): void ;
 
-    retrievePropertiesAsync(contentId: string, propertiesToRetrieve: Object, callback: (error: Error, result: Object) => void): void ;
+    retrievePropertiesAsync(contentId: String, propertiesToRetrieve: Object, callback: (error: Error, result: Object) => void): void ;
 
-    createQuery(searchFilter: string, propertiesToRetrieve: Object, sortOrder: Object, searchFilterLanguage: string): ContentIndexerQuery;
-    createQuery(searchFilter: string, propertiesToRetrieve: Object, sortOrder: Object): ContentIndexerQuery;
-    createQuery(searchFilter: string, propertiesToRetrieve: Object): ContentIndexerQuery;
-
-  }
-
-  export class IIndexableContent {
-    id: string;
-    properties: Object;
-    stream: Object;
-    streamContentType: string;
-    constructor();
-
-  }
-
-  export class ValueAndLanguage {
-    value: Object;
-    language: string;
-    constructor();
+    createQuery(searchFilter: String, propertiesToRetrieve: Object, sortOrder: Object, searchFilterLanguage: String): ContentIndexerQuery;
+    createQuery(searchFilter: String, propertiesToRetrieve: Object, sortOrder: Object): ContentIndexerQuery;
+    createQuery(searchFilter: String, propertiesToRetrieve: Object): ContentIndexerQuery;
 
   }
 
@@ -106,47 +90,57 @@
     queryFolder: Object;
     constructor();
 
-    getCountAsync(callback: (error: Error, result: number) => void): void ;
+    getCountAsync(callback: (error: Error, result: Number) => void): void ;
 
     getPropertiesAsync(callback: (error: Error, result: Object) => void): void ;
-    getPropertiesAsync(startIndex: number, maxItems: number, callback: (error: Error, result: Object) => void): void ;
+    getPropertiesAsync(startIndex: Number, maxItems: Number, callback: (error: Error, result: Object) => void): void ;
 
     getAsync(callback: (error: Error, result: Object) => void): void ;
-    getAsync(startIndex: number, maxItems: number, callback: (error: Error, result: Object) => void): void ;
+    getAsync(startIndex: Number, maxItems: Number, callback: (error: Error, result: Object) => void): void ;
 
   }
 
-  export class IndexableContent {
-    streamContentType: string;
-    stream: Object;
-    id: string;
+  export class IIndexableContent {
+    id: String;
     properties: Object;
+    stream: Object;
+    streamContentType: String;
     constructor();
 
   }
 
-  export class QueryOptions {
-    userSearchFilter: string;
-    language: string;
-    indexerOption: IndexerOption;
-    folderDepth: FolderDepth;
-    applicationSearchFilter: string;
-    dateStackOption: DateStackOption;
-    fileTypeFilter: Object;
-    groupPropertyName: string;
-    sortOrder: Object;
-    storageProviderIdFilter: Object;
+  export class IStorageFolderQueryOperations {
     constructor();
-    constructor(query: CommonFileQuery, fileTypeFilter: Object);
-    constructor(query: CommonFolderQuery);
 
-    saveToString(): string;
+    getIndexedStateAsync(callback: (error: Error, result: IndexedState) => void): void ;
 
-    loadFromString(value: string): void;
+    getFilesAsync(query: CommonFileQuery, startIndex: Number, maxItemsToRetrieve: Number, callback: (error: Error, result: Object) => void): void ;
+    getFilesAsync(query: CommonFileQuery, callback: (error: Error, result: Object) => void): void ;
 
-    setThumbnailPrefetch(mode: number, requestedSize: number, options: number): void;
+    getFoldersAsync(query: CommonFolderQuery, startIndex: Number, maxItemsToRetrieve: Number, callback: (error: Error, result: Object) => void): void ;
+    getFoldersAsync(query: CommonFolderQuery, callback: (error: Error, result: Object) => void): void ;
 
-    setPropertyPrefetch(options: number, propertiesToRetrieve: Object): void;
+    getItemsAsync(startIndex: Number, maxItemsToRetrieve: Number, callback: (error: Error, result: Object) => void): void ;
+
+    createFileQuery(): StorageFileQueryResult;
+    createFileQuery(query: CommonFileQuery): StorageFileQueryResult;
+
+    createFileQueryWithOptions(queryOptions: QueryOptions): StorageFileQueryResult;
+
+    createFolderQuery(): StorageFolderQueryResult;
+    createFolderQuery(query: CommonFolderQuery): StorageFolderQueryResult;
+
+    createFolderQueryWithOptions(queryOptions: QueryOptions): StorageFolderQueryResult;
+
+    createItemQuery(): StorageItemQueryResult;
+
+    createItemQueryWithOptions(queryOptions: QueryOptions): StorageItemQueryResult;
+
+    areQueryOptionsSupported(queryOptions: QueryOptions): Boolean;
+
+    isCommonFolderQuerySupported(query: CommonFolderQuery): Boolean;
+
+    isCommonFileQuerySupported(query: CommonFileQuery): Boolean;
 
   }
 
@@ -154,9 +148,9 @@
     folder: Object;
     constructor();
 
-    getItemCountAsync(callback: (error: Error, result: number) => void): void ;
+    getItemCountAsync(callback: (error: Error, result: Number) => void): void ;
 
-    findStartIndexAsync(value: Object, callback: (error: Error, result: number) => void): void ;
+    findStartIndexAsync(value: Object, callback: (error: Error, result: Number) => void): void ;
 
     getCurrentQueryOptions(): QueryOptions;
 
@@ -180,38 +174,65 @@
 
   }
 
-  export class IStorageFolderQueryOperations {
+  export class IndexableContent {
+    streamContentType: String;
+    stream: Object;
+    id: String;
+    properties: Object;
     constructor();
 
-    getIndexedStateAsync(callback: (error: Error, result: IndexedState) => void): void ;
+  }
 
-    getFilesAsync(query: CommonFileQuery, startIndex: number, maxItemsToRetrieve: number, callback: (error: Error, result: Object) => void): void ;
-    getFilesAsync(query: CommonFileQuery, callback: (error: Error, result: Object) => void): void ;
+  export class QueryOptions {
+    userSearchFilter: String;
+    language: String;
+    indexerOption: IndexerOption;
+    folderDepth: FolderDepth;
+    applicationSearchFilter: String;
+    dateStackOption: DateStackOption;
+    fileTypeFilter: Object;
+    groupPropertyName: String;
+    sortOrder: Object;
+    storageProviderIdFilter: Object;
+    constructor();
+    constructor(query: CommonFileQuery, fileTypeFilter: Object);
+    constructor(query: CommonFolderQuery);
 
-    getFoldersAsync(query: CommonFolderQuery, startIndex: number, maxItemsToRetrieve: number, callback: (error: Error, result: Object) => void): void ;
-    getFoldersAsync(query: CommonFolderQuery, callback: (error: Error, result: Object) => void): void ;
+    saveToString(): String;
 
-    getItemsAsync(startIndex: number, maxItemsToRetrieve: number, callback: (error: Error, result: Object) => void): void ;
+    loadFromString(value: String): void;
 
-    createFileQuery(): StorageFileQueryResult;
-    createFileQuery(query: CommonFileQuery): StorageFileQueryResult;
+    setThumbnailPrefetch(mode: Number, requestedSize: Number, options: Number): void;
 
-    createFileQueryWithOptions(queryOptions: QueryOptions): StorageFileQueryResult;
+    setPropertyPrefetch(options: Number, propertiesToRetrieve: Object): void;
 
-    createFolderQuery(): StorageFolderQueryResult;
-    createFolderQuery(query: CommonFolderQuery): StorageFolderQueryResult;
+  }
 
-    createFolderQueryWithOptions(queryOptions: QueryOptions): StorageFolderQueryResult;
+  export class SortEntryVector {
+    constructor();
 
-    createItemQuery(): StorageItemQueryResult;
+    getAt(index: Number): SortEntry;
 
-    createItemQueryWithOptions(queryOptions: QueryOptions): StorageItemQueryResult;
+    getView(): Object;
 
-    areQueryOptionsSupported(queryOptions: QueryOptions): boolean;
+    indexOf(value: SortEntry, index: Number): Boolean;
 
-    isCommonFolderQuerySupported(query: CommonFolderQuery): boolean;
+    setAt(index: Number, value: SortEntry): void;
 
-    isCommonFileQuerySupported(query: CommonFileQuery): boolean;
+    insertAt(index: Number, value: SortEntry): void;
+
+    removeAt(index: Number): void;
+
+    append(value: SortEntry): void;
+
+    removeAtEnd(): void;
+
+    clear(): void;
+
+    getMany();
+    replaceAll(items: Array<SortEntry>): void;
+
+    first(): Object;
 
   }
 
@@ -219,12 +240,12 @@
     folder: Object;
     constructor();
 
-    getFilesAsync(startIndex: number, maxNumberOfItems: number, callback: (error: Error, result: Object) => void): void ;
+    getFilesAsync(startIndex: Number, maxNumberOfItems: Number, callback: (error: Error, result: Object) => void): void ;
     getFilesAsync(callback: (error: Error, result: Object) => void): void ;
 
-    getItemCountAsync(callback: (error: Error, result: number) => void): void ;
+    getItemCountAsync(callback: (error: Error, result: Number) => void): void ;
 
-    findStartIndexAsync(value: Object, callback: (error: Error, result: number) => void): void ;
+    findStartIndexAsync(value: Object, callback: (error: Error, result: Number) => void): void ;
 
     getCurrentQueryOptions(): QueryOptions;
 
@@ -254,12 +275,12 @@
     folder: Object;
     constructor();
 
-    getFoldersAsync(startIndex: number, maxNumberOfItems: number, callback: (error: Error, result: Object) => void): void ;
+    getFoldersAsync(startIndex: Number, maxNumberOfItems: Number, callback: (error: Error, result: Object) => void): void ;
     getFoldersAsync(callback: (error: Error, result: Object) => void): void ;
 
-    getItemCountAsync(callback: (error: Error, result: number) => void): void ;
+    getItemCountAsync(callback: (error: Error, result: Number) => void): void ;
 
-    findStartIndexAsync(value: Object, callback: (error: Error, result: number) => void): void ;
+    findStartIndexAsync(value: Object, callback: (error: Error, result: Number) => void): void ;
 
     getCurrentQueryOptions(): QueryOptions;
 
@@ -287,12 +308,12 @@
     folder: Object;
     constructor();
 
-    getItemsAsync(startIndex: number, maxNumberOfItems: number, callback: (error: Error, result: Object) => void): void ;
+    getItemsAsync(startIndex: Number, maxNumberOfItems: Number, callback: (error: Error, result: Object) => void): void ;
     getItemsAsync(callback: (error: Error, result: Object) => void): void ;
 
-    getItemCountAsync(callback: (error: Error, result: number) => void): void ;
+    getItemCountAsync(callback: (error: Error, result: Number) => void): void ;
 
-    findStartIndexAsync(value: Object, callback: (error: Error, result: number) => void): void ;
+    findStartIndexAsync(value: Object, callback: (error: Error, result: Number) => void): void ;
 
     getCurrentQueryOptions(): QueryOptions;
 
@@ -316,31 +337,10 @@
 
   }
 
-  export class SortEntryVector {
+  export class StorageLibraryChangeTrackerTriggerDetails {
+    changeTracker: Object;
+    folder: Object;
     constructor();
-
-    getAt(index: number): SortEntry;
-
-    getView(): Object;
-
-    indexOf(value: SortEntry, index: number): boolean;
-
-    setAt(index: number, value: SortEntry): void;
-
-    insertAt(index: number, value: SortEntry): void;
-
-    removeAt(index: number): void;
-
-    append(value: SortEntry): void;
-
-    removeAtEnd(): void;
-
-    clear(): void;
-
-    getMany();
-    replaceAll(items: Array<SortEntry>): void;
-
-    first(): Object;
 
   }
 
@@ -352,9 +352,9 @@
 
   }
 
-  export class StorageLibraryChangeTrackerTriggerDetails {
-    changeTracker: Object;
-    folder: Object;
+  export class ValueAndLanguage {
+    value: Object;
+    language: String;
     constructor();
 
   }

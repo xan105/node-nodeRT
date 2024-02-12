@@ -133,8 +133,4 @@ for (const exportName of list) {
 
 }
 
-await writeJSON(
-  "./out/exports.json",
-  map, 
-  true
-);
+await writeJSON("./build/exports.json", map, { pretty: true });

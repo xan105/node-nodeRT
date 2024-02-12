@@ -14,6 +14,48 @@
     aborted,
   }
 
+  export class DnssdRegistrationResult {
+    hasInstanceNameChanged: Boolean;
+    iPAddress: Object;
+    status: DnssdRegistrationStatus;
+    constructor();
+
+    toString(): String;
+
+  }
+
+  export class DnssdServiceInstance {
+    weight: Number;
+    priority: Number;
+    port: Number;
+    hostName: Object;
+    dnssdServiceInstanceName: String;
+    textAttributes: Object;
+    constructor();
+    constructor(dnssdServiceInstanceName: String, hostName: Object, port: Number);
+
+    registerStreamSocketListenerAsync(socket: Object, callback: (error: Error, result: DnssdRegistrationResult) => void): void ;
+    registerStreamSocketListenerAsync(socket: Object, adapter: Object, callback: (error: Error, result: DnssdRegistrationResult) => void): void ;
+
+    registerDatagramSocketAsync(socket: Object, callback: (error: Error, result: DnssdRegistrationResult) => void): void ;
+    registerDatagramSocketAsync(socket: Object, adapter: Object, callback: (error: Error, result: DnssdRegistrationResult) => void): void ;
+
+    toString(): String;
+
+  }
+
+  export class DnssdServiceInstanceCollection {
+    constructor();
+
+    getAt(index: Number): DnssdServiceInstance;
+
+    indexOf(value: DnssdServiceInstance, index: Number): Boolean;
+
+    getMany();
+    first(): Object;
+
+  }
+
   export class DnssdServiceWatcher {
     status: DnssdServiceWatcherStatus;
     constructor();
@@ -42,48 +84,6 @@
     on(type: string, listener: (ev: Event) => void): void ;
     off(type: string, listener: (ev: Event) => void): void ;
     
-
-  }
-
-  export class DnssdServiceInstance {
-    weight: number;
-    priority: number;
-    port: number;
-    hostName: Object;
-    dnssdServiceInstanceName: string;
-    textAttributes: Object;
-    constructor();
-    constructor(dnssdServiceInstanceName: string, hostName: Object, port: number);
-
-    registerStreamSocketListenerAsync(socket: Object, callback: (error: Error, result: DnssdRegistrationResult) => void): void ;
-    registerStreamSocketListenerAsync(socket: Object, adapter: Object, callback: (error: Error, result: DnssdRegistrationResult) => void): void ;
-
-    registerDatagramSocketAsync(socket: Object, callback: (error: Error, result: DnssdRegistrationResult) => void): void ;
-    registerDatagramSocketAsync(socket: Object, adapter: Object, callback: (error: Error, result: DnssdRegistrationResult) => void): void ;
-
-    toString(): string;
-
-  }
-
-  export class DnssdRegistrationResult {
-    hasInstanceNameChanged: boolean;
-    iPAddress: Object;
-    status: DnssdRegistrationStatus;
-    constructor();
-
-    toString(): string;
-
-  }
-
-  export class DnssdServiceInstanceCollection {
-    constructor();
-
-    getAt(index: number): DnssdServiceInstance;
-
-    indexOf(value: DnssdServiceInstance, index: number): boolean;
-
-    getMany();
-    first(): Object;
 
   }
 

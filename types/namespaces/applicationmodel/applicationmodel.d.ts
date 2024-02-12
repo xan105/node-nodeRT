@@ -6,29 +6,65 @@
     constructor();
   }
 
-  export class StartupTaskContract {
+  export class PackageInstallProgress {
+    percentComplete: Number;
     constructor();
   }
 
   export class PackageVersion {
-    major: number;
-    minor: number;
-    build: number;
-    revision: number;
+    major: Number;
+    minor: Number;
+    build: Number;
+    revision: Number;
     constructor();
   }
 
-  export class PackageInstallProgress {
-    percentComplete: number;
+  export class StartupTaskContract {
     constructor();
   }
 
-  export enum StartupTaskState {
-    disabled,
-    disabledByUser,
-    enabled,
-    disabledByPolicy,
-    enabledByPolicy,
+  export enum AddResourcePackageOptions {
+    none,
+    forceTargetAppShutdown,
+    applyUpdateIfAvailable,
+  }
+
+  export enum AppExecutionContext {
+    unknown,
+    host,
+    guest,
+  }
+
+  export enum AppInstallerPolicySource {
+    default,
+    system,
+  }
+
+  export enum FullTrustLaunchResult {
+    success,
+    accessDenied,
+    fileNotFound,
+    unknown,
+  }
+
+  export enum LimitedAccessFeatureStatus {
+    unavailable,
+    available,
+    availableWithoutToken,
+    unknown,
+  }
+
+  export enum PackageContentGroupState {
+    notStaged,
+    queued,
+    staging,
+    staged,
+  }
+
+  export enum PackageRelationship {
+    dependencies,
+    dependents,
+    all,
   }
 
   export enum PackageSignatureKind {
@@ -39,52 +75,25 @@
     system,
   }
 
-  export enum AddResourcePackageOptions {
-    none,
-    forceTargetAppShutdown,
-    applyUpdateIfAvailable,
+  export enum PackageUpdateAvailability {
+    unknown,
+    noUpdates,
+    available,
+    required,
+    error,
   }
 
-  export enum PackageContentGroupState {
-    notStaged,
-    queued,
-    staging,
-    staged,
-  }
-
-  export class FullTrustProcessLauncher {
-    constructor();
-
-    static launchFullTrustProcessForCurrentAppAsync(callback: (error: Error) => void): void ;
-    static launchFullTrustProcessForCurrentAppAsync(parameterGroupId: string, callback: (error: Error) => void): void ;
-
-
-    static launchFullTrustProcessForAppAsync(fullTrustPackageRelativeAppId: string, callback: (error: Error) => void): void ;
-    static launchFullTrustProcessForAppAsync(fullTrustPackageRelativeAppId: string, parameterGroupId: string, callback: (error: Error) => void): void ;
-
-
-  }
-
-  export class StartupTask {
-    state: StartupTaskState;
-    taskId: string;
-    constructor();
-
-    static getForCurrentPackageAsync(callback: (error: Error, result: Object) => void): void ;
-
-
-    static getAsync(taskId: string, callback: (error: Error, result: StartupTask) => void): void ;
-
-
-    requestEnableAsync(callback: (error: Error, result: StartupTaskState) => void): void ;
-
-    disable(): void;
-
+  export enum StartupTaskState {
+    disabled,
+    disabledByUser,
+    enabled,
+    disabledByPolicy,
+    enabledByPolicy,
   }
 
   export class AppDisplayInfo {
-    description: string;
-    displayName: string;
+    description: String;
+    displayName: String;
     constructor();
 
     getLogo(size: Object): Object;
@@ -92,45 +101,188 @@
   }
 
   export class AppInfo {
-    appUserModelId: string;
+    static current: AppInfo;
+    appUserModelId: String;
     displayInfo: AppDisplayInfo;
-    id: string;
-    packageFamilyName: string;
+    id: String;
+    packageFamilyName: String;
+    package: Package;
+    executionContext: AppExecutionContext;
+    supportedFileExtensions: Array<String>;
     constructor();
+
+    static getFromAppUserModelId(appUserModelId: String): AppInfo;
+
+
+    static getFromAppUserModelIdForUser(user: Object, appUserModelId: String): AppInfo;
+
 
   }
 
-  export class PackageStatus {
-    dataOffline: boolean;
-    dependencyIssue: boolean;
-    deploymentInProgress: boolean;
-    disabled: boolean;
-    licenseIssue: boolean;
-    modified: boolean;
-    needsRemediation: boolean;
-    notAvailable: boolean;
-    packageOffline: boolean;
-    servicing: boolean;
-    tampered: boolean;
-    isPartiallyStaged: boolean;
-    constructor();
-
-    verifyIsOK(): boolean;
-
-  }
-
-  export class PackageId {
-    architecture: number;
-    familyName: string;
-    fullName: string;
-    name: string;
-    publisher: string;
-    publisherId: string;
-    resourceId: string;
+  export class AppInstallerInfo {
+    uri: Object;
+    automaticBackgroundTask: Boolean;
+    dependencyPackageUris: Object;
+    forceUpdateFromAnyVersion: Boolean;
+    hoursBetweenUpdateChecks: Number;
+    isAutoRepairEnabled: Boolean;
+    lastChecked: Date;
+    onLaunch: Boolean;
+    optionalPackageUris: Object;
+    pausedUntil: Date;
+    policySource: AppInstallerPolicySource;
+    repairUris: Object;
+    showPrompt: Boolean;
+    updateBlocksActivation: Boolean;
+    updateUris: Object;
     version: PackageVersion;
-    author: string;
-    productId: string;
     constructor();
+
+  }
+
+  export class AppInstance {
+    static recommendedInstance: AppInstance;
+    isCurrentInstance: Boolean;
+    key: String;
+    constructor();
+
+    static getActivatedEventArgs(): Object;
+
+
+    static findOrRegisterInstanceForKey(key: String): AppInstance;
+
+
+    static unregister(): void;
+
+
+    static getInstances(): Object;
+
+
+    redirectActivationTo(): void;
+
+  }
+
+  export class CameraApplicationManager {
+    constructor();
+
+    static showInstalledApplicationsUI(): void;
+
+
+  }
+
+  export class DesignMode {
+    static designModeEnabled: Boolean;
+    static designMode2Enabled: Boolean;
+    constructor();
+
+  }
+
+  export class EnteredBackgroundEventArgs {
+    constructor();
+
+    getDeferral(): Object;
+
+  }
+
+  export class FindRelatedPackagesOptions {
+    relationship: PackageRelationship;
+    includeResources: Boolean;
+    includeOptionals: Boolean;
+    includeHostRuntimes: Boolean;
+    includeFrameworks: Boolean;
+    constructor();
+    constructor(Relationship: PackageRelationship);
+
+  }
+
+  export class FullTrustProcessLaunchResult {
+    extendedError: Number;
+    launchResult: FullTrustLaunchResult;
+    constructor();
+
+  }
+
+  export class FullTrustProcessLauncher {
+    constructor();
+
+    static launchFullTrustProcessForCurrentAppWithArgumentsAsync(commandLine: String, callback: (error: Error, result: FullTrustProcessLaunchResult) => void): void ;
+
+
+    static launchFullTrustProcessForAppWithArgumentsAsync(fullTrustPackageRelativeAppId: String, commandLine: String, callback: (error: Error, result: FullTrustProcessLaunchResult) => void): void ;
+
+
+    static launchFullTrustProcessForCurrentAppAsync(callback: (error: Error) => void): void ;
+    static launchFullTrustProcessForCurrentAppAsync(parameterGroupId: String, callback: (error: Error) => void): void ;
+
+
+    static launchFullTrustProcessForAppAsync(fullTrustPackageRelativeAppId: String, callback: (error: Error) => void): void ;
+    static launchFullTrustProcessForAppAsync(fullTrustPackageRelativeAppId: String, parameterGroupId: String, callback: (error: Error) => void): void ;
+
+
+  }
+
+  export class IEnteredBackgroundEventArgs {
+    constructor();
+
+    getDeferral(): Object;
+
+  }
+
+  export class ILeavingBackgroundEventArgs {
+    constructor();
+
+    getDeferral(): Object;
+
+  }
+
+  export class IPackageCatalogStatics2 {
+    constructor();
+
+    openForPackage(package: Package): PackageCatalog;
+
+  }
+
+  export class ISuspendingDeferral {
+    constructor();
+
+    complete(): void;
+
+  }
+
+  export class ISuspendingEventArgs {
+    suspendingOperation: SuspendingOperation;
+    constructor();
+
+  }
+
+  export class ISuspendingOperation {
+    deadline: Date;
+    constructor();
+
+    getDeferral(): SuspendingDeferral;
+
+  }
+
+  export class LeavingBackgroundEventArgs {
+    constructor();
+
+    getDeferral(): Object;
+
+  }
+
+  export class LimitedAccessFeatureRequestResult {
+    estimatedRemovalDate: Date;
+    featureId: String;
+    status: LimitedAccessFeatureStatus;
+    constructor();
+
+  }
+
+  export class LimitedAccessFeatures {
+    constructor();
+
+    static tryUnlockFeature(featureId: String, token: String, attestation: String): LimitedAccessFeatureRequestResult;
+
 
   }
 
@@ -139,111 +291,68 @@
     dependencies: Object;
     id: PackageId;
     installedLocation: Object;
-    isFramework: boolean;
-    description: string;
-    displayName: string;
-    isBundle: boolean;
-    isDevelopmentMode: boolean;
-    isResourcePackage: boolean;
+    isFramework: Boolean;
+    description: String;
+    displayName: String;
+    isBundle: Boolean;
+    isDevelopmentMode: Boolean;
+    isResourcePackage: Boolean;
     logo: Object;
-    publisherDisplayName: string;
+    publisherDisplayName: String;
     installedDate: Date;
     status: PackageStatus;
-    isOptional: boolean;
+    isOptional: Boolean;
     signatureKind: PackageSignatureKind;
+    effectiveLocation: Object;
+    mutableLocation: Object;
+    effectiveExternalLocation: Object;
+    effectiveExternalPath: String;
+    effectivePath: String;
+    installedPath: String;
+    isStub: Boolean;
+    machineExternalLocation: Object;
+    machineExternalPath: String;
+    mutablePath: String;
+    userExternalLocation: Object;
+    userExternalPath: String;
+    sourceUriSchemeName: String;
     installDate: Date;
     constructor();
 
     getAppListEntriesAsync(callback: (error: Error, result: Object) => void): void ;
 
-    verifyContentIntegrityAsync(callback: (error: Error, result: boolean) => void): void ;
+    verifyContentIntegrityAsync(callback: (error: Error, result: Boolean) => void): void ;
 
     getContentGroupsAsync(callback: (error: Error, result: Object) => void): void ;
 
-    getContentGroupAsync(name: string, callback: (error: Error, result: PackageContentGroup) => void): void ;
+    getContentGroupAsync(name: String, callback: (error: Error, result: PackageContentGroup) => void): void ;
 
     stageContentGroupsAsync(names: Object, callback: (error: Error, result: Object) => void): void ;
-    stageContentGroupsAsync(names: Object, moveToHeadOfQueue: boolean, callback: (error: Error, result: Object) => void): void ;
+    stageContentGroupsAsync(names: Object, moveToHeadOfQueue: Boolean, callback: (error: Error, result: Object) => void): void ;
 
-    setInUseAsync(inUse: boolean, callback: (error: Error, result: boolean) => void): void ;
+    setInUseAsync(inUse: Boolean, callback: (error: Error, result: Boolean) => void): void ;
 
-    getThumbnailToken(): string;
+    checkUpdateAvailabilityAsync(callback: (error: Error, result: PackageUpdateAvailabilityResult) => void): void ;
 
-    launch(parameters: string): void;
+    getThumbnailToken(): String;
 
-  }
+    launch(parameters: String): void;
 
-  export class PackageContentGroup {
-    static requiredGroupName: string;
-    isRequired: boolean;
-    name: string;
-    package: Package;
-    state: PackageContentGroupState;
-    constructor();
+    getAppInstallerInfo(): AppInstallerInfo;
 
-  }
+    getLogoAsRandomAccessStreamReference(size: Object): Object;
 
-  export class PackageStagingEventArgs {
-    activityId: string;
-    errorCode: number;
-    isComplete: boolean;
-    package: Package;
-    progress: number;
-    constructor();
+    getAppListEntries(): Object;
 
-  }
-
-  export class PackageInstallingEventArgs {
-    activityId: string;
-    errorCode: number;
-    isComplete: boolean;
-    package: Package;
-    progress: number;
-    constructor();
-
-  }
-
-  export class PackageUpdatingEventArgs {
-    activityId: string;
-    errorCode: number;
-    isComplete: boolean;
-    progress: number;
-    sourcePackage: Package;
-    targetPackage: Package;
-    constructor();
-
-  }
-
-  export class PackageUninstallingEventArgs {
-    activityId: string;
-    errorCode: number;
-    isComplete: boolean;
-    package: Package;
-    progress: number;
-    constructor();
-
-  }
-
-  export class PackageStatusChangedEventArgs {
-    package: Package;
-    constructor();
-
-  }
-
-  export class PackageContentGroupStagingEventArgs {
-    activityId: string;
-    contentGroupName: string;
-    errorCode: number;
-    isComplete: boolean;
-    isContentGroupRequired: boolean;
-    package: Package;
-    progress: number;
-    constructor();
+    findRelatedPackages(options: FindRelatedPackagesOptions): Object;
 
   }
 
   export class PackageCatalog {
     constructor();
+
+    static openForPackage(package: Package): PackageCatalog;
+
 
     static openForCurrentPackage(): PackageCatalog;
 
@@ -251,11 +360,11 @@
     static openForCurrentUser(): PackageCatalog;
 
 
-    addOptionalPackageAsync(optionalPackageFamilyName: string, callback: (error: Error, result: PackageCatalogAddOptionalPackageResult) => void): void ;
+    addOptionalPackageAsync(optionalPackageFamilyName: String, callback: (error: Error, result: PackageCatalogAddOptionalPackageResult) => void): void ;
 
     removeOptionalPackagesAsync(optionalPackageFamilyNames: Object, callback: (error: Error, result: PackageCatalogRemoveOptionalPackagesResult) => void): void ;
 
-    addResourcePackageAsync(resourcePackageFamilyName: string, resourceID: string, options: AddResourcePackageOptions, callback: (error: Error, result: PackageCatalogAddResourcePackageResult) => void): void ;
+    addResourcePackageAsync(resourcePackageFamilyName: String, resourceID: String, options: AddResourcePackageOptions, callback: (error: Error, result: PackageCatalogAddResourcePackageResult) => void): void ;
 
     removeResourcePackagesAsync(resourcePackages: Object, callback: (error: Error, result: PackageCatalogRemoveResourcePackagesResult) => void): void ;
 
@@ -298,87 +407,158 @@
   }
 
   export class PackageCatalogAddOptionalPackageResult {
-    extendedError: number;
+    extendedError: Number;
+    package: Package;
+    constructor();
+
+  }
+
+  export class PackageCatalogAddResourcePackageResult {
+    extendedError: Number;
+    isComplete: Boolean;
     package: Package;
     constructor();
 
   }
 
   export class PackageCatalogRemoveOptionalPackagesResult {
-    extendedError: number;
+    extendedError: Number;
     packagesRemoved: Object;
     constructor();
 
   }
 
   export class PackageCatalogRemoveResourcePackagesResult {
-    extendedError: number;
+    extendedError: Number;
     packagesRemoved: Object;
     constructor();
 
   }
 
-  export class PackageCatalogAddResourcePackageResult {
-    extendedError: number;
-    isComplete: boolean;
+  export class PackageContentGroup {
+    static requiredGroupName: String;
+    isRequired: Boolean;
+    name: String;
+    package: Package;
+    state: PackageContentGroupState;
+    constructor();
+
+  }
+
+  export class PackageContentGroupStagingEventArgs {
+    activityId: String;
+    contentGroupName: String;
+    errorCode: Number;
+    isComplete: Boolean;
+    isContentGroupRequired: Boolean;
+    package: Package;
+    progress: Number;
+    constructor();
+
+  }
+
+  export class PackageId {
+    architecture: Number;
+    familyName: String;
+    fullName: String;
+    name: String;
+    publisher: String;
+    publisherId: String;
+    resourceId: String;
+    version: PackageVersion;
+    author: String;
+    productId: String;
+    constructor();
+
+  }
+
+  export class PackageInstallingEventArgs {
+    activityId: String;
+    errorCode: Number;
+    isComplete: Boolean;
+    package: Package;
+    progress: Number;
+    constructor();
+
+  }
+
+  export class PackageStagingEventArgs {
+    activityId: String;
+    errorCode: Number;
+    isComplete: Boolean;
+    package: Package;
+    progress: Number;
+    constructor();
+
+  }
+
+  export class PackageStatus {
+    dataOffline: Boolean;
+    dependencyIssue: Boolean;
+    deploymentInProgress: Boolean;
+    disabled: Boolean;
+    licenseIssue: Boolean;
+    modified: Boolean;
+    needsRemediation: Boolean;
+    notAvailable: Boolean;
+    packageOffline: Boolean;
+    servicing: Boolean;
+    tampered: Boolean;
+    isPartiallyStaged: Boolean;
+    constructor();
+
+    verifyIsOK(): Boolean;
+
+  }
+
+  export class PackageStatusChangedEventArgs {
     package: Package;
     constructor();
 
   }
 
-  export class DesignMode {
-    static designModeEnabled: boolean;
-    static designMode2Enabled: boolean;
+  export class PackageUninstallingEventArgs {
+    activityId: String;
+    errorCode: Number;
+    isComplete: Boolean;
+    package: Package;
+    progress: Number;
     constructor();
 
   }
 
-  export class AppInstance {
-    static recommendedInstance: AppInstance;
-    isCurrentInstance: boolean;
-    key: string;
-    constructor();
-
-    static getActivatedEventArgs(): Object;
-
-
-    static findOrRegisterInstanceForKey(key: string): AppInstance;
-
-
-    static unregister(): void;
-
-
-    static getInstances(): Object;
-
-
-    redirectActivationTo(): void;
-
-  }
-
-  export class SuspendingEventArgs {
-    suspendingOperation: SuspendingOperation;
+  export class PackageUpdateAvailabilityResult {
+    availability: PackageUpdateAvailability;
+    extendedError: Number;
     constructor();
 
   }
 
-  export class LeavingBackgroundEventArgs {
+  export class PackageUpdatingEventArgs {
+    activityId: String;
+    errorCode: Number;
+    isComplete: Boolean;
+    progress: Number;
+    sourcePackage: Package;
+    targetPackage: Package;
     constructor();
-
-    getDeferral(): Object;
 
   }
 
-  export class EnteredBackgroundEventArgs {
+  export class StartupTask {
+    state: StartupTaskState;
+    taskId: String;
     constructor();
 
-    getDeferral(): Object;
+    static getForCurrentPackageAsync(callback: (error: Error, result: Object) => void): void ;
 
-  }
 
-  export class ISuspendingDeferral {
-    constructor();
+    static getAsync(taskId: String, callback: (error: Error, result: StartupTask) => void): void ;
 
-    complete(): void;
+
+    requestEnableAsync(callback: (error: Error, result: StartupTaskState) => void): void ;
+
+    disable(): void;
 
   }
 
@@ -389,11 +569,9 @@
 
   }
 
-  export class ISuspendingOperation {
-    deadline: Date;
+  export class SuspendingEventArgs {
+    suspendingOperation: SuspendingOperation;
     constructor();
-
-    getDeferral(): SuspendingDeferral;
 
   }
 
@@ -405,34 +583,55 @@
 
   }
 
-  export class ISuspendingEventArgs {
-    suspendingOperation: SuspendingOperation;
-    constructor();
-
-  }
-
-  export class ILeavingBackgroundEventArgs {
-    constructor();
-
-    getDeferral(): Object;
-
-  }
-
-  export class IEnteredBackgroundEventArgs {
-    constructor();
-
-    getDeferral(): Object;
-
-  }
-
-  export class CameraApplicationManager {
-    constructor();
-
-    static showInstalledApplicationsUI(): void;
-
-
-  }
-
+export const AddResourcePackageOptions: any;
+export const AppExecutionContext: any;
+export const AppInstallerPolicySource: any;
+export const FullTrustLaunchResult: any;
+export const LimitedAccessFeatureStatus: any;
+export const PackageContentGroupState: any;
+export const PackageRelationship: any;
+export const PackageSignatureKind: any;
+export const PackageUpdateAvailability: any;
+export const StartupTaskState: any;
+export const AppDisplayInfo: any;
+export const AppInfo: any;
+export const AppInstallerInfo: any;
+export const AppInstance: any;
+export const CameraApplicationManager: any;
+export const DesignMode: any;
+export const EnteredBackgroundEventArgs: any;
+export const FindRelatedPackagesOptions: any;
+export const FullTrustProcessLaunchResult: any;
+export const FullTrustProcessLauncher: any;
+export const IEnteredBackgroundEventArgs: any;
+export const ILeavingBackgroundEventArgs: any;
+export const IPackageCatalogStatics2: any;
+export const ISuspendingDeferral: any;
+export const ISuspendingEventArgs: any;
+export const ISuspendingOperation: any;
+export const LeavingBackgroundEventArgs: any;
+export const LimitedAccessFeatureRequestResult: any;
+export const LimitedAccessFeatures: any;
+export const Package: any;
+export const PackageCatalog: any;
+export const PackageCatalogAddOptionalPackageResult: any;
+export const PackageCatalogAddResourcePackageResult: any;
+export const PackageCatalogRemoveOptionalPackagesResult: any;
+export const PackageCatalogRemoveResourcePackagesResult: any;
+export const PackageContentGroup: any;
+export const PackageContentGroupStagingEventArgs: any;
+export const PackageId: any;
+export const PackageInstallingEventArgs: any;
+export const PackageStagingEventArgs: any;
+export const PackageStatus: any;
+export const PackageStatusChangedEventArgs: any;
+export const PackageUninstallingEventArgs: any;
+export const PackageUpdateAvailabilityResult: any;
+export const PackageUpdatingEventArgs: any;
+export const StartupTask: any;
+export const SuspendingDeferral: any;
+export const SuspendingEventArgs: any;
+export const SuspendingOperation: any;
 export * as activation from "./applicationmodel.activation.js";
 export * as appextensions from "./applicationmodel.appextensions.js";
 export * as appointments from "./applicationmodel.appointments.js";
@@ -442,13 +641,14 @@ export * as calls from "./applicationmodel.calls.js";
 export * as chat from "./applicationmodel.chat.js";
 export * as communicationblocking from "./applicationmodel.communicationblocking.js";
 export * as contacts from "./applicationmodel.contacts.js";
+export * as conversationalagent from "./applicationmodel.conversationalagent.js";
 export * as core from "./applicationmodel.core.js";
 export * as datatransfer from "./applicationmodel.datatransfer.js";
 export * as email from "./applicationmodel.email.js";
 export * as extendedexecution from "./applicationmodel.extendedexecution.js";
+export * as holographic from "./applicationmodel.holographic.js";
 export * as lockscreen from "./applicationmodel.lockscreen.js";
 export * as payments from "./applicationmodel.payments.js";
-export * as preview from "./applicationmodel.preview.js";
 export * as resources from "./applicationmodel.resources.js";
 export * as search from "./applicationmodel.search.js";
 export * as socialinfo from "./applicationmodel.socialinfo.js";

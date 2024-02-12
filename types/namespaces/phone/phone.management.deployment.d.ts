@@ -1,3 +1,9 @@
+  export enum EnterpriseEnrollmentStatus {
+    success,
+    cancelledByUser,
+    unknownFailure,
+  }
+
   export enum EnterpriseStatus {
     enrolled,
     disabled,
@@ -5,60 +11,14 @@
     expired,
   }
 
-  export enum EnterpriseEnrollmentStatus {
-    success,
-    cancelledByUser,
-    unknownFailure,
-  }
-
   export class Enterprise {
     enrollmentValidFrom: Date;
     enrollmentValidTo: Date;
-    id: string;
-    name: string;
+    id: String;
+    name: String;
     status: EnterpriseStatus;
-    workplaceId: number;
+    workplaceId: Number;
     constructor();
-
-  }
-
-  export class EnterpriseEnrollmentResult {
-    enrolledEnterprise: Enterprise;
-    status: EnterpriseEnrollmentStatus;
-    constructor();
-
-  }
-
-  export class PackageInstallResult {
-    installState: number;
-    productId: string;
-    errorText: string;
-    constructor();
-
-  }
-
-  export class InstallationManager {
-    constructor();
-
-    static removePackageAsync(packageFullName: string, removalOptions: number, callback: (error: Error, result: PackageInstallResult) => void): void ;
-
-
-    static registerPackageAsync(manifestUri: Object, dependencyPackageUris: Object, deploymentOptions: number, callback: (error: Error, result: PackageInstallResult) => void): void ;
-
-
-    static addPackageAsync(title: string, sourceLocation: Object, callback: (error: Error, result: PackageInstallResult) => void): void ;
-    static addPackageAsync(title: string, sourceLocation: Object, instanceId: string, offerId: string, license: Object, callback: (error: Error, result: PackageInstallResult) => void): void ;
-
-
-    static findPackages(packageName: string, packagePublisher: string): Object;
-    static findPackages(): Object;
-
-
-    static getPendingPackageInstalls(): Object;
-
-
-    static findPackagesForCurrentPublisher(): Object;
-
 
   }
 
@@ -70,11 +30,51 @@
     static validateEnterprisesAsync(callback: (error: Error) => void): void ;
 
 
-    static requestEnrollmentAsync(enrollmentToken: string, callback: (error: Error, result: EnterpriseEnrollmentResult) => void): void ;
+    static requestEnrollmentAsync(enrollmentToken: String, callback: (error: Error, result: EnterpriseEnrollmentResult) => void): void ;
 
 
-    static requestUnenrollmentAsync(enterprise: Enterprise, callback: (error: Error, result: boolean) => void): void ;
+    static requestUnenrollmentAsync(enterprise: Enterprise, callback: (error: Error, result: Boolean) => void): void ;
 
+
+  }
+
+  export class EnterpriseEnrollmentResult {
+    enrolledEnterprise: Enterprise;
+    status: EnterpriseEnrollmentStatus;
+    constructor();
+
+  }
+
+  export class InstallationManager {
+    constructor();
+
+    static removePackageAsync(packageFullName: String, removalOptions: Number, callback: (error: Error, result: PackageInstallResult) => void): void ;
+
+
+    static registerPackageAsync(manifestUri: Object, dependencyPackageUris: Object, deploymentOptions: Number, callback: (error: Error, result: PackageInstallResult) => void): void ;
+
+
+    static addPackageAsync(title: String, sourceLocation: Object, callback: (error: Error, result: PackageInstallResult) => void): void ;
+    static addPackageAsync(title: String, sourceLocation: Object, instanceId: String, offerId: String, license: Object, callback: (error: Error, result: PackageInstallResult) => void): void ;
+
+
+    static findPackages(packageName: String, packagePublisher: String): Object;
+    static findPackages(): Object;
+
+
+    static getPendingPackageInstalls(): Object;
+
+
+    static findPackagesForCurrentPublisher(): Object;
+
+
+  }
+
+  export class PackageInstallResult {
+    installState: Number;
+    productId: String;
+    errorText: String;
+    constructor();
 
   }
 

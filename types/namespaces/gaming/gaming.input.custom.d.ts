@@ -1,14 +1,14 @@
   export class GameControllerVersionInfo {
-    major: number;
-    minor: number;
-    build: number;
-    revision: number;
+    major: Number;
+    minor: Number;
+    build: Number;
+    revision: Number;
     constructor();
   }
 
   export class GipFirmwareUpdateProgress {
-    percentCompleted: number;
-    currentComponentId: number;
+    percentCompleted: Number;
+    currentComponentId: Number;
     constructor();
   }
 
@@ -22,11 +22,6 @@
     command,
     lowLatency,
     standardLatency,
-  }
-
-  export enum XusbDeviceType {
-    unknown,
-    gamepad,
   }
 
   export enum XusbDeviceSubtype {
@@ -43,53 +38,65 @@
     dancePad,
   }
 
-  export class IGameControllerInputSink {
-    constructor();
-
-    onInputResumed(timestamp: number): void;
-
-    onInputSuspended(timestamp: number): void;
-
+  export enum XusbDeviceType {
+    unknown,
+    gamepad,
   }
 
-  export class IGipGameControllerInputSink {
+  export class GameControllerFactoryManager {
     constructor();
 
-    onKeyReceived(timestamp: number, keyCode: number, isPressed: boolean): void;
+    static tryGetFactoryControllerFromGameController(factory: ICustomGameControllerFactory, gameController: Object): Object;
 
-    onMessageReceived(timestamp: number, messageClass: GipMessageClass, messageId: number, sequenceId: number, messageBuffer: Array<number>): void;
 
-  }
+    static registerCustomFactoryForGipInterface(factory: ICustomGameControllerFactory, interfaceId: String): void;
 
-  export class IHidGameControllerInputSink {
-    constructor();
 
-    onInputReportReceived(timestamp: number, reportId: number, reportBuffer: Array<number>): void;
+    static registerCustomFactoryForHardwareId(factory: ICustomGameControllerFactory, hardwareVendorId: Number, hardwareProductId: Number): void;
 
-  }
 
-  export class IXusbGameControllerInputSink {
-    constructor();
+    static registerCustomFactoryForXusbType(factory: ICustomGameControllerFactory, xusbType: XusbDeviceType, xusbSubtype: XusbDeviceSubtype): void;
 
-    onInputReceived(timestamp: number, reportId: number, inputBuffer: Array<number>): void;
-
-  }
-
-  export class IGameControllerProvider {
-    firmwareVersionInfo: GameControllerVersionInfo;
-    hardwareProductId: number;
-    hardwareVendorId: number;
-    hardwareVersionInfo: GameControllerVersionInfo;
-    isConnected: boolean;
-    constructor();
 
   }
 
   export class GipFirmwareUpdateResult {
-    extendedErrorCode: number;
-    finalComponentId: number;
+    extendedErrorCode: Number;
+    finalComponentId: Number;
     status: GipFirmwareUpdateStatus;
     constructor();
+
+  }
+
+  export class GipGameControllerProvider {
+    firmwareVersionInfo: GameControllerVersionInfo;
+    hardwareProductId: Number;
+    hardwareVendorId: Number;
+    hardwareVersionInfo: GameControllerVersionInfo;
+    isConnected: Boolean;
+    constructor();
+
+    updateFirmwareAsync(firmwareImage: Object, callback: (error: Error, result: GipFirmwareUpdateResult) => void): void ;
+
+    sendMessage(messageClass: GipMessageClass, messageId: Number, messageBuffer: Array<Number>): void;
+
+    sendReceiveMessage();
+  }
+
+  export class HidGameControllerProvider {
+    firmwareVersionInfo: GameControllerVersionInfo;
+    hardwareProductId: Number;
+    hardwareVendorId: Number;
+    hardwareVersionInfo: GameControllerVersionInfo;
+    isConnected: Boolean;
+    usageId: Number;
+    usagePage: Number;
+    constructor();
+
+    getFeatureReport();
+    sendFeatureReport(reportId: Number, reportBuffer: Array<Number>): void;
+
+    sendOutputReport(reportId: Number, reportBuffer: Array<Number>): void;
 
   }
 
@@ -104,64 +111,57 @@
 
   }
 
-  export class GipGameControllerProvider {
-    firmwareVersionInfo: GameControllerVersionInfo;
-    hardwareProductId: number;
-    hardwareVendorId: number;
-    hardwareVersionInfo: GameControllerVersionInfo;
-    isConnected: boolean;
+  export class IGameControllerInputSink {
     constructor();
 
-    updateFirmwareAsync(firmwareImage: Object, callback: (error: Error, result: GipFirmwareUpdateResult) => void): void ;
+    onInputResumed(timestamp: Number): void;
 
-    sendMessage(messageClass: GipMessageClass, messageId: number, messageBuffer: Array<number>): void;
+    onInputSuspended(timestamp: Number): void;
 
-    sendReceiveMessage();
   }
 
-  export class HidGameControllerProvider {
+  export class IGameControllerProvider {
     firmwareVersionInfo: GameControllerVersionInfo;
-    hardwareProductId: number;
-    hardwareVendorId: number;
+    hardwareProductId: Number;
+    hardwareVendorId: Number;
     hardwareVersionInfo: GameControllerVersionInfo;
-    isConnected: boolean;
-    usageId: number;
-    usagePage: number;
+    isConnected: Boolean;
     constructor();
 
-    getFeatureReport();
-    sendFeatureReport(reportId: number, reportBuffer: Array<number>): void;
+  }
 
-    sendOutputReport(reportId: number, reportBuffer: Array<number>): void;
+  export class IGipGameControllerInputSink {
+    constructor();
+
+    onKeyReceived(timestamp: Number, keyCode: Number, isPressed: Boolean): void;
+
+    onMessageReceived(timestamp: Number, messageClass: GipMessageClass, messageId: Number, sequenceId: Number, messageBuffer: Array<Number>): void;
+
+  }
+
+  export class IHidGameControllerInputSink {
+    constructor();
+
+    onInputReportReceived(timestamp: Number, reportId: Number, reportBuffer: Array<Number>): void;
+
+  }
+
+  export class IXusbGameControllerInputSink {
+    constructor();
+
+    onInputReceived(timestamp: Number, reportId: Number, inputBuffer: Array<Number>): void;
 
   }
 
   export class XusbGameControllerProvider {
     firmwareVersionInfo: GameControllerVersionInfo;
-    hardwareProductId: number;
-    hardwareVendorId: number;
+    hardwareProductId: Number;
+    hardwareVendorId: Number;
     hardwareVersionInfo: GameControllerVersionInfo;
-    isConnected: boolean;
+    isConnected: Boolean;
     constructor();
 
-    setVibration(lowFrequencyMotorSpeed: number, highFrequencyMotorSpeed: number): void;
-
-  }
-
-  export class GameControllerFactoryManager {
-    constructor();
-
-    static tryGetFactoryControllerFromGameController(factory: ICustomGameControllerFactory, gameController: Object): Object;
-
-
-    static registerCustomFactoryForGipInterface(factory: ICustomGameControllerFactory, interfaceId: string): void;
-
-
-    static registerCustomFactoryForHardwareId(factory: ICustomGameControllerFactory, hardwareVendorId: number, hardwareProductId: number): void;
-
-
-    static registerCustomFactoryForXusbType(factory: ICustomGameControllerFactory, xusbType: XusbDeviceType, xusbSubtype: XusbDeviceSubtype): void;
-
+    setVibration(lowFrequencyMotorSpeed: Number, highFrequencyMotorSpeed: Number): void;
 
   }
 

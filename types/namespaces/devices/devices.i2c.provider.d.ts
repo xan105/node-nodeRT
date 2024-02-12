@@ -1,6 +1,6 @@
   export class ProviderI2cTransferResult {
     status: ProviderI2cTransferStatus;
-    bytesTransferred: number;
+    bytesTransferred: Number;
     constructor();
   }
 
@@ -9,23 +9,15 @@
     fastMode,
   }
 
-  export enum ProviderI2cTransferStatus {
-    fullTransfer,
-    partialTransfer,
-    slaveAddressNotAcknowledged,
-  }
-
   export enum ProviderI2cSharingMode {
     exclusive,
     shared,
   }
 
-  export class ProviderI2cConnectionSettings {
-    slaveAddress: number;
-    sharingMode: ProviderI2cSharingMode;
-    busSpeed: ProviderI2cBusSpeed;
-    constructor();
-
+  export enum ProviderI2cTransferStatus {
+    fullTransfer,
+    partialTransfer,
+    slaveAddressNotAcknowledged,
   }
 
   export class II2cControllerProvider {
@@ -35,6 +27,20 @@
 
   }
 
+  export class II2cDeviceProvider {
+    deviceId: String;
+    constructor();
+
+    write(buffer: Array<Number>): void;
+
+    writePartial(buffer: Array<Number>): ProviderI2cTransferResult;
+
+    read();
+    readPartial();
+    writeRead();
+    writeReadPartial();
+  }
+
   export class II2cProvider {
     constructor();
 
@@ -42,17 +48,11 @@
 
   }
 
-  export class II2cDeviceProvider {
-    deviceId: string;
+  export class ProviderI2cConnectionSettings {
+    slaveAddress: Number;
+    sharingMode: ProviderI2cSharingMode;
+    busSpeed: ProviderI2cBusSpeed;
     constructor();
 
-    write(buffer: Array<number>): void;
-
-    writePartial(buffer: Array<number>): ProviderI2cTransferResult;
-
-    read();
-    readPartial();
-    writeRead();
-    writeReadPartial();
   }
 

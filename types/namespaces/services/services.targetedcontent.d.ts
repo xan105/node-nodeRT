@@ -2,6 +2,18 @@
     constructor();
   }
 
+  export enum TargetedContentAppInstallationState {
+    notApplicable,
+    notInstalled,
+    installed,
+  }
+
+  export enum TargetedContentAvailability {
+    none,
+    partial,
+    all,
+  }
+
   export enum TargetedContentInteraction {
     impression,
     clickThrough,
@@ -16,6 +28,12 @@
     canceled,
     conversion,
     opportunity,
+  }
+
+  export enum TargetedContentObjectKind {
+    collection,
+    item,
+    value,
   }
 
   export enum TargetedContentValueKind {
@@ -35,32 +53,116 @@
     actions,
   }
 
-  export enum TargetedContentObjectKind {
-    collection,
-    item,
-    value,
+  export class TargetedContentAction {
+    constructor();
+
+    invokeAsync(callback: (error: Error) => void): void ;
+
   }
 
-  export enum TargetedContentAvailability {
-    none,
-    partial,
-    all,
+  export class TargetedContentAvailabilityChangedEventArgs {
+    constructor();
+
+    getDeferral(): Object;
+
   }
 
-  export enum TargetedContentAppInstallationState {
-    notApplicable,
-    notInstalled,
-    installed,
+  export class TargetedContentChangedEventArgs {
+    hasPreviousContentExpired: Boolean;
+    constructor();
+
+    getDeferral(): Object;
+
+  }
+
+  export class TargetedContentCollection {
+    collections: Object;
+    id: String;
+    items: Object;
+    path: String;
+    properties: Object;
+    constructor();
+
+    reportInteraction(interaction: TargetedContentInteraction): void;
+
+    reportCustomInteraction(customInteractionName: String): void;
+
+  }
+
+  export class TargetedContentContainer {
+    availability: TargetedContentAvailability;
+    content: TargetedContentCollection;
+    id: String;
+    timestamp: Date;
+    constructor();
+
+    static getAsync(contentId: String, callback: (error: Error, result: TargetedContentContainer) => void): void ;
+
+
+    selectSingleObject(path: String): TargetedContentObject;
+
+  }
+
+  export class TargetedContentFile {
+    constructor();
+
+    openReadAsync(callback: (error: Error, result: Object) => void): void ;
+
+  }
+
+  export class TargetedContentImage {
+    height: Number;
+    width: Number;
+    constructor();
+
+    openReadAsync(callback: (error: Error, result: Object) => void): void ;
+
+  }
+
+  export class TargetedContentItem {
+    collections: Object;
+    path: String;
+    properties: Object;
+    state: TargetedContentItemState;
+    constructor();
+
+    reportInteraction(interaction: TargetedContentInteraction): void;
+
+    reportCustomInteraction(customInteractionName: String): void;
+
+  }
+
+  export class TargetedContentItemState {
+    appInstallationState: TargetedContentAppInstallationState;
+    shouldDisplay: Boolean;
+    constructor();
+
+  }
+
+  export class TargetedContentObject {
+    collection: TargetedContentCollection;
+    item: TargetedContentItem;
+    objectKind: TargetedContentObjectKind;
+    value: TargetedContentValue;
+    constructor();
+
+  }
+
+  export class TargetedContentStateChangedEventArgs {
+    constructor();
+
+    getDeferral(): Object;
+
   }
 
   export class TargetedContentSubscription {
-    id: string;
+    id: String;
     constructor();
 
-    static getAsync(subscriptionId: string, callback: (error: Error, result: TargetedContentSubscription) => void): void ;
+    static getAsync(subscriptionId: String, callback: (error: Error, result: TargetedContentSubscription) => void): void ;
 
 
-    static getOptions(subscriptionId: string): TargetedContentSubscriptionOptions;
+    static getOptions(subscriptionId: String): TargetedContentSubscriptionOptions;
 
 
     getContentContainerAsync(callback: (error: Error, result: TargetedContentContainer) => void): void ;
@@ -89,136 +191,34 @@
   }
 
   export class TargetedContentSubscriptionOptions {
-    allowPartialContentAvailability: boolean;
+    allowPartialContentAvailability: Boolean;
     cloudQueryParameters: Object;
     localFilters: Object;
-    subscriptionId: string;
+    subscriptionId: String;
     constructor();
 
     update(): void;
 
   }
 
-  export class TargetedContentContainer {
-    availability: TargetedContentAvailability;
-    content: TargetedContentCollection;
-    id: string;
-    timestamp: Date;
-    constructor();
-
-    static getAsync(contentId: string, callback: (error: Error, result: TargetedContentContainer) => void): void ;
-
-
-    selectSingleObject(path: string): TargetedContentObject;
-
-  }
-
-  export class TargetedContentChangedEventArgs {
-    hasPreviousContentExpired: boolean;
-    constructor();
-
-    getDeferral(): Object;
-
-  }
-
-  export class TargetedContentAvailabilityChangedEventArgs {
-    constructor();
-
-    getDeferral(): Object;
-
-  }
-
-  export class TargetedContentStateChangedEventArgs {
-    constructor();
-
-    getDeferral(): Object;
-
-  }
-
-  export class TargetedContentCollection {
-    collections: Object;
-    id: string;
-    items: Object;
-    path: string;
-    properties: Object;
-    constructor();
-
-    reportInteraction(interaction: TargetedContentInteraction): void;
-
-    reportCustomInteraction(customInteractionName: string): void;
-
-  }
-
-  export class TargetedContentObject {
-    collection: TargetedContentCollection;
-    item: TargetedContentItem;
-    objectKind: TargetedContentObjectKind;
-    value: TargetedContentValue;
-    constructor();
-
-  }
-
-  export class TargetedContentItem {
-    collections: Object;
-    path: string;
-    properties: Object;
-    state: TargetedContentItemState;
-    constructor();
-
-    reportInteraction(interaction: TargetedContentInteraction): void;
-
-    reportCustomInteraction(customInteractionName: string): void;
-
-  }
-
   export class TargetedContentValue {
     action: TargetedContentAction;
     actions: Object;
-    boolean: boolean;
+    boolean: Boolean;
     booleans: Object;
     file: TargetedContentFile;
     files: Object;
     imageFile: TargetedContentImage;
     imageFiles: Object;
-    number: number;
+    number: Number;
     numbers: Object;
-    path: string;
-    string: string;
+    path: String;
+    string: String;
     strings: Object;
     uri: Object;
     uris: Object;
     valueKind: TargetedContentValueKind;
     constructor();
-
-  }
-
-  export class TargetedContentItemState {
-    appInstallationState: TargetedContentAppInstallationState;
-    shouldDisplay: boolean;
-    constructor();
-
-  }
-
-  export class TargetedContentFile {
-    constructor();
-
-    openReadAsync(callback: (error: Error, result: Object) => void): void ;
-
-  }
-
-  export class TargetedContentImage {
-    height: number;
-    width: number;
-    constructor();
-
-    openReadAsync(callback: (error: Error, result: Object) => void): void ;
-
-  }
-
-  export class TargetedContentAction {
-    constructor();
-
-    invokeAsync(callback: (error: Error) => void): void ;
 
   }
 

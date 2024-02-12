@@ -1,8 +1,3 @@
-  export enum ProviderGpioSharingMode {
-    exclusive,
-    sharedReadOnly,
-  }
-
   export enum ProviderGpioPinDriveMode {
     input,
     output,
@@ -14,14 +9,19 @@
     outputOpenSourcePullDown,
   }
 
+  export enum ProviderGpioPinEdge {
+    fallingEdge,
+    risingEdge,
+  }
+
   export enum ProviderGpioPinValue {
     low,
     high,
   }
 
-  export enum ProviderGpioPinEdge {
-    fallingEdge,
-    risingEdge,
+  export enum ProviderGpioSharingMode {
+    exclusive,
+    sharedReadOnly,
   }
 
   export class GpioPinProviderValueChangedEventArgs {
@@ -31,13 +31,21 @@
 
   }
 
+  export class IGpioControllerProvider {
+    pinCount: Number;
+    constructor();
+
+    openPinProvider(pin: Number, sharingMode: ProviderGpioSharingMode): IGpioPinProvider;
+
+  }
+
   export class IGpioPinProvider {
-    debounceTimeout: number;
-    pinNumber: number;
+    debounceTimeout: Number;
+    pinNumber: Number;
     sharingMode: ProviderGpioSharingMode;
     constructor();
 
-    isDriveModeSupported(driveMode: ProviderGpioPinDriveMode): boolean;
+    isDriveModeSupported(driveMode: ProviderGpioPinDriveMode): Boolean;
 
     getDriveMode(): ProviderGpioPinDriveMode;
 
@@ -57,14 +65,6 @@
     on(type: string, listener: (ev: Event) => void): void ;
     off(type: string, listener: (ev: Event) => void): void ;
     
-
-  }
-
-  export class IGpioControllerProvider {
-    pinCount: number;
-    constructor();
-
-    openPinProvider(pin: number, sharingMode: ProviderGpioSharingMode): IGpioPinProvider;
 
   }
 

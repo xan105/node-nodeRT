@@ -3,9 +3,27 @@
   }
 
   export class CoreTextRange {
-    startCaretPosition: number;
-    endCaretPosition: number;
+    startCaretPosition: Number;
+    endCaretPosition: Number;
     constructor();
+  }
+
+  export enum CoreTextFormatUpdatingReason {
+    none,
+    compositionUnconverted,
+    compositionConverted,
+    compositionTargetUnconverted,
+    compositionTargetConverted,
+  }
+
+  export enum CoreTextFormatUpdatingResult {
+    succeeded,
+    failed,
+  }
+
+  export enum CoreTextInputPaneDisplayPolicy {
+    automatic,
+    manual,
   }
 
   export enum CoreTextInputScope {
@@ -78,9 +96,9 @@
     pinAlphanumeric,
   }
 
-  export enum CoreTextInputPaneDisplayPolicy {
-    automatic,
-    manual,
+  export enum CoreTextSelectionUpdatingResult {
+    succeeded,
+    failed,
   }
 
   export enum CoreTextTextUpdatingResult {
@@ -88,54 +106,9 @@
     failed,
   }
 
-  export enum CoreTextSelectionUpdatingResult {
-    succeeded,
-    failed,
-  }
-
-  export enum CoreTextFormatUpdatingResult {
-    succeeded,
-    failed,
-  }
-
-  export enum CoreTextFormatUpdatingReason {
-    none,
-    compositionUnconverted,
-    compositionConverted,
-    compositionTargetUnconverted,
-    compositionTargetConverted,
-  }
-
-  export class CoreTextTextRequest {
-    text: string;
-    isCanceled: boolean;
-    range: CoreTextRange;
-    constructor();
-
-    getDeferral(): Object;
-
-  }
-
-  export class CoreTextSelectionRequest {
-    selection: CoreTextRange;
-    isCanceled: boolean;
-    constructor();
-
-    getDeferral(): Object;
-
-  }
-
-  export class CoreTextLayoutBounds {
-    textBounds: Object;
-    controlBounds: Object;
-    constructor();
-
-  }
-
-  export class CoreTextLayoutRequest {
-    isCanceled: boolean;
-    layoutBounds: CoreTextLayoutBounds;
-    range: CoreTextRange;
+  export class CoreTextCompositionCompletedEventArgs {
+    compositionSegments: Object;
+    isCanceled: Boolean;
     constructor();
 
     getDeferral(): Object;
@@ -143,15 +116,23 @@
   }
 
   export class CoreTextCompositionSegment {
-    preconversionString: string;
+    preconversionString: String;
     range: CoreTextRange;
     constructor();
 
   }
 
+  export class CoreTextCompositionStartedEventArgs {
+    isCanceled: Boolean;
+    constructor();
+
+    getDeferral(): Object;
+
+  }
+
   export class CoreTextEditContext {
-    name: string;
-    isReadOnly: boolean;
+    name: String;
+    isReadOnly: Boolean;
     inputScope: CoreTextInputScope;
     inputPaneDisplayPolicy: CoreTextInputPaneDisplayPolicy;
     constructor();
@@ -160,7 +141,7 @@
 
     notifyFocusLeave(): void;
 
-    notifyTextChanged(modifiedRange: CoreTextRange, newLength: number, newSelection: CoreTextRange): void;
+    notifyTextChanged(modifiedRange: CoreTextRange, newLength: Number, newSelection: CoreTextRange): void;
 
     notifySelectionChanged(selection: CoreTextRange): void;
 
@@ -224,15 +205,36 @@
 
   }
 
-  export class CoreTextTextRequestedEventArgs {
-    request: CoreTextTextRequest;
+  export class CoreTextFormatUpdatingEventArgs {
+    result: CoreTextFormatUpdatingResult;
+    backgroundColor: Number;
+    isCanceled: Boolean;
+    range: CoreTextRange;
+    reason: CoreTextFormatUpdatingReason;
+    textColor: Number;
+    underlineColor: Number;
+    underlineType: Number;
+    constructor();
+
+    getDeferral(): Object;
+
+  }
+
+  export class CoreTextLayoutBounds {
+    textBounds: Object;
+    controlBounds: Object;
     constructor();
 
   }
 
-  export class CoreTextSelectionRequestedEventArgs {
-    request: CoreTextSelectionRequest;
+  export class CoreTextLayoutRequest {
+    isCanceled: Boolean;
+    layoutBounds: CoreTextLayoutBounds;
+    range: CoreTextRange;
+    layoutBoundsVisualPixels: CoreTextLayoutBounds;
     constructor();
+
+    getDeferral(): Object;
 
   }
 
@@ -242,22 +244,24 @@
 
   }
 
-  export class CoreTextTextUpdatingEventArgs {
-    result: CoreTextTextUpdatingResult;
-    inputLanguage: Object;
-    isCanceled: boolean;
-    newSelection: CoreTextRange;
-    range: CoreTextRange;
-    text: string;
+  export class CoreTextSelectionRequest {
+    selection: CoreTextRange;
+    isCanceled: Boolean;
     constructor();
 
     getDeferral(): Object;
 
   }
 
+  export class CoreTextSelectionRequestedEventArgs {
+    request: CoreTextSelectionRequest;
+    constructor();
+
+  }
+
   export class CoreTextSelectionUpdatingEventArgs {
     result: CoreTextSelectionUpdatingResult;
-    isCanceled: boolean;
+    isCanceled: Boolean;
     selection: CoreTextRange;
     constructor();
 
@@ -265,35 +269,9 @@
 
   }
 
-  export class CoreTextFormatUpdatingEventArgs {
-    result: CoreTextFormatUpdatingResult;
-    backgroundColor: number;
-    isCanceled: boolean;
-    range: CoreTextRange;
-    reason: CoreTextFormatUpdatingReason;
-    textColor: number;
-    underlineColor: number;
-    underlineType: number;
+  export class CoreTextServicesConstants {
+    static hiddenCharacter: String;
     constructor();
-
-    getDeferral(): Object;
-
-  }
-
-  export class CoreTextCompositionStartedEventArgs {
-    isCanceled: boolean;
-    constructor();
-
-    getDeferral(): Object;
-
-  }
-
-  export class CoreTextCompositionCompletedEventArgs {
-    compositionSegments: Object;
-    isCanceled: boolean;
-    constructor();
-
-    getDeferral(): Object;
 
   }
 
@@ -319,9 +297,32 @@
 
   }
 
-  export class CoreTextServicesConstants {
-    static hiddenCharacter: string;
+  export class CoreTextTextRequest {
+    text: String;
+    isCanceled: Boolean;
+    range: CoreTextRange;
     constructor();
+
+    getDeferral(): Object;
+
+  }
+
+  export class CoreTextTextRequestedEventArgs {
+    request: CoreTextTextRequest;
+    constructor();
+
+  }
+
+  export class CoreTextTextUpdatingEventArgs {
+    result: CoreTextTextUpdatingResult;
+    inputLanguage: Object;
+    isCanceled: Boolean;
+    newSelection: CoreTextRange;
+    range: CoreTextRange;
+    text: String;
+    constructor();
+
+    getDeferral(): Object;
 
   }
 

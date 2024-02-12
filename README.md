@@ -60,17 +60,23 @@ For example, having the following section in your package.json will result with 
 },
 ```
 
-The latest official NodeRT scope is used as a base ([nodert-win10-rs4](https://www.npmjs.com/search?q=@nodert-win10-rs4)).<br /> 
-List of namespaces can be found [here](https://github.com/xan105/node-nodeRT/tree/main/packages) or in the corresponding release section (GitHub).
+NodeRT scope used as a base is [nodert-win11-22h2](https://www.npmjs.com/search?q=@nodert-win11-22h2).<br />
+`XAML` and `*.preview` WinRT namespaces are removed.<br />
+Some namespaces have been kept back to `win10-rs4` due to compilation failure (regression).
+
+List of namespaces can be found [here](https://github.com/xan105/node-nodeRT/tree/main/packages) (GitHub).
 
 ### ABI
 
 NodeRT package are not using [n-api](https://nodejs.org/api/n-api.html#node-api) they must be compiled for every ABI.<br />
-List of provided ABI can be found [here](https://github.com/xan105/node-nodeRT/blob/main/integrity.json)
+Unless exception, expect prebuilds for current and previous Node.js LTS releases (x64).<br />
+⚠️ Due to the fast Electron release cycle, do not expect this package to always keep up with the latest.
+
+List of provided ABI can be found [here](https://github.com/xan105/node-nodeRT/blob/main/integrity.json) (GitHub) or in the corresponding GitHub release.
 
 ### Electron
 
-Switching to electron ABI instead of Node can be done by adding the `--electron` flag or the env. variable `npm_config_runtime` set to `electron`.<br />
+Switching to Electron ABI instead of Node can be done by adding the `--electron` flag or the env. variable `npm_config_runtime` set to `electron`.<br />
 
 Alternatively in your package.json file under the `_nodert` path:
 
@@ -84,7 +90,7 @@ Alternatively in your package.json file under the `_nodert` path:
 },
 ```
 
-Electron should already be installed in your project as electron's `packages.json` file will be read to determine electron's ABI.
+Electron's `packages.json` file will be read to determine Electron's ABI.
 
 ⚠️ NodeRT should be loaded in the main process [NodeRT#158](https://github.com/NodeRT/NodeRT/issues/158)
 
@@ -121,7 +127,7 @@ Build Env
     - C++ MFC for latest v143
     - C++/CLI support for v143 build tools
     - MSVC v140 - VS 2015 C++ build tools (v14.00) //VS2015 build tools
-    - Windows 10 SDK 20h1 (10.0.19041.0)
+    - Windows 11 SDK 22h2 (10.0.22621.0)
   
   + Manual:
     - [Windows 10 SDK rs4 (10.0.17134.0)](https://go.microsoft.com/fwlink/p/?linkid=870807)
@@ -129,7 +135,7 @@ Build Env
     
 ⬢ Node.js native addon:
 
-  - Node.js v18.15.0
-  - npm v9.5.0
-  - node-gyp v9.3.1
-  - Python3 v3.11
+  - Node.js v20.11.0
+  - npm v10.2.4
+  - node-gyp v10.0.1
+  - Python3 v3.11.3

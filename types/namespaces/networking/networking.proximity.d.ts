@@ -1,21 +1,3 @@
-  export enum TriggeredConnectState {
-    peerFound,
-    listening,
-    connecting,
-    completed,
-    canceled,
-    failed,
-  }
-
-  export enum PeerWatcherStatus {
-    created,
-    started,
-    enumerationCompleted,
-    stopping,
-    stopped,
-    aborted,
-  }
-
   export enum PeerDiscoveryTypes {
     none,
     browse,
@@ -28,54 +10,66 @@
     client,
   }
 
-  export class ProximityMessage {
-    data: Object;
-    dataAsString: string;
-    messageType: string;
-    subscriptionId: number;
+  export enum PeerWatcherStatus {
+    created,
+    started,
+    enumerationCompleted,
+    stopping,
+    stopped,
+    aborted,
+  }
+
+  export enum TriggeredConnectState {
+    peerFound,
+    listening,
+    connecting,
+    completed,
+    canceled,
+    failed,
+  }
+
+  export class ConnectionRequestedEventArgs {
+    peerInformation: PeerInformation;
     constructor();
 
   }
 
-  export class ProximityDevice {
-    bitsPerSecond: number;
-    deviceId: string;
-    maxMessageBytes: number;
+  export class PeerFinder {
+    static displayName: String;
+    static allowWiFiDirect: Boolean;
+    static allowInfrastructure: Boolean;
+    static allowBluetooth: Boolean;
+    static alternateIdentities: Object;
+    static supportedDiscoveryTypes: PeerDiscoveryTypes;
+    static role: PeerRole;
+    static discoveryData: Object;
     constructor();
 
-    static getDeviceSelector(): string;
+    static findAllPeersAsync(callback: (error: Error, result: Object) => void): void ;
 
 
-    static getDefault(): ProximityDevice;
+    static connectAsync(peerInformation: PeerInformation, callback: (error: Error, result: Object) => void): void ;
 
 
-    static fromId(deviceId: string): ProximityDevice;
+    static createWatcher(): PeerWatcher;
 
 
-    subscribeForMessage(messageType: string, messageReceivedHandler: Object): number;
+    static start(): void;
+    static start(peerMessage: String): void;
 
-    publishMessage(messageType: string, message: string): number;
-    publishMessage(messageType: string, message: string, messageTransmittedHandler: Object): number;
 
-    publishBinaryMessage(messageType: string, message: Object): number;
-    publishBinaryMessage(messageType: string, message: Object, messageTransmittedHandler: Object): number;
+    static stop(): void;
 
-    publishUriMessage(message: Object): number;
-    publishUriMessage(message: Object, messageTransmittedHandler: Object): number;
 
-    stopSubscribingForMessage(subscriptionId: number): void;
-
-    stopPublishingMessage(messageId: number): void;
-
-    addListener(type: "DeviceArrived", listener: (ev: Event) => void): void ;
-    removeListener(type: "DeviceArrived", listener: (ev: Event) => void): void ;
-    on(type: "DeviceArrived", listener: (ev: Event) => void): void ;
-    off(type: "DeviceArrived", listener: (ev: Event) => void): void ;
+    addListener(type: "ConnectionRequested", listener: (ev: Event) => void): void ;
+    removeListener(type: "ConnectionRequested", listener: (ev: Event) => void): void ;
+    on(type: "ConnectionRequested", listener: (ev: Event) => void): void ;
+    off(type: "ConnectionRequested", listener: (ev: Event) => void): void ;
     
-    addListener(type: "DeviceDeparted", listener: (ev: Event) => void): void ;
-    removeListener(type: "DeviceDeparted", listener: (ev: Event) => void): void ;
-    on(type: "DeviceDeparted", listener: (ev: Event) => void): void ;
-    off(type: "DeviceDeparted", listener: (ev: Event) => void): void ;
+    addListener(type: "TriggeredConnectionStateChanged", listener: (ev: Event) => void): void ;
+    removeListener(type: "TriggeredConnectionStateChanged", listener: (ev: Event) => void): void ;
+    on(type: "TriggeredConnectionStateChanged", listener: (ev: Event) => void): void ;
+    off(type: "TriggeredConnectionStateChanged", listener: (ev: Event) => void): void ;
     
     addListener(type: string, listener: (ev: Event) => void): void ;
     removeListener(type: string, listener: (ev: Event) => void): void ;
@@ -85,26 +79,12 @@
 
   }
 
-  export class TriggeredConnectionStateChangedEventArgs {
-    id: number;
-    socket: Object;
-    state: TriggeredConnectState;
-    constructor();
-
-  }
-
   export class PeerInformation {
-    displayName: string;
+    displayName: String;
     discoveryData: Object;
-    id: string;
+    id: String;
     hostName: Object;
-    serviceName: string;
-    constructor();
-
-  }
-
-  export class ConnectionRequestedEventArgs {
-    peerInformation: PeerInformation;
+    serviceName: String;
     constructor();
 
   }
@@ -150,48 +130,68 @@
 
   }
 
-  export class PeerFinder {
-    static displayName: string;
-    static allowWiFiDirect: boolean;
-    static allowInfrastructure: boolean;
-    static allowBluetooth: boolean;
-    static alternateIdentities: Object;
-    static supportedDiscoveryTypes: PeerDiscoveryTypes;
-    static role: PeerRole;
-    static discoveryData: Object;
+  export class ProximityDevice {
+    bitsPerSecond: Number;
+    deviceId: String;
+    maxMessageBytes: Number;
     constructor();
 
-    static findAllPeersAsync(callback: (error: Error, result: Object) => void): void ;
+    static getDeviceSelector(): String;
 
 
-    static connectAsync(peerInformation: PeerInformation, callback: (error: Error, result: Object) => void): void ;
+    static getDefault(): ProximityDevice;
 
 
-    static createWatcher(): PeerWatcher;
+    static fromId(deviceId: String): ProximityDevice;
 
 
-    static start(): void;
-    static start(peerMessage: string): void;
+    subscribeForMessage(messageType: String, messageReceivedHandler: Object): Number;
 
+    publishMessage(messageType: String, message: String): Number;
+    publishMessage(messageType: String, message: String, messageTransmittedHandler: Object): Number;
 
-    static stop(): void;
+    publishBinaryMessage(messageType: String, message: Object): Number;
+    publishBinaryMessage(messageType: String, message: Object, messageTransmittedHandler: Object): Number;
 
+    publishUriMessage(message: Object): Number;
+    publishUriMessage(message: Object, messageTransmittedHandler: Object): Number;
 
-    addListener(type: "ConnectionRequested", listener: (ev: Event) => void): void ;
-    removeListener(type: "ConnectionRequested", listener: (ev: Event) => void): void ;
-    on(type: "ConnectionRequested", listener: (ev: Event) => void): void ;
-    off(type: "ConnectionRequested", listener: (ev: Event) => void): void ;
+    stopSubscribingForMessage(subscriptionId: Number): void;
+
+    stopPublishingMessage(messageId: Number): void;
+
+    addListener(type: "DeviceArrived", listener: (ev: Event) => void): void ;
+    removeListener(type: "DeviceArrived", listener: (ev: Event) => void): void ;
+    on(type: "DeviceArrived", listener: (ev: Event) => void): void ;
+    off(type: "DeviceArrived", listener: (ev: Event) => void): void ;
     
-    addListener(type: "TriggeredConnectionStateChanged", listener: (ev: Event) => void): void ;
-    removeListener(type: "TriggeredConnectionStateChanged", listener: (ev: Event) => void): void ;
-    on(type: "TriggeredConnectionStateChanged", listener: (ev: Event) => void): void ;
-    off(type: "TriggeredConnectionStateChanged", listener: (ev: Event) => void): void ;
+    addListener(type: "DeviceDeparted", listener: (ev: Event) => void): void ;
+    removeListener(type: "DeviceDeparted", listener: (ev: Event) => void): void ;
+    on(type: "DeviceDeparted", listener: (ev: Event) => void): void ;
+    off(type: "DeviceDeparted", listener: (ev: Event) => void): void ;
     
     addListener(type: string, listener: (ev: Event) => void): void ;
     removeListener(type: string, listener: (ev: Event) => void): void ;
     on(type: string, listener: (ev: Event) => void): void ;
     off(type: string, listener: (ev: Event) => void): void ;
     
+
+  }
+
+  export class ProximityMessage {
+    data: Object;
+    dataAsString: String;
+    messageType: String;
+    subscriptionId: Number;
+    constructor();
+
+  }
+
+  export class TriggeredConnectionStateChangedEventArgs {
+    id: Number;
+    socket: Object;
+    state: TriggeredConnectState;
+    constructor();
 
   }
 

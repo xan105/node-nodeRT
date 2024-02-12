@@ -1,3 +1,12 @@
+  export class VariablePhotoCapturedEventArgs {
+    captureTimeOffset: Number;
+    capturedFrameControlValues: Object;
+    frame: Object;
+    usedFrameControllerIndex: Number;
+    constructor();
+
+  }
+
   export class VariablePhotoSequenceCapture {
     constructor();
 
@@ -24,15 +33,6 @@
     on(type: string, listener: (ev: Event) => void): void ;
     off(type: string, listener: (ev: Event) => void): void ;
     
-
-  }
-
-  export class VariablePhotoCapturedEventArgs {
-    captureTimeOffset: number;
-    capturedFrameControlValues: Object;
-    frame: Object;
-    usedFrameControllerIndex: number;
-    constructor();
 
   }
 

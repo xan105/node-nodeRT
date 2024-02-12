@@ -10,22 +10,23 @@
     shared,
   }
 
-  export class ProviderSpiConnectionSettings {
-    sharingMode: ProviderSpiSharingMode;
-    mode: ProviderSpiMode;
-    dataBitLength: number;
-    clockFrequency: number;
-    chipSelectLine: number;
-    constructor();
-    constructor(chipSelectLine: number);
-
-  }
-
   export class ISpiControllerProvider {
     constructor();
 
     getDeviceProvider(settings: ProviderSpiConnectionSettings): ISpiDeviceProvider;
 
+  }
+
+  export class ISpiDeviceProvider {
+    connectionSettings: ProviderSpiConnectionSettings;
+    deviceId: String;
+    constructor();
+
+    write(buffer: Array<Number>): void;
+
+    read();
+    transferSequential();
+    transferFullDuplex();
   }
 
   export class ISpiProvider {
@@ -35,15 +36,14 @@
 
   }
 
-  export class ISpiDeviceProvider {
-    connectionSettings: ProviderSpiConnectionSettings;
-    deviceId: string;
+  export class ProviderSpiConnectionSettings {
+    sharingMode: ProviderSpiSharingMode;
+    mode: ProviderSpiMode;
+    dataBitLength: Number;
+    clockFrequency: Number;
+    chipSelectLine: Number;
     constructor();
+    constructor(chipSelectLine: Number);
 
-    write(buffer: Array<number>): void;
-
-    read();
-    transferSequential();
-    transferFullDuplex();
   }
 

@@ -1,6 +1,6 @@
   export class BitmapSize {
-    width: number;
-    height: number;
+    width: Number;
+    height: Number;
     constructor();
   }
 
@@ -8,10 +8,9 @@
     constructor();
   }
 
-  export enum SocialItemBadgeStyle {
-    hidden,
-    visible,
-    visibleWithCount,
+  export enum SocialFeedItemStyle {
+    default,
+    photo,
   }
 
   export enum SocialFeedKind {
@@ -20,51 +19,15 @@
     dashboard,
   }
 
-  export enum SocialFeedItemStyle {
-    default,
-    photo,
-  }
-
   export enum SocialFeedUpdateMode {
     append,
     replace,
   }
 
-  export class SocialUserInfo {
-    userName: string;
-    targetUri: Object;
-    remoteId: string;
-    displayName: string;
-    constructor();
-
-  }
-
-  export class SocialFeedContent {
-    title: string;
-    targetUri: Object;
-    message: string;
-    constructor();
-
-  }
-
-  export class SocialItemThumbnail {
-    targetUri: Object;
-    imageUri: Object;
-    bitmapSize: BitmapSize;
-    constructor();
-
-    setImageAsync(image: Object, callback: (error: Error) => void): void ;
-
-  }
-
-  export class SocialFeedSharedItem {
-    timestamp: Date;
-    thumbnail: SocialItemThumbnail;
-    targetUri: Object;
-    originalSource: Object;
-    content: SocialFeedContent;
-    constructor();
-
+  export enum SocialItemBadgeStyle {
+    hidden,
+    visible,
+    visibleWithCount,
   }
 
   export class SocialFeedChildItem {
@@ -79,15 +42,23 @@
 
   }
 
+  export class SocialFeedContent {
+    title: String;
+    targetUri: Object;
+    message: String;
+    constructor();
+
+  }
+
   export class SocialFeedItem {
     timestamp: Date;
     targetUri: Object;
     style: SocialFeedItemStyle;
     sharedItem: SocialFeedSharedItem;
-    remoteId: string;
+    remoteId: String;
     childItem: SocialFeedChildItem;
     badgeStyle: SocialItemBadgeStyle;
-    badgeCountValue: number;
+    badgeCountValue: Number;
     author: SocialUserInfo;
     thumbnails: Object;
     primaryContent: SocialFeedContent;
@@ -96,4 +67,43 @@
 
   }
 
+  export class SocialFeedSharedItem {
+    timestamp: Date;
+    thumbnail: SocialItemThumbnail;
+    targetUri: Object;
+    originalSource: Object;
+    content: SocialFeedContent;
+    constructor();
+
+  }
+
+  export class SocialItemThumbnail {
+    targetUri: Object;
+    imageUri: Object;
+    bitmapSize: BitmapSize;
+    constructor();
+
+    setImageAsync(image: Object, callback: (error: Error) => void): void ;
+
+  }
+
+  export class SocialUserInfo {
+    userName: String;
+    targetUri: Object;
+    remoteId: String;
+    displayName: String;
+    constructor();
+
+  }
+
+export const SocialFeedItemStyle: any;
+export const SocialFeedKind: any;
+export const SocialFeedUpdateMode: any;
+export const SocialItemBadgeStyle: any;
+export const SocialFeedChildItem: any;
+export const SocialFeedContent: any;
+export const SocialFeedItem: any;
+export const SocialFeedSharedItem: any;
+export const SocialItemThumbnail: any;
+export const SocialUserInfo: any;
 export * as provider from "./applicationmodel.socialinfo.provider.js";

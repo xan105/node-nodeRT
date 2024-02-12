@@ -6,10 +6,10 @@
     printSchema: PrintSchema;
     constructor();
 
-    static fromIdAsync(deviceId: string, callback: (error: Error, result: Print3DDevice) => void): void ;
+    static fromIdAsync(deviceId: String, callback: (error: Error, result: Print3DDevice) => void): void ;
 
 
-    static getDeviceSelector(): string;
+    static getDeviceSelector(): String;
 
 
   }
@@ -25,4 +25,6 @@
 
   }
 
+export const Print3DDevice: any;
+export const PrintSchema: any;
 export * as extensions from "./devices.printers.extensions.js";

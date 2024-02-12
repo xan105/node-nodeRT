@@ -1,3 +1,10 @@
+  export enum ExtendedExecutionForegroundReason {
+    unspecified,
+    savingData,
+    backgroundAudio,
+    unconstrained,
+  }
+
   export enum ExtendedExecutionForegroundResult {
     allowed,
     denied,
@@ -8,13 +15,6 @@
     systemPolicy,
   }
 
-  export enum ExtendedExecutionForegroundReason {
-    unspecified,
-    savingData,
-    backgroundAudio,
-    unconstrained,
-  }
-
   export class ExtendedExecutionForegroundRevokedEventArgs {
     reason: ExtendedExecutionForegroundRevokedReason;
     constructor();
@@ -23,7 +23,7 @@
 
   export class ExtendedExecutionForegroundSession {
     reason: ExtendedExecutionForegroundReason;
-    description: string;
+    description: String;
     constructor();
 
     requestExtensionAsync(callback: (error: Error, result: ExtendedExecutionForegroundResult) => void): void ;

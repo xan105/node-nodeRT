@@ -7,7 +7,7 @@
   }
 
   export class FontWeight {
-    weight: number;
+    weight: Number;
     constructor();
   }
 
@@ -20,6 +20,25 @@
     none,
     word,
     case,
+  }
+
+  export enum FontStretch {
+    undefined,
+    ultraCondensed,
+    extraCondensed,
+    condensed,
+    semiCondensed,
+    normal,
+    semiExpanded,
+    expanded,
+    extraExpanded,
+    ultraExpanded,
+  }
+
+  export enum FontStyle {
+    normal,
+    oblique,
+    italic,
   }
 
   export enum FormatEffect {
@@ -150,6 +169,11 @@
     outward,
   }
 
+  export enum RichEditMathMode {
+    noMath,
+    mathOnly,
+  }
+
   export enum SelectionOptions {
     startActive,
     atEndOfLine,
@@ -183,6 +207,12 @@
     equals,
   }
 
+  export enum TextDecorations {
+    none,
+    underline,
+    strikethrough,
+  }
+
   export enum TextGetOptions {
     none,
     adjustCrlf,
@@ -193,16 +223,6 @@
     includeNumbering,
     formatRtf,
     useLf,
-  }
-
-  export enum TextSetOptions {
-    none,
-    unicodeBidi,
-    unlink,
-    unhide,
-    checkTextLimit,
-    formatRtf,
-    applyRtfDocumentDefaults,
   }
 
   export enum TextRangeUnit {
@@ -308,6 +328,16 @@
     tifinagh,
   }
 
+  export enum TextSetOptions {
+    none,
+    unicodeBidi,
+    unlink,
+    unhide,
+    checkTextLimit,
+    formatRtf,
+    applyRtfDocumentDefaults,
+  }
+
   export enum UnderlineType {
     undefined,
     none,
@@ -337,412 +367,12 @@
     bottom,
   }
 
-  export enum FontStretch {
-    undefined,
-    ultraCondensed,
-    extraCondensed,
-    condensed,
-    semiCondensed,
-    normal,
-    semiExpanded,
-    expanded,
-    extraExpanded,
-    ultraExpanded,
-  }
-
-  export enum FontStyle {
-    normal,
-    oblique,
-    italic,
-  }
-
-  export enum TextDecorations {
-    none,
-    underline,
-    strikethrough,
-  }
-
-  export class TextConstants {
-    static autoColor: Object;
-    static maxUnitCount: number;
-    static minUnitCount: number;
-    static undefinedColor: Object;
-    static undefinedFloatValue: number;
-    static undefinedFontStretch: FontStretch;
-    static undefinedFontStyle: FontStyle;
-    static undefinedInt32Value: number;
-    constructor();
-
-  }
-
-  export class ITextDocument {
-    caretType: CaretType;
-    defaultTabStop: number;
-    selection: ITextSelection;
-    undoLimit: number;
-    constructor();
-
-    canCopy(): boolean;
-
-    canPaste(): boolean;
-
-    canRedo(): boolean;
-
-    canUndo(): boolean;
-
-    applyDisplayUpdates(): number;
-
-    batchDisplayUpdates(): number;
-
-    beginUndoGroup(): void;
-
-    endUndoGroup(): void;
-
-    getDefaultCharacterFormat(): ITextCharacterFormat;
-
-    getDefaultParagraphFormat(): ITextParagraphFormat;
-
-    getRange(startPosition: number, endPosition: number): ITextRange;
-
-    getRangeFromPoint(point: Object, options: PointOptions): ITextRange;
-
-    getText(options: TextGetOptions, value: string): void;
-
-    loadFromStream(options: TextSetOptions, value: Object): void;
-
-    redo(): void;
-
-    saveToStream(options: TextGetOptions, value: Object): void;
-
-    setDefaultCharacterFormat(value: ITextCharacterFormat): void;
-
-    setDefaultParagraphFormat(value: ITextParagraphFormat): void;
-
-    setText(options: TextSetOptions, value: string): void;
-
-    undo(): void;
-
-  }
-
-  export class ITextRange {
-    character: string;
-    characterFormat: ITextCharacterFormat;
-    endPosition: number;
-    formattedText: ITextRange;
-    gravity: RangeGravity;
-    length: number;
-    link: string;
-    paragraphFormat: ITextParagraphFormat;
-    startPosition: number;
-    storyLength: number;
-    text: string;
-    constructor();
-
-    canPaste(format: number): boolean;
-
-    changeCase(value: LetterCase): void;
-
-    collapse(value: boolean): void;
-
-    copy(): void;
-
-    cut(): void;
-
-    delete(unit: TextRangeUnit, count: number): number;
-
-    endOf(unit: TextRangeUnit, extend: boolean): number;
-
-    expand(unit: TextRangeUnit): number;
-
-    findText(value: string, scanLength: number, options: FindOptions): number;
-
-    getCharacterUtf32(value: number, offset: number): void;
-
-    getClone(): ITextRange;
-
-    getIndex(unit: TextRangeUnit): number;
-
-    getPoint(horizontalAlign: HorizontalCharacterAlignment, verticalAlign: VerticalCharacterAlignment, options: PointOptions, point: Object): void;
-
-    getRect(options: PointOptions, rect: Object, hit: number): void;
-
-    getText(options: TextGetOptions, value: string): void;
-
-    getTextViaStream(options: TextGetOptions, value: Object): void;
-
-    inRange(range: ITextRange): boolean;
-
-    insertImage(width: number, height: number, ascent: number, verticalAlign: VerticalCharacterAlignment, alternateText: string, value: Object): void;
-
-    inStory(range: ITextRange): boolean;
-
-    isEqual(range: ITextRange): boolean;
-
-    move(unit: TextRangeUnit, count: number): number;
-
-    moveEnd(unit: TextRangeUnit, count: number): number;
-
-    moveStart(unit: TextRangeUnit, count: number): number;
-
-    paste(format: number): void;
-
-    scrollIntoView(value: PointOptions): void;
-
-    matchSelection(): void;
-
-    setIndex(unit: TextRangeUnit, index: number, extend: boolean): void;
-
-    setPoint(point: Object, options: PointOptions, extend: boolean): void;
-
-    setRange(startPosition: number, endPosition: number): void;
-
-    setText(options: TextSetOptions, value: string): void;
-
-    setTextViaStream(options: TextSetOptions, value: Object): void;
-
-    startOf(unit: TextRangeUnit, extend: boolean): number;
-
-  }
-
-  export class ITextSelection {
-    options: SelectionOptions;
-    type: SelectionType;
-    constructor();
-
-    endKey(unit: TextRangeUnit, extend: boolean): number;
-
-    homeKey(unit: TextRangeUnit, extend: boolean): number;
-
-    moveDown(unit: TextRangeUnit, count: number, extend: boolean): number;
-
-    moveLeft(unit: TextRangeUnit, count: number, extend: boolean): number;
-
-    moveRight(unit: TextRangeUnit, count: number, extend: boolean): number;
-
-    moveUp(unit: TextRangeUnit, count: number, extend: boolean): number;
-
-    typeText(value: string): void;
-
-  }
-
-  export class ITextCharacterFormat {
-    allCaps: FormatEffect;
-    backgroundColor: Object;
-    bold: FormatEffect;
-    fontStretch: FontStretch;
-    fontStyle: FontStyle;
-    foregroundColor: Object;
-    hidden: FormatEffect;
-    italic: FormatEffect;
-    kerning: number;
-    languageTag: string;
-    linkType: LinkType;
-    name: string;
-    outline: FormatEffect;
-    position: number;
-    protectedText: FormatEffect;
-    size: number;
-    smallCaps: FormatEffect;
-    spacing: number;
-    strikethrough: FormatEffect;
-    subscript: FormatEffect;
-    superscript: FormatEffect;
-    textScript: TextScript;
-    underline: UnderlineType;
-    weight: number;
-    constructor();
-
-    setClone(value: ITextCharacterFormat): void;
-
-    getClone(): ITextCharacterFormat;
-
-    isEqual(format: ITextCharacterFormat): boolean;
-
-  }
-
-  export class ITextParagraphFormat {
-    alignment: ParagraphAlignment;
-    firstLineIndent: number;
-    keepTogether: FormatEffect;
-    keepWithNext: FormatEffect;
-    leftIndent: number;
-    lineSpacing: number;
-    lineSpacingRule: LineSpacingRule;
-    listAlignment: MarkerAlignment;
-    listLevelIndex: number;
-    listStart: number;
-    listStyle: MarkerStyle;
-    listTab: number;
-    listType: MarkerType;
-    noLineNumber: FormatEffect;
-    pageBreakBefore: FormatEffect;
-    rightIndent: number;
-    rightToLeft: FormatEffect;
-    spaceAfter: number;
-    spaceBefore: number;
-    style: ParagraphStyle;
-    tabCount: number;
-    widowControl: FormatEffect;
-    constructor();
-
-    addTab(position: number, align: TabAlignment, leader: TabLeader): void;
-
-    clearAllTabs(): void;
-
-    deleteTab(position: number): void;
-
-    getClone(): ITextParagraphFormat;
-
-    getTab(index: number, position: number, align: TabAlignment, leader: TabLeader): void;
-
-    isEqual(format: ITextParagraphFormat): boolean;
-
-    setClone(format: ITextParagraphFormat): void;
-
-    setIndents(start: number, left: number, right: number): void;
-
-    setLineSpacing(rule: LineSpacingRule, spacing: number): void;
-
-  }
-
-  export class RichEditTextDocument {
-    undoLimit: number;
-    defaultTabStop: number;
-    caretType: CaretType;
-    selection: ITextSelection;
-    ignoreTrailingCharacterSpacing: boolean;
-    alignmentIncludesTrailingWhitespace: boolean;
-    constructor();
-
-    canCopy(): boolean;
-
-    canPaste(): boolean;
-
-    canRedo(): boolean;
-
-    canUndo(): boolean;
-
-    applyDisplayUpdates(): number;
-
-    batchDisplayUpdates(): number;
-
-    beginUndoGroup(): void;
-
-    endUndoGroup(): void;
-
-    getDefaultCharacterFormat(): ITextCharacterFormat;
-
-    getDefaultParagraphFormat(): ITextParagraphFormat;
-
-    getRange(startPosition: number, endPosition: number): ITextRange;
-
-    getRangeFromPoint(point: Object, options: PointOptions): ITextRange;
-
-    getText(options: TextGetOptions, value: string): void;
-
-    loadFromStream(options: TextSetOptions, value: Object): void;
-
-    redo(): void;
-
-    saveToStream(options: TextGetOptions, value: Object): void;
-
-    setDefaultCharacterFormat(value: ITextCharacterFormat): void;
-
-    setDefaultParagraphFormat(value: ITextParagraphFormat): void;
-
-    setText(options: TextSetOptions, value: string): void;
-
-    undo(): void;
-
-  }
-
-  export class RichEditTextRange {
-    contentLinkInfo: ContentLinkInfo;
-    text: string;
-    startPosition: number;
-    paragraphFormat: ITextParagraphFormat;
-    link: string;
-    gravity: RangeGravity;
-    formattedText: ITextRange;
-    endPosition: number;
-    characterFormat: ITextCharacterFormat;
-    character: string;
-    length: number;
-    storyLength: number;
-    constructor();
-
-    startOf(unit: TextRangeUnit, extend: boolean): number;
-
-    canPaste(format: number): boolean;
-
-    changeCase(value: LetterCase): void;
-
-    collapse(value: boolean): void;
-
-    copy(): void;
-
-    cut(): void;
-
-    delete(unit: TextRangeUnit, count: number): number;
-
-    endOf(unit: TextRangeUnit, extend: boolean): number;
-
-    expand(unit: TextRangeUnit): number;
-
-    findText(value: string, scanLength: number, options: FindOptions): number;
-
-    getCharacterUtf32(value: number, offset: number): void;
-
-    getClone(): ITextRange;
-
-    getIndex(unit: TextRangeUnit): number;
-
-    getPoint(horizontalAlign: HorizontalCharacterAlignment, verticalAlign: VerticalCharacterAlignment, options: PointOptions, point: Object): void;
-
-    getRect(options: PointOptions, rect: Object, hit: number): void;
-
-    getText(options: TextGetOptions, value: string): void;
-
-    getTextViaStream(options: TextGetOptions, value: Object): void;
-
-    inRange(range: ITextRange): boolean;
-
-    insertImage(width: number, height: number, ascent: number, verticalAlign: VerticalCharacterAlignment, alternateText: string, value: Object): void;
-
-    inStory(range: ITextRange): boolean;
-
-    isEqual(range: ITextRange): boolean;
-
-    move(unit: TextRangeUnit, count: number): number;
-
-    moveEnd(unit: TextRangeUnit, count: number): number;
-
-    moveStart(unit: TextRangeUnit, count: number): number;
-
-    paste(format: number): void;
-
-    scrollIntoView(value: PointOptions): void;
-
-    matchSelection(): void;
-
-    setIndex(unit: TextRangeUnit, index: number, extend: boolean): void;
-
-    setPoint(point: Object, options: PointOptions, extend: boolean): void;
-
-    setRange(startPosition: number, endPosition: number): void;
-
-    setText(options: TextSetOptions, value: string): void;
-
-    setTextViaStream(options: TextSetOptions, value: Object): void;
-
-  }
-
   export class ContentLinkInfo {
     uri: Object;
-    secondaryText: string;
-    linkContentKind: string;
-    id: number;
-    displayText: string;
+    secondaryText: String;
+    linkContentKind: String;
+    id: Number;
+    displayText: String;
     constructor();
 
   }
@@ -763,4 +393,425 @@
 
   }
 
+  export class ITextCharacterFormat {
+    allCaps: FormatEffect;
+    backgroundColor: Object;
+    bold: FormatEffect;
+    fontStretch: FontStretch;
+    fontStyle: FontStyle;
+    foregroundColor: Object;
+    hidden: FormatEffect;
+    italic: FormatEffect;
+    kerning: Number;
+    languageTag: String;
+    linkType: LinkType;
+    name: String;
+    outline: FormatEffect;
+    position: Number;
+    protectedText: FormatEffect;
+    size: Number;
+    smallCaps: FormatEffect;
+    spacing: Number;
+    strikethrough: FormatEffect;
+    subscript: FormatEffect;
+    superscript: FormatEffect;
+    textScript: TextScript;
+    underline: UnderlineType;
+    weight: Number;
+    constructor();
+
+    setClone(value: ITextCharacterFormat): void;
+
+    getClone(): ITextCharacterFormat;
+
+    isEqual(format: ITextCharacterFormat): Boolean;
+
+  }
+
+  export class ITextDocument {
+    caretType: CaretType;
+    defaultTabStop: Number;
+    selection: ITextSelection;
+    undoLimit: Number;
+    constructor();
+
+    canCopy(): Boolean;
+
+    canPaste(): Boolean;
+
+    canRedo(): Boolean;
+
+    canUndo(): Boolean;
+
+    applyDisplayUpdates(): Number;
+
+    batchDisplayUpdates(): Number;
+
+    beginUndoGroup(): void;
+
+    endUndoGroup(): void;
+
+    getDefaultCharacterFormat(): ITextCharacterFormat;
+
+    getDefaultParagraphFormat(): ITextParagraphFormat;
+
+    getRange(startPosition: Number, endPosition: Number): ITextRange;
+
+    getRangeFromPoint(point: Object, options: PointOptions): ITextRange;
+
+    getText(options: TextGetOptions, value: String): void;
+
+    loadFromStream(options: TextSetOptions, value: Object): void;
+
+    redo(): void;
+
+    saveToStream(options: TextGetOptions, value: Object): void;
+
+    setDefaultCharacterFormat(value: ITextCharacterFormat): void;
+
+    setDefaultParagraphFormat(value: ITextParagraphFormat): void;
+
+    setText(options: TextSetOptions, value: String): void;
+
+    undo(): void;
+
+  }
+
+  export class ITextParagraphFormat {
+    alignment: ParagraphAlignment;
+    firstLineIndent: Number;
+    keepTogether: FormatEffect;
+    keepWithNext: FormatEffect;
+    leftIndent: Number;
+    lineSpacing: Number;
+    lineSpacingRule: LineSpacingRule;
+    listAlignment: MarkerAlignment;
+    listLevelIndex: Number;
+    listStart: Number;
+    listStyle: MarkerStyle;
+    listTab: Number;
+    listType: MarkerType;
+    noLineNumber: FormatEffect;
+    pageBreakBefore: FormatEffect;
+    rightIndent: Number;
+    rightToLeft: FormatEffect;
+    spaceAfter: Number;
+    spaceBefore: Number;
+    style: ParagraphStyle;
+    tabCount: Number;
+    widowControl: FormatEffect;
+    constructor();
+
+    addTab(position: Number, align: TabAlignment, leader: TabLeader): void;
+
+    clearAllTabs(): void;
+
+    deleteTab(position: Number): void;
+
+    getClone(): ITextParagraphFormat;
+
+    getTab(index: Number, position: Number, align: TabAlignment, leader: TabLeader): void;
+
+    isEqual(format: ITextParagraphFormat): Boolean;
+
+    setClone(format: ITextParagraphFormat): void;
+
+    setIndents(start: Number, left: Number, right: Number): void;
+
+    setLineSpacing(rule: LineSpacingRule, spacing: Number): void;
+
+  }
+
+  export class ITextRange {
+    character: String;
+    characterFormat: ITextCharacterFormat;
+    endPosition: Number;
+    formattedText: ITextRange;
+    gravity: RangeGravity;
+    length: Number;
+    link: String;
+    paragraphFormat: ITextParagraphFormat;
+    startPosition: Number;
+    storyLength: Number;
+    text: String;
+    constructor();
+
+    canPaste(format: Number): Boolean;
+
+    changeCase(value: LetterCase): void;
+
+    collapse(value: Boolean): void;
+
+    copy(): void;
+
+    cut(): void;
+
+    delete(unit: TextRangeUnit, count: Number): Number;
+
+    endOf(unit: TextRangeUnit, extend: Boolean): Number;
+
+    expand(unit: TextRangeUnit): Number;
+
+    findText(value: String, scanLength: Number, options: FindOptions): Number;
+
+    getCharacterUtf32(value: Number, offset: Number): void;
+
+    getClone(): ITextRange;
+
+    getIndex(unit: TextRangeUnit): Number;
+
+    getPoint(horizontalAlign: HorizontalCharacterAlignment, verticalAlign: VerticalCharacterAlignment, options: PointOptions, point: Object): void;
+
+    getRect(options: PointOptions, rect: Object, hit: Number): void;
+
+    getText(options: TextGetOptions, value: String): void;
+
+    getTextViaStream(options: TextGetOptions, value: Object): void;
+
+    inRange(range: ITextRange): Boolean;
+
+    insertImage(width: Number, height: Number, ascent: Number, verticalAlign: VerticalCharacterAlignment, alternateText: String, value: Object): void;
+
+    inStory(range: ITextRange): Boolean;
+
+    isEqual(range: ITextRange): Boolean;
+
+    move(unit: TextRangeUnit, count: Number): Number;
+
+    moveEnd(unit: TextRangeUnit, count: Number): Number;
+
+    moveStart(unit: TextRangeUnit, count: Number): Number;
+
+    paste(format: Number): void;
+
+    scrollIntoView(value: PointOptions): void;
+
+    matchSelection(): void;
+
+    setIndex(unit: TextRangeUnit, index: Number, extend: Boolean): void;
+
+    setPoint(point: Object, options: PointOptions, extend: Boolean): void;
+
+    setRange(startPosition: Number, endPosition: Number): void;
+
+    setText(options: TextSetOptions, value: String): void;
+
+    setTextViaStream(options: TextSetOptions, value: Object): void;
+
+    startOf(unit: TextRangeUnit, extend: Boolean): Number;
+
+  }
+
+  export class ITextSelection {
+    options: SelectionOptions;
+    type: SelectionType;
+    constructor();
+
+    endKey(unit: TextRangeUnit, extend: Boolean): Number;
+
+    homeKey(unit: TextRangeUnit, extend: Boolean): Number;
+
+    moveDown(unit: TextRangeUnit, count: Number, extend: Boolean): Number;
+
+    moveLeft(unit: TextRangeUnit, count: Number, extend: Boolean): Number;
+
+    moveRight(unit: TextRangeUnit, count: Number, extend: Boolean): Number;
+
+    moveUp(unit: TextRangeUnit, count: Number, extend: Boolean): Number;
+
+    typeText(value: String): void;
+
+  }
+
+  export class RichEditTextDocument {
+    undoLimit: Number;
+    defaultTabStop: Number;
+    caretType: CaretType;
+    selection: ITextSelection;
+    ignoreTrailingCharacterSpacing: Boolean;
+    alignmentIncludesTrailingWhitespace: Boolean;
+    constructor();
+
+    clearUndoRedoHistory(): void;
+
+    setMath(value: String): void;
+
+    getMath(value: String): void;
+
+    setMathMode(mode: RichEditMathMode): void;
+
+    canCopy(): Boolean;
+
+    canPaste(): Boolean;
+
+    canRedo(): Boolean;
+
+    canUndo(): Boolean;
+
+    applyDisplayUpdates(): Number;
+
+    batchDisplayUpdates(): Number;
+
+    beginUndoGroup(): void;
+
+    endUndoGroup(): void;
+
+    getDefaultCharacterFormat(): ITextCharacterFormat;
+
+    getDefaultParagraphFormat(): ITextParagraphFormat;
+
+    getRange(startPosition: Number, endPosition: Number): ITextRange;
+
+    getRangeFromPoint(point: Object, options: PointOptions): ITextRange;
+
+    getText(options: TextGetOptions, value: String): void;
+
+    loadFromStream(options: TextSetOptions, value: Object): void;
+
+    redo(): void;
+
+    saveToStream(options: TextGetOptions, value: Object): void;
+
+    setDefaultCharacterFormat(value: ITextCharacterFormat): void;
+
+    setDefaultParagraphFormat(value: ITextParagraphFormat): void;
+
+    setText(options: TextSetOptions, value: String): void;
+
+    undo(): void;
+
+  }
+
+  export class RichEditTextRange {
+    contentLinkInfo: ContentLinkInfo;
+    text: String;
+    startPosition: Number;
+    paragraphFormat: ITextParagraphFormat;
+    link: String;
+    gravity: RangeGravity;
+    formattedText: ITextRange;
+    endPosition: Number;
+    characterFormat: ITextCharacterFormat;
+    character: String;
+    length: Number;
+    storyLength: Number;
+    constructor();
+
+    setText(options: TextSetOptions, value: String): void;
+
+    setTextViaStream(options: TextSetOptions, value: Object): void;
+
+    startOf(unit: TextRangeUnit, extend: Boolean): Number;
+
+    canPaste(format: Number): Boolean;
+
+    changeCase(value: LetterCase): void;
+
+    collapse(value: Boolean): void;
+
+    copy(): void;
+
+    cut(): void;
+
+    delete(unit: TextRangeUnit, count: Number): Number;
+
+    endOf(unit: TextRangeUnit, extend: Boolean): Number;
+
+    expand(unit: TextRangeUnit): Number;
+
+    findText(value: String, scanLength: Number, options: FindOptions): Number;
+
+    getCharacterUtf32(value: Number, offset: Number): void;
+
+    getClone(): ITextRange;
+
+    getIndex(unit: TextRangeUnit): Number;
+
+    getPoint(horizontalAlign: HorizontalCharacterAlignment, verticalAlign: VerticalCharacterAlignment, options: PointOptions, point: Object): void;
+
+    getRect(options: PointOptions, rect: Object, hit: Number): void;
+
+    getText(options: TextGetOptions, value: String): void;
+
+    getTextViaStream(options: TextGetOptions, value: Object): void;
+
+    inRange(range: ITextRange): Boolean;
+
+    insertImage(width: Number, height: Number, ascent: Number, verticalAlign: VerticalCharacterAlignment, alternateText: String, value: Object): void;
+
+    inStory(range: ITextRange): Boolean;
+
+    isEqual(range: ITextRange): Boolean;
+
+    move(unit: TextRangeUnit, count: Number): Number;
+
+    moveEnd(unit: TextRangeUnit, count: Number): Number;
+
+    moveStart(unit: TextRangeUnit, count: Number): Number;
+
+    paste(format: Number): void;
+
+    scrollIntoView(value: PointOptions): void;
+
+    matchSelection(): void;
+
+    setIndex(unit: TextRangeUnit, index: Number, extend: Boolean): void;
+
+    setPoint(point: Object, options: PointOptions, extend: Boolean): void;
+
+    setRange(startPosition: Number, endPosition: Number): void;
+
+  }
+
+  export class TextConstants {
+    static autoColor: Object;
+    static maxUnitCount: Number;
+    static minUnitCount: Number;
+    static undefinedColor: Object;
+    static undefinedFloatValue: Number;
+    static undefinedFontStretch: FontStretch;
+    static undefinedFontStyle: FontStyle;
+    static undefinedInt32Value: Number;
+    constructor();
+
+  }
+
+export const CaretType: any;
+export const FindOptions: any;
+export const FontStretch: any;
+export const FontStyle: any;
+export const FormatEffect: any;
+export const HorizontalCharacterAlignment: any;
+export const LetterCase: any;
+export const LineSpacingRule: any;
+export const LinkType: any;
+export const MarkerAlignment: any;
+export const MarkerStyle: any;
+export const MarkerType: any;
+export const ParagraphAlignment: any;
+export const ParagraphStyle: any;
+export const PointOptions: any;
+export const RangeGravity: any;
+export const RichEditMathMode: any;
+export const SelectionOptions: any;
+export const SelectionType: any;
+export const TabAlignment: any;
+export const TabLeader: any;
+export const TextDecorations: any;
+export const TextGetOptions: any;
+export const TextRangeUnit: any;
+export const TextScript: any;
+export const TextSetOptions: any;
+export const UnderlineType: any;
+export const VerticalCharacterAlignment: any;
+export const ContentLinkInfo: any;
+export const FontWeights: any;
+export const ITextCharacterFormat: any;
+export const ITextDocument: any;
+export const ITextParagraphFormat: any;
+export const ITextRange: any;
+export const ITextSelection: any;
+export const RichEditTextDocument: any;
+export const RichEditTextRange: any;
+export const TextConstants: any;
 export * as core from "./ui.text.core.js";

@@ -15,13 +15,6 @@
     disconnecting,
   }
 
-  export enum AllJoynTrafficType {
-    unknown,
-    messages,
-    rawUnreliable,
-    rawReliable,
-  }
-
   export enum AllJoynSessionLostReason {
     none,
     producerLeftSession,
@@ -31,39 +24,23 @@
     other,
   }
 
-  export class AllJoynStatus {
-    static authenticationFailed: number;
-    static authenticationRejectedByUser: number;
-    static connectionRefused: number;
-    static fail: number;
-    static insufficientSecurity: number;
-    static invalidArgument1: number;
-    static invalidArgument2: number;
-    static invalidArgument3: number;
-    static invalidArgument4: number;
-    static invalidArgument5: number;
-    static invalidArgument6: number;
-    static invalidArgument7: number;
-    static invalidArgument8: number;
-    static ok: number;
-    static operationTimedOut: number;
-    static otherEndClosed: number;
-    static sslConnectFailed: number;
-    static sslIdentityVerificationFailed: number;
-    constructor();
-
+  export enum AllJoynTrafficType {
+    unknown,
+    messages,
+    rawUnreliable,
+    rawReliable,
   }
 
   export class AllJoynAboutData {
-    defaultDescription: string;
-    defaultAppName: string;
+    defaultDescription: String;
+    defaultAppName: String;
     dateOfManufacture: Date;
-    defaultManufacturer: string;
-    appId: string;
+    defaultManufacturer: String;
+    appId: String;
     supportUrl: Object;
-    softwareVersion: string;
-    modelNumber: string;
-    isEnabled: boolean;
+    softwareVersion: String;
+    modelNumber: String;
+    isEnabled: Boolean;
     appNames: Object;
     manufacturers: Object;
     descriptions: Object;
@@ -71,14 +48,60 @@
 
   }
 
+  export class AllJoynAboutDataView {
+    aJSoftwareVersion: String;
+    appId: String;
+    appName: String;
+    dateOfManufacture: Date;
+    defaultLanguage: Object;
+    description: String;
+    deviceId: String;
+    deviceName: String;
+    hardwareVersion: String;
+    manufacturer: String;
+    modelNumber: String;
+    properties: Object;
+    softwareVersion: String;
+    status: Number;
+    supportUrl: Object;
+    supportedLanguages: Object;
+    constructor();
+
+    static getDataBySessionPortAsync(uniqueName: String, busAttachment: AllJoynBusAttachment, sessionPort: Number, callback: (error: Error, result: AllJoynAboutDataView) => void): void ;
+    static getDataBySessionPortAsync(uniqueName: String, busAttachment: AllJoynBusAttachment, sessionPort: Number, language: Object, callback: (error: Error, result: AllJoynAboutDataView) => void): void ;
+
+
+  }
+
+  export class AllJoynAcceptSessionJoinerEventArgs {
+    sameNetwork: Boolean;
+    samePhysicalNode: Boolean;
+    sessionPort: Number;
+    trafficType: AllJoynTrafficType;
+    uniqueName: String;
+    constructor();
+    constructor(uniqueName: String, sessionPort: Number, trafficType: AllJoynTrafficType, proximity: Number, acceptSessionJoiner: IAllJoynAcceptSessionJoiner);
+
+    accept(): void;
+
+  }
+
+  export class AllJoynAuthenticationCompleteEventArgs {
+    authenticationMechanism: AllJoynAuthenticationMechanism;
+    peerUniqueName: String;
+    succeeded: Boolean;
+    constructor();
+
+  }
+
   export class AllJoynBusAttachment {
     aboutData: AllJoynAboutData;
     authenticationMechanisms: Object;
-    connectionSpecification: string;
+    connectionSpecification: String;
     state: AllJoynBusAttachmentState;
-    uniqueName: string;
+    uniqueName: String;
     constructor();
-    constructor(connectionSpecification: string);
+    constructor(connectionSpecification: String);
 
     static getDefault(): AllJoynBusAttachment;
 
@@ -86,7 +109,7 @@
     static getWatcher(requiredInterfaces: Object): Object;
 
 
-    pingAsync(uniqueName: string, callback: (error: Error, result: number) => void): void ;
+    pingAsync(uniqueName: String, callback: (error: Error, result: Number) => void): void ;
 
     getAboutDataAsync(serviceInfo: AllJoynServiceInfo, callback: (error: Error, result: AllJoynAboutDataView) => void): void ;
     getAboutDataAsync(serviceInfo: AllJoynServiceInfo, language: Object, callback: (error: Error, result: AllJoynAboutDataView) => void): void ;
@@ -135,16 +158,58 @@
 
   export class AllJoynBusAttachmentStateChangedEventArgs {
     state: AllJoynBusAttachmentState;
-    status: number;
+    status: Number;
+    constructor();
+
+  }
+
+  export class AllJoynBusObject {
+    busAttachment: AllJoynBusAttachment;
+    session: AllJoynSession;
+    constructor();
+    constructor(objectPath: String);
+    constructor(objectPath: String, busAttachment: AllJoynBusAttachment);
+
+    start(): void;
+
+    stop(): void;
+
+    addProducer(producer: IAllJoynProducer): void;
+
+    addListener(type: "Stopped", listener: (ev: Event) => void): void ;
+    removeListener(type: "Stopped", listener: (ev: Event) => void): void ;
+    on(type: "Stopped", listener: (ev: Event) => void): void ;
+    off(type: "Stopped", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
+
+  }
+
+  export class AllJoynBusObjectStoppedEventArgs {
+    status: Number;
+    constructor();
+    constructor(status: Number);
+
+  }
+
+  export class AllJoynCredentials {
+    timeout: Number;
+    passwordCredential: Object;
+    certificate: Object;
+    authenticationMechanism: AllJoynAuthenticationMechanism;
     constructor();
 
   }
 
   export class AllJoynCredentialsRequestedEventArgs {
-    attemptCount: number;
+    attemptCount: Number;
     credentials: AllJoynCredentials;
-    peerUniqueName: string;
-    requestedUserName: string;
+    peerUniqueName: String;
+    requestedUserName: String;
     constructor();
 
     getDeferral(): Object;
@@ -154,10 +219,10 @@
   export class AllJoynCredentialsVerificationRequestedEventArgs {
     authenticationMechanism: AllJoynAuthenticationMechanism;
     peerCertificate: Object;
-    peerCertificateErrorSeverity: number;
+    peerCertificateErrorSeverity: Number;
     peerCertificateErrors: Object;
     peerIntermediateCertificates: Object;
-    peerUniqueName: string;
+    peerUniqueName: String;
     constructor();
 
     accept(): void;
@@ -166,90 +231,49 @@
 
   }
 
-  export class AllJoynAuthenticationCompleteEventArgs {
-    authenticationMechanism: AllJoynAuthenticationMechanism;
-    peerUniqueName: string;
-    succeeded: boolean;
+  export class AllJoynMessageInfo {
+    senderUniqueName: String;
     constructor();
+    constructor(senderUniqueName: String);
+
+  }
+
+  export class AllJoynProducerStoppedEventArgs {
+    status: Number;
+    constructor();
+    constructor(status: Number);
 
   }
 
   export class AllJoynServiceInfo {
-    objectPath: string;
-    sessionPort: number;
-    uniqueName: string;
+    objectPath: String;
+    sessionPort: Number;
+    uniqueName: String;
     constructor();
-    constructor(uniqueName: string, objectPath: string, sessionPort: number);
+    constructor(uniqueName: String, objectPath: String, sessionPort: Number);
 
-    static fromIdAsync(deviceId: string, callback: (error: Error, result: AllJoynServiceInfo) => void): void ;
+    static fromIdAsync(deviceId: String, callback: (error: Error, result: AllJoynServiceInfo) => void): void ;
 
 
   }
 
-  export class AllJoynAboutDataView {
-    aJSoftwareVersion: string;
-    appId: string;
-    appName: string;
-    dateOfManufacture: Date;
-    defaultLanguage: Object;
-    description: string;
-    deviceId: string;
-    deviceName: string;
-    hardwareVersion: string;
-    manufacturer: string;
-    modelNumber: string;
-    properties: Object;
-    softwareVersion: string;
-    status: number;
-    supportUrl: Object;
-    supportedLanguages: Object;
+  export class AllJoynServiceInfoRemovedEventArgs {
+    uniqueName: String;
     constructor();
-
-    static getDataBySessionPortAsync(uniqueName: string, busAttachment: AllJoynBusAttachment, sessionPort: number, callback: (error: Error, result: AllJoynAboutDataView) => void): void ;
-    static getDataBySessionPortAsync(uniqueName: string, busAttachment: AllJoynBusAttachment, sessionPort: number, language: Object, callback: (error: Error, result: AllJoynAboutDataView) => void): void ;
-
-
-  }
-
-  export class AllJoynAcceptSessionJoinerEventArgs {
-    sameNetwork: boolean;
-    samePhysicalNode: boolean;
-    sessionPort: number;
-    trafficType: AllJoynTrafficType;
-    uniqueName: string;
-    constructor();
-    constructor(uniqueName: string, sessionPort: number, trafficType: AllJoynTrafficType, proximity: number, acceptSessionJoiner: IAllJoynAcceptSessionJoiner);
-
-    accept(): void;
-
-  }
-
-  export class AllJoynSessionJoinedEventArgs {
-    session: AllJoynSession;
-    constructor();
-    constructor(session: AllJoynSession);
-
-  }
-
-  export class AllJoynCredentials {
-    timeout: number;
-    passwordCredential: Object;
-    certificate: Object;
-    authenticationMechanism: AllJoynAuthenticationMechanism;
-    constructor();
+    constructor(uniqueName: String);
 
   }
 
   export class AllJoynSession {
-    id: number;
-    status: number;
+    id: Number;
+    status: Number;
     constructor();
 
     static getFromServiceInfoAsync(serviceInfo: AllJoynServiceInfo, callback: (error: Error, result: AllJoynSession) => void): void ;
     static getFromServiceInfoAsync(serviceInfo: AllJoynServiceInfo, busAttachment: AllJoynBusAttachment, callback: (error: Error, result: AllJoynSession) => void): void ;
 
 
-    removeMemberAsync(uniqueName: string, callback: (error: Error, result: number) => void): void ;
+    removeMemberAsync(uniqueName: String, callback: (error: Error, result: Number) => void): void ;
 
     addListener(type: "Lost", listener: (ev: Event) => void): void ;
     removeListener(type: "Lost", listener: (ev: Event) => void): void ;
@@ -274,17 +298,10 @@
 
   }
 
-  export class AllJoynSessionMemberAddedEventArgs {
-    uniqueName: string;
+  export class AllJoynSessionJoinedEventArgs {
+    session: AllJoynSession;
     constructor();
-    constructor(uniqueName: string);
-
-  }
-
-  export class AllJoynSessionMemberRemovedEventArgs {
-    uniqueName: string;
-    constructor();
-    constructor(uniqueName: string);
+    constructor(session: AllJoynSession);
 
   }
 
@@ -295,43 +312,47 @@
 
   }
 
-  export class IAllJoynProducer {
+  export class AllJoynSessionMemberAddedEventArgs {
+    uniqueName: String;
     constructor();
-
-    setBusObject(busObject: AllJoynBusObject): void;
+    constructor(uniqueName: String);
 
   }
 
-  export class AllJoynBusObject {
-    busAttachment: AllJoynBusAttachment;
-    session: AllJoynSession;
+  export class AllJoynSessionMemberRemovedEventArgs {
+    uniqueName: String;
     constructor();
-    constructor(objectPath: string);
-    constructor(objectPath: string, busAttachment: AllJoynBusAttachment);
-
-    start(): void;
-
-    stop(): void;
-
-    addProducer(producer: IAllJoynProducer): void;
-
-    addListener(type: "Stopped", listener: (ev: Event) => void): void ;
-    removeListener(type: "Stopped", listener: (ev: Event) => void): void ;
-    on(type: "Stopped", listener: (ev: Event) => void): void ;
-    off(type: "Stopped", listener: (ev: Event) => void): void ;
-    
-    addListener(type: string, listener: (ev: Event) => void): void ;
-    removeListener(type: string, listener: (ev: Event) => void): void ;
-    on(type: string, listener: (ev: Event) => void): void ;
-    off(type: string, listener: (ev: Event) => void): void ;
-    
+    constructor(uniqueName: String);
 
   }
 
-  export class AllJoynBusObjectStoppedEventArgs {
-    status: number;
+  export class AllJoynStatus {
+    static authenticationFailed: Number;
+    static authenticationRejectedByUser: Number;
+    static connectionRefused: Number;
+    static fail: Number;
+    static insufficientSecurity: Number;
+    static invalidArgument1: Number;
+    static invalidArgument2: Number;
+    static invalidArgument3: Number;
+    static invalidArgument4: Number;
+    static invalidArgument5: Number;
+    static invalidArgument6: Number;
+    static invalidArgument7: Number;
+    static invalidArgument8: Number;
+    static ok: Number;
+    static operationTimedOut: Number;
+    static otherEndClosed: Number;
+    static sslConnectFailed: Number;
+    static sslIdentityVerificationFailed: Number;
     constructor();
-    constructor(status: number);
+
+  }
+
+  export class AllJoynWatcherStoppedEventArgs {
+    status: Number;
+    constructor();
+    constructor(status: Number);
 
   }
 
@@ -342,31 +363,10 @@
 
   }
 
-  export class AllJoynProducerStoppedEventArgs {
-    status: number;
+  export class IAllJoynProducer {
     constructor();
-    constructor(status: number);
 
-  }
-
-  export class AllJoynWatcherStoppedEventArgs {
-    status: number;
-    constructor();
-    constructor(status: number);
-
-  }
-
-  export class AllJoynServiceInfoRemovedEventArgs {
-    uniqueName: string;
-    constructor();
-    constructor(uniqueName: string);
-
-  }
-
-  export class AllJoynMessageInfo {
-    senderUniqueName: string;
-    constructor();
-    constructor(senderUniqueName: string);
+    setBusObject(busObject: AllJoynBusObject): void;
 
   }
 

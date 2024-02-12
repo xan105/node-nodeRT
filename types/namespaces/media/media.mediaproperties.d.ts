@@ -1,13 +1,14 @@
-  export enum StereoscopicVideoPackingMode {
-    none,
-    sideBySide,
-    topBottom,
+  export enum AudioEncodingQuality {
+    auto,
+    high,
+    medium,
+    low,
   }
 
-  export enum SphericalVideoFrameFormat {
+  export enum MediaMirroringOptions {
     none,
-    unsupported,
-    equirectangular,
+    horizontal,
+    vertical,
   }
 
   export enum MediaPixelFormat {
@@ -16,16 +17,28 @@
     p010,
   }
 
+  export enum MediaRotation {
+    none,
+    clockwise90Degrees,
+    clockwise180Degrees,
+    clockwise270Degrees,
+  }
+
   export enum MediaThumbnailFormat {
     bmp,
     bgra8,
   }
 
-  export enum AudioEncodingQuality {
-    auto,
-    high,
-    medium,
-    low,
+  export enum SphericalVideoFrameFormat {
+    none,
+    unsupported,
+    equirectangular,
+  }
+
+  export enum StereoscopicVideoPackingMode {
+    none,
+    sideBySide,
+    topBottom,
   }
 
   export enum VideoEncodingQuality {
@@ -41,225 +54,89 @@
     uhd4320p,
   }
 
-  export enum MediaRotation {
-    none,
-    clockwise90Degrees,
-    clockwise180Degrees,
-    clockwise270Degrees,
-  }
-
-  export enum MediaMirroringOptions {
-    none,
-    horizontal,
-    vertical,
-  }
-
-  export class MediaRatio {
-    numerator: number;
-    denominator: number;
-    constructor();
-
-  }
-
-  export class MediaPropertySet {
-    constructor();
-
-    lookup(key: string): Object;
-
-    hasKey(key: string): boolean;
-
-    getView(): Object;
-
-    insert(key: string, value: Object): boolean;
-
-    remove(key: string): void;
-
-    clear(): void;
-
-    first(): Object;
-
-  }
-
-  export class IMediaEncodingProperties {
-    properties: MediaPropertySet;
-    subtype: string;
-    type: string;
-    constructor();
-
-  }
-
   export class AudioEncodingProperties {
-    sampleRate: number;
-    channelCount: number;
-    bitsPerSample: number;
-    bitrate: number;
-    isSpatial: boolean;
-    subtype: string;
+    sampleRate: Number;
+    channelCount: Number;
+    bitsPerSample: Number;
+    bitrate: Number;
+    isSpatial: Boolean;
+    subtype: String;
     properties: MediaPropertySet;
-    type: string;
+    type: String;
     constructor();
 
-    static createAlac(sampleRate: number, channelCount: number, bitsPerSample: number): AudioEncodingProperties;
+    static createAlac(sampleRate: Number, channelCount: Number, bitsPerSample: Number): AudioEncodingProperties;
 
 
-    static createFlac(sampleRate: number, channelCount: number, bitsPerSample: number): AudioEncodingProperties;
+    static createFlac(sampleRate: Number, channelCount: Number, bitsPerSample: Number): AudioEncodingProperties;
 
 
-    static createAac(sampleRate: number, channelCount: number, bitrate: number): AudioEncodingProperties;
+    static createAac(sampleRate: Number, channelCount: Number, bitrate: Number): AudioEncodingProperties;
 
 
-    static createAacAdts(sampleRate: number, channelCount: number, bitrate: number): AudioEncodingProperties;
+    static createAacAdts(sampleRate: Number, channelCount: Number, bitrate: Number): AudioEncodingProperties;
 
 
-    static createMp3(sampleRate: number, channelCount: number, bitrate: number): AudioEncodingProperties;
+    static createMp3(sampleRate: Number, channelCount: Number, bitrate: Number): AudioEncodingProperties;
 
 
-    static createPcm(sampleRate: number, channelCount: number, bitsPerSample: number): AudioEncodingProperties;
+    static createPcm(sampleRate: Number, channelCount: Number, bitsPerSample: Number): AudioEncodingProperties;
 
 
-    static createWma(sampleRate: number, channelCount: number, bitrate: number): AudioEncodingProperties;
+    static createWma(sampleRate: Number, channelCount: Number, bitrate: Number): AudioEncodingProperties;
 
 
-    setFormatUserData(value: Array<number>): void;
+    setFormatUserData(value: Array<Number>): void;
 
-    getFormatUserData(value: Array<number>): void;
+    getFormatUserData(value: Array<Number>): void;
 
     copy(): AudioEncodingProperties;
 
   }
 
-  export class MediaEncodingSubtypes {
-    static eac3: string;
-    static aac: string;
-    static aacAdts: string;
-    static ac3: string;
-    static amrNb: string;
-    static amrWb: string;
-    static argb32: string;
-    static asf: string;
-    static avi: string;
-    static bgra8: string;
-    static bmp: string;
-    static nv12: string;
-    static float: string;
-    static gif: string;
-    static h263: string;
-    static h264: string;
-    static h264Es: string;
-    static hevc: string;
-    static hevcEs: string;
-    static iyuv: string;
-    static jpeg: string;
-    static jpegXr: string;
-    static mjpg: string;
-    static mp3: string;
-    static mpeg: string;
-    static mpeg1: string;
-    static mpeg2: string;
-    static mpeg4: string;
-    static pcm: string;
-    static png: string;
-    static rgb24: string;
-    static rgb32: string;
-    static tiff: string;
-    static wave: string;
-    static wma8: string;
-    static wma9: string;
-    static wmv3: string;
-    static wvc1: string;
-    static yuy2: string;
-    static yv12: string;
-    static d16: string;
-    static l16: string;
-    static l8: string;
-    static vp9: string;
-    static alac: string;
-    static flac: string;
-    static p010: string;
+  export class ContainerEncodingProperties {
+    subtype: String;
+    properties: MediaPropertySet;
+    type: String;
     constructor();
+
+    copy(): ContainerEncodingProperties;
 
   }
 
   export class H264ProfileIds {
-    static baseline: number;
-    static constrainedBaseline: number;
-    static extended: number;
-    static high: number;
-    static high10: number;
-    static high422: number;
-    static high444: number;
-    static main: number;
-    static multiviewHigh: number;
-    static stereoHigh: number;
+    static baseline: Number;
+    static constrainedBaseline: Number;
+    static extended: Number;
+    static high: Number;
+    static high10: Number;
+    static high422: Number;
+    static high444: Number;
+    static main: Number;
+    static multiviewHigh: Number;
+    static stereoHigh: Number;
     constructor();
 
   }
 
-  export class Mpeg2ProfileIds {
-    static high: number;
-    static main: number;
-    static signalNoiseRatioScalable: number;
-    static simple: number;
-    static spatiallyScalable: number;
-    constructor();
-
-  }
-
-  export class VideoEncodingProperties {
-    subtype: string;
-    type: string;
+  export class IMediaEncodingProperties {
     properties: MediaPropertySet;
-    width: number;
-    height: number;
-    bitrate: number;
-    pixelAspectRatio: MediaRatio;
-    frameRate: MediaRatio;
-    profileId: number;
-    stereoscopicVideoPackingMode: StereoscopicVideoPackingMode;
-    sphericalVideoFrameFormat: SphericalVideoFrameFormat;
+    subtype: String;
+    type: String;
     constructor();
-
-    static createHevc(): VideoEncodingProperties;
-
-
-    static createH264(): VideoEncodingProperties;
-
-
-    static createMpeg2(): VideoEncodingProperties;
-
-
-    static createUncompressed(subtype: string, width: number, height: number): VideoEncodingProperties;
-
-
-    setFormatUserData(value: Array<number>): void;
-
-    getFormatUserData(value: Array<number>): void;
-
-    copy(): VideoEncodingProperties;
-
-  }
-
-  export class TimedMetadataEncodingProperties {
-    subtype: string;
-    properties: MediaPropertySet;
-    type: string;
-    constructor();
-
-    setFormatUserData(value: Array<number>): void;
-
-    getFormatUserData(value: Array<number>): void;
-
-    copy(): TimedMetadataEncodingProperties;
 
   }
 
   export class ImageEncodingProperties {
-    width: number;
-    height: number;
-    subtype: string;
+    width: Number;
+    height: Number;
+    subtype: String;
     properties: MediaPropertySet;
-    type: string;
+    type: String;
     constructor();
+
+    static createHeif(): ImageEncodingProperties;
+
 
     static createUncompressed(format: MediaPixelFormat): ImageEncodingProperties;
 
@@ -277,16 +154,6 @@
 
 
     copy(): ImageEncodingProperties;
-
-  }
-
-  export class ContainerEncodingProperties {
-    subtype: string;
-    properties: MediaPropertySet;
-    type: string;
-    constructor();
-
-    copy(): ContainerEncodingProperties;
 
   }
 
@@ -343,6 +210,159 @@
     setTimedMetadataTracks(value: Object): void;
 
     getTimedMetadataTracks(): Object;
+
+  }
+
+  export class MediaEncodingSubtypes {
+    static asf: String;
+    static aac: String;
+    static aacAdts: String;
+    static ac3: String;
+    static amrNb: String;
+    static amrWb: String;
+    static argb32: String;
+    static mpeg1: String;
+    static avi: String;
+    static bgra8: String;
+    static bmp: String;
+    static eac3: String;
+    static float: String;
+    static gif: String;
+    static h263: String;
+    static h264: String;
+    static h264Es: String;
+    static hevc: String;
+    static hevcEs: String;
+    static iyuv: String;
+    static jpeg: String;
+    static jpegXr: String;
+    static mjpg: String;
+    static mp3: String;
+    static mpeg: String;
+    static mpeg2: String;
+    static mpeg4: String;
+    static nv12: String;
+    static pcm: String;
+    static png: String;
+    static rgb24: String;
+    static rgb32: String;
+    static tiff: String;
+    static wave: String;
+    static wma8: String;
+    static wma9: String;
+    static wmv3: String;
+    static wvc1: String;
+    static yuy2: String;
+    static yv12: String;
+    static d16: String;
+    static l16: String;
+    static l8: String;
+    static vp9: String;
+    static alac: String;
+    static flac: String;
+    static p010: String;
+    static heif: String;
+    static srt: String;
+    static ssa: String;
+    static vobSub: String;
+    static pgs: String;
+    constructor();
+
+  }
+
+  export class MediaPropertySet {
+    constructor();
+
+    lookup(key: String): Object;
+
+    hasKey(key: String): Boolean;
+
+    getView(): Object;
+
+    insert(key: String, value: Object): Boolean;
+
+    remove(key: String): void;
+
+    clear(): void;
+
+    first(): Object;
+
+  }
+
+  export class MediaRatio {
+    numerator: Number;
+    denominator: Number;
+    constructor();
+
+  }
+
+  export class Mpeg2ProfileIds {
+    static high: Number;
+    static main: Number;
+    static signalNoiseRatioScalable: Number;
+    static simple: Number;
+    static spatiallyScalable: Number;
+    constructor();
+
+  }
+
+  export class TimedMetadataEncodingProperties {
+    subtype: String;
+    properties: MediaPropertySet;
+    type: String;
+    constructor();
+
+    static createPgs(): TimedMetadataEncodingProperties;
+
+
+    static createSrt(): TimedMetadataEncodingProperties;
+
+
+    static createSsa(formatUserData: Array<Number>): TimedMetadataEncodingProperties;
+
+
+    static createVobSub(formatUserData: Array<Number>): TimedMetadataEncodingProperties;
+
+
+    setFormatUserData(value: Array<Number>): void;
+
+    getFormatUserData(value: Array<Number>): void;
+
+    copy(): TimedMetadataEncodingProperties;
+
+  }
+
+  export class VideoEncodingProperties {
+    subtype: String;
+    type: String;
+    properties: MediaPropertySet;
+    width: Number;
+    height: Number;
+    bitrate: Number;
+    pixelAspectRatio: MediaRatio;
+    frameRate: MediaRatio;
+    profileId: Number;
+    stereoscopicVideoPackingMode: StereoscopicVideoPackingMode;
+    sphericalVideoFrameFormat: SphericalVideoFrameFormat;
+    constructor();
+
+    static createHevc(): VideoEncodingProperties;
+
+
+    static createH264(): VideoEncodingProperties;
+
+
+    static createMpeg2(): VideoEncodingProperties;
+
+
+    static createUncompressed(subtype: String, width: Number, height: Number): VideoEncodingProperties;
+
+
+    setFormatUserData(value: Array<Number>): void;
+
+    getFormatUserData(value: Array<Number>): void;
+
+    copy(): VideoEncodingProperties;
 
   }
 

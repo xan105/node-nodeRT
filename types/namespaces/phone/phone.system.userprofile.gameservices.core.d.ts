@@ -1,8 +1,3 @@
-  export enum GameServiceScoreKind {
-    number,
-    time,
-  }
-
   export enum GameServiceGameOutcome {
     none,
     win,
@@ -10,11 +5,9 @@
     tie,
   }
 
-  export class GameServicePropertyCollection {
-    constructor();
-
-    getPropertyAsync(propertyName: string, callback: (error: Error, result: Object) => void): void ;
-
+  export enum GameServiceScoreKind {
+    number,
+    time,
   }
 
   export class GameService {
@@ -27,26 +20,33 @@
     static getInstalledGameItemsAsync(callback: (error: Error, result: GameServicePropertyCollection) => void): void ;
 
 
-    static getPartnerTokenAsync(audienceUri: Object, callback: (error: Error, result: string) => void): void ;
+    static getPartnerTokenAsync(audienceUri: Object, callback: (error: Error, result: String) => void): void ;
 
 
-    static getPrivilegesAsync(callback: (error: Error, result: string) => void): void ;
+    static getPrivilegesAsync(callback: (error: Error, result: String) => void): void ;
 
 
     static notifyPartnerTokenExpired(audienceUri: Object): void;
 
 
-    static getAuthenticationStatus(): number;
+    static getAuthenticationStatus(): Number;
 
 
-    static grantAchievement(achievementId: number): void;
+    static grantAchievement(achievementId: Number): void;
 
 
-    static grantAvatarAward(avatarAwardId: number): void;
+    static grantAvatarAward(avatarAwardId: Number): void;
 
 
-    static postResult(gameVariant: number, scoreKind: GameServiceScoreKind, scoreValue: number, gameOutcome: GameServiceGameOutcome, buffer: Object): void;
+    static postResult(gameVariant: Number, scoreKind: GameServiceScoreKind, scoreValue: Number, gameOutcome: GameServiceGameOutcome, buffer: Object): void;
 
+
+  }
+
+  export class GameServicePropertyCollection {
+    constructor();
+
+    getPropertyAsync(propertyName: String, callback: (error: Error, result: Object) => void): void ;
 
   }
 

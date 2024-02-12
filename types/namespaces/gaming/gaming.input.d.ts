@@ -1,60 +1,60 @@
   export class ArcadeStickReading {
-    timestamp: number;
+    timestamp: Number;
     buttons: ArcadeStickButtons;
     constructor();
   }
 
   export class FlightStickReading {
-    timestamp: number;
+    timestamp: Number;
     buttons: FlightStickButtons;
     hatSwitch: GameControllerSwitchPosition;
-    roll: number;
-    pitch: number;
-    yaw: number;
-    throttle: number;
+    roll: Number;
+    pitch: Number;
+    yaw: Number;
+    throttle: Number;
     constructor();
   }
 
   export class GamepadReading {
-    timestamp: number;
+    timestamp: Number;
     buttons: GamepadButtons;
-    leftTrigger: number;
-    rightTrigger: number;
-    leftThumbstickX: number;
-    leftThumbstickY: number;
-    rightThumbstickX: number;
-    rightThumbstickY: number;
+    leftTrigger: Number;
+    rightTrigger: Number;
+    leftThumbstickX: Number;
+    leftThumbstickY: Number;
+    rightThumbstickX: Number;
+    rightThumbstickY: Number;
     constructor();
   }
 
   export class GamepadVibration {
-    leftMotor: number;
-    rightMotor: number;
-    leftTrigger: number;
-    rightTrigger: number;
-    constructor();
-  }
-
-  export class RacingWheelReading {
-    timestamp: number;
-    buttons: RacingWheelButtons;
-    patternShifterGear: number;
-    wheel: number;
-    throttle: number;
-    brake: number;
-    clutch: number;
-    handbrake: number;
-    constructor();
-  }
-
-  export class UINavigationReading {
-    timestamp: number;
-    requiredButtons: RequiredUINavigationButtons;
-    optionalButtons: OptionalUINavigationButtons;
+    leftMotor: Number;
+    rightMotor: Number;
+    leftTrigger: Number;
+    rightTrigger: Number;
     constructor();
   }
 
   export class GamingInputPreviewContract {
+    constructor();
+  }
+
+  export class RacingWheelReading {
+    timestamp: Number;
+    buttons: RacingWheelButtons;
+    patternShifterGear: Number;
+    wheel: Number;
+    throttle: Number;
+    brake: Number;
+    clutch: Number;
+    handbrake: Number;
+    constructor();
+  }
+
+  export class UINavigationReading {
+    timestamp: Number;
+    requiredButtons: RequiredUINavigationButtons;
+    optionalButtons: OptionalUINavigationButtons;
     constructor();
   }
 
@@ -192,6 +192,22 @@
     paddle4,
   }
 
+  export enum OptionalUINavigationButtons {
+    none,
+    context1,
+    context2,
+    context3,
+    context4,
+    pageUp,
+    pageDown,
+    pageLeft,
+    pageRight,
+    scrollUp,
+    scrollDown,
+    scrollLeft,
+    scrollRight,
+  }
+
   export enum RacingWheelButtons {
     none,
     previousGear,
@@ -230,71 +246,10 @@
     right,
   }
 
-  export enum OptionalUINavigationButtons {
-    none,
-    context1,
-    context2,
-    context3,
-    context4,
-    pageUp,
-    pageDown,
-    pageLeft,
-    pageRight,
-    scrollUp,
-    scrollDown,
-    scrollLeft,
-    scrollRight,
-  }
-
-  export class IGameController {
-    headset: Headset;
-    isWireless: boolean;
-    user: Object;
-    constructor();
-
-    addListener(type: "HeadsetConnected", listener: (ev: Event) => void): void ;
-    removeListener(type: "HeadsetConnected", listener: (ev: Event) => void): void ;
-    on(type: "HeadsetConnected", listener: (ev: Event) => void): void ;
-    off(type: "HeadsetConnected", listener: (ev: Event) => void): void ;
-    
-    addListener(type: "HeadsetDisconnected", listener: (ev: Event) => void): void ;
-    removeListener(type: "HeadsetDisconnected", listener: (ev: Event) => void): void ;
-    on(type: "HeadsetDisconnected", listener: (ev: Event) => void): void ;
-    off(type: "HeadsetDisconnected", listener: (ev: Event) => void): void ;
-    
-    addListener(type: "UserChanged", listener: (ev: Event) => void): void ;
-    removeListener(type: "UserChanged", listener: (ev: Event) => void): void ;
-    on(type: "UserChanged", listener: (ev: Event) => void): void ;
-    off(type: "UserChanged", listener: (ev: Event) => void): void ;
-    
-    addListener(type: string, listener: (ev: Event) => void): void ;
-    removeListener(type: string, listener: (ev: Event) => void): void ;
-    on(type: string, listener: (ev: Event) => void): void ;
-    off(type: string, listener: (ev: Event) => void): void ;
-    
-
-  }
-
-  export class Headset {
-    captureDeviceId: string;
-    renderDeviceId: string;
-    constructor();
-
-    tryGetBatteryReport(): Object;
-
-  }
-
-  export class IGameControllerBatteryInfo {
-    constructor();
-
-    tryGetBatteryReport(): Object;
-
-  }
-
   export class ArcadeStick {
     static arcadeSticks: Object;
     headset: Headset;
-    isWireless: boolean;
+    isWireless: Boolean;
     user: Object;
     constructor();
 
@@ -344,7 +299,7 @@
     static flightSticks: Object;
     hatSwitchKind: GameControllerSwitchKind;
     headset: Headset;
-    isWireless: boolean;
+    isWireless: Boolean;
     user: Object;
     constructor();
 
@@ -393,7 +348,7 @@
   export class Gamepad {
     static gamepads: Object;
     headset: Headset;
-    isWireless: boolean;
+    isWireless: Boolean;
     user: Object;
     vibration: GamepadVibration;
     constructor();
@@ -440,16 +395,61 @@
 
   }
 
+  export class Headset {
+    captureDeviceId: String;
+    renderDeviceId: String;
+    constructor();
+
+    tryGetBatteryReport(): Object;
+
+  }
+
+  export class IGameController {
+    headset: Headset;
+    isWireless: Boolean;
+    user: Object;
+    constructor();
+
+    addListener(type: "HeadsetConnected", listener: (ev: Event) => void): void ;
+    removeListener(type: "HeadsetConnected", listener: (ev: Event) => void): void ;
+    on(type: "HeadsetConnected", listener: (ev: Event) => void): void ;
+    off(type: "HeadsetConnected", listener: (ev: Event) => void): void ;
+    
+    addListener(type: "HeadsetDisconnected", listener: (ev: Event) => void): void ;
+    removeListener(type: "HeadsetDisconnected", listener: (ev: Event) => void): void ;
+    on(type: "HeadsetDisconnected", listener: (ev: Event) => void): void ;
+    off(type: "HeadsetDisconnected", listener: (ev: Event) => void): void ;
+    
+    addListener(type: "UserChanged", listener: (ev: Event) => void): void ;
+    removeListener(type: "UserChanged", listener: (ev: Event) => void): void ;
+    on(type: "UserChanged", listener: (ev: Event) => void): void ;
+    off(type: "UserChanged", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
+
+  }
+
+  export class IGameControllerBatteryInfo {
+    constructor();
+
+    tryGetBatteryReport(): Object;
+
+  }
+
   export class RacingWheel {
     static racingWheels: Object;
     headset: Headset;
-    isWireless: boolean;
+    isWireless: Boolean;
     user: Object;
-    hasClutch: boolean;
-    hasHandbrake: boolean;
-    hasPatternShifter: boolean;
-    maxPatternShifterGear: number;
-    maxWheelAngle: number;
+    hasClutch: Boolean;
+    hasHandbrake: Boolean;
+    hasPatternShifter: Boolean;
+    maxPatternShifterGear: Number;
+    maxWheelAngle: Number;
     wheelMotor: Object;
     constructor();
 
@@ -498,26 +498,26 @@
   export class RawGameController {
     static rawGameControllers: Object;
     headset: Headset;
-    isWireless: boolean;
+    isWireless: Boolean;
     user: Object;
-    axisCount: number;
-    buttonCount: number;
+    axisCount: Number;
+    buttonCount: Number;
     forceFeedbackMotors: Object;
-    hardwareProductId: number;
-    hardwareVendorId: number;
-    switchCount: number;
-    displayName: string;
-    nonRoamableId: string;
+    hardwareProductId: Number;
+    hardwareVendorId: Number;
+    switchCount: Number;
+    displayName: String;
+    nonRoamableId: String;
     simpleHapticsControllers: Object;
     constructor();
 
     static fromGameController(gameController: IGameController): RawGameController;
 
 
-    getButtonLabel(buttonIndex: number): GameControllerButtonLabel;
+    getButtonLabel(buttonIndex: Number): GameControllerButtonLabel;
 
     getCurrentReading();
-    getSwitchKind(switchIndex: number): GameControllerSwitchKind;
+    getSwitchKind(switchIndex: Number): GameControllerSwitchKind;
 
     tryGetBatteryReport(): Object;
 
@@ -557,7 +557,7 @@
   export class UINavigationController {
     static uINavigationControllers: Object;
     headset: Headset;
-    isWireless: boolean;
+    isWireless: Boolean;
     user: Object;
     constructor();
 
@@ -605,6 +605,23 @@
 
   }
 
+export const ArcadeStickButtons: any;
+export const FlightStickButtons: any;
+export const GameControllerButtonLabel: any;
+export const GameControllerSwitchKind: any;
+export const GameControllerSwitchPosition: any;
+export const GamepadButtons: any;
+export const OptionalUINavigationButtons: any;
+export const RacingWheelButtons: any;
+export const RequiredUINavigationButtons: any;
+export const ArcadeStick: any;
+export const FlightStick: any;
+export const Gamepad: any;
+export const Headset: any;
+export const IGameController: any;
+export const IGameControllerBatteryInfo: any;
+export const RacingWheel: any;
+export const RawGameController: any;
+export const UINavigationController: any;
 export * as custom from "./gaming.input.custom.js";
 export * as forcefeedback from "./gaming.input.forcefeedback.js";
-export * as preview from "./gaming.input.preview.js";

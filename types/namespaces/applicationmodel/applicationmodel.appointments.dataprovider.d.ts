@@ -1,3 +1,137 @@
+  export class AppointmentCalendarCancelMeetingRequest {
+    appointmentCalendarLocalId: String;
+    appointmentLocalId: String;
+    appointmentOriginalStartTime: Date;
+    comment: String;
+    notifyInvitees: Boolean;
+    subject: String;
+    constructor();
+
+    reportCompletedAsync(callback: (error: Error) => void): void ;
+
+    reportFailedAsync(callback: (error: Error) => void): void ;
+
+  }
+
+  export class AppointmentCalendarCancelMeetingRequestEventArgs {
+    request: AppointmentCalendarCancelMeetingRequest;
+    constructor();
+
+    getDeferral(): Object;
+
+  }
+
+  export class AppointmentCalendarCreateOrUpdateAppointmentRequest {
+    appointment: Object;
+    appointmentCalendarLocalId: String;
+    changedProperties: Object;
+    notifyInvitees: Boolean;
+    constructor();
+
+    reportCompletedAsync(createdOrUpdatedAppointment: Object, callback: (error: Error) => void): void ;
+
+    reportFailedAsync(callback: (error: Error) => void): void ;
+
+  }
+
+  export class AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
+    request: AppointmentCalendarCreateOrUpdateAppointmentRequest;
+    constructor();
+
+    getDeferral(): Object;
+
+  }
+
+  export class AppointmentCalendarForwardMeetingRequest {
+    appointmentCalendarLocalId: String;
+    appointmentLocalId: String;
+    appointmentOriginalStartTime: Date;
+    comment: String;
+    forwardHeader: String;
+    invitees: Object;
+    subject: String;
+    constructor();
+
+    reportCompletedAsync(callback: (error: Error) => void): void ;
+
+    reportFailedAsync(callback: (error: Error) => void): void ;
+
+  }
+
+  export class AppointmentCalendarForwardMeetingRequestEventArgs {
+    request: AppointmentCalendarForwardMeetingRequest;
+    constructor();
+
+    getDeferral(): Object;
+
+  }
+
+  export class AppointmentCalendarProposeNewTimeForMeetingRequest {
+    appointmentCalendarLocalId: String;
+    appointmentLocalId: String;
+    appointmentOriginalStartTime: Date;
+    comment: String;
+    newDuration: Number;
+    newStartTime: Date;
+    subject: String;
+    constructor();
+
+    reportCompletedAsync(callback: (error: Error) => void): void ;
+
+    reportFailedAsync(callback: (error: Error) => void): void ;
+
+  }
+
+  export class AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
+    request: AppointmentCalendarProposeNewTimeForMeetingRequest;
+    constructor();
+
+    getDeferral(): Object;
+
+  }
+
+  export class AppointmentCalendarSyncManagerSyncRequest {
+    appointmentCalendarLocalId: String;
+    constructor();
+
+    reportCompletedAsync(callback: (error: Error) => void): void ;
+
+    reportFailedAsync(callback: (error: Error) => void): void ;
+
+  }
+
+  export class AppointmentCalendarSyncManagerSyncRequestEventArgs {
+    request: AppointmentCalendarSyncManagerSyncRequest;
+    constructor();
+
+    getDeferral(): Object;
+
+  }
+
+  export class AppointmentCalendarUpdateMeetingResponseRequest {
+    appointmentCalendarLocalId: String;
+    appointmentLocalId: String;
+    appointmentOriginalStartTime: Date;
+    comment: String;
+    response: Number;
+    sendUpdate: Boolean;
+    subject: String;
+    constructor();
+
+    reportCompletedAsync(callback: (error: Error) => void): void ;
+
+    reportFailedAsync(callback: (error: Error) => void): void ;
+
+  }
+
+  export class AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
+    request: AppointmentCalendarUpdateMeetingResponseRequest;
+    constructor();
+
+    getDeferral(): Object;
+
+  }
+
   export class AppointmentDataProviderConnection {
     constructor();
 
@@ -41,143 +175,9 @@
 
   }
 
-  export class AppointmentCalendarSyncManagerSyncRequestEventArgs {
-    request: AppointmentCalendarSyncManagerSyncRequest;
-    constructor();
-
-    getDeferral(): Object;
-
-  }
-
-  export class AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
-    request: AppointmentCalendarCreateOrUpdateAppointmentRequest;
-    constructor();
-
-    getDeferral(): Object;
-
-  }
-
-  export class AppointmentCalendarCancelMeetingRequestEventArgs {
-    request: AppointmentCalendarCancelMeetingRequest;
-    constructor();
-
-    getDeferral(): Object;
-
-  }
-
-  export class AppointmentCalendarForwardMeetingRequestEventArgs {
-    request: AppointmentCalendarForwardMeetingRequest;
-    constructor();
-
-    getDeferral(): Object;
-
-  }
-
-  export class AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
-    request: AppointmentCalendarProposeNewTimeForMeetingRequest;
-    constructor();
-
-    getDeferral(): Object;
-
-  }
-
-  export class AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
-    request: AppointmentCalendarUpdateMeetingResponseRequest;
-    constructor();
-
-    getDeferral(): Object;
-
-  }
-
   export class AppointmentDataProviderTriggerDetails {
     connection: AppointmentDataProviderConnection;
     constructor();
-
-  }
-
-  export class AppointmentCalendarSyncManagerSyncRequest {
-    appointmentCalendarLocalId: string;
-    constructor();
-
-    reportCompletedAsync(callback: (error: Error) => void): void ;
-
-    reportFailedAsync(callback: (error: Error) => void): void ;
-
-  }
-
-  export class AppointmentCalendarCreateOrUpdateAppointmentRequest {
-    appointment: Object;
-    appointmentCalendarLocalId: string;
-    changedProperties: Object;
-    notifyInvitees: boolean;
-    constructor();
-
-    reportCompletedAsync(createdOrUpdatedAppointment: Object, callback: (error: Error) => void): void ;
-
-    reportFailedAsync(callback: (error: Error) => void): void ;
-
-  }
-
-  export class AppointmentCalendarCancelMeetingRequest {
-    appointmentCalendarLocalId: string;
-    appointmentLocalId: string;
-    appointmentOriginalStartTime: Date;
-    comment: string;
-    notifyInvitees: boolean;
-    subject: string;
-    constructor();
-
-    reportCompletedAsync(callback: (error: Error) => void): void ;
-
-    reportFailedAsync(callback: (error: Error) => void): void ;
-
-  }
-
-  export class AppointmentCalendarForwardMeetingRequest {
-    appointmentCalendarLocalId: string;
-    appointmentLocalId: string;
-    appointmentOriginalStartTime: Date;
-    comment: string;
-    forwardHeader: string;
-    invitees: Object;
-    subject: string;
-    constructor();
-
-    reportCompletedAsync(callback: (error: Error) => void): void ;
-
-    reportFailedAsync(callback: (error: Error) => void): void ;
-
-  }
-
-  export class AppointmentCalendarProposeNewTimeForMeetingRequest {
-    appointmentCalendarLocalId: string;
-    appointmentLocalId: string;
-    appointmentOriginalStartTime: Date;
-    comment: string;
-    newDuration: number;
-    newStartTime: Date;
-    subject: string;
-    constructor();
-
-    reportCompletedAsync(callback: (error: Error) => void): void ;
-
-    reportFailedAsync(callback: (error: Error) => void): void ;
-
-  }
-
-  export class AppointmentCalendarUpdateMeetingResponseRequest {
-    appointmentCalendarLocalId: string;
-    appointmentLocalId: string;
-    appointmentOriginalStartTime: Date;
-    comment: string;
-    response: number;
-    sendUpdate: boolean;
-    subject: string;
-    constructor();
-
-    reportCompletedAsync(callback: (error: Error) => void): void ;
-
-    reportFailedAsync(callback: (error: Error) => void): void ;
 
   }
 

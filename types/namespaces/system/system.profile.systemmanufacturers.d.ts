@@ -5,20 +5,33 @@
   export class OemSupportInfo {
     supportAppLink: Object;
     supportLink: Object;
-    supportProvider: string;
-    constructor();
-
-  }
-
-  export class SystemSupportInfo {
-    static localSystemEdition: string;
-    static oemSupportInfo: OemSupportInfo;
+    supportProvider: String;
     constructor();
 
   }
 
   export class SmbiosInformation {
-    static serialNumber: string;
+    static serialNumber: String;
+    constructor();
+
+  }
+
+  export class SystemSupportDeviceInfo {
+    friendlyName: String;
+    operatingSystem: String;
+    systemFirmwareVersion: String;
+    systemHardwareVersion: String;
+    systemManufacturer: String;
+    systemProductName: String;
+    systemSku: String;
+    constructor();
+
+  }
+
+  export class SystemSupportInfo {
+    static localSystemEdition: String;
+    static oemSupportInfo: OemSupportInfo;
+    static localDeviceInfo: SystemSupportDeviceInfo;
     constructor();
 
   }

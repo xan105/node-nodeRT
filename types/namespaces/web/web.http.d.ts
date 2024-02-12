@@ -1,23 +1,35 @@
   export class HttpProgress {
     stage: HttpProgressStage;
-    bytesSent: number;
-    totalBytesToSend: number;
-    bytesReceived: number;
-    totalBytesToReceive: number;
-    retries: number;
+    bytesSent: Number;
+    totalBytesToSend: Number;
+    bytesReceived: Number;
+    totalBytesToReceive: Number;
+    retries: Number;
     constructor();
-  }
-
-  export enum HttpVersion {
-    none,
-    http10,
-    http11,
-    http20,
   }
 
   export enum HttpCompletionOption {
     responseContentRead,
     responseHeadersRead,
+  }
+
+  export enum HttpProgressStage {
+    none,
+    detectingProxy,
+    resolvingName,
+    connectingToServer,
+    negotiatingSsl,
+    sendingHeaders,
+    sendingContent,
+    waitingForResponse,
+    receivingHeaders,
+    receivingContent,
+  }
+
+  export enum HttpResponseMessageSource {
+    none,
+    cache,
+    network,
   }
 
   export enum HttpStatusCode {
@@ -81,61 +93,39 @@
     networkAuthenticationRequired,
   }
 
-  export enum HttpProgressStage {
+  export enum HttpVersion {
     none,
-    detectingProxy,
-    resolvingName,
-    connectingToServer,
-    negotiatingSsl,
-    sendingHeaders,
-    sendingContent,
-    waitingForResponse,
-    receivingHeaders,
-    receivingContent,
+    http10,
+    http11,
+    http20,
   }
 
-  export enum HttpResponseMessageSource {
-    none,
-    cache,
-    network,
-  }
-
-  export class HttpRequestMessage {
-    requestUri: Object;
-    method: HttpMethod;
-    content: IHttpContent;
+  export class HttpBufferContent {
     headers: Object;
-    properties: Object;
-    transportInformation: HttpTransportInformation;
     constructor();
-    constructor(method: HttpMethod, uri: Object);
+    constructor(content: Object);
+    constructor(content: Object, offset: Number, count: Number);
+
+    bufferAllAsync(callback: (error: Error, result: Number) => void): void ;
+
+    readAsBufferAsync(callback: (error: Error, result: Object) => void): void ;
+
+    readAsInputStreamAsync(callback: (error: Error, result: Object) => void): void ;
+
+    readAsStringAsync(callback: (error: Error, result: String) => void): void ;
+
+    writeToStreamAsync(outputStream: Object, callback: (error: Error, result: Number) => void): void ;
+
+    tryComputeLength(length: Number): Boolean;
 
     close(): void;
-    toString(): string;
-
-  }
-
-  export class HttpResponseMessage {
-    version: HttpVersion;
-    statusCode: HttpStatusCode;
-    source: HttpResponseMessageSource;
-    requestMessage: HttpRequestMessage;
-    reasonPhrase: string;
-    content: IHttpContent;
-    headers: Object;
-    isSuccessStatusCode: boolean;
-    constructor();
-    constructor(statusCode: HttpStatusCode);
-
-    ensureSuccessStatusCode(): HttpResponseMessage;
-
-    close(): void;
-    toString(): string;
+    toString(): String;
 
   }
 
   export class HttpClient {
     defaultRequestHeaders: Object;
+    defaultPrivacyAnnotation: String;
     constructor();
     constructor(filter: Object);
 
@@ -148,7 +138,7 @@
 
     getInputStreamAsync(uri: Object, callback: (error: Error, result: Object) => void): void ;
 
-    getStringAsync(uri: Object, callback: (error: Error, result: string) => void): void ;
+    getStringAsync(uri: Object, callback: (error: Error, result: String) => void): void ;
 
     postAsync(uri: Object, content: IHttpContent, callback: (error: Error, result: HttpResponseMessage) => void): void ;
 
@@ -157,53 +147,126 @@
     sendRequestAsync(request: HttpRequestMessage, callback: (error: Error, result: HttpResponseMessage) => void): void ;
     sendRequestAsync(request: HttpRequestMessage, completionOption: HttpCompletionOption, callback: (error: Error, result: HttpResponseMessage) => void): void ;
 
+    tryDeleteAsync(uri: Object, callback: (error: Error, result: HttpRequestResult) => void): void ;
+
+    tryGetAsync(uri: Object, callback: (error: Error, result: HttpRequestResult) => void): void ;
+    tryGetAsync(uri: Object, completionOption: HttpCompletionOption, callback: (error: Error, result: HttpRequestResult) => void): void ;
+
+    tryGetBufferAsync(uri: Object, callback: (error: Error, result: HttpGetBufferResult) => void): void ;
+
+    tryGetInputStreamAsync(uri: Object, callback: (error: Error, result: HttpGetInputStreamResult) => void): void ;
+
+    tryGetStringAsync(uri: Object, callback: (error: Error, result: HttpGetStringResult) => void): void ;
+
+    tryPostAsync(uri: Object, content: IHttpContent, callback: (error: Error, result: HttpRequestResult) => void): void ;
+
+    tryPutAsync(uri: Object, content: IHttpContent, callback: (error: Error, result: HttpRequestResult) => void): void ;
+
+    trySendRequestAsync(request: HttpRequestMessage, callback: (error: Error, result: HttpRequestResult) => void): void ;
+    trySendRequestAsync(request: HttpRequestMessage, completionOption: HttpCompletionOption, callback: (error: Error, result: HttpRequestResult) => void): void ;
+
     close(): void;
-    toString(): string;
-
-  }
-
-  export class IHttpContent {
-    headers: Object;
-    constructor();
-
-    bufferAllAsync(callback: (error: Error, result: number) => void): void ;
-
-    readAsBufferAsync(callback: (error: Error, result: Object) => void): void ;
-
-    readAsInputStreamAsync(callback: (error: Error, result: Object) => void): void ;
-
-    readAsStringAsync(callback: (error: Error, result: string) => void): void ;
-
-    writeToStreamAsync(outputStream: Object, callback: (error: Error, result: number) => void): void ;
-
-    tryComputeLength(length: number): boolean;
+    toString(): String;
 
   }
 
   export class HttpCookie {
-    value: string;
-    secure: boolean;
-    httpOnly: boolean;
+    value: String;
+    secure: Boolean;
+    httpOnly: Boolean;
     expires: Date;
-    domain: string;
-    name: string;
-    path: string;
+    domain: String;
+    name: String;
+    path: String;
     constructor();
-    constructor(name: string, domain: string, path: string);
+    constructor(name: String, domain: String, path: String);
 
-    toString(): string;
+    toString(): String;
 
   }
 
   export class HttpCookieCollection {
     constructor();
 
-    getAt(index: number): HttpCookie;
+    getAt(index: Number): HttpCookie;
 
-    indexOf(value: HttpCookie, index: number): boolean;
+    indexOf(value: HttpCookie, index: Number): Boolean;
 
     getMany();
     first(): Object;
+
+  }
+
+  export class HttpCookieManager {
+    constructor();
+
+    setCookie(cookie: HttpCookie): Boolean;
+    setCookie(cookie: HttpCookie, thirdParty: Boolean): Boolean;
+
+    deleteCookie(cookie: HttpCookie): void;
+
+    getCookies(uri: Object): HttpCookieCollection;
+
+  }
+
+  export class HttpFormUrlEncodedContent {
+    headers: Object;
+    constructor();
+    constructor(content: Object);
+
+    bufferAllAsync(callback: (error: Error, result: Number) => void): void ;
+
+    readAsBufferAsync(callback: (error: Error, result: Object) => void): void ;
+
+    readAsInputStreamAsync(callback: (error: Error, result: Object) => void): void ;
+
+    readAsStringAsync(callback: (error: Error, result: String) => void): void ;
+
+    writeToStreamAsync(outputStream: Object, callback: (error: Error, result: Number) => void): void ;
+
+    tryComputeLength(length: Number): Boolean;
+
+    close(): void;
+    toString(): String;
+
+  }
+
+  export class HttpGetBufferResult {
+    extendedError: Number;
+    requestMessage: HttpRequestMessage;
+    responseMessage: HttpResponseMessage;
+    succeeded: Boolean;
+    value: Object;
+    constructor();
+
+    close(): void;
+    toString(): String;
+
+  }
+
+  export class HttpGetInputStreamResult {
+    extendedError: Number;
+    requestMessage: HttpRequestMessage;
+    responseMessage: HttpResponseMessage;
+    succeeded: Boolean;
+    value: Object;
+    constructor();
+
+    close(): void;
+    toString(): String;
+
+  }
+
+  export class HttpGetStringResult {
+    extendedError: Number;
+    requestMessage: HttpRequestMessage;
+    responseMessage: HttpResponseMessage;
+    succeeded: Boolean;
+    value: String;
+    constructor();
+
+    close(): void;
+    toString(): String;
 
   }
 
@@ -215,69 +278,113 @@
     static patch: HttpMethod;
     static post: HttpMethod;
     static put: HttpMethod;
-    method: string;
+    method: String;
     constructor();
-    constructor(method: string);
+    constructor(method: String);
 
-    toString(): string;
+    toString(): String;
 
   }
 
-  export class HttpTransportInformation {
-    serverCertificate: Object;
-    serverCertificateErrorSeverity: number;
-    serverCertificateErrors: Object;
-    serverIntermediateCertificates: Object;
-    constructor();
-
-    toString(): string;
-
-  }
-
-  export class HttpStringContent {
+  export class HttpMultipartContent {
     headers: Object;
     constructor();
-    constructor(content: string);
-    constructor(content: string, encoding: number);
-    constructor(content: string, encoding: number, mediaType: string);
+    constructor(subtype: String);
+    constructor(subtype: String, boundary: String);
 
-    bufferAllAsync(callback: (error: Error, result: number) => void): void ;
+    bufferAllAsync(callback: (error: Error, result: Number) => void): void ;
 
     readAsBufferAsync(callback: (error: Error, result: Object) => void): void ;
 
     readAsInputStreamAsync(callback: (error: Error, result: Object) => void): void ;
 
-    readAsStringAsync(callback: (error: Error, result: string) => void): void ;
+    readAsStringAsync(callback: (error: Error, result: String) => void): void ;
 
-    writeToStreamAsync(outputStream: Object, callback: (error: Error, result: number) => void): void ;
+    writeToStreamAsync(outputStream: Object, callback: (error: Error, result: Number) => void): void ;
 
-    tryComputeLength(length: number): boolean;
+    add(content: IHttpContent): void;
+
+    tryComputeLength(length: Number): Boolean;
 
     close(): void;
-    toString(): string;
+    first(): Object;
+
+    toString(): String;
 
   }
 
-  export class HttpBufferContent {
+  export class HttpMultipartFormDataContent {
     headers: Object;
     constructor();
-    constructor(content: Object);
-    constructor(content: Object, offset: number, count: number);
+    constructor(boundary: String);
 
-    bufferAllAsync(callback: (error: Error, result: number) => void): void ;
+    bufferAllAsync(callback: (error: Error, result: Number) => void): void ;
 
     readAsBufferAsync(callback: (error: Error, result: Object) => void): void ;
 
     readAsInputStreamAsync(callback: (error: Error, result: Object) => void): void ;
 
-    readAsStringAsync(callback: (error: Error, result: string) => void): void ;
+    readAsStringAsync(callback: (error: Error, result: String) => void): void ;
 
-    writeToStreamAsync(outputStream: Object, callback: (error: Error, result: number) => void): void ;
+    writeToStreamAsync(outputStream: Object, callback: (error: Error, result: Number) => void): void ;
 
-    tryComputeLength(length: number): boolean;
+    add(content: IHttpContent): void;
+    add(content: IHttpContent, name: String): void;
+    add(content: IHttpContent, name: String, fileName: String): void;
+
+    tryComputeLength(length: Number): Boolean;
 
     close(): void;
-    toString(): string;
+    first(): Object;
+
+    toString(): String;
+
+  }
+
+  export class HttpRequestMessage {
+    requestUri: Object;
+    method: HttpMethod;
+    content: IHttpContent;
+    headers: Object;
+    properties: Object;
+    transportInformation: HttpTransportInformation;
+    privacyAnnotation: String;
+    constructor();
+    constructor(method: HttpMethod, uri: Object);
+
+    close(): void;
+    toString(): String;
+
+  }
+
+  export class HttpRequestResult {
+    extendedError: Number;
+    requestMessage: HttpRequestMessage;
+    responseMessage: HttpResponseMessage;
+    succeeded: Boolean;
+    constructor();
+
+    close(): void;
+    toString(): String;
+
+  }
+
+  export class HttpResponseMessage {
+    version: HttpVersion;
+    statusCode: HttpStatusCode;
+    source: HttpResponseMessageSource;
+    requestMessage: HttpRequestMessage;
+    reasonPhrase: String;
+    content: IHttpContent;
+    headers: Object;
+    isSuccessStatusCode: Boolean;
+    constructor();
+    constructor(statusCode: HttpStatusCode);
+
+    ensureSuccessStatusCode(): HttpResponseMessage;
+
+    close(): void;
+    toString(): String;
 
   }
 
@@ -286,112 +393,100 @@
     constructor();
     constructor(content: Object);
 
-    bufferAllAsync(callback: (error: Error, result: number) => void): void ;
+    bufferAllAsync(callback: (error: Error, result: Number) => void): void ;
 
     readAsBufferAsync(callback: (error: Error, result: Object) => void): void ;
 
     readAsInputStreamAsync(callback: (error: Error, result: Object) => void): void ;
 
-    readAsStringAsync(callback: (error: Error, result: string) => void): void ;
+    readAsStringAsync(callback: (error: Error, result: String) => void): void ;
 
-    writeToStreamAsync(outputStream: Object, callback: (error: Error, result: number) => void): void ;
+    writeToStreamAsync(outputStream: Object, callback: (error: Error, result: Number) => void): void ;
 
-    tryComputeLength(length: number): boolean;
+    tryComputeLength(length: Number): Boolean;
 
     close(): void;
-    toString(): string;
+    toString(): String;
 
   }
 
-  export class HttpFormUrlEncodedContent {
+  export class HttpStringContent {
     headers: Object;
     constructor();
-    constructor(content: Object);
+    constructor(content: String);
+    constructor(content: String, encoding: Number);
+    constructor(content: String, encoding: Number, mediaType: String);
 
-    bufferAllAsync(callback: (error: Error, result: number) => void): void ;
+    bufferAllAsync(callback: (error: Error, result: Number) => void): void ;
 
     readAsBufferAsync(callback: (error: Error, result: Object) => void): void ;
 
     readAsInputStreamAsync(callback: (error: Error, result: Object) => void): void ;
 
-    readAsStringAsync(callback: (error: Error, result: string) => void): void ;
+    readAsStringAsync(callback: (error: Error, result: String) => void): void ;
 
-    writeToStreamAsync(outputStream: Object, callback: (error: Error, result: number) => void): void ;
+    writeToStreamAsync(outputStream: Object, callback: (error: Error, result: Number) => void): void ;
 
-    tryComputeLength(length: number): boolean;
+    tryComputeLength(length: Number): Boolean;
 
     close(): void;
-    toString(): string;
+    toString(): String;
 
   }
 
-  export class HttpMultipartContent {
+  export class HttpTransportInformation {
+    serverCertificate: Object;
+    serverCertificateErrorSeverity: Number;
+    serverCertificateErrors: Object;
+    serverIntermediateCertificates: Object;
+    constructor();
+
+    toString(): String;
+
+  }
+
+  export class IHttpContent {
     headers: Object;
     constructor();
-    constructor(subtype: string);
-    constructor(subtype: string, boundary: string);
 
-    bufferAllAsync(callback: (error: Error, result: number) => void): void ;
+    bufferAllAsync(callback: (error: Error, result: Number) => void): void ;
 
     readAsBufferAsync(callback: (error: Error, result: Object) => void): void ;
 
     readAsInputStreamAsync(callback: (error: Error, result: Object) => void): void ;
 
-    readAsStringAsync(callback: (error: Error, result: string) => void): void ;
+    readAsStringAsync(callback: (error: Error, result: String) => void): void ;
 
-    writeToStreamAsync(outputStream: Object, callback: (error: Error, result: number) => void): void ;
+    writeToStreamAsync(outputStream: Object, callback: (error: Error, result: Number) => void): void ;
 
-    tryComputeLength(length: number): boolean;
-
-    close(): void;
-    add(content: IHttpContent): void;
-
-    first(): Object;
-
-    toString(): string;
+    tryComputeLength(length: Number): Boolean;
 
   }
 
-  export class HttpMultipartFormDataContent {
-    headers: Object;
-    constructor();
-    constructor(boundary: string);
-
-    bufferAllAsync(callback: (error: Error, result: number) => void): void ;
-
-    readAsBufferAsync(callback: (error: Error, result: Object) => void): void ;
-
-    readAsInputStreamAsync(callback: (error: Error, result: Object) => void): void ;
-
-    readAsStringAsync(callback: (error: Error, result: string) => void): void ;
-
-    writeToStreamAsync(outputStream: Object, callback: (error: Error, result: number) => void): void ;
-
-    tryComputeLength(length: number): boolean;
-
-    close(): void;
-    add(content: IHttpContent): void;
-    add(content: IHttpContent, name: string): void;
-    add(content: IHttpContent, name: string, fileName: string): void;
-
-    first(): Object;
-
-    toString(): string;
-
-  }
-
-  export class HttpCookieManager {
-    constructor();
-
-    setCookie(cookie: HttpCookie): boolean;
-    setCookie(cookie: HttpCookie, thirdParty: boolean): boolean;
-
-    deleteCookie(cookie: HttpCookie): void;
-
-    getCookies(uri: Object): HttpCookieCollection;
-
-  }
-
+export const HttpCompletionOption: any;
+export const HttpProgressStage: any;
+export const HttpResponseMessageSource: any;
+export const HttpStatusCode: any;
+export const HttpVersion: any;
+export const HttpBufferContent: any;
+export const HttpClient: any;
+export const HttpCookie: any;
+export const HttpCookieCollection: any;
+export const HttpCookieManager: any;
+export const HttpFormUrlEncodedContent: any;
+export const HttpGetBufferResult: any;
+export const HttpGetInputStreamResult: any;
+export const HttpGetStringResult: any;
+export const HttpMethod: any;
+export const HttpMultipartContent: any;
+export const HttpMultipartFormDataContent: any;
+export const HttpRequestMessage: any;
+export const HttpRequestResult: any;
+export const HttpResponseMessage: any;
+export const HttpStreamContent: any;
+export const HttpStringContent: any;
+export const HttpTransportInformation: any;
+export const IHttpContent: any;
 export * as diagnostics from "./web.http.diagnostics.js";
 export * as filters from "./web.http.filters.js";
 export * as headers from "./web.http.headers.js";

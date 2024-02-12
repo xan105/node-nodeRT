@@ -2,14 +2,6 @@
     constructor();
   }
 
-  export enum Print3DWorkflowStatus {
-    abandoned,
-    canceled,
-    failed,
-    slicing,
-    submitted,
-  }
-
   export enum Print3DWorkflowDetail {
     unknown,
     modelExceedsPrintBed,
@@ -20,27 +12,68 @@
     invalidPrintTicket,
   }
 
-  export class PrintTaskConfigurationSaveRequestedDeferral {
+  export enum Print3DWorkflowStatus {
+    abandoned,
+    canceled,
+    failed,
+    slicing,
+    submitted,
+  }
+
+  export class Print3DWorkflow {
+    isPrintReady: Boolean;
+    deviceID: String;
     constructor();
 
-    complete(): void;
+    getPrintModelPackage(): Object;
+
+    addListener(type: "PrintRequested", listener: (ev: Event) => void): void ;
+    removeListener(type: "PrintRequested", listener: (ev: Event) => void): void ;
+    on(type: "PrintRequested", listener: (ev: Event) => void): void ;
+    off(type: "PrintRequested", listener: (ev: Event) => void): void ;
+    
+    addListener(type: "PrinterChanged", listener: (ev: Event) => void): void ;
+    removeListener(type: "PrinterChanged", listener: (ev: Event) => void): void ;
+    on(type: "PrinterChanged", listener: (ev: Event) => void): void ;
+    off(type: "PrinterChanged", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
 
   }
 
-  export class PrintTaskConfigurationSaveRequest {
-    deadline: Date;
+  export class Print3DWorkflowPrintRequestedEventArgs {
+    status: Print3DWorkflowStatus;
     constructor();
 
-    cancel(): void;
+    setExtendedStatus(value: Print3DWorkflowDetail): void;
 
-    save(printerExtensionContext: Object): void;
+    setSource(source: Object): void;
 
-    getDeferral(): PrintTaskConfigurationSaveRequestedDeferral;
+    setSourceChanged(value: Boolean): void;
 
   }
 
-  export class PrintTaskConfigurationSaveRequestedEventArgs {
-    request: PrintTaskConfigurationSaveRequest;
+  export class Print3DWorkflowPrinterChangedEventArgs {
+    newDeviceId: String;
+    constructor();
+
+  }
+
+  export class PrintExtensionContext {
+    constructor();
+
+    static fromDeviceId(deviceId: String): Object;
+
+
+  }
+
+  export class PrintNotificationEventDetails {
+    eventData: String;
+    printerName: String;
     constructor();
 
   }
@@ -62,61 +95,28 @@
 
   }
 
-  export class PrintNotificationEventDetails {
-    eventData: string;
-    printerName: string;
+  export class PrintTaskConfigurationSaveRequest {
+    deadline: Date;
     constructor();
+
+    cancel(): void;
+
+    save(printerExtensionContext: Object): void;
+
+    getDeferral(): PrintTaskConfigurationSaveRequestedDeferral;
 
   }
 
-  export class PrintExtensionContext {
+  export class PrintTaskConfigurationSaveRequestedDeferral {
     constructor();
 
-    static fromDeviceId(deviceId: string): Object;
-
+    complete(): void;
 
   }
 
-  export class Print3DWorkflowPrintRequestedEventArgs {
-    status: Print3DWorkflowStatus;
+  export class PrintTaskConfigurationSaveRequestedEventArgs {
+    request: PrintTaskConfigurationSaveRequest;
     constructor();
-
-    setExtendedStatus(value: Print3DWorkflowDetail): void;
-
-    setSource(source: Object): void;
-
-    setSourceChanged(value: boolean): void;
-
-  }
-
-  export class Print3DWorkflowPrinterChangedEventArgs {
-    newDeviceId: string;
-    constructor();
-
-  }
-
-  export class Print3DWorkflow {
-    isPrintReady: boolean;
-    deviceID: string;
-    constructor();
-
-    getPrintModelPackage(): Object;
-
-    addListener(type: "PrintRequested", listener: (ev: Event) => void): void ;
-    removeListener(type: "PrintRequested", listener: (ev: Event) => void): void ;
-    on(type: "PrintRequested", listener: (ev: Event) => void): void ;
-    off(type: "PrintRequested", listener: (ev: Event) => void): void ;
-    
-    addListener(type: "PrinterChanged", listener: (ev: Event) => void): void ;
-    removeListener(type: "PrinterChanged", listener: (ev: Event) => void): void ;
-    on(type: "PrinterChanged", listener: (ev: Event) => void): void ;
-    off(type: "PrinterChanged", listener: (ev: Event) => void): void ;
-    
-    addListener(type: string, listener: (ev: Event) => void): void ;
-    removeListener(type: string, listener: (ev: Event) => void): void ;
-    on(type: string, listener: (ev: Event) => void): void ;
-    off(type: string, listener: (ev: Event) => void): void ;
-    
 
   }
 

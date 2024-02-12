@@ -10,59 +10,36 @@
     shared,
   }
 
-  export class SpiConnectionSettings {
-    sharingMode: SpiSharingMode;
-    mode: SpiMode;
-    dataBitLength: number;
-    clockFrequency: number;
-    chipSelectLine: number;
+  export class ISpiDeviceStatics {
     constructor();
-    constructor(chipSelectLine: number);
+
+    fromIdAsync(busId: String, settings: SpiConnectionSettings, callback: (error: Error, result: SpiDevice) => void): void ;
+
+    getDeviceSelector(): String;
+    getDeviceSelector(friendlyName: String): String;
+
+    getBusInfo(busId: String): SpiBusInfo;
 
   }
 
   export class SpiBusInfo {
-    chipSelectLineCount: number;
-    maxClockFrequency: number;
-    minClockFrequency: number;
+    chipSelectLineCount: Number;
+    maxClockFrequency: Number;
+    minClockFrequency: Number;
     supportedDataBitLengths: Object;
     constructor();
 
   }
 
-  export class ISpiDeviceStatics {
+  export class SpiConnectionSettings {
+    sharingMode: SpiSharingMode;
+    mode: SpiMode;
+    dataBitLength: Number;
+    clockFrequency: Number;
+    chipSelectLine: Number;
     constructor();
+    constructor(chipSelectLine: Number);
 
-    fromIdAsync(busId: string, settings: SpiConnectionSettings, callback: (error: Error, result: SpiDevice) => void): void ;
-
-    getDeviceSelector(): string;
-    getDeviceSelector(friendlyName: string): string;
-
-    getBusInfo(busId: string): SpiBusInfo;
-
-  }
-
-  export class SpiDevice {
-    connectionSettings: SpiConnectionSettings;
-    deviceId: string;
-    constructor();
-
-    static fromIdAsync(busId: string, settings: SpiConnectionSettings, callback: (error: Error, result: SpiDevice) => void): void ;
-
-
-    static getDeviceSelector(): string;
-    static getDeviceSelector(friendlyName: string): string;
-
-
-    static getBusInfo(busId: string): SpiBusInfo;
-
-
-    write(buffer: Array<number>): void;
-
-    read();
-    transferSequential();
-    transferFullDuplex();
-    close(): void;
   }
 
   export class SpiController {
@@ -78,4 +55,34 @@
 
   }
 
+  export class SpiDevice {
+    connectionSettings: SpiConnectionSettings;
+    deviceId: String;
+    constructor();
+
+    static fromIdAsync(busId: String, settings: SpiConnectionSettings, callback: (error: Error, result: SpiDevice) => void): void ;
+
+
+    static getDeviceSelector(): String;
+    static getDeviceSelector(friendlyName: String): String;
+
+
+    static getBusInfo(busId: String): SpiBusInfo;
+
+
+    write(buffer: Array<Number>): void;
+
+    read();
+    transferSequential();
+    transferFullDuplex();
+    close(): void;
+  }
+
+export const SpiMode: any;
+export const SpiSharingMode: any;
+export const ISpiDeviceStatics: any;
+export const SpiBusInfo: any;
+export const SpiConnectionSettings: any;
+export const SpiController: any;
+export const SpiDevice: any;
 export * as provider from "./devices.spi.provider.js";

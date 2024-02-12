@@ -1,9 +1,3 @@
-  export enum PlayToConnectionState {
-    disconnected,
-    connected,
-    rendering,
-  }
-
   export enum PlayToConnectionError {
     none,
     deviceNotResponding,
@@ -12,50 +6,105 @@
     protectedPlaybackFailed,
   }
 
-  export class SourceChangeRequestedEventArgs {
-    album: string;
-    author: string;
-    date: Date;
-    description: string;
-    genre: string;
-    properties: Object;
-    rating: number;
-    stream: Object;
-    thumbnail: Object;
-    title: string;
-    constructor();
-
-  }
-
-  export class PlaybackRateChangeRequestedEventArgs {
-    rate: number;
-    constructor();
-
+  export enum PlayToConnectionState {
+    disconnected,
+    connected,
+    rendering,
   }
 
   export class CurrentTimeChangeRequestedEventArgs {
-    time: number;
+    time: Number;
     constructor();
 
   }
 
   export class MuteChangeRequestedEventArgs {
-    mute: boolean;
+    mute: Boolean;
     constructor();
 
   }
 
-  export class VolumeChangeRequestedEventArgs {
-    volume: number;
+  export class PlayToConnection {
+    state: PlayToConnectionState;
     constructor();
+
+    addListener(type: "Error", listener: (ev: Event) => void): void ;
+    removeListener(type: "Error", listener: (ev: Event) => void): void ;
+    on(type: "Error", listener: (ev: Event) => void): void ;
+    off(type: "Error", listener: (ev: Event) => void): void ;
+    
+    addListener(type: "StateChanged", listener: (ev: Event) => void): void ;
+    removeListener(type: "StateChanged", listener: (ev: Event) => void): void ;
+    on(type: "StateChanged", listener: (ev: Event) => void): void ;
+    off(type: "StateChanged", listener: (ev: Event) => void): void ;
+    
+    addListener(type: "Transferred", listener: (ev: Event) => void): void ;
+    removeListener(type: "Transferred", listener: (ev: Event) => void): void ;
+    on(type: "Transferred", listener: (ev: Event) => void): void ;
+    off(type: "Transferred", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
+
+  }
+
+  export class PlayToConnectionErrorEventArgs {
+    code: PlayToConnectionError;
+    message: String;
+    constructor();
+
+  }
+
+  export class PlayToConnectionStateChangedEventArgs {
+    currentState: PlayToConnectionState;
+    previousState: PlayToConnectionState;
+    constructor();
+
+  }
+
+  export class PlayToConnectionTransferredEventArgs {
+    currentSource: PlayToSource;
+    previousSource: PlayToSource;
+    constructor();
+
+  }
+
+  export class PlayToManager {
+    defaultSourceSelection: Boolean;
+    constructor();
+
+    static getForCurrentView(): PlayToManager;
+
+
+    static showPlayToUI(): void;
+
+
+    addListener(type: "SourceRequested", listener: (ev: Event) => void): void ;
+    removeListener(type: "SourceRequested", listener: (ev: Event) => void): void ;
+    on(type: "SourceRequested", listener: (ev: Event) => void): void ;
+    off(type: "SourceRequested", listener: (ev: Event) => void): void ;
+    
+    addListener(type: "SourceSelected", listener: (ev: Event) => void): void ;
+    removeListener(type: "SourceSelected", listener: (ev: Event) => void): void ;
+    on(type: "SourceSelected", listener: (ev: Event) => void): void ;
+    off(type: "SourceSelected", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
 
   }
 
   export class PlayToReceiver {
-    supportsVideo: boolean;
-    supportsImage: boolean;
-    supportsAudio: boolean;
-    friendlyName: string;
+    supportsVideo: Boolean;
+    supportsImage: Boolean;
+    supportsAudio: Boolean;
+    friendlyName: String;
     properties: Object;
     constructor();
 
@@ -63,15 +112,15 @@
 
     stopAsync(callback: (error: Error) => void): void ;
 
-    notifyVolumeChange(volume: number, mute: boolean): void;
+    notifyVolumeChange(volume: Number, mute: Boolean): void;
 
-    notifyRateChange(rate: number): void;
+    notifyRateChange(rate: Number): void;
 
     notifyLoadedMetadata(): void;
 
-    notifyTimeUpdate(currentTime: number): void;
+    notifyTimeUpdate(currentTime: Number): void;
 
-    notifyDurationChange(duration: number): void;
+    notifyDurationChange(duration: Number): void;
 
     notifySeeking(): void;
 
@@ -140,33 +189,6 @@
 
   }
 
-  export class PlayToConnection {
-    state: PlayToConnectionState;
-    constructor();
-
-    addListener(type: "Error", listener: (ev: Event) => void): void ;
-    removeListener(type: "Error", listener: (ev: Event) => void): void ;
-    on(type: "Error", listener: (ev: Event) => void): void ;
-    off(type: "Error", listener: (ev: Event) => void): void ;
-    
-    addListener(type: "StateChanged", listener: (ev: Event) => void): void ;
-    removeListener(type: "StateChanged", listener: (ev: Event) => void): void ;
-    on(type: "StateChanged", listener: (ev: Event) => void): void ;
-    off(type: "StateChanged", listener: (ev: Event) => void): void ;
-    
-    addListener(type: "Transferred", listener: (ev: Event) => void): void ;
-    removeListener(type: "Transferred", listener: (ev: Event) => void): void ;
-    on(type: "Transferred", listener: (ev: Event) => void): void ;
-    off(type: "Transferred", listener: (ev: Event) => void): void ;
-    
-    addListener(type: string, listener: (ev: Event) => void): void ;
-    removeListener(type: string, listener: (ev: Event) => void): void ;
-    on(type: string, listener: (ev: Event) => void): void ;
-    off(type: string, listener: (ev: Event) => void): void ;
-    
-
-  }
-
   export class PlayToSource {
     next: PlayToSource;
     connection: PlayToConnection;
@@ -174,37 +196,6 @@
     constructor();
 
     playNext(): void;
-
-  }
-
-  export class PlayToConnectionStateChangedEventArgs {
-    currentState: PlayToConnectionState;
-    previousState: PlayToConnectionState;
-    constructor();
-
-  }
-
-  export class PlayToConnectionTransferredEventArgs {
-    currentSource: PlayToSource;
-    previousSource: PlayToSource;
-    constructor();
-
-  }
-
-  export class PlayToConnectionErrorEventArgs {
-    code: PlayToConnectionError;
-    message: string;
-    constructor();
-
-  }
-
-  export class PlayToSourceSelectedEventArgs {
-    friendlyName: string;
-    icon: Object;
-    supportsAudio: boolean;
-    supportsImage: boolean;
-    supportsVideo: boolean;
-    constructor();
 
   }
 
@@ -219,7 +210,7 @@
     deadline: Date;
     constructor();
 
-    displayErrorString(errorString: string): void;
+    displayErrorString(errorString: String): void;
 
     getDeferral(): PlayToSourceDeferral;
 
@@ -233,31 +224,40 @@
 
   }
 
-  export class PlayToManager {
-    defaultSourceSelection: boolean;
+  export class PlayToSourceSelectedEventArgs {
+    friendlyName: String;
+    icon: Object;
+    supportsAudio: Boolean;
+    supportsImage: Boolean;
+    supportsVideo: Boolean;
     constructor();
 
-    static getForCurrentView(): PlayToManager;
+  }
 
+  export class PlaybackRateChangeRequestedEventArgs {
+    rate: Number;
+    constructor();
 
-    static showPlayToUI(): void;
+  }
 
+  export class SourceChangeRequestedEventArgs {
+    album: String;
+    author: String;
+    date: Date;
+    description: String;
+    genre: String;
+    properties: Object;
+    rating: Number;
+    stream: Object;
+    thumbnail: Object;
+    title: String;
+    constructor();
 
-    addListener(type: "SourceRequested", listener: (ev: Event) => void): void ;
-    removeListener(type: "SourceRequested", listener: (ev: Event) => void): void ;
-    on(type: "SourceRequested", listener: (ev: Event) => void): void ;
-    off(type: "SourceRequested", listener: (ev: Event) => void): void ;
-    
-    addListener(type: "SourceSelected", listener: (ev: Event) => void): void ;
-    removeListener(type: "SourceSelected", listener: (ev: Event) => void): void ;
-    on(type: "SourceSelected", listener: (ev: Event) => void): void ;
-    off(type: "SourceSelected", listener: (ev: Event) => void): void ;
-    
-    addListener(type: string, listener: (ev: Event) => void): void ;
-    removeListener(type: string, listener: (ev: Event) => void): void ;
-    on(type: string, listener: (ev: Event) => void): void ;
-    off(type: string, listener: (ev: Event) => void): void ;
-    
+  }
+
+  export class VolumeChangeRequestedEventArgs {
+    volume: Number;
+    constructor();
 
   }
 

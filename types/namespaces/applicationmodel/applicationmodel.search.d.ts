@@ -2,75 +2,31 @@
     constructor();
   }
 
-  export class SearchPaneVisibilityChangedEventArgs {
-    visible: boolean;
-    constructor();
-
-  }
-
   export class ISearchPaneQueryChangedEventArgs {
-    language: string;
+    language: String;
     linguisticDetails: SearchPaneQueryLinguisticDetails;
-    queryText: string;
+    queryText: String;
     constructor();
 
   }
 
-  export class SearchPaneQueryChangedEventArgs {
-    language: string;
-    linguisticDetails: SearchPaneQueryLinguisticDetails;
-    queryText: string;
-    constructor();
-
-  }
-
-  export class SearchPaneQuerySubmittedEventArgs {
-    language: string;
-    queryText: string;
-    linguisticDetails: SearchPaneQueryLinguisticDetails;
-    constructor();
-
-  }
-
-  export class SearchPaneResultSuggestionChosenEventArgs {
-    tag: string;
-    constructor();
-
-  }
-
-  export class SearchPaneSuggestionsRequestDeferral {
-    constructor();
-
-    complete(): void;
-
-  }
-
-  export class SearchPaneSuggestionsRequest {
-    isCanceled: boolean;
-    searchSuggestionCollection: SearchSuggestionCollection;
-    constructor();
-
-    getDeferral(): SearchPaneSuggestionsRequestDeferral;
-
-  }
-
-  export class SearchPaneSuggestionsRequestedEventArgs {
-    language: string;
-    linguisticDetails: SearchPaneQueryLinguisticDetails;
-    queryText: string;
-    request: SearchPaneSuggestionsRequest;
+  export class LocalContentSuggestionSettings {
+    enabled: Boolean;
+    aqsFilter: String;
+    locations: Object;
+    propertiesToMatch: Object;
     constructor();
 
   }
 
   export class SearchPane {
-    showOnKeyboardInput: boolean;
-    searchHistoryEnabled: boolean;
-    searchHistoryContext: string;
-    placeholderText: string;
-    language: string;
-    queryText: string;
-    visible: boolean;
+    showOnKeyboardInput: Boolean;
+    searchHistoryEnabled: Boolean;
+    searchHistoryContext: String;
+    placeholderText: String;
+    language: String;
+    queryText: String;
+    visible: Boolean;
     constructor();
 
     static hideThisApplication(): void;
@@ -82,9 +38,9 @@
     setLocalContentSuggestionSettings(settings: LocalContentSuggestionSettings): void;
 
     show(): void;
-    show(query: string): void;
+    show(query: String): void;
 
-    trySetQueryText(query: string): boolean;
+    trySetQueryText(query: String): Boolean;
 
     addListener(type: "QueryChanged", listener: (ev: Event) => void): void ;
     removeListener(type: "QueryChanged", listener: (ev: Event) => void): void ;
@@ -119,43 +75,96 @@
 
   }
 
+  export class SearchPaneQueryChangedEventArgs {
+    language: String;
+    linguisticDetails: SearchPaneQueryLinguisticDetails;
+    queryText: String;
+    constructor();
+
+  }
+
   export class SearchPaneQueryLinguisticDetails {
     queryTextAlternatives: Object;
-    queryTextCompositionLength: number;
-    queryTextCompositionStart: number;
+    queryTextCompositionLength: Number;
+    queryTextCompositionStart: Number;
     constructor();
 
   }
 
-  export class SearchSuggestionCollection {
-    size: number;
+  export class SearchPaneQuerySubmittedEventArgs {
+    language: String;
+    queryText: String;
+    linguisticDetails: SearchPaneQueryLinguisticDetails;
     constructor();
-
-    appendQuerySuggestion(text: string): void;
-
-    appendQuerySuggestions(suggestions: Object): void;
-
-    appendResultSuggestion(text: string, detailText: string, tag: string, image: Object, imageAlternateText: string): void;
-
-    appendSearchSeparator(label: string): void;
 
   }
 
-  export class LocalContentSuggestionSettings {
-    enabled: boolean;
-    aqsFilter: string;
-    locations: Object;
-    propertiesToMatch: Object;
+  export class SearchPaneResultSuggestionChosenEventArgs {
+    tag: String;
+    constructor();
+
+  }
+
+  export class SearchPaneSuggestionsRequest {
+    isCanceled: Boolean;
+    searchSuggestionCollection: SearchSuggestionCollection;
+    constructor();
+
+    getDeferral(): SearchPaneSuggestionsRequestDeferral;
+
+  }
+
+  export class SearchPaneSuggestionsRequestDeferral {
+    constructor();
+
+    complete(): void;
+
+  }
+
+  export class SearchPaneSuggestionsRequestedEventArgs {
+    language: String;
+    linguisticDetails: SearchPaneQueryLinguisticDetails;
+    queryText: String;
+    request: SearchPaneSuggestionsRequest;
+    constructor();
+
+  }
+
+  export class SearchPaneVisibilityChangedEventArgs {
+    visible: Boolean;
     constructor();
 
   }
 
   export class SearchQueryLinguisticDetails {
     queryTextAlternatives: Object;
-    queryTextCompositionLength: number;
-    queryTextCompositionStart: number;
+    queryTextCompositionLength: Number;
+    queryTextCompositionStart: Number;
     constructor();
-    constructor(queryTextAlternatives: Object, queryTextCompositionStart: number, queryTextCompositionLength: number);
+    constructor(queryTextAlternatives: Object, queryTextCompositionStart: Number, queryTextCompositionLength: Number);
+
+  }
+
+  export class SearchSuggestionCollection {
+    size: Number;
+    constructor();
+
+    appendQuerySuggestion(text: String): void;
+
+    appendQuerySuggestions(suggestions: Object): void;
+
+    appendResultSuggestion(text: String, detailText: String, tag: String, image: Object, imageAlternateText: String): void;
+
+    appendSearchSeparator(label: String): void;
+
+  }
+
+  export class SearchSuggestionsRequest {
+    isCanceled: Boolean;
+    searchSuggestionCollection: SearchSuggestionCollection;
+    constructor();
+
+    getDeferral(): SearchSuggestionsRequestDeferral;
 
   }
 
@@ -166,13 +175,19 @@
 
   }
 
-  export class SearchSuggestionsRequest {
-    isCanceled: boolean;
-    searchSuggestionCollection: SearchSuggestionCollection;
-    constructor();
-
-    getDeferral(): SearchSuggestionsRequestDeferral;
-
-  }
-
+export const ISearchPaneQueryChangedEventArgs: any;
+export const LocalContentSuggestionSettings: any;
+export const SearchPane: any;
+export const SearchPaneQueryChangedEventArgs: any;
+export const SearchPaneQueryLinguisticDetails: any;
+export const SearchPaneQuerySubmittedEventArgs: any;
+export const SearchPaneResultSuggestionChosenEventArgs: any;
+export const SearchPaneSuggestionsRequest: any;
+export const SearchPaneSuggestionsRequestDeferral: any;
+export const SearchPaneSuggestionsRequestedEventArgs: any;
+export const SearchPaneVisibilityChangedEventArgs: any;
+export const SearchQueryLinguisticDetails: any;
+export const SearchSuggestionCollection: any;
+export const SearchSuggestionsRequest: any;
+export const SearchSuggestionsRequestDeferral: any;
 export * as core from "./applicationmodel.search.core.js";

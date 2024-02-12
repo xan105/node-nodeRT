@@ -4,20 +4,20 @@
   }
 
   export class IAdcControllerProvider {
-    channelCount: number;
+    channelCount: Number;
     channelMode: ProviderAdcChannelMode;
-    maxValue: number;
-    minValue: number;
-    resolutionInBits: number;
+    maxValue: Number;
+    minValue: Number;
+    resolutionInBits: Number;
     constructor();
 
-    isChannelModeSupported(channelMode: ProviderAdcChannelMode): boolean;
+    isChannelModeSupported(channelMode: ProviderAdcChannelMode): Boolean;
 
-    acquireChannel(channel: number): void;
+    acquireChannel(channel: Number): void;
 
-    releaseChannel(channel: number): void;
+    releaseChannel(channel: Number): void;
 
-    readValue(channelNumber: number): number;
+    readValue(channelNumber: Number): Number;
 
   }
 

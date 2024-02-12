@@ -1,23 +1,12 @@
+  export class BitmapSize {
+    width: Number;
+    height: Number;
+    constructor();
+  }
+
   export enum BarcodeScannerTriggerState {
     released,
     pressed,
-  }
-
-  export class BarcodeScannerEnableScannerRequest {
-    constructor();
-
-    reportCompletedAsync(callback: (error: Error) => void): void ;
-
-    reportFailedAsync(callback: (error: Error) => void): void ;
-
-  }
-
-  export class BarcodeScannerEnableScannerRequestEventArgs {
-    request: BarcodeScannerEnableScannerRequest;
-    constructor();
-
-    getDeferral(): Object;
-
   }
 
   export class BarcodeScannerDisableScannerRequest {
@@ -26,6 +15,8 @@
     reportCompletedAsync(callback: (error: Error) => void): void ;
 
     reportFailedAsync(callback: (error: Error) => void): void ;
+    reportFailedAsync(reason: Number, callback: (error: Error) => void): void ;
+    reportFailedAsync(reason: Number, failedReasonDescription: String, callback: (error: Error) => void): void ;
 
   }
 
@@ -37,99 +28,70 @@
 
   }
 
-  export class BarcodeScannerSetActiveSymbologiesRequest {
-    symbologies: Object;
+  export class BarcodeScannerEnableScannerRequest {
     constructor();
 
     reportCompletedAsync(callback: (error: Error) => void): void ;
 
     reportFailedAsync(callback: (error: Error) => void): void ;
+    reportFailedAsync(reason: Number, callback: (error: Error) => void): void ;
+    reportFailedAsync(reason: Number, failedReasonDescription: String, callback: (error: Error) => void): void ;
 
   }
 
-  export class BarcodeScannerSetActiveSymbologiesRequestEventArgs {
-    request: BarcodeScannerSetActiveSymbologiesRequest;
+  export class BarcodeScannerEnableScannerRequestEventArgs {
+    request: BarcodeScannerEnableScannerRequest;
     constructor();
 
     getDeferral(): Object;
 
   }
 
-  export class BarcodeScannerStartSoftwareTriggerRequest {
+  export class BarcodeScannerFrameReader {
+    connection: BarcodeScannerProviderConnection;
     constructor();
 
-    reportCompletedAsync(callback: (error: Error) => void): void ;
+    startAsync(callback: (error: Error, result: Boolean) => void): void ;
 
-    reportFailedAsync(callback: (error: Error) => void): void ;
+    stopAsync(callback: (error: Error) => void): void ;
+
+    tryAcquireLatestFrameAsync(callback: (error: Error, result: BarcodeScannerVideoFrame) => void): void ;
+
+    close(): void;
+    addListener(type: "FrameArrived", listener: (ev: Event) => void): void ;
+    removeListener(type: "FrameArrived", listener: (ev: Event) => void): void ;
+    on(type: "FrameArrived", listener: (ev: Event) => void): void ;
+    off(type: "FrameArrived", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
 
   }
 
-  export class BarcodeScannerStartSoftwareTriggerRequestEventArgs {
-    request: BarcodeScannerStartSoftwareTriggerRequest;
+  export class BarcodeScannerFrameReaderFrameArrivedEventArgs {
     constructor();
 
     getDeferral(): Object;
-
-  }
-
-  export class BarcodeScannerStopSoftwareTriggerRequest {
-    constructor();
-
-    reportCompletedAsync(callback: (error: Error) => void): void ;
-
-    reportFailedAsync(callback: (error: Error) => void): void ;
-
-  }
-
-  export class BarcodeScannerStopSoftwareTriggerRequestEventArgs {
-    request: BarcodeScannerStopSoftwareTriggerRequest;
-    constructor();
-
-    getDeferral(): Object;
-
-  }
-
-  export class BarcodeSymbologyAttributesBuilder {
-    isDecodeLengthSupported: boolean;
-    isCheckDigitValidationSupported: boolean;
-    isCheckDigitTransmissionSupported: boolean;
-    constructor();
-
-    createAttributes(): Object;
 
   }
 
   export class BarcodeScannerGetSymbologyAttributesRequest {
-    symbology: number;
+    symbology: Number;
     constructor();
 
     reportCompletedAsync(attributes: Object, callback: (error: Error) => void): void ;
 
     reportFailedAsync(callback: (error: Error) => void): void ;
+    reportFailedAsync(reason: Number, callback: (error: Error) => void): void ;
+    reportFailedAsync(reason: Number, failedReasonDescription: String, callback: (error: Error) => void): void ;
 
   }
 
   export class BarcodeScannerGetSymbologyAttributesRequestEventArgs {
     request: BarcodeScannerGetSymbologyAttributesRequest;
-    constructor();
-
-    getDeferral(): Object;
-
-  }
-
-  export class BarcodeScannerSetSymbologyAttributesRequest {
-    attributes: Object;
-    symbology: number;
-    constructor();
-
-    reportCompletedAsync(callback: (error: Error) => void): void ;
-
-    reportFailedAsync(callback: (error: Error) => void): void ;
-
-  }
-
-  export class BarcodeScannerSetSymbologyAttributesRequestEventArgs {
-    request: BarcodeScannerSetSymbologyAttributesRequest;
     constructor();
 
     getDeferral(): Object;
@@ -142,6 +104,8 @@
     reportCompletedAsync(callback: (error: Error) => void): void ;
 
     reportFailedAsync(callback: (error: Error) => void): void ;
+    reportFailedAsync(reason: Number, callback: (error: Error) => void): void ;
+    reportFailedAsync(reason: Number, failedReasonDescription: String, callback: (error: Error) => void): void ;
 
   }
 
@@ -154,12 +118,12 @@
   }
 
   export class BarcodeScannerProviderConnection {
-    version: string;
-    name: string;
-    companyName: string;
-    id: string;
+    version: String;
+    name: String;
+    companyName: String;
+    id: String;
     supportedSymbologies: Object;
-    videoDeviceId: string;
+    videoDeviceId: String;
     constructor();
 
     reportScannedDataAsync(report: Object, callback: (error: Error) => void): void ;
@@ -167,7 +131,11 @@
     reportTriggerStateAsync(state: BarcodeScannerTriggerState, callback: (error: Error) => void): void ;
 
     reportErrorAsync(errorData: Object, callback: (error: Error) => void): void ;
-    reportErrorAsync(errorData: Object, isRetriable: boolean, scanReport: Object, callback: (error: Error) => void): void ;
+    reportErrorAsync(errorData: Object, isRetriable: Boolean, scanReport: Object, callback: (error: Error) => void): void ;
+
+    createFrameReaderAsync(callback: (error: Error, result: BarcodeScannerFrameReader) => void): void ;
+    createFrameReaderAsync(preferredFormat: Number, callback: (error: Error, result: BarcodeScannerFrameReader) => void): void ;
+    createFrameReaderAsync(preferredFormat: Number, preferredSize: BitmapSize, callback: (error: Error, result: BarcodeScannerFrameReader) => void): void ;
 
     start(): void;
 
@@ -223,6 +191,105 @@
   export class BarcodeScannerProviderTriggerDetails {
     connection: BarcodeScannerProviderConnection;
     constructor();
+
+  }
+
+  export class BarcodeScannerSetActiveSymbologiesRequest {
+    symbologies: Object;
+    constructor();
+
+    reportCompletedAsync(callback: (error: Error) => void): void ;
+
+    reportFailedAsync(callback: (error: Error) => void): void ;
+    reportFailedAsync(reason: Number, callback: (error: Error) => void): void ;
+    reportFailedAsync(reason: Number, failedReasonDescription: String, callback: (error: Error) => void): void ;
+
+  }
+
+  export class BarcodeScannerSetActiveSymbologiesRequestEventArgs {
+    request: BarcodeScannerSetActiveSymbologiesRequest;
+    constructor();
+
+    getDeferral(): Object;
+
+  }
+
+  export class BarcodeScannerSetSymbologyAttributesRequest {
+    attributes: Object;
+    symbology: Number;
+    constructor();
+
+    reportCompletedAsync(callback: (error: Error) => void): void ;
+
+    reportFailedAsync(callback: (error: Error) => void): void ;
+    reportFailedAsync(reason: Number, callback: (error: Error) => void): void ;
+    reportFailedAsync(reason: Number, failedReasonDescription: String, callback: (error: Error) => void): void ;
+
+  }
+
+  export class BarcodeScannerSetSymbologyAttributesRequestEventArgs {
+    request: BarcodeScannerSetSymbologyAttributesRequest;
+    constructor();
+
+    getDeferral(): Object;
+
+  }
+
+  export class BarcodeScannerStartSoftwareTriggerRequest {
+    constructor();
+
+    reportCompletedAsync(callback: (error: Error) => void): void ;
+
+    reportFailedAsync(callback: (error: Error) => void): void ;
+    reportFailedAsync(reason: Number, callback: (error: Error) => void): void ;
+    reportFailedAsync(reason: Number, failedReasonDescription: String, callback: (error: Error) => void): void ;
+
+  }
+
+  export class BarcodeScannerStartSoftwareTriggerRequestEventArgs {
+    request: BarcodeScannerStartSoftwareTriggerRequest;
+    constructor();
+
+    getDeferral(): Object;
+
+  }
+
+  export class BarcodeScannerStopSoftwareTriggerRequest {
+    constructor();
+
+    reportCompletedAsync(callback: (error: Error) => void): void ;
+
+    reportFailedAsync(callback: (error: Error) => void): void ;
+    reportFailedAsync(reason: Number, callback: (error: Error) => void): void ;
+    reportFailedAsync(reason: Number, failedReasonDescription: String, callback: (error: Error) => void): void ;
+
+  }
+
+  export class BarcodeScannerStopSoftwareTriggerRequestEventArgs {
+    request: BarcodeScannerStopSoftwareTriggerRequest;
+    constructor();
+
+    getDeferral(): Object;
+
+  }
+
+  export class BarcodeScannerVideoFrame {
+    format: Number;
+    height: Number;
+    pixelData: Object;
+    width: Number;
+    constructor();
+
+    close(): void;
+  }
+
+  export class BarcodeSymbologyAttributesBuilder {
+    isDecodeLengthSupported: Boolean;
+    isCheckDigitValidationSupported: Boolean;
+    isCheckDigitTransmissionSupported: Boolean;
+    constructor();
+
+    createAttributes(): Object;
 
   }
 

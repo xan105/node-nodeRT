@@ -1,7 +1,7 @@
   export class HtmlUtilities {
     constructor();
 
-    static convertToText(html: string): string;
+    static convertToText(html: String): String;
 
 
   }

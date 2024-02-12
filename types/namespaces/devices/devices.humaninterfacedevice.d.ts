@@ -1,9 +1,3 @@
-  export enum HidReportType {
-    input,
-    output,
-    feature,
-  }
-
   export enum HidCollectionType {
     physical,
     application,
@@ -15,40 +9,77 @@
     other,
   }
 
-  export class HidDevice {
-    productId: number;
-    usageId: number;
-    usagePage: number;
-    vendorId: number;
-    version: number;
+  export enum HidReportType {
+    input,
+    output,
+    feature,
+  }
+
+  export class HidBooleanControl {
+    isActive: Boolean;
+    controlDescription: HidBooleanControlDescription;
+    id: Number;
+    usageId: Number;
+    usagePage: Number;
     constructor();
 
-    static fromIdAsync(deviceId: string, accessMode: number, callback: (error: Error, result: HidDevice) => void): void ;
+  }
+
+  export class HidBooleanControlDescription {
+    id: Number;
+    parentCollections: Object;
+    reportId: Number;
+    reportType: HidReportType;
+    usageId: Number;
+    usagePage: Number;
+    isAbsolute: Boolean;
+    constructor();
+
+  }
+
+  export class HidCollection {
+    id: Number;
+    type: HidCollectionType;
+    usageId: Number;
+    usagePage: Number;
+    constructor();
+
+  }
+
+  export class HidDevice {
+    productId: Number;
+    usageId: Number;
+    usagePage: Number;
+    vendorId: Number;
+    version: Number;
+    constructor();
+
+    static fromIdAsync(deviceId: String, accessMode: Number, callback: (error: Error, result: HidDevice) => void): void ;
 
 
-    static getDeviceSelector(usagePage: number, usageId: number): string;
-    static getDeviceSelector(usagePage: number, usageId: number, vendorId: number, productId: number): string;
+    static getDeviceSelector(usagePage: Number, usageId: Number): String;
+    static getDeviceSelector(usagePage: Number, usageId: Number, vendorId: Number, productId: Number): String;
 
 
     getInputReportAsync(callback: (error: Error, result: HidInputReport) => void): void ;
-    getInputReportAsync(reportId: number, callback: (error: Error, result: HidInputReport) => void): void ;
+    getInputReportAsync(reportId: Number, callback: (error: Error, result: HidInputReport) => void): void ;
 
     getFeatureReportAsync(callback: (error: Error, result: HidFeatureReport) => void): void ;
-    getFeatureReportAsync(reportId: number, callback: (error: Error, result: HidFeatureReport) => void): void ;
+    getFeatureReportAsync(reportId: Number, callback: (error: Error, result: HidFeatureReport) => void): void ;
 
-    sendOutputReportAsync(outputReport: HidOutputReport, callback: (error: Error, result: number) => void): void ;
+    sendOutputReportAsync(outputReport: HidOutputReport, callback: (error: Error, result: Number) => void): void ;
 
-    sendFeatureReportAsync(featureReport: HidFeatureReport, callback: (error: Error, result: number) => void): void ;
+    sendFeatureReportAsync(featureReport: HidFeatureReport, callback: (error: Error, result: Number) => void): void ;
 
     createOutputReport(): HidOutputReport;
-    createOutputReport(reportId: number): HidOutputReport;
+    createOutputReport(reportId: Number): HidOutputReport;
 
     createFeatureReport(): HidFeatureReport;
-    createFeatureReport(reportId: number): HidFeatureReport;
+    createFeatureReport(reportId: Number): HidFeatureReport;
 
-    getBooleanControlDescriptions(reportType: HidReportType, usagePage: number, usageId: number): Object;
+    getBooleanControlDescriptions(reportType: HidReportType, usagePage: Number, usageId: Number): Object;
 
-    getNumericControlDescriptions(reportType: HidReportType, usagePage: number, usageId: number): Object;
+    getNumericControlDescriptions(reportType: HidReportType, usagePage: Number, usageId: Number): Object;
 
     close(): void;
     addListener(type: "InputReportReceived", listener: (ev: Event) => void): void ;
@@ -64,83 +95,35 @@
 
   }
 
+  export class HidFeatureReport {
+    data: Object;
+    id: Number;
+    constructor();
+
+    getBooleanControl(usagePage: Number, usageId: Number): HidBooleanControl;
+
+    getBooleanControlByDescription(controlDescription: HidBooleanControlDescription): HidBooleanControl;
+
+    getNumericControl(usagePage: Number, usageId: Number): HidNumericControl;
+
+    getNumericControlByDescription(controlDescription: HidNumericControlDescription): HidNumericControl;
+
+  }
+
   export class HidInputReport {
     activatedBooleanControls: Object;
     data: Object;
-    id: number;
+    id: Number;
     transitionedBooleanControls: Object;
     constructor();
 
-    getBooleanControl(usagePage: number, usageId: number): HidBooleanControl;
+    getBooleanControl(usagePage: Number, usageId: Number): HidBooleanControl;
 
     getBooleanControlByDescription(controlDescription: HidBooleanControlDescription): HidBooleanControl;
 
-    getNumericControl(usagePage: number, usageId: number): HidNumericControl;
+    getNumericControl(usagePage: Number, usageId: Number): HidNumericControl;
 
     getNumericControlByDescription(controlDescription: HidNumericControlDescription): HidNumericControl;
-
-  }
-
-  export class HidFeatureReport {
-    data: Object;
-    id: number;
-    constructor();
-
-    getBooleanControl(usagePage: number, usageId: number): HidBooleanControl;
-
-    getBooleanControlByDescription(controlDescription: HidBooleanControlDescription): HidBooleanControl;
-
-    getNumericControl(usagePage: number, usageId: number): HidNumericControl;
-
-    getNumericControlByDescription(controlDescription: HidNumericControlDescription): HidNumericControl;
-
-  }
-
-  export class HidOutputReport {
-    data: Object;
-    id: number;
-    constructor();
-
-    getBooleanControl(usagePage: number, usageId: number): HidBooleanControl;
-
-    getBooleanControlByDescription(controlDescription: HidBooleanControlDescription): HidBooleanControl;
-
-    getNumericControl(usagePage: number, usageId: number): HidNumericControl;
-
-    getNumericControlByDescription(controlDescription: HidNumericControlDescription): HidNumericControl;
-
-  }
-
-  export class HidBooleanControlDescription {
-    id: number;
-    parentCollections: Object;
-    reportId: number;
-    reportType: HidReportType;
-    usageId: number;
-    usagePage: number;
-    isAbsolute: boolean;
-    constructor();
-
-  }
-
-  export class HidNumericControlDescription {
-    hasNull: boolean;
-    id: number;
-    isAbsolute: boolean;
-    logicalMaximum: number;
-    logicalMinimum: number;
-    parentCollections: Object;
-    physicalMaximum: number;
-    physicalMinimum: number;
-    reportCount: number;
-    reportId: number;
-    reportSize: number;
-    reportType: HidReportType;
-    unit: number;
-    unitExponent: number;
-    usageId: number;
-    usagePage: number;
-    constructor();
 
   }
 
@@ -150,34 +133,51 @@
 
   }
 
-  export class HidCollection {
-    id: number;
-    type: HidCollectionType;
-    usageId: number;
-    usagePage: number;
-    constructor();
-
-  }
-
-  export class HidBooleanControl {
-    isActive: boolean;
-    controlDescription: HidBooleanControlDescription;
-    id: number;
-    usageId: number;
-    usagePage: number;
-    constructor();
-
-  }
-
   export class HidNumericControl {
-    value: number;
-    scaledValue: number;
+    value: Number;
+    scaledValue: Number;
     controlDescription: HidNumericControlDescription;
-    id: number;
-    isGrouped: boolean;
-    usageId: number;
-    usagePage: number;
+    id: Number;
+    isGrouped: Boolean;
+    usageId: Number;
+    usagePage: Number;
     constructor();
+
+  }
+
+  export class HidNumericControlDescription {
+    hasNull: Boolean;
+    id: Number;
+    isAbsolute: Boolean;
+    logicalMaximum: Number;
+    logicalMinimum: Number;
+    parentCollections: Object;
+    physicalMaximum: Number;
+    physicalMinimum: Number;
+    reportCount: Number;
+    reportId: Number;
+    reportSize: Number;
+    reportType: HidReportType;
+    unit: Number;
+    unitExponent: Number;
+    usageId: Number;
+    usagePage: Number;
+    constructor();
+
+  }
+
+  export class HidOutputReport {
+    data: Object;
+    id: Number;
+    constructor();
+
+    getBooleanControl(usagePage: Number, usageId: Number): HidBooleanControl;
+
+    getBooleanControlByDescription(controlDescription: HidBooleanControlDescription): HidBooleanControl;
+
+    getNumericControl(usagePage: Number, usageId: Number): HidNumericControl;
+
+    getNumericControlByDescription(controlDescription: HidNumericControlDescription): HidNumericControl;
 
   }
 

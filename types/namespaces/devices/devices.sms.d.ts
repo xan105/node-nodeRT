@@ -3,74 +3,18 @@
   }
 
   export class SmsEncodedLength {
-    segmentCount: number;
-    characterCountLastSegment: number;
-    charactersPerSegment: number;
-    byteCountLastSegment: number;
-    bytesPerSegment: number;
+    segmentCount: Number;
+    characterCountLastSegment: Number;
+    charactersPerSegment: Number;
+    byteCountLastSegment: Number;
+    bytesPerSegment: Number;
     constructor();
-  }
-
-  export enum SmsMessageFilter {
-    all,
-    unread,
-    read,
-    sent,
-    draft,
-  }
-
-  export enum SmsMessageClass {
-    none,
-    class0,
-    class1,
-    class2,
-    class3,
-  }
-
-  export enum SmsMessageType {
-    binary,
-    text,
-    wap,
-    app,
-    broadcast,
-    voicemail,
-    status,
   }
 
   export enum CellularClass {
     none,
     gsm,
     cdma,
-  }
-
-  export enum SmsDataFormat {
-    unknown,
-    cdmaSubmit,
-    gsmSubmit,
-    cdmaDeliver,
-    gsmDeliver,
-  }
-
-  export enum SmsEncoding {
-    unknown,
-    optimal,
-    sevenBitAscii,
-    unicode,
-    gsmSevenBit,
-    eightBit,
-    latin,
-    korean,
-    iA5,
-    shiftJis,
-    latinHebrew,
-  }
-
-  export enum SmsGeographicalScope {
-    none,
-    cellWithImmediateDisplay,
-    locationArea,
-    plmn,
-    cell,
   }
 
   export enum SmsBroadcastType {
@@ -91,6 +35,14 @@
     latAlertLocal,
   }
 
+  export enum SmsDataFormat {
+    unknown,
+    cdmaSubmit,
+    gsmSubmit,
+    cdmaDeliver,
+    gsmDeliver,
+  }
+
   export enum SmsDeviceStatus {
     off,
     ready,
@@ -100,6 +52,61 @@
     subscriptionNotActivated,
     deviceLocked,
     deviceBlocked,
+  }
+
+  export enum SmsEncoding {
+    unknown,
+    optimal,
+    sevenBitAscii,
+    unicode,
+    gsmSevenBit,
+    eightBit,
+    latin,
+    korean,
+    iA5,
+    shiftJis,
+    latinHebrew,
+  }
+
+  export enum SmsFilterActionType {
+    acceptImmediately,
+    drop,
+    peek,
+    accept,
+  }
+
+  export enum SmsGeographicalScope {
+    none,
+    cellWithImmediateDisplay,
+    locationArea,
+    plmn,
+    cell,
+  }
+
+  export enum SmsMessageClass {
+    none,
+    class0,
+    class1,
+    class2,
+    class3,
+  }
+
+  export enum SmsMessageFilter {
+    all,
+    unread,
+    read,
+    sent,
+    draft,
+  }
+
+  export enum SmsMessageType {
+    binary,
+    text,
+    wap,
+    app,
+    broadcast,
+    voicemail,
+    status,
   }
 
   export enum SmsModemErrorCode {
@@ -117,84 +124,10 @@
     fixedDialingNumberRestricted,
   }
 
-  export enum SmsFilterActionType {
-    acceptImmediately,
-    drop,
-    peek,
-    accept,
-  }
-
-  export class ISmsMessage {
-    id: number;
-    messageClass: SmsMessageClass;
-    constructor();
-
-  }
-
-  export class ISmsBinaryMessage {
-    format: SmsDataFormat;
-    constructor();
-
-    getData(): Array<number>;
-
-    setData(value: Array<number>): void;
-
-  }
-
-  export class SmsBinaryMessage {
-    format: SmsDataFormat;
-    id: number;
-    messageClass: SmsMessageClass;
-    constructor();
-
-    getData(): Array<number>;
-
-    setData(value: Array<number>): void;
-
-  }
-
-  export class ISmsTextMessage {
-    body: string;
-    encoding: SmsEncoding;
-    from: string;
-    partCount: number;
-    partNumber: number;
-    partReferenceId: number;
-    timestamp: Date;
-    to: string;
-    constructor();
-
-    toBinaryMessages(format: SmsDataFormat): Object;
-
-  }
-
-  export class SmsTextMessage {
-    id: number;
-    messageClass: SmsMessageClass;
-    to: string;
-    from: string;
-    encoding: SmsEncoding;
-    body: string;
-    partCount: number;
-    partNumber: number;
-    partReferenceId: number;
-    timestamp: Date;
-    constructor();
-
-    static fromBinaryMessage(binaryMessage: SmsBinaryMessage): SmsTextMessage;
-
-
-    static fromBinaryData(format: SmsDataFormat, value: Array<number>): SmsTextMessage;
-
-
-    toBinaryMessages(format: SmsDataFormat): Object;
-
-  }
-
   export class DeleteSmsMessageOperation {
-    errorCode: number;
-    id: number;
-    status: number;
+    errorCode: Number;
+    id: Number;
+    status: Number;
     completed: Object;
     constructor();
 
@@ -207,9 +140,9 @@
   }
 
   export class DeleteSmsMessagesOperation {
-    errorCode: number;
-    id: number;
-    status: number;
+    errorCode: Number;
+    id: Number;
+    status: Number;
     completed: Object;
     constructor();
 
@@ -221,10 +154,25 @@
 
   }
 
+  export class GetSmsDeviceOperation {
+    errorCode: Number;
+    id: Number;
+    status: Number;
+    completed: Object;
+    constructor();
+
+    getResults(): SmsDevice;
+
+    cancel(): void;
+
+    close(): void;
+
+  }
+
   export class GetSmsMessageOperation {
-    errorCode: number;
-    id: number;
-    status: number;
+    errorCode: Number;
+    id: Number;
+    status: Number;
     completed: Object;
     constructor();
 
@@ -237,9 +185,9 @@
   }
 
   export class GetSmsMessagesOperation {
-    errorCode: number;
-    id: number;
-    status: number;
+    errorCode: Number;
+    id: Number;
+    status: Number;
     progress: Object;
     completed: Object;
     constructor();
@@ -252,24 +200,81 @@
 
   }
 
-  export class SmsDeviceMessageStore {
-    maxMessages: number;
+  export class ISmsBinaryMessage {
+    format: SmsDataFormat;
     constructor();
 
-    deleteMessageAsync(messageId: number, callback: (error: Error) => void): void ;
+    getData(): Array<Number>;
 
-    deleteMessagesAsync(messageFilter: SmsMessageFilter, callback: (error: Error) => void): void ;
+    setData(value: Array<Number>): void;
 
-    getMessageAsync(messageId: number, callback: (error: Error, result: ISmsMessage) => void): void ;
+  }
 
-    getMessagesAsync(messageFilter: SmsMessageFilter, callback: (error: Error, result: Object) => void): void ;
+  export class ISmsDevice {
+    accountPhoneNumber: String;
+    cellularClass: CellularClass;
+    deviceStatus: SmsDeviceStatus;
+    messageStore: SmsDeviceMessageStore;
+    constructor();
+
+    sendMessageAsync(message: ISmsMessage, callback: (error: Error) => void): void ;
+
+    calculateLength(message: SmsTextMessage): SmsEncodedLength;
+
+    addListener(type: "SmsDeviceStatusChanged", listener: (ev: Event) => void): void ;
+    removeListener(type: "SmsDeviceStatusChanged", listener: (ev: Event) => void): void ;
+    on(type: "SmsDeviceStatusChanged", listener: (ev: Event) => void): void ;
+    off(type: "SmsDeviceStatusChanged", listener: (ev: Event) => void): void ;
+    
+    addListener(type: "SmsMessageReceived", listener: (ev: Event) => void): void ;
+    removeListener(type: "SmsMessageReceived", listener: (ev: Event) => void): void ;
+    on(type: "SmsMessageReceived", listener: (ev: Event) => void): void ;
+    off(type: "SmsMessageReceived", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
+
+  }
+
+  export class ISmsMessage {
+    id: Number;
+    messageClass: SmsMessageClass;
+    constructor();
+
+  }
+
+  export class ISmsMessageBase {
+    cellularClass: CellularClass;
+    deviceId: String;
+    messageClass: SmsMessageClass;
+    messageType: SmsMessageType;
+    simIccId: String;
+    constructor();
+
+  }
+
+  export class ISmsTextMessage {
+    body: String;
+    encoding: SmsEncoding;
+    from: String;
+    partCount: Number;
+    partNumber: Number;
+    partReferenceId: Number;
+    timestamp: Date;
+    to: String;
+    constructor();
+
+    toBinaryMessages(format: SmsDataFormat): Object;
 
   }
 
   export class SendSmsMessageOperation {
-    errorCode: number;
-    id: number;
-    status: number;
+    errorCode: Number;
+    id: Number;
+    status: Number;
     completed: Object;
     constructor();
 
@@ -281,30 +286,77 @@
 
   }
 
-  export class SmsMessageReceivedEventArgs {
-    binaryMessage: SmsBinaryMessage;
-    textMessage: SmsTextMessage;
+  export class SmsAppMessage {
+    protocolId: Number;
+    portNumber: Number;
+    isDeliveryNotificationEnabled: Boolean;
+    retryAttemptCount: Number;
+    encoding: SmsEncoding;
+    body: String;
+    callbackNumber: String;
+    binaryBody: Object;
+    to: String;
+    teleserviceId: Number;
+    from: String;
+    timestamp: Date;
+    cellularClass: CellularClass;
+    deviceId: String;
+    messageClass: SmsMessageClass;
+    messageType: SmsMessageType;
+    simIccId: String;
+    constructor();
+
+  }
+
+  export class SmsBinaryMessage {
+    format: SmsDataFormat;
+    id: Number;
+    messageClass: SmsMessageClass;
+    constructor();
+
+    getData(): Array<Number>;
+
+    setData(value: Array<Number>): void;
+
+  }
+
+  export class SmsBroadcastMessage {
+    body: String;
+    broadcastType: SmsBroadcastType;
+    channel: Number;
+    geographicalScope: SmsGeographicalScope;
+    isEmergencyAlert: Boolean;
+    isUserPopupRequested: Boolean;
+    messageCode: Number;
+    timestamp: Date;
+    to: String;
+    updateNumber: Number;
+    cellularClass: CellularClass;
+    deviceId: String;
+    messageClass: SmsMessageClass;
+    messageType: SmsMessageType;
+    simIccId: String;
     constructor();
 
   }
 
   export class SmsDevice {
-    accountPhoneNumber: string;
+    accountPhoneNumber: String;
     cellularClass: CellularClass;
     deviceStatus: SmsDeviceStatus;
     messageStore: SmsDeviceMessageStore;
     constructor();
 
-    static fromNetworkAccountIdAsync(networkAccountId: string, callback: (error: Error, result: SmsDevice) => void): void ;
+    static fromNetworkAccountIdAsync(networkAccountId: String, callback: (error: Error, result: SmsDevice) => void): void ;
 
 
-    static fromIdAsync(deviceId: string, callback: (error: Error, result: SmsDevice) => void): void ;
+    static fromIdAsync(deviceId: String, callback: (error: Error, result: SmsDevice) => void): void ;
 
 
     static getDefaultAsync(callback: (error: Error, result: SmsDevice) => void): void ;
 
 
-    static getDeviceSelector(): string;
+    static getDeviceSelector(): String;
 
 
     sendMessageAsync(message: ISmsMessage, callback: (error: Error) => void): void ;
@@ -326,213 +378,28 @@
     on(type: string, listener: (ev: Event) => void): void ;
     off(type: string, listener: (ev: Event) => void): void ;
     
-
-  }
-
-  export class GetSmsDeviceOperation {
-    errorCode: number;
-    id: number;
-    status: number;
-    completed: Object;
-    constructor();
-
-    getResults(): SmsDevice;
-
-    cancel(): void;
-
-    close(): void;
-
-  }
-
-  export class ISmsDevice {
-    accountPhoneNumber: string;
-    cellularClass: CellularClass;
-    deviceStatus: SmsDeviceStatus;
-    messageStore: SmsDeviceMessageStore;
-    constructor();
-
-    sendMessageAsync(message: ISmsMessage, callback: (error: Error) => void): void ;
-
-    calculateLength(message: SmsTextMessage): SmsEncodedLength;
-
-    addListener(type: "SmsDeviceStatusChanged", listener: (ev: Event) => void): void ;
-    removeListener(type: "SmsDeviceStatusChanged", listener: (ev: Event) => void): void ;
-    on(type: "SmsDeviceStatusChanged", listener: (ev: Event) => void): void ;
-    off(type: "SmsDeviceStatusChanged", listener: (ev: Event) => void): void ;
-    
-    addListener(type: "SmsMessageReceived", listener: (ev: Event) => void): void ;
-    removeListener(type: "SmsMessageReceived", listener: (ev: Event) => void): void ;
-    on(type: "SmsMessageReceived", listener: (ev: Event) => void): void ;
-    off(type: "SmsMessageReceived", listener: (ev: Event) => void): void ;
-    
-    addListener(type: string, listener: (ev: Event) => void): void ;
-    removeListener(type: string, listener: (ev: Event) => void): void ;
-    on(type: string, listener: (ev: Event) => void): void ;
-    off(type: string, listener: (ev: Event) => void): void ;
-    
-
-  }
-
-  export class SmsReceivedEventDetails {
-    deviceId: string;
-    messageIndex: number;
-    binaryMessage: SmsBinaryMessage;
-    messageClass: SmsMessageClass;
-    constructor();
-
-  }
-
-  export class ISmsMessageBase {
-    cellularClass: CellularClass;
-    deviceId: string;
-    messageClass: SmsMessageClass;
-    messageType: SmsMessageType;
-    simIccId: string;
-    constructor();
-
-  }
-
-  export class SmsTextMessage2 {
-    messageType: SmsMessageType;
-    deviceId: string;
-    cellularClass: CellularClass;
-    messageClass: SmsMessageClass;
-    simIccId: string;
-    retryAttemptCount: number;
-    to: string;
-    isDeliveryNotificationEnabled: boolean;
-    encoding: SmsEncoding;
-    callbackNumber: string;
-    body: string;
-    protocolId: number;
-    from: string;
-    timestamp: Date;
-    teleserviceId: number;
-    constructor();
-
-  }
-
-  export class SmsWapMessage {
-    cellularClass: CellularClass;
-    deviceId: string;
-    messageClass: SmsMessageClass;
-    messageType: SmsMessageType;
-    simIccId: string;
-    timestamp: Date;
-    applicationId: string;
-    binaryBody: Object;
-    contentType: string;
-    from: string;
-    headers: Object;
-    to: string;
-    constructor();
-
-  }
-
-  export class SmsAppMessage {
-    protocolId: number;
-    portNumber: number;
-    isDeliveryNotificationEnabled: boolean;
-    retryAttemptCount: number;
-    encoding: SmsEncoding;
-    body: string;
-    callbackNumber: string;
-    binaryBody: Object;
-    to: string;
-    teleserviceId: number;
-    from: string;
-    timestamp: Date;
-    cellularClass: CellularClass;
-    deviceId: string;
-    messageClass: SmsMessageClass;
-    messageType: SmsMessageType;
-    simIccId: string;
-    constructor();
-
-  }
-
-  export class SmsBroadcastMessage {
-    body: string;
-    broadcastType: SmsBroadcastType;
-    channel: number;
-    geographicalScope: SmsGeographicalScope;
-    isEmergencyAlert: boolean;
-    isUserPopupRequested: boolean;
-    messageCode: number;
-    timestamp: Date;
-    to: string;
-    updateNumber: number;
-    cellularClass: CellularClass;
-    deviceId: string;
-    messageClass: SmsMessageClass;
-    messageType: SmsMessageType;
-    simIccId: string;
-    constructor();
-
-  }
-
-  export class SmsVoicemailMessage {
-    cellularClass: CellularClass;
-    deviceId: string;
-    messageClass: SmsMessageClass;
-    messageType: SmsMessageType;
-    simIccId: string;
-    body: string;
-    messageCount: number;
-    timestamp: Date;
-    to: string;
-    constructor();
-
-  }
-
-  export class SmsStatusMessage {
-    cellularClass: CellularClass;
-    deviceId: string;
-    messageClass: SmsMessageClass;
-    messageType: SmsMessageType;
-    simIccId: string;
-    status: number;
-    body: string;
-    dischargeTime: Date;
-    from: string;
-    messageReferenceNumber: number;
-    serviceCenterTimestamp: Date;
-    to: string;
-    constructor();
-
-  }
-
-  export class SmsSendMessageResult {
-    cellularClass: CellularClass;
-    isErrorTransient: boolean;
-    isSuccessful: boolean;
-    messageReferenceNumbers: Object;
-    modemErrorCode: SmsModemErrorCode;
-    networkCauseCode: number;
-    transportFailureCause: number;
-    constructor();
 
   }
 
   export class SmsDevice2 {
-    smscAddress: string;
-    accountPhoneNumber: string;
+    smscAddress: String;
+    accountPhoneNumber: String;
     cellularClass: CellularClass;
-    deviceId: string;
+    deviceId: String;
     deviceStatus: SmsDeviceStatus;
-    parentDeviceId: string;
+    parentDeviceId: String;
     constructor();
 
-    static getDeviceSelector(): string;
+    static getDeviceSelector(): String;
 
 
-    static fromId(deviceId: string): SmsDevice2;
+    static fromId(deviceId: String): SmsDevice2;
 
 
     static getDefault(): SmsDevice2;
 
 
-    static fromParentId(parentDeviceId: string): SmsDevice2;
+    static fromParentId(parentDeviceId: String): SmsDevice2;
 
 
     sendMessageAndGetResultAsync(message: ISmsMessageBase, callback: (error: Error, result: SmsSendMessageResult) => void): void ;
@@ -552,19 +419,17 @@
 
   }
 
-  export class SmsMessageReceivedTriggerDetails {
-    appMessage: SmsAppMessage;
-    broadcastMessage: SmsBroadcastMessage;
-    messageType: SmsMessageType;
-    statusMessage: SmsStatusMessage;
-    textMessage: SmsTextMessage2;
-    voicemailMessage: SmsVoicemailMessage;
-    wapMessage: SmsWapMessage;
+  export class SmsDeviceMessageStore {
+    maxMessages: Number;
     constructor();
 
-    drop(): void;
+    deleteMessageAsync(messageId: Number, callback: (error: Error) => void): void ;
 
-    accept(): void;
+    deleteMessagesAsync(messageFilter: SmsMessageFilter, callback: (error: Error) => void): void ;
+
+    getMessageAsync(messageId: Number, callback: (error: Error, result: ISmsMessage) => void): void ;
+
+    getMessagesAsync(messageFilter: SmsMessageFilter, callback: (error: Error, result: Object) => void): void ;
 
   }
 
@@ -595,12 +460,35 @@
 
   }
 
-  export class SmsMessageRegistration {
-    static allRegistrations: Object;
-    id: string;
+  export class SmsMessageReceivedEventArgs {
+    binaryMessage: SmsBinaryMessage;
+    textMessage: SmsTextMessage;
     constructor();
 
-    static register(id: string, filterRules: SmsFilterRules): SmsMessageRegistration;
+  }
+
+  export class SmsMessageReceivedTriggerDetails {
+    appMessage: SmsAppMessage;
+    broadcastMessage: SmsBroadcastMessage;
+    messageType: SmsMessageType;
+    statusMessage: SmsStatusMessage;
+    textMessage: SmsTextMessage2;
+    voicemailMessage: SmsVoicemailMessage;
+    wapMessage: SmsWapMessage;
+    constructor();
+
+    drop(): void;
+
+    accept(): void;
+
+  }
+
+  export class SmsMessageRegistration {
+    static allRegistrations: Object;
+    id: String;
+    constructor();
+
+    static register(id: String, filterRules: SmsFilterRules): SmsMessageRegistration;
 
 
     unregister(): void;
@@ -615,6 +503,118 @@
     on(type: string, listener: (ev: Event) => void): void ;
     off(type: string, listener: (ev: Event) => void): void ;
     
+
+  }
+
+  export class SmsReceivedEventDetails {
+    deviceId: String;
+    messageIndex: Number;
+    binaryMessage: SmsBinaryMessage;
+    messageClass: SmsMessageClass;
+    constructor();
+
+  }
+
+  export class SmsSendMessageResult {
+    cellularClass: CellularClass;
+    isErrorTransient: Boolean;
+    isSuccessful: Boolean;
+    messageReferenceNumbers: Object;
+    modemErrorCode: SmsModemErrorCode;
+    networkCauseCode: Number;
+    transportFailureCause: Number;
+    constructor();
+
+  }
+
+  export class SmsStatusMessage {
+    cellularClass: CellularClass;
+    deviceId: String;
+    messageClass: SmsMessageClass;
+    messageType: SmsMessageType;
+    simIccId: String;
+    status: Number;
+    body: String;
+    dischargeTime: Date;
+    from: String;
+    messageReferenceNumber: Number;
+    serviceCenterTimestamp: Date;
+    to: String;
+    constructor();
+
+  }
+
+  export class SmsTextMessage {
+    id: Number;
+    messageClass: SmsMessageClass;
+    to: String;
+    from: String;
+    encoding: SmsEncoding;
+    body: String;
+    partCount: Number;
+    partNumber: Number;
+    partReferenceId: Number;
+    timestamp: Date;
+    constructor();
+
+    static fromBinaryMessage(binaryMessage: SmsBinaryMessage): SmsTextMessage;
+
+
+    static fromBinaryData(format: SmsDataFormat, value: Array<Number>): SmsTextMessage;
+
+
+    toBinaryMessages(format: SmsDataFormat): Object;
+
+  }
+
+  export class SmsTextMessage2 {
+    messageType: SmsMessageType;
+    deviceId: String;
+    cellularClass: CellularClass;
+    messageClass: SmsMessageClass;
+    simIccId: String;
+    retryAttemptCount: Number;
+    to: String;
+    isDeliveryNotificationEnabled: Boolean;
+    encoding: SmsEncoding;
+    callbackNumber: String;
+    body: String;
+    protocolId: Number;
+    from: String;
+    timestamp: Date;
+    teleserviceId: Number;
+    constructor();
+
+  }
+
+  export class SmsVoicemailMessage {
+    cellularClass: CellularClass;
+    deviceId: String;
+    messageClass: SmsMessageClass;
+    messageType: SmsMessageType;
+    simIccId: String;
+    body: String;
+    messageCount: Number;
+    timestamp: Date;
+    to: String;
+    constructor();
+
+  }
+
+  export class SmsWapMessage {
+    cellularClass: CellularClass;
+    deviceId: String;
+    messageClass: SmsMessageClass;
+    messageType: SmsMessageType;
+    simIccId: String;
+    timestamp: Date;
+    applicationId: String;
+    binaryBody: Object;
+    contentType: String;
+    from: String;
+    headers: Object;
+    to: String;
+    constructor();
 
   }
 

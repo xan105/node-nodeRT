@@ -5,52 +5,62 @@
     deniedByEnergySaver,
   }
 
-  export class SimpleHapticsControllerFeedback {
-    duration: number;
-    waveform: number;
+  export class KnownSimpleHapticsControllerWaveforms {
+    static buzzContinuous: Number;
+    static click: Number;
+    static press: Number;
+    static release: Number;
+    static rumbleContinuous: Number;
+    static brushContinuous: Number;
+    static chiselMarkerContinuous: Number;
+    static eraserContinuous: Number;
+    static error: Number;
+    static galaxyPenContinuous: Number;
+    static hover: Number;
+    static inkContinuous: Number;
+    static markerContinuous: Number;
+    static pencilContinuous: Number;
+    static success: Number;
     constructor();
 
   }
 
   export class SimpleHapticsController {
-    id: string;
-    isIntensitySupported: boolean;
-    isPlayCountSupported: boolean;
-    isPlayDurationSupported: boolean;
-    isReplayPauseIntervalSupported: boolean;
+    id: String;
+    isIntensitySupported: Boolean;
+    isPlayCountSupported: Boolean;
+    isPlayDurationSupported: Boolean;
+    isReplayPauseIntervalSupported: Boolean;
     supportedFeedback: Object;
     constructor();
 
     stopFeedback(): void;
 
     sendHapticFeedback(feedback: SimpleHapticsControllerFeedback): void;
-    sendHapticFeedback(feedback: SimpleHapticsControllerFeedback, intensity: number): void;
+    sendHapticFeedback(feedback: SimpleHapticsControllerFeedback, intensity: Number): void;
 
-    sendHapticFeedbackForDuration(feedback: SimpleHapticsControllerFeedback, intensity: number, playDuration: number): void;
+    sendHapticFeedbackForDuration(feedback: SimpleHapticsControllerFeedback, intensity: Number, playDuration: Number): void;
 
-    sendHapticFeedbackForPlayCount(feedback: SimpleHapticsControllerFeedback, intensity: number, playCount: number, replayPauseInterval: number): void;
+    sendHapticFeedbackForPlayCount(feedback: SimpleHapticsControllerFeedback, intensity: Number, playCount: Number, replayPauseInterval: Number): void;
 
   }
 
-  export class KnownSimpleHapticsControllerWaveforms {
-    static buzzContinuous: number;
-    static click: number;
-    static press: number;
-    static release: number;
-    static rumbleContinuous: number;
+  export class SimpleHapticsControllerFeedback {
+    duration: Number;
+    waveform: Number;
     constructor();
 
   }
 
   export class VibrationDevice {
-    id: string;
+    id: String;
     simpleHapticsController: SimpleHapticsController;
     constructor();
 
     static requestAccessAsync(callback: (error: Error, result: VibrationAccessStatus) => void): void ;
 
 
-    static fromIdAsync(deviceId: string, callback: (error: Error, result: VibrationDevice) => void): void ;
+    static fromIdAsync(deviceId: String, callback: (error: Error, result: VibrationDevice) => void): void ;
 
 
     static getDefaultAsync(callback: (error: Error, result: VibrationDevice) => void): void ;
@@ -59,7 +69,7 @@
     static findAllAsync(callback: (error: Error, result: Object) => void): void ;
 
 
-    static getDeviceSelector(): string;
+    static getDeviceSelector(): String;
 
 
   }

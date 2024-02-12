@@ -86,27 +86,21 @@
 
   }
 
-  export class EmailMailboxSyncManagerSyncRequestEventArgs {
-    request: EmailMailboxSyncManagerSyncRequest;
+  export class EmailDataProviderTriggerDetails {
+    connection: EmailDataProviderConnection;
     constructor();
-
-    getDeferral(): Object;
 
   }
 
-  export class EmailMailboxDownloadMessageRequestEventArgs {
-    request: EmailMailboxDownloadMessageRequest;
+  export class EmailMailboxCreateFolderRequest {
+    emailMailboxId: String;
+    name: String;
+    parentFolderId: String;
     constructor();
 
-    getDeferral(): Object;
+    reportCompletedAsync(folder: Object, callback: (error: Error) => void): void ;
 
-  }
-
-  export class EmailMailboxDownloadAttachmentRequestEventArgs {
-    request: EmailMailboxDownloadAttachmentRequest;
-    constructor();
-
-    getDeferral(): Object;
+    reportFailedAsync(status: Number, callback: (error: Error) => void): void ;
 
   }
 
@@ -118,11 +112,72 @@
 
   }
 
+  export class EmailMailboxDeleteFolderRequest {
+    emailFolderId: String;
+    emailMailboxId: String;
+    constructor();
+
+    reportCompletedAsync(callback: (error: Error) => void): void ;
+
+    reportFailedAsync(status: Number, callback: (error: Error) => void): void ;
+
+  }
+
   export class EmailMailboxDeleteFolderRequestEventArgs {
     request: EmailMailboxDeleteFolderRequest;
     constructor();
 
     getDeferral(): Object;
+
+  }
+
+  export class EmailMailboxDownloadAttachmentRequest {
+    emailAttachmentId: String;
+    emailMailboxId: String;
+    emailMessageId: String;
+    constructor();
+
+    reportCompletedAsync(callback: (error: Error) => void): void ;
+
+    reportFailedAsync(callback: (error: Error) => void): void ;
+
+  }
+
+  export class EmailMailboxDownloadAttachmentRequestEventArgs {
+    request: EmailMailboxDownloadAttachmentRequest;
+    constructor();
+
+    getDeferral(): Object;
+
+  }
+
+  export class EmailMailboxDownloadMessageRequest {
+    emailMailboxId: String;
+    emailMessageId: String;
+    constructor();
+
+    reportCompletedAsync(callback: (error: Error) => void): void ;
+
+    reportFailedAsync(callback: (error: Error) => void): void ;
+
+  }
+
+  export class EmailMailboxDownloadMessageRequestEventArgs {
+    request: EmailMailboxDownloadMessageRequest;
+    constructor();
+
+    getDeferral(): Object;
+
+  }
+
+  export class EmailMailboxEmptyFolderRequest {
+    emailFolderId: String;
+    emailMailboxId: String;
+    constructor();
+
+    reportCompletedAsync(callback: (error: Error) => void): void ;
+
+    reportFailedAsync(status: Number, callback: (error: Error) => void): void ;
 
   }
 
@@ -134,19 +189,19 @@
 
   }
 
-  export class EmailMailboxMoveFolderRequestEventArgs {
-    request: EmailMailboxMoveFolderRequest;
+  export class EmailMailboxForwardMeetingRequest {
+    comment: String;
+    emailMailboxId: String;
+    emailMessageId: String;
+    forwardHeader: String;
+    forwardHeaderType: Number;
+    recipients: Object;
+    subject: String;
     constructor();
 
-    getDeferral(): Object;
+    reportCompletedAsync(callback: (error: Error) => void): void ;
 
-  }
-
-  export class EmailMailboxUpdateMeetingResponseRequestEventArgs {
-    request: EmailMailboxUpdateMeetingResponseRequest;
-    constructor();
-
-    getDeferral(): Object;
+    reportFailedAsync(callback: (error: Error) => void): void ;
 
   }
 
@@ -158,19 +213,14 @@
 
   }
 
-  export class EmailMailboxProposeNewTimeForMeetingRequestEventArgs {
-    request: EmailMailboxProposeNewTimeForMeetingRequest;
+  export class EmailMailboxGetAutoReplySettingsRequest {
+    emailMailboxId: String;
+    requestedFormat: Number;
     constructor();
 
-    getDeferral(): Object;
+    reportCompletedAsync(autoReplySettings: Object, callback: (error: Error) => void): void ;
 
-  }
-
-  export class EmailMailboxSetAutoReplySettingsRequestEventArgs {
-    request: EmailMailboxSetAutoReplySettingsRequest;
-    constructor();
-
-    getDeferral(): Object;
+    reportFailedAsync(callback: (error: Error) => void): void ;
 
   }
 
@@ -182,6 +232,61 @@
 
   }
 
+  export class EmailMailboxMoveFolderRequest {
+    emailFolderId: String;
+    emailMailboxId: String;
+    newFolderName: String;
+    newParentFolderId: String;
+    constructor();
+
+    reportCompletedAsync(callback: (error: Error) => void): void ;
+
+    reportFailedAsync(callback: (error: Error) => void): void ;
+
+  }
+
+  export class EmailMailboxMoveFolderRequestEventArgs {
+    request: EmailMailboxMoveFolderRequest;
+    constructor();
+
+    getDeferral(): Object;
+
+  }
+
+  export class EmailMailboxProposeNewTimeForMeetingRequest {
+    comment: String;
+    emailMailboxId: String;
+    emailMessageId: String;
+    newDuration: Number;
+    newStartTime: Date;
+    subject: String;
+    constructor();
+
+    reportCompletedAsync(callback: (error: Error) => void): void ;
+
+    reportFailedAsync(callback: (error: Error) => void): void ;
+
+  }
+
+  export class EmailMailboxProposeNewTimeForMeetingRequestEventArgs {
+    request: EmailMailboxProposeNewTimeForMeetingRequest;
+    constructor();
+
+    getDeferral(): Object;
+
+  }
+
+  export class EmailMailboxResolveRecipientsRequest {
+    emailMailboxId: String;
+    recipients: Object;
+    constructor();
+
+    reportCompletedAsync(resolutionResults: Object, callback: (error: Error) => void): void ;
+
+    reportFailedAsync(callback: (error: Error) => void): void ;
+
+  }
+
   export class EmailMailboxResolveRecipientsRequestEventArgs {
     request: EmailMailboxResolveRecipientsRequest;
     constructor();
@@ -190,11 +295,19 @@
 
   }
 
-  export class EmailMailboxValidateCertificatesRequestEventArgs {
-    request: EmailMailboxValidateCertificatesRequest;
+  export class EmailMailboxServerSearchReadBatchRequest {
+    emailFolderId: String;
+    emailMailboxId: String;
+    options: Object;
+    sessionId: String;
+    suggestedBatchSize: Number;
     constructor();
 
-    getDeferral(): Object;
+    saveMessageAsync(message: Object, callback: (error: Error) => void): void ;
+
+    reportCompletedAsync(callback: (error: Error) => void): void ;
+
+    reportFailedAsync(batchStatus: Number, callback: (error: Error) => void): void ;
 
   }
 
@@ -206,14 +319,27 @@
 
   }
 
-  export class EmailDataProviderTriggerDetails {
-    connection: EmailDataProviderConnection;
+  export class EmailMailboxSetAutoReplySettingsRequest {
+    autoReplySettings: Object;
+    emailMailboxId: String;
     constructor();
+
+    reportCompletedAsync(callback: (error: Error) => void): void ;
+
+    reportFailedAsync(callback: (error: Error) => void): void ;
+
+  }
+
+  export class EmailMailboxSetAutoReplySettingsRequestEventArgs {
+    request: EmailMailboxSetAutoReplySettingsRequest;
+    constructor();
+
+    getDeferral(): Object;
 
   }
 
   export class EmailMailboxSyncManagerSyncRequest {
-    emailMailboxId: string;
+    emailMailboxId: String;
     constructor();
 
     reportCompletedAsync(callback: (error: Error) => void): void ;
@@ -222,83 +348,21 @@
 
   }
 
-  export class EmailMailboxDownloadMessageRequest {
-    emailMailboxId: string;
-    emailMessageId: string;
+  export class EmailMailboxSyncManagerSyncRequestEventArgs {
+    request: EmailMailboxSyncManagerSyncRequest;
     constructor();
 
-    reportCompletedAsync(callback: (error: Error) => void): void ;
-
-    reportFailedAsync(callback: (error: Error) => void): void ;
-
-  }
-
-  export class EmailMailboxDownloadAttachmentRequest {
-    emailAttachmentId: string;
-    emailMailboxId: string;
-    emailMessageId: string;
-    constructor();
-
-    reportCompletedAsync(callback: (error: Error) => void): void ;
-
-    reportFailedAsync(callback: (error: Error) => void): void ;
-
-  }
-
-  export class EmailMailboxCreateFolderRequest {
-    emailMailboxId: string;
-    name: string;
-    parentFolderId: string;
-    constructor();
-
-    reportCompletedAsync(folder: Object, callback: (error: Error) => void): void ;
-
-    reportFailedAsync(status: number, callback: (error: Error) => void): void ;
-
-  }
-
-  export class EmailMailboxDeleteFolderRequest {
-    emailFolderId: string;
-    emailMailboxId: string;
-    constructor();
-
-    reportCompletedAsync(callback: (error: Error) => void): void ;
-
-    reportFailedAsync(status: number, callback: (error: Error) => void): void ;
-
-  }
-
-  export class EmailMailboxEmptyFolderRequest {
-    emailFolderId: string;
-    emailMailboxId: string;
-    constructor();
-
-    reportCompletedAsync(callback: (error: Error) => void): void ;
-
-    reportFailedAsync(status: number, callback: (error: Error) => void): void ;
-
-  }
-
-  export class EmailMailboxMoveFolderRequest {
-    emailFolderId: string;
-    emailMailboxId: string;
-    newFolderName: string;
-    newParentFolderId: string;
-    constructor();
-
-    reportCompletedAsync(callback: (error: Error) => void): void ;
-
-    reportFailedAsync(callback: (error: Error) => void): void ;
+    getDeferral(): Object;
 
   }
 
   export class EmailMailboxUpdateMeetingResponseRequest {
-    comment: string;
-    emailMailboxId: string;
-    emailMessageId: string;
-    response: number;
-    sendUpdate: boolean;
-    subject: string;
+    comment: String;
+    emailMailboxId: String;
+    emailMessageId: String;
+    response: Number;
+    sendUpdate: Boolean;
+    subject: String;
     constructor();
 
     reportCompletedAsync(callback: (error: Error) => void): void ;
@@ -307,73 +371,17 @@
 
   }
 
-  export class EmailMailboxForwardMeetingRequest {
-    comment: string;
-    emailMailboxId: string;
-    emailMessageId: string;
-    forwardHeader: string;
-    forwardHeaderType: number;
-    recipients: Object;
-    subject: string;
+  export class EmailMailboxUpdateMeetingResponseRequestEventArgs {
+    request: EmailMailboxUpdateMeetingResponseRequest;
     constructor();
 
-    reportCompletedAsync(callback: (error: Error) => void): void ;
-
-    reportFailedAsync(callback: (error: Error) => void): void ;
-
-  }
-
-  export class EmailMailboxProposeNewTimeForMeetingRequest {
-    comment: string;
-    emailMailboxId: string;
-    emailMessageId: string;
-    newDuration: number;
-    newStartTime: Date;
-    subject: string;
-    constructor();
-
-    reportCompletedAsync(callback: (error: Error) => void): void ;
-
-    reportFailedAsync(callback: (error: Error) => void): void ;
-
-  }
-
-  export class EmailMailboxSetAutoReplySettingsRequest {
-    autoReplySettings: Object;
-    emailMailboxId: string;
-    constructor();
-
-    reportCompletedAsync(callback: (error: Error) => void): void ;
-
-    reportFailedAsync(callback: (error: Error) => void): void ;
-
-  }
-
-  export class EmailMailboxGetAutoReplySettingsRequest {
-    emailMailboxId: string;
-    requestedFormat: number;
-    constructor();
-
-    reportCompletedAsync(autoReplySettings: Object, callback: (error: Error) => void): void ;
-
-    reportFailedAsync(callback: (error: Error) => void): void ;
-
-  }
-
-  export class EmailMailboxResolveRecipientsRequest {
-    emailMailboxId: string;
-    recipients: Object;
-    constructor();
-
-    reportCompletedAsync(resolutionResults: Object, callback: (error: Error) => void): void ;
-
-    reportFailedAsync(callback: (error: Error) => void): void ;
+    getDeferral(): Object;
 
   }
 
   export class EmailMailboxValidateCertificatesRequest {
     certificates: Object;
-    emailMailboxId: string;
+    emailMailboxId: String;
     constructor();
 
     reportCompletedAsync(validationStatuses: Object, callback: (error: Error) => void): void ;
@@ -382,19 +390,11 @@
 
   }
 
-  export class EmailMailboxServerSearchReadBatchRequest {
-    emailFolderId: string;
-    emailMailboxId: string;
-    options: Object;
-    sessionId: string;
-    suggestedBatchSize: number;
+  export class EmailMailboxValidateCertificatesRequestEventArgs {
+    request: EmailMailboxValidateCertificatesRequest;
     constructor();
 
-    saveMessageAsync(message: Object, callback: (error: Error) => void): void ;
-
-    reportCompletedAsync(callback: (error: Error) => void): void ;
-
-    reportFailedAsync(batchStatus: number, callback: (error: Error) => void): void ;
+    getDeferral(): Object;
 
   }
 

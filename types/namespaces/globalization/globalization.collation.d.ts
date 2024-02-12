@@ -1,19 +1,19 @@
   export class CharacterGrouping {
-    first: string;
-    label: string;
+    first: String;
+    label: String;
     constructor();
 
   }
 
   export class CharacterGroupings {
     constructor();
-    constructor(language: string);
+    constructor(language: String);
 
-    lookup(text: string): string;
+    lookup(text: String): String;
 
-    getAt(index: number): CharacterGrouping;
+    getAt(index: Number): CharacterGrouping;
 
-    indexOf(value: CharacterGrouping, index: number): boolean;
+    indexOf(value: CharacterGrouping, index: Number): Boolean;
 
     getMany();
     first(): Object;

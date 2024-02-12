@@ -1,3 +1,35 @@
+  export class LockApplicationHost {
+    constructor();
+
+    static getForCurrentView(): LockApplicationHost;
+
+
+    requestUnlock(): void;
+
+    addListener(type: "Unlocking", listener: (ev: Event) => void): void ;
+    removeListener(type: "Unlocking", listener: (ev: Event) => void): void ;
+    on(type: "Unlocking", listener: (ev: Event) => void): void ;
+    off(type: "Unlocking", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
+
+  }
+
+  export class LockScreenBadge {
+    automationName: String;
+    glyph: Object;
+    logo: Object;
+    number: Number;
+    constructor();
+
+    launchApp(): void;
+
+  }
+
   export class LockScreenInfo {
     alarmIcon: Object;
     badges: Object;
@@ -33,42 +65,10 @@
 
   }
 
-  export class LockScreenBadge {
-    automationName: string;
-    glyph: Object;
-    logo: Object;
-    number: number;
-    constructor();
-
-    launchApp(): void;
-
-  }
-
   export class LockScreenUnlockingDeferral {
     constructor();
 
     complete(): void;
-
-  }
-
-  export class LockApplicationHost {
-    constructor();
-
-    static getForCurrentView(): LockApplicationHost;
-
-
-    requestUnlock(): void;
-
-    addListener(type: "Unlocking", listener: (ev: Event) => void): void ;
-    removeListener(type: "Unlocking", listener: (ev: Event) => void): void ;
-    on(type: "Unlocking", listener: (ev: Event) => void): void ;
-    off(type: "Unlocking", listener: (ev: Event) => void): void ;
-    
-    addListener(type: string, listener: (ev: Event) => void): void ;
-    removeListener(type: string, listener: (ev: Event) => void): void ;
-    on(type: string, listener: (ev: Event) => void): void ;
-    off(type: string, listener: (ev: Event) => void): void ;
-    
 
   }
 

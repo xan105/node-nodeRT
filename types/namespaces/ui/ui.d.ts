@@ -1,10 +1,15 @@
+  export class WindowId {
+    value: Number;
+    constructor();
+  }
+
   export class ColorHelper {
     constructor();
 
-    static toDisplayName(color: Object): string;
+    static toDisplayName(color: Object): String;
 
 
-    static fromArgb(a: number, r: number, g: number, b: number): Object;
+    static fromArgb(a: Number, r: Number, g: Number, b: Number): Object;
 
 
   }
@@ -155,6 +160,22 @@
 
   }
 
+  export class UIContentRoot {
+    uIContext: UIContext;
+    constructor();
+
+  }
+
+  export class UIContext {
+    constructor();
+
+  }
+
+export const ColorHelper: any;
+export const Colors: any;
+export const UIContentRoot: any;
+export const UIContext: any;
+export * as accessibility from "./ui.accessibility.js";
 export * as applicationsettings from "./ui.applicationsettings.js";
 export * as composition from "./ui.composition.js";
 export * as core from "./ui.core.js";
@@ -164,6 +185,7 @@ export * as popups from "./ui.popups.js";
 export * as shell from "./ui.shell.js";
 export * as startscreen from "./ui.startscreen.js";
 export * as text from "./ui.text.js";
+export * as uiautomation from "./ui.uiautomation.js";
 export * as viewmanagement from "./ui.viewmanagement.js";
 export * as webui from "./ui.webui.js";
-export * as xaml from "./ui.xaml.js";
+export * as windowmanagement from "./ui.windowmanagement.js";

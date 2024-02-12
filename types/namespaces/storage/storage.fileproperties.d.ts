@@ -1,3 +1,15 @@
+  export enum PhotoOrientation {
+    unspecified,
+    normal,
+    flipHorizontal,
+    rotate180,
+    flipVertical,
+    transpose,
+    rotate270,
+    transverse,
+    rotate90,
+  }
+
   export enum PropertyPrefetchOptions {
     none,
     musicProperties,
@@ -5,11 +17,6 @@
     imageProperties,
     documentProperties,
     basicProperties,
-  }
-
-  export enum ThumbnailType {
-    image,
-    icon,
   }
 
   export enum ThumbnailMode {
@@ -28,16 +35,9 @@
     useCurrentScale,
   }
 
-  export enum PhotoOrientation {
-    unspecified,
-    normal,
-    flipHorizontal,
-    rotate180,
-    flipVertical,
-    transpose,
-    rotate270,
-    transverse,
-    rotate90,
+  export enum ThumbnailType {
+    image,
+    icon,
   }
 
   export enum VideoOrientation {
@@ -45,6 +45,33 @@
     rotate90,
     rotate180,
     rotate270,
+  }
+
+  export class BasicProperties {
+    dateModified: Date;
+    itemDate: Date;
+    size: Number;
+    constructor();
+
+    retrievePropertiesAsync(propertiesToRetrieve: Object, callback: (error: Error, result: Object) => void): void ;
+
+    savePropertiesAsync(propertiesToSave: Object, callback: (error: Error) => void): void ;
+    savePropertiesAsync(callback: (error: Error) => void): void ;
+
+  }
+
+  export class DocumentProperties {
+    title: String;
+    comment: String;
+    author: Object;
+    keywords: Object;
+    constructor();
+
+    retrievePropertiesAsync(propertiesToRetrieve: Object, callback: (error: Error, result: Object) => void): void ;
+
+    savePropertiesAsync(propertiesToSave: Object, callback: (error: Error) => void): void ;
+    savePropertiesAsync(callback: (error: Error) => void): void ;
+
   }
 
   export class GeotagHelper {
@@ -61,35 +88,6 @@
 
   }
 
-  export class StorageItemThumbnail {
-    originalHeight: number;
-    originalWidth: number;
-    returnedSmallerCachedSize: boolean;
-    type: ThumbnailType;
-    contentType: string;
-    size: number;
-    canRead: boolean;
-    canWrite: boolean;
-    position: number;
-    constructor();
-
-    readAsync(buffer: Object, count: number, options: number, callback: (error: Error, result: Object) => void): void ;
-
-    writeAsync(buffer: Object, callback: (error: Error, result: number) => void): void ;
-
-    flushAsync(callback: (error: Error, result: boolean) => void): void ;
-
-    getInputStreamAt(position: number): Object;
-
-    getOutputStreamAt(position: number): Object;
-
-    seek(position: number): void;
-
-    cloneStream(): Object;
-
-    close(): void;
-  }
-
   export class IStorageItemExtraProperties {
     constructor();
 
@@ -100,85 +98,45 @@
 
   }
 
+  export class ImageProperties {
+    title: String;
+    rating: Number;
+    dateTaken: Date;
+    cameraModel: String;
+    cameraManufacturer: String;
+    height: Number;
+    keywords: Object;
+    latitude: Number;
+    longitude: Number;
+    orientation: PhotoOrientation;
+    peopleNames: Object;
+    width: Number;
+    constructor();
+
+    retrievePropertiesAsync(propertiesToRetrieve: Object, callback: (error: Error, result: Object) => void): void ;
+
+    savePropertiesAsync(propertiesToSave: Object, callback: (error: Error) => void): void ;
+    savePropertiesAsync(callback: (error: Error) => void): void ;
+
+  }
+
   export class MusicProperties {
-    year: number;
-    trackNumber: number;
-    title: string;
-    subtitle: string;
-    rating: number;
-    publisher: string;
-    artist: string;
-    albumArtist: string;
-    album: string;
-    bitrate: number;
+    year: Number;
+    trackNumber: Number;
+    title: String;
+    subtitle: String;
+    rating: Number;
+    publisher: String;
+    artist: String;
+    albumArtist: String;
+    album: String;
+    bitrate: Number;
     composers: Object;
     conductors: Object;
-    duration: number;
+    duration: Number;
     genre: Object;
     producers: Object;
     writers: Object;
-    constructor();
-
-    retrievePropertiesAsync(propertiesToRetrieve: Object, callback: (error: Error, result: Object) => void): void ;
-
-    savePropertiesAsync(propertiesToSave: Object, callback: (error: Error) => void): void ;
-    savePropertiesAsync(callback: (error: Error) => void): void ;
-
-  }
-
-  export class VideoProperties {
-    year: number;
-    title: string;
-    subtitle: string;
-    rating: number;
-    publisher: string;
-    bitrate: number;
-    directors: Object;
-    duration: number;
-    height: number;
-    keywords: Object;
-    latitude: number;
-    longitude: number;
-    orientation: VideoOrientation;
-    producers: Object;
-    width: number;
-    writers: Object;
-    constructor();
-
-    retrievePropertiesAsync(propertiesToRetrieve: Object, callback: (error: Error, result: Object) => void): void ;
-
-    savePropertiesAsync(propertiesToSave: Object, callback: (error: Error) => void): void ;
-    savePropertiesAsync(callback: (error: Error) => void): void ;
-
-  }
-
-  export class ImageProperties {
-    title: string;
-    rating: number;
-    dateTaken: Date;
-    cameraModel: string;
-    cameraManufacturer: string;
-    height: number;
-    keywords: Object;
-    latitude: number;
-    longitude: number;
-    orientation: PhotoOrientation;
-    peopleNames: Object;
-    width: number;
-    constructor();
-
-    retrievePropertiesAsync(propertiesToRetrieve: Object, callback: (error: Error, result: Object) => void): void ;
-
-    savePropertiesAsync(propertiesToSave: Object, callback: (error: Error) => void): void ;
-    savePropertiesAsync(callback: (error: Error) => void): void ;
-
-  }
-
-  export class DocumentProperties {
-    title: string;
-    comment: string;
-    author: Object;
-    keywords: Object;
     constructor();
 
     retrievePropertiesAsync(propertiesToRetrieve: Object, callback: (error: Error, result: Object) => void): void ;
@@ -206,10 +164,52 @@
 
   }
 
-  export class BasicProperties {
-    dateModified: Date;
-    itemDate: Date;
-    size: number;
+  export class StorageItemThumbnail {
+    originalHeight: Number;
+    originalWidth: Number;
+    returnedSmallerCachedSize: Boolean;
+    type: ThumbnailType;
+    contentType: String;
+    size: Number;
+    canRead: Boolean;
+    canWrite: Boolean;
+    position: Number;
+    constructor();
+
+    readAsync(buffer: Object, count: Number, options: Number, callback: (error: Error, result: Object) => void): void ;
+
+    writeAsync(buffer: Object, callback: (error: Error, result: Number) => void): void ;
+
+    flushAsync(callback: (error: Error, result: Boolean) => void): void ;
+
+    getInputStreamAt(position: Number): Object;
+
+    getOutputStreamAt(position: Number): Object;
+
+    seek(position: Number): void;
+
+    cloneStream(): Object;
+
+    close(): void;
+  }
+
+  export class VideoProperties {
+    year: Number;
+    title: String;
+    subtitle: String;
+    rating: Number;
+    publisher: String;
+    bitrate: Number;
+    directors: Object;
+    duration: Number;
+    height: Number;
+    keywords: Object;
+    latitude: Number;
+    longitude: Number;
+    orientation: VideoOrientation;
+    producers: Object;
+    width: Number;
+    writers: Object;
     constructor();
 
     retrievePropertiesAsync(propertiesToRetrieve: Object, callback: (error: Error, result: Object) => void): void ;

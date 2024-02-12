@@ -1,6 +1,6 @@
   export class Rational {
-    numerator: number;
-    denominator: number;
+    numerator: Number;
+    denominator: Number;
     constructor();
   }
 

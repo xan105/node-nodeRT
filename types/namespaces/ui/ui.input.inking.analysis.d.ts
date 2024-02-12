@@ -47,48 +47,16 @@
     drawing,
   }
 
-  export class InkAnalysisRoot {
+  export class IInkAnalysisNode {
     boundingRect: Object;
     children: Object;
-    id: number;
+    id: Number;
     kind: InkAnalysisNodeKind;
     parent: IInkAnalysisNode;
     rotatedBoundingRect: Object;
-    recognizedText: string;
     constructor();
-
-    findNodes(nodeKind: InkAnalysisNodeKind): Object;
 
     getStrokeIds(): Object;
-
-  }
-
-  export class InkAnalysisResult {
-    status: InkAnalysisStatus;
-    constructor();
-
-  }
-
-  export class InkAnalyzer {
-    analysisRoot: InkAnalysisRoot;
-    isAnalyzing: boolean;
-    constructor();
-
-    analyzeAsync(callback: (error: Error, result: InkAnalysisResult) => void): void ;
-
-    addDataForStroke(stroke: Object): void;
-
-    addDataForStrokes(strokes: Object): void;
-
-    clearDataForAllStrokes(): void;
-
-    removeDataForStroke(strokeId: number): void;
-
-    removeDataForStrokes(strokeIds: Object): void;
-
-    replaceDataForStroke(stroke: Object): void;
-
-    setStrokeDataKind(strokeId: number, strokeKind: InkAnalysisStrokeKind): void;
 
   }
 
@@ -99,109 +67,11 @@
 
   }
 
-  export class IInkAnalysisNode {
-    boundingRect: Object;
-    children: Object;
-    id: number;
-    kind: InkAnalysisNodeKind;
-    parent: IInkAnalysisNode;
-    rotatedBoundingRect: Object;
-    constructor();
-
-    getStrokeIds(): Object;
-
-  }
-
-  export class InkAnalysisNode {
-    boundingRect: Object;
-    children: Object;
-    id: number;
-    kind: InkAnalysisNodeKind;
-    parent: IInkAnalysisNode;
-    rotatedBoundingRect: Object;
-    constructor();
-
-    getStrokeIds(): Object;
-
-  }
-
-  export class InkAnalysisWritingRegion {
-    boundingRect: Object;
-    children: Object;
-    id: number;
-    kind: InkAnalysisNodeKind;
-    parent: IInkAnalysisNode;
-    rotatedBoundingRect: Object;
-    recognizedText: string;
-    constructor();
-
-    getStrokeIds(): Object;
-
-  }
-
-  export class InkAnalysisParagraph {
-    boundingRect: Object;
-    children: Object;
-    id: number;
-    kind: InkAnalysisNodeKind;
-    parent: IInkAnalysisNode;
-    rotatedBoundingRect: Object;
-    recognizedText: string;
-    constructor();
-
-    getStrokeIds(): Object;
-
-  }
-
-  export class InkAnalysisListItem {
-    recognizedText: string;
-    boundingRect: Object;
-    children: Object;
-    id: number;
-    kind: InkAnalysisNodeKind;
-    parent: IInkAnalysisNode;
-    rotatedBoundingRect: Object;
-    constructor();
-
-    getStrokeIds(): Object;
-
-  }
-
   export class InkAnalysisInkBullet {
-    recognizedText: string;
+    recognizedText: String;
     boundingRect: Object;
     children: Object;
-    id: number;
-    kind: InkAnalysisNodeKind;
-    parent: IInkAnalysisNode;
-    rotatedBoundingRect: Object;
-    constructor();
-
-    getStrokeIds(): Object;
-
-  }
-
-  export class InkAnalysisLine {
-    indentLevel: number;
-    recognizedText: string;
-    boundingRect: Object;
-    children: Object;
-    id: number;
-    kind: InkAnalysisNodeKind;
-    parent: IInkAnalysisNode;
-    rotatedBoundingRect: Object;
-    constructor();
-
-    getStrokeIds(): Object;
-
-  }
-
-  export class InkAnalysisInkWord {
-    recognizedText: string;
-    textAlternates: Object;
-    boundingRect: Object;
-    children: Object;
-    id: number;
+    id: Number;
     kind: InkAnalysisNodeKind;
     parent: IInkAnalysisNode;
     rotatedBoundingRect: Object;
@@ -217,13 +87,143 @@
     points: Object;
     boundingRect: Object;
     children: Object;
-    id: number;
+    id: Number;
     kind: InkAnalysisNodeKind;
     parent: IInkAnalysisNode;
     rotatedBoundingRect: Object;
     constructor();
 
     getStrokeIds(): Object;
+
+  }
+
+  export class InkAnalysisInkWord {
+    recognizedText: String;
+    textAlternates: Object;
+    boundingRect: Object;
+    children: Object;
+    id: Number;
+    kind: InkAnalysisNodeKind;
+    parent: IInkAnalysisNode;
+    rotatedBoundingRect: Object;
+    constructor();
+
+    getStrokeIds(): Object;
+
+  }
+
+  export class InkAnalysisLine {
+    indentLevel: Number;
+    recognizedText: String;
+    boundingRect: Object;
+    children: Object;
+    id: Number;
+    kind: InkAnalysisNodeKind;
+    parent: IInkAnalysisNode;
+    rotatedBoundingRect: Object;
+    constructor();
+
+    getStrokeIds(): Object;
+
+  }
+
+  export class InkAnalysisListItem {
+    recognizedText: String;
+    boundingRect: Object;
+    children: Object;
+    id: Number;
+    kind: InkAnalysisNodeKind;
+    parent: IInkAnalysisNode;
+    rotatedBoundingRect: Object;
+    constructor();
+
+    getStrokeIds(): Object;
+
+  }
+
+  export class InkAnalysisNode {
+    boundingRect: Object;
+    children: Object;
+    id: Number;
+    kind: InkAnalysisNodeKind;
+    parent: IInkAnalysisNode;
+    rotatedBoundingRect: Object;
+    constructor();
+
+    getStrokeIds(): Object;
+
+  }
+
+  export class InkAnalysisParagraph {
+    boundingRect: Object;
+    children: Object;
+    id: Number;
+    kind: InkAnalysisNodeKind;
+    parent: IInkAnalysisNode;
+    rotatedBoundingRect: Object;
+    recognizedText: String;
+    constructor();
+
+    getStrokeIds(): Object;
+
+  }
+
+  export class InkAnalysisResult {
+    status: InkAnalysisStatus;
+    constructor();
+
+  }
+
+  export class InkAnalysisRoot {
+    boundingRect: Object;
+    children: Object;
+    id: Number;
+    kind: InkAnalysisNodeKind;
+    parent: IInkAnalysisNode;
+    rotatedBoundingRect: Object;
+    recognizedText: String;
+    constructor();
+
+    findNodes(nodeKind: InkAnalysisNodeKind): Object;
+
+    getStrokeIds(): Object;
+
+  }
+
+  export class InkAnalysisWritingRegion {
+    boundingRect: Object;
+    children: Object;
+    id: Number;
+    kind: InkAnalysisNodeKind;
+    parent: IInkAnalysisNode;
+    rotatedBoundingRect: Object;
+    recognizedText: String;
+    constructor();
+
+    getStrokeIds(): Object;
+
+  }
+
+  export class InkAnalyzer {
+    analysisRoot: InkAnalysisRoot;
+    isAnalyzing: Boolean;
+    constructor();
+
+    analyzeAsync(callback: (error: Error, result: InkAnalysisResult) => void): void ;
+
+    addDataForStroke(stroke: Object): void;
+
+    addDataForStrokes(strokes: Object): void;
+
+    clearDataForAllStrokes(): void;
+
+    removeDataForStroke(strokeId: Number): void;
+
+    removeDataForStrokes(strokeIds: Object): void;
+
+    replaceDataForStroke(stroke: Object): void;
+
+    setStrokeDataKind(strokeId: Number, strokeKind: InkAnalysisStrokeKind): void;
 
   }
 

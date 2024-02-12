@@ -1,6 +1,6 @@
   export class AccessListEntry {
-    token: string;
-    metadata: string;
+    token: String;
+    metadata: String;
     constructor();
   }
 
@@ -20,9 +20,9 @@
   export class AccessListEntryView {
     constructor();
 
-    getAt(index: number): AccessListEntry;
+    getAt(index: Number): AccessListEntry;
 
-    indexOf(value: AccessListEntry, index: number): boolean;
+    indexOf(value: AccessListEntry, index: Number): Boolean;
 
     getMany();
     first(): Object;
@@ -31,63 +31,112 @@
 
   export class IStorageItemAccessList {
     entries: AccessListEntryView;
-    maximumItemsAllowed: number;
+    maximumItemsAllowed: Number;
     constructor();
 
-    getItemAsync(token: string, callback: (error: Error, result: Object) => void): void ;
-    getItemAsync(token: string, options: AccessCacheOptions, callback: (error: Error, result: Object) => void): void ;
+    getItemAsync(token: String, callback: (error: Error, result: Object) => void): void ;
+    getItemAsync(token: String, options: AccessCacheOptions, callback: (error: Error, result: Object) => void): void ;
 
-    getFileAsync(token: string, callback: (error: Error, result: Object) => void): void ;
-    getFileAsync(token: string, options: AccessCacheOptions, callback: (error: Error, result: Object) => void): void ;
+    getFileAsync(token: String, callback: (error: Error, result: Object) => void): void ;
+    getFileAsync(token: String, options: AccessCacheOptions, callback: (error: Error, result: Object) => void): void ;
 
-    getFolderAsync(token: string, callback: (error: Error, result: Object) => void): void ;
-    getFolderAsync(token: string, options: AccessCacheOptions, callback: (error: Error, result: Object) => void): void ;
+    getFolderAsync(token: String, callback: (error: Error, result: Object) => void): void ;
+    getFolderAsync(token: String, options: AccessCacheOptions, callback: (error: Error, result: Object) => void): void ;
 
-    add(file: Object): string;
-    add(file: Object, metadata: string): string;
+    add(file: Object): String;
+    add(file: Object, metadata: String): String;
 
-    addOrReplace(token: string, file: Object): void;
-    addOrReplace(token: string, file: Object, metadata: string): void;
+    addOrReplace(token: String, file: Object): void;
+    addOrReplace(token: String, file: Object, metadata: String): void;
 
-    remove(token: string): void;
+    remove(token: String): void;
 
-    containsItem(token: string): boolean;
+    containsItem(token: String): Boolean;
 
     clear(): void;
 
-    checkAccess(file: Object): boolean;
+    checkAccess(file: Object): Boolean;
+
+  }
+
+  export class ItemRemovedEventArgs {
+    removedEntry: AccessListEntry;
+    constructor();
+
+  }
+
+  export class StorageApplicationPermissions {
+    static futureAccessList: StorageItemAccessList;
+    static mostRecentlyUsedList: StorageItemMostRecentlyUsedList;
+    constructor();
+
+    static getFutureAccessListForUser(user: Object): StorageItemAccessList;
+
+
+    static getMostRecentlyUsedListForUser(user: Object): StorageItemMostRecentlyUsedList;
+
+
+  }
+
+  export class StorageItemAccessList {
+    entries: AccessListEntryView;
+    maximumItemsAllowed: Number;
+    constructor();
+
+    getItemAsync(token: String, callback: (error: Error, result: Object) => void): void ;
+    getItemAsync(token: String, options: AccessCacheOptions, callback: (error: Error, result: Object) => void): void ;
+
+    getFileAsync(token: String, callback: (error: Error, result: Object) => void): void ;
+    getFileAsync(token: String, options: AccessCacheOptions, callback: (error: Error, result: Object) => void): void ;
+
+    getFolderAsync(token: String, callback: (error: Error, result: Object) => void): void ;
+    getFolderAsync(token: String, options: AccessCacheOptions, callback: (error: Error, result: Object) => void): void ;
+
+    add(file: Object): String;
+    add(file: Object, metadata: String): String;
+
+    addOrReplace(token: String, file: Object): void;
+    addOrReplace(token: String, file: Object, metadata: String): void;
+
+    remove(token: String): void;
+
+    containsItem(token: String): Boolean;
+
+    clear(): void;
+
+    checkAccess(file: Object): Boolean;
 
   }
 
   export class StorageItemMostRecentlyUsedList {
     entries: AccessListEntryView;
-    maximumItemsAllowed: number;
+    maximumItemsAllowed: Number;
     constructor();
 
-    getItemAsync(token: string, callback: (error: Error, result: Object) => void): void ;
-    getItemAsync(token: string, options: AccessCacheOptions, callback: (error: Error, result: Object) => void): void ;
+    getItemAsync(token: String, callback: (error: Error, result: Object) => void): void ;
+    getItemAsync(token: String, options: AccessCacheOptions, callback: (error: Error, result: Object) => void): void ;
 
-    getFileAsync(token: string, callback: (error: Error, result: Object) => void): void ;
-    getFileAsync(token: string, options: AccessCacheOptions, callback: (error: Error, result: Object) => void): void ;
+    getFileAsync(token: String, callback: (error: Error, result: Object) => void): void ;
+    getFileAsync(token: String, options: AccessCacheOptions, callback: (error: Error, result: Object) => void): void ;
 
-    getFolderAsync(token: string, callback: (error: Error, result: Object) => void): void ;
-    getFolderAsync(token: string, options: AccessCacheOptions, callback: (error: Error, result: Object) => void): void ;
+    getFolderAsync(token: String, callback: (error: Error, result: Object) => void): void ;
+    getFolderAsync(token: String, options: AccessCacheOptions, callback: (error: Error, result: Object) => void): void ;
 
-    add(file: Object): string;
-    add(file: Object, metadata: string): string;
-    add(file: Object, metadata: string, visibility: RecentStorageItemVisibility): string;
+    add(file: Object): String;
+    add(file: Object, metadata: String): String;
+    add(file: Object, metadata: String, visibility: RecentStorageItemVisibility): String;
 
-    addOrReplace(token: string, file: Object): void;
-    addOrReplace(token: string, file: Object, metadata: string): void;
-    addOrReplace(token: string, file: Object, metadata: string, visibility: RecentStorageItemVisibility): void;
+    addOrReplace(token: String, file: Object): void;
+    addOrReplace(token: String, file: Object, metadata: String): void;
+    addOrReplace(token: String, file: Object, metadata: String, visibility: RecentStorageItemVisibility): void;
 
-    remove(token: string): void;
+    remove(token: String): void;
 
-    containsItem(token: string): boolean;
+    containsItem(token: String): Boolean;
 
     clear(): void;
 
-    checkAccess(file: Object): boolean;
+    checkAccess(file: Object): Boolean;
 
     addListener(type: "ItemRemoved", listener: (ev: Event) => void): void ;
     removeListener(type: "ItemRemoved", listener: (ev: Event) => void): void ;
@@ -99,49 +148,6 @@
     on(type: string, listener: (ev: Event) => void): void ;
     off(type: string, listener: (ev: Event) => void): void ;
     
-
-  }
-
-  export class ItemRemovedEventArgs {
-    removedEntry: AccessListEntry;
-    constructor();
-
-  }
-
-  export class StorageItemAccessList {
-    entries: AccessListEntryView;
-    maximumItemsAllowed: number;
-    constructor();
-
-    getItemAsync(token: string, callback: (error: Error, result: Object) => void): void ;
-    getItemAsync(token: string, options: AccessCacheOptions, callback: (error: Error, result: Object) => void): void ;
-
-    getFileAsync(token: string, callback: (error: Error, result: Object) => void): void ;
-    getFileAsync(token: string, options: AccessCacheOptions, callback: (error: Error, result: Object) => void): void ;
-
-    getFolderAsync(token: string, callback: (error: Error, result: Object) => void): void ;
-    getFolderAsync(token: string, options: AccessCacheOptions, callback: (error: Error, result: Object) => void): void ;
-
-    add(file: Object): string;
-    add(file: Object, metadata: string): string;
-
-    addOrReplace(token: string, file: Object): void;
-    addOrReplace(token: string, file: Object, metadata: string): void;
-
-    remove(token: string): void;
-
-    containsItem(token: string): boolean;
-
-    clear(): void;
-
-    checkAccess(file: Object): boolean;
-
-  }
-
-  export class StorageApplicationPermissions {
-    static futureAccessList: StorageItemAccessList;
-    static mostRecentlyUsedList: StorageItemMostRecentlyUsedList;
-    constructor();
 
   }
 

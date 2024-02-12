@@ -1,12 +1,51 @@
+  export class BasicGeoposition {
+    latitude: Number;
+    longitude: Number;
+    altitude: Number;
+    constructor();
+  }
+
   export class Color {
     constructor();
   }
 
-  export class BasicGeoposition {
-    latitude: number;
-    longitude: number;
-    altitude: number;
-    constructor();
+  export enum GuidanceAudioMeasurementSystem {
+    meters,
+    milesAndYards,
+    milesAndFeet,
+  }
+
+  export enum GuidanceAudioNotificationKind {
+    maneuver,
+    route,
+    gps,
+    speedLimit,
+    traffic,
+    trafficCamera,
+  }
+
+  export enum GuidanceAudioNotifications {
+    none,
+    maneuver,
+    route,
+    gps,
+    speedLimit,
+    traffic,
+    trafficCamera,
+  }
+
+  export enum GuidanceLaneMarkers {
+    none,
+    lightRight,
+    right,
+    hardRight,
+    straight,
+    uTurnLeft,
+    hardLeft,
+    left,
+    lightLeft,
+    uTurnRight,
+    unknown,
   }
 
   export enum GuidanceManeuverKind {
@@ -67,146 +106,53 @@
     tracking,
   }
 
-  export enum GuidanceAudioMeasurementSystem {
-    meters,
-    milesAndYards,
-    milesAndFeet,
+  export class GuidanceAudioNotificationRequestedEventArgs {
+    audioFilePaths: Object;
+    audioNotification: GuidanceAudioNotificationKind;
+    audioText: String;
+    constructor();
+
   }
 
-  export enum GuidanceAudioNotifications {
-    none,
-    maneuver,
-    route,
-    gps,
-    speedLimit,
-    traffic,
-    trafficCamera,
-  }
-
-  export enum GuidanceAudioNotificationKind {
-    maneuver,
-    route,
-    gps,
-    speedLimit,
-    traffic,
-    trafficCamera,
-  }
-
-  export enum GuidanceLaneMarkers {
-    none,
-    lightRight,
-    right,
-    hardRight,
-    straight,
-    uTurnLeft,
-    hardLeft,
-    left,
-    lightLeft,
-    uTurnRight,
-    unknown,
-  }
-
-  export class GuidanceRoadSignpost {
-    backgroundColor: Object;
-    exit: string;
-    exitDirections: Object;
-    exitNumber: string;
-    foregroundColor: Object;
+  export class GuidanceLaneInfo {
+    isOnRoute: Boolean;
+    laneMarkers: GuidanceLaneMarkers;
     constructor();
 
   }
 
   export class GuidanceManeuver {
-    departureRoadName: string;
-    departureShortRoadName: string;
-    distanceFromPreviousManeuver: number;
-    distanceFromRouteStart: number;
-    endAngle: number;
-    instructionText: string;
+    departureRoadName: String;
+    departureShortRoadName: String;
+    distanceFromPreviousManeuver: Number;
+    distanceFromRouteStart: Number;
+    endAngle: Number;
+    instructionText: String;
     kind: GuidanceManeuverKind;
-    nextRoadName: string;
-    nextShortRoadName: string;
+    nextRoadName: String;
+    nextShortRoadName: String;
     roadSignpost: GuidanceRoadSignpost;
-    startAngle: number;
+    startAngle: Number;
     startLocation: Object;
     constructor();
 
   }
 
-  export class GuidanceRoute {
-    boundingBox: Object;
-    distance: number;
-    duration: number;
-    maneuvers: Object;
-    path: Object;
-    roadSegments: Object;
-    constructor();
-
-    static canCreateFromMapRoute(mapRoute: Object): boolean;
-
-
-    static tryCreateFromMapRoute(mapRoute: Object): GuidanceRoute;
-
-
-    convertToMapRoute(): Object;
-
-  }
-
   export class GuidanceMapMatchedCoordinate {
-    currentHeading: number;
-    currentSpeed: number;
-    isOnStreet: boolean;
+    currentHeading: Number;
+    currentSpeed: Number;
+    isOnStreet: Boolean;
     location: Object;
     road: GuidanceRoadSegment;
     constructor();
 
   }
 
-  export class GuidanceLaneInfo {
-    isOnRoute: boolean;
-    laneMarkers: GuidanceLaneMarkers;
-    constructor();
-
-  }
-
-  export class GuidanceUpdatedEventArgs {
-    afterNextManeuver: GuidanceManeuver;
-    afterNextManeuverDistance: number;
-    currentLocation: GuidanceMapMatchedCoordinate;
-    distanceToDestination: number;
-    elapsedDistance: number;
-    elapsedTime: number;
-    isNewManeuver: boolean;
-    laneInfo: Object;
-    mode: GuidanceMode;
-    nextManeuver: GuidanceManeuver;
-    nextManeuverDistance: number;
-    roadName: string;
-    route: GuidanceRoute;
-    timeToDestination: number;
-    constructor();
-
-  }
-
-  export class GuidanceReroutedEventArgs {
-    route: GuidanceRoute;
-    constructor();
-
-  }
-
-  export class GuidanceAudioNotificationRequestedEventArgs {
-    audioFilePaths: Object;
-    audioNotification: GuidanceAudioNotificationKind;
-    audioText: string;
-    constructor();
-
-  }
-
   export class GuidanceNavigator {
-    static useAppProvidedVoice: boolean;
+    static useAppProvidedVoice: Boolean;
     audioNotifications: GuidanceAudioNotifications;
     audioMeasurementSystem: GuidanceAudioMeasurementSystem;
-    isGuidanceAudioMuted: boolean;
+    isGuidanceAudioMuted: Boolean;
     constructor();
 
     static getCurrent(): GuidanceNavigator;
@@ -214,7 +160,7 @@
 
     startNavigating(route: GuidanceRoute): void;
 
-    startSimulating(route: GuidanceRoute, speedInMetersPerSecond: number): void;
+    startSimulating(route: GuidanceRoute, speedInMetersPerSecond: Number): void;
 
     startTracking(): void;
 
@@ -226,7 +172,7 @@
 
     repeatLastAudioNotification(): void;
 
-    setGuidanceVoice(voiceId: number, voiceFolder: string): void;
+    setGuidanceVoice(voiceId: Number, voiceFolder: String): void;
 
     updateUserLocation(userLocation: Object): void;
     updateUserLocation(userLocation: Object, positionOverride: BasicGeoposition): void;
@@ -279,31 +225,85 @@
 
   }
 
-  export class GuidanceRoadSegment {
-    id: string;
-    isHighway: boolean;
-    isTollRoad: boolean;
-    isTunnel: boolean;
-    path: Object;
-    roadName: string;
-    shortRoadName: string;
-    speedLimit: number;
-    travelTime: number;
-    isScenic: boolean;
+  export class GuidanceReroutedEventArgs {
+    route: GuidanceRoute;
     constructor();
 
   }
 
+  export class GuidanceRoadSegment {
+    id: String;
+    isHighway: Boolean;
+    isTollRoad: Boolean;
+    isTunnel: Boolean;
+    path: Object;
+    roadName: String;
+    shortRoadName: String;
+    speedLimit: Number;
+    travelTime: Number;
+    isScenic: Boolean;
+    constructor();
+
+  }
+
+  export class GuidanceRoadSignpost {
+    backgroundColor: Object;
+    exit: String;
+    exitDirections: Object;
+    exitNumber: String;
+    foregroundColor: Object;
+    constructor();
+
+  }
+
+  export class GuidanceRoute {
+    boundingBox: Object;
+    distance: Number;
+    duration: Number;
+    maneuvers: Object;
+    path: Object;
+    roadSegments: Object;
+    constructor();
+
+    static canCreateFromMapRoute(mapRoute: Object): Boolean;
+
+
+    static tryCreateFromMapRoute(mapRoute: Object): GuidanceRoute;
+
+
+    convertToMapRoute(): Object;
+
+  }
+
   export class GuidanceTelemetryCollector {
-    uploadFrequency: number;
-    speedTrigger: number;
-    enabled: boolean;
+    uploadFrequency: Number;
+    speedTrigger: Number;
+    enabled: Boolean;
     constructor();
 
     static getCurrent(): GuidanceTelemetryCollector;
 
 
     clearLocalData(): void;
+
+  }
+
+  export class GuidanceUpdatedEventArgs {
+    afterNextManeuver: GuidanceManeuver;
+    afterNextManeuverDistance: Number;
+    currentLocation: GuidanceMapMatchedCoordinate;
+    distanceToDestination: Number;
+    elapsedDistance: Number;
+    elapsedTime: Number;
+    isNewManeuver: Boolean;
+    laneInfo: Object;
+    mode: GuidanceMode;
+    nextManeuver: GuidanceManeuver;
+    nextManeuverDistance: Number;
+    roadName: String;
+    route: GuidanceRoute;
+    timeToDestination: Number;
+    constructor();
 
   }
 

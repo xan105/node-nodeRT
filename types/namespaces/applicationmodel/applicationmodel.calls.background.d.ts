@@ -8,13 +8,11 @@
     unknownNumber,
   }
 
-  export enum PhoneTriggerType {
-    newVoicemailMessage,
-    callHistoryChanged,
-    lineChanged,
-    airplaneModeDisabledForEmergencyCall,
-    callOriginDataRequest,
-    callBlocked,
+  export enum PhoneIncomingCallDismissedReason {
+    unknown,
+    callRejected,
+    textReply,
+    connectionLost,
   }
 
   export enum PhoneLineChangeKind {
@@ -36,35 +34,64 @@
     voicemail,
   }
 
+  export enum PhoneTriggerType {
+    newVoicemailMessage,
+    callHistoryChanged,
+    lineChanged,
+    airplaneModeDisabledForEmergencyCall,
+    callOriginDataRequest,
+    callBlocked,
+    incomingCallDismissed,
+    incomingCallNotification,
+  }
+
   export class PhoneCallBlockedTriggerDetails {
     callBlockedReason: PhoneCallBlockedReason;
-    lineId: string;
-    phoneNumber: string;
+    lineId: String;
+    phoneNumber: String;
     constructor();
 
   }
 
   export class PhoneCallOriginDataRequestTriggerDetails {
-    phoneNumber: string;
-    requestId: string;
+    phoneNumber: String;
+    requestId: String;
     constructor();
 
   }
 
-  export class PhoneNewVoicemailMessageTriggerDetails {
-    lineId: string;
-    operatorMessage: string;
-    voicemailCount: number;
+  export class PhoneIncomingCallDismissedTriggerDetails {
+    dismissalTime: Date;
+    displayName: String;
+    lineId: String;
+    phoneNumber: String;
+    reason: PhoneIncomingCallDismissedReason;
+    textReplyMessage: String;
+    constructor();
+
+  }
+
+  export class PhoneIncomingCallNotificationTriggerDetails {
+    callId: String;
+    lineId: String;
     constructor();
 
   }
 
   export class PhoneLineChangedTriggerDetails {
     changeType: PhoneLineChangeKind;
-    lineId: string;
+    lineId: String;
     constructor();
 
-    hasLinePropertyChanged(lineProperty: PhoneLineProperties): boolean;
+    hasLinePropertyChanged(lineProperty: PhoneLineProperties): Boolean;
+
+  }
+
+  export class PhoneNewVoicemailMessageTriggerDetails {
+    lineId: String;
+    operatorMessage: String;
+    voicemailCount: Number;
+    constructor();
 
   }
 

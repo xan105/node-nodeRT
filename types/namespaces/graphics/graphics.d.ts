@@ -1,26 +1,31 @@
-  export class PointInt32 {
-    x: number;
-    y: number;
+  export class DisplayAdapterId {
+    lowPart: Number;
+    highPart: Number;
     constructor();
   }
 
-  export class SizeInt32 {
-    width: number;
-    height: number;
+  export class DisplayId {
+    value: Number;
+    constructor();
+  }
+
+  export class PointInt32 {
+    x: Number;
+    y: Number;
     constructor();
   }
 
   export class RectInt32 {
-    x: number;
-    y: number;
-    width: number;
-    height: number;
+    x: Number;
+    y: Number;
+    width: Number;
+    height: Number;
     constructor();
   }
 
-  export class DisplayAdapterId {
-    lowPart: number;
-    highPart: number;
+  export class SizeInt32 {
+    width: Number;
+    height: Number;
     constructor();
   }
 
@@ -29,6 +34,7 @@
 
   }
 
+export const IGeometrySource2D: any;
 export * as capture from "./graphics.capture.js";
 export * as directx from "./graphics.directx.js";
 export * as display from "./graphics.display.js";

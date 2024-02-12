@@ -1,7 +1,7 @@
   export class Vector3 {
-    x: number;
-    y: number;
-    z: number;
+    x: Number;
+    y: Number;
+    z: Number;
     constructor();
   }
 
@@ -40,20 +40,9 @@
     sawtoothWaveDown,
   }
 
-  export class IForceFeedbackEffect {
-    gain: number;
-    state: ForceFeedbackEffectState;
-    constructor();
-
-    start(): void;
-
-    stop(): void;
-
-  }
-
   export class ConditionForceEffect {
     kind: ConditionForceEffectKind;
-    gain: number;
+    gain: Number;
     state: ForceFeedbackEffectState;
     constructor();
     constructor(effectKind: ConditionForceEffectKind);
@@ -62,12 +51,63 @@
 
     stop(): void;
 
-    setParameters(direction: Vector3, positiveCoefficient: number, negativeCoefficient: number, maxPositiveMagnitude: number, maxNegativeMagnitude: number, deadZone: number, bias: number): void;
+    setParameters(direction: Vector3, positiveCoefficient: Number, negativeCoefficient: Number, maxPositiveMagnitude: Number, maxNegativeMagnitude: Number, deadZone: Number, bias: Number): void;
+
+  }
+
+  export class ConstantForceEffect {
+    gain: Number;
+    state: ForceFeedbackEffectState;
+    constructor();
+
+    start(): void;
+
+    stop(): void;
+
+    setParameters(vector: Vector3, duration: Number): void;
+
+    setParametersWithEnvelope(vector: Vector3, attackGain: Number, sustainGain: Number, releaseGain: Number, startDelay: Number, attackDuration: Number, sustainDuration: Number, releaseDuration: Number, repeatCount: Number): void;
+
+  }
+
+  export class ForceFeedbackMotor {
+    masterGain: Number;
+    areEffectsPaused: Boolean;
+    isEnabled: Boolean;
+    supportedAxes: ForceFeedbackEffectAxes;
+    constructor();
+
+    loadEffectAsync(effect: IForceFeedbackEffect, callback: (error: Error, result: ForceFeedbackLoadEffectResult) => void): void ;
+
+    tryDisableAsync(callback: (error: Error, result: Boolean) => void): void ;
+
+    tryEnableAsync(callback: (error: Error, result: Boolean) => void): void ;
+
+    tryResetAsync(callback: (error: Error, result: Boolean) => void): void ;
+
+    tryUnloadEffectAsync(effect: IForceFeedbackEffect, callback: (error: Error, result: Boolean) => void): void ;
+
+    pauseAllEffects(): void;
+
+    resumeAllEffects(): void;
+
+    stopAllEffects(): void;
+
+  }
+
+  export class IForceFeedbackEffect {
+    gain: Number;
+    state: ForceFeedbackEffectState;
+    constructor();
+
+    start(): void;
+
+    stop(): void;
 
   }
 
   export class PeriodicForceEffect {
-    gain: number;
+    gain: Number;
     state: ForceFeedbackEffectState;
     kind: PeriodicForceEffectKind;
     constructor();
@@ -77,29 +117,14 @@
 
     stop(): void;
 
-    setParameters(vector: Vector3, frequency: number, phase: number, bias: number, duration: number): void;
+    setParameters(vector: Vector3, frequency: Number, phase: Number, bias: Number, duration: Number): void;
 
-    setParametersWithEnvelope(vector: Vector3, frequency: number, phase: number, bias: number, attackGain: number, sustainGain: number, releaseGain: number, startDelay: number, attackDuration: number, sustainDuration: number, releaseDuration: number, repeatCount: number): void;
-
-  }
-
-  export class ConstantForceEffect {
-    gain: number;
-    state: ForceFeedbackEffectState;
-    constructor();
-
-    start(): void;
-
-    stop(): void;
-
-    setParameters(vector: Vector3, duration: number): void;
-
-    setParametersWithEnvelope(vector: Vector3, attackGain: number, sustainGain: number, releaseGain: number, startDelay: number, attackDuration: number, sustainDuration: number, releaseDuration: number, repeatCount: number): void;
+    setParametersWithEnvelope(vector: Vector3, frequency: Number, phase: Number, bias: Number, attackGain: Number, sustainGain: Number, releaseGain: Number, startDelay: Number, attackDuration: Number, sustainDuration: Number, releaseDuration: Number, repeatCount: Number): void;
 
   }
 
   export class RampForceEffect {
-    gain: number;
+    gain: Number;
     state: ForceFeedbackEffectState;
     constructor();
 
@@ -107,34 +132,9 @@
 
     stop(): void;
 
-    setParameters(startVector: Vector3, endVector: Vector3, duration: number): void;
+    setParameters(startVector: Vector3, endVector: Vector3, duration: Number): void;
 
-    setParametersWithEnvelope(startVector: Vector3, endVector: Vector3, attackGain: number, sustainGain: number, releaseGain: number, startDelay: number, attackDuration: number, sustainDuration: number, releaseDuration: number, repeatCount: number): void;
-
-  }
-
-  export class ForceFeedbackMotor {
-    masterGain: number;
-    areEffectsPaused: boolean;
-    isEnabled: boolean;
-    supportedAxes: ForceFeedbackEffectAxes;
-    constructor();
-
-    loadEffectAsync(effect: IForceFeedbackEffect, callback: (error: Error, result: ForceFeedbackLoadEffectResult) => void): void ;
-
-    tryDisableAsync(callback: (error: Error, result: boolean) => void): void ;
-
-    tryEnableAsync(callback: (error: Error, result: boolean) => void): void ;
-
-    tryResetAsync(callback: (error: Error, result: boolean) => void): void ;
-
-    tryUnloadEffectAsync(effect: IForceFeedbackEffect, callback: (error: Error, result: boolean) => void): void ;
-
-    pauseAllEffects(): void;
-
-    resumeAllEffects(): void;
-
-    stopAllEffects(): void;
+    setParametersWithEnvelope(startVector: Vector3, endVector: Vector3, attackGain: Number, sustainGain: Number, releaseGain: Number, startDelay: Number, attackDuration: Number, sustainDuration: Number, releaseDuration: Number, repeatCount: Number): void;
 
   }
 

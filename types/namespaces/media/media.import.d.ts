@@ -1,17 +1,10 @@
   export class PhotoImportProgress {
-    itemsImported: number;
-    totalItemsToImport: number;
-    bytesImported: number;
-    totalBytesToImport: number;
-    importProgress: number;
+    itemsImported: Number;
+    totalItemsToImport: Number;
+    bytesImported: Number;
+    totalBytesToImport: Number;
+    importProgress: Number;
     constructor();
-  }
-
-  export enum PhotoImportStage {
-    notStarted,
-    findingItems,
-    importingItems,
-    deletingImportedItemsFromSource,
   }
 
   export enum PhotoImportAccessMode {
@@ -20,11 +13,43 @@
     readAndDelete,
   }
 
+  export enum PhotoImportConnectionTransport {
+    unknown,
+    usb,
+    iP,
+    bluetooth,
+  }
+
+  export enum PhotoImportContentType {
+    unknown,
+    image,
+    video,
+  }
+
+  export enum PhotoImportContentTypeFilter {
+    onlyImages,
+    onlyVideos,
+    imagesAndVideos,
+    imagesAndVideosFromCameraRoll,
+  }
+
   export enum PhotoImportImportMode {
     importEverything,
     ignoreSidecars,
     ignoreSiblings,
     ignoreSidecarsAndSiblings,
+  }
+
+  export enum PhotoImportItemSelectionMode {
+    selectAll,
+    selectNone,
+    selectNew,
+  }
+
+  export enum PhotoImportPowerSource {
+    unknown,
+    battery,
+    external,
   }
 
   export enum PhotoImportSourceType {
@@ -37,47 +62,17 @@
     audioRecorder,
   }
 
-  export enum PhotoImportContentType {
-    unknown,
-    image,
-    video,
-  }
-
-  export enum PhotoImportPowerSource {
-    unknown,
-    battery,
-    external,
+  export enum PhotoImportStage {
+    notStarted,
+    findingItems,
+    importingItems,
+    deletingImportedItemsFromSource,
   }
 
   export enum PhotoImportStorageMediumType {
     undefined,
     fixed,
     removable,
-  }
-
-  export enum PhotoImportContentTypeFilter {
-    onlyImages,
-    onlyVideos,
-    imagesAndVideos,
-  }
-
-  export enum PhotoImportItemSelectionMode {
-    selectAll,
-    selectNone,
-    selectNew,
-  }
-
-  export enum PhotoImportSubfolderDateFormat {
-    year,
-    yearMonth,
-    yearMonthDay,
-  }
-
-  export enum PhotoImportConnectionTransport {
-    unknown,
-    usb,
-    iP,
-    bluetooth,
   }
 
   export enum PhotoImportSubfolderCreationMode {
@@ -87,100 +82,55 @@
     keepOriginalFolderStructure,
   }
 
-  export class PhotoImportSource {
-    batteryLevelPercent: number;
-    connectionProtocol: string;
-    connectionTransport: PhotoImportConnectionTransport;
-    dateTime: Date;
-    description: string;
-    displayName: string;
-    id: string;
-    isLocked: boolean;
-    isMassStorage: boolean;
-    manufacturer: string;
-    model: string;
-    powerSource: PhotoImportPowerSource;
-    serialNumber: string;
-    storageMedia: Object;
-    thumbnail: Object;
-    type: PhotoImportSourceType;
-    constructor();
-
-    static fromIdAsync(sourceId: string, callback: (error: Error, result: PhotoImportSource) => void): void ;
-
-
-    static fromFolderAsync(sourceRootFolder: Object, callback: (error: Error, result: PhotoImportSource) => void): void ;
-
-
-    createImportSession(): PhotoImportSession;
-
+  export enum PhotoImportSubfolderDateFormat {
+    year,
+    yearMonth,
+    yearMonthDay,
   }
 
-  export class PhotoImportOperation {
-    continueDeletingImportedItemsFromSourceAsync: Object;
-    continueFindingItemsAsync: Object;
-    continueImportingItemsAsync: Object;
+  export class PhotoImportDeleteImportedItemsFromSourceResult {
+    deletedItems: Object;
+    hasSucceeded: Boolean;
+    photosCount: Number;
+    photosSizeInBytes: Number;
     session: PhotoImportSession;
-    stage: PhotoImportStage;
+    siblingsCount: Number;
+    siblingsSizeInBytes: Number;
+    sidecarsCount: Number;
+    sidecarsSizeInBytes: Number;
+    totalCount: Number;
+    totalSizeInBytes: Number;
+    videosCount: Number;
+    videosSizeInBytes: Number;
     constructor();
 
-  }
-
-  export class PhotoImportManager {
-    constructor();
-
-    static isSupportedAsync(callback: (error: Error, result: boolean) => void): void ;
-
-
-    static findAllSourcesAsync(callback: (error: Error, result: Object) => void): void ;
-
-
-    static getPendingOperations(): Object;
-
-
-  }
-
-  export class PhotoImportSession {
-    subfolderCreationMode: PhotoImportSubfolderCreationMode;
-    destinationFolder: Object;
-    destinationFileNamePrefix: string;
-    appendSessionDateToDestinationFolder: boolean;
-    sessionId: string;
-    source: PhotoImportSource;
-    subfolderDateFormat: PhotoImportSubfolderDateFormat;
-    rememberDeselectedItems: boolean;
-    constructor();
-
-    findItemsAsync(contentTypeFilter: PhotoImportContentTypeFilter, itemSelectionMode: PhotoImportItemSelectionMode, callback: (error: Error, result: PhotoImportFindItemsResult) => void): void ;
-
-    close(): void;
   }
 
   export class PhotoImportFindItemsResult {
     foundItems: Object;
-    hasSucceeded: boolean;
+    hasSucceeded: Boolean;
     importMode: PhotoImportImportMode;
-    photosCount: number;
-    photosSizeInBytes: number;
-    selectedPhotosCount: number;
-    selectedPhotosSizeInBytes: number;
-    selectedSiblingsCount: number;
-    selectedSiblingsSizeInBytes: number;
-    selectedSidecarsCount: number;
-    selectedSidecarsSizeInBytes: number;
-    selectedTotalCount: number;
-    selectedTotalSizeInBytes: number;
-    selectedVideosCount: number;
-    selectedVideosSizeInBytes: number;
+    photosCount: Number;
+    photosSizeInBytes: Number;
+    selectedPhotosCount: Number;
+    selectedPhotosSizeInBytes: Number;
+    selectedSiblingsCount: Number;
+    selectedSiblingsSizeInBytes: Number;
+    selectedSidecarsCount: Number;
+    selectedSidecarsSizeInBytes: Number;
+    selectedTotalCount: Number;
+    selectedTotalSizeInBytes: Number;
+    selectedVideosCount: Number;
+    selectedVideosSizeInBytes: Number;
     session: PhotoImportSession;
-    siblingsCount: number;
-    siblingsSizeInBytes: number;
-    sidecarsCount: number;
-    sidecarsSizeInBytes: number;
-    totalCount: number;
-    totalSizeInBytes: number;
-    videosCount: number;
-    videosSizeInBytes: number;
+    siblingsCount: Number;
+    siblingsSizeInBytes: Number;
+    sidecarsCount: Number;
+    sidecarsSizeInBytes: Number;
+    totalCount: Number;
+    totalSizeInBytes: Number;
+    videosCount: Number;
+    videosSizeInBytes: Number;
     constructor();
 
     selectNewAsync(callback: (error: Error) => void): void ;
@@ -193,7 +143,7 @@
 
     setImportMode(value: PhotoImportImportMode): void;
 
-    addItemsInDateRangeToSelection(rangeStart: Date, rangeLength: number): void;
+    addItemsInDateRangeToSelection(rangeStart: Date, rangeLength: Number): void;
 
     addListener(type: "ItemImported", listener: (ev: Event) => void): void ;
     removeListener(type: "ItemImported", listener: (ev: Event) => void): void ;
@@ -214,49 +164,138 @@
   }
 
   export class PhotoImportImportItemsResult {
-    hasSucceeded: boolean;
+    hasSucceeded: Boolean;
     importedItems: Object;
-    photosCount: number;
-    photosSizeInBytes: number;
+    photosCount: Number;
+    photosSizeInBytes: Number;
     session: PhotoImportSession;
-    siblingsCount: number;
-    siblingsSizeInBytes: number;
-    sidecarsCount: number;
-    sidecarsSizeInBytes: number;
-    totalCount: number;
-    totalSizeInBytes: number;
-    videosCount: number;
-    videosSizeInBytes: number;
+    siblingsCount: Number;
+    siblingsSizeInBytes: Number;
+    sidecarsCount: Number;
+    sidecarsSizeInBytes: Number;
+    totalCount: Number;
+    totalSizeInBytes: Number;
+    videosCount: Number;
+    videosSizeInBytes: Number;
     constructor();
 
     deleteImportedItemsFromSourceAsync(callback: (error: Error, result: PhotoImportDeleteImportedItemsFromSourceResult) => void): void ;
 
   }
 
-  export class PhotoImportDeleteImportedItemsFromSourceResult {
-    deletedItems: Object;
-    hasSucceeded: boolean;
-    photosCount: number;
-    photosSizeInBytes: number;
-    session: PhotoImportSession;
-    siblingsCount: number;
-    siblingsSizeInBytes: number;
-    sidecarsCount: number;
-    sidecarsSizeInBytes: number;
-    totalCount: number;
-    totalSizeInBytes: number;
-    videosCount: number;
-    videosSizeInBytes: number;
+  export class PhotoImportItem {
+    isSelected: Boolean;
+    contentType: PhotoImportContentType;
+    date: Date;
+    deletedFileNames: Object;
+    importedFileNames: Object;
+    itemKey: Number;
+    name: String;
+    sibling: PhotoImportSidecar;
+    sidecars: Object;
+    sizeInBytes: Number;
+    thumbnail: Object;
+    videoSegments: Object;
+    path: String;
     constructor();
 
   }
 
+  export class PhotoImportItemImportedEventArgs {
+    importedItem: PhotoImportItem;
+    constructor();
+
+  }
+
+  export class PhotoImportManager {
+    constructor();
+
+    static isSupportedAsync(callback: (error: Error, result: Boolean) => void): void ;
+
+
+    static findAllSourcesAsync(callback: (error: Error, result: Object) => void): void ;
+
+
+    static getPendingOperations(): Object;
+
+
+  }
+
+  export class PhotoImportOperation {
+    continueDeletingImportedItemsFromSourceAsync: Object;
+    continueFindingItemsAsync: Object;
+    continueImportingItemsAsync: Object;
+    session: PhotoImportSession;
+    stage: PhotoImportStage;
+    constructor();
+
+  }
+
+  export class PhotoImportSelectionChangedEventArgs {
+    isSelectionEmpty: Boolean;
+    constructor();
+
+  }
+
+  export class PhotoImportSession {
+    subfolderCreationMode: PhotoImportSubfolderCreationMode;
+    destinationFolder: Object;
+    destinationFileNamePrefix: String;
+    appendSessionDateToDestinationFolder: Boolean;
+    sessionId: String;
+    source: PhotoImportSource;
+    subfolderDateFormat: PhotoImportSubfolderDateFormat;
+    rememberDeselectedItems: Boolean;
+    constructor();
+
+    findItemsAsync(contentTypeFilter: PhotoImportContentTypeFilter, itemSelectionMode: PhotoImportItemSelectionMode, callback: (error: Error, result: PhotoImportFindItemsResult) => void): void ;
+
+    close(): void;
+  }
+
+  export class PhotoImportSidecar {
+    date: Date;
+    name: String;
+    sizeInBytes: Number;
+    constructor();
+
+  }
+
+  export class PhotoImportSource {
+    batteryLevelPercent: Number;
+    connectionProtocol: String;
+    connectionTransport: PhotoImportConnectionTransport;
+    dateTime: Date;
+    description: String;
+    displayName: String;
+    id: String;
+    isLocked: Boolean;
+    isMassStorage: Boolean;
+    manufacturer: String;
+    model: String;
+    powerSource: PhotoImportPowerSource;
+    serialNumber: String;
+    storageMedia: Object;
+    thumbnail: Object;
+    type: PhotoImportSourceType;
+    constructor();
+
+    static fromIdAsync(sourceId: String, callback: (error: Error, result: PhotoImportSource) => void): void ;
+
+
+    static fromFolderAsync(sourceRootFolder: Object, callback: (error: Error, result: PhotoImportSource) => void): void ;
+
+
+    createImportSession(): PhotoImportSession;
+
+  }
+
   export class PhotoImportStorageMedium {
-    availableSpaceInBytes: number;
-    capacityInBytes: number;
-    description: string;
-    name: string;
-    serialNumber: string;
+    availableSpaceInBytes: Number;
+    capacityInBytes: Number;
+    description: String;
+    name: String;
+    serialNumber: String;
     storageMediumType: PhotoImportStorageMediumType;
     supportedAccessMode: PhotoImportAccessMode;
     constructor();
@@ -265,49 +304,12 @@
 
   }
 
-  export class PhotoImportSidecar {
-    date: Date;
-    name: string;
-    sizeInBytes: number;
-    constructor();
-
-  }
-
   export class PhotoImportVideoSegment {
     date: Date;
-    name: string;
+    name: String;
     sibling: PhotoImportSidecar;
     sidecars: Object;
-    sizeInBytes: number;
-    constructor();
-
-  }
-
-  export class PhotoImportItem {
-    isSelected: boolean;
-    contentType: PhotoImportContentType;
-    date: Date;
-    deletedFileNames: Object;
-    importedFileNames: Object;
-    itemKey: number;
-    name: string;
-    sibling: PhotoImportSidecar;
-    sidecars: Object;
-    sizeInBytes: number;
-    thumbnail: Object;
-    videoSegments: Object;
-    constructor();
-
-  }
-
-  export class PhotoImportSelectionChangedEventArgs {
-    isSelectionEmpty: boolean;
-    constructor();
-
-  }
-
-  export class PhotoImportItemImportedEventArgs {
-    importedItem: PhotoImportItem;
+    sizeInBytes: Number;
     constructor();
 
   }

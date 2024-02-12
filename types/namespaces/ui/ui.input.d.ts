@@ -6,45 +6,27 @@
     constructor();
   }
 
+  export class CrossSlideThresholds {
+    selectionStart: Number;
+    speedBumpStart: Number;
+    speedBumpEnd: Number;
+    rearrangeStart: Number;
+    constructor();
+  }
+
   export class ManipulationDelta {
     translation: Object;
-    scale: number;
-    rotation: number;
-    expansion: number;
+    scale: Number;
+    rotation: Number;
+    expansion: Number;
     constructor();
   }
 
   export class ManipulationVelocities {
     linear: Object;
-    angular: number;
-    expansion: number;
+    angular: Number;
+    expansion: Number;
     constructor();
-  }
-
-  export class CrossSlideThresholds {
-    selectionStart: number;
-    speedBumpStart: number;
-    speedBumpEnd: number;
-    rearrangeStart: number;
-    constructor();
-  }
-
-  export enum EdgeGestureKind {
-    touch,
-    keyboard,
-    mouse,
-  }
-
-  export enum HoldingState {
-    started,
-    completed,
-    canceled,
-  }
-
-  export enum DraggingState {
-    started,
-    continuing,
-    completed,
   }
 
   export enum CrossSlidingState {
@@ -55,6 +37,25 @@
     speedBumping,
     rearranging,
     completed,
+  }
+
+  export enum DraggingState {
+    started,
+    continuing,
+    completed,
+  }
+
+  export enum EdgeGestureKind {
+    touch,
+    keyboard,
+    mouse,
+  }
+
+  export enum GazeInputAccessStatus {
+    unspecified,
+    allowed,
+    deniedByUser,
+    deniedBySystem,
   }
 
   export enum GestureSettings {
@@ -78,6 +79,19 @@
     manipulationMultipleFingerPanning,
   }
 
+  export enum HoldingState {
+    started,
+    completed,
+    canceled,
+  }
+
+  export enum InputActivationState {
+    none,
+    deactivated,
+    activatedNotForeground,
+    activatedInForeground,
+  }
+
   export enum PointerUpdateKind {
     other,
     leftButtonPressed,
@@ -92,14 +106,6 @@
     xButton2Released,
   }
 
-  export enum RadialControllerSystemMenuItemKind {
-    scroll,
-    zoom,
-    undoRedo,
-    volume,
-    nextPreviousTrack,
-  }
-
   export enum RadialControllerMenuKnownIcon {
     scroll,
     zoom,
@@ -112,8 +118,34 @@
     penType,
   }
 
-  export class EdgeGestureEventArgs {
-    kind: EdgeGestureKind;
+  export enum RadialControllerSystemMenuItemKind {
+    scroll,
+    zoom,
+    undoRedo,
+    volume,
+    nextPreviousTrack,
+  }
+
+  export class AttachableInputObject {
+    constructor();
+
+    close(): void;
+  }
+
+  export class CrossSlidingEventArgs {
+    crossSlidingState: CrossSlidingState;
+    pointerDeviceType: Number;
+    position: Object;
+    contactCount: Number;
+    constructor();
+
+  }
+
+  export class DraggingEventArgs {
+    draggingState: DraggingState;
+    pointerDeviceType: Number;
+    position: Object;
+    contactCount: Number;
     constructor();
 
   }
@@ -147,62 +179,42 @@
 
   }
 
-  export class KeyboardDeliveryInterceptor {
-    isInterceptionEnabledWhenInForeground: boolean;
-    constructor();
-
-    static getForCurrentView(): KeyboardDeliveryInterceptor;
-
-
-    addListener(type: "KeyDown", listener: (ev: Event) => void): void ;
-    removeListener(type: "KeyDown", listener: (ev: Event) => void): void ;
-    on(type: "KeyDown", listener: (ev: Event) => void): void ;
-    off(type: "KeyDown", listener: (ev: Event) => void): void ;
-    
-    addListener(type: "KeyUp", listener: (ev: Event) => void): void ;
-    removeListener(type: "KeyUp", listener: (ev: Event) => void): void ;
-    on(type: "KeyUp", listener: (ev: Event) => void): void ;
-    off(type: "KeyUp", listener: (ev: Event) => void): void ;
-    
-    addListener(type: string, listener: (ev: Event) => void): void ;
-    removeListener(type: string, listener: (ev: Event) => void): void ;
-    on(type: string, listener: (ev: Event) => void): void ;
-    off(type: string, listener: (ev: Event) => void): void ;
-    
-
-  }
-
-  export class MouseWheelParameters {
-    pageTranslation: Object;
-    deltaScale: number;
-    deltaRotationAngle: number;
-    charTranslation: Object;
+  export class EdgeGestureEventArgs {
+    kind: EdgeGestureKind;
     constructor();
 
   }
 
   export class GestureRecognizer {
-    inertiaRotationDeceleration: number;
-    inertiaTranslationDeceleration: number;
-    inertiaExpansionDeceleration: number;
-    inertiaExpansion: number;
-    autoProcessInertia: boolean;
-    crossSlideThresholds: CrossSlideThresholds;
-    crossSlideExact: boolean;
-    gestureSettings: GestureSettings;
-    inertiaRotationAngle: number;
-    showGestureFeedback: boolean;
-    pivotRadius: number;
-    crossSlideHorizontally: boolean;
+    showGestureFeedback: Boolean;
+    pivotRadius: Number;
     pivotCenter: Object;
-    manipulationExact: boolean;
-    inertiaTranslationDisplacement: number;
-    isActive: boolean;
-    isInertial: boolean;
+    manipulationExact: Boolean;
+    inertiaTranslationDisplacement: Number;
+    inertiaTranslationDeceleration: Number;
+    inertiaRotationDeceleration: Number;
+    inertiaRotationAngle: Number;
+    inertiaExpansionDeceleration: Number;
+    inertiaExpansion: Number;
+    gestureSettings: GestureSettings;
+    crossSlideThresholds: CrossSlideThresholds;
+    crossSlideHorizontally: Boolean;
+    crossSlideExact: Boolean;
+    autoProcessInertia: Boolean;
+    isActive: Boolean;
+    isInertial: Boolean;
     mouseWheelParameters: MouseWheelParameters;
+    translationMinContactCount: Number;
+    translationMaxContactCount: Number;
+    tapMinContactCount: Number;
+    tapMaxContactCount: Number;
+    holdStartDelay: Number;
+    holdRadius: Number;
+    holdMinContactCount: Number;
+    holdMaxContactCount: Number;
     constructor();
 
-    canBeDoubleTap(value: PointerPoint): boolean;
+    canBeDoubleTap(value: PointerPoint): Boolean;
 
     processDownEvent(value: PointerPoint): void;
 
@@ -210,7 +222,7 @@
 
     processUpEvent(value: PointerPoint): void;
 
-    processMouseWheelEvent(value: PointerPoint, isShiftKeyDown: boolean, isControlKeyDown: boolean): void;
+    processMouseWheelEvent(value: PointerPoint, isShiftKeyDown: Boolean, isControlKeyDown: Boolean): void;
 
     processInertia(): void;
 
@@ -269,100 +281,13 @@
 
   }
 
-  export class TappedEventArgs {
-    pointerDeviceType: number;
-    position: Object;
-    tapCount: number;
-    constructor();
-
-  }
-
-  export class RightTappedEventArgs {
-    pointerDeviceType: number;
-    position: Object;
-    constructor();
-
-  }
-
   export class HoldingEventArgs {
     holdingState: HoldingState;
-    pointerDeviceType: number;
+    pointerDeviceType: Number;
     position: Object;
+    contactCount: Number;
+    currentContactCount: Number;
     constructor();
-
-  }
-
-  export class DraggingEventArgs {
-    draggingState: DraggingState;
-    pointerDeviceType: number;
-    position: Object;
-    constructor();
-
-  }
-
-  export class ManipulationStartedEventArgs {
-    cumulative: ManipulationDelta;
-    pointerDeviceType: number;
-    position: Object;
-    constructor();
-
-  }
-
-  export class ManipulationUpdatedEventArgs {
-    cumulative: ManipulationDelta;
-    delta: ManipulationDelta;
-    pointerDeviceType: number;
-    position: Object;
-    velocities: ManipulationVelocities;
-    constructor();
-
-  }
-
-  export class ManipulationInertiaStartingEventArgs {
-    cumulative: ManipulationDelta;
-    delta: ManipulationDelta;
-    pointerDeviceType: number;
-    position: Object;
-    velocities: ManipulationVelocities;
-    constructor();
-
-  }
-
-  export class ManipulationCompletedEventArgs {
-    cumulative: ManipulationDelta;
-    pointerDeviceType: number;
-    position: Object;
-    velocities: ManipulationVelocities;
-    constructor();
-
-  }
-
-  export class CrossSlidingEventArgs {
-    crossSlidingState: CrossSlidingState;
-    pointerDeviceType: number;
-    position: Object;
-    constructor();
-
-  }
-
-  export class PointerPoint {
-    frameId: number;
-    isInContact: boolean;
-    pointerDevice: Object;
-    pointerId: number;
-    position: Object;
-    properties: PointerPointProperties;
-    rawPosition: Object;
-    timestamp: number;
-    constructor();
-
-    static getCurrentPoint(pointerId: number): PointerPoint;
-    static getCurrentPoint(pointerId: number, transform: IPointerPointTransform): PointerPoint;
-
-
-    static getIntermediatePoints(pointerId: number): Object;
-    static getIntermediatePoints(pointerId: number, transform: IPointerPointTransform): Object;
-
 
   }
 
@@ -370,47 +295,168 @@
     inverse: IPointerPointTransform;
     constructor();
 
-    tryTransform(inPoint: Object, outPoint: Object): boolean;
+    tryTransform(inPoint: Object, outPoint: Object): Boolean;
 
     transformBounds(rect: Object): Object;
+
+  }
+
+  export class InputActivationListener {
+    state: InputActivationState;
+    constructor();
+
+    addListener(type: "InputActivationChanged", listener: (ev: Event) => void): void ;
+    removeListener(type: "InputActivationChanged", listener: (ev: Event) => void): void ;
+    on(type: "InputActivationChanged", listener: (ev: Event) => void): void ;
+    off(type: "InputActivationChanged", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
+
+  }
+
+  export class InputActivationListenerActivationChangedEventArgs {
+    state: InputActivationState;
+    constructor();
+
+  }
+
+  export class KeyboardDeliveryInterceptor {
+    isInterceptionEnabledWhenInForeground: Boolean;
+    constructor();
+
+    static getForCurrentView(): KeyboardDeliveryInterceptor;
+
+
+    addListener(type: "KeyDown", listener: (ev: Event) => void): void ;
+    removeListener(type: "KeyDown", listener: (ev: Event) => void): void ;
+    on(type: "KeyDown", listener: (ev: Event) => void): void ;
+    off(type: "KeyDown", listener: (ev: Event) => void): void ;
+    
+    addListener(type: "KeyUp", listener: (ev: Event) => void): void ;
+    removeListener(type: "KeyUp", listener: (ev: Event) => void): void ;
+    on(type: "KeyUp", listener: (ev: Event) => void): void ;
+    off(type: "KeyUp", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
+
+  }
+
+  export class ManipulationCompletedEventArgs {
+    cumulative: ManipulationDelta;
+    pointerDeviceType: Number;
+    position: Object;
+    velocities: ManipulationVelocities;
+    contactCount: Number;
+    currentContactCount: Number;
+    constructor();
+
+  }
+
+  export class ManipulationInertiaStartingEventArgs {
+    cumulative: ManipulationDelta;
+    delta: ManipulationDelta;
+    pointerDeviceType: Number;
+    position: Object;
+    velocities: ManipulationVelocities;
+    contactCount: Number;
+    constructor();
+
+  }
+
+  export class ManipulationStartedEventArgs {
+    cumulative: ManipulationDelta;
+    pointerDeviceType: Number;
+    position: Object;
+    contactCount: Number;
+    constructor();
+
+  }
+
+  export class ManipulationUpdatedEventArgs {
+    cumulative: ManipulationDelta;
+    delta: ManipulationDelta;
+    pointerDeviceType: Number;
+    position: Object;
+    velocities: ManipulationVelocities;
+    contactCount: Number;
+    currentContactCount: Number;
+    constructor();
+
+  }
+
+  export class MouseWheelParameters {
+    pageTranslation: Object;
+    deltaScale: Number;
+    deltaRotationAngle: Number;
+    charTranslation: Object;
+    constructor();
+
+  }
+
+  export class PointerPoint {
+    frameId: Number;
+    isInContact: Boolean;
+    pointerDevice: Object;
+    pointerId: Number;
+    position: Object;
+    properties: PointerPointProperties;
+    rawPosition: Object;
+    timestamp: Number;
+    constructor();
+
+    static getCurrentPoint(pointerId: Number): PointerPoint;
+    static getCurrentPoint(pointerId: Number, transform: IPointerPointTransform): PointerPoint;
+
+
+    static getIntermediatePoints(pointerId: Number): Object;
+    static getIntermediatePoints(pointerId: Number, transform: IPointerPointTransform): Object;
+
 
   }
 
   export class PointerPointProperties {
     contactRect: Object;
     contactRectRaw: Object;
-    isBarrelButtonPressed: boolean;
-    isCanceled: boolean;
-    isEraser: boolean;
-    isHorizontalMouseWheel: boolean;
-    isInRange: boolean;
-    isInverted: boolean;
-    isLeftButtonPressed: boolean;
-    isMiddleButtonPressed: boolean;
-    isPrimary: boolean;
-    isRightButtonPressed: boolean;
-    isXButton1Pressed: boolean;
-    isXButton2Pressed: boolean;
-    mouseWheelDelta: number;
-    orientation: number;
+    isBarrelButtonPressed: Boolean;
+    isCanceled: Boolean;
+    isEraser: Boolean;
+    isHorizontalMouseWheel: Boolean;
+    isInRange: Boolean;
+    isInverted: Boolean;
+    isLeftButtonPressed: Boolean;
+    isMiddleButtonPressed: Boolean;
+    isPrimary: Boolean;
+    isRightButtonPressed: Boolean;
+    isXButton1Pressed: Boolean;
+    isXButton2Pressed: Boolean;
+    mouseWheelDelta: Number;
+    orientation: Number;
     pointerUpdateKind: PointerUpdateKind;
-    pressure: number;
-    touchConfidence: boolean;
-    twist: number;
-    xTilt: number;
-    yTilt: number;
-    zDistance: number;
+    pressure: Number;
+    touchConfidence: Boolean;
+    twist: Number;
+    xTilt: Number;
+    yTilt: Number;
+    zDistance: Number;
     constructor();
 
-    hasUsage(usagePage: number, usageId: number): boolean;
+    hasUsage(usagePage: Number, usageId: Number): Boolean;
 
-    getUsageValue(usagePage: number, usageId: number): number;
+    getUsageValue(usagePage: Number, usageId: Number): Number;
 
   }
 
   export class PointerVisualizationSettings {
-    isContactFeedbackEnabled: boolean;
-    isBarrelButtonFeedbackEnabled: boolean;
+    isContactFeedbackEnabled: Boolean;
+    isBarrelButtonFeedbackEnabled: Boolean;
     constructor();
 
     static getForCurrentView(): PointerVisualizationSettings;
@@ -418,33 +464,13 @@
 
   }
 
-  export class RadialControllerScreenContact {
-    bounds: Object;
-    position: Object;
-    constructor();
-
-  }
-
-  export class RadialControllerMenu {
-    isEnabled: boolean;
-    items: Object;
-    constructor();
-
-    getSelectedMenuItem(): RadialControllerMenuItem;
-
-    selectMenuItem(menuItem: RadialControllerMenuItem): void;
-
-    trySelectPreviouslySelectedMenuItem(): boolean;
-
-  }
-
   export class RadialController {
-    useAutomaticHapticFeedback: boolean;
-    rotationResolutionInDegrees: number;
+    useAutomaticHapticFeedback: Boolean;
+    rotationResolutionInDegrees: Number;
     menu: RadialControllerMenu;
     constructor();
 
-    static isSupported(): boolean;
+    static isSupported(): Boolean;
 
 
     static createForCurrentView(): RadialController;
@@ -508,47 +534,7 @@
 
   }
 
-  export class RadialControllerScreenContactStartedEventArgs {
-    contact: RadialControllerScreenContact;
-    isButtonPressed: boolean;
-    simpleHapticsController: Object;
-    constructor();
-
-  }
-
-  export class RadialControllerScreenContactContinuedEventArgs {
-    contact: RadialControllerScreenContact;
-    isButtonPressed: boolean;
-    simpleHapticsController: Object;
-    constructor();
-
-  }
-
-  export class RadialControllerRotationChangedEventArgs {
-    contact: RadialControllerScreenContact;
-    rotationDeltaInDegrees: number;
-    isButtonPressed: boolean;
-    simpleHapticsController: Object;
-    constructor();
-
-  }
-
   export class RadialControllerButtonClickedEventArgs {
-    contact: RadialControllerScreenContact;
-    simpleHapticsController: Object;
-    constructor();
-
-  }
-
-  export class RadialControllerControlAcquiredEventArgs {
-    contact: RadialControllerScreenContact;
-    isButtonPressed: boolean;
-    simpleHapticsController: Object;
-    constructor();
-
-  }
-
-  export class RadialControllerButtonPressedEventArgs {
     contact: RadialControllerScreenContact;
     simpleHapticsController: Object;
     constructor();
@@ -562,6 +548,13 @@
 
   }
 
+  export class RadialControllerButtonPressedEventArgs {
+    contact: RadialControllerScreenContact;
+    simpleHapticsController: Object;
+    constructor();
+
+  }
+
   export class RadialControllerButtonReleasedEventArgs {
     contact: RadialControllerScreenContact;
     simpleHapticsController: Object;
@@ -569,19 +562,58 @@
 
   }
 
-  export class RadialControllerMenuItem {
-    tag: Object;
-    displayText: string;
+  export class RadialControllerConfiguration {
+    static isAppControllerEnabled: Boolean;
+    static appController: RadialController;
+    isMenuSuppressed: Boolean;
+    activeControllerWhenMenuIsSuppressed: RadialController;
     constructor();
 
-    static createFromFontGlyph(displayText: string, glyph: string, fontFamily: string): RadialControllerMenuItem;
-    static createFromFontGlyph(displayText: string, glyph: string, fontFamily: string, fontUri: Object): RadialControllerMenuItem;
+    static getForCurrentView(): RadialControllerConfiguration;
 
 
-    static createFromIcon(displayText: string, icon: Object): RadialControllerMenuItem;
+    setDefaultMenuItems(buttons: Object): void;
+
+    resetToDefaultMenuItems(): void;
+
+    trySelectDefaultMenuItem(type: RadialControllerSystemMenuItemKind): Boolean;
+
+  }
+
+  export class RadialControllerControlAcquiredEventArgs {
+    contact: RadialControllerScreenContact;
+    isButtonPressed: Boolean;
+    simpleHapticsController: Object;
+    constructor();
+
+  }
+
+  export class RadialControllerMenu {
+    isEnabled: Boolean;
+    items: Object;
+    constructor();
+
+    getSelectedMenuItem(): RadialControllerMenuItem;
+
+    selectMenuItem(menuItem: RadialControllerMenuItem): void;
+
+    trySelectPreviouslySelectedMenuItem(): Boolean;
+
+  }
+
+  export class RadialControllerMenuItem {
+    tag: Object;
+    displayText: String;
+    constructor();
+
+    static createFromFontGlyph(displayText: String, glyph: String, fontFamily: String): RadialControllerMenuItem;
+    static createFromFontGlyph(displayText: String, glyph: String, fontFamily: String, fontUri: Object): RadialControllerMenuItem;
 
 
-    static createFromKnownIcon(displayText: string, value: RadialControllerMenuKnownIcon): RadialControllerMenuItem;
+    static createFromIcon(displayText: String, icon: Object): RadialControllerMenuItem;
+
+
+    static createFromKnownIcon(displayText: String, value: RadialControllerMenuKnownIcon): RadialControllerMenuItem;
 
 
     addListener(type: "Invoked", listener: (ev: Event) => void): void ;
@@ -597,32 +629,168 @@
 
   }
 
-  export class RadialControllerConfiguration {
-    static isAppControllerEnabled: boolean;
-    static appController: RadialController;
-    isMenuSuppressed: boolean;
-    activeControllerWhenMenuIsSuppressed: RadialController;
-    constructor();
-
-    static getForCurrentView(): RadialControllerConfiguration;
-
-
-    setDefaultMenuItems(buttons: Object): void;
-
-    resetToDefaultMenuItems(): void;
-
-    trySelectDefaultMenuItem(type: RadialControllerSystemMenuItemKind): boolean;
-
-  }
-
-  export class RadialControllerScreenContactEndedEventArgs {
-    isButtonPressed: boolean;
+  export class RadialControllerRotationChangedEventArgs {
+    contact: RadialControllerScreenContact;
+    rotationDeltaInDegrees: Number;
+    isButtonPressed: Boolean;
     simpleHapticsController: Object;
     constructor();
 
   }
 
+  export class RadialControllerScreenContact {
+    bounds: Object;
+    position: Object;
+    constructor();
+
+  }
+
+  export class RadialControllerScreenContactContinuedEventArgs {
+    contact: RadialControllerScreenContact;
+    isButtonPressed: Boolean;
+    simpleHapticsController: Object;
+    constructor();
+
+  }
+
+  export class RadialControllerScreenContactEndedEventArgs {
+    isButtonPressed: Boolean;
+    simpleHapticsController: Object;
+    constructor();
+
+  }
+
+  export class RadialControllerScreenContactStartedEventArgs {
+    contact: RadialControllerScreenContact;
+    isButtonPressed: Boolean;
+    simpleHapticsController: Object;
+    constructor();
+
+  }
+
+  export class RightTappedEventArgs {
+    pointerDeviceType: Number;
+    position: Object;
+    contactCount: Number;
+    constructor();
+
+  }
+
+  export class SystemButtonEventController {
+    constructor();
+
+    static createForDispatcherQueue(queue: Object): SystemButtonEventController;
+
+
+    addListener(type: "SystemFunctionButtonPressed", listener: (ev: Event) => void): void ;
+    removeListener(type: "SystemFunctionButtonPressed", listener: (ev: Event) => void): void ;
+    on(type: "SystemFunctionButtonPressed", listener: (ev: Event) => void): void ;
+    off(type: "SystemFunctionButtonPressed", listener: (ev: Event) => void): void ;
+    
+    addListener(type: "SystemFunctionButtonReleased", listener: (ev: Event) => void): void ;
+    removeListener(type: "SystemFunctionButtonReleased", listener: (ev: Event) => void): void ;
+    on(type: "SystemFunctionButtonReleased", listener: (ev: Event) => void): void ;
+    off(type: "SystemFunctionButtonReleased", listener: (ev: Event) => void): void ;
+    
+    addListener(type: "SystemFunctionLockChanged", listener: (ev: Event) => void): void ;
+    removeListener(type: "SystemFunctionLockChanged", listener: (ev: Event) => void): void ;
+    on(type: "SystemFunctionLockChanged", listener: (ev: Event) => void): void ;
+    off(type: "SystemFunctionLockChanged", listener: (ev: Event) => void): void ;
+    
+    addListener(type: "SystemFunctionLockIndicatorChanged", listener: (ev: Event) => void): void ;
+    removeListener(type: "SystemFunctionLockIndicatorChanged", listener: (ev: Event) => void): void ;
+    on(type: "SystemFunctionLockIndicatorChanged", listener: (ev: Event) => void): void ;
+    off(type: "SystemFunctionLockIndicatorChanged", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
+
+  }
+
+  export class SystemFunctionButtonEventArgs {
+    handled: Boolean;
+    timestamp: Number;
+    constructor();
+
+  }
+
+  export class SystemFunctionLockChangedEventArgs {
+    handled: Boolean;
+    isLocked: Boolean;
+    timestamp: Number;
+    constructor();
+
+  }
+
+  export class SystemFunctionLockIndicatorChangedEventArgs {
+    handled: Boolean;
+    isIndicatorOn: Boolean;
+    timestamp: Number;
+    constructor();
+
+  }
+
+  export class TappedEventArgs {
+    pointerDeviceType: Number;
+    position: Object;
+    tapCount: Number;
+    contactCount: Number;
+    constructor();
+
+  }
+
+export const CrossSlidingState: any;
+export const DraggingState: any;
+export const EdgeGestureKind: any;
+export const GazeInputAccessStatus: any;
+export const GestureSettings: any;
+export const HoldingState: any;
+export const InputActivationState: any;
+export const PointerUpdateKind: any;
+export const RadialControllerMenuKnownIcon: any;
+export const RadialControllerSystemMenuItemKind: any;
+export const AttachableInputObject: any;
+export const CrossSlidingEventArgs: any;
+export const DraggingEventArgs: any;
+export const EdgeGesture: any;
+export const EdgeGestureEventArgs: any;
+export const GestureRecognizer: any;
+export const HoldingEventArgs: any;
+export const IPointerPointTransform: any;
+export const InputActivationListener: any;
+export const InputActivationListenerActivationChangedEventArgs: any;
+export const KeyboardDeliveryInterceptor: any;
+export const ManipulationCompletedEventArgs: any;
+export const ManipulationInertiaStartingEventArgs: any;
+export const ManipulationStartedEventArgs: any;
+export const ManipulationUpdatedEventArgs: any;
+export const MouseWheelParameters: any;
+export const PointerPoint: any;
+export const PointerPointProperties: any;
+export const PointerVisualizationSettings: any;
+export const RadialController: any;
+export const RadialControllerButtonClickedEventArgs: any;
+export const RadialControllerButtonHoldingEventArgs: any;
+export const RadialControllerButtonPressedEventArgs: any;
+export const RadialControllerButtonReleasedEventArgs: any;
+export const RadialControllerConfiguration: any;
+export const RadialControllerControlAcquiredEventArgs: any;
+export const RadialControllerMenu: any;
+export const RadialControllerMenuItem: any;
+export const RadialControllerRotationChangedEventArgs: any;
+export const RadialControllerScreenContact: any;
+export const RadialControllerScreenContactContinuedEventArgs: any;
+export const RadialControllerScreenContactEndedEventArgs: any;
+export const RadialControllerScreenContactStartedEventArgs: any;
+export const RightTappedEventArgs: any;
+export const SystemButtonEventController: any;
+export const SystemFunctionButtonEventArgs: any;
+export const SystemFunctionLockChangedEventArgs: any;
+export const SystemFunctionLockIndicatorChangedEventArgs: any;
+export const TappedEventArgs: any;
 export * as core from "./ui.input.core.js";
 export * as inking from "./ui.input.inking.js";
-export * as preview from "./ui.input.preview.js";
 export * as spatial from "./ui.input.spatial.js";

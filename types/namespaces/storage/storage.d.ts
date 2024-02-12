@@ -1,8 +1,35 @@
-  export enum KnownLibraryId {
-    music,
-    pictures,
-    videos,
-    documents,
+  export enum ApplicationDataCreateDisposition {
+    always,
+    existing,
+  }
+
+  export enum ApplicationDataLocality {
+    local,
+    roaming,
+    temporary,
+    localCache,
+    sharedLocal,
+  }
+
+  export enum CreationCollisionOption {
+    generateUniqueName,
+    replaceExisting,
+    failIfExists,
+    openIfExists,
+  }
+
+  export enum FileAccessMode {
+    read,
+    readWrite,
+  }
+
+  export enum FileAttributes {
+    normal,
+    readOnly,
+    directory,
+    archive,
+    temporary,
+    locallyIncomplete,
   }
 
   export enum KnownFolderId {
@@ -22,13 +49,23 @@
     videosLibrary,
     allAppMods,
     currentAppMods,
+    downloadsFolder,
   }
 
-  export enum CreationCollisionOption {
-    generateUniqueName,
-    replaceExisting,
-    failIfExists,
-    openIfExists,
+  export enum KnownFoldersAccessStatus {
+    deniedBySystem,
+    notDeclaredByApp,
+    deniedByUser,
+    userPromptRequired,
+    allowed,
+    allowedPerAppFolder,
+  }
+
+  export enum KnownLibraryId {
+    music,
+    pictures,
+    videos,
+    documents,
   }
 
   export enum NameCollisionOption {
@@ -48,20 +85,6 @@
     folder,
   }
 
-  export enum FileAttributes {
-    normal,
-    readOnly,
-    directory,
-    archive,
-    temporary,
-    locallyIncomplete,
-  }
-
-  export enum FileAccessMode {
-    read,
-    readWrite,
-  }
-
   export enum StorageLibraryChangeType {
     created,
     deleted,
@@ -75,52 +98,70 @@
     changeTrackingLost,
   }
 
-  export enum StreamedFileFailureMode {
-    failed,
-    currentlyUnavailable,
-    incomplete,
-  }
-
   export enum StorageOpenOptions {
     none,
     allowOnlyReaders,
     allowReadersAndWriters,
   }
 
-  export enum ApplicationDataLocality {
-    local,
-    roaming,
-    temporary,
-    localCache,
+  export enum StreamedFileFailureMode {
+    failed,
+    currentlyUnavailable,
+    incomplete,
   }
 
-  export enum ApplicationDataCreateDisposition {
-    always,
-    existing,
-  }
-
-  export class StorageLibrary {
-    folders: Object;
-    saveFolder: StorageFolder;
-    changeTracker: StorageLibraryChangeTracker;
+  export class AppDataPaths {
+    cookies: String;
+    desktop: String;
+    documents: String;
+    favorites: String;
+    history: String;
+    internetCache: String;
+    localAppData: String;
+    programData: String;
+    roamingAppData: String;
     constructor();
 
-    static getLibraryForUserAsync(user: Object, libraryId: KnownLibraryId, callback: (error: Error, result: StorageLibrary) => void): void ;
+    static getForUser(user: Object): AppDataPaths;
 
 
-    static getLibraryAsync(libraryId: KnownLibraryId, callback: (error: Error, result: StorageLibrary) => void): void ;
+    static getDefault(): AppDataPaths;
 
 
-    requestAddFolderAsync(callback: (error: Error, result: StorageFolder) => void): void ;
+  }
 
-    requestRemoveFolderAsync(folder: StorageFolder, callback: (error: Error, result: boolean) => void): void ;
+  export class ApplicationData {
+    static current: ApplicationData;
+    localFolder: StorageFolder;
+    localSettings: ApplicationDataContainer;
+    roamingFolder: StorageFolder;
+    roamingSettings: ApplicationDataContainer;
+    roamingStorageQuota: Number;
+    temporaryFolder: StorageFolder;
+    version: Number;
+    localCacheFolder: StorageFolder;
+    sharedLocalFolder: StorageFolder;
+    constructor();
 
-    areFolderSuggestionsAvailableAsync(callback: (error: Error, result: boolean) => void): void ;
+    static getForUserAsync(user: Object, callback: (error: Error, result: ApplicationData) => void): void ;
 
-    addListener(type: "DefinitionChanged", listener: (ev: Event) => void): void ;
-    removeListener(type: "DefinitionChanged", listener: (ev: Event) => void): void ;
-    on(type: "DefinitionChanged", listener: (ev: Event) => void): void ;
-    off(type: "DefinitionChanged", listener: (ev: Event) => void): void ;
+
+    setVersionAsync(desiredVersion: Number, handler: Object, callback: (error: Error) => void): void ;
+
+    clearAsync(callback: (error: Error) => void): void ;
+    clearAsync(locality: ApplicationDataLocality, callback: (error: Error) => void): void ;
+
+    clearPublisherCacheFolderAsync(folderName: String, callback: (error: Error) => void): void ;
+
+    signalDataChanged(): void;
+
+    getPublisherCacheFolder(folderName: String): StorageFolder;
+
+    close(): void;
+    addListener(type: "DataChanged", listener: (ev: Event) => void): void ;
+    removeListener(type: "DataChanged", listener: (ev: Event) => void): void ;
+    on(type: "DataChanged", listener: (ev: Event) => void): void ;
+    off(type: "DataChanged", listener: (ev: Event) => void): void ;
     
     addListener(type: string, listener: (ev: Event) => void): void ;
     removeListener(type: string, listener: (ev: Event) => void): void ;
@@ -130,102 +171,278 @@
 
   }
 
-  export class StorageFolder {
-    attributes: FileAttributes;
-    dateCreated: Date;
-    name: string;
-    path: string;
-    displayName: string;
-    displayType: string;
-    folderRelativeId: string;
-    properties: Object;
-    provider: StorageProvider;
+  export class ApplicationDataCompositeValue {
     constructor();
 
-    static getFolderFromPathAsync(path: string, callback: (error: Error, result: StorageFolder) => void): void ;
+    lookup(key: String): Object;
+
+    hasKey(key: String): Boolean;
+
+    getView(): Object;
+
+    insert(key: String, value: Object): Boolean;
+
+    remove(key: String): void;
+
+    clear(): void;
+
+    first(): Object;
+
+    addListener(type: "MapChanged", listener: (ev: Event) => void): void ;
+    removeListener(type: "MapChanged", listener: (ev: Event) => void): void ;
+    on(type: "MapChanged", listener: (ev: Event) => void): void ;
+    off(type: "MapChanged", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
+
+  }
+
+  export class ApplicationDataContainer {
+    containers: Object;
+    locality: ApplicationDataLocality;
+    name: String;
+    values: Object;
+    constructor();
+
+    createContainer(name: String, disposition: ApplicationDataCreateDisposition): ApplicationDataContainer;
+
+    deleteContainer(name: String): void;
+
+    close(): void;
+  }
+
+  export class ApplicationDataContainerSettings {
+    constructor();
+
+    lookup(key: String): Object;
+
+    hasKey(key: String): Boolean;
+
+    getView(): Object;
+
+    insert(key: String, value: Object): Boolean;
+
+    remove(key: String): void;
+
+    clear(): void;
+
+    first(): Object;
+
+    addListener(type: "MapChanged", listener: (ev: Event) => void): void ;
+    removeListener(type: "MapChanged", listener: (ev: Event) => void): void ;
+    on(type: "MapChanged", listener: (ev: Event) => void): void ;
+    off(type: "MapChanged", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
+
+  }
+
+  export class CachedFileManager {
+    constructor();
+
+    static completeUpdatesAsync(file: IStorageFile, callback: (error: Error, result: Number) => void): void ;
 
 
-    createFileAsync(desiredName: string, callback: (error: Error, result: StorageFile) => void): void ;
-    createFileAsync(desiredName: string, options: CreationCollisionOption, callback: (error: Error, result: StorageFile) => void): void ;
+    static deferUpdates(file: IStorageFile): void;
 
-    createFolderAsync(desiredName: string, callback: (error: Error, result: StorageFolder) => void): void ;
-    createFolderAsync(desiredName: string, options: CreationCollisionOption, callback: (error: Error, result: StorageFolder) => void): void ;
 
-    getFileAsync(name: string, callback: (error: Error, result: StorageFile) => void): void ;
+  }
 
-    getFolderAsync(name: string, callback: (error: Error, result: StorageFolder) => void): void ;
+  export class DownloadsFolder {
+    constructor();
 
-    getItemAsync(name: string, callback: (error: Error, result: IStorageItem) => void): void ;
+    static createFileForUserAsync(user: Object, desiredName: String, callback: (error: Error, result: StorageFile) => void): void ;
+    static createFileForUserAsync(user: Object, desiredName: String, option: CreationCollisionOption, callback: (error: Error, result: StorageFile) => void): void ;
+
+
+    static createFolderForUserAsync(user: Object, desiredName: String, callback: (error: Error, result: StorageFolder) => void): void ;
+    static createFolderForUserAsync(user: Object, desiredName: String, option: CreationCollisionOption, callback: (error: Error, result: StorageFolder) => void): void ;
+
+
+    static createFileAsync(desiredName: String, callback: (error: Error, result: StorageFile) => void): void ;
+    static createFileAsync(desiredName: String, option: CreationCollisionOption, callback: (error: Error, result: StorageFile) => void): void ;
+
+
+    static createFolderAsync(desiredName: String, callback: (error: Error, result: StorageFolder) => void): void ;
+    static createFolderAsync(desiredName: String, option: CreationCollisionOption, callback: (error: Error, result: StorageFolder) => void): void ;
+
+
+  }
+
+  export class FileIO {
+    constructor();
+
+    static readTextAsync(file: IStorageFile, callback: (error: Error, result: String) => void): void ;
+    static readTextAsync(file: IStorageFile, encoding: Number, callback: (error: Error, result: String) => void): void ;
+
+
+    static writeTextAsync(file: IStorageFile, contents: String, callback: (error: Error) => void): void ;
+    static writeTextAsync(file: IStorageFile, contents: String, encoding: Number, callback: (error: Error) => void): void ;
+
+
+    static appendTextAsync(file: IStorageFile, contents: String, callback: (error: Error) => void): void ;
+    static appendTextAsync(file: IStorageFile, contents: String, encoding: Number, callback: (error: Error) => void): void ;
+
+
+    static readLinesAsync(file: IStorageFile, callback: (error: Error, result: Object) => void): void ;
+    static readLinesAsync(file: IStorageFile, encoding: Number, callback: (error: Error, result: Object) => void): void ;
+
+
+    static writeLinesAsync(file: IStorageFile, lines: Object, callback: (error: Error) => void): void ;
+    static writeLinesAsync(file: IStorageFile, lines: Object, encoding: Number, callback: (error: Error) => void): void ;
+
+
+    static appendLinesAsync(file: IStorageFile, lines: Object, callback: (error: Error) => void): void ;
+    static appendLinesAsync(file: IStorageFile, lines: Object, encoding: Number, callback: (error: Error) => void): void ;
+
+
+    static readBufferAsync(file: IStorageFile, callback: (error: Error, result: Object) => void): void ;
+
+
+    static writeBufferAsync(file: IStorageFile, buffer: Object, callback: (error: Error) => void): void ;
+
+
+    static writeBytesAsync(file: IStorageFile, buffer: Array<Number>, callback: (error: Error) => void): void ;
+
+
+  }
+
+  export class IStorageFile {
+    contentType: String;
+    fileType: String;
+    constructor();
+
+    openAsync(accessMode: FileAccessMode, callback: (error: Error, result: Object) => void): void ;
+
+    openTransactedWriteAsync(callback: (error: Error, result: StorageStreamTransaction) => void): void ;
+
+    copyAsync(destinationFolder: IStorageFolder, callback: (error: Error, result: StorageFile) => void): void ;
+    copyAsync(destinationFolder: IStorageFolder, desiredNewName: String, callback: (error: Error, result: StorageFile) => void): void ;
+    copyAsync(destinationFolder: IStorageFolder, desiredNewName: String, option: NameCollisionOption, callback: (error: Error, result: StorageFile) => void): void ;
+
+    copyAndReplaceAsync(fileToReplace: IStorageFile, callback: (error: Error) => void): void ;
+
+    moveAsync(destinationFolder: IStorageFolder, callback: (error: Error) => void): void ;
+    moveAsync(destinationFolder: IStorageFolder, desiredNewName: String, callback: (error: Error) => void): void ;
+    moveAsync(destinationFolder: IStorageFolder, desiredNewName: String, option: NameCollisionOption, callback: (error: Error) => void): void ;
+
+    moveAndReplaceAsync(fileToReplace: IStorageFile, callback: (error: Error) => void): void ;
+
+  }
+
+  export class IStorageFile2 {
+    constructor();
+
+    openAsync(accessMode: FileAccessMode, options: StorageOpenOptions, callback: (error: Error, result: Object) => void): void ;
+
+    openTransactedWriteAsync(options: StorageOpenOptions, callback: (error: Error, result: StorageStreamTransaction) => void): void ;
+
+  }
+
+  export class IStorageFilePropertiesWithAvailability {
+    isAvailable: Boolean;
+    constructor();
+
+  }
+
+  export class IStorageFolder {
+    constructor();
+
+    createFileAsync(desiredName: String, callback: (error: Error, result: StorageFile) => void): void ;
+    createFileAsync(desiredName: String, options: CreationCollisionOption, callback: (error: Error, result: StorageFile) => void): void ;
+
+    createFolderAsync(desiredName: String, callback: (error: Error, result: StorageFolder) => void): void ;
+    createFolderAsync(desiredName: String, options: CreationCollisionOption, callback: (error: Error, result: StorageFolder) => void): void ;
+
+    getFileAsync(name: String, callback: (error: Error, result: StorageFile) => void): void ;
+
+    getFolderAsync(name: String, callback: (error: Error, result: StorageFolder) => void): void ;
+
+    getItemAsync(name: String, callback: (error: Error, result: IStorageItem) => void): void ;
 
     getFilesAsync(callback: (error: Error, result: Object) => void): void ;
-    getFilesAsync(query: number, startIndex: number, maxItemsToRetrieve: number, callback: (error: Error, result: Object) => void): void ;
-    getFilesAsync(query: number, callback: (error: Error, result: Object) => void): void ;
 
     getFoldersAsync(callback: (error: Error, result: Object) => void): void ;
-    getFoldersAsync(query: number, startIndex: number, maxItemsToRetrieve: number, callback: (error: Error, result: Object) => void): void ;
-    getFoldersAsync(query: number, callback: (error: Error, result: Object) => void): void ;
 
     getItemsAsync(callback: (error: Error, result: Object) => void): void ;
-    getItemsAsync(startIndex: number, maxItemsToRetrieve: number, callback: (error: Error, result: Object) => void): void ;
 
-    renameAsync(desiredName: string, callback: (error: Error) => void): void ;
-    renameAsync(desiredName: string, option: NameCollisionOption, callback: (error: Error) => void): void ;
+  }
+
+  export class IStorageFolder2 {
+    constructor();
+
+    tryGetItemAsync(name: String, callback: (error: Error, result: IStorageItem) => void): void ;
+
+  }
+
+  export class IStorageItem {
+    attributes: FileAttributes;
+    dateCreated: Date;
+    name: String;
+    path: String;
+    constructor();
+
+    renameAsync(desiredName: String, callback: (error: Error) => void): void ;
+    renameAsync(desiredName: String, option: NameCollisionOption, callback: (error: Error) => void): void ;
 
     deleteAsync(callback: (error: Error) => void): void ;
     deleteAsync(option: StorageDeleteOption, callback: (error: Error) => void): void ;
 
     getBasicPropertiesAsync(callback: (error: Error, result: Object) => void): void ;
 
-    getIndexedStateAsync(callback: (error: Error, result: number) => void): void ;
-
-    getThumbnailAsync(mode: number, callback: (error: Error, result: Object) => void): void ;
-    getThumbnailAsync(mode: number, requestedSize: number, callback: (error: Error, result: Object) => void): void ;
-    getThumbnailAsync(mode: number, requestedSize: number, options: number, callback: (error: Error, result: Object) => void): void ;
-
-    getScaledImageAsThumbnailAsync(mode: number, callback: (error: Error, result: Object) => void): void ;
-    getScaledImageAsThumbnailAsync(mode: number, requestedSize: number, callback: (error: Error, result: Object) => void): void ;
-    getScaledImageAsThumbnailAsync(mode: number, requestedSize: number, options: number, callback: (error: Error, result: Object) => void): void ;
-
-    getParentAsync(callback: (error: Error, result: StorageFolder) => void): void ;
-
-    tryGetItemAsync(name: string, callback: (error: Error, result: IStorageItem) => void): void ;
-
-    tryGetChangeTracker(): StorageLibraryChangeTracker;
-
-    isOfType(type: StorageItemTypes): boolean;
-
-    createFileQuery(): Object;
-    createFileQuery(query: number): Object;
-
-    createFileQueryWithOptions(queryOptions: Object): Object;
-
-    createFolderQuery(): Object;
-    createFolderQuery(query: number): Object;
-
-    createFolderQueryWithOptions(queryOptions: Object): Object;
-
-    createItemQuery(): Object;
-
-    createItemQueryWithOptions(queryOptions: Object): Object;
-
-    areQueryOptionsSupported(queryOptions: Object): boolean;
-
-    isCommonFolderQuerySupported(query: number): boolean;
-
-    isCommonFileQuerySupported(query: number): boolean;
-
-    isEqual(item: IStorageItem): boolean;
+    isOfType(type: StorageItemTypes): Boolean;
 
   }
 
-  export class StorageLibraryChangeTracker {
+  export class IStorageItem2 {
     constructor();
 
-    getChangeReader(): StorageLibraryChangeReader;
+    getParentAsync(callback: (error: Error, result: StorageFolder) => void): void ;
 
-    enable(): void;
+    isEqual(item: IStorageItem): Boolean;
 
-    reset(): void;
+  }
+
+  export class IStorageItemProperties {
+    displayName: String;
+    displayType: String;
+    folderRelativeId: String;
+    properties: Object;
+    constructor();
+
+    getThumbnailAsync(mode: Number, callback: (error: Error, result: Object) => void): void ;
+    getThumbnailAsync(mode: Number, requestedSize: Number, callback: (error: Error, result: Object) => void): void ;
+    getThumbnailAsync(mode: Number, requestedSize: Number, options: Number, callback: (error: Error, result: Object) => void): void ;
+
+  }
+
+  export class IStorageItemProperties2 {
+    constructor();
+
+    getScaledImageAsThumbnailAsync(mode: Number, callback: (error: Error, result: Object) => void): void ;
+    getScaledImageAsThumbnailAsync(mode: Number, requestedSize: Number, callback: (error: Error, result: Object) => void): void ;
+    getScaledImageAsThumbnailAsync(mode: Number, requestedSize: Number, options: Number, callback: (error: Error, result: Object) => void): void ;
+
+  }
+
+  export class IStorageItemPropertiesWithProvider {
+    provider: StorageProvider;
+    constructor();
+
+  }
+
+  export class IStreamedFileDataRequest {
+    constructor();
+
+    failAndClose(failureMode: StreamedFileFailureMode): void;
 
   }
 
@@ -245,113 +462,105 @@
     static recordedCalls: StorageFolder;
     constructor();
 
+    static requestAccessAsync(folderId: KnownFolderId, callback: (error: Error, result: KnownFoldersAccessStatus) => void): void ;
+
+
+    static requestAccessForUserAsync(user: Object, folderId: KnownFolderId, callback: (error: Error, result: KnownFoldersAccessStatus) => void): void ;
+
+
+    static getFolderAsync(folderId: KnownFolderId, callback: (error: Error, result: StorageFolder) => void): void ;
+
+
     static getFolderForUserAsync(user: Object, folderId: KnownFolderId, callback: (error: Error, result: StorageFolder) => void): void ;
 
 
   }
 
-  export class UserDataPaths {
-    cameraRoll: string;
-    cookies: string;
-    desktop: string;
-    documents: string;
-    downloads: string;
-    favorites: string;
-    history: string;
-    internetCache: string;
-    localAppData: string;
-    localAppDataLow: string;
-    music: string;
-    pictures: string;
-    profile: string;
-    recent: string;
-    roamingAppData: string;
-    savedPictures: string;
-    screenshots: string;
-    templates: string;
-    videos: string;
+  export class PathIO {
     constructor();
 
-    static getForUser(user: Object): UserDataPaths;
+    static readTextAsync(absolutePath: String, callback: (error: Error, result: String) => void): void ;
+    static readTextAsync(absolutePath: String, encoding: Number, callback: (error: Error, result: String) => void): void ;
 
 
-    static getDefault(): UserDataPaths;
+    static writeTextAsync(absolutePath: String, contents: String, callback: (error: Error) => void): void ;
+    static writeTextAsync(absolutePath: String, contents: String, encoding: Number, callback: (error: Error) => void): void ;
+
+
+    static appendTextAsync(absolutePath: String, contents: String, callback: (error: Error) => void): void ;
+    static appendTextAsync(absolutePath: String, contents: String, encoding: Number, callback: (error: Error) => void): void ;
+
+
+    static readLinesAsync(absolutePath: String, callback: (error: Error, result: Object) => void): void ;
+    static readLinesAsync(absolutePath: String, encoding: Number, callback: (error: Error, result: Object) => void): void ;
+
+
+    static writeLinesAsync(absolutePath: String, lines: Object, callback: (error: Error) => void): void ;
+    static writeLinesAsync(absolutePath: String, lines: Object, encoding: Number, callback: (error: Error) => void): void ;
+
+
+    static appendLinesAsync(absolutePath: String, lines: Object, callback: (error: Error) => void): void ;
+    static appendLinesAsync(absolutePath: String, lines: Object, encoding: Number, callback: (error: Error) => void): void ;
+
+
+    static readBufferAsync(absolutePath: String, callback: (error: Error, result: Object) => void): void ;
+
+
+    static writeBufferAsync(absolutePath: String, buffer: Object, callback: (error: Error) => void): void ;
+
+
+    static writeBytesAsync(absolutePath: String, buffer: Array<Number>, callback: (error: Error) => void): void ;
 
 
   }
 
-  export class AppDataPaths {
-    cookies: string;
-    desktop: string;
-    documents: string;
-    favorites: string;
-    history: string;
-    internetCache: string;
-    localAppData: string;
-    programData: string;
-    roamingAppData: string;
+  export class SetVersionDeferral {
     constructor();
 
-    static getForUser(user: Object): AppDataPaths;
-
-
-    static getDefault(): AppDataPaths;
-
+    complete(): void;
 
   }
 
-  export class SystemDataPaths {
-    fonts: string;
-    programData: string;
-    public: string;
-    publicDesktop: string;
-    publicDocuments: string;
-    publicDownloads: string;
-    publicMusic: string;
-    publicPictures: string;
-    publicVideos: string;
-    system: string;
-    systemArm: string;
-    systemHost: string;
-    systemX64: string;
-    systemX86: string;
-    userProfiles: string;
-    windows: string;
+  export class SetVersionRequest {
+    currentVersion: Number;
+    desiredVersion: Number;
     constructor();
 
-    static getDefault(): SystemDataPaths;
-
+    getDeferral(): SetVersionDeferral;
 
   }
 
   export class StorageFile {
-    contentType: string;
-    fileType: string;
-    isAvailable: boolean;
+    contentType: String;
+    fileType: String;
+    isAvailable: Boolean;
     attributes: FileAttributes;
     dateCreated: Date;
-    name: string;
-    path: string;
-    displayName: string;
-    displayType: string;
-    folderRelativeId: string;
+    name: String;
+    path: String;
+    displayName: String;
+    displayType: String;
+    folderRelativeId: String;
     properties: Object;
     provider: StorageProvider;
     constructor();
 
-    static getFileFromPathAsync(path: string, callback: (error: Error, result: StorageFile) => void): void ;
+    static getFileFromPathForUserAsync(user: Object, path: String, callback: (error: Error, result: StorageFile) => void): void ;
+
+
+    static getFileFromPathAsync(path: String, callback: (error: Error, result: StorageFile) => void): void ;
 
 
     static getFileFromApplicationUriAsync(uri: Object, callback: (error: Error, result: StorageFile) => void): void ;
 
 
-    static createStreamedFileAsync(displayNameWithExtension: string, dataRequested: Object, thumbnail: Object, callback: (error: Error, result: StorageFile) => void): void ;
+    static createStreamedFileAsync(displayNameWithExtension: String, dataRequested: Object, thumbnail: Object, callback: (error: Error, result: StorageFile) => void): void ;
 
 
     static replaceWithStreamedFileAsync(fileToReplace: IStorageFile, dataRequested: Object, thumbnail: Object, callback: (error: Error, result: StorageFile) => void): void ;
 
 
-    static createStreamedFileFromUriAsync(displayNameWithExtension: string, uri: Object, thumbnail: Object, callback: (error: Error, result: StorageFile) => void): void ;
+    static createStreamedFileFromUriAsync(displayNameWithExtension: String, uri: Object, thumbnail: Object, callback: (error: Error, result: StorageFile) => void): void ;
 
 
     static replaceWithStreamedFileFromUriAsync(fileToReplace: IStorageFile, uri: Object, thumbnail: Object, callback: (error: Error, result: StorageFile) => void): void ;
@@ -364,19 +573,19 @@
     openTransactedWriteAsync(options: StorageOpenOptions, callback: (error: Error, result: StorageStreamTransaction) => void): void ;
 
     copyAsync(destinationFolder: IStorageFolder, callback: (error: Error, result: StorageFile) => void): void ;
-    copyAsync(destinationFolder: IStorageFolder, desiredNewName: string, callback: (error: Error, result: StorageFile) => void): void ;
-    copyAsync(destinationFolder: IStorageFolder, desiredNewName: string, option: NameCollisionOption, callback: (error: Error, result: StorageFile) => void): void ;
+    copyAsync(destinationFolder: IStorageFolder, desiredNewName: String, callback: (error: Error, result: StorageFile) => void): void ;
+    copyAsync(destinationFolder: IStorageFolder, desiredNewName: String, option: NameCollisionOption, callback: (error: Error, result: StorageFile) => void): void ;
 
     copyAndReplaceAsync(fileToReplace: IStorageFile, callback: (error: Error) => void): void ;
 
     moveAsync(destinationFolder: IStorageFolder, callback: (error: Error) => void): void ;
-    moveAsync(destinationFolder: IStorageFolder, desiredNewName: string, callback: (error: Error) => void): void ;
-    moveAsync(destinationFolder: IStorageFolder, desiredNewName: string, option: NameCollisionOption, callback: (error: Error) => void): void ;
+    moveAsync(destinationFolder: IStorageFolder, desiredNewName: String, callback: (error: Error) => void): void ;
+    moveAsync(destinationFolder: IStorageFolder, desiredNewName: String, option: NameCollisionOption, callback: (error: Error) => void): void ;
 
     moveAndReplaceAsync(fileToReplace: IStorageFile, callback: (error: Error) => void): void ;
 
-    renameAsync(desiredName: string, callback: (error: Error) => void): void ;
-    renameAsync(desiredName: string, option: NameCollisionOption, callback: (error: Error) => void): void ;
+    renameAsync(desiredName: String, callback: (error: Error) => void): void ;
+    renameAsync(desiredName: String, option: NameCollisionOption, callback: (error: Error) => void): void ;
 
     deleteAsync(callback: (error: Error) => void): void ;
     deleteAsync(option: StorageDeleteOption, callback: (error: Error) => void): void ;
@@ -387,71 +596,153 @@
 
     openSequentialReadAsync(callback: (error: Error, result: Object) => void): void ;
 
-    getThumbnailAsync(mode: number, callback: (error: Error, result: Object) => void): void ;
-    getThumbnailAsync(mode: number, requestedSize: number, callback: (error: Error, result: Object) => void): void ;
-    getThumbnailAsync(mode: number, requestedSize: number, options: number, callback: (error: Error, result: Object) => void): void ;
+    getThumbnailAsync(mode: Number, callback: (error: Error, result: Object) => void): void ;
+    getThumbnailAsync(mode: Number, requestedSize: Number, callback: (error: Error, result: Object) => void): void ;
+    getThumbnailAsync(mode: Number, requestedSize: Number, options: Number, callback: (error: Error, result: Object) => void): void ;
 
-    getScaledImageAsThumbnailAsync(mode: number, callback: (error: Error, result: Object) => void): void ;
-    getScaledImageAsThumbnailAsync(mode: number, requestedSize: number, callback: (error: Error, result: Object) => void): void ;
-    getScaledImageAsThumbnailAsync(mode: number, requestedSize: number, options: number, callback: (error: Error, result: Object) => void): void ;
+    getScaledImageAsThumbnailAsync(mode: Number, callback: (error: Error, result: Object) => void): void ;
+    getScaledImageAsThumbnailAsync(mode: Number, requestedSize: Number, callback: (error: Error, result: Object) => void): void ;
+    getScaledImageAsThumbnailAsync(mode: Number, requestedSize: Number, options: Number, callback: (error: Error, result: Object) => void): void ;
 
     getParentAsync(callback: (error: Error, result: StorageFolder) => void): void ;
 
-    isOfType(type: StorageItemTypes): boolean;
+    isOfType(type: StorageItemTypes): Boolean;
 
-    isEqual(item: IStorageItem): boolean;
-
-  }
-
-  export class DownloadsFolder {
-    constructor();
-
-    static createFileForUserAsync(user: Object, desiredName: string, callback: (error: Error, result: StorageFile) => void): void ;
-    static createFileForUserAsync(user: Object, desiredName: string, option: CreationCollisionOption, callback: (error: Error, result: StorageFile) => void): void ;
-
-
-    static createFolderForUserAsync(user: Object, desiredName: string, callback: (error: Error, result: StorageFolder) => void): void ;
-    static createFolderForUserAsync(user: Object, desiredName: string, option: CreationCollisionOption, callback: (error: Error, result: StorageFolder) => void): void ;
-
-
-    static createFileAsync(desiredName: string, callback: (error: Error, result: StorageFile) => void): void ;
-    static createFileAsync(desiredName: string, option: CreationCollisionOption, callback: (error: Error, result: StorageFile) => void): void ;
-
-
-    static createFolderAsync(desiredName: string, callback: (error: Error, result: StorageFolder) => void): void ;
-    static createFolderAsync(desiredName: string, option: CreationCollisionOption, callback: (error: Error, result: StorageFolder) => void): void ;
-
+    isEqual(item: IStorageItem): Boolean;
 
   }
 
-  export class IStorageItem {
+  export class StorageFolder {
     attributes: FileAttributes;
     dateCreated: Date;
-    name: string;
-    path: string;
+    name: String;
+    path: String;
+    displayName: String;
+    displayType: String;
+    folderRelativeId: String;
+    properties: Object;
+    provider: StorageProvider;
     constructor();
 
-    renameAsync(desiredName: string, callback: (error: Error) => void): void ;
-    renameAsync(desiredName: string, option: NameCollisionOption, callback: (error: Error) => void): void ;
+    static getFolderFromPathForUserAsync(user: Object, path: String, callback: (error: Error, result: StorageFolder) => void): void ;
+
+
+    static getFolderFromPathAsync(path: String, callback: (error: Error, result: StorageFolder) => void): void ;
+
+
+    createFileAsync(desiredName: String, callback: (error: Error, result: StorageFile) => void): void ;
+    createFileAsync(desiredName: String, options: CreationCollisionOption, callback: (error: Error, result: StorageFile) => void): void ;
+
+    createFolderAsync(desiredName: String, callback: (error: Error, result: StorageFolder) => void): void ;
+    createFolderAsync(desiredName: String, options: CreationCollisionOption, callback: (error: Error, result: StorageFolder) => void): void ;
+
+    getFileAsync(name: String, callback: (error: Error, result: StorageFile) => void): void ;
+
+    getFolderAsync(name: String, callback: (error: Error, result: StorageFolder) => void): void ;
+
+    getItemAsync(name: String, callback: (error: Error, result: IStorageItem) => void): void ;
+
+    getFilesAsync(callback: (error: Error, result: Object) => void): void ;
+    getFilesAsync(query: Number, startIndex: Number, maxItemsToRetrieve: Number, callback: (error: Error, result: Object) => void): void ;
+    getFilesAsync(query: Number, callback: (error: Error, result: Object) => void): void ;
+
+    getFoldersAsync(callback: (error: Error, result: Object) => void): void ;
+    getFoldersAsync(query: Number, startIndex: Number, maxItemsToRetrieve: Number, callback: (error: Error, result: Object) => void): void ;
+    getFoldersAsync(query: Number, callback: (error: Error, result: Object) => void): void ;
+
+    getItemsAsync(callback: (error: Error, result: Object) => void): void ;
+    getItemsAsync(startIndex: Number, maxItemsToRetrieve: Number, callback: (error: Error, result: Object) => void): void ;
+
+    renameAsync(desiredName: String, callback: (error: Error) => void): void ;
+    renameAsync(desiredName: String, option: NameCollisionOption, callback: (error: Error) => void): void ;
 
     deleteAsync(callback: (error: Error) => void): void ;
     deleteAsync(option: StorageDeleteOption, callback: (error: Error) => void): void ;
 
     getBasicPropertiesAsync(callback: (error: Error, result: Object) => void): void ;
 
-    isOfType(type: StorageItemTypes): boolean;
+    getIndexedStateAsync(callback: (error: Error, result: Number) => void): void ;
+
+    getThumbnailAsync(mode: Number, callback: (error: Error, result: Object) => void): void ;
+    getThumbnailAsync(mode: Number, requestedSize: Number, callback: (error: Error, result: Object) => void): void ;
+    getThumbnailAsync(mode: Number, requestedSize: Number, options: Number, callback: (error: Error, result: Object) => void): void ;
+
+    getScaledImageAsThumbnailAsync(mode: Number, callback: (error: Error, result: Object) => void): void ;
+    getScaledImageAsThumbnailAsync(mode: Number, requestedSize: Number, callback: (error: Error, result: Object) => void): void ;
+    getScaledImageAsThumbnailAsync(mode: Number, requestedSize: Number, options: Number, callback: (error: Error, result: Object) => void): void ;
+
+    getParentAsync(callback: (error: Error, result: StorageFolder) => void): void ;
+
+    tryGetItemAsync(name: String, callback: (error: Error, result: IStorageItem) => void): void ;
+
+    tryGetChangeTracker(): StorageLibraryChangeTracker;
+
+    isOfType(type: StorageItemTypes): Boolean;
+
+    createFileQuery(): Object;
+    createFileQuery(query: Number): Object;
+
+    createFileQueryWithOptions(queryOptions: Object): Object;
+
+    createFolderQuery(): Object;
+    createFolderQuery(query: Number): Object;
+
+    createFolderQueryWithOptions(queryOptions: Object): Object;
+
+    createItemQuery(): Object;
+
+    createItemQueryWithOptions(queryOptions: Object): Object;
+
+    areQueryOptionsSupported(queryOptions: Object): Boolean;
+
+    isCommonFolderQuerySupported(query: Number): Boolean;
+
+    isCommonFileQuerySupported(query: Number): Boolean;
+
+    isEqual(item: IStorageItem): Boolean;
+
+  }
+
+  export class StorageLibrary {
+    folders: Object;
+    saveFolder: StorageFolder;
+    changeTracker: StorageLibraryChangeTracker;
+    constructor();
+
+    static getLibraryForUserAsync(user: Object, libraryId: KnownLibraryId, callback: (error: Error, result: StorageLibrary) => void): void ;
+
+
+    static getLibraryAsync(libraryId: KnownLibraryId, callback: (error: Error, result: StorageLibrary) => void): void ;
+
+
+    requestAddFolderAsync(callback: (error: Error, result: StorageFolder) => void): void ;
+
+    requestRemoveFolderAsync(folder: StorageFolder, callback: (error: Error, result: Boolean) => void): void ;
+
+    areFolderSuggestionsAvailableAsync(callback: (error: Error, result: Boolean) => void): void ;
+
+    addListener(type: "DefinitionChanged", listener: (ev: Event) => void): void ;
+    removeListener(type: "DefinitionChanged", listener: (ev: Event) => void): void ;
+    on(type: "DefinitionChanged", listener: (ev: Event) => void): void ;
+    off(type: "DefinitionChanged", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
 
   }
 
   export class StorageLibraryChange {
     changeType: StorageLibraryChangeType;
-    path: string;
-    previousPath: string;
+    path: String;
+    previousPath: String;
     constructor();
 
     getStorageItemAsync(callback: (error: Error, result: IStorageItem) => void): void ;
 
-    isOfType(type: StorageItemTypes): boolean;
+    isOfType(type: StorageItemTypes): Boolean;
 
   }
 
@@ -462,24 +753,42 @@
 
     acceptChangesAsync(callback: (error: Error) => void): void ;
 
-  }
-
-  export class IStreamedFileDataRequest {
-    constructor();
-
-    failAndClose(failureMode: StreamedFileFailureMode): void;
+    getLastChangeId(): Number;
 
   }
 
-  export class StreamedFileDataRequest {
+  export class StorageLibraryChangeTracker {
     constructor();
 
-    writeAsync(buffer: Object, callback: (error: Error, result: number) => void): void ;
+    getChangeReader(): StorageLibraryChangeReader;
 
-    flushAsync(callback: (error: Error, result: boolean) => void): void ;
+    enable(): void;
+    enable(options: StorageLibraryChangeTrackerOptions): void;
 
-    close(): void;
-    failAndClose(failureMode: StreamedFileFailureMode): void;
+    reset(): void;
+
+    disable(): void;
+
+  }
+
+  export class StorageLibraryChangeTrackerOptions {
+    trackChangeDetails: Boolean;
+    constructor();
+
+  }
+
+  export class StorageLibraryLastChangeId {
+    static unknown: Number;
+    constructor();
+
+  }
+
+  export class StorageProvider {
+    displayName: String;
+    id: String;
+    constructor();
+
+    isPropertySupportedForPartialFileAsync(propertyCanonicalName: String, callback: (error: Error, result: Boolean) => void): void ;
 
   }
 
@@ -492,418 +801,212 @@
     close(): void;
   }
 
-  export class IStorageFolder {
+  export class StreamedFileDataRequest {
     constructor();
 
-    createFileAsync(desiredName: string, callback: (error: Error, result: StorageFile) => void): void ;
-    createFileAsync(desiredName: string, options: CreationCollisionOption, callback: (error: Error, result: StorageFile) => void): void ;
+    writeAsync(buffer: Object, callback: (error: Error, result: Number) => void): void ;
 
-    createFolderAsync(desiredName: string, callback: (error: Error, result: StorageFolder) => void): void ;
-    createFolderAsync(desiredName: string, options: CreationCollisionOption, callback: (error: Error, result: StorageFolder) => void): void ;
+    flushAsync(callback: (error: Error, result: Boolean) => void): void ;
 
-    getFileAsync(name: string, callback: (error: Error, result: StorageFile) => void): void ;
-
-    getFolderAsync(name: string, callback: (error: Error, result: StorageFolder) => void): void ;
-
-    getItemAsync(name: string, callback: (error: Error, result: IStorageItem) => void): void ;
-
-    getFilesAsync(callback: (error: Error, result: Object) => void): void ;
-
-    getFoldersAsync(callback: (error: Error, result: Object) => void): void ;
-
-    getItemsAsync(callback: (error: Error, result: Object) => void): void ;
-
-  }
-
-  export class IStorageFile {
-    contentType: string;
-    fileType: string;
-    constructor();
-
-    openAsync(accessMode: FileAccessMode, callback: (error: Error, result: Object) => void): void ;
-
-    openTransactedWriteAsync(callback: (error: Error, result: StorageStreamTransaction) => void): void ;
-
-    copyAsync(destinationFolder: IStorageFolder, callback: (error: Error, result: StorageFile) => void): void ;
-    copyAsync(destinationFolder: IStorageFolder, desiredNewName: string, callback: (error: Error, result: StorageFile) => void): void ;
-    copyAsync(destinationFolder: IStorageFolder, desiredNewName: string, option: NameCollisionOption, callback: (error: Error, result: StorageFile) => void): void ;
-
-    copyAndReplaceAsync(fileToReplace: IStorageFile, callback: (error: Error) => void): void ;
-
-    moveAsync(destinationFolder: IStorageFolder, callback: (error: Error) => void): void ;
-    moveAsync(destinationFolder: IStorageFolder, desiredNewName: string, callback: (error: Error) => void): void ;
-    moveAsync(destinationFolder: IStorageFolder, desiredNewName: string, option: NameCollisionOption, callback: (error: Error) => void): void ;
-
-    moveAndReplaceAsync(fileToReplace: IStorageFile, callback: (error: Error) => void): void ;
-
-  }
-
-  export class IStorageItem2 {
-    constructor();
-
-    getParentAsync(callback: (error: Error, result: StorageFolder) => void): void ;
-
-    isEqual(item: IStorageItem): boolean;
-
-  }
-
-  export class IStorageItemProperties {
-    displayName: string;
-    displayType: string;
-    folderRelativeId: string;
-    properties: Object;
-    constructor();
-
-    getThumbnailAsync(mode: number, callback: (error: Error, result: Object) => void): void ;
-    getThumbnailAsync(mode: number, requestedSize: number, callback: (error: Error, result: Object) => void): void ;
-    getThumbnailAsync(mode: number, requestedSize: number, options: number, callback: (error: Error, result: Object) => void): void ;
-
-  }
-
-  export class IStorageItemProperties2 {
-    constructor();
-
-    getScaledImageAsThumbnailAsync(mode: number, callback: (error: Error, result: Object) => void): void ;
-    getScaledImageAsThumbnailAsync(mode: number, requestedSize: number, callback: (error: Error, result: Object) => void): void ;
-    getScaledImageAsThumbnailAsync(mode: number, requestedSize: number, options: number, callback: (error: Error, result: Object) => void): void ;
-
-  }
-
-  export class IStorageItemPropertiesWithProvider {
-    provider: StorageProvider;
-    constructor();
-
-  }
-
-  export class StorageProvider {
-    displayName: string;
-    id: string;
-    constructor();
-
-    isPropertySupportedForPartialFileAsync(propertyCanonicalName: string, callback: (error: Error, result: boolean) => void): void ;
-
-  }
-
-  export class IStorageFilePropertiesWithAvailability {
-    isAvailable: boolean;
-    constructor();
-
-  }
-
-  export class IStorageFolder2 {
-    constructor();
-
-    tryGetItemAsync(name: string, callback: (error: Error, result: IStorageItem) => void): void ;
-
-  }
-
-  export class IStorageFile2 {
-    constructor();
-
-    openAsync(accessMode: FileAccessMode, options: StorageOpenOptions, callback: (error: Error, result: Object) => void): void ;
-
-    openTransactedWriteAsync(options: StorageOpenOptions, callback: (error: Error, result: StorageStreamTransaction) => void): void ;
-
-  }
-
-  export class FileIO {
-    constructor();
-
-    static readTextAsync(file: IStorageFile, callback: (error: Error, result: string) => void): void ;
-    static readTextAsync(file: IStorageFile, encoding: number, callback: (error: Error, result: string) => void): void ;
-
-
-    static writeTextAsync(file: IStorageFile, contents: string, callback: (error: Error) => void): void ;
-    static writeTextAsync(file: IStorageFile, contents: string, encoding: number, callback: (error: Error) => void): void ;
-
-
-    static appendTextAsync(file: IStorageFile, contents: string, callback: (error: Error) => void): void ;
-    static appendTextAsync(file: IStorageFile, contents: string, encoding: number, callback: (error: Error) => void): void ;
-
-
-    static readLinesAsync(file: IStorageFile, callback: (error: Error, result: Object) => void): void ;
-    static readLinesAsync(file: IStorageFile, encoding: number, callback: (error: Error, result: Object) => void): void ;
-
-
-    static writeLinesAsync(file: IStorageFile, lines: Object, callback: (error: Error) => void): void ;
-    static writeLinesAsync(file: IStorageFile, lines: Object, encoding: number, callback: (error: Error) => void): void ;
-
-
-    static appendLinesAsync(file: IStorageFile, lines: Object, callback: (error: Error) => void): void ;
-    static appendLinesAsync(file: IStorageFile, lines: Object, encoding: number, callback: (error: Error) => void): void ;
-
-
-    static readBufferAsync(file: IStorageFile, callback: (error: Error, result: Object) => void): void ;
-
-
-    static writeBufferAsync(file: IStorageFile, buffer: Object, callback: (error: Error) => void): void ;
-
-
-    static writeBytesAsync(file: IStorageFile, buffer: Array<number>, callback: (error: Error) => void): void ;
-
-
-  }
-
-  export class PathIO {
-    constructor();
-
-    static readTextAsync(absolutePath: string, callback: (error: Error, result: string) => void): void ;
-    static readTextAsync(absolutePath: string, encoding: number, callback: (error: Error, result: string) => void): void ;
-
-
-    static writeTextAsync(absolutePath: string, contents: string, callback: (error: Error) => void): void ;
-    static writeTextAsync(absolutePath: string, contents: string, encoding: number, callback: (error: Error) => void): void ;
-
-
-    static appendTextAsync(absolutePath: string, contents: string, callback: (error: Error) => void): void ;
-    static appendTextAsync(absolutePath: string, contents: string, encoding: number, callback: (error: Error) => void): void ;
-
-
-    static readLinesAsync(absolutePath: string, callback: (error: Error, result: Object) => void): void ;
-    static readLinesAsync(absolutePath: string, encoding: number, callback: (error: Error, result: Object) => void): void ;
-
-
-    static writeLinesAsync(absolutePath: string, lines: Object, callback: (error: Error) => void): void ;
-    static writeLinesAsync(absolutePath: string, lines: Object, encoding: number, callback: (error: Error) => void): void ;
-
-
-    static appendLinesAsync(absolutePath: string, lines: Object, callback: (error: Error) => void): void ;
-    static appendLinesAsync(absolutePath: string, lines: Object, encoding: number, callback: (error: Error) => void): void ;
-
-
-    static readBufferAsync(absolutePath: string, callback: (error: Error, result: Object) => void): void ;
-
-
-    static writeBufferAsync(absolutePath: string, buffer: Object, callback: (error: Error) => void): void ;
-
-
-    static writeBytesAsync(absolutePath: string, buffer: Array<number>, callback: (error: Error) => void): void ;
-
-
-  }
-
-  export class CachedFileManager {
-    constructor();
-
-    static completeUpdatesAsync(file: IStorageFile, callback: (error: Error, result: number) => void): void ;
-
-
-    static deferUpdates(file: IStorageFile): void;
-
+    close(): void;
+    failAndClose(failureMode: StreamedFileFailureMode): void;
 
   }
 
   export class SystemAudioProperties {
-    encodingBitrate: string;
+    encodingBitrate: String;
     constructor();
 
   }
 
+  export class SystemDataPaths {
+    fonts: String;
+    programData: String;
+    public: String;
+    publicDesktop: String;
+    publicDocuments: String;
+    publicDownloads: String;
+    publicMusic: String;
+    publicPictures: String;
+    publicVideos: String;
+    system: String;
+    systemArm: String;
+    systemHost: String;
+    systemX64: String;
+    systemX86: String;
+    userProfiles: String;
+    windows: String;
+    constructor();
+
+    static getDefault(): SystemDataPaths;
+
+
+  }
+
   export class SystemGPSProperties {
-    latitudeDecimal: string;
-    longitudeDecimal: string;
+    latitudeDecimal: String;
+    longitudeDecimal: String;
     constructor();
 
   }
 
   export class SystemImageProperties {
-    horizontalSize: string;
-    verticalSize: string;
+    horizontalSize: String;
+    verticalSize: String;
     constructor();
 
   }
 
   export class SystemMediaProperties {
-    duration: string;
-    producer: string;
-    publisher: string;
-    subTitle: string;
-    writer: string;
-    year: string;
+    duration: String;
+    producer: String;
+    publisher: String;
+    subTitle: String;
+    writer: String;
+    year: String;
     constructor();
 
   }
 
   export class SystemMusicProperties {
-    albumArtist: string;
-    albumTitle: string;
-    artist: string;
-    composer: string;
-    conductor: string;
-    displayArtist: string;
-    genre: string;
-    trackNumber: string;
+    albumArtist: String;
+    albumTitle: String;
+    artist: String;
+    composer: String;
+    conductor: String;
+    displayArtist: String;
+    genre: String;
+    trackNumber: String;
     constructor();
 
   }
 
   export class SystemPhotoProperties {
-    cameraManufacturer: string;
-    cameraModel: string;
-    dateTaken: string;
-    orientation: string;
-    peopleNames: string;
-    constructor();
-
-  }
-
-  export class SystemVideoProperties {
-    director: string;
-    frameHeight: string;
-    frameWidth: string;
-    orientation: string;
-    totalBitrate: string;
+    cameraManufacturer: String;
+    cameraModel: String;
+    dateTaken: String;
+    orientation: String;
+    peopleNames: String;
     constructor();
 
   }
 
   export class SystemProperties {
     static audio: SystemAudioProperties;
-    static author: string;
-    static comment: string;
+    static author: String;
+    static comment: String;
     static gPS: SystemGPSProperties;
     static image: SystemImageProperties;
-    static itemNameDisplay: string;
-    static keywords: string;
+    static itemNameDisplay: String;
+    static keywords: String;
     static media: SystemMediaProperties;
     static music: SystemMusicProperties;
     static photo: SystemPhotoProperties;
-    static rating: string;
-    static title: string;
+    static rating: String;
+    static title: String;
     static video: SystemVideoProperties;
     constructor();
 
   }
 
-  export class ApplicationData {
-    static current: ApplicationData;
-    localFolder: StorageFolder;
-    localSettings: ApplicationDataContainer;
-    roamingFolder: StorageFolder;
-    roamingSettings: ApplicationDataContainer;
-    roamingStorageQuota: number;
-    temporaryFolder: StorageFolder;
-    version: number;
-    localCacheFolder: StorageFolder;
-    sharedLocalFolder: StorageFolder;
+  export class SystemVideoProperties {
+    director: String;
+    frameHeight: String;
+    frameWidth: String;
+    orientation: String;
+    totalBitrate: String;
     constructor();
-
-    static getForUserAsync(user: Object, callback: (error: Error, result: ApplicationData) => void): void ;
-
-
-    setVersionAsync(desiredVersion: number, handler: Object, callback: (error: Error) => void): void ;
-
-    clearAsync(callback: (error: Error) => void): void ;
-    clearAsync(locality: ApplicationDataLocality, callback: (error: Error) => void): void ;
-
-    clearPublisherCacheFolderAsync(folderName: string, callback: (error: Error) => void): void ;
-
-    signalDataChanged(): void;
-
-    getPublisherCacheFolder(folderName: string): StorageFolder;
-
-    addListener(type: "DataChanged", listener: (ev: Event) => void): void ;
-    removeListener(type: "DataChanged", listener: (ev: Event) => void): void ;
-    on(type: "DataChanged", listener: (ev: Event) => void): void ;
-    off(type: "DataChanged", listener: (ev: Event) => void): void ;
-    
-    addListener(type: string, listener: (ev: Event) => void): void ;
-    removeListener(type: string, listener: (ev: Event) => void): void ;
-    on(type: string, listener: (ev: Event) => void): void ;
-    off(type: string, listener: (ev: Event) => void): void ;
-    
 
   }
 
-  export class SetVersionRequest {
-    currentVersion: number;
-    desiredVersion: number;
+  export class UserDataPaths {
+    cameraRoll: String;
+    cookies: String;
+    desktop: String;
+    documents: String;
+    downloads: String;
+    favorites: String;
+    history: String;
+    internetCache: String;
+    localAppData: String;
+    localAppDataLow: String;
+    music: String;
+    pictures: String;
+    profile: String;
+    recent: String;
+    roamingAppData: String;
+    savedPictures: String;
+    screenshots: String;
+    templates: String;
+    videos: String;
     constructor();
 
-    getDeferral(): SetVersionDeferral;
+    static getForUser(user: Object): UserDataPaths;
+
+
+    static getDefault(): UserDataPaths;
+
 
   }
 
-  export class ApplicationDataContainer {
-    containers: Object;
-    locality: ApplicationDataLocality;
-    name: string;
-    values: Object;
-    constructor();
-
-    createContainer(name: string, disposition: ApplicationDataCreateDisposition): ApplicationDataContainer;
-
-    deleteContainer(name: string): void;
-
-  }
-
-  export class SetVersionDeferral {
-    constructor();
-
-    complete(): void;
-
-  }
-
-  export class ApplicationDataContainerSettings {
-    constructor();
-
-    lookup(key: string): Object;
-
-    hasKey(key: string): boolean;
-
-    getView(): Object;
-
-    insert(key: string, value: Object): boolean;
-
-    remove(key: string): void;
-
-    clear(): void;
-
-    first(): Object;
-
-    addListener(type: "MapChanged", listener: (ev: Event) => void): void ;
-    removeListener(type: "MapChanged", listener: (ev: Event) => void): void ;
-    on(type: "MapChanged", listener: (ev: Event) => void): void ;
-    off(type: "MapChanged", listener: (ev: Event) => void): void ;
-    
-    addListener(type: string, listener: (ev: Event) => void): void ;
-    removeListener(type: string, listener: (ev: Event) => void): void ;
-    on(type: string, listener: (ev: Event) => void): void ;
-    off(type: string, listener: (ev: Event) => void): void ;
-    
-
-  }
-
-  export class ApplicationDataCompositeValue {
-    constructor();
-
-    lookup(key: string): Object;
-
-    hasKey(key: string): boolean;
-
-    getView(): Object;
-
-    insert(key: string, value: Object): boolean;
-
-    remove(key: string): void;
-
-    clear(): void;
-
-    first(): Object;
-
-    addListener(type: "MapChanged", listener: (ev: Event) => void): void ;
-    removeListener(type: "MapChanged", listener: (ev: Event) => void): void ;
-    on(type: "MapChanged", listener: (ev: Event) => void): void ;
-    off(type: "MapChanged", listener: (ev: Event) => void): void ;
-    
-    addListener(type: string, listener: (ev: Event) => void): void ;
-    removeListener(type: string, listener: (ev: Event) => void): void ;
-    on(type: string, listener: (ev: Event) => void): void ;
-    off(type: string, listener: (ev: Event) => void): void ;
-    
-
-  }
-
+export const ApplicationDataCreateDisposition: any;
+export const ApplicationDataLocality: any;
+export const CreationCollisionOption: any;
+export const FileAccessMode: any;
+export const FileAttributes: any;
+export const KnownFolderId: any;
+export const KnownFoldersAccessStatus: any;
+export const KnownLibraryId: any;
+export const NameCollisionOption: any;
+export const StorageDeleteOption: any;
+export const StorageItemTypes: any;
+export const StorageLibraryChangeType: any;
+export const StorageOpenOptions: any;
+export const StreamedFileFailureMode: any;
+export const AppDataPaths: any;
+export const ApplicationData: any;
+export const ApplicationDataCompositeValue: any;
+export const ApplicationDataContainer: any;
+export const ApplicationDataContainerSettings: any;
+export const CachedFileManager: any;
+export const DownloadsFolder: any;
+export const FileIO: any;
+export const IStorageFile: any;
+export const IStorageFile2: any;
+export const IStorageFilePropertiesWithAvailability: any;
+export const IStorageFolder: any;
+export const IStorageFolder2: any;
+export const IStorageItem: any;
+export const IStorageItem2: any;
+export const IStorageItemProperties: any;
+export const IStorageItemProperties2: any;
+export const IStorageItemPropertiesWithProvider: any;
+export const IStreamedFileDataRequest: any;
+export const KnownFolders: any;
+export const PathIO: any;
+export const SetVersionDeferral: any;
+export const SetVersionRequest: any;
+export const StorageFile: any;
+export const StorageFolder: any;
+export const StorageLibrary: any;
+export const StorageLibraryChange: any;
+export const StorageLibraryChangeReader: any;
+export const StorageLibraryChangeTracker: any;
+export const StorageLibraryChangeTrackerOptions: any;
+export const StorageLibraryLastChangeId: any;
+export const StorageProvider: any;
+export const StorageStreamTransaction: any;
+export const StreamedFileDataRequest: any;
+export const SystemAudioProperties: any;
+export const SystemDataPaths: any;
+export const SystemGPSProperties: any;
+export const SystemImageProperties: any;
+export const SystemMediaProperties: any;
+export const SystemMusicProperties: any;
+export const SystemPhotoProperties: any;
+export const SystemProperties: any;
+export const SystemVideoProperties: any;
+export const UserDataPaths: any;
 export * as accesscache from "./storage.accesscache.js";
 export * as bulkaccess from "./storage.bulkaccess.js";
 export * as compression from "./storage.compression.js";

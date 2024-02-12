@@ -1,17 +1,21 @@
+  export class Color {
+    constructor();
+  }
+
   export class CloudFilesContract {
     constructor();
+  }
+
+  export enum CachedFileOptions {
+    none,
+    requireUpdateOnAccess,
+    useCachedFileWhenOffline,
+    denyAccessWhenOffline,
   }
 
   export enum CachedFileTarget {
     local,
     remote,
-  }
-
-  export enum UIStatus {
-    unavailable,
-    hidden,
-    visible,
-    complete,
   }
 
   export enum FileUpdateStatus {
@@ -23,22 +27,14 @@
     completeAndRenamed,
   }
 
-  export enum CachedFileOptions {
-    none,
-    requireUpdateOnAccess,
-    useCachedFileWhenOffline,
-    denyAccessWhenOffline,
-  }
-
   export enum ReadActivationMode {
     notNeeded,
     beforeAccess,
   }
 
-  export enum WriteActivationMode {
-    readOnly,
-    notNeeded,
-    afterWrite,
+  export enum StorageProviderHardlinkPolicy {
+    none,
+    allowed,
   }
 
   export enum StorageProviderHydrationPolicy {
@@ -48,15 +44,12 @@
     alwaysFull,
   }
 
-  export enum StorageProviderPopulationPolicy {
-    full,
-    alwaysFull,
-  }
-
   export enum StorageProviderHydrationPolicyModifier {
     none,
     validationRequired,
     streamingAllowed,
+    autoDehydrationAllowed,
+    allowFullRestartHydration,
   }
 
   export enum StorageProviderInSyncPolicy {
@@ -74,14 +67,29 @@
     preserveInsyncForSyncEngine,
   }
 
-  export enum StorageProviderHardlinkPolicy {
-    none,
-    allowed,
+  export enum StorageProviderPopulationPolicy {
+    full,
+    alwaysFull,
   }
 
   export enum StorageProviderProtectionMode {
     unknown,
     personal,
+  }
+
+  export enum StorageProviderState {
+    inSync,
+    syncing,
+    paused,
+    error,
+    warning,
+    offline,
+  }
+
+  export enum StorageProviderUICommandState {
+    enabled,
+    disabled,
+    hidden,
   }
 
   export enum StorageProviderUriSourceStatus {
@@ -90,8 +98,29 @@
     fileNotFound,
   }
 
+  export enum UIStatus {
+    unavailable,
+    hidden,
+    visible,
+    complete,
+  }
+
+  export enum WriteActivationMode {
+    readOnly,
+    notNeeded,
+    afterWrite,
+  }
+
+  export class CachedFileUpdater {
+    constructor();
+
+    static setUpdateInformation(file: Object, contentId: String, readMode: ReadActivationMode, writeMode: WriteActivationMode, options: CachedFileOptions): void;
+
+
+  }
+
   export class CachedFileUpdaterUI {
-    title: string;
+    title: String;
     uIStatus: UIStatus;
     updateTarget: CachedFileTarget;
     updateRequest: FileUpdateRequest;
@@ -117,17 +146,11 @@
 
   }
 
-  export class FileUpdateRequestedEventArgs {
-    request: FileUpdateRequest;
-    constructor();
-
-  }
-
   export class FileUpdateRequest {
     status: FileUpdateStatus;
-    contentId: string;
+    contentId: String;
     file: Object;
-    userInputNeededMessage: string;
+    userInputNeededMessage: String;
     constructor();
 
     getDeferral(): FileUpdateRequestDeferral;
@@ -143,25 +166,90 @@
 
   }
 
-  export class CachedFileUpdater {
+  export class FileUpdateRequestedEventArgs {
+    request: FileUpdateRequest;
     constructor();
 
-    static setUpdateInformation(file: Object, contentId: string, readMode: ReadActivationMode, writeMode: WriteActivationMode, options: CachedFileOptions): void;
+  }
 
+  export class IStorageProviderItemPropertySource {
+    constructor();
+
+    getItemProperties(itemPath: String): Object;
 
   }
 
   export class IStorageProviderPropertyCapabilities {
     constructor();
 
-    isPropertySupported(propertyCanonicalName: string): boolean;
+    isPropertySupported(propertyCanonicalName: String): Boolean;
 
   }
 
-  export class StorageProviderItemProperty {
-    value: string;
-    id: number;
-    iconResource: string;
+  export class IStorageProviderStatusUISource {
+    constructor();
+
+    getStatusUI(): StorageProviderStatusUI;
+
+    addListener(type: "StatusUIChanged", listener: (ev: Event) => void): void ;
+    removeListener(type: "StatusUIChanged", listener: (ev: Event) => void): void ;
+    on(type: "StatusUIChanged", listener: (ev: Event) => void): void ;
+    off(type: "StatusUIChanged", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
+
+  }
+
+  export class IStorageProviderStatusUISourceFactory {
+    constructor();
+
+    getStatusUISource(syncRootId: String): IStorageProviderStatusUISource;
+
+  }
+
+  export class IStorageProviderUICommand {
+    description: String;
+    icon: Object;
+    label: String;
+    state: StorageProviderUICommandState;
+    constructor();
+
+    invoke(): void;
+
+  }
+
+  export class IStorageProviderUriSource {
+    constructor();
+
+    getPathForContentUri(contentUri: String, result: StorageProviderGetPathForContentUriResult): void;
+
+    getContentInfoForPath(path: String, result: StorageProviderGetContentInfoForPathResult): void;
+
+  }
+
+  export class StorageProviderFileTypeInfo {
+    fileExtension: String;
+    iconResource: String;
+    constructor();
+    constructor(fileExtension: String, iconResource: String);
+
+  }
+
+  export class StorageProviderGetContentInfoForPathResult {
+    status: StorageProviderUriSourceStatus;
+    contentUri: String;
+    contentId: String;
+    constructor();
+
+  }
+
+  export class StorageProviderGetPathForContentUriResult {
+    status: StorageProviderUriSourceStatus;
+    path: String;
     constructor();
 
   }
@@ -174,78 +262,89 @@
 
   }
 
-  export class IStorageProviderItemPropertySource {
+  export class StorageProviderItemProperty {
+    value: String;
+    id: Number;
+    iconResource: String;
     constructor();
-
-    getItemProperties(itemPath: string): Object;
 
   }
 
   export class StorageProviderItemPropertyDefinition {
-    id: number;
-    displayNameResource: string;
+    id: Number;
+    displayNameResource: String;
+    constructor();
+
+  }
+
+  export class StorageProviderMoreInfoUI {
+    message: String;
+    command: IStorageProviderUICommand;
+    constructor();
+
+  }
+
+  export class StorageProviderQuotaUI {
+    quotaUsedLabel: String;
+    quotaUsedInBytes: Number;
+    quotaUsedColor: Object;
+    quotaTotalInBytes: Number;
+    constructor();
+
+  }
+
+  export class StorageProviderStatusUI {
+    syncStatusCommand: IStorageProviderUICommand;
+    quotaUI: StorageProviderQuotaUI;
+    providerStateLabel: String;
+    providerStateIcon: Object;
+    providerState: StorageProviderState;
+    providerSecondaryCommands: Object;
+    providerPrimaryCommand: IStorageProviderUICommand;
+    moreInfoUI: StorageProviderMoreInfoUI;
     constructor();
 
   }
 
   export class StorageProviderSyncRootInfo {
-    version: string;
-    showSiblingsAsGroup: boolean;
+    version: String;
+    showSiblingsAsGroup: Boolean;
     recycleBinUri: Object;
     protectionMode: StorageProviderProtectionMode;
     populationPolicy: StorageProviderPopulationPolicy;
     path: Object;
     inSyncPolicy: StorageProviderInSyncPolicy;
-    id: string;
-    iconResource: string;
+    id: String;
+    iconResource: String;
     hydrationPolicyModifier: StorageProviderHydrationPolicyModifier;
     hydrationPolicy: StorageProviderHydrationPolicy;
     hardlinkPolicy: StorageProviderHardlinkPolicy;
-    displayNameResource: string;
+    displayNameResource: String;
     context: Object;
-    allowPinning: boolean;
+    allowPinning: Boolean;
     storageProviderItemPropertyDefinitions: Object;
+    providerId: String;
+    fallbackFileTypeInfo: Object;
     constructor();
-
-  }
-
-  export class StorageProviderGetContentInfoForPathResult {
-    status: StorageProviderUriSourceStatus;
-    contentUri: string;
-    contentId: string;
-    constructor();
-
-  }
-
-  export class StorageProviderGetPathForContentUriResult {
-    status: StorageProviderUriSourceStatus;
-    path: string;
-    constructor();
-
-  }
-
-  export class IStorageProviderUriSource {
-    constructor();
-
-    getPathForContentUri(contentUri: string, result: StorageProviderGetPathForContentUriResult): void;
-
-    getContentInfoForPath(path: string, result: StorageProviderGetContentInfoForPathResult): void;
 
   }
 
   export class StorageProviderSyncRootManager {
     constructor();
 
+    static isSupported(): Boolean;
+
+
     static register(syncRootInformation: StorageProviderSyncRootInfo): void;
 
 
-    static unregister(id: string): void;
+    static unregister(id: String): void;
 
 
     static getSyncRootInformationForFolder(folder: Object): StorageProviderSyncRootInfo;
 
 
-    static getSyncRootInformationForId(id: string): StorageProviderSyncRootInfo;
+    static getSyncRootInformationForId(id: String): StorageProviderSyncRootInfo;
 
 
     static getCurrentSyncRoots(): Object;

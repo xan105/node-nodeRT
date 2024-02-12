@@ -7,44 +7,8 @@
     deferred,
   }
 
-  export class ICoreDropOperationTarget {
-    constructor();
-
-    enterAsync(dragInfo: CoreDragInfo, dragUIOverride: CoreDragUIOverride, callback: (error: Error, result: number) => void): void ;
-
-    overAsync(dragInfo: CoreDragInfo, dragUIOverride: CoreDragUIOverride, callback: (error: Error, result: number) => void): void ;
-
-    leaveAsync(dragInfo: CoreDragInfo, callback: (error: Error) => void): void ;
-
-    dropAsync(dragInfo: CoreDragInfo, callback: (error: Error, result: number) => void): void ;
-
-  }
-
-  export class CoreDragInfo {
-    data: Object;
-    modifiers: number;
-    position: Object;
-    allowedOperations: number;
-    constructor();
-
-  }
-
-  export class CoreDragUIOverride {
-    isGlyphVisible: boolean;
-    isContentVisible: boolean;
-    isCaptionVisible: boolean;
-    caption: string;
-    constructor();
-
-    setContentFromSoftwareBitmap(softwareBitmap: Object): void;
-    setContentFromSoftwareBitmap(softwareBitmap: Object, anchorPoint: Object): void;
-
-    clear(): void;
-
-  }
-
   export class CoreDragDropManager {
-    areConcurrentOperationsEnabled: boolean;
+    areConcurrentOperationsEnabled: Boolean;
     constructor();
 
     static getForCurrentView(): CoreDragDropManager;
@@ -63,6 +27,44 @@
 
   }
 
+  export class CoreDragInfo {
+    data: Object;
+    modifiers: Number;
+    position: Object;
+    allowedOperations: Number;
+    constructor();
+
+  }
+
+  export class CoreDragOperation {
+    dragUIContentMode: CoreDragUIContentMode;
+    data: Object;
+    allowedOperations: Number;
+    constructor();
+
+    startAsync(callback: (error: Error, result: Number) => void): void ;
+
+    setPointerId(pointerId: Number): void;
+
+    setDragUIContentFromSoftwareBitmap(softwareBitmap: Object): void;
+    setDragUIContentFromSoftwareBitmap(softwareBitmap: Object, anchorPoint: Object): void;
+
+  }
+
+  export class CoreDragUIOverride {
+    isGlyphVisible: Boolean;
+    isContentVisible: Boolean;
+    isCaptionVisible: Boolean;
+    caption: String;
+    constructor();
+
+    setContentFromSoftwareBitmap(softwareBitmap: Object): void;
+    setContentFromSoftwareBitmap(softwareBitmap: Object, anchorPoint: Object): void;
+
+    clear(): void;
+
+  }
+
   export class CoreDropOperationTargetRequestedEventArgs {
     constructor();
 
@@ -70,18 +72,16 @@
 
   }
 
-  export class CoreDragOperation {
-    dragUIContentMode: CoreDragUIContentMode;
-    data: Object;
-    allowedOperations: number;
+  export class ICoreDropOperationTarget {
     constructor();
 
-    startAsync(callback: (error: Error, result: number) => void): void ;
+    enterAsync(dragInfo: CoreDragInfo, dragUIOverride: CoreDragUIOverride, callback: (error: Error, result: Number) => void): void ;
 
-    setPointerId(pointerId: number): void;
+    overAsync(dragInfo: CoreDragInfo, dragUIOverride: CoreDragUIOverride, callback: (error: Error, result: Number) => void): void ;
 
-    setDragUIContentFromSoftwareBitmap(softwareBitmap: Object): void;
-    setDragUIContentFromSoftwareBitmap(softwareBitmap: Object, anchorPoint: Object): void;
+    leaveAsync(dragInfo: CoreDragInfo, callback: (error: Error) => void): void ;
+
+    dropAsync(dragInfo: CoreDragInfo, callback: (error: Error, result: Number) => void): void ;
 
   }
 

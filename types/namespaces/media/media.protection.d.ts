@@ -2,6 +2,42 @@
     constructor();
   }
 
+  export enum GraphicsTrustStatus {
+    trustNotRequired,
+    trustEstablished,
+    environmentNotSupported,
+    driverNotSupported,
+    driverSigningFailure,
+    unknownFailure,
+  }
+
+  export enum HdcpProtection {
+    off,
+    on,
+    onWithTypeEnforcement,
+  }
+
+  export enum HdcpSetProtectionResult {
+    success,
+    timedOut,
+    notSupported,
+    unknownFailure,
+  }
+
+  export enum ProtectionCapabilityResult {
+    notSupported,
+    maybe,
+    probably,
+  }
+
+  export enum RenewalStatus {
+    notStarted,
+    updatesInProgress,
+    userCancelled,
+    appComponentsMayNeedUpdating,
+    noComponentsFound,
+  }
+
   export enum RevocationAndRenewalReasons {
     userModeComponentLoad,
     kernelModeComponentLoad,
@@ -20,40 +56,49 @@
     encryptionFailure,
   }
 
-  export enum GraphicsTrustStatus {
-    trustNotRequired,
-    trustEstablished,
-    environmentNotSupported,
-    driverNotSupported,
-    driverSigningFailure,
-    unknownFailure,
+  export class ComponentLoadFailedEventArgs {
+    completion: MediaProtectionServiceCompletion;
+    information: RevocationAndRenewalInformation;
+    constructor();
+
   }
 
-  export enum ProtectionCapabilityResult {
-    notSupported,
-    maybe,
-    probably,
+  export class ComponentRenewal {
+    constructor();
+
+    static renewSystemComponentsAsync(information: RevocationAndRenewalInformation, callback: (error: Error, result: RenewalStatus) => void): void ;
+
+
   }
 
-  export enum HdcpProtection {
-    off,
-    on,
-    onWithTypeEnforcement,
+  export class HdcpSession {
+    constructor();
+
+    setDesiredMinProtectionAsync(protection: HdcpProtection, callback: (error: Error, result: HdcpSetProtectionResult) => void): void ;
+
+    isEffectiveProtectionAtLeast(protection: HdcpProtection): Boolean;
+
+    getEffectiveProtection(): HdcpProtection;
+
+    close(): void;
+    addListener(type: "ProtectionChanged", listener: (ev: Event) => void): void ;
+    removeListener(type: "ProtectionChanged", listener: (ev: Event) => void): void ;
+    on(type: "ProtectionChanged", listener: (ev: Event) => void): void ;
+    off(type: "ProtectionChanged", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
+
   }
 
-  export enum HdcpSetProtectionResult {
-    success,
-    timedOut,
-    notSupported,
-    unknownFailure,
-  }
+  export class IMediaProtectionServiceRequest {
+    protectionSystem: String;
+    type: String;
+    constructor();
 
-  export enum RenewalStatus {
-    notStarted,
-    updatesInProgress,
-    userCancelled,
-    appComponentsMayNeedUpdating,
-    noComponentsFound,
   }
 
   export class MediaProtectionManager {
@@ -83,25 +128,24 @@
 
   }
 
-  export class ServiceRequestedEventArgs {
-    completion: MediaProtectionServiceCompletion;
-    request: IMediaProtectionServiceRequest;
-    mediaPlaybackItem: Object;
+  export class MediaProtectionPMPServer {
+    properties: Object;
     constructor();
-
-  }
-
-  export class ComponentLoadFailedEventArgs {
-    completion: MediaProtectionServiceCompletion;
-    information: RevocationAndRenewalInformation;
-    constructor();
+    constructor(pProperties: Object);
 
   }
 
   export class MediaProtectionServiceCompletion {
     constructor();
 
-    complete(success: boolean): void;
+    complete(success: Boolean): void;
+
+  }
+
+  export class ProtectionCapabilities {
+    constructor();
+
+    isTypeSupported(type: String, keySystem: String): ProtectionCapabilityResult;
 
   }
 
@@ -112,65 +156,38 @@
   }
 
   export class RevocationAndRenewalItem {
-    headerHash: string;
-    name: string;
-    publicKeyHash: string;
+    headerHash: String;
+    name: String;
+    publicKeyHash: String;
     reasons: RevocationAndRenewalReasons;
-    renewalId: string;
+    renewalId: String;
     constructor();
 
   }
 
-  export class MediaProtectionPMPServer {
-    properties: Object;
-    constructor();
-    constructor(pProperties: Object);
-
-  }
-
-  export class IMediaProtectionServiceRequest {
-    protectionSystem: string;
-    type: string;
+  export class ServiceRequestedEventArgs {
+    completion: MediaProtectionServiceCompletion;
+    request: IMediaProtectionServiceRequest;
+    mediaPlaybackItem: Object;
     constructor();
 
   }
 
-  export class ProtectionCapabilities {
-    constructor();
-
-    isTypeSupported(type: string, keySystem: string): ProtectionCapabilityResult;
-
-  }
-
-  export class HdcpSession {
-    constructor();
-
-    setDesiredMinProtectionAsync(protection: HdcpProtection, callback: (error: Error, result: HdcpSetProtectionResult) => void): void ;
-
-    isEffectiveProtectionAtLeast(protection: HdcpProtection): boolean;
-
-    getEffectiveProtection(): HdcpProtection;
-
-    close(): void;
-    addListener(type: "ProtectionChanged", listener: (ev: Event) => void): void ;
-    removeListener(type: "ProtectionChanged", listener: (ev: Event) => void): void ;
-    on(type: "ProtectionChanged", listener: (ev: Event) => void): void ;
-    off(type: "ProtectionChanged", listener: (ev: Event) => void): void ;
-    
-    addListener(type: string, listener: (ev: Event) => void): void ;
-    removeListener(type: string, listener: (ev: Event) => void): void ;
-    on(type: string, listener: (ev: Event) => void): void ;
-    off(type: string, listener: (ev: Event) => void): void ;
-    
-
-  }
-
-  export class ComponentRenewal {
-    constructor();
-
-    static renewSystemComponentsAsync(information: RevocationAndRenewalInformation, callback: (error: Error, result: RenewalStatus) => void): void ;
-
-
-  }
-
+export const GraphicsTrustStatus: any;
+export const HdcpProtection: any;
+export const HdcpSetProtectionResult: any;
+export const ProtectionCapabilityResult: any;
+export const RenewalStatus: any;
+export const RevocationAndRenewalReasons: any;
+export const ComponentLoadFailedEventArgs: any;
+export const ComponentRenewal: any;
+export const HdcpSession: any;
+export const IMediaProtectionServiceRequest: any;
+export const MediaProtectionManager: any;
+export const MediaProtectionPMPServer: any;
+export const MediaProtectionServiceCompletion: any;
+export const ProtectionCapabilities: any;
+export const RevocationAndRenewalInformation: any;
+export const RevocationAndRenewalItem: any;
+export const ServiceRequestedEventArgs: any;
 export * as playready from "./media.protection.playready.js";

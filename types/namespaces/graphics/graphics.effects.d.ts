@@ -1,10 +1,10 @@
-  export class IGraphicsEffectSource {
+  export class IGraphicsEffect {
+    name: String;
     constructor();
 
   }
 
-  export class IGraphicsEffect {
-    name: string;
+  export class IGraphicsEffectSource {
     constructor();
 
   }

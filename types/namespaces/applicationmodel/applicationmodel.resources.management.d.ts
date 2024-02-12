@@ -13,10 +13,17 @@
     qualifiers: Object;
     type: IndexedResourceType;
     uri: Object;
-    valueAsString: string;
+    valueAsString: String;
     constructor();
 
-    getQualifierValue(qualifierName: string): string;
+    getQualifierValue(qualifierName: String): String;
+
+  }
+
+  export class IndexedResourceQualifier {
+    qualifierName: String;
+    qualifierValue: String;
+    constructor();
 
   }
 
@@ -28,13 +35,6 @@
     indexFileContentsAsync(file: Object, callback: (error: Error, result: Object) => void): void ;
 
     indexFilePath(filePath: Object): IndexedResourceCandidate;
-
-  }
-
-  export class IndexedResourceQualifier {
-    qualifierName: string;
-    qualifierValue: string;
-    constructor();
 
   }
 

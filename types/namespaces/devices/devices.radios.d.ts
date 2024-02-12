@@ -1,8 +1,8 @@
-  export enum RadioState {
-    unknown,
-    on,
-    off,
-    disabled,
+  export enum RadioAccessStatus {
+    unspecified,
+    allowed,
+    deniedByUser,
+    deniedBySystem,
   }
 
   export enum RadioKind {
@@ -13,29 +13,29 @@
     fM,
   }
 
-  export enum RadioAccessStatus {
-    unspecified,
-    allowed,
-    deniedByUser,
-    deniedBySystem,
+  export enum RadioState {
+    unknown,
+    on,
+    off,
+    disabled,
   }
 
   export class Radio {
     kind: RadioKind;
-    name: string;
+    name: String;
     state: RadioState;
     constructor();
 
     static getRadiosAsync(callback: (error: Error, result: Object) => void): void ;
 
 
-    static fromIdAsync(deviceId: string, callback: (error: Error, result: Radio) => void): void ;
+    static fromIdAsync(deviceId: String, callback: (error: Error, result: Radio) => void): void ;
 
 
     static requestAccessAsync(callback: (error: Error, result: RadioAccessStatus) => void): void ;
 
 
-    static getDeviceSelector(): string;
+    static getDeviceSelector(): String;
 
 
     setStateAsync(value: RadioState, callback: (error: Error, result: RadioAccessStatus) => void): void ;

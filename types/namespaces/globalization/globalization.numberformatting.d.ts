@@ -1,3 +1,8 @@
+  export enum CurrencyFormatterMode {
+    useSymbol,
+    useCurrencyCode,
+  }
+
   export enum RoundingAlgorithm {
     none,
     roundDown,
@@ -12,114 +17,138 @@
     roundHalfToOdd,
   }
 
-  export enum CurrencyFormatterMode {
-    useSymbol,
-    useCurrencyCode,
+  export class CurrencyFormatter {
+    currency: String;
+    mode: CurrencyFormatterMode;
+    numeralSystem: String;
+    isGrouped: Boolean;
+    isDecimalPointAlwaysDisplayed: Boolean;
+    integerDigits: Number;
+    fractionDigits: Number;
+    geographicRegion: String;
+    resolvedGeographicRegion: String;
+    resolvedLanguage: String;
+    languages: Object;
+    numberRounder: INumberRounder;
+    isZeroSigned: Boolean;
+    significantDigits: Number;
+    constructor();
+    constructor(currencyCode: String);
+    constructor(currencyCode: String, languages: Object, geographicRegion: String);
+
+    format(value: Number): String;
+    format(value: Number): String;
+    format(value: Number): String;
+
+    formatInt(value: Number): String;
+
+    formatUInt(value: Number): String;
+
+    formatDouble(value: Number): String;
+
+    parseInt(text: String): Number;
+
+    parseUInt(text: String): Number;
+
+    parseDouble(text: String): Number;
+
+    applyRoundingForCurrency(roundingAlgorithm: RoundingAlgorithm): void;
+
   }
 
-  export class INumberRounder {
+  export class DecimalFormatter {
+    isDecimalPointAlwaysDisplayed: Boolean;
+    integerDigits: Number;
+    isGrouped: Boolean;
+    numeralSystem: String;
+    fractionDigits: Number;
+    geographicRegion: String;
+    languages: Object;
+    resolvedGeographicRegion: String;
+    resolvedLanguage: String;
+    numberRounder: INumberRounder;
+    isZeroSigned: Boolean;
+    significantDigits: Number;
     constructor();
+    constructor(languages: Object, geographicRegion: String);
 
-    roundInt32(value: number): number;
+    format(value: Number): String;
+    format(value: Number): String;
+    format(value: Number): String;
 
-    roundUInt32(value: number): number;
+    formatInt(value: Number): String;
 
-    roundInt64(value: number): number;
+    formatUInt(value: Number): String;
 
-    roundUInt64(value: number): number;
+    formatDouble(value: Number): String;
 
-    roundSingle(value: number): number;
+    parseInt(text: String): Number;
 
-    roundDouble(value: number): number;
+    parseUInt(text: String): Number;
 
-  }
-
-  export class SignificantDigitsNumberRounder {
-    significantDigits: number;
-    roundingAlgorithm: RoundingAlgorithm;
-    constructor();
-
-    roundInt32(value: number): number;
-
-    roundUInt32(value: number): number;
-
-    roundInt64(value: number): number;
-
-    roundUInt64(value: number): number;
-
-    roundSingle(value: number): number;
-
-    roundDouble(value: number): number;
-
-  }
-
-  export class IncrementNumberRounder {
-    roundingAlgorithm: RoundingAlgorithm;
-    increment: number;
-    constructor();
-
-    roundInt32(value: number): number;
-
-    roundUInt32(value: number): number;
-
-    roundInt64(value: number): number;
-
-    roundUInt64(value: number): number;
-
-    roundSingle(value: number): number;
-
-    roundDouble(value: number): number;
+    parseDouble(text: String): Number;
 
   }
 
   export class INumberFormatter {
     constructor();
 
-    format(value: number): string;
-    format(value: number): string;
-    format(value: number): string;
+    format(value: Number): String;
+    format(value: Number): String;
+    format(value: Number): String;
 
   }
 
   export class INumberFormatter2 {
     constructor();
 
-    formatInt(value: number): string;
+    formatInt(value: Number): String;
 
-    formatUInt(value: number): string;
+    formatUInt(value: Number): String;
 
-    formatDouble(value: number): string;
+    formatDouble(value: Number): String;
+
+  }
+
+  export class INumberFormatterOptions {
+    fractionDigits: Number;
+    geographicRegion: String;
+    integerDigits: Number;
+    isDecimalPointAlwaysDisplayed: Boolean;
+    isGrouped: Boolean;
+    languages: Object;
+    numeralSystem: String;
+    resolvedGeographicRegion: String;
+    resolvedLanguage: String;
+    constructor();
 
   }
 
   export class INumberParser {
     constructor();
 
-    parseInt(text: string): number;
+    parseInt(text: String): Number;
 
-    parseUInt(text: string): number;
+    parseUInt(text: String): Number;
 
-    parseDouble(text: string): number;
-
-  }
-
-  export class INumberFormatterOptions {
-    fractionDigits: number;
-    geographicRegion: string;
-    integerDigits: number;
-    isDecimalPointAlwaysDisplayed: boolean;
-    isGrouped: boolean;
-    languages: Object;
-    numeralSystem: string;
-    resolvedGeographicRegion: string;
-    resolvedLanguage: string;
-    constructor();
+    parseDouble(text: String): Number;
 
   }
 
-  export class ISignificantDigitsOption {
-    significantDigits: number;
+  export class INumberRounder {
     constructor();
+
+    roundInt32(value: Number): Number;
+
+    roundUInt32(value: Number): Number;
+
+    roundInt64(value: Number): Number;
+
+    roundUInt64(value: Number): Number;
+
+    roundSingle(value: Number): Number;
+
+    roundDouble(value: Number): Number;
 
   }
 
@@ -130,160 +159,131 @@
   }
 
   export class ISignedZeroOption {
-    isZeroSigned: boolean;
+    isZeroSigned: Boolean;
     constructor();
 
   }
 
-  export class DecimalFormatter {
-    isDecimalPointAlwaysDisplayed: boolean;
-    integerDigits: number;
-    isGrouped: boolean;
-    numeralSystem: string;
-    fractionDigits: number;
-    geographicRegion: string;
-    languages: Object;
-    resolvedGeographicRegion: string;
-    resolvedLanguage: string;
-    numberRounder: INumberRounder;
-    isZeroSigned: boolean;
-    significantDigits: number;
+  export class ISignificantDigitsOption {
+    significantDigits: Number;
     constructor();
-    constructor(languages: Object, geographicRegion: string);
-
-    format(value: number): string;
-    format(value: number): string;
-    format(value: number): string;
-
-    formatInt(value: number): string;
-
-    formatUInt(value: number): string;
-
-    formatDouble(value: number): string;
-
-    parseInt(text: string): number;
-
-    parseUInt(text: string): number;
-
-    parseDouble(text: string): number;
 
   }
 
-  export class PercentFormatter {
-    isDecimalPointAlwaysDisplayed: boolean;
-    integerDigits: number;
-    isGrouped: boolean;
-    numeralSystem: string;
-    fractionDigits: number;
-    geographicRegion: string;
-    languages: Object;
-    resolvedGeographicRegion: string;
-    resolvedLanguage: string;
-    numberRounder: INumberRounder;
-    isZeroSigned: boolean;
-    significantDigits: number;
+  export class IncrementNumberRounder {
+    roundingAlgorithm: RoundingAlgorithm;
+    increment: Number;
     constructor();
-    constructor(languages: Object, geographicRegion: string);
 
-    format(value: number): string;
-    format(value: number): string;
-    format(value: number): string;
+    roundInt32(value: Number): Number;
 
-    formatInt(value: number): string;
+    roundUInt32(value: Number): Number;
 
-    formatUInt(value: number): string;
+    roundInt64(value: Number): Number;
 
-    formatDouble(value: number): string;
+    roundUInt64(value: Number): Number;
 
-    parseInt(text: string): number;
+    roundSingle(value: Number): Number;
 
-    parseUInt(text: string): number;
-
-    parseDouble(text: string): number;
-
-  }
-
-  export class PermilleFormatter {
-    isDecimalPointAlwaysDisplayed: boolean;
-    integerDigits: number;
-    isGrouped: boolean;
-    numeralSystem: string;
-    fractionDigits: number;
-    geographicRegion: string;
-    languages: Object;
-    resolvedGeographicRegion: string;
-    resolvedLanguage: string;
-    numberRounder: INumberRounder;
-    isZeroSigned: boolean;
-    significantDigits: number;
-    constructor();
-    constructor(languages: Object, geographicRegion: string);
-
-    format(value: number): string;
-    format(value: number): string;
-    format(value: number): string;
-
-    formatInt(value: number): string;
-
-    formatUInt(value: number): string;
-
-    formatDouble(value: number): string;
-
-    parseInt(text: string): number;
-
-    parseUInt(text: string): number;
-
-    parseDouble(text: string): number;
-
-  }
-
-  export class CurrencyFormatter {
-    currency: string;
-    mode: CurrencyFormatterMode;
-    numeralSystem: string;
-    isGrouped: boolean;
-    isDecimalPointAlwaysDisplayed: boolean;
-    integerDigits: number;
-    fractionDigits: number;
-    geographicRegion: string;
-    resolvedGeographicRegion: string;
-    resolvedLanguage: string;
-    languages: Object;
-    numberRounder: INumberRounder;
-    isZeroSigned: boolean;
-    significantDigits: number;
-    constructor();
-    constructor(currencyCode: string);
-    constructor(currencyCode: string, languages: Object, geographicRegion: string);
-
-    format(value: number): string;
-    format(value: number): string;
-    format(value: number): string;
-
-    formatInt(value: number): string;
-
-    formatUInt(value: number): string;
-
-    formatDouble(value: number): string;
-
-    parseInt(text: string): number;
-
-    parseUInt(text: string): number;
-
-    parseDouble(text: string): number;
-
-    applyRoundingForCurrency(roundingAlgorithm: RoundingAlgorithm): void;
+    roundDouble(value: Number): Number;
 
   }
 
   export class NumeralSystemTranslator {
-    numeralSystem: string;
+    numeralSystem: String;
     languages: Object;
-    resolvedLanguage: string;
+    resolvedLanguage: String;
     constructor();
     constructor(languages: Object);
 
-    translateNumerals(value: string): string;
+    translateNumerals(value: String): String;
+
+  }
+
+  export class PercentFormatter {
+    isDecimalPointAlwaysDisplayed: Boolean;
+    integerDigits: Number;
+    isGrouped: Boolean;
+    numeralSystem: String;
+    fractionDigits: Number;
+    geographicRegion: String;
+    languages: Object;
+    resolvedGeographicRegion: String;
+    resolvedLanguage: String;
+    numberRounder: INumberRounder;
+    isZeroSigned: Boolean;
+    significantDigits: Number;
+    constructor();
+    constructor(languages: Object, geographicRegion: String);
+
+    format(value: Number): String;
+    format(value: Number): String;
+    format(value: Number): String;
+
+    formatInt(value: Number): String;
+
+    formatUInt(value: Number): String;
+
+    formatDouble(value: Number): String;
+
+    parseInt(text: String): Number;
+
+    parseUInt(text: String): Number;
+
+    parseDouble(text: String): Number;
+
+  }
+
+  export class PermilleFormatter {
+    isDecimalPointAlwaysDisplayed: Boolean;
+    integerDigits: Number;
+    isGrouped: Boolean;
+    numeralSystem: String;
+    fractionDigits: Number;
+    geographicRegion: String;
+    languages: Object;
+    resolvedGeographicRegion: String;
+    resolvedLanguage: String;
+    numberRounder: INumberRounder;
+    isZeroSigned: Boolean;
+    significantDigits: Number;
+    constructor();
+    constructor(languages: Object, geographicRegion: String);
+
+    format(value: Number): String;
+    format(value: Number): String;
+    format(value: Number): String;
+
+    formatInt(value: Number): String;
+
+    formatUInt(value: Number): String;
+
+    formatDouble(value: Number): String;
+
+    parseInt(text: String): Number;
+
+    parseUInt(text: String): Number;
+
+    parseDouble(text: String): Number;
+
+  }
+
+  export class SignificantDigitsNumberRounder {
+    significantDigits: Number;
+    roundingAlgorithm: RoundingAlgorithm;
+    constructor();
+
+    roundInt32(value: Number): Number;
+
+    roundUInt32(value: Number): Number;
+
+    roundInt64(value: Number): Number;
+
+    roundUInt64(value: Number): Number;
+
+    roundSingle(value: Number): Number;
+
+    roundDouble(value: Number): Number;
 
   }
 

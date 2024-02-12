@@ -1,3 +1,8 @@
+  export enum WebAccountClientViewType {
+    idOnly,
+    idAndProperties,
+  }
+
   export enum WebAccountProviderOperationKind {
     requestToken,
     getTokenSilently,
@@ -8,19 +13,23 @@
     signOutAccount,
   }
 
+  export enum WebAccountScope {
+    perUser,
+    perApplication,
+  }
+
   export enum WebAccountSelectionOptions {
     default,
     new,
   }
 
-  export enum WebAccountClientViewType {
-    idOnly,
-    idAndProperties,
-  }
+  export class IWebAccountProviderBaseReportOperation {
+    constructor();
 
-  export enum WebAccountScope {
-    perUser,
-    perApplication,
+    reportCompleted(): void;
+
+    reportError(value: Object): void;
+
   }
 
   export class IWebAccountProviderOperation {
@@ -29,37 +38,48 @@
 
   }
 
-  export class WebProviderTokenRequest {
-    applicationCallbackUri: Object;
-    clientRequest: Object;
-    webAccountSelectionOptions: WebAccountSelectionOptions;
-    webAccounts: Object;
-    applicationPackageFamilyName: string;
-    applicationProcessName: string;
+  export class IWebAccountProviderSilentReportOperation {
     constructor();
 
-    getApplicationTokenBindingKeyAsync(keyType: number, target: Object, callback: (error: Error, result: Object) => void): void ;
-
-    getApplicationTokenBindingKeyIdAsync(keyType: number, target: Object, callback: (error: Error, result: Object) => void): void ;
-
-    checkApplicationForCapabilityAsync(capabilityName: string, callback: (error: Error, result: boolean) => void): void ;
+    reportUserInteractionRequired(): void;
+    reportUserInteractionRequired(value: Object): void;
 
   }
 
-  export class WebProviderTokenResponse {
-    clientResponse: Object;
+  export class IWebAccountProviderTokenObjects {
+    operation: IWebAccountProviderOperation;
     constructor();
-    constructor(webTokenResponse: Object);
+
+  }
+
+  export class IWebAccountProviderTokenObjects2 {
+    user: Object;
+    constructor();
+
+  }
+
+  export class IWebAccountProviderTokenOperation {
+    cacheExpirationTime: Date;
+    providerRequest: WebProviderTokenRequest;
+    providerResponses: Object;
+    constructor();
+
+  }
+
+  export class IWebAccountProviderUIReportOperation {
+    constructor();
+
+    reportUserCanceled(): void;
 
   }
 
   export class WebAccountClientView {
-    accountPairwiseId: string;
+    accountPairwiseId: String;
     applicationCallbackUri: Object;
     type: WebAccountClientViewType;
     constructor();
     constructor(viewType: WebAccountClientViewType, applicationCallbackUri: Object);
-    constructor(viewType: WebAccountClientViewType, applicationCallbackUri: Object, accountPairwiseId: string);
+    constructor(viewType: WebAccountClientViewType, applicationCallbackUri: Object, accountPairwiseId: String);
 
   }
 
@@ -75,17 +95,17 @@
     static findAllProviderWebAccountsForUserAsync(user: Object, callback: (error: Error, result: Object) => void): void ;
 
 
-    static addWebAccountForUserAsync(user: Object, webAccountId: string, webAccountUserName: string, props: Object, callback: (error: Error, result: Object) => void): void ;
-    static addWebAccountForUserAsync(user: Object, webAccountId: string, webAccountUserName: string, props: Object, scope: WebAccountScope, callback: (error: Error, result: Object) => void): void ;
-    static addWebAccountForUserAsync(user: Object, webAccountId: string, webAccountUserName: string, props: Object, scope: WebAccountScope, perUserWebAccountId: string, callback: (error: Error, result: Object) => void): void ;
+    static addWebAccountForUserAsync(user: Object, webAccountId: String, webAccountUserName: String, props: Object, callback: (error: Error, result: Object) => void): void ;
+    static addWebAccountForUserAsync(user: Object, webAccountId: String, webAccountUserName: String, props: Object, scope: WebAccountScope, callback: (error: Error, result: Object) => void): void ;
+    static addWebAccountForUserAsync(user: Object, webAccountId: String, webAccountUserName: String, props: Object, scope: WebAccountScope, perUserWebAccountId: String, callback: (error: Error, result: Object) => void): void ;
 
 
-    static addWebAccountAsync(webAccountId: string, webAccountUserName: string, props: Object, scope: WebAccountScope, perUserWebAccountId: string, callback: (error: Error, result: Object) => void): void ;
-    static addWebAccountAsync(webAccountId: string, webAccountUserName: string, props: Object, scope: WebAccountScope, callback: (error: Error, result: Object) => void): void ;
-    static addWebAccountAsync(webAccountId: string, webAccountUserName: string, props: Object, callback: (error: Error, result: Object) => void): void ;
+    static addWebAccountAsync(webAccountId: String, webAccountUserName: String, props: Object, scope: WebAccountScope, perUserWebAccountId: String, callback: (error: Error, result: Object) => void): void ;
+    static addWebAccountAsync(webAccountId: String, webAccountUserName: String, props: Object, scope: WebAccountScope, callback: (error: Error, result: Object) => void): void ;
+    static addWebAccountAsync(webAccountId: String, webAccountUserName: String, props: Object, callback: (error: Error, result: Object) => void): void ;
 
 
-    static setPerAppToPerUserAccountAsync(perAppAccount: Object, perUserWebAccountId: string, callback: (error: Error) => void): void ;
+    static setPerAppToPerUserAccountAsync(perAppAccount: Object, perUserWebAccountId: String, callback: (error: Error) => void): void ;
 
 
     static getPerUserFromPerAppAccountAsync(perAppAccount: Object, callback: (error: Error, result: Object) => void): void ;
@@ -97,10 +117,10 @@
     static setScopeAsync(webAccount: Object, scope: WebAccountScope, callback: (error: Error) => void): void ;
 
 
-    static pullCookiesAsync(uriString: string, callerPFN: string, callback: (error: Error) => void): void ;
+    static pullCookiesAsync(uriString: String, callerPFN: String, callback: (error: Error) => void): void ;
 
 
-    static updateWebAccountPropertiesAsync(webAccount: Object, webAccountUserName: string, additionalProperties: Object, callback: (error: Error) => void): void ;
+    static updateWebAccountPropertiesAsync(webAccount: Object, webAccountUserName: String, additionalProperties: Object, callback: (error: Error) => void): void ;
 
 
     static deleteWebAccountAsync(webAccount: Object, callback: (error: Error) => void): void ;
@@ -132,46 +152,18 @@
 
   }
 
-  export class IWebAccountProviderBaseReportOperation {
+  export class WebAccountProviderAddAccountOperation {
+    kind: WebAccountProviderOperationKind;
     constructor();
 
     reportCompleted(): void;
 
-    reportError(value: Object): void;
-
   }
 
-  export class IWebAccountProviderUIReportOperation {
-    constructor();
-
-    reportUserCanceled(): void;
-
-  }
-
-  export class IWebAccountProviderSilentReportOperation {
-    constructor();
-
-    reportUserInteractionRequired(): void;
-    reportUserInteractionRequired(value: Object): void;
-
-  }
-
-  export class IWebAccountProviderTokenOperation {
-    cacheExpirationTime: Date;
-    providerRequest: WebProviderTokenRequest;
-    providerResponses: Object;
-    constructor();
-
-  }
-
-  export class WebAccountProviderRequestTokenOperation {
+  export class WebAccountProviderDeleteAccountOperation {
+    webAccount: Object;
     kind: WebAccountProviderOperationKind;
-    cacheExpirationTime: Date;
-    providerRequest: WebProviderTokenRequest;
-    providerResponses: Object;
     constructor();
-
-    reportUserCanceled(): void;
 
     reportCompleted(): void;
 
@@ -195,14 +187,6 @@
 
   }
 
-  export class WebAccountProviderAddAccountOperation {
-    kind: WebAccountProviderOperationKind;
-    constructor();
-
-    reportCompleted(): void;
-
-  }
-
   export class WebAccountProviderManageAccountOperation {
     webAccount: Object;
     kind: WebAccountProviderOperationKind;
@@ -212,23 +196,14 @@
 
   }
 
-  export class WebAccountProviderDeleteAccountOperation {
-    webAccount: Object;
+  export class WebAccountProviderRequestTokenOperation {
     kind: WebAccountProviderOperationKind;
+    cacheExpirationTime: Date;
+    providerRequest: WebProviderTokenRequest;
+    providerResponses: Object;
     constructor();
 
-    reportCompleted(): void;
-
-    reportError(value: Object): void;
-
-  }
-
-  export class WebAccountProviderSignOutAccountOperation {
-    kind: WebAccountProviderOperationKind;
-    applicationCallbackUri: Object;
-    clientId: string;
-    webAccount: Object;
-    constructor();
+    reportUserCanceled(): void;
 
     reportCompleted(): void;
 
@@ -250,15 +225,16 @@
 
   }
 
-  export class IWebAccountProviderTokenObjects {
-    operation: IWebAccountProviderOperation;
+  export class WebAccountProviderSignOutAccountOperation {
+    kind: WebAccountProviderOperationKind;
+    applicationCallbackUri: Object;
+    clientId: String;
+    webAccount: Object;
     constructor();
 
-  }
+    reportCompleted(): void;
 
-  export class IWebAccountProviderTokenObjects2 {
-    user: Object;
-    constructor();
+    reportError(value: Object): void;
 
   }
 
@@ -266,6 +242,30 @@
     operation: IWebAccountProviderOperation;
     user: Object;
     constructor();
+
+  }
+
+  export class WebProviderTokenRequest {
+    applicationCallbackUri: Object;
+    clientRequest: Object;
+    webAccountSelectionOptions: WebAccountSelectionOptions;
+    webAccounts: Object;
+    applicationPackageFamilyName: String;
+    applicationProcessName: String;
+    constructor();
+
+    getApplicationTokenBindingKeyAsync(keyType: Number, target: Object, callback: (error: Error, result: Object) => void): void ;
+
+    getApplicationTokenBindingKeyIdAsync(keyType: Number, target: Object, callback: (error: Error, result: Object) => void): void ;
+
+    checkApplicationForCapabilityAsync(capabilityName: String, callback: (error: Error, result: Boolean) => void): void ;
+
+  }
+
+  export class WebProviderTokenResponse {
+    clientResponse: Object;
+    constructor();
+    constructor(webTokenResponse: Object);
 
   }
 

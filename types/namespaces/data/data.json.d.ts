@@ -1,3 +1,11 @@
+  export enum JsonErrorStatus {
+    unknown,
+    invalidJsonString,
+    invalidJsonNumber,
+    jsonValueNotFound,
+    implementationLimit,
+  }
+
   export enum JsonValueType {
     null,
     boolean,
@@ -7,25 +15,17 @@
     object,
   }
 
-  export enum JsonErrorStatus {
-    unknown,
-    invalidJsonString,
-    invalidJsonNumber,
-    jsonValueNotFound,
-    implementationLimit,
-  }
-
   export class IJsonValue {
     valueType: JsonValueType;
     constructor();
 
-    stringify(): string;
+    stringify(): String;
 
-    getString(): string;
+    getString(): String;
 
-    getNumber(): number;
+    getNumber(): Number;
 
-    getBoolean(): boolean;
+    getBoolean(): Boolean;
 
     getArray(): JsonArray;
 
@@ -37,45 +37,45 @@
     valueType: JsonValueType;
     constructor();
 
-    static parse(input: string): JsonArray;
+    static parse(input: String): JsonArray;
 
 
-    static tryParse(input: string, result: Object): boolean;
+    static tryParse(input: String, result: Object): Boolean;
 
 
-    getObjectAt(index: number): JsonObject;
+    getObjectAt(index: Number): JsonObject;
 
-    getArrayAt(index: number): JsonArray;
+    getArrayAt(index: Number): JsonArray;
 
-    getStringAt(index: number): string;
+    getStringAt(index: Number): String;
 
-    getNumberAt(index: number): number;
+    getNumberAt(index: Number): Number;
 
-    getBooleanAt(index: number): boolean;
+    getBooleanAt(index: Number): Boolean;
 
-    stringify(): string;
+    stringify(): String;
 
-    getString(): string;
+    getString(): String;
 
-    getNumber(): number;
+    getNumber(): Number;
 
-    getBoolean(): boolean;
+    getBoolean(): Boolean;
 
     getArray(): JsonArray;
 
     getObject(): JsonObject;
 
-    getAt(index: number): IJsonValue;
+    getAt(index: Number): IJsonValue;
 
     getView(): Object;
 
-    indexOf(value: IJsonValue, index: number): boolean;
+    indexOf(value: IJsonValue, index: Number): Boolean;
 
-    setAt(index: number, value: IJsonValue): void;
+    setAt(index: Number, value: IJsonValue): void;
 
-    insertAt(index: number, value: IJsonValue): void;
+    insertAt(index: Number, value: IJsonValue): void;
 
-    removeAt(index: number): void;
+    removeAt(index: Number): void;
 
     append(value: IJsonValue): void;
 
@@ -88,7 +88,15 @@
 
     first(): Object;
 
-    toString(): string;
+    toString(): String;
+
+  }
+
+  export class JsonError {
+    constructor();
+
+    static getJsonStatus(hresult: Number): JsonErrorStatus;
+
 
   }
 
@@ -96,59 +104,59 @@
     valueType: JsonValueType;
     constructor();
 
-    static parse(input: string): JsonObject;
+    static parse(input: String): JsonObject;
 
 
-    static tryParse(input: string, result: Object): boolean;
+    static tryParse(input: String, result: Object): Boolean;
 
 
-    getNamedValue(name: string): JsonValue;
-    getNamedValue(name: string, defaultValue: JsonValue): JsonValue;
+    getNamedValue(name: String): JsonValue;
+    getNamedValue(name: String, defaultValue: JsonValue): JsonValue;
 
-    setNamedValue(name: string, value: IJsonValue): void;
+    setNamedValue(name: String, value: IJsonValue): void;
 
-    getNamedObject(name: string): JsonObject;
-    getNamedObject(name: string, defaultValue: JsonObject): JsonObject;
+    getNamedObject(name: String): JsonObject;
+    getNamedObject(name: String, defaultValue: JsonObject): JsonObject;
 
-    getNamedArray(name: string): JsonArray;
-    getNamedArray(name: string, defaultValue: JsonArray): JsonArray;
+    getNamedArray(name: String): JsonArray;
+    getNamedArray(name: String, defaultValue: JsonArray): JsonArray;
 
-    getNamedString(name: string): string;
-    getNamedString(name: string, defaultValue: string): string;
+    getNamedString(name: String): String;
+    getNamedString(name: String, defaultValue: String): String;
 
-    getNamedNumber(name: string): number;
-    getNamedNumber(name: string, defaultValue: number): number;
+    getNamedNumber(name: String): Number;
+    getNamedNumber(name: String, defaultValue: Number): Number;
 
-    getNamedBoolean(name: string): boolean;
-    getNamedBoolean(name: string, defaultValue: boolean): boolean;
+    getNamedBoolean(name: String): Boolean;
+    getNamedBoolean(name: String, defaultValue: Boolean): Boolean;
 
-    stringify(): string;
+    stringify(): String;
 
-    getString(): string;
+    getString(): String;
 
-    getNumber(): number;
+    getNumber(): Number;
 
-    getBoolean(): boolean;
+    getBoolean(): Boolean;
 
     getArray(): JsonArray;
 
     getObject(): JsonObject;
 
-    lookup(key: string): IJsonValue;
+    lookup(key: String): IJsonValue;
 
-    hasKey(key: string): boolean;
+    hasKey(key: String): Boolean;
 
     getView(): Object;
 
-    insert(key: string, value: IJsonValue): boolean;
+    insert(key: String, value: IJsonValue): Boolean;
 
-    remove(key: string): void;
+    remove(key: String): void;
 
     clear(): void;
 
     first(): Object;
 
-    toString(): string;
+    toString(): String;
 
   }
 
@@ -159,42 +167,34 @@
     static createNullValue(): JsonValue;
 
 
-    static parse(input: string): JsonValue;
+    static parse(input: String): JsonValue;
 
 
-    static tryParse(input: string, result: Object): boolean;
+    static tryParse(input: String, result: Object): Boolean;
 
 
-    static createBooleanValue(input: boolean): JsonValue;
+    static createBooleanValue(input: Boolean): JsonValue;
 
 
-    static createNumberValue(input: number): JsonValue;
+    static createNumberValue(input: Number): JsonValue;
 
 
-    static createStringValue(input: string): JsonValue;
+    static createStringValue(input: String): JsonValue;
 
 
-    stringify(): string;
+    stringify(): String;
 
-    getString(): string;
+    getString(): String;
 
-    getNumber(): number;
+    getNumber(): Number;
 
-    getBoolean(): boolean;
+    getBoolean(): Boolean;
 
     getArray(): JsonArray;
 
     getObject(): JsonObject;
 
-    toString(): string;
-
-  }
-
-  export class JsonError {
-    constructor();
-
-    static getJsonStatus(hresult: number): JsonErrorStatus;
-
+    toString(): String;
 
   }
 

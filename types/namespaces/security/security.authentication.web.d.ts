@@ -4,12 +4,6 @@
     anyExisting,
   }
 
-  export enum WebAuthenticationStatus {
-    success,
-    userCancel,
-    errorHttp,
-  }
-
   export enum WebAuthenticationOptions {
     none,
     silentMode,
@@ -18,12 +12,10 @@
     useCorporateNetwork,
   }
 
-  export class WebAuthenticationResult {
-    responseData: string;
-    responseErrorDetail: number;
-    responseStatus: WebAuthenticationStatus;
-    constructor();
-
+  export enum WebAuthenticationStatus {
+    success,
+    userCancel,
+    errorHttp,
   }
 
   export class WebAuthenticationBroker {
@@ -47,5 +39,18 @@
 
   }
 
+  export class WebAuthenticationResult {
+    responseData: String;
+    responseErrorDetail: Number;
+    responseStatus: WebAuthenticationStatus;
+    constructor();
+
+  }
+
+export const TokenBindingKeyType: any;
+export const WebAuthenticationOptions: any;
+export const WebAuthenticationStatus: any;
+export const WebAuthenticationBroker: any;
+export const WebAuthenticationResult: any;
 export * as core from "./security.authentication.web.core.js";
 export * as provider from "./security.authentication.web.provider.js";

@@ -4,6 +4,15 @@
     unknownFailure,
   }
 
+  export class PlatformTelemetryClient {
+    constructor();
+
+    static register(id: String): PlatformTelemetryRegistrationResult;
+    static register(id: String, settings: PlatformTelemetryRegistrationSettings): PlatformTelemetryRegistrationResult;
+
+
+  }
+
   export class PlatformTelemetryRegistrationResult {
     status: PlatformTelemetryRegistrationStatus;
     constructor();
@@ -11,18 +20,9 @@
   }
 
   export class PlatformTelemetryRegistrationSettings {
-    uploadQuotaSize: number;
-    storageSize: number;
+    uploadQuotaSize: Number;
+    storageSize: Number;
     constructor();
-
-  }
-
-  export class PlatformTelemetryClient {
-    constructor();
-
-    static register(id: string): PlatformTelemetryRegistrationResult;
-    static register(id: string, settings: PlatformTelemetryRegistrationSettings): PlatformTelemetryRegistrationResult;
-
 
   }
 

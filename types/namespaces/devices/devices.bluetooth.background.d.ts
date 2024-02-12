@@ -4,24 +4,18 @@
     keepLatest,
   }
 
-  export class RfcommInboundConnectionInformation {
-    serviceCapabilities: number;
-    sdpRecord: Object;
-    localServiceId: Object;
+  export class BluetoothLEAdvertisementPublisherTriggerDetails {
+    error: Number;
+    status: Number;
+    selectedTransmitPowerLevelInDBm: Number;
     constructor();
 
   }
 
-  export class RfcommOutboundConnectionInformation {
-    remoteServiceId: Object;
-    constructor();
-
-  }
-
-  export class RfcommConnectionTriggerDetails {
-    incoming: boolean;
-    remoteDevice: Object;
-    socket: Object;
+  export class BluetoothLEAdvertisementWatcherTriggerDetails {
+    advertisements: Object;
+    error: Number;
+    signalStrengthFilter: Object;
     constructor();
 
   }
@@ -29,7 +23,7 @@
   export class GattCharacteristicNotificationTriggerDetails {
     characteristic: Object;
     value: Object;
-    error: number;
+    error: Number;
     eventTriggeringMode: BluetoothEventTriggeringMode;
     valueChangedEvents: Object;
     constructor();
@@ -39,7 +33,7 @@
   export class GattServiceProviderConnection {
     static allServices: Object;
     service: Object;
-    triggerId: string;
+    triggerId: String;
     constructor();
 
     start(): void;
@@ -52,17 +46,24 @@
 
   }
 
-  export class BluetoothLEAdvertisementWatcherTriggerDetails {
-    advertisements: Object;
-    error: number;
-    signalStrengthFilter: Object;
+  export class RfcommConnectionTriggerDetails {
+    incoming: Boolean;
+    remoteDevice: Object;
+    socket: Object;
     constructor();
 
   }
 
-  export class BluetoothLEAdvertisementPublisherTriggerDetails {
-    error: number;
-    status: number;
+  export class RfcommInboundConnectionInformation {
+    serviceCapabilities: Number;
+    sdpRecord: Object;
+    localServiceId: Object;
+    constructor();
+
+  }
+
+  export class RfcommOutboundConnectionInformation {
+    remoteServiceId: Object;
     constructor();
 
   }

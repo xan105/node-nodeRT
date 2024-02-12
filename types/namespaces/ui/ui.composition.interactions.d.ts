@@ -1,8 +1,15 @@
   export class Vector3 {
-    x: number;
-    y: number;
-    z: number;
+    x: Number;
+    y: Number;
+    z: Number;
     constructor();
+  }
+
+  export enum InteractionBindingAxisModes {
+    none,
+    positionX,
+    positionY,
+    scale,
   }
 
   export enum InteractionChainingMode {
@@ -17,11 +24,62 @@
     enabledWithoutInertia,
   }
 
+  export enum InteractionSourceRedirectionMode {
+    disabled,
+    enabled,
+  }
+
+  export enum InteractionTrackerClampingOption {
+    auto,
+    disabled,
+  }
+
+  export enum InteractionTrackerPositionUpdateOption {
+    default,
+    allowActiveCustomScaleAnimation,
+  }
+
   export enum VisualInteractionSourceRedirectionMode {
     off,
     capableTouchpadOnly,
     pointerWheelOnly,
     capableTouchpadAndPointerWheel,
+  }
+
+  export class CompositionConditionalValue {
+    value: Object;
+    condition: Object;
+    compositor: Object;
+    dispatcher: Object;
+    properties: Object;
+    implicitAnimations: Object;
+    comment: String;
+    dispatcherQueue: Object;
+    constructor();
+
+    static create(compositor: Object): CompositionConditionalValue;
+
+
+  }
+
+  export class CompositionInteractionSourceCollection {
+    count: Number;
+    compositor: Object;
+    dispatcher: Object;
+    properties: Object;
+    implicitAnimations: Object;
+    comment: String;
+    dispatcherQueue: Object;
+    constructor();
+
+    add(value: ICompositionInteractionSource): void;
+
+    remove(value: ICompositionInteractionSource): void;
+
+    removeAll(): void;
+
+    first(): Object;
+
   }
 
   export class ICompositionInteractionSource {
@@ -46,109 +104,50 @@
 
   }
 
-  export class InteractionTrackerCustomAnimationStateEnteredArgs {
-    requestId: number;
-    constructor();
-
-  }
-
-  export class InteractionTrackerIdleStateEnteredArgs {
-    requestId: number;
-    constructor();
-
-  }
-
-  export class InteractionTrackerInertiaStateEnteredArgs {
-    modifiedRestingPosition: Vector3;
-    modifiedRestingScale: number;
-    naturalRestingPosition: Vector3;
-    naturalRestingScale: number;
-    positionVelocityInPixelsPerSecond: Vector3;
-    requestId: number;
-    scaleVelocityInPercentPerSecond: number;
-    constructor();
-
-  }
-
-  export class InteractionTrackerInteractingStateEnteredArgs {
-    requestId: number;
-    constructor();
-
-  }
-
-  export class InteractionTrackerRequestIgnoredArgs {
-    requestId: number;
-    constructor();
-
-  }
-
-  export class InteractionTrackerValuesChangedArgs {
-    position: Vector3;
-    requestId: number;
-    scale: number;
-    constructor();
-
-  }
-
-  export class CompositionConditionalValue {
-    value: Object;
-    condition: Object;
+  export class InteractionSourceConfiguration {
+    scaleSourceMode: InteractionSourceRedirectionMode;
+    positionYSourceMode: InteractionSourceRedirectionMode;
+    positionXSourceMode: InteractionSourceRedirectionMode;
     compositor: Object;
     dispatcher: Object;
     properties: Object;
     implicitAnimations: Object;
-    comment: string;
+    comment: String;
     dispatcherQueue: Object;
     constructor();
-
-    static create(compositor: Object): CompositionConditionalValue;
-
-
-  }
-
-  export class CompositionInteractionSourceCollection {
-    count: number;
-    compositor: Object;
-    dispatcher: Object;
-    properties: Object;
-    implicitAnimations: Object;
-    comment: string;
-    dispatcherQueue: Object;
-    constructor();
-
-    add(value: ICompositionInteractionSource): void;
-
-    remove(value: ICompositionInteractionSource): void;
-
-    removeAll(): void;
-
-    first(): Object;
 
   }
 
   export class InteractionTracker {
-    scaleInertiaDecayRate: number;
+    scaleInertiaDecayRate: Number;
     positionInertiaDecayRate: Vector3;
-    maxScale: number;
-    minScale: number;
-    maxPosition: Vector3;
+    minScale: Number;
     minPosition: Vector3;
+    maxScale: Number;
+    maxPosition: Vector3;
+    interactionSources: CompositionInteractionSourceCollection;
+    isPositionRoundingSuggested: Boolean;
     naturalRestingPosition: Vector3;
-    naturalRestingScale: number;
+    naturalRestingScale: Number;
     owner: IInteractionTrackerOwner;
     position: Vector3;
-    interactionSources: CompositionInteractionSourceCollection;
     positionVelocityInPixelsPerSecond: Vector3;
-    scale: number;
-    isPositionRoundingSuggested: boolean;
-    scaleVelocityInPercentPerSecond: number;
+    scale: Number;
+    scaleVelocityInPercentPerSecond: Number;
+    isInertiaFromImpulse: Boolean;
     compositor: Object;
     dispatcher: Object;
     properties: Object;
     implicitAnimations: Object;
-    comment: string;
+    comment: String;
     dispatcherQueue: Object;
     constructor();
+
+    static setBindingMode(boundTracker1: InteractionTracker, boundTracker2: InteractionTracker, axisMode: InteractionBindingAxisModes): void;
+
+
+    static getBindingMode(boundTracker1: InteractionTracker, boundTracker2: InteractionTracker): InteractionBindingAxisModes;
+
 
     static create(compositor: Object): InteractionTracker;
 
@@ -156,9 +155,9 @@
     static createWithOwner(compositor: Object, owner: IInteractionTrackerOwner): InteractionTracker;
 
 
-    adjustPositionXIfGreaterThanThreshold(adjustment: number, positionThreshold: number): void;
+    adjustPositionXIfGreaterThanThreshold(adjustment: Number, positionThreshold: Number): void;
 
-    adjustPositionYIfGreaterThanThreshold(adjustment: number, positionThreshold: number): void;
+    adjustPositionYIfGreaterThanThreshold(adjustment: Number, positionThreshold: Number): void;
 
     configurePositionXInertiaModifiers(modifiers: Object): void;
 
@@ -166,19 +165,22 @@
 
     configureScaleInertiaModifiers(modifiers: Object): void;
 
-    tryUpdatePosition(value: Vector3): number;
+    tryUpdatePosition(value: Vector3): Number;
+    tryUpdatePosition(value: Vector3, option: InteractionTrackerClampingOption): Number;
+    tryUpdatePosition(value: Vector3, option: InteractionTrackerClampingOption, posUpdateOption: InteractionTrackerPositionUpdateOption): Number;
 
-    tryUpdatePositionBy(amount: Vector3): number;
+    tryUpdatePositionBy(amount: Vector3): Number;
+    tryUpdatePositionBy(amount: Vector3, option: InteractionTrackerClampingOption): Number;
 
-    tryUpdatePositionWithAnimation(animation: Object): number;
+    tryUpdatePositionWithAnimation(animation: Object): Number;
 
-    tryUpdatePositionWithAdditionalVelocity(velocityInPixelsPerSecond: Vector3): number;
+    tryUpdatePositionWithAdditionalVelocity(velocityInPixelsPerSecond: Vector3): Number;
 
-    tryUpdateScale(value: number, centerPoint: Vector3): number;
+    tryUpdateScale(value: Number, centerPoint: Vector3): Number;
 
-    tryUpdateScaleWithAnimation(animation: Object, centerPoint: Vector3): number;
+    tryUpdateScaleWithAnimation(animation: Object, centerPoint: Vector3): Number;
 
-    tryUpdateScaleWithAdditionalVelocity(velocityInPercentPerSecond: number, centerPoint: Vector3): number;
+    tryUpdateScaleWithAdditionalVelocity(velocityInPercentPerSecond: Number, centerPoint: Vector3): Number;
 
     configureCenterPointXInertiaModifiers(conditionalValues: Object): void;
 
@@ -188,25 +190,44 @@
 
   }
 
+  export class InteractionTrackerCustomAnimationStateEnteredArgs {
+    requestId: Number;
+    isFromBinding: Boolean;
+    constructor();
+
+  }
+
+  export class InteractionTrackerIdleStateEnteredArgs {
+    requestId: Number;
+    isFromBinding: Boolean;
+    constructor();
+
+  }
+
   export class InteractionTrackerInertiaModifier {
     compositor: Object;
     dispatcher: Object;
     properties: Object;
     implicitAnimations: Object;
-    comment: string;
+    comment: String;
     dispatcherQueue: Object;
     constructor();
 
   }
 
-  export class InteractionTrackerVector2InertiaModifier {
+  export class InteractionTrackerInertiaMotion {
+    motion: Object;
+    condition: Object;
     compositor: Object;
     dispatcher: Object;
     properties: Object;
     implicitAnimations: Object;
-    comment: string;
+    comment: String;
     dispatcherQueue: Object;
     constructor();
+
+    static create(compositor: Object): InteractionTrackerInertiaMotion;
+
 
   }
 
@@ -217,7 +238,7 @@
     dispatcher: Object;
     properties: Object;
     implicitAnimations: Object;
-    comment: string;
+    comment: String;
     dispatcherQueue: Object;
     constructor();
 
@@ -233,7 +254,7 @@
     dispatcher: Object;
     properties: Object;
     implicitAnimations: Object;
-    comment: string;
+    comment: String;
     dispatcherQueue: Object;
     constructor();
 
@@ -242,46 +263,96 @@
 
   }
 
-  export class InteractionTrackerInertiaMotion {
-    motion: Object;
+  export class InteractionTrackerInertiaStateEnteredArgs {
+    modifiedRestingPosition: Vector3;
+    modifiedRestingScale: Number;
+    naturalRestingPosition: Vector3;
+    naturalRestingScale: Number;
+    positionVelocityInPixelsPerSecond: Vector3;
+    requestId: Number;
+    scaleVelocityInPercentPerSecond: Number;
+    isInertiaFromImpulse: Boolean;
+    isFromBinding: Boolean;
+    constructor();
+
+  }
+
+  export class InteractionTrackerInteractingStateEnteredArgs {
+    requestId: Number;
+    isFromBinding: Boolean;
+    constructor();
+
+  }
+
+  export class InteractionTrackerRequestIgnoredArgs {
+    requestId: Number;
+    constructor();
+
+  }
+
+  export class InteractionTrackerValuesChangedArgs {
+    position: Vector3;
+    requestId: Number;
+    scale: Number;
+    constructor();
+
+  }
+
+  export class InteractionTrackerVector2InertiaModifier {
+    compositor: Object;
+    dispatcher: Object;
+    properties: Object;
+    implicitAnimations: Object;
+    comment: String;
+    dispatcherQueue: Object;
+    constructor();
+
+  }
+
+  export class InteractionTrackerVector2InertiaNaturalMotion {
+    naturalMotion: Object;
     condition: Object;
     compositor: Object;
     dispatcher: Object;
     properties: Object;
     implicitAnimations: Object;
-    comment: string;
+    comment: String;
     dispatcherQueue: Object;
     constructor();
 
-    static create(compositor: Object): InteractionTrackerInertiaMotion;
+    static create(compositor: Object): InteractionTrackerVector2InertiaNaturalMotion;
 
 
   }
 
   export class VisualInteractionSource {
+    scaleSourceMode: InteractionSourceMode;
     scaleChainingMode: InteractionChainingMode;
     positionYSourceMode: InteractionSourceMode;
     positionYChainingMode: InteractionChainingMode;
     positionXSourceMode: InteractionSourceMode;
     positionXChainingMode: InteractionChainingMode;
     manipulationRedirectionMode: VisualInteractionSourceRedirectionMode;
-    isPositionYRailsEnabled: boolean;
-    isPositionXRailsEnabled: boolean;
-    scaleSourceMode: InteractionSourceMode;
+    isPositionYRailsEnabled: Boolean;
+    isPositionXRailsEnabled: Boolean;
     source: Object;
     deltaPosition: Vector3;
-    deltaScale: number;
+    deltaScale: Number;
     position: Vector3;
     positionVelocity: Vector3;
-    scale: number;
-    scaleVelocity: number;
+    scale: Number;
+    scaleVelocity: Number;
+    pointerWheelConfig: InteractionSourceConfiguration;
     compositor: Object;
     dispatcher: Object;
     properties: Object;
     implicitAnimations: Object;
-    comment: string;
+    comment: String;
     dispatcherQueue: Object;
     constructor();
+
+    static createFromIVisualElement(source: Object): VisualInteractionSource;
+
 
     static create(source: Object): VisualInteractionSource;
 
@@ -297,22 +368,6 @@
     configureDeltaPositionYModifiers(conditionalValues: Object): void;
 
     configureDeltaScaleModifiers(conditionalValues: Object): void;
-
-  }
-
-  export class InteractionTrackerVector2InertiaNaturalMotion {
-    naturalMotion: Object;
-    condition: Object;
-    compositor: Object;
-    dispatcher: Object;
-    properties: Object;
-    implicitAnimations: Object;
-    comment: string;
-    dispatcherQueue: Object;
-    constructor();
-
-    static create(compositor: Object): InteractionTrackerVector2InertiaNaturalMotion;
-
 
   }
 

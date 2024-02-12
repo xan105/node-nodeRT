@@ -1,17 +1,3 @@
-  export enum MonitoredGeofenceStates {
-    none,
-    entered,
-    exited,
-    removed,
-  }
-
-  export enum GeofenceState {
-    none,
-    entered,
-    exited,
-    removed,
-  }
-
   export enum GeofenceMonitorStatus {
     ready,
     initializing,
@@ -26,19 +12,33 @@
     expired,
   }
 
+  export enum GeofenceState {
+    none,
+    entered,
+    exited,
+    removed,
+  }
+
+  export enum MonitoredGeofenceStates {
+    none,
+    entered,
+    exited,
+    removed,
+  }
+
   export class Geofence {
-    duration: number;
-    dwellTime: number;
+    duration: Number;
+    dwellTime: Number;
     geoshape: Object;
-    id: string;
+    id: String;
     monitoredStates: MonitoredGeofenceStates;
-    singleUse: boolean;
+    singleUse: Boolean;
     startTime: Date;
     constructor();
-    constructor(id: string, geoshape: Object);
-    constructor(id: string, geoshape: Object, monitoredStates: MonitoredGeofenceStates, singleUse: boolean);
-    constructor(id: string, geoshape: Object, monitoredStates: MonitoredGeofenceStates, singleUse: boolean, dwellTime: number);
-    constructor(id: string, geoshape: Object, monitoredStates: MonitoredGeofenceStates, singleUse: boolean, dwellTime: number, startTime: Date, duration: number);
+    constructor(id: String, geoshape: Object);
+    constructor(id: String, geoshape: Object, monitoredStates: MonitoredGeofenceStates, singleUse: Boolean);
+    constructor(id: String, geoshape: Object, monitoredStates: MonitoredGeofenceStates, singleUse: Boolean, dwellTime: Number);
+    constructor(id: String, geoshape: Object, monitoredStates: MonitoredGeofenceStates, singleUse: Boolean, dwellTime: Number, startTime: Date, duration: Number);
 
   }
 

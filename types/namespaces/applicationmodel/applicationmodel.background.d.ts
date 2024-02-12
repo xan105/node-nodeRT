@@ -16,11 +16,82 @@
     unknownError,
   }
 
+  export enum BackgroundAccessRequestKind {
+    alwaysAllowed,
+    allowedSubjectToSystemPolicy,
+  }
+
+  export enum BackgroundAccessStatus {
+    unspecified,
+    allowedWithAlwaysOnRealTimeConnectivity,
+    allowedMayUseActiveRealTimeConnectivity,
+    denied,
+    alwaysAllowed,
+    allowedSubjectToSystemPolicy,
+    deniedBySystemPolicy,
+    deniedByUser,
+  }
+
+  export enum BackgroundTaskCancellationReason {
+    abort,
+    terminating,
+    loggingOff,
+    servicingUpdate,
+    idleTask,
+    uninstall,
+    conditionLoss,
+    systemPolicy,
+    quietHoursEntered,
+    executionTimeExceeded,
+    resourceRevocation,
+    energySaver,
+  }
+
+  export enum BackgroundTaskThrottleCounter {
+    all,
+    cpu,
+    network,
+  }
+
+  export enum BackgroundWorkCostValue {
+    low,
+    medium,
+    high,
+  }
+
+  export enum CustomSystemEventTriggerRecurrence {
+    once,
+    always,
+  }
+
+  export enum DeviceTriggerResult {
+    allowed,
+    deniedByUser,
+    deniedBySystem,
+    lowBattery,
+  }
+
+  export enum LocationTriggerType {
+    geofence,
+  }
+
   export enum MediaProcessingTriggerResult {
     allowed,
     currentlyRunning,
     disabledByPolicy,
     unknownError,
+  }
+
+  export enum SystemConditionType {
+    invalid,
+    userPresent,
+    userNotPresent,
+    internetAvailable,
+    internetNotAvailable,
+    sessionConnected,
+    sessionDisconnected,
+    freeNetworkAvailable,
+    backgroundWorkCostNotHigh,
   }
 
   export enum SystemTriggerType {
@@ -42,75 +113,14 @@
     defaultSignInAccountChange,
   }
 
-  export enum SystemConditionType {
-    invalid,
-    userPresent,
-    userNotPresent,
-    internetAvailable,
-    internetNotAvailable,
-    sessionConnected,
-    sessionDisconnected,
-    freeNetworkAvailable,
-    backgroundWorkCostNotHigh,
-  }
+  export class ActivitySensorTrigger {
+    minimumReportInterval: Number;
+    reportInterval: Number;
+    subscribedActivities: Object;
+    supportedActivities: Object;
+    constructor();
+    constructor(reportIntervalInMilliseconds: Number);
 
-  export enum CustomSystemEventTriggerRecurrence {
-    once,
-    always,
-  }
-
-  export enum BackgroundAccessStatus {
-    unspecified,
-    allowedWithAlwaysOnRealTimeConnectivity,
-    allowedMayUseActiveRealTimeConnectivity,
-    denied,
-    alwaysAllowed,
-    allowedSubjectToSystemPolicy,
-    deniedBySystemPolicy,
-    deniedByUser,
-  }
-
-  export enum BackgroundAccessRequestKind {
-    alwaysAllowed,
-    allowedSubjectToSystemPolicy,
-  }
-
-  export enum BackgroundTaskCancellationReason {
-    abort,
-    terminating,
-    loggingOff,
-    servicingUpdate,
-    idleTask,
-    uninstall,
-    conditionLoss,
-    systemPolicy,
-    quietHoursEntered,
-    executionTimeExceeded,
-    resourceRevocation,
-    energySaver,
-  }
-
-  export enum BackgroundWorkCostValue {
-    low,
-    medium,
-    high,
-  }
-
-  export enum BackgroundTaskThrottleCounter {
-    all,
-    cpu,
-    network,
-  }
-
-  export enum DeviceTriggerResult {
-    allowed,
-    deniedByUser,
-    deniedBySystem,
-    lowBattery,
-  }
-
-  export enum LocationTriggerType {
-    geofence,
   }
 
   export class AlarmApplicationManager {
@@ -124,23 +134,21 @@
 
   }
 
-  export class PhoneTrigger {
-    oneShot: boolean;
-    triggerType: number;
+  export class AppBroadcastTrigger {
+    providerInfo: AppBroadcastTriggerProviderInfo;
     constructor();
-    constructor(type: number, oneShot: boolean);
+    constructor(providerKey: String);
 
   }
 
-  export class CommunicationBlockingAppSetAsActiveTrigger {
+  export class AppBroadcastTriggerProviderInfo {
+    videoKeyFrameInterval: Number;
+    maxVideoWidth: Number;
+    maxVideoHeight: Number;
+    maxVideoBitrate: Number;
+    logoResource: String;
+    displayNameResource: String;
     constructor();
-
-  }
-
-  export class SmartCardTrigger {
-    triggerType: number;
-    constructor();
-    constructor(triggerType: number);
 
   }
 
@@ -158,93 +166,6 @@
 
   }
 
-  export class MediaProcessingTrigger {
-    constructor();
-
-    requestAsync(callback: (error: Error, result: MediaProcessingTriggerResult) => void): void ;
-    requestAsync(arguments: Object, callback: (error: Error, result: MediaProcessingTriggerResult) => void): void ;
-
-  }
-
-  export class ContentPrefetchTrigger {
-    waitInterval: number;
-    constructor();
-    constructor(waitInterval: number);
-
-  }
-
-  export class SecondaryAuthenticationFactorAuthenticationTrigger {
-    constructor();
-
-  }
-
-  export class SystemTrigger {
-    oneShot: boolean;
-    triggerType: SystemTriggerType;
-    constructor();
-    constructor(triggerType: SystemTriggerType, oneShot: boolean);
-
-  }
-
-  export class SystemCondition {
-    conditionType: SystemConditionType;
-    constructor();
-    constructor(conditionType: SystemConditionType);
-
-  }
-
-  export class NetworkOperatorNotificationTrigger {
-    networkAccountId: string;
-    constructor();
-    constructor(networkAccountId: string);
-
-  }
-
-  export class DeviceManufacturerNotificationTrigger {
-    oneShot: boolean;
-    triggerQualifier: string;
-    constructor();
-    constructor(triggerQualifier: string, oneShot: boolean);
-
-  }
-
-  export class CustomSystemEventTrigger {
-    recurrence: CustomSystemEventTriggerRecurrence;
-    triggerId: string;
-    constructor();
-    constructor(triggerId: string, recurrence: CustomSystemEventTriggerRecurrence);
-
-  }
-
-  export class CachedFileUpdaterTriggerDetails {
-    canRequestUserInput: boolean;
-    updateRequest: Object;
-    updateTarget: number;
-    constructor();
-
-  }
-
-  export class CachedFileUpdaterTrigger {
-    constructor();
-
-  }
-
-  export class TimeTrigger {
-    freshnessTime: number;
-    oneShot: boolean;
-    constructor();
-    constructor(freshnessTime: number, oneShot: boolean);
-
-  }
-
-  export class MaintenanceTrigger {
-    freshnessTime: number;
-    oneShot: boolean;
-    constructor();
-    constructor(freshnessTime: number, oneShot: boolean);
-
-  }
-
   export class AppointmentStoreNotificationTrigger {
     constructor();
 
@@ -253,59 +174,83 @@
   export class BackgroundExecutionManager {
     constructor();
 
-    static requestAccessKindAsync(requestedAccess: BackgroundAccessRequestKind, reason: string, callback: (error: Error, result: boolean) => void): void ;
+    static requestAccessKindForModernStandbyAsync(requestedAccess: BackgroundAccessRequestKind, reason: String, callback: (error: Error, result: Boolean) => void): void ;
+
+
+    static requestAccessKindAsync(requestedAccess: BackgroundAccessRequestKind, reason: String, callback: (error: Error, result: Boolean) => void): void ;
 
 
     static requestAccessAsync(callback: (error: Error, result: BackgroundAccessStatus) => void): void ;
-    static requestAccessAsync(applicationId: string, callback: (error: Error, result: BackgroundAccessStatus) => void): void ;
+    static requestAccessAsync(applicationId: String, callback: (error: Error, result: BackgroundAccessStatus) => void): void ;
+
+
+    static getAccessStatusForModernStandby(): BackgroundAccessStatus;
+    static getAccessStatusForModernStandby(applicationId: String): BackgroundAccessStatus;
 
 
     static removeAccess(): void;
-    static removeAccess(applicationId: string): void;
+    static removeAccess(applicationId: String): void;
 
 
     static getAccessStatus(): BackgroundAccessStatus;
-    static getAccessStatus(applicationId: string): BackgroundAccessStatus;
+    static getAccessStatus(applicationId: String): BackgroundAccessStatus;
 
 
   }
 
-  export class IBackgroundTaskInstance {
-    instanceId: string;
-    progress: number;
-    suspendedCount: number;
-    task: BackgroundTaskRegistration;
-    triggerDetails: Object;
+  export class BackgroundTaskBuilder {
+    taskEntryPoint: String;
+    name: String;
+    cancelOnConditionLoss: Boolean;
+    isNetworkRequested: Boolean;
+    taskGroup: BackgroundTaskRegistrationGroup;
     constructor();
 
-    getDeferral(): BackgroundTaskDeferral;
+    setTrigger(trigger: IBackgroundTrigger): void;
 
-    addListener(type: "Canceled", listener: (ev: Event) => void): void ;
-    removeListener(type: "Canceled", listener: (ev: Event) => void): void ;
-    on(type: "Canceled", listener: (ev: Event) => void): void ;
-    off(type: "Canceled", listener: (ev: Event) => void): void ;
-    
-    addListener(type: string, listener: (ev: Event) => void): void ;
-    removeListener(type: string, listener: (ev: Event) => void): void ;
-    on(type: string, listener: (ev: Event) => void): void ;
-    off(type: string, listener: (ev: Event) => void): void ;
-    
+    addCondition(condition: IBackgroundCondition): void;
+
+    register(): BackgroundTaskRegistration;
+
+    setTaskEntryPointClsid(TaskEntryPoint: String): void;
+
+  }
+
+  export class BackgroundTaskCompletedEventArgs {
+    instanceId: String;
+    constructor();
+
+    checkResult(): void;
+
+  }
+
+  export class BackgroundTaskDeferral {
+    constructor();
+
+    complete(): void;
+
+  }
+
+  export class BackgroundTaskProgressEventArgs {
+    instanceId: String;
+    progress: Number;
+    constructor();
 
   }
 
   export class BackgroundTaskRegistration {
     static allTasks: Object;
     static allTaskGroups: Object;
-    name: string;
-    taskId: string;
+    name: String;
+    taskId: String;
     trigger: IBackgroundTrigger;
     taskGroup: BackgroundTaskRegistrationGroup;
     constructor();
 
-    static getTaskGroup(groupId: string): BackgroundTaskRegistrationGroup;
+    static getTaskGroup(groupId: String): BackgroundTaskRegistrationGroup;
 
 
-    unregister(cancelTask: boolean): void;
+    unregister(cancelTask: Boolean): void;
 
     addListener(type: "Completed", listener: (ev: Event) => void): void ;
     removeListener(type: "Completed", listener: (ev: Event) => void): void ;
@@ -325,37 +270,187 @@
 
   }
 
-  export class BackgroundTaskDeferral {
+  export class BackgroundTaskRegistrationGroup {
+    allTasks: Object;
+    id: String;
+    name: String;
     constructor();
+    constructor(id: String);
+    constructor(id: String, name: String);
 
-    complete(): void;
+    addListener(type: "BackgroundActivated", listener: (ev: Event) => void): void ;
+    removeListener(type: "BackgroundActivated", listener: (ev: Event) => void): void ;
+    on(type: "BackgroundActivated", listener: (ev: Event) => void): void ;
+    off(type: "BackgroundActivated", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
 
   }
 
-  export class BackgroundTaskProgressEventArgs {
-    instanceId: string;
-    progress: number;
+  export class BackgroundWorkCost {
+    static currentBackgroundWorkCost: BackgroundWorkCostValue;
     constructor();
 
   }
 
-  export class BackgroundTaskCompletedEventArgs {
-    instanceId: string;
+  export class BluetoothLEAdvertisementPublisherTrigger {
+    advertisement: Object;
+    useExtendedFormat: Boolean;
+    preferredTransmitPowerLevelInDBm: Number;
+    isAnonymous: Boolean;
+    includeTransmitPowerLevel: Boolean;
     constructor();
-
-    checkResult(): void;
 
   }
 
-  export class IBackgroundTaskInstance2 {
+  export class BluetoothLEAdvertisementWatcherTrigger {
+    signalStrengthFilter: Object;
+    advertisementFilter: Object;
+    maxOutOfRangeTimeout: Number;
+    maxSamplingInterval: Number;
+    minOutOfRangeTimeout: Number;
+    minSamplingInterval: Number;
+    allowExtendedAdvertisements: Boolean;
     constructor();
-
-    getThrottleCount(counter: BackgroundTaskThrottleCounter): number;
 
   }
 
-  export class IBackgroundTaskInstance4 {
-    user: Object;
+  export class CachedFileUpdaterTrigger {
+    constructor();
+
+  }
+
+  export class CachedFileUpdaterTriggerDetails {
+    canRequestUserInput: Boolean;
+    updateRequest: Object;
+    updateTarget: Number;
+    constructor();
+
+  }
+
+  export class ChatMessageNotificationTrigger {
+    constructor();
+
+  }
+
+  export class ChatMessageReceivedNotificationTrigger {
+    constructor();
+
+  }
+
+  export class CommunicationBlockingAppSetAsActiveTrigger {
+    constructor();
+
+  }
+
+  export class ContactStoreNotificationTrigger {
+    constructor();
+
+  }
+
+  export class ContentPrefetchTrigger {
+    waitInterval: Number;
+    constructor();
+    constructor(waitInterval: Number);
+
+  }
+
+  export class ConversationalAgentTrigger {
+    constructor();
+
+  }
+
+  export class CustomSystemEventTrigger {
+    recurrence: CustomSystemEventTriggerRecurrence;
+    triggerId: String;
+    constructor();
+    constructor(triggerId: String, recurrence: CustomSystemEventTriggerRecurrence);
+
+  }
+
+  export class DeviceConnectionChangeTrigger {
+    maintainConnection: Boolean;
+    canMaintainConnection: Boolean;
+    deviceId: String;
+    constructor();
+
+    static fromIdAsync(deviceId: String, callback: (error: Error, result: DeviceConnectionChangeTrigger) => void): void ;
+
+
+  }
+
+  export class DeviceManufacturerNotificationTrigger {
+    oneShot: Boolean;
+    triggerQualifier: String;
+    constructor();
+    constructor(triggerQualifier: String, oneShot: Boolean);
+
+  }
+
+  export class DeviceServicingTrigger {
+    constructor();
+
+    requestAsync(deviceId: String, expectedDuration: Number, callback: (error: Error, result: DeviceTriggerResult) => void): void ;
+    requestAsync(deviceId: String, expectedDuration: Number, arguments: String, callback: (error: Error, result: DeviceTriggerResult) => void): void ;
+
+  }
+
+  export class DeviceUseTrigger {
+    constructor();
+
+    requestAsync(deviceId: String, callback: (error: Error, result: DeviceTriggerResult) => void): void ;
+    requestAsync(deviceId: String, arguments: String, callback: (error: Error, result: DeviceTriggerResult) => void): void ;
+
+  }
+
+  export class DeviceWatcherTrigger {
+    constructor();
+
+  }
+
+  export class EmailStoreNotificationTrigger {
+    constructor();
+
+  }
+
+  export class GattCharacteristicNotificationTrigger {
+    characteristic: Object;
+    eventTriggeringMode: Number;
+    constructor();
+    constructor(characteristic: Object, eventTriggeringMode: Number);
+    constructor(characteristic: Object);
+
+  }
+
+  export class GattServiceProviderTrigger {
+    advertisingParameters: Object;
+    service: Object;
+    triggerId: String;
+    constructor();
+
+    static createAsync(triggerId: String, serviceUuid: String, callback: (error: Error, result: GattServiceProviderTriggerResult) => void): void ;
+
+
+  }
+
+  export class GattServiceProviderTriggerResult {
+    error: Number;
+    trigger: GattServiceProviderTrigger;
+    constructor();
+
+  }
+
+  export class GeovisitTrigger {
+    monitoringScope: Number;
+    constructor();
+
+  }
+
+  export class IBackgroundCondition {
     constructor();
 
   }
@@ -367,12 +462,48 @@
 
   }
 
-  export class IBackgroundTaskRegistration {
-    name: string;
-    taskId: string;
+  export class IBackgroundTaskInstance {
+    instanceId: String;
+    progress: Number;
+    suspendedCount: Number;
+    task: BackgroundTaskRegistration;
+    triggerDetails: Object;
     constructor();
 
-    unregister(cancelTask: boolean): void;
+    getDeferral(): BackgroundTaskDeferral;
+
+    addListener(type: "Canceled", listener: (ev: Event) => void): void ;
+    removeListener(type: "Canceled", listener: (ev: Event) => void): void ;
+    on(type: "Canceled", listener: (ev: Event) => void): void ;
+    off(type: "Canceled", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
+
+  }
+
+  export class IBackgroundTaskInstance2 {
+    constructor();
+
+    getThrottleCount(counter: BackgroundTaskThrottleCounter): Number;
+
+  }
+
+  export class IBackgroundTaskInstance4 {
+    user: Object;
+    constructor();
+
+  }
+
+  export class IBackgroundTaskRegistration {
+    name: String;
+    taskId: String;
+    constructor();
+
+    unregister(cancelTask: Boolean): void;
 
     addListener(type: "Completed", listener: (ev: Event) => void): void ;
     removeListener(type: "Completed", listener: (ev: Event) => void): void ;
@@ -398,116 +529,41 @@
 
   }
 
-  export class IBackgroundTrigger {
-    constructor();
-
-  }
-
   export class IBackgroundTaskRegistration3 {
     taskGroup: BackgroundTaskRegistrationGroup;
     constructor();
 
   }
 
-  export class BackgroundTaskRegistrationGroup {
-    allTasks: Object;
-    id: string;
-    name: string;
-    constructor();
-    constructor(id: string);
-    constructor(id: string, name: string);
-
-    addListener(type: "BackgroundActivated", listener: (ev: Event) => void): void ;
-    removeListener(type: "BackgroundActivated", listener: (ev: Event) => void): void ;
-    on(type: "BackgroundActivated", listener: (ev: Event) => void): void ;
-    off(type: "BackgroundActivated", listener: (ev: Event) => void): void ;
-    
-    addListener(type: string, listener: (ev: Event) => void): void ;
-    removeListener(type: string, listener: (ev: Event) => void): void ;
-    on(type: string, listener: (ev: Event) => void): void ;
-    off(type: string, listener: (ev: Event) => void): void ;
-    
-
-  }
-
-  export class IBackgroundCondition {
+  export class IBackgroundTrigger {
     constructor();
 
   }
 
-  export class BackgroundTaskBuilder {
-    taskEntryPoint: string;
-    name: string;
-    cancelOnConditionLoss: boolean;
-    isNetworkRequested: boolean;
-    taskGroup: BackgroundTaskRegistrationGroup;
+  export class LocationTrigger {
+    triggerType: LocationTriggerType;
     constructor();
-
-    setTrigger(trigger: IBackgroundTrigger): void;
-
-    addCondition(condition: IBackgroundCondition): void;
-
-    register(): BackgroundTaskRegistration;
+    constructor(triggerType: LocationTriggerType);
 
   }
 
-  export class BackgroundWorkCost {
-    static currentBackgroundWorkCost: BackgroundWorkCostValue;
+  export class MaintenanceTrigger {
+    freshnessTime: Number;
+    oneShot: Boolean;
     constructor();
+    constructor(freshnessTime: Number, oneShot: Boolean);
 
   }
 
-  export class ChatMessageNotificationTrigger {
+  export class MediaProcessingTrigger {
     constructor();
 
-  }
-
-  export class ChatMessageReceivedNotificationTrigger {
-    constructor();
-
-  }
-
-  export class RcsEndUserMessageAvailableTrigger {
-    constructor();
-
-  }
-
-  export class ContactStoreNotificationTrigger {
-    constructor();
-
-  }
-
-  export class EmailStoreNotificationTrigger {
-    constructor();
-
-  }
-
-  export class MobileBroadbandRegistrationStateChangeTrigger {
-    constructor();
-
-  }
-
-  export class MobileBroadbandRadioStateChangeTrigger {
-    constructor();
-
-  }
-
-  export class MobileBroadbandPinLockStateChangeTrigger {
-    constructor();
+    requestAsync(callback: (error: Error, result: MediaProcessingTriggerResult) => void): void ;
+    requestAsync(arguments: Object, callback: (error: Error, result: MediaProcessingTriggerResult) => void): void ;
 
   }
 
   export class MobileBroadbandDeviceServiceNotificationTrigger {
-    constructor();
-
-  }
-
-  export class NetworkOperatorDataUsageTrigger {
-    constructor();
-
-  }
-
-  export class TetheringEntitlementCheckTrigger {
     constructor();
 
   }
@@ -517,9 +573,105 @@
 
   }
 
+  export class MobileBroadbandPinLockStateChangeTrigger {
+    constructor();
+
+  }
+
+  export class MobileBroadbandRadioStateChangeTrigger {
+    constructor();
+
+  }
+
+  export class MobileBroadbandRegistrationStateChangeTrigger {
+    constructor();
+
+  }
+
+  export class NetworkOperatorDataUsageTrigger {
+    constructor();
+
+  }
+
+  export class NetworkOperatorHotspotAuthenticationTrigger {
+    constructor();
+
+  }
+
+  export class NetworkOperatorNotificationTrigger {
+    networkAccountId: String;
+    constructor();
+    constructor(networkAccountId: String);
+
+  }
+
+  export class PaymentAppCanMakePaymentTrigger {
+    constructor();
+
+  }
+
+  export class PhoneTrigger {
+    oneShot: Boolean;
+    triggerType: Number;
+    constructor();
+    constructor(type: Number, oneShot: Boolean);
+
+  }
+
+  export class PushNotificationTrigger {
+    constructor();
+    constructor(applicationId: String);
+
+  }
+
+  export class RcsEndUserMessageAvailableTrigger {
+    constructor();
+
+  }
+
+  export class RfcommConnectionTrigger {
+    remoteHostName: Object;
+    protectionLevel: Number;
+    allowMultipleConnections: Boolean;
+    inboundConnection: Object;
+    outboundConnection: Object;
+    constructor();
+
+  }
+
+  export class SecondaryAuthenticationFactorAuthenticationTrigger {
+    constructor();
+
+  }
+
+  export class SensorDataThresholdTrigger {
+    constructor();
+    constructor(threshold: Object);
+
+  }
+
+  export class SmartCardTrigger {
+    triggerType: Number;
+    constructor();
+    constructor(triggerType: Number);
+
+  }
+
   export class SmsMessageReceivedTrigger {
     constructor();
     constructor(filterRules: Object);
+
+  }
+
+  export class SocketActivityTrigger {
+    isWakeFromLowPowerSupported: Boolean;
+    constructor();
+
+  }
+
+  export class StorageLibraryChangeTrackerTrigger {
+    constructor();
+    constructor(tracker: Object);
 
   }
 
@@ -534,182 +686,59 @@
 
   }
 
-  export class StorageLibraryChangeTrackerTrigger {
+  export class SystemCondition {
+    conditionType: SystemConditionType;
     constructor();
-    constructor(tracker: Object);
+    constructor(conditionType: SystemConditionType);
 
   }
 
-  export class PaymentAppCanMakePaymentTrigger {
+  export class SystemTrigger {
+    oneShot: Boolean;
+    triggerType: SystemTriggerType;
     constructor();
+    constructor(triggerType: SystemTriggerType, oneShot: Boolean);
 
   }
 
-  export class DeviceUseTrigger {
-    constructor();
-
-    requestAsync(deviceId: string, callback: (error: Error, result: DeviceTriggerResult) => void): void ;
-    requestAsync(deviceId: string, arguments: string, callback: (error: Error, result: DeviceTriggerResult) => void): void ;
-
-  }
-
-  export class DeviceServicingTrigger {
-    constructor();
-
-    requestAsync(deviceId: string, expectedDuration: number, callback: (error: Error, result: DeviceTriggerResult) => void): void ;
-    requestAsync(deviceId: string, expectedDuration: number, arguments: string, callback: (error: Error, result: DeviceTriggerResult) => void): void ;
-
-  }
-
-  export class RfcommConnectionTrigger {
-    remoteHostName: Object;
-    protectionLevel: number;
-    allowMultipleConnections: boolean;
-    inboundConnection: Object;
-    outboundConnection: Object;
+  export class TetheringEntitlementCheckTrigger {
     constructor();
 
   }
 
-  export class DeviceConnectionChangeTrigger {
-    maintainConnection: boolean;
-    canMaintainConnection: boolean;
-    deviceId: string;
+  export class TimeTrigger {
+    freshnessTime: Number;
+    oneShot: Boolean;
     constructor();
-
-    static fromIdAsync(deviceId: string, callback: (error: Error, result: DeviceConnectionChangeTrigger) => void): void ;
-
-
-  }
-
-  export class GattCharacteristicNotificationTrigger {
-    characteristic: Object;
-    eventTriggeringMode: number;
-    constructor();
-    constructor(characteristic: Object, eventTriggeringMode: number);
-    constructor(characteristic: Object);
-
-  }
-
-  export class GattServiceProviderTrigger {
-    advertisingParameters: Object;
-    service: Object;
-    triggerId: string;
-    constructor();
-
-    static createAsync(triggerId: string, serviceUuid: string, callback: (error: Error, result: GattServiceProviderTriggerResult) => void): void ;
-
-
-  }
-
-  export class GattServiceProviderTriggerResult {
-    error: number;
-    trigger: GattServiceProviderTrigger;
-    constructor();
-
-  }
-
-  export class BluetoothLEAdvertisementWatcherTrigger {
-    signalStrengthFilter: Object;
-    advertisementFilter: Object;
-    maxOutOfRangeTimeout: number;
-    maxSamplingInterval: number;
-    minOutOfRangeTimeout: number;
-    minSamplingInterval: number;
-    constructor();
-
-  }
-
-  export class BluetoothLEAdvertisementPublisherTrigger {
-    advertisement: Object;
-    constructor();
-
-  }
-
-  export class DeviceWatcherTrigger {
-    constructor();
-
-  }
-
-  export class LocationTrigger {
-    triggerType: LocationTriggerType;
-    constructor();
-    constructor(triggerType: LocationTriggerType);
-
-  }
-
-  export class GeovisitTrigger {
-    monitoringScope: number;
-    constructor();
-
-  }
-
-  export class ActivitySensorTrigger {
-    minimumReportInterval: number;
-    reportInterval: number;
-    subscribedActivities: Object;
-    supportedActivities: Object;
-    constructor();
-    constructor(reportIntervalInMilliseconds: number);
-
-  }
-
-  export class SensorDataThresholdTrigger {
-    constructor();
-    constructor(threshold: Object);
-
-  }
-
-  export class NetworkOperatorHotspotAuthenticationTrigger {
-    constructor();
-
-  }
-
-  export class SocketActivityTrigger {
-    isWakeFromLowPowerSupported: boolean;
-    constructor();
-
-  }
-
-  export class PushNotificationTrigger {
-    constructor();
-    constructor(applicationId: string);
-
-  }
-
-  export class ToastNotificationHistoryChangedTrigger {
-    constructor();
-    constructor(applicationId: string);
+    constructor(freshnessTime: Number, oneShot: Boolean);
 
   }
 
   export class ToastNotificationActionTrigger {
     constructor();
-    constructor(applicationId: string);
+    constructor(applicationId: String);
+
+  }
+
+  export class ToastNotificationHistoryChangedTrigger {
+    constructor();
+    constructor(applicationId: String);
 
   }
 
   export class UserNotificationChangedTrigger {
     constructor();
-    constructor(notificationKinds: number);
+    constructor(notificationKinds: Number);
 
   }
 
-  export class AppBroadcastTriggerProviderInfo {
-    videoKeyFrameInterval: number;
-    maxVideoWidth: number;
-    maxVideoHeight: number;
-    maxVideoBitrate: number;
-    logoResource: string;
-    displayNameResource: string;
+  export class WiFiOnDemandHotspotConnectTrigger {
     constructor();
 
   }
 
-  export class AppBroadcastTrigger {
-    providerInfo: AppBroadcastTriggerProviderInfo;
+  export class WiFiOnDemandHotspotUpdateMetadataTrigger {
     constructor();
-    constructor(providerKey: string);
 
   }
 

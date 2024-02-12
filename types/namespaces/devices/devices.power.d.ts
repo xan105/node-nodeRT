@@ -1,22 +1,12 @@
-  export class BatteryReport {
-    chargeRateInMilliwatts: number;
-    designCapacityInMilliwattHours: number;
-    fullChargeCapacityInMilliwattHours: number;
-    remainingCapacityInMilliwattHours: number;
-    status: number;
-    constructor();
-
-  }
-
   export class Battery {
     static aggregateBattery: Battery;
-    deviceId: string;
+    deviceId: String;
     constructor();
 
-    static fromIdAsync(deviceId: string, callback: (error: Error, result: Battery) => void): void ;
+    static fromIdAsync(deviceId: String, callback: (error: Error, result: Battery) => void): void ;
 
 
-    static getDeviceSelector(): string;
+    static getDeviceSelector(): String;
 
 
     getReport(): BatteryReport;
@@ -31,6 +21,16 @@
     on(type: string, listener: (ev: Event) => void): void ;
     off(type: string, listener: (ev: Event) => void): void ;
     
+
+  }
+
+  export class BatteryReport {
+    chargeRateInMilliwatts: Number;
+    designCapacityInMilliwattHours: Number;
+    fullChargeCapacityInMilliwattHours: Number;
+    remainingCapacityInMilliwattHours: Number;
+    status: Number;
+    constructor();
 
   }
 

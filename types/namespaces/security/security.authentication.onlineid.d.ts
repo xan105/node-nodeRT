@@ -10,42 +10,73 @@
     serviceConnectionError,
   }
 
-  export class OnlineIdServiceTicketRequest {
-    policy: string;
-    service: string;
+  export class OnlineIdAuthenticator {
+    applicationId: String;
+    authenticatedSafeCustomerId: String;
+    canSignOut: Boolean;
     constructor();
-    constructor(service: string, policy: string);
-    constructor(service: string);
+
+    authenticateUserAsync(request: OnlineIdServiceTicketRequest, callback: (error: Error, result: UserIdentity) => void): void ;
+    authenticateUserAsync(requests: Object, credentialPromptType: CredentialPromptType, callback: (error: Error, result: UserIdentity) => void): void ;
+
+    signOutUserAsync(callback: (error: Error) => void): void ;
 
   }
 
   export class OnlineIdServiceTicket {
-    errorCode: number;
+    errorCode: Number;
     request: OnlineIdServiceTicketRequest;
-    value: string;
+    value: String;
     constructor();
 
   }
 
-  export class UserAuthenticationOperation {
-    errorCode: number;
-    id: number;
-    status: number;
-    completed: Object;
+  export class OnlineIdServiceTicketRequest {
+    policy: String;
+    service: String;
+    constructor();
+    constructor(service: String, policy: String);
+    constructor(service: String);
+
+  }
+
+  export class OnlineIdSystemAuthenticator {
+    static default: OnlineIdSystemAuthenticatorForUser;
     constructor();
 
-    getResults(): UserIdentity;
+    static getForUser(user: Object): OnlineIdSystemAuthenticatorForUser;
 
-    cancel(): void;
 
-    close(): void;
+  }
+
+  export class OnlineIdSystemAuthenticatorForUser {
+    applicationId: String;
+    user: Object;
+    constructor();
+
+    getTicketAsync(request: OnlineIdServiceTicketRequest, callback: (error: Error, result: OnlineIdSystemTicketResult) => void): void ;
+
+  }
+
+  export class OnlineIdSystemIdentity {
+    id: String;
+    ticket: OnlineIdServiceTicket;
+    constructor();
+
+  }
+
+  export class OnlineIdSystemTicketResult {
+    extendedError: Number;
+    identity: OnlineIdSystemIdentity;
+    status: OnlineIdSystemTicketStatus;
+    constructor();
 
   }
 
   export class SignOutUserOperation {
-    errorCode: number;
-    id: number;
-    status: number;
+    errorCode: Number;
+    id: Number;
+    status: Number;
     completed: Object;
     constructor();
 
@@ -57,62 +88,31 @@
 
   }
 
+  export class UserAuthenticationOperation {
+    errorCode: Number;
+    id: Number;
+    status: Number;
+    completed: Object;
+    constructor();
+
+    getResults(): UserIdentity;
+
+    cancel(): void;
+
+    close(): void;
+
+  }
+
   export class UserIdentity {
-    firstName: string;
-    id: string;
-    isBetaAccount: boolean;
-    isConfirmedPC: boolean;
-    lastName: string;
-    safeCustomerId: string;
-    signInName: string;
+    firstName: String;
+    id: String;
+    isBetaAccount: Boolean;
+    isConfirmedPC: Boolean;
+    lastName: String;
+    safeCustomerId: String;
+    signInName: String;
     tickets: Object;
     constructor();
-
-  }
-
-  export class OnlineIdAuthenticator {
-    applicationId: string;
-    authenticatedSafeCustomerId: string;
-    canSignOut: boolean;
-    constructor();
-
-    authenticateUserAsync(request: OnlineIdServiceTicketRequest, callback: (error: Error, result: UserIdentity) => void): void ;
-    authenticateUserAsync(requests: Object, credentialPromptType: CredentialPromptType, callback: (error: Error, result: UserIdentity) => void): void ;
-
-    signOutUserAsync(callback: (error: Error) => void): void ;
-
-  }
-
-  export class OnlineIdSystemIdentity {
-    id: string;
-    ticket: OnlineIdServiceTicket;
-    constructor();
-
-  }
-
-  export class OnlineIdSystemTicketResult {
-    extendedError: number;
-    identity: OnlineIdSystemIdentity;
-    status: OnlineIdSystemTicketStatus;
-    constructor();
-
-  }
-
-  export class OnlineIdSystemAuthenticatorForUser {
-    applicationId: string;
-    user: Object;
-    constructor();
-
-    getTicketAsync(request: OnlineIdServiceTicketRequest, callback: (error: Error, result: OnlineIdSystemTicketResult) => void): void ;
-
-  }
-
-  export class OnlineIdSystemAuthenticator {
-    static default: OnlineIdSystemAuthenticatorForUser;
-    constructor();
-
-    static getForUser(user: Object): OnlineIdSystemAuthenticatorForUser;
-
 
   }
 

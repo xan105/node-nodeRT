@@ -7,13 +7,18 @@
   }
 
   export class CorePhysicalKeyStatus {
-    repeatCount: number;
-    scanCode: number;
-    isExtendedKey: boolean;
-    isMenuKeyDown: boolean;
-    wasKeyDown: boolean;
-    isKeyReleased: boolean;
+    repeatCount: Number;
+    scanCode: Number;
+    isExtendedKey: Boolean;
+    isMenuKeyDown: Boolean;
+    wasKeyDown: Boolean;
+    isKeyReleased: Boolean;
     constructor();
+  }
+
+  export enum WebViewControlAcceleratorKeyRoutingStage {
+    tunneling,
+    bubbling,
   }
 
   export enum WebViewControlMoveFocusReason {
@@ -28,53 +33,22 @@
     enabled,
   }
 
-  export enum WebViewControlAcceleratorKeyRoutingStage {
-    tunneling,
-    bubbling,
-  }
-
-  export class WebViewControlProcess {
-    enterpriseId: string;
-    isPrivateNetworkClientServerCapabilityEnabled: boolean;
-    processId: number;
-    constructor();
-    constructor(processOptions: WebViewControlProcessOptions);
-
-    createWebViewControlAsync(hostWindowHandle: number, bounds: Object, callback: (error: Error, result: WebViewControl) => void): void ;
-
-    getWebViewControls(): Object;
-
-    terminate(): void;
-
-    addListener(type: "ProcessExited", listener: (ev: Event) => void): void ;
-    removeListener(type: "ProcessExited", listener: (ev: Event) => void): void ;
-    on(type: "ProcessExited", listener: (ev: Event) => void): void ;
-    off(type: "ProcessExited", listener: (ev: Event) => void): void ;
-    
-    addListener(type: string, listener: (ev: Event) => void): void ;
-    removeListener(type: string, listener: (ev: Event) => void): void ;
-    on(type: string, listener: (ev: Event) => void): void ;
-    off(type: string, listener: (ev: Event) => void): void ;
-    
-
-  }
-
   export class WebViewControl {
-    scale: number;
-    isVisible: boolean;
+    scale: Number;
+    isVisible: Boolean;
     bounds: Object;
     process: WebViewControlProcess;
     source: Object;
     defaultBackgroundColor: Object;
-    canGoBack: boolean;
-    canGoForward: boolean;
-    containsFullScreenElement: boolean;
+    canGoBack: Boolean;
+    canGoForward: Boolean;
+    containsFullScreenElement: Boolean;
     deferredPermissionRequests: Object;
-    documentTitle: string;
+    documentTitle: String;
     settings: Object;
     constructor();
 
-    invokeScriptAsync(scriptName: string, arguments: Object, callback: (error: Error, result: string) => void): void ;
+    invokeScriptAsync(scriptName: String, arguments: Object, callback: (error: Error, result: String) => void): void ;
 
     capturePreviewToStreamAsync(stream: Object, callback: (error: Error) => void): void ;
 
@@ -83,6 +57,8 @@
     close(): void;
 
     moveFocus(reason: WebViewControlMoveFocusReason): void;
+
+    addInitializeScript(script: String): void;
 
     goForward(): void;
 
@@ -94,15 +70,15 @@
 
     navigate(source: Object): void;
 
-    navigateToString(text: string): void;
+    navigateToString(text: String): void;
 
     navigateToLocalStreamUri(source: Object, streamResolver: Object): void;
 
     navigateWithHttpRequestMessage(requestMessage: Object): void;
 
-    buildLocalStreamUri(contentIdentifier: string, relativePath: string): Object;
+    buildLocalStreamUri(contentIdentifier: String, relativePath: String): Object;
 
-    getDeferredPermissionRequestById(id: number, result: Object): void;
+    getDeferredPermissionRequestById(id: Number, result: Object): void;
 
     addListener(type: "ContainsFullScreenElementChanged", listener: (ev: Event) => void): void ;
     removeListener(type: "ContainsFullScreenElementChanged", listener: (ev: Event) => void): void ;
@@ -199,11 +175,31 @@
     on(type: "MoveFocusRequested", listener: (ev: Event) => void): void ;
     off(type: "MoveFocusRequested", listener: (ev: Event) => void): void ;
     
+    addListener(type: "GotFocus", listener: (ev: Event) => void): void ;
+    removeListener(type: "GotFocus", listener: (ev: Event) => void): void ;
+    on(type: "GotFocus", listener: (ev: Event) => void): void ;
+    off(type: "GotFocus", listener: (ev: Event) => void): void ;
+    
+    addListener(type: "LostFocus", listener: (ev: Event) => void): void ;
+    removeListener(type: "LostFocus", listener: (ev: Event) => void): void ;
+    on(type: "LostFocus", listener: (ev: Event) => void): void ;
+    off(type: "LostFocus", listener: (ev: Event) => void): void ;
+    
     addListener(type: string, listener: (ev: Event) => void): void ;
     removeListener(type: string, listener: (ev: Event) => void): void ;
     on(type: string, listener: (ev: Event) => void): void ;
     off(type: string, listener: (ev: Event) => void): void ;
     
+
+  }
+
+  export class WebViewControlAcceleratorKeyPressedEventArgs {
+    handled: Boolean;
+    eventType: Number;
+    keyStatus: CorePhysicalKeyStatus;
+    routingStage: WebViewControlAcceleratorKeyRoutingStage;
+    virtualKey: Number;
+    constructor();
 
   }
 
@@ -213,19 +209,35 @@
 
   }
 
-  export class WebViewControlAcceleratorKeyPressedEventArgs {
-    handled: boolean;
-    eventType: number;
-    keyStatus: CorePhysicalKeyStatus;
-    routingStage: WebViewControlAcceleratorKeyRoutingStage;
-    virtualKey: number;
+  export class WebViewControlProcess {
+    enterpriseId: String;
+    isPrivateNetworkClientServerCapabilityEnabled: Boolean;
+    processId: Number;
     constructor();
+    constructor(processOptions: WebViewControlProcessOptions);
+
+    createWebViewControlAsync(hostWindowHandle: Number, bounds: Object, callback: (error: Error, result: WebViewControl) => void): void ;
+
+    getWebViewControls(): Object;
+
+    terminate(): void;
+
+    addListener(type: "ProcessExited", listener: (ev: Event) => void): void ;
+    removeListener(type: "ProcessExited", listener: (ev: Event) => void): void ;
+    on(type: "ProcessExited", listener: (ev: Event) => void): void ;
+    off(type: "ProcessExited", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
 
   }
 
   export class WebViewControlProcessOptions {
     privateNetworkClientServerCapability: WebViewControlProcessCapabilityState;
-    enterpriseId: string;
+    enterpriseId: String;
     constructor();
 
   }

@@ -1,64 +1,3 @@
-  export enum SecondaryAuthenticationFactorDeviceCapabilities {
-    none,
-    secureStorage,
-    storeKeys,
-    confirmUserIntentToAuthenticate,
-    supportSecureUserPresenceCheck,
-    transmittedDataIsEncrypted,
-    hMacSha256,
-    closeRangeDataTransmission,
-  }
-
-  export enum SecondaryAuthenticationFactorDeviceFindScope {
-    user,
-    allUsers,
-  }
-
-  export enum SecondaryAuthenticationFactorAuthenticationStage {
-    notStarted,
-    waitingForUserConfirmation,
-    collectingCredential,
-    suspendingAuthentication,
-    credentialCollected,
-    credentialAuthenticated,
-    stoppingAuthentication,
-    readyForLock,
-    checkingDevicePresence,
-  }
-
-  export enum SecondaryAuthenticationFactorRegistrationStatus {
-    failed,
-    started,
-    canceledByUser,
-    pinSetupRequired,
-    disabledByPolicy,
-  }
-
-  export enum SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {
-    unsupported,
-    succeeded,
-    disabledByPolicy,
-  }
-
-  export enum SecondaryAuthenticationFactorAuthenticationStatus {
-    failed,
-    started,
-    unknownDevice,
-    disabledByPolicy,
-    invalidAuthenticationStage,
-  }
-
-  export enum SecondaryAuthenticationFactorFinishAuthenticationStatus {
-    failed,
-    completed,
-    nonceExpired,
-  }
-
-  export enum SecondaryAuthenticationFactorAuthenticationScenario {
-    signIn,
-    credentialPrompt,
-  }
-
   export enum SecondaryAuthenticationFactorAuthenticationMessage {
     invalid,
     swipeUpWelcome,
@@ -91,6 +30,47 @@
     deviceUnavailable,
   }
 
+  export enum SecondaryAuthenticationFactorAuthenticationScenario {
+    signIn,
+    credentialPrompt,
+  }
+
+  export enum SecondaryAuthenticationFactorAuthenticationStage {
+    notStarted,
+    waitingForUserConfirmation,
+    collectingCredential,
+    suspendingAuthentication,
+    credentialCollected,
+    credentialAuthenticated,
+    stoppingAuthentication,
+    readyForLock,
+    checkingDevicePresence,
+  }
+
+  export enum SecondaryAuthenticationFactorAuthenticationStatus {
+    failed,
+    started,
+    unknownDevice,
+    disabledByPolicy,
+    invalidAuthenticationStage,
+  }
+
+  export enum SecondaryAuthenticationFactorDeviceCapabilities {
+    none,
+    secureStorage,
+    storeKeys,
+    confirmUserIntentToAuthenticate,
+    supportSecureUserPresenceCheck,
+    transmittedDataIsEncrypted,
+    hMacSha256,
+    closeRangeDataTransmission,
+  }
+
+  export enum SecondaryAuthenticationFactorDeviceFindScope {
+    user,
+    allUsers,
+  }
+
   export enum SecondaryAuthenticationFactorDevicePresence {
     absent,
     present,
@@ -102,42 +82,24 @@
     systemManaged,
   }
 
-  export class SecondaryAuthenticationFactorRegistration {
-    constructor();
-
-    static registerDevicePresenceMonitoringAsync(deviceId: string, deviceInstancePath: string, monitoringMode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode, callback: (error: Error, result: SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus) => void): void ;
-    static registerDevicePresenceMonitoringAsync(deviceId: string, deviceInstancePath: string, monitoringMode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode, deviceFriendlyName: string, deviceModelNumber: string, deviceConfigurationData: Object, callback: (error: Error, result: SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus) => void): void ;
-
-
-    static unregisterDevicePresenceMonitoringAsync(deviceId: string, callback: (error: Error) => void): void ;
-
-
-    static requestStartRegisteringDeviceAsync(deviceId: string, capabilities: SecondaryAuthenticationFactorDeviceCapabilities, deviceFriendlyName: string, deviceModelNumber: string, deviceKey: Object, mutualAuthenticationKey: Object, callback: (error: Error, result: SecondaryAuthenticationFactorRegistrationResult) => void): void ;
-
-
-    static findAllRegisteredDeviceInfoAsync(queryType: SecondaryAuthenticationFactorDeviceFindScope, callback: (error: Error, result: Object) => void): void ;
-
-
-    static unregisterDeviceAsync(deviceId: string, callback: (error: Error) => void): void ;
-
-
-    static updateDeviceConfigurationDataAsync(deviceId: string, deviceConfigurationData: Object, callback: (error: Error) => void): void ;
-
-
-    static isDevicePresenceMonitoringSupported(): boolean;
-
-
-    finishRegisteringDeviceAsync(deviceConfigurationData: Object, callback: (error: Error) => void): void ;
-
-    abortRegisteringDeviceAsync(errorLogMessage: string, callback: (error: Error) => void): void ;
-
+  export enum SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {
+    unsupported,
+    succeeded,
+    disabledByPolicy,
   }
 
-  export class SecondaryAuthenticationFactorRegistrationResult {
-    registration: SecondaryAuthenticationFactorRegistration;
-    status: SecondaryAuthenticationFactorRegistrationStatus;
-    constructor();
+  export enum SecondaryAuthenticationFactorFinishAuthenticationStatus {
+    failed,
+    completed,
+    nonceExpired,
+  }
 
+  export enum SecondaryAuthenticationFactorRegistrationStatus {
+    failed,
+    started,
+    canceledByUser,
+    pinSetupRequired,
+    disabledByPolicy,
   }
 
   export class SecondaryAuthenticationFactorAuthentication {
@@ -147,10 +109,10 @@
     sessionNonce: Object;
     constructor();
 
-    static showNotificationMessageAsync(deviceName: string, message: SecondaryAuthenticationFactorAuthenticationMessage, callback: (error: Error) => void): void ;
+    static showNotificationMessageAsync(deviceName: String, message: SecondaryAuthenticationFactorAuthenticationMessage, callback: (error: Error) => void): void ;
 
 
-    static startAuthenticationAsync(deviceId: string, serviceAuthenticationNonce: Object, callback: (error: Error, result: SecondaryAuthenticationFactorAuthenticationResult) => void): void ;
+    static startAuthenticationAsync(deviceId: String, serviceAuthenticationNonce: Object, callback: (error: Error, result: SecondaryAuthenticationFactorAuthenticationResult) => void): void ;
 
 
     static getAuthenticationStageInfoAsync(callback: (error: Error, result: SecondaryAuthenticationFactorAuthenticationStageInfo) => void): void ;
@@ -158,7 +120,7 @@
 
     finishAuthenticationAsync(deviceHmac: Object, sessionHmac: Object, callback: (error: Error, result: SecondaryAuthenticationFactorFinishAuthenticationStatus) => void): void ;
 
-    abortAuthenticationAsync(errorLogMessage: string, callback: (error: Error) => void): void ;
+    abortAuthenticationAsync(errorLogMessage: String, callback: (error: Error) => void): void ;
 
     addListener(type: "AuthenticationStageChanged", listener: (ev: Event) => void): void ;
     removeListener(type: "AuthenticationStageChanged", listener: (ev: Event) => void): void ;
@@ -180,19 +142,6 @@
 
   }
 
-  export class SecondaryAuthenticationFactorInfo {
-    deviceConfigurationData: Object;
-    deviceFriendlyName: string;
-    deviceId: string;
-    deviceModelNumber: string;
-    isAuthenticationSupported: boolean;
-    presenceMonitoringMode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode;
-    constructor();
-
-    updateDevicePresenceAsync(presenceState: SecondaryAuthenticationFactorDevicePresence, callback: (error: Error) => void): void ;
-
-  }
-
   export class SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {
     stageInfo: SecondaryAuthenticationFactorAuthenticationStageInfo;
     constructor();
@@ -200,9 +149,60 @@
   }
 
   export class SecondaryAuthenticationFactorAuthenticationStageInfo {
-    deviceId: string;
+    deviceId: String;
     scenario: SecondaryAuthenticationFactorAuthenticationScenario;
     stage: SecondaryAuthenticationFactorAuthenticationStage;
+    constructor();
+
+  }
+
+  export class SecondaryAuthenticationFactorInfo {
+    deviceConfigurationData: Object;
+    deviceFriendlyName: String;
+    deviceId: String;
+    deviceModelNumber: String;
+    isAuthenticationSupported: Boolean;
+    presenceMonitoringMode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode;
+    constructor();
+
+    updateDevicePresenceAsync(presenceState: SecondaryAuthenticationFactorDevicePresence, callback: (error: Error) => void): void ;
+
+  }
+
+  export class SecondaryAuthenticationFactorRegistration {
+    constructor();
+
+    static registerDevicePresenceMonitoringAsync(deviceId: String, deviceInstancePath: String, monitoringMode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode, callback: (error: Error, result: SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus) => void): void ;
+    static registerDevicePresenceMonitoringAsync(deviceId: String, deviceInstancePath: String, monitoringMode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode, deviceFriendlyName: String, deviceModelNumber: String, deviceConfigurationData: Object, callback: (error: Error, result: SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus) => void): void ;
+
+
+    static unregisterDevicePresenceMonitoringAsync(deviceId: String, callback: (error: Error) => void): void ;
+
+
+    static requestStartRegisteringDeviceAsync(deviceId: String, capabilities: SecondaryAuthenticationFactorDeviceCapabilities, deviceFriendlyName: String, deviceModelNumber: String, deviceKey: Object, mutualAuthenticationKey: Object, callback: (error: Error, result: SecondaryAuthenticationFactorRegistrationResult) => void): void ;
+
+
+    static findAllRegisteredDeviceInfoAsync(queryType: SecondaryAuthenticationFactorDeviceFindScope, callback: (error: Error, result: Object) => void): void ;
+
+
+    static unregisterDeviceAsync(deviceId: String, callback: (error: Error) => void): void ;
+
+
+    static updateDeviceConfigurationDataAsync(deviceId: String, deviceConfigurationData: Object, callback: (error: Error) => void): void ;
+
+
+    static isDevicePresenceMonitoringSupported(): Boolean;
+
+
+    finishRegisteringDeviceAsync(deviceConfigurationData: Object, callback: (error: Error) => void): void ;
+
+    abortRegisteringDeviceAsync(errorLogMessage: String, callback: (error: Error) => void): void ;
+
+  }
+
+  export class SecondaryAuthenticationFactorRegistrationResult {
+    registration: SecondaryAuthenticationFactorRegistration;
+    status: SecondaryAuthenticationFactorRegistrationStatus;
     constructor();
 
   }

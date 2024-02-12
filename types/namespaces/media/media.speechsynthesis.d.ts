@@ -1,8 +1,3 @@
-  export enum VoiceGender {
-    male,
-    female,
-  }
-
   export enum SpeechAppendedSilence {
     default,
     min,
@@ -13,53 +8,36 @@
     min,
   }
 
-  export class VoiceInformation {
-    description: string;
-    displayName: string;
-    gender: VoiceGender;
-    id: string;
-    language: string;
-    constructor();
-
+  export enum VoiceGender {
+    male,
+    female,
   }
 
   export class SpeechSynthesisStream {
     timedMetadataTracks: Object;
     markers: Object;
-    contentType: string;
-    size: number;
-    canRead: boolean;
-    canWrite: boolean;
-    position: number;
+    contentType: String;
+    size: Number;
+    canRead: Boolean;
+    canWrite: Boolean;
+    position: Number;
     constructor();
 
-    readAsync(buffer: Object, count: number, options: number, callback: (error: Error, result: Object) => void): void ;
+    readAsync(buffer: Object, count: Number, options: Number, callback: (error: Error, result: Object) => void): void ;
 
-    writeAsync(buffer: Object, callback: (error: Error, result: number) => void): void ;
+    writeAsync(buffer: Object, callback: (error: Error, result: Number) => void): void ;
 
-    flushAsync(callback: (error: Error, result: boolean) => void): void ;
+    flushAsync(callback: (error: Error, result: Boolean) => void): void ;
 
-    getInputStreamAt(position: number): Object;
+    getInputStreamAt(position: Number): Object;
 
-    getOutputStreamAt(position: number): Object;
+    getOutputStreamAt(position: Number): Object;
 
-    seek(position: number): void;
+    seek(position: Number): void;
 
     cloneStream(): Object;
 
     close(): void;
-  }
-
-  export class SpeechSynthesizerOptions {
-    includeWordBoundaryMetadata: boolean;
-    includeSentenceBoundaryMetadata: boolean;
-    speakingRate: number;
-    audioVolume: number;
-    audioPitch: number;
-    punctuationSilence: SpeechPunctuationSilence;
-    appendedSilence: SpeechAppendedSilence;
-    constructor();
-
   }
 
   export class SpeechSynthesizer {
@@ -69,13 +47,35 @@
     options: SpeechSynthesizerOptions;
     constructor();
 
-    static trySetDefaultVoiceAsync(voice: VoiceInformation, callback: (error: Error, result: boolean) => void): void ;
+    static trySetDefaultVoiceAsync(voice: VoiceInformation, callback: (error: Error, result: Boolean) => void): void ;
 
 
-    synthesizeTextToStreamAsync(text: string, callback: (error: Error, result: SpeechSynthesisStream) => void): void ;
+    synthesizeTextToStreamAsync(text: String, callback: (error: Error, result: SpeechSynthesisStream) => void): void ;
 
-    synthesizeSsmlToStreamAsync(Ssml: string, callback: (error: Error, result: SpeechSynthesisStream) => void): void ;
+    synthesizeSsmlToStreamAsync(Ssml: String, callback: (error: Error, result: SpeechSynthesisStream) => void): void ;
 
     close(): void;
+  }
+
+  export class SpeechSynthesizerOptions {
+    includeWordBoundaryMetadata: Boolean;
+    includeSentenceBoundaryMetadata: Boolean;
+    speakingRate: Number;
+    audioVolume: Number;
+    audioPitch: Number;
+    punctuationSilence: SpeechPunctuationSilence;
+    appendedSilence: SpeechAppendedSilence;
+    constructor();
+
+  }
+
+  export class VoiceInformation {
+    description: String;
+    displayName: String;
+    gender: VoiceGender;
+    id: String;
+    language: String;
+    constructor();
+
   }
 

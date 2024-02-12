@@ -2,35 +2,35 @@
     constructor();
   }
 
-  export class CommunicationBlockingAppManager {
-    static isCurrentAppActiveBlockingApp: boolean;
-    constructor();
-
-    static requestSetAsActiveBlockingAppAsync(callback: (error: Error, result: boolean) => void): void ;
-
-
-    static showCommunicationBlockingSettingsUI(): void;
-
-
-  }
-
   export class CommunicationBlockingAccessManager {
-    static isBlockingActive: boolean;
+    static isBlockingActive: Boolean;
     constructor();
 
-    static isBlockedNumberAsync(number: string, callback: (error: Error, result: boolean) => void): void ;
+    static isBlockedNumberAsync(number: String, callback: (error: Error, result: Boolean) => void): void ;
 
 
-    static showBlockNumbersUI(phoneNumbers: Object): boolean;
+    static showBlockNumbersUI(phoneNumbers: Object): Boolean;
 
 
-    static showUnblockNumbersUI(phoneNumbers: Object): boolean;
+    static showUnblockNumbersUI(phoneNumbers: Object): Boolean;
 
 
     static showBlockedCallsUI(): void;
 
 
     static showBlockedMessagesUI(): void;
+
+
+  }
+
+  export class CommunicationBlockingAppManager {
+    static isCurrentAppActiveBlockingApp: Boolean;
+    constructor();
+
+    static requestSetAsActiveBlockingAppAsync(callback: (error: Error, result: Boolean) => void): void ;
+
+
+    static showCommunicationBlockingSettingsUI(): void;
 
 
   }

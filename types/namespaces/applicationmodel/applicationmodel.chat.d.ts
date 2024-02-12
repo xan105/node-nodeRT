@@ -1,18 +1,20 @@
-  export enum ChatMessageStatus {
-    draft,
-    sending,
-    sent,
-    sendRetryNeeded,
-    sendFailed,
-    received,
-    receiveDownloadNeeded,
-    receiveDownloadFailed,
-    receiveDownloading,
-    deleted,
-    declined,
-    cancelled,
-    recalled,
-    receiveRetryNeeded,
+  export enum ChatConversationThreadingKind {
+    participants,
+    contactId,
+    conversationId,
+    custom,
+  }
+
+  export enum ChatItemKind {
+    message,
+    conversation,
+  }
+
+  export enum ChatMessageChangeType {
+    messageCreated,
+    messageModified,
+    messageDeleted,
+    changeTrackingLost,
   }
 
   export enum ChatMessageKind {
@@ -32,11 +34,28 @@
     rcs,
   }
 
-  export enum ChatMessageChangeType {
-    messageCreated,
-    messageModified,
-    messageDeleted,
-    changeTrackingLost,
+  export enum ChatMessageStatus {
+    draft,
+    sending,
+    sent,
+    sendRetryNeeded,
+    sendFailed,
+    received,
+    receiveDownloadNeeded,
+    receiveDownloadFailed,
+    receiveDownloading,
+    deleted,
+    declined,
+    cancelled,
+    recalled,
+    receiveRetryNeeded,
+  }
+
+  export enum ChatMessageTransportKind {
+    text,
+    untriaged,
+    blocked,
+    custom,
   }
 
   export enum ChatMessageValidationStatus {
@@ -56,11 +75,10 @@
     dataRoamingRestriction,
   }
 
-  export enum ChatConversationThreadingKind {
-    participants,
-    contactId,
-    conversationId,
-    custom,
+  export enum ChatRestoreHistorySpan {
+    lastMonth,
+    lastYear,
+    anyTime,
   }
 
   export enum ChatStoreChangedEventKind {
@@ -90,13 +108,6 @@
     timeout,
   }
 
-  export enum ChatMessageTransportKind {
-    text,
-    untriaged,
-    blocked,
-    custom,
-  }
-
   export enum RcsServiceKind {
     chat,
     groupChat,
@@ -104,58 +115,137 @@
     capability,
   }
 
-  export enum ChatItemKind {
-    message,
-    conversation,
+  export class ChatCapabilities {
+    isChatCapable: Boolean;
+    isFileTransferCapable: Boolean;
+    isGeoLocationPushCapable: Boolean;
+    isIntegratedMessagingCapable: Boolean;
+    isOnline: Boolean;
+    constructor();
+
   }
 
-  export enum ChatRestoreHistorySpan {
-    lastMonth,
-    lastYear,
-    anyTime,
+  export class ChatCapabilitiesManager {
+    constructor();
+
+    static getCachedCapabilitiesAsync(address: String, transportId: String, callback: (error: Error, result: ChatCapabilities) => void): void ;
+    static getCachedCapabilitiesAsync(address: String, callback: (error: Error, result: ChatCapabilities) => void): void ;
+
+
+    static getCapabilitiesFromNetworkAsync(address: String, transportId: String, callback: (error: Error, result: ChatCapabilities) => void): void ;
+    static getCapabilitiesFromNetworkAsync(address: String, callback: (error: Error, result: ChatCapabilities) => void): void ;
+
+
   }
 
-  export class ChatMessageTransportConfiguration {
-    extendedProperties: Object;
-    maxAttachmentCount: number;
-    maxMessageSizeInKilobytes: number;
-    maxRecipientCount: number;
-    supportedVideoFormat: Object;
+  export class ChatConversation {
+    subject: String;
+    isConversationMuted: Boolean;
+    hasUnreadMessages: Boolean;
+    id: String;
+    mostRecentMessageId: String;
+    participants: Object;
+    threadingInfo: ChatConversationThreadingInfo;
+    canModifyParticipants: Boolean;
+    itemKind: ChatItemKind;
+    constructor();
+
+    deleteAsync(callback: (error: Error) => void): void ;
+
+    markMessagesAsReadAsync(callback: (error: Error) => void): void ;
+    markMessagesAsReadAsync(value: Date, callback: (error: Error) => void): void ;
+
+    saveAsync(callback: (error: Error) => void): void ;
+
+    getMessageReader(): ChatMessageReader;
+
+    notifyLocalParticipantComposing(transportId: String, participantAddress: String, isComposing: Boolean): void;
+
+    notifyRemoteParticipantComposing(transportId: String, participantAddress: String, isComposing: Boolean): void;
+
+    addListener(type: "RemoteParticipantComposingChanged", listener: (ev: Event) => void): void ;
+    removeListener(type: "RemoteParticipantComposingChanged", listener: (ev: Event) => void): void ;
+    on(type: "RemoteParticipantComposingChanged", listener: (ev: Event) => void): void ;
+    off(type: "RemoteParticipantComposingChanged", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
+
+  }
+
+  export class ChatConversationReader {
+    constructor();
+
+    readBatchAsync(callback: (error: Error, result: Object) => void): void ;
+    readBatchAsync(count: Number, callback: (error: Error, result: Object) => void): void ;
+
+  }
+
+  export class ChatConversationThreadingInfo {
+    kind: ChatConversationThreadingKind;
+    custom: String;
+    conversationId: String;
+    contactId: String;
+    participants: Object;
     constructor();
 
   }
 
   export class ChatMessage {
     itemKind: ChatItemKind;
-    isIncoming: boolean;
-    isForwardingDisabled: boolean;
-    transportId: string;
+    isIncoming: Boolean;
+    isForwardingDisabled: Boolean;
+    transportId: String;
     status: ChatMessageStatus;
-    from: string;
-    body: string;
-    subject: string;
-    isRead: boolean;
+    from: String;
+    body: String;
+    subject: String;
+    isRead: Boolean;
     networkTimestamp: Date;
     localTimestamp: Date;
     recipientSendStatuses: Object;
     recipients: Object;
-    transportFriendlyName: string;
+    transportFriendlyName: String;
     attachments: Object;
-    id: string;
-    isSeen: boolean;
+    id: String;
+    isSeen: Boolean;
     messageKind: ChatMessageKind;
-    isReceivedDuringQuietHours: boolean;
-    isAutoReply: boolean;
-    estimatedDownloadSize: number;
+    isReceivedDuringQuietHours: Boolean;
+    isAutoReply: Boolean;
+    estimatedDownloadSize: Number;
     threadingInfo: ChatConversationThreadingInfo;
-    shouldSuppressNotification: boolean;
-    remoteId: string;
+    shouldSuppressNotification: Boolean;
+    remoteId: String;
     messageOperatorKind: ChatMessageOperatorKind;
-    isReplyDisabled: boolean;
-    isSimMessage: boolean;
+    isReplyDisabled: Boolean;
+    isSimMessage: Boolean;
     recipientsDeliveryInfos: Object;
-    syncId: string;
+    syncId: String;
     constructor();
+
+  }
+
+  export class ChatMessageAttachment {
+    text: String;
+    mimeType: String;
+    groupId: Number;
+    dataStreamReference: Object;
+    transferProgress: Number;
+    thumbnail: Object;
+    originalFileName: String;
+    constructor();
+    constructor(mimeType: String, dataStreamReference: Object);
+
+  }
+
+  export class ChatMessageBlocking {
+    constructor();
+
+    static markMessageAsBlockedAsync(localChatMessageId: String, blocked: Boolean, callback: (error: Error) => void): void ;
+
 
   }
 
@@ -177,42 +267,6 @@
 
   }
 
-  export class ChatMessageAttachment {
-    text: string;
-    mimeType: string;
-    groupId: number;
-    dataStreamReference: Object;
-    transferProgress: number;
-    thumbnail: Object;
-    originalFileName: string;
-    constructor();
-    constructor(mimeType: string, dataStreamReference: Object);
-
-  }
-
-  export class ChatConversationThreadingInfo {
-    kind: ChatConversationThreadingKind;
-    custom: string;
-    conversationId: string;
-    contactId: string;
-    participants: Object;
-    constructor();
-
-  }
-
-  export class ChatRecipientDeliveryInfo {
-    transportAddress: string;
-    readTime: Date;
-    deliveryTime: Date;
-    isErrorPermanent: boolean;
-    status: ChatMessageStatus;
-    transportErrorCode: number;
-    transportErrorCodeCategory: ChatTransportErrorCodeCategory;
-    transportInterpretedErrorCode: ChatTransportInterpretedErrorCode;
-    constructor();
-
-  }
-
   export class ChatMessageChangeTracker {
     constructor();
 
@@ -224,20 +278,61 @@
 
   }
 
+  export class ChatMessageChangedDeferral {
+    constructor();
+
+    complete(): void;
+
+  }
+
+  export class ChatMessageChangedEventArgs {
+    constructor();
+
+    getDeferral(): ChatMessageChangedDeferral;
+
+  }
+
+  export class ChatMessageManager {
+    constructor();
+
+    static requestSyncManagerAsync(callback: (error: Error, result: ChatSyncManager) => void): void ;
+
+
+    static registerTransportAsync(callback: (error: Error, result: String) => void): void ;
+
+
+    static getTransportAsync(transportId: String, callback: (error: Error, result: ChatMessageTransport) => void): void ;
+
+
+    static getTransportsAsync(callback: (error: Error, result: Object) => void): void ;
+
+
+    static requestStoreAsync(callback: (error: Error, result: ChatMessageStore) => void): void ;
+
+
+    static showComposeSmsMessageAsync(message: ChatMessage, callback: (error: Error) => void): void ;
+
+
+    static showSmsSettings(): void;
+
+
+  }
+
+  export class ChatMessageNotificationTriggerDetails {
+    chatMessage: ChatMessage;
+    shouldDisplayToast: Boolean;
+    shouldUpdateActionCenter: Boolean;
+    shouldUpdateBadge: Boolean;
+    shouldUpdateDetailText: Boolean;
+    constructor();
+
+  }
+
   export class ChatMessageReader {
     constructor();
 
     readBatchAsync(callback: (error: Error, result: Object) => void): void ;
-    readBatchAsync(count: number, callback: (error: Error, result: Object) => void): void ;
-
-  }
-
-  export class ChatMessageValidationResult {
-    maxPartCount: number;
-    partCount: number;
-    remainingCharacterCountInPart: number;
-    status: ChatMessageValidationStatus;
-    constructor();
+    readBatchAsync(count: Number, callback: (error: Error, result: Object) => void): void ;
 
   }
 
@@ -245,43 +340,43 @@
     changeTracker: ChatMessageChangeTracker;
     constructor();
 
-    deleteMessageAsync(localMessageId: string, callback: (error: Error) => void): void ;
+    deleteMessageAsync(localMessageId: String, callback: (error: Error) => void): void ;
 
-    downloadMessageAsync(localChatMessageId: string, callback: (error: Error) => void): void ;
+    downloadMessageAsync(localChatMessageId: String, callback: (error: Error) => void): void ;
 
-    getMessageAsync(localChatMessageId: string, callback: (error: Error, result: ChatMessage) => void): void ;
+    getMessageAsync(localChatMessageId: String, callback: (error: Error, result: ChatMessage) => void): void ;
 
-    markMessageReadAsync(localChatMessageId: string, callback: (error: Error) => void): void ;
+    markMessageReadAsync(localChatMessageId: String, callback: (error: Error) => void): void ;
 
-    retrySendMessageAsync(localChatMessageId: string, callback: (error: Error) => void): void ;
+    retrySendMessageAsync(localChatMessageId: String, callback: (error: Error) => void): void ;
 
     sendMessageAsync(chatMessage: ChatMessage, callback: (error: Error) => void): void ;
 
-    forwardMessageAsync(localChatMessageId: string, addresses: Object, callback: (error: Error, result: ChatMessage) => void): void ;
+    forwardMessageAsync(localChatMessageId: String, addresses: Object, callback: (error: Error, result: ChatMessage) => void): void ;
 
-    getConversationAsync(conversationId: string, callback: (error: Error, result: ChatConversation) => void): void ;
-    getConversationAsync(conversationId: string, transportIds: Object, callback: (error: Error, result: ChatConversation) => void): void ;
+    getConversationAsync(conversationId: String, callback: (error: Error, result: ChatConversation) => void): void ;
+    getConversationAsync(conversationId: String, transportIds: Object, callback: (error: Error, result: ChatConversation) => void): void ;
 
     getConversationFromThreadingInfoAsync(threadingInfo: ChatConversationThreadingInfo, callback: (error: Error, result: ChatConversation) => void): void ;
 
-    getMessageByRemoteIdAsync(transportId: string, remoteId: string, callback: (error: Error, result: ChatMessage) => void): void ;
+    getMessageByRemoteIdAsync(transportId: String, remoteId: String, callback: (error: Error, result: ChatMessage) => void): void ;
 
-    getUnseenCountAsync(callback: (error: Error, result: number) => void): void ;
-    getUnseenCountAsync(transportIds: Object, callback: (error: Error, result: number) => void): void ;
+    getUnseenCountAsync(callback: (error: Error, result: Number) => void): void ;
+    getUnseenCountAsync(transportIds: Object, callback: (error: Error, result: Number) => void): void ;
 
     markAsSeenAsync(callback: (error: Error) => void): void ;
     markAsSeenAsync(transportIds: Object, callback: (error: Error) => void): void ;
 
     saveMessageAsync(chatMessage: ChatMessage, callback: (error: Error) => void): void ;
 
-    tryCancelDownloadMessageAsync(localChatMessageId: string, callback: (error: Error, result: boolean) => void): void ;
+    tryCancelDownloadMessageAsync(localChatMessageId: String, callback: (error: Error, result: Boolean) => void): void ;
 
-    tryCancelSendMessageAsync(localChatMessageId: string, callback: (error: Error, result: boolean) => void): void ;
+    tryCancelSendMessageAsync(localChatMessageId: String, callback: (error: Error, result: Boolean) => void): void ;
 
-    getMessageBySyncIdAsync(syncId: string, callback: (error: Error, result: ChatMessage) => void): void ;
+    getMessageBySyncIdAsync(syncId: String, callback: (error: Error, result: ChatMessage) => void): void ;
 
     getMessageReader(): ChatMessageReader;
-    getMessageReader(recentTimeLimit: number): ChatMessageReader;
+    getMessageReader(recentTimeLimit: Number): ChatMessageReader;
 
     validateMessage(chatMessage: ChatMessage): ChatMessageValidationResult;
 
@@ -308,61 +403,60 @@
 
   }
 
-  export class ChatMessageChangedEventArgs {
+  export class ChatMessageStoreChangedEventArgs {
+    id: String;
+    kind: ChatStoreChangedEventKind;
     constructor();
-
-    getDeferral(): ChatMessageChangedDeferral;
 
   }
 
-  export class ChatConversation {
-    subject: string;
-    isConversationMuted: boolean;
-    hasUnreadMessages: boolean;
-    id: string;
-    mostRecentMessageId: string;
-    participants: Object;
-    threadingInfo: ChatConversationThreadingInfo;
-    canModifyParticipants: boolean;
-    itemKind: ChatItemKind;
+  export class ChatMessageTransport {
+    isActive: Boolean;
+    isAppSetAsNotificationProvider: Boolean;
+    transportFriendlyName: String;
+    transportId: String;
+    configuration: ChatMessageTransportConfiguration;
+    transportKind: ChatMessageTransportKind;
     constructor();
 
-    deleteAsync(callback: (error: Error) => void): void ;
-
-    markMessagesAsReadAsync(callback: (error: Error) => void): void ;
-    markMessagesAsReadAsync(value: Date, callback: (error: Error) => void): void ;
-
-    saveAsync(callback: (error: Error) => void): void ;
-
-    getMessageReader(): ChatMessageReader;
-
-    notifyLocalParticipantComposing(transportId: string, participantAddress: string, isComposing: boolean): void;
-
-    notifyRemoteParticipantComposing(transportId: string, participantAddress: string, isComposing: boolean): void;
-
-    addListener(type: "RemoteParticipantComposingChanged", listener: (ev: Event) => void): void ;
-    removeListener(type: "RemoteParticipantComposingChanged", listener: (ev: Event) => void): void ;
-    on(type: "RemoteParticipantComposingChanged", listener: (ev: Event) => void): void ;
-    off(type: "RemoteParticipantComposingChanged", listener: (ev: Event) => void): void ;
-    
-    addListener(type: string, listener: (ev: Event) => void): void ;
-    removeListener(type: string, listener: (ev: Event) => void): void ;
-    on(type: string, listener: (ev: Event) => void): void ;
-    off(type: string, listener: (ev: Event) => void): void ;
-    
+    requestSetAsNotificationProviderAsync(callback: (error: Error) => void): void ;
 
   }
 
-  export class ChatConversationReader {
+  export class ChatMessageTransportConfiguration {
+    extendedProperties: Object;
+    maxAttachmentCount: Number;
+    maxMessageSizeInKilobytes: Number;
+    maxRecipientCount: Number;
+    supportedVideoFormat: Object;
     constructor();
 
-    readBatchAsync(callback: (error: Error, result: Object) => void): void ;
-    readBatchAsync(count: number, callback: (error: Error, result: Object) => void): void ;
+  }
+
+  export class ChatMessageValidationResult {
+    maxPartCount: Number;
+    partCount: Number;
+    remainingCharacterCountInPart: Number;
+    status: ChatMessageValidationStatus;
+    constructor();
 
   }
 
   export class ChatQueryOptions {
-    searchString: string;
+    searchString: String;
+    constructor();
+
+  }
+
+  export class ChatRecipientDeliveryInfo {
+    transportAddress: String;
+    readTime: Date;
+    deliveryTime: Date;
+    isErrorPermanent: Boolean;
+    status: ChatMessageStatus;
+    transportErrorCode: Number;
+    transportErrorCodeCategory: ChatTransportErrorCodeCategory;
+    transportInterpretedErrorCode: ChatTransportInterpretedErrorCode;
     constructor();
 
   }
@@ -371,34 +465,14 @@
     constructor();
 
     readBatchAsync(callback: (error: Error, result: Object) => void): void ;
-    readBatchAsync(count: number, callback: (error: Error, result: Object) => void): void ;
+    readBatchAsync(count: Number, callback: (error: Error, result: Object) => void): void ;
 
   }
 
-  export class ChatMessageStoreChangedEventArgs {
-    id: string;
-    kind: ChatStoreChangedEventKind;
+  export class ChatSyncConfiguration {
+    restoreHistorySpan: ChatRestoreHistorySpan;
+    isSyncEnabled: Boolean;
     constructor();
-
-  }
-
-  export class ChatMessageChangedDeferral {
-    constructor();
-
-    complete(): void;
-
-  }
-
-  export class ChatMessageTransport {
-    isActive: boolean;
-    isAppSetAsNotificationProvider: boolean;
-    transportFriendlyName: string;
-    transportId: string;
-    configuration: ChatMessageTransportConfiguration;
-    transportKind: ChatMessageTransportKind;
-    constructor();
-
-    requestSetAsNotificationProviderAsync(callback: (error: Error) => void): void ;
 
   }
 
@@ -412,7 +486,7 @@
 
     setConfigurationAsync(configuration: ChatSyncConfiguration, callback: (error: Error) => void): void ;
 
-    isAccountAssociated(webAccount: Object): boolean;
+    isAccountAssociated(webAccount: Object): Boolean;
 
     startSync(): void;
 
@@ -424,27 +498,36 @@
 
   }
 
-  export class ChatCapabilities {
-    isChatCapable: boolean;
-    isFileTransferCapable: boolean;
-    isGeoLocationPushCapable: boolean;
-    isIntegratedMessagingCapable: boolean;
-    isOnline: boolean;
+  export class RcsEndUserMessage {
+    actions: Object;
+    isPinRequired: Boolean;
+    text: String;
+    title: String;
+    transportId: String;
+    constructor();
+
+    sendResponseAsync(action: RcsEndUserMessageAction, callback: (error: Error) => void): void ;
+
+    sendResponseWithPinAsync(action: RcsEndUserMessageAction, pin: String, callback: (error: Error) => void): void ;
+
+  }
+
+  export class RcsEndUserMessageAction {
+    label: String;
     constructor();
 
   }
 
-  export class RemoteParticipantComposingChangedEventArgs {
-    isComposing: boolean;
-    participantAddress: string;
-    transportId: string;
+  export class RcsEndUserMessageAvailableEventArgs {
+    isMessageAvailable: Boolean;
+    message: RcsEndUserMessage;
     constructor();
 
   }
 
-  export class ChatSyncConfiguration {
-    restoreHistorySpan: ChatRestoreHistorySpan;
-    isSyncEnabled: boolean;
+  export class RcsEndUserMessageAvailableTriggerDetails {
+    text: String;
+    title: String;
     constructor();
 
   }
@@ -465,17 +548,51 @@
 
   }
 
+  export class RcsManager {
+    constructor();
+
+    static getTransportsAsync(callback: (error: Error, result: Object) => void): void ;
+
+
+    static getTransportAsync(transportId: String, callback: (error: Error, result: RcsTransport) => void): void ;
+
+
+    static leaveConversationAsync(conversation: ChatConversation, callback: (error: Error) => void): void ;
+
+
+    static getEndUserMessageManager(): RcsEndUserMessageManager;
+
+
+    addListener(type: "TransportListChanged", listener: (ev: Event) => void): void ;
+    removeListener(type: "TransportListChanged", listener: (ev: Event) => void): void ;
+    on(type: "TransportListChanged", listener: (ev: Event) => void): void ;
+    off(type: "TransportListChanged", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
+
+  }
+
+  export class RcsServiceKindSupportedChangedEventArgs {
+    serviceKind: RcsServiceKind;
+    constructor();
+
+  }
+
   export class RcsTransport {
     configuration: RcsTransportConfiguration;
     extendedProperties: Object;
-    isActive: boolean;
-    transportFriendlyName: string;
-    transportId: string;
+    isActive: Boolean;
+    transportFriendlyName: String;
+    transportId: String;
     constructor();
 
-    isStoreAndForwardEnabled(serviceKind: RcsServiceKind): boolean;
+    isStoreAndForwardEnabled(serviceKind: RcsServiceKind): Boolean;
 
-    isServiceKindSupported(serviceKind: RcsServiceKind): boolean;
+    isServiceKindSupported(serviceKind: RcsServiceKind): Boolean;
 
     addListener(type: "ServiceKindSupportedChanged", listener: (ev: Event) => void): void ;
     removeListener(type: "ServiceKindSupportedChanged", listener: (ev: Event) => void): void ;
@@ -491,124 +608,20 @@
   }
 
   export class RcsTransportConfiguration {
-    maxAttachmentCount: number;
-    maxFileSizeInKilobytes: number;
-    maxGroupMessageSizeInKilobytes: number;
-    maxMessageSizeInKilobytes: number;
-    maxRecipientCount: number;
-    warningFileSizeInKilobytes: number;
+    maxAttachmentCount: Number;
+    maxFileSizeInKilobytes: Number;
+    maxGroupMessageSizeInKilobytes: Number;
+    maxMessageSizeInKilobytes: Number;
+    maxRecipientCount: Number;
+    warningFileSizeInKilobytes: Number;
     constructor();
 
   }
 
-  export class RcsServiceKindSupportedChangedEventArgs {
-    serviceKind: RcsServiceKind;
-    constructor();
-
-  }
-
-  export class RcsEndUserMessageAvailableEventArgs {
-    isMessageAvailable: boolean;
-    message: RcsEndUserMessage;
-    constructor();
-
-  }
-
-  export class RcsEndUserMessageAction {
-    label: string;
-    constructor();
-
-  }
-
-  export class RcsEndUserMessage {
-    actions: Object;
-    isPinRequired: boolean;
-    text: string;
-    title: string;
-    transportId: string;
-    constructor();
-
-    sendResponseAsync(action: RcsEndUserMessageAction, callback: (error: Error) => void): void ;
-
-    sendResponseWithPinAsync(action: RcsEndUserMessageAction, pin: string, callback: (error: Error) => void): void ;
-
-  }
-
-  export class ChatMessageManager {
-    constructor();
-
-    static requestSyncManagerAsync(callback: (error: Error, result: ChatSyncManager) => void): void ;
-
-
-    static registerTransportAsync(callback: (error: Error, result: string) => void): void ;
-
-
-    static getTransportAsync(transportId: string, callback: (error: Error, result: ChatMessageTransport) => void): void ;
-
-
-    static getTransportsAsync(callback: (error: Error, result: Object) => void): void ;
-
-
-    static requestStoreAsync(callback: (error: Error, result: ChatMessageStore) => void): void ;
-
-
-    static showComposeSmsMessageAsync(message: ChatMessage, callback: (error: Error) => void): void ;
-
-
-    static showSmsSettings(): void;
-
-
-  }
-
-  export class ChatMessageNotificationTriggerDetails {
-    chatMessage: ChatMessage;
-    shouldDisplayToast: boolean;
-    shouldUpdateActionCenter: boolean;
-    shouldUpdateBadge: boolean;
-    shouldUpdateDetailText: boolean;
-    constructor();
-
-  }
-
-  export class ChatMessageBlocking {
-    constructor();
-
-    static markMessageAsBlockedAsync(localChatMessageId: string, blocked: boolean, callback: (error: Error) => void): void ;
-
-
-  }
-
-  export class ChatCapabilitiesManager {
-    constructor();
-
-    static getCachedCapabilitiesAsync(address: string, callback: (error: Error, result: ChatCapabilities) => void): void ;
-
-
-    static getCapabilitiesFromNetworkAsync(address: string, callback: (error: Error, result: ChatCapabilities) => void): void ;
-
-
-  }
-
-  export class RcsManager {
-    constructor();
-
-    static getTransportsAsync(callback: (error: Error, result: Object) => void): void ;
-
-
-    static getTransportAsync(transportId: string, callback: (error: Error, result: RcsTransport) => void): void ;
-
-
-    static leaveConversationAsync(conversation: ChatConversation, callback: (error: Error) => void): void ;
-
-
-    static getEndUserMessageManager(): RcsEndUserMessageManager;
-
-
-  }
-
-  export class RcsEndUserMessageAvailableTriggerDetails {
-    text: string;
-    title: string;
+  export class RemoteParticipantComposingChangedEventArgs {
+    isComposing: Boolean;
+    participantAddress: String;
+    transportId: String;
     constructor();
 
   }

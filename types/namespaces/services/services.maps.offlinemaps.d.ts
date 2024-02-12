@@ -5,13 +5,6 @@
     networkFailure,
   }
 
-  export enum OfflineMapPackageStatus {
-    notDownloaded,
-    downloading,
-    downloaded,
-    deleting,
-  }
-
   export enum OfflineMapPackageStartDownloadStatus {
     success,
     unknownError,
@@ -19,10 +12,17 @@
     deniedWithoutCapability,
   }
 
+  export enum OfflineMapPackageStatus {
+    notDownloaded,
+    downloading,
+    downloaded,
+    deleting,
+  }
+
   export class OfflineMapPackage {
-    displayName: string;
-    enclosingRegionName: string;
-    estimatedSizeInBytes: number;
+    displayName: String;
+    enclosingRegionName: String;
+    estimatedSizeInBytes: Number;
     status: OfflineMapPackageStatus;
     constructor();
 
@@ -50,15 +50,15 @@
 
   }
 
-  export class OfflineMapPackageStartDownloadResult {
-    status: OfflineMapPackageStartDownloadStatus;
+  export class OfflineMapPackageQueryResult {
+    packages: Object;
+    status: OfflineMapPackageQueryStatus;
     constructor();
 
   }
 
-  export class OfflineMapPackageQueryResult {
-    packages: Object;
-    status: OfflineMapPackageQueryStatus;
+  export class OfflineMapPackageStartDownloadResult {
+    status: OfflineMapPackageStartDownloadStatus;
     constructor();
 
   }

@@ -1,3 +1,11 @@
+  export class PaymentAppCanMakePaymentTriggerDetails {
+    request: Object;
+    constructor();
+
+    reportCanMakePaymentResult(value: Object): void;
+
+  }
+
   export class PaymentAppManager {
     static current: PaymentAppManager;
     constructor();
@@ -8,20 +16,14 @@
 
   }
 
-  export class PaymentTransactionAcceptResult {
-    status: number;
-    constructor();
-
-  }
-
   export class PaymentTransaction {
-    payerPhoneNumber: string;
-    payerName: string;
-    payerEmail: string;
+    payerPhoneNumber: String;
+    payerName: String;
+    payerEmail: String;
     paymentRequest: Object;
     constructor();
 
-    static fromIdAsync(id: string, callback: (error: Error, result: PaymentTransaction) => void): void ;
+    static fromIdAsync(id: String, callback: (error: Error, result: PaymentTransaction) => void): void ;
 
 
     updateShippingAddressAsync(shippingAddress: Object, callback: (error: Error, result: Object) => void): void ;
@@ -34,11 +36,9 @@
 
   }
 
-  export class PaymentAppCanMakePaymentTriggerDetails {
-    request: Object;
+  export class PaymentTransactionAcceptResult {
+    status: Number;
     constructor();
-
-    reportCanMakePaymentResult(value: Object): void;
 
   }
 

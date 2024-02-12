@@ -1,8 +1,3 @@
-  export enum BluetoothLEScanningMode {
-    passive,
-    active,
-  }
-
   export enum BluetoothLEAdvertisementFlags {
     none,
     limitedDiscoverableMode,
@@ -10,22 +5,6 @@
     classicNotSupported,
     dualModeControllerCapable,
     dualModeHostCapable,
-  }
-
-  export enum BluetoothLEAdvertisementType {
-    connectableUndirected,
-    connectableDirected,
-    scannableUndirected,
-    nonConnectableUndirected,
-    scanResponse,
-  }
-
-  export enum BluetoothLEAdvertisementWatcherStatus {
-    created,
-    started,
-    stopping,
-    stopped,
-    aborted,
   }
 
   export enum BluetoothLEAdvertisementPublisherStatus {
@@ -37,42 +16,84 @@
     aborted,
   }
 
-  export class BluetoothLEManufacturerData {
-    data: Object;
-    companyId: number;
-    constructor();
-    constructor(companyId: number, data: Object);
-
+  export enum BluetoothLEAdvertisementType {
+    connectableUndirected,
+    connectableDirected,
+    scannableUndirected,
+    nonConnectableUndirected,
+    scanResponse,
+    extended,
   }
 
-  export class BluetoothLEAdvertisementDataSection {
-    dataType: number;
-    data: Object;
-    constructor();
-    constructor(dataType: number, data: Object);
+  export enum BluetoothLEAdvertisementWatcherStatus {
+    created,
+    started,
+    stopping,
+    stopped,
+    aborted,
+  }
 
+  export enum BluetoothLEScanningMode {
+    passive,
+    active,
+    none,
   }
 
   export class BluetoothLEAdvertisement {
-    localName: string;
+    localName: String;
     flags: BluetoothLEAdvertisementFlags;
     dataSections: Object;
     manufacturerData: Object;
     serviceUuids: Object;
     constructor();
 
-    getManufacturerDataByCompanyId(companyId: number): Object;
+    getManufacturerDataByCompanyId(companyId: Number): Object;
 
-    getSectionsByType(type: number): Object;
+    getSectionsByType(type: Number): Object;
 
   }
 
   export class BluetoothLEAdvertisementBytePattern {
-    offset: number;
-    dataType: number;
+    offset: Number;
+    dataType: Number;
     data: Object;
     constructor();
-    constructor(dataType: number, offset: number, data: Object);
+    constructor(dataType: Number, offset: Number, data: Object);
+
+  }
+
+  export class BluetoothLEAdvertisementDataSection {
+    dataType: Number;
+    data: Object;
+    constructor();
+    constructor(dataType: Number, data: Object);
+
+  }
+
+  export class BluetoothLEAdvertisementDataTypes {
+    static advertisingInterval: Number;
+    static appearance: Number;
+    static completeLocalName: Number;
+    static completeService128BitUuids: Number;
+    static completeService16BitUuids: Number;
+    static completeService32BitUuids: Number;
+    static flags: Number;
+    static incompleteService128BitUuids: Number;
+    static incompleteService16BitUuids: Number;
+    static incompleteService32BitUuids: Number;
+    static manufacturerSpecificData: Number;
+    static peripheralConnectionIntervalRange: Number;
+    static publicTargetAddress: Number;
+    static randomTargetAddress: Number;
+    static serviceData128BitUuids: Number;
+    static serviceData16BitUuids: Number;
+    static serviceData32BitUuids: Number;
+    static serviceSolicitation128BitUuids: Number;
+    static serviceSolicitation16BitUuids: Number;
+    static serviceSolicitation32BitUuids: Number;
+    static shortenedLocalName: Number;
+    static txPowerLevel: Number;
+    constructor();
 
   }
 
@@ -83,8 +104,54 @@
 
   }
 
-  export class BluetoothLEAdvertisementWatcherStoppedEventArgs {
-    error: number;
+  export class BluetoothLEAdvertisementPublisher {
+    advertisement: BluetoothLEAdvertisement;
+    status: BluetoothLEAdvertisementPublisherStatus;
+    useExtendedAdvertisement: Boolean;
+    preferredTransmitPowerLevelInDBm: Number;
+    isAnonymous: Boolean;
+    includeTransmitPowerLevel: Boolean;
+    constructor();
+    constructor(advertisement: BluetoothLEAdvertisement);
+
+    start(): void;
+
+    stop(): void;
+
+    addListener(type: "StatusChanged", listener: (ev: Event) => void): void ;
+    removeListener(type: "StatusChanged", listener: (ev: Event) => void): void ;
+    on(type: "StatusChanged", listener: (ev: Event) => void): void ;
+    off(type: "StatusChanged", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
+
+  }
+
+  export class BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
+    error: Number;
+    status: BluetoothLEAdvertisementPublisherStatus;
+    selectedTransmitPowerLevelInDBm: Number;
+    constructor();
+
+  }
+
+  export class BluetoothLEAdvertisementReceivedEventArgs {
+    advertisement: BluetoothLEAdvertisement;
+    advertisementType: BluetoothLEAdvertisementType;
+    bluetoothAddress: Number;
+    rawSignalStrengthInDBm: Number;
+    timestamp: Date;
+    bluetoothAddressType: Number;
+    isAnonymous: Boolean;
+    isConnectable: Boolean;
+    isDirected: Boolean;
+    isScanResponse: Boolean;
+    isScannable: Boolean;
+    transmitPowerLevelInDBm: Number;
     constructor();
 
   }
@@ -93,11 +160,12 @@
     signalStrengthFilter: Object;
     scanningMode: BluetoothLEScanningMode;
     advertisementFilter: BluetoothLEAdvertisementFilter;
-    maxOutOfRangeTimeout: number;
-    maxSamplingInterval: number;
-    minOutOfRangeTimeout: number;
-    minSamplingInterval: number;
+    maxOutOfRangeTimeout: Number;
+    maxSamplingInterval: Number;
+    minOutOfRangeTimeout: Number;
+    minSamplingInterval: Number;
     status: BluetoothLEAdvertisementWatcherStatus;
+    allowExtendedAdvertisements: Boolean;
     constructor();
     constructor(advertisementFilter: BluetoothLEAdvertisementFilter);
 
@@ -123,70 +191,17 @@
 
   }
 
-  export class BluetoothLEAdvertisementReceivedEventArgs {
-    advertisement: BluetoothLEAdvertisement;
-    advertisementType: BluetoothLEAdvertisementType;
-    bluetoothAddress: number;
-    rawSignalStrengthInDBm: number;
-    timestamp: Date;
+  export class BluetoothLEAdvertisementWatcherStoppedEventArgs {
+    error: Number;
     constructor();
 
   }
 
-  export class BluetoothLEAdvertisementDataTypes {
-    static advertisingInterval: number;
-    static appearance: number;
-    static completeLocalName: number;
-    static completeService128BitUuids: number;
-    static completeService16BitUuids: number;
-    static completeService32BitUuids: number;
-    static flags: number;
-    static incompleteService128BitUuids: number;
-    static incompleteService16BitUuids: number;
-    static incompleteService32BitUuids: number;
-    static manufacturerSpecificData: number;
-    static publicTargetAddress: number;
-    static randomTargetAddress: number;
-    static serviceData128BitUuids: number;
-    static serviceData16BitUuids: number;
-    static serviceData32BitUuids: number;
-    static serviceSolicitation128BitUuids: number;
-    static serviceSolicitation16BitUuids: number;
-    static serviceSolicitation32BitUuids: number;
-    static shortenedLocalName: number;
-    static slaveConnectionIntervalRange: number;
-    static txPowerLevel: number;
+  export class BluetoothLEManufacturerData {
+    data: Object;
+    companyId: Number;
     constructor();
-
-  }
-
-  export class BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
-    error: number;
-    status: BluetoothLEAdvertisementPublisherStatus;
-    constructor();
-
-  }
-
-  export class BluetoothLEAdvertisementPublisher {
-    advertisement: BluetoothLEAdvertisement;
-    status: BluetoothLEAdvertisementPublisherStatus;
-    constructor();
-    constructor(advertisement: BluetoothLEAdvertisement);
-
-    start(): void;
-
-    stop(): void;
-
-    addListener(type: "StatusChanged", listener: (ev: Event) => void): void ;
-    removeListener(type: "StatusChanged", listener: (ev: Event) => void): void ;
-    on(type: "StatusChanged", listener: (ev: Event) => void): void ;
-    off(type: "StatusChanged", listener: (ev: Event) => void): void ;
-    
-    addListener(type: string, listener: (ev: Event) => void): void ;
-    removeListener(type: string, listener: (ev: Event) => void): void ;
-    on(type: string, listener: (ev: Event) => void): void ;
-    off(type: string, listener: (ev: Event) => void): void ;
-    
+    constructor(companyId: Number, data: Object);
 
   }
 

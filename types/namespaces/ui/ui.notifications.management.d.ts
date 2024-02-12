@@ -10,15 +10,15 @@
 
     requestAccessAsync(callback: (error: Error, result: UserNotificationListenerAccessStatus) => void): void ;
 
-    getNotificationsAsync(kinds: number, callback: (error: Error, result: Object) => void): void ;
+    getNotificationsAsync(kinds: Number, callback: (error: Error, result: Object) => void): void ;
 
     getAccessStatus(): UserNotificationListenerAccessStatus;
 
-    getNotification(notificationId: number): Object;
+    getNotification(notificationId: Number): Object;
 
     clearNotifications(): void;
 
-    removeNotification(notificationId: number): void;
+    removeNotification(notificationId: Number): void;
 
     addListener(type: "NotificationChanged", listener: (ev: Event) => void): void ;
     removeListener(type: "NotificationChanged", listener: (ev: Event) => void): void ;

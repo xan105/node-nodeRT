@@ -2,18 +2,6 @@
     constructor();
   }
 
-  export enum XboxLiveNetworkAccessKind {
-    open,
-    moderate,
-    strict,
-  }
-
-  export enum XboxLiveSocketKind {
-    none,
-    datagram,
-    stream,
-  }
-
   export enum XboxLiveEndpointPairCreationBehaviors {
     none,
     reevaluatePath,
@@ -41,16 +29,10 @@
     deleted,
   }
 
-  export enum XboxLiveQualityOfServiceMetric {
-    averageLatencyInMilliseconds,
-    minLatencyInMilliseconds,
-    maxLatencyInMilliseconds,
-    averageOutboundBitsPerSecond,
-    minOutboundBitsPerSecond,
-    maxOutboundBitsPerSecond,
-    averageInboundBitsPerSecond,
-    minInboundBitsPerSecond,
-    maxInboundBitsPerSecond,
+  export enum XboxLiveNetworkAccessKind {
+    open,
+    moderate,
+    strict,
   }
 
   export enum XboxLiveQualityOfServiceMeasurementStatus {
@@ -68,31 +50,49 @@
     unexpectedInternalError,
   }
 
+  export enum XboxLiveQualityOfServiceMetric {
+    averageLatencyInMilliseconds,
+    minLatencyInMilliseconds,
+    maxLatencyInMilliseconds,
+    averageOutboundBitsPerSecond,
+    minOutboundBitsPerSecond,
+    maxOutboundBitsPerSecond,
+    averageInboundBitsPerSecond,
+    minInboundBitsPerSecond,
+    maxInboundBitsPerSecond,
+  }
+
+  export enum XboxLiveSocketKind {
+    none,
+    datagram,
+    stream,
+  }
+
   export class XboxLiveDeviceAddress {
-    static maxSnapshotBytesSize: number;
-    isLocal: boolean;
-    isValid: boolean;
+    static maxSnapshotBytesSize: Number;
+    isLocal: Boolean;
+    isValid: Boolean;
     networkAccessKind: XboxLiveNetworkAccessKind;
     constructor();
 
-    static createFromSnapshotBase64(base64: string): XboxLiveDeviceAddress;
+    static createFromSnapshotBase64(base64: String): XboxLiveDeviceAddress;
 
 
     static createFromSnapshotBuffer(buffer: Object): XboxLiveDeviceAddress;
 
 
-    static createFromSnapshotBytes(buffer: Array<number>): XboxLiveDeviceAddress;
+    static createFromSnapshotBytes(buffer: Array<Number>): XboxLiveDeviceAddress;
 
 
     static getLocal(): XboxLiveDeviceAddress;
 
 
-    getSnapshotAsBase64(): string;
+    getSnapshotAsBase64(): String;
 
     getSnapshotAsBuffer(): Object;
 
     getSnapshotAsBytes();
-    compare(otherDeviceAddress: XboxLiveDeviceAddress): number;
+    compare(otherDeviceAddress: XboxLiveDeviceAddress): Number;
 
     addListener(type: "SnapshotChanged", listener: (ev: Event) => void): void ;
     removeListener(type: "SnapshotChanged", listener: (ev: Event) => void): void ;
@@ -109,18 +109,18 @@
 
   export class XboxLiveEndpointPair {
     localHostName: Object;
-    localPort: string;
+    localPort: String;
     remoteDeviceAddress: XboxLiveDeviceAddress;
     remoteHostName: Object;
-    remotePort: string;
+    remotePort: String;
     state: XboxLiveEndpointPairState;
     template: XboxLiveEndpointPairTemplate;
     constructor();
 
-    static findEndpointPairBySocketAddressBytes(localSocketAddress: Array<number>, remoteSocketAddress: Array<number>): XboxLiveEndpointPair;
+    static findEndpointPairBySocketAddressBytes(localSocketAddress: Array<Number>, remoteSocketAddress: Array<Number>): XboxLiveEndpointPair;
 
 
-    static findEndpointPairByHostNamesAndPorts(localHostName: Object, localPort: string, remoteHostName: Object, remotePort: string): XboxLiveEndpointPair;
+    static findEndpointPairByHostNamesAndPorts(localHostName: Object, localPort: String, remoteHostName: Object, remotePort: String): XboxLiveEndpointPair;
 
 
     deleteAsync(callback: (error: Error) => void): void ;
@@ -140,25 +140,41 @@
 
   }
 
+  export class XboxLiveEndpointPairCreationResult {
+    deviceAddress: XboxLiveDeviceAddress;
+    endpointPair: XboxLiveEndpointPair;
+    isExistingPathEvaluation: Boolean;
+    status: XboxLiveEndpointPairCreationStatus;
+    constructor();
+
+  }
+
+  export class XboxLiveEndpointPairStateChangedEventArgs {
+    newState: XboxLiveEndpointPairState;
+    oldState: XboxLiveEndpointPairState;
+    constructor();
+
+  }
+
   export class XboxLiveEndpointPairTemplate {
     static templates: Object;
-    acceptorBoundPortRangeLower: number;
-    acceptorBoundPortRangeUpper: number;
+    acceptorBoundPortRangeLower: Number;
+    acceptorBoundPortRangeUpper: Number;
     endpointPairs: Object;
-    initiatorBoundPortRangeLower: number;
-    initiatorBoundPortRangeUpper: number;
-    name: string;
+    initiatorBoundPortRangeLower: Number;
+    initiatorBoundPortRangeUpper: Number;
+    name: String;
     socketKind: XboxLiveSocketKind;
     constructor();
 
-    static getTemplateByName(name: string): XboxLiveEndpointPairTemplate;
+    static getTemplateByName(name: String): XboxLiveEndpointPairTemplate;
 
 
     createEndpointPairAsync(deviceAddress: XboxLiveDeviceAddress, callback: (error: Error, result: XboxLiveEndpointPairCreationResult) => void): void ;
     createEndpointPairAsync(deviceAddress: XboxLiveDeviceAddress, behaviors: XboxLiveEndpointPairCreationBehaviors, callback: (error: Error, result: XboxLiveEndpointPairCreationResult) => void): void ;
 
-    createEndpointPairForPortsAsync(deviceAddress: XboxLiveDeviceAddress, initiatorPort: string, acceptorPort: string, callback: (error: Error, result: XboxLiveEndpointPairCreationResult) => void): void ;
-    createEndpointPairForPortsAsync(deviceAddress: XboxLiveDeviceAddress, initiatorPort: string, acceptorPort: string, behaviors: XboxLiveEndpointPairCreationBehaviors, callback: (error: Error, result: XboxLiveEndpointPairCreationResult) => void): void ;
+    createEndpointPairForPortsAsync(deviceAddress: XboxLiveDeviceAddress, initiatorPort: String, acceptorPort: String, callback: (error: Error, result: XboxLiveEndpointPairCreationResult) => void): void ;
+    createEndpointPairForPortsAsync(deviceAddress: XboxLiveDeviceAddress, initiatorPort: String, acceptorPort: String, behaviors: XboxLiveEndpointPairCreationBehaviors, callback: (error: Error, result: XboxLiveEndpointPairCreationResult) => void): void ;
 
     addListener(type: "InboundEndpointPairCreated", listener: (ev: Event) => void): void ;
     removeListener(type: "InboundEndpointPairCreated", listener: (ev: Event) => void): void ;
@@ -179,56 +195,23 @@
 
   }
 
-  export class XboxLiveEndpointPairCreationResult {
-    deviceAddress: XboxLiveDeviceAddress;
-    endpointPair: XboxLiveEndpointPair;
-    isExistingPathEvaluation: boolean;
-    status: XboxLiveEndpointPairCreationStatus;
-    constructor();
-
-  }
-
-  export class XboxLiveEndpointPairStateChangedEventArgs {
-    newState: XboxLiveEndpointPairState;
-    oldState: XboxLiveEndpointPairState;
-    constructor();
-
-  }
-
-  export class XboxLiveQualityOfServiceMetricResult {
-    deviceAddress: XboxLiveDeviceAddress;
-    metric: XboxLiveQualityOfServiceMetric;
-    status: XboxLiveQualityOfServiceMeasurementStatus;
-    value: number;
-    constructor();
-
-  }
-
-  export class XboxLiveQualityOfServicePrivatePayloadResult {
-    deviceAddress: XboxLiveDeviceAddress;
-    status: XboxLiveQualityOfServiceMeasurementStatus;
-    value: Object;
-    constructor();
-
-  }
-
   export class XboxLiveQualityOfServiceMeasurement {
     static publishedPrivatePayload: Object;
-    static maxSimultaneousProbeConnections: number;
-    static isSystemOutboundBandwidthConstrained: boolean;
-    static isSystemInboundBandwidthConstrained: boolean;
-    static maxPrivatePayloadSize: number;
-    timeoutInMilliseconds: number;
-    shouldRequestPrivatePayloads: boolean;
-    numberOfProbesToAttempt: number;
+    static maxSimultaneousProbeConnections: Number;
+    static isSystemOutboundBandwidthConstrained: Boolean;
+    static isSystemInboundBandwidthConstrained: Boolean;
+    static maxPrivatePayloadSize: Number;
+    timeoutInMilliseconds: Number;
+    shouldRequestPrivatePayloads: Boolean;
+    numberOfProbesToAttempt: Number;
     deviceAddresses: Object;
     metricResults: Object;
     metrics: Object;
-    numberOfResultsPending: number;
+    numberOfResultsPending: Number;
     privatePayloadResults: Object;
     constructor();
 
-    static publishPrivatePayloadBytes(payload: Array<number>): void;
+    static publishPrivatePayloadBytes(payload: Array<Number>): void;
 
 
     static clearPrivatePayload(): void;
@@ -243,6 +226,23 @@
     getMetricResult(deviceAddress: XboxLiveDeviceAddress, metric: XboxLiveQualityOfServiceMetric): XboxLiveQualityOfServiceMetricResult;
 
     getPrivatePayloadResult(deviceAddress: XboxLiveDeviceAddress): XboxLiveQualityOfServicePrivatePayloadResult;
+
+  }
+
+  export class XboxLiveQualityOfServiceMetricResult {
+    deviceAddress: XboxLiveDeviceAddress;
+    metric: XboxLiveQualityOfServiceMetric;
+    status: XboxLiveQualityOfServiceMeasurementStatus;
+    value: Number;
+    constructor();
+
+  }
+
+  export class XboxLiveQualityOfServicePrivatePayloadResult {
+    deviceAddress: XboxLiveDeviceAddress;
+    status: XboxLiveQualityOfServiceMeasurementStatus;
+    value: Object;
+    constructor();
 
   }
 

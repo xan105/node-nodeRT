@@ -1,16 +1,6 @@
-  export enum YearFormat {
+  export enum DayFormat {
     none,
     default,
-    abbreviated,
-    full,
-  }
-
-  export enum MonthFormat {
-    none,
-    default,
-    abbreviated,
-    full,
-    numeric,
   }
 
   export enum DayOfWeekFormat {
@@ -18,11 +8,6 @@
     default,
     abbreviated,
     full,
-  }
-
-  export enum DayFormat {
-    none,
-    default,
   }
 
   export enum HourFormat {
@@ -35,9 +20,24 @@
     default,
   }
 
+  export enum MonthFormat {
+    none,
+    default,
+    abbreviated,
+    full,
+    numeric,
+  }
+
   export enum SecondFormat {
     none,
     default,
+  }
+
+  export enum YearFormat {
+    none,
+    default,
+    abbreviated,
+    full,
   }
 
   export class DateTimeFormatter {
@@ -45,9 +45,9 @@
     static longTime: DateTimeFormatter;
     static shortDate: DateTimeFormatter;
     static shortTime: DateTimeFormatter;
-    numeralSystem: string;
-    clock: string;
-    geographicRegion: string;
+    numeralSystem: String;
+    clock: String;
+    geographicRegion: String;
     includeDay: DayFormat;
     includeDayOfWeek: DayOfWeekFormat;
     includeHour: HourFormat;
@@ -56,22 +56,22 @@
     includeSecond: SecondFormat;
     includeYear: YearFormat;
     languages: Object;
-    calendar: string;
+    calendar: String;
     patterns: Object;
-    resolvedGeographicRegion: string;
-    resolvedLanguage: string;
-    template: string;
+    resolvedGeographicRegion: String;
+    resolvedLanguage: String;
+    template: String;
     constructor();
-    constructor(formatTemplate: string);
-    constructor(formatTemplate: string, languages: Object);
-    constructor(formatTemplate: string, languages: Object, geographicRegion: string, calendar: string, clock: string);
+    constructor(formatTemplate: String);
+    constructor(formatTemplate: String, languages: Object);
+    constructor(formatTemplate: String, languages: Object, geographicRegion: String, calendar: String, clock: String);
     constructor(yearFormat: YearFormat, monthFormat: MonthFormat, dayFormat: DayFormat, dayOfWeekFormat: DayOfWeekFormat);
     constructor(hourFormat: HourFormat, minuteFormat: MinuteFormat, secondFormat: SecondFormat);
     constructor(yearFormat: YearFormat, monthFormat: MonthFormat, dayFormat: DayFormat, dayOfWeekFormat: DayOfWeekFormat, hourFormat: HourFormat, minuteFormat: MinuteFormat, secondFormat: SecondFormat, languages: Object);
-    constructor(yearFormat: YearFormat, monthFormat: MonthFormat, dayFormat: DayFormat, dayOfWeekFormat: DayOfWeekFormat, hourFormat: HourFormat, minuteFormat: MinuteFormat, secondFormat: SecondFormat, languages: Object, geographicRegion: string, calendar: string, clock: string);
+    constructor(yearFormat: YearFormat, monthFormat: MonthFormat, dayFormat: DayFormat, dayOfWeekFormat: DayOfWeekFormat, hourFormat: HourFormat, minuteFormat: MinuteFormat, secondFormat: SecondFormat, languages: Object, geographicRegion: String, calendar: String, clock: String);
 
-    format(value: Date): string;
-    format(datetime: Date, timeZoneId: string): string;
+    format(value: Date): String;
+    format(datetime: Date, timeZoneId: String): String;
 
   }
 

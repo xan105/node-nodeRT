@@ -16,15 +16,25 @@
     constructor();
   }
 
+  export enum ForegroundText {
+    dark,
+    light,
+  }
+
+  export enum JumpListItemKind {
+    arguments,
+    separator,
+  }
+
   export enum JumpListSystemGroupKind {
     none,
     frequent,
     recent,
   }
 
-  export enum JumpListItemKind {
-    arguments,
-    separator,
+  export enum TileMixedRealityModelActivationBehavior {
+    default,
+    none,
   }
 
   export enum TileOptions {
@@ -45,34 +55,6 @@
     square44x44,
   }
 
-  export enum ForegroundText {
-    dark,
-    light,
-  }
-
-  export enum TileMixedRealityModelActivationBehavior {
-    default,
-    none,
-  }
-
-  export class JumpListItem {
-    logo: Object;
-    groupName: string;
-    displayName: string;
-    description: string;
-    arguments: string;
-    kind: JumpListItemKind;
-    removedByUser: boolean;
-    constructor();
-
-    static createWithArguments(arguments: string, displayName: string): JumpListItem;
-
-
-    static createSeparator(): JumpListItem;
-
-
-  }
-
   export class JumpList {
     systemGroupKind: JumpListSystemGroupKind;
     items: Object;
@@ -81,76 +63,76 @@
     static loadCurrentAsync(callback: (error: Error, result: JumpList) => void): void ;
 
 
-    static isSupported(): boolean;
+    static isSupported(): Boolean;
 
 
     saveAsync(callback: (error: Error) => void): void ;
 
   }
 
-  export class SecondaryTileVisualElements {
-    square150x150Logo: Object;
-    showNameOnWide310x150Logo: boolean;
-    showNameOnSquare310x310Logo: boolean;
-    showNameOnSquare150x150Logo: boolean;
-    foregroundText: ForegroundText;
-    backgroundColor: Object;
-    wide310x150Logo: Object;
-    square70x70Logo: Object;
-    square310x310Logo: Object;
-    square30x30Logo: Object;
-    square71x71Logo: Object;
-    square44x44Logo: Object;
-    mixedRealityModel: TileMixedRealityModel;
+  export class JumpListItem {
+    logo: Object;
+    groupName: String;
+    displayName: String;
+    description: String;
+    arguments: String;
+    kind: JumpListItemKind;
+    removedByUser: Boolean;
     constructor();
+
+    static createWithArguments(arguments: String, displayName: String): JumpListItem;
+
+
+    static createSeparator(): JumpListItem;
+
 
   }
 
   export class SecondaryTile {
-    shortName: string;
+    shortName: String;
     logo: Object;
-    tileId: string;
-    lockScreenDisplayBadgeAndTileText: boolean;
+    tileId: String;
+    lockScreenDisplayBadgeAndTileText: Boolean;
     lockScreenBadgeLogo: Object;
-    arguments: string;
+    arguments: String;
     foregroundText: ForegroundText;
-    displayName: string;
+    displayName: String;
     backgroundColor: Object;
     wideLogo: Object;
     tileOptions: TileOptions;
     smallLogo: Object;
-    roamingEnabled: boolean;
-    phoneticName: string;
+    roamingEnabled: Boolean;
+    phoneticName: String;
     visualElements: SecondaryTileVisualElements;
     constructor();
-    constructor(tileId: string, displayName: string, arguments: string, square150x150Logo: Object, desiredSize: TileSize);
-    constructor(tileId: string, shortName: string, displayName: string, arguments: string, tileOptions: TileOptions, logoReference: Object);
-    constructor(tileId: string, shortName: string, displayName: string, arguments: string, tileOptions: TileOptions, logoReference: Object, wideLogoReference: Object);
-    constructor(tileId: string);
+    constructor(tileId: String, displayName: String, arguments: String, square150x150Logo: Object, desiredSize: TileSize);
+    constructor(tileId: String, shortName: String, displayName: String, arguments: String, tileOptions: TileOptions, logoReference: Object);
+    constructor(tileId: String, shortName: String, displayName: String, arguments: String, tileOptions: TileOptions, logoReference: Object, wideLogoReference: Object);
+    constructor(tileId: String);
 
     static findAllAsync(callback: (error: Error, result: Object) => void): void ;
-    static findAllAsync(applicationId: string, callback: (error: Error, result: Object) => void): void ;
+    static findAllAsync(applicationId: String, callback: (error: Error, result: Object) => void): void ;
 
 
     static findAllForPackageAsync(callback: (error: Error, result: Object) => void): void ;
 
 
-    static exists(tileId: string): boolean;
+    static exists(tileId: String): Boolean;
 
 
-    requestCreateAsync(callback: (error: Error, result: boolean) => void): void ;
-    requestCreateAsync(invocationPoint: Object, callback: (error: Error, result: boolean) => void): void ;
+    requestCreateAsync(callback: (error: Error, result: Boolean) => void): void ;
+    requestCreateAsync(invocationPoint: Object, callback: (error: Error, result: Boolean) => void): void ;
 
-    requestCreateForSelectionAsync(selection: Object, callback: (error: Error, result: boolean) => void): void ;
-    requestCreateForSelectionAsync(selection: Object, preferredPlacement: number, callback: (error: Error, result: boolean) => void): void ;
+    requestCreateForSelectionAsync(selection: Object, callback: (error: Error, result: Boolean) => void): void ;
+    requestCreateForSelectionAsync(selection: Object, preferredPlacement: Number, callback: (error: Error, result: Boolean) => void): void ;
 
-    requestDeleteAsync(callback: (error: Error, result: boolean) => void): void ;
-    requestDeleteAsync(invocationPoint: Object, callback: (error: Error, result: boolean) => void): void ;
+    requestDeleteAsync(callback: (error: Error, result: Boolean) => void): void ;
+    requestDeleteAsync(invocationPoint: Object, callback: (error: Error, result: Boolean) => void): void ;
 
-    requestDeleteForSelectionAsync(selection: Object, callback: (error: Error, result: boolean) => void): void ;
-    requestDeleteForSelectionAsync(selection: Object, preferredPlacement: number, callback: (error: Error, result: boolean) => void): void ;
+    requestDeleteForSelectionAsync(selection: Object, callback: (error: Error, result: Boolean) => void): void ;
+    requestDeleteForSelectionAsync(selection: Object, preferredPlacement: Number, callback: (error: Error, result: Boolean) => void): void ;
 
-    updateAsync(callback: (error: Error, result: boolean) => void): void ;
+    updateAsync(callback: (error: Error, result: Boolean) => void): void ;
 
     addListener(type: "VisualElementsRequested", listener: (ev: Event) => void): void ;
     removeListener(type: "VisualElementsRequested", listener: (ev: Event) => void): void ;
@@ -165,9 +147,43 @@
 
   }
 
-  export class VisualElementsRequestedEventArgs {
-    request: VisualElementsRequest;
+  export class SecondaryTileVisualElements {
+    square150x150Logo: Object;
+    showNameOnWide310x150Logo: Boolean;
+    showNameOnSquare310x310Logo: Boolean;
+    showNameOnSquare150x150Logo: Boolean;
+    foregroundText: ForegroundText;
+    backgroundColor: Object;
+    wide310x150Logo: Object;
+    square70x70Logo: Object;
+    square310x310Logo: Object;
+    square30x30Logo: Object;
+    square71x71Logo: Object;
+    square44x44Logo: Object;
+    mixedRealityModel: TileMixedRealityModel;
     constructor();
+
+  }
+
+  export class StartScreenManager {
+    user: Object;
+    constructor();
+
+    static getDefault(): StartScreenManager;
+
+
+    static getForUser(user: Object): StartScreenManager;
+
+
+    containsAppListEntryAsync(appListEntry: Object, callback: (error: Error, result: Boolean) => void): void ;
+
+    requestAddAppListEntryAsync(appListEntry: Object, callback: (error: Error, result: Boolean) => void): void ;
+
+    containsSecondaryTileAsync(tileId: String, callback: (error: Error, result: Boolean) => void): void ;
+
+    tryRemoveSecondaryTileAsync(tileId: String, callback: (error: Error, result: Boolean) => void): void ;
+
+    supportsAppListEntry(appListEntry: Object): Boolean;
 
   }
 
@@ -196,21 +212,9 @@
 
   }
 
-  export class StartScreenManager {
-    user: Object;
+  export class VisualElementsRequestedEventArgs {
+    request: VisualElementsRequest;
     constructor();
-
-    static getDefault(): StartScreenManager;
-
-
-    static getForUser(user: Object): StartScreenManager;
-
-
-    containsAppListEntryAsync(appListEntry: Object, callback: (error: Error, result: boolean) => void): void ;
-
-    requestAddAppListEntryAsync(appListEntry: Object, callback: (error: Error, result: boolean) => void): void ;
-
-    supportsAppListEntry(appListEntry: Object): boolean;
 
   }
 

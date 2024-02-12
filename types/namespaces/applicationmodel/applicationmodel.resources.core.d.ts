@@ -1,10 +1,16 @@
   export class ResourceLayoutInfo {
-    majorVersion: number;
-    minorVersion: number;
-    resourceSubtreeCount: number;
-    namedResourceCount: number;
-    checksum: number;
+    majorVersion: Number;
+    minorVersion: Number;
+    resourceSubtreeCount: Number;
+    namedResourceCount: Number;
+    checksum: Number;
     constructor();
+  }
+
+  export enum ResourceCandidateKind {
+    string,
+    file,
+    embeddedData,
   }
 
   export enum ResourceQualifierPersistence {
@@ -12,21 +18,44 @@
     localMachine,
   }
 
-  export class ResourceMap {
+  export class NamedResource {
+    candidates: Object;
     uri: Object;
     constructor();
 
-    getValue(resource: string): ResourceCandidate;
-    getValue(resource: string, context: ResourceContext): ResourceCandidate;
+    resolve(): ResourceCandidate;
+    resolve(resourceContext: ResourceContext): ResourceCandidate;
 
-    getSubtree(reference: string): ResourceMap;
+    resolveAll(): Object;
+    resolveAll(resourceContext: ResourceContext): Object;
 
-    lookup(key: string): NamedResource;
+  }
 
-    hasKey(key: string): boolean;
+  export class ResourceCandidate {
+    isDefault: Boolean;
+    isMatch: Boolean;
+    isMatchAsDefault: Boolean;
+    qualifiers: Object;
+    valueAsString: String;
+    kind: ResourceCandidateKind;
+    constructor();
 
-    split(first: Object, second: Object): void;
+    getValueAsFileAsync(callback: (error: Error, result: Object) => void): void ;
 
+    getValueAsStreamAsync(callback: (error: Error, result: Object) => void): void ;
+
+    getQualifierValue(qualifierName: String): String;
+
+  }
+
+  export class ResourceCandidateVectorView {
+    constructor();
+
+    getAt(index: Number): ResourceCandidate;
+
+    indexOf(value: ResourceCandidate, index: Number): Boolean;
+
+    getMany();
     first(): Object;
 
   }
@@ -36,8 +65,11 @@
     qualifierValues: Object;
     constructor();
 
-    static setGlobalQualifierValue(key: string, value: string, persistence: ResourceQualifierPersistence): void;
-    static setGlobalQualifierValue(key: string, value: string): void;
+    static getForUIContext(context: Object): ResourceContext;
+
+
+    static setGlobalQualifierValue(key: String, value: String, persistence: ResourceQualifierPersistence): void;
+    static setGlobalQualifierValue(key: String, value: String): void;
 
 
     static getForCurrentView(): ResourceContext;
@@ -62,16 +94,15 @@
 
   }
 
-  export class NamedResource {
-    candidates: Object;
-    uri: Object;
+  export class ResourceContextLanguagesVectorView {
     constructor();
 
-    resolve(): ResourceCandidate;
-    resolve(resourceContext: ResourceContext): ResourceCandidate;
+    getAt(index: Number): String;
 
-    resolveAll(): Object;
-    resolveAll(resourceContext: ResourceContext): Object;
+    indexOf(value: String, index: Number): Boolean;
+
+    getMany();
+    first(): Object;
 
   }
 
@@ -82,51 +113,44 @@
     mainResourceMap: ResourceMap;
     constructor();
 
-    static isResourceReference(resourceReference: string): boolean;
+    static isResourceReference(resourceReference: String): Boolean;
 
 
     loadPriFiles(files: Object): void;
 
     unloadPriFiles(files: Object): void;
 
-    getAllNamedResourcesForPackage(packageName: string, resourceLayoutInfo: ResourceLayoutInfo): Object;
+    getAllNamedResourcesForPackage(packageName: String, resourceLayoutInfo: ResourceLayoutInfo): Object;
 
-    getAllSubtreesForPackage(packageName: string, resourceLayoutInfo: ResourceLayoutInfo): Object;
-
-  }
-
-  export class ResourceQualifier {
-    isDefault: boolean;
-    isMatch: boolean;
-    qualifierName: string;
-    qualifierValue: string;
-    score: number;
-    constructor();
+    getAllSubtreesForPackage(packageName: String, resourceLayoutInfo: ResourceLayoutInfo): Object;
 
   }
 
-  export class ResourceCandidate {
-    isDefault: boolean;
-    isMatch: boolean;
-    isMatchAsDefault: boolean;
-    qualifiers: Object;
-    valueAsString: string;
+  export class ResourceMap {
+    uri: Object;
     constructor();
 
-    getValueAsFileAsync(callback: (error: Error, result: Object) => void): void ;
+    getValue(resource: String): ResourceCandidate;
+    getValue(resource: String, context: ResourceContext): ResourceCandidate;
 
-    getValueAsStreamAsync(callback: (error: Error, result: Object) => void): void ;
+    getSubtree(reference: String): ResourceMap;
 
-    getQualifierValue(qualifierName: string): string;
+    lookup(key: String): NamedResource;
+
+    hasKey(key: String): Boolean;
+
+    split(first: Object, second: Object): void;
+
+    first(): Object;
 
   }
 
   export class ResourceMapIterator {
     current: Object;
-    hasCurrent: boolean;
+    hasCurrent: Boolean;
     constructor();
 
-    moveNext(): boolean;
+    moveNext(): Boolean;
 
     getMany();
   }
@@ -134,9 +158,9 @@
   export class ResourceMapMapView {
     constructor();
 
-    lookup(key: string): ResourceMap;
+    lookup(key: String): ResourceMap;
 
-    hasKey(key: string): boolean;
+    hasKey(key: String): Boolean;
 
     split(first: Object, second: Object): void;
 
@@ -146,26 +170,49 @@
 
   export class ResourceMapMapViewIterator {
     current: Object;
-    hasCurrent: boolean;
+    hasCurrent: Boolean;
     constructor();
 
-    moveNext(): boolean;
+    moveNext(): Boolean;
 
     getMany();
+  }
+
+  export class ResourceQualifier {
+    isDefault: Boolean;
+    isMatch: Boolean;
+    qualifierName: String;
+    qualifierValue: String;
+    score: Number;
+    constructor();
+
+  }
+
+  export class ResourceQualifierMapView {
+    constructor();
+
+    lookup(key: String): String;
+
+    hasKey(key: String): Boolean;
+
+    split(first: Object, second: Object): void;
+
+    first(): Object;
+
   }
 
   export class ResourceQualifierObservableMap {
     constructor();
 
-    lookup(key: string): string;
+    lookup(key: String): String;
 
-    hasKey(key: string): boolean;
+    hasKey(key: String): Boolean;
 
     getView(): Object;
 
-    insert(key: string, value: string): boolean;
+    insert(key: String, value: String): Boolean;
 
-    remove(key: string): void;
+    remove(key: String): void;
 
     clear(): void;
 
@@ -184,49 +231,12 @@
 
   }
 
-  export class ResourceQualifierMapView {
-    constructor();
-
-    lookup(key: string): string;
-
-    hasKey(key: string): boolean;
-
-    split(first: Object, second: Object): void;
-
-    first(): Object;
-
-  }
-
   export class ResourceQualifierVectorView {
     constructor();
 
-    getAt(index: number): ResourceQualifier;
+    getAt(index: Number): ResourceQualifier;
 
-    indexOf(value: ResourceQualifier, index: number): boolean;
-
-    getMany();
-    first(): Object;
-
-  }
-
-  export class ResourceCandidateVectorView {
-    constructor();
-
-    getAt(index: number): ResourceCandidate;
-
-    indexOf(value: ResourceCandidate, index: number): boolean;
-
-    getMany();
-    first(): Object;
-
-  }
-
-  export class ResourceContextLanguagesVectorView {
-    constructor();
-
-    getAt(index: number): string;
-
-    indexOf(value: string, index: number): boolean;
+    indexOf(value: ResourceQualifier, index: Number): Boolean;
 
     getMany();
     first(): Object;

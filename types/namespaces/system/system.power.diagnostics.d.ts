@@ -1,8 +1,8 @@
   export class BackgroundEnergyDiagnostics {
-    static deviceSpecificConversionFactor: number;
+    static deviceSpecificConversionFactor: Number;
     constructor();
 
-    static computeTotalEnergyUsage(): number;
+    static computeTotalEnergyUsage(): Number;
 
 
     static resetTotalEnergyUsage(): void;
@@ -11,10 +11,10 @@
   }
 
   export class ForegroundEnergyDiagnostics {
-    static deviceSpecificConversionFactor: number;
+    static deviceSpecificConversionFactor: Number;
     constructor();
 
-    static computeTotalEnergyUsage(): number;
+    static computeTotalEnergyUsage(): Number;
 
 
     static resetTotalEnergyUsage(): void;

@@ -1,9 +1,9 @@
-  export enum SerialParity {
-    none,
-    odd,
-    even,
-    mark,
-    space,
+  export enum SerialError {
+    frame,
+    bufferOverrun,
+    receiveFull,
+    receiveParity,
+    transmitFull,
   }
 
   export enum SerialHandshake {
@@ -13,18 +13,12 @@
     requestToSendXOnXOff,
   }
 
-  export enum SerialStopBitCount {
-    one,
-    onePointFive,
-    two,
-  }
-
-  export enum SerialError {
-    frame,
-    bufferOverrun,
-    receiveFull,
-    receiveParity,
-    transmitFull,
+  export enum SerialParity {
+    none,
+    odd,
+    even,
+    mark,
+    space,
   }
 
   export enum SerialPinChange {
@@ -35,36 +29,54 @@
     ringIndicator,
   }
 
-  export class SerialDevice {
-    isDataTerminalReadyEnabled: boolean;
-    dataBits: number;
-    handshake: SerialHandshake;
-    breakSignalState: boolean;
-    baudRate: number;
-    writeTimeout: number;
-    stopBits: SerialStopBitCount;
-    readTimeout: number;
-    parity: SerialParity;
-    isRequestToSendEnabled: boolean;
-    bytesReceived: number;
-    carrierDetectState: boolean;
-    clearToSendState: boolean;
-    dataSetReadyState: boolean;
-    inputStream: Object;
-    outputStream: Object;
-    portName: string;
-    usbProductId: number;
-    usbVendorId: number;
+  export enum SerialStopBitCount {
+    one,
+    onePointFive,
+    two,
+  }
+
+  export class ErrorReceivedEventArgs {
+    error: SerialError;
     constructor();
 
-    static fromIdAsync(deviceId: string, callback: (error: Error, result: SerialDevice) => void): void ;
+  }
+
+  export class PinChangedEventArgs {
+    pinChange: SerialPinChange;
+    constructor();
+
+  }
+
+  export class SerialDevice {
+    isDataTerminalReadyEnabled: Boolean;
+    dataBits: Number;
+    handshake: SerialHandshake;
+    breakSignalState: Boolean;
+    baudRate: Number;
+    writeTimeout: Number;
+    stopBits: SerialStopBitCount;
+    readTimeout: Number;
+    parity: SerialParity;
+    isRequestToSendEnabled: Boolean;
+    bytesReceived: Number;
+    carrierDetectState: Boolean;
+    clearToSendState: Boolean;
+    dataSetReadyState: Boolean;
+    inputStream: Object;
+    outputStream: Object;
+    portName: String;
+    usbProductId: Number;
+    usbVendorId: Number;
+    constructor();
+
+    static fromIdAsync(deviceId: String, callback: (error: Error, result: SerialDevice) => void): void ;
 
 
-    static getDeviceSelector(): string;
-    static getDeviceSelector(portName: string): string;
+    static getDeviceSelector(): String;
+    static getDeviceSelector(portName: String): String;
 
 
-    static getDeviceSelectorFromUsbVidPid(vendorId: number, productId: number): string;
+    static getDeviceSelectorFromUsbVidPid(vendorId: Number, productId: Number): String;
 
 
     close(): void;
@@ -83,18 +95,6 @@
     on(type: string, listener: (ev: Event) => void): void ;
     off(type: string, listener: (ev: Event) => void): void ;
     
-
-  }
-
-  export class ErrorReceivedEventArgs {
-    error: SerialError;
-    constructor();
-
-  }
-
-  export class PinChangedEventArgs {
-    pinChange: SerialPinChange;
-    constructor();
 
   }
 

@@ -1,12 +1,12 @@
+  export class Size {
+    constructor();
+  }
+
   export class Rect {
     constructor();
   }
 
   export class Color {
-    constructor();
-  }
-
-  export class Size {
     constructor();
   }
 
@@ -17,31 +17,27 @@
     rotate270,
   }
 
-  export class PdfPageRenderOptions {
-    sourceRect: Object;
-    isIgnoringHighContrast: boolean;
-    destinationWidth: number;
-    destinationHeight: number;
-    bitmapEncoderId: string;
-    backgroundColor: Object;
+  export class PdfDocument {
+    isPasswordProtected: Boolean;
+    pageCount: Number;
     constructor();
 
-  }
+    static loadFromFileAsync(file: Object, callback: (error: Error, result: PdfDocument) => void): void ;
+    static loadFromFileAsync(file: Object, password: String, callback: (error: Error, result: PdfDocument) => void): void ;
 
-  export class PdfPageDimensions {
-    artBox: Object;
-    bleedBox: Object;
-    cropBox: Object;
-    mediaBox: Object;
-    trimBox: Object;
-    constructor();
+
+    static loadFromStreamAsync(inputStream: Object, callback: (error: Error, result: PdfDocument) => void): void ;
+    static loadFromStreamAsync(inputStream: Object, password: String, callback: (error: Error, result: PdfDocument) => void): void ;
+
+
+    getPage(pageIndex: Number): PdfPage;
 
   }
 
   export class PdfPage {
     dimensions: PdfPageDimensions;
-    index: number;
-    preferredZoom: number;
+    index: Number;
+    preferredZoom: Number;
     rotation: PdfPageRotation;
     size: Object;
     constructor();
@@ -54,20 +50,24 @@
     close(): void;
   }
 
-  export class PdfDocument {
-    isPasswordProtected: boolean;
-    pageCount: number;
+  export class PdfPageDimensions {
+    artBox: Object;
+    bleedBox: Object;
+    cropBox: Object;
+    mediaBox: Object;
+    trimBox: Object;
     constructor();
 
-    static loadFromFileAsync(file: Object, callback: (error: Error, result: PdfDocument) => void): void ;
-    static loadFromFileAsync(file: Object, password: string, callback: (error: Error, result: PdfDocument) => void): void ;
+  }
 
-
-    static loadFromStreamAsync(inputStream: Object, callback: (error: Error, result: PdfDocument) => void): void ;
-    static loadFromStreamAsync(inputStream: Object, password: string, callback: (error: Error, result: PdfDocument) => void): void ;
-
-
-    getPage(pageIndex: number): PdfPage;
+  export class PdfPageRenderOptions {
+    sourceRect: Object;
+    isIgnoringHighContrast: Boolean;
+    destinationWidth: Number;
+    destinationHeight: Number;
+    bitmapEncoderId: String;
+    backgroundColor: Object;
+    constructor();
 
   }
 

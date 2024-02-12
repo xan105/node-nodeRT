@@ -8,31 +8,36 @@
     separator,
   }
 
+  export class RequestingFocusOnKeyboardInputEventArgs {
+    constructor();
+
+  }
+
   export class SearchSuggestion {
-    detailText: string;
+    detailText: String;
     image: Object;
-    imageAlternateText: string;
+    imageAlternateText: String;
     kind: SearchSuggestionKind;
-    tag: string;
-    text: string;
+    tag: String;
+    text: String;
     constructor();
 
   }
 
   export class SearchSuggestionManager {
-    searchHistoryEnabled: boolean;
-    searchHistoryContext: string;
+    searchHistoryEnabled: Boolean;
+    searchHistoryContext: String;
     suggestions: Object;
     constructor();
 
     setLocalContentSuggestionSettings(settings: Object): void;
 
-    setQuery(queryText: string): void;
-    setQuery(queryText: string, language: string): void;
-    setQuery(queryText: string, language: string, linguisticDetails: Object): void;
+    setQuery(queryText: String): void;
+    setQuery(queryText: String, language: String): void;
+    setQuery(queryText: String, language: String, linguisticDetails: Object): void;
 
-    addToHistory(queryText: string): void;
-    addToHistory(queryText: string, language: string): void;
+    addToHistory(queryText: String): void;
+    addToHistory(queryText: String, language: String): void;
 
     clearHistory(): void;
 
@@ -55,15 +60,10 @@
   }
 
   export class SearchSuggestionsRequestedEventArgs {
-    language: string;
+    language: String;
     linguisticDetails: Object;
-    queryText: string;
+    queryText: String;
     request: Object;
-    constructor();
-
-  }
-
-  export class RequestingFocusOnKeyboardInputEventArgs {
     constructor();
 
   }

@@ -1,6 +1,6 @@
   export class DataProtectionProvider {
     constructor();
-    constructor(protectionDescriptor: string);
+    constructor(protectionDescriptor: String);
 
     protectAsync(data: Object, callback: (error: Error, result: Object) => void): void ;
 

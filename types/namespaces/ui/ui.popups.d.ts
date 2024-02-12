@@ -19,45 +19,26 @@
     right,
   }
 
-  export class MessageDialog {
-    title: string;
-    options: MessageDialogOptions;
-    defaultCommandIndex: number;
-    content: string;
-    cancelCommandIndex: number;
-    commands: Object;
-    constructor();
-    constructor(content: string);
-    constructor(content: string, title: string);
-
-    showAsync(callback: (error: Error, result: IUICommand) => void): void ;
-
-  }
-
   export class IUICommand {
     id: Object;
     invoked: Object;
-    label: string;
+    label: String;
     constructor();
 
   }
 
-  export class UICommand {
-    label: string;
-    invoked: Object;
-    id: Object;
+  export class MessageDialog {
+    title: String;
+    options: MessageDialogOptions;
+    defaultCommandIndex: Number;
+    content: String;
+    cancelCommandIndex: Number;
+    commands: Object;
     constructor();
-    constructor(label: string);
-    constructor(label: string, action: Object);
-    constructor(label: string, action: Object, commandId: Object);
+    constructor(content: String);
+    constructor(content: String, title: String);
 
-  }
-
-  export class UICommandSeparator {
-    label: string;
-    invoked: Object;
-    id: Object;
-    constructor();
+    showAsync(callback: (error: Error, result: IUICommand) => void): void ;
 
   }
 
@@ -69,6 +50,25 @@
 
     showForSelectionAsync(selection: Object, callback: (error: Error, result: IUICommand) => void): void ;
     showForSelectionAsync(selection: Object, preferredPlacement: Placement, callback: (error: Error, result: IUICommand) => void): void ;
+
+  }
+
+  export class UICommand {
+    label: String;
+    invoked: Object;
+    id: Object;
+    constructor();
+    constructor(label: String);
+    constructor(label: String, action: Object);
+    constructor(label: String, action: Object, commandId: Object);
+
+  }
+
+  export class UICommandSeparator {
+    label: String;
+    invoked: Object;
+    id: Object;
+    constructor();
 
   }
 

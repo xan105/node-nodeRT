@@ -2,15 +2,16 @@
     constructor();
   }
 
-  export enum ClosedCaptionStyle {
+  export enum ClosedCaptionColor {
     default,
-    monospacedWithSerifs,
-    proportionalWithSerifs,
-    monospacedWithoutSerifs,
-    proportionalWithoutSerifs,
-    casual,
-    cursive,
-    smallCapitals,
+    white,
+    black,
+    red,
+    green,
+    blue,
+    yellow,
+    magenta,
+    cyan,
   }
 
   export enum ClosedCaptionEdgeEffect {
@@ -30,24 +31,23 @@
     zeroPercent,
   }
 
-  export enum ClosedCaptionColor {
-    default,
-    white,
-    black,
-    red,
-    green,
-    blue,
-    yellow,
-    magenta,
-    cyan,
-  }
-
   export enum ClosedCaptionSize {
     default,
     fiftyPercent,
     oneHundredPercent,
     oneHundredFiftyPercent,
     twoHundredPercent,
+  }
+
+  export enum ClosedCaptionStyle {
+    default,
+    monospacedWithSerifs,
+    proportionalWithSerifs,
+    monospacedWithoutSerifs,
+    proportionalWithoutSerifs,
+    casual,
+    cursive,
+    smallCapitals,
   }
 
   export class ClosedCaptionProperties {

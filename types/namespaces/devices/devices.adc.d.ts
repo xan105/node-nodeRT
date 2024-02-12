@@ -7,19 +7,19 @@
     controller: AdcController;
     constructor();
 
-    readValue(): number;
+    readValue(): Number;
 
-    readRatio(): number;
+    readRatio(): Number;
 
     close(): void;
   }
 
   export class AdcController {
     channelMode: AdcChannelMode;
-    channelCount: number;
-    maxValue: number;
-    minValue: number;
-    resolutionInBits: number;
+    channelCount: Number;
+    maxValue: Number;
+    minValue: Number;
+    resolutionInBits: Number;
     constructor();
 
     static getDefaultAsync(callback: (error: Error, result: AdcController) => void): void ;
@@ -28,10 +28,13 @@
     static getControllersAsync(provider: Object, callback: (error: Error, result: Object) => void): void ;
 
 
-    isChannelModeSupported(channelMode: AdcChannelMode): boolean;
+    isChannelModeSupported(channelMode: AdcChannelMode): Boolean;
 
-    openChannel(channelNumber: number): AdcChannel;
+    openChannel(channelNumber: Number): AdcChannel;
 
   }
 
+export const AdcChannelMode: any;
+export const AdcChannel: any;
+export const AdcController: any;
 export * as provider from "./devices.adc.provider.js";

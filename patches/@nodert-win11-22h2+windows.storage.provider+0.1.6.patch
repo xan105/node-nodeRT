@@ -1,0 +1,13 @@
+diff --git a/node_modules/@nodert-win11-22h2/windows.storage.provider/CollectionsWrap.h b/node_modules/@nodert-win11-22h2/windows.storage.provider/CollectionsWrap.h
+index 3304539..d22bb74 100644
+--- a/node_modules/@nodert-win11-22h2/windows.storage.provider/CollectionsWrap.h
++++ b/node_modules/@nodert-win11-22h2/windows.storage.provider/CollectionsWrap.h
+@@ -417,7 +417,7 @@ class IterableWrapper : NodeRT::WrapperBase {
+ 
+   static void New(Nan::NAN_METHOD_ARGS_TYPE info) {
+     NodeRT::Utils::SetHiddenValue(
+-        info.This().Nan::New<String>("__winRtInstance__").ToLocalChecked(),
++        info.This(), Nan::New<String>("__winRtInstance__").ToLocalChecked(),
+         True());
+     info.GetReturnValue().Set(info.This());
+   }

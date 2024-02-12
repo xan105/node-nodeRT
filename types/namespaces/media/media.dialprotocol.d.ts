@@ -2,17 +2,17 @@
     constructor();
   }
 
-  export enum DialAppState {
-    unknown,
-    stopped,
-    running,
-    networkFailure,
-  }
-
   export enum DialAppLaunchResult {
     launched,
     failedToLaunch,
     notFound,
+    networkFailure,
+  }
+
+  export enum DialAppState {
+    unknown,
+    stopped,
+    running,
     networkFailure,
   }
 
@@ -32,18 +32,11 @@
     error,
   }
 
-  export class DialAppStateDetails {
-    fullXml: string;
-    state: DialAppState;
-    constructor();
-
-  }
-
   export class DialApp {
-    appName: string;
+    appName: String;
     constructor();
 
-    requestLaunchAsync(appArgument: string, callback: (error: Error, result: DialAppLaunchResult) => void): void ;
+    requestLaunchAsync(appArgument: String, callback: (error: Error, result: DialAppLaunchResult) => void): void ;
 
     stopAsync(callback: (error: Error, result: DialAppStopResult) => void): void ;
 
@@ -51,40 +44,29 @@
 
   }
 
+  export class DialAppStateDetails {
+    fullXml: String;
+    state: DialAppState;
+    constructor();
+
+  }
+
   export class DialDevice {
-    id: string;
-    friendlyName: string;
+    id: String;
+    friendlyName: String;
     thumbnail: Object;
     constructor();
 
-    static fromIdAsync(value: string, callback: (error: Error, result: DialDevice) => void): void ;
+    static fromIdAsync(value: String, callback: (error: Error, result: DialDevice) => void): void ;
 
 
-    static deviceInfoSupportsDialAsync(device: Object, callback: (error: Error, result: boolean) => void): void ;
+    static deviceInfoSupportsDialAsync(device: Object, callback: (error: Error, result: Boolean) => void): void ;
 
 
-    static getDeviceSelector(appName: string): string;
+    static getDeviceSelector(appName: String): String;
 
 
-    getDialApp(appName: string): DialApp;
-
-  }
-
-  export class DialDeviceSelectedEventArgs {
-    selectedDialDevice: DialDevice;
-    constructor();
-
-  }
-
-  export class DialDisconnectButtonClickedEventArgs {
-    device: DialDevice;
-    constructor();
-
-  }
-
-  export class DialDevicePickerFilter {
-    supportedAppNames: Object;
-    constructor();
+    getDialApp(appName: String): DialApp;
 
   }
 
@@ -94,10 +76,10 @@
     constructor();
 
     pickSingleDialDeviceAsync(selection: Object, callback: (error: Error, result: DialDevice) => void): void ;
-    pickSingleDialDeviceAsync(selection: Object, preferredPlacement: number, callback: (error: Error, result: DialDevice) => void): void ;
+    pickSingleDialDeviceAsync(selection: Object, preferredPlacement: Number, callback: (error: Error, result: DialDevice) => void): void ;
 
     show(selection: Object): void;
-    show(selection: Object, preferredPlacement: number): void;
+    show(selection: Object, preferredPlacement: Number): void;
 
     hide(): void;
 
@@ -126,6 +108,24 @@
 
   }
 
+  export class DialDevicePickerFilter {
+    supportedAppNames: Object;
+    constructor();
+
+  }
+
+  export class DialDeviceSelectedEventArgs {
+    selectedDialDevice: DialDevice;
+    constructor();
+
+  }
+
+  export class DialDisconnectButtonClickedEventArgs {
+    device: DialDevice;
+    constructor();
+
+  }
+
   export class DialReceiverApp {
     static current: DialReceiverApp;
     constructor();
@@ -134,7 +134,7 @@
 
     setAdditionalDataAsync(additionalData: Object, callback: (error: Error) => void): void ;
 
-    getUniqueDeviceNameAsync(callback: (error: Error, result: string) => void): void ;
+    getUniqueDeviceNameAsync(callback: (error: Error, result: String) => void): void ;
 
   }
 

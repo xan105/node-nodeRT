@@ -1,14 +1,14 @@
   export class InstalledDesktopApp {
-    displayName: string;
-    displayVersion: string;
-    id: string;
-    publisher: string;
+    displayName: String;
+    displayVersion: String;
+    id: String;
+    publisher: String;
     constructor();
 
     static getInventoryAsync(callback: (error: Error, result: Object) => void): void ;
 
 
-    toString(): string;
+    toString(): String;
 
   }
 

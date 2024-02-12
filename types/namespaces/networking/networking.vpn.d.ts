@@ -1,11 +1,25 @@
-  export enum VpnDataPathType {
-    send,
-    receive,
+  export enum VpnAppIdType {
+    packageFamilyName,
+    fullyQualifiedBinaryName,
+    filePath,
+  }
+
+  export enum VpnAuthenticationMethod {
+    mschapv2,
+    eap,
+    certificate,
+    presharedKey,
   }
 
   export enum VpnChannelActivityEventType {
     idle,
     active,
+  }
+
+  export enum VpnChannelRequestCredentialsOptions {
+    none,
+    retrying,
+    useForSingleSignIn,
   }
 
   export enum VpnCredentialType {
@@ -18,27 +32,15 @@
     unProtectedCertificate,
   }
 
-  export enum VpnPacketBufferStatus {
-    ok,
-    invalidBufferSize,
-  }
-
-  export enum VpnChannelRequestCredentialsOptions {
-    none,
-    retrying,
-    useForSingleSignIn,
+  export enum VpnDataPathType {
+    send,
+    receive,
   }
 
   export enum VpnDomainNameType {
     suffix,
     fullyQualified,
     reserved,
-  }
-
-  export enum VpnAppIdType {
-    packageFamilyName,
-    fullyQualifiedBinaryName,
-    filePath,
   }
 
   export enum VpnIPProtocol {
@@ -51,29 +53,11 @@
     pgm,
   }
 
-  export enum VpnRoutingPolicyType {
-    splitRouting,
-    forceAllTrafficOverVpn,
-  }
-
   export enum VpnManagementConnectionStatus {
     disconnected,
     disconnecting,
     connected,
     connecting,
-  }
-
-  export enum VpnNativeProtocolType {
-    pptp,
-    l2tp,
-    ipsecIkev2,
-  }
-
-  export enum VpnAuthenticationMethod {
-    mschapv2,
-    eap,
-    certificate,
-    presharedKey,
   }
 
   export enum VpnManagementErrorStatus {
@@ -98,6 +82,82 @@
     invalidIP,
   }
 
+  export enum VpnNativeProtocolType {
+    pptp,
+    l2tp,
+    ipsecIkev2,
+  }
+
+  export enum VpnPacketBufferStatus {
+    ok,
+    invalidBufferSize,
+  }
+
+  export enum VpnRoutingPolicyType {
+    splitRouting,
+    forceAllTrafficOverVpn,
+  }
+
+  export class IVpnChannelStatics {
+    constructor();
+
+    processEventAsync(thirdPartyPlugIn: Object, event: Object): void;
+
+  }
+
+  export class IVpnCredential {
+    additionalPin: String;
+    certificateCredential: Object;
+    oldPasswordCredential: Object;
+    passkeyCredential: Object;
+    constructor();
+
+  }
+
+  export class IVpnCustomPrompt {
+    bordered: Boolean;
+    compulsory: Boolean;
+    label: String;
+    constructor();
+
+  }
+
+  export class IVpnCustomPromptElement {
+    compulsory: Boolean;
+    displayName: String;
+    emphasized: Boolean;
+    constructor();
+
+  }
+
+  export class IVpnDomainNameInfoFactory {
+    constructor();
+
+    createVpnDomainNameInfo(name: String, nameType: VpnDomainNameType, dnsServerList: Object, proxyServerList: Object): VpnDomainNameInfo;
+
+  }
+
+  export class IVpnInterfaceIdFactory {
+    constructor();
+
+    createVpnInterfaceId(address: Array<Number>): VpnInterfaceId;
+
+  }
+
+  export class IVpnNamespaceInfoFactory {
+    constructor();
+
+    createVpnNamespaceInfo(name: String, dnsServerList: Object, proxyServerList: Object): VpnNamespaceInfo;
+
+  }
+
+  export class IVpnPacketBufferFactory {
+    constructor();
+
+    createVpnPacketBuffer(parentBuffer: VpnPacketBuffer, offset: Number, length: Number): VpnPacketBuffer;
+
+  }
+
   export class IVpnPlugIn {
     constructor();
 
@@ -113,10 +173,14 @@
 
   }
 
-  export class IVpnCustomPrompt {
-    bordered: boolean;
-    compulsory: boolean;
-    label: string;
+  export class IVpnProfile {
+    alwaysOn: Boolean;
+    appTriggers: Object;
+    domainNameInfoList: Object;
+    profileName: String;
+    rememberCredentials: Boolean;
+    routes: Object;
+    trafficFilters: Object;
     constructor();
 
   }
@@ -124,107 +188,22 @@
   export class IVpnRouteFactory {
     constructor();
 
-    createVpnRoute(address: Object, prefixSize: number): VpnRoute;
+    createVpnRoute(address: Object, prefixSize: Number): VpnRoute;
 
   }
 
-  export class VpnRoute {
-    prefixSize: number;
-    address: Object;
+  export class VpnAppId {
+    value: String;
+    type: VpnAppIdType;
     constructor();
-    constructor(address: Object, prefixSize: number);
-
-  }
-
-  export class IVpnNamespaceInfoFactory {
-    constructor();
-
-    createVpnNamespaceInfo(name: string, dnsServerList: Object, proxyServerList: Object): VpnNamespaceInfo;
-
-  }
-
-  export class VpnNamespaceInfo {
-    webProxyServers: Object;
-    namespace: string;
-    dnsServers: Object;
-    constructor();
-    constructor(name: string, dnsServerList: Object, proxyServerList: Object);
-
-  }
-
-  export class IVpnInterfaceIdFactory {
-    constructor();
-
-    createVpnInterfaceId(address: Array<number>): VpnInterfaceId;
-
-  }
-
-  export class VpnInterfaceId {
-    constructor();
-    constructor(address: Array<number>);
-
-    getAddressInfo(id: Array<number>): void;
-
-  }
-
-  export class IVpnCredential {
-    additionalPin: string;
-    certificateCredential: Object;
-    oldPasswordCredential: Object;
-    passkeyCredential: Object;
-    constructor();
-
-  }
-
-  export class VpnRouteAssignment {
-    ipv6InclusionRoutes: Object;
-    ipv6ExclusionRoutes: Object;
-    ipv4InclusionRoutes: Object;
-    ipv4ExclusionRoutes: Object;
-    excludeLocalSubnets: boolean;
-    constructor();
-
-  }
-
-  export class VpnNamespaceAssignment {
-    proxyAutoConfigUri: Object;
-    namespaceList: Object;
-    constructor();
-
-  }
-
-  export class VpnPickedCredential {
-    additionalPin: string;
-    oldPasswordCredential: Object;
-    passkeyCredential: Object;
-    constructor();
-
-  }
-
-  export class VpnPacketBuffer {
-    transportAffinity: number;
-    status: VpnPacketBufferStatus;
-    buffer: Object;
-    appId: VpnAppId;
-    transportContext: Object;
-    constructor();
-    constructor(parentBuffer: VpnPacketBuffer, offset: number, length: number);
-
-  }
-
-  export class VpnChannelConfiguration {
-    customField: string;
-    serverHostNameList: Object;
-    serverServiceName: string;
-    serverUris: Object;
-    constructor();
+    constructor(type: VpnAppIdType, value: String);
 
   }
 
   export class VpnChannel {
     plugInContext: Object;
     configuration: VpnChannelConfiguration;
-    id: number;
+    id: Number;
     systemHealth: VpnSystemHealth;
     currentRequestTransportContext: Object;
     constructor();
@@ -234,40 +213,40 @@
 
     requestCustomPromptAsync(customPromptElement: Object, callback: (error: Error) => void): void ;
 
-    requestCredentialsAsync(credType: VpnCredentialType, credOptions: number, certificate: Object, callback: (error: Error, result: VpnCredential) => void): void ;
-    requestCredentialsAsync(credType: VpnCredentialType, credOptions: number, callback: (error: Error, result: VpnCredential) => void): void ;
+    requestCredentialsAsync(credType: VpnCredentialType, credOptions: Number, certificate: Object, callback: (error: Error, result: VpnCredential) => void): void ;
+    requestCredentialsAsync(credType: VpnCredentialType, credOptions: Number, callback: (error: Error, result: VpnCredential) => void): void ;
     requestCredentialsAsync(credType: VpnCredentialType, callback: (error: Error, result: VpnCredential) => void): void ;
 
     associateTransport(mainOuterTunnelTransport: Object, optionalOuterTunnelTransport: Object): void;
 
-    start(assignedClientIPv4list: Object, assignedClientIPv6list: Object, vpnInterfaceId: VpnInterfaceId, routeScope: VpnRouteAssignment, namespaceScope: VpnNamespaceAssignment, mtuSize: number, maxFrameSize: number, optimizeForLowCostNetwork: boolean, mainOuterTunnelTransport: Object, optionalOuterTunnelTransport: Object): void;
+    start(assignedClientIPv4list: Object, assignedClientIPv6list: Object, vpnInterfaceId: VpnInterfaceId, routeScope: VpnRouteAssignment, namespaceScope: VpnNamespaceAssignment, mtuSize: Number, maxFrameSize: Number, optimizeForLowCostNetwork: Boolean, mainOuterTunnelTransport: Object, optionalOuterTunnelTransport: Object): void;
 
     stop(): void;
 
-    requestCredentials(credType: VpnCredentialType, isRetry: boolean, isSingleSignOnCredential: boolean, certificate: Object): VpnPickedCredential;
+    requestCredentials(credType: VpnCredentialType, isRetry: Boolean, isSingleSignOnCredential: Boolean, certificate: Object): VpnPickedCredential;
 
     requestVpnPacketBuffer(type: VpnDataPathType, vpnPacketBuffer: Object): void;
 
-    logDiagnosticMessage(message: string): void;
+    logDiagnosticMessage(message: String): void;
 
     requestCustomPrompt(customPrompt: Object): void;
 
-    setErrorMessage(message: string): void;
+    setErrorMessage(message: String): void;
 
-    setAllowedSslTlsVersions(tunnelTransport: Object, useTls12: boolean): void;
+    setAllowedSslTlsVersions(tunnelTransport: Object, useTls12: Boolean): void;
 
-    startWithMainTransport(assignedClientIPv4list: Object, assignedClientIPv6list: Object, vpnInterfaceId: VpnInterfaceId, assignedRoutes: VpnRouteAssignment, assignedDomainName: VpnDomainNameAssignment, mtuSize: number, maxFrameSize: number, Reserved: boolean, mainOuterTunnelTransport: Object): void;
+    startWithMainTransport(assignedClientIPv4list: Object, assignedClientIPv6list: Object, vpnInterfaceId: VpnInterfaceId, assignedRoutes: VpnRouteAssignment, assignedDomainName: VpnDomainNameAssignment, mtuSize: Number, maxFrameSize: Number, Reserved: Boolean, mainOuterTunnelTransport: Object): void;
 
-    startExistingTransports(assignedClientIPv4list: Object, assignedClientIPv6list: Object, vpnInterfaceId: VpnInterfaceId, assignedRoutes: VpnRouteAssignment, assignedDomainName: VpnDomainNameAssignment, mtuSize: number, maxFrameSize: number, Reserved: boolean): void;
+    startExistingTransports(assignedClientIPv4list: Object, assignedClientIPv6list: Object, vpnInterfaceId: VpnInterfaceId, assignedRoutes: VpnRouteAssignment, assignedDomainName: VpnDomainNameAssignment, mtuSize: Number, maxFrameSize: Number, Reserved: Boolean): void;
 
     getVpnSendPacketBuffer(): VpnPacketBuffer;
 
     getVpnReceivePacketBuffer(): VpnPacketBuffer;
 
-    terminateConnection(message: string): void;
+    terminateConnection(message: String): void;
 
-    startWithTrafficFilter(assignedClientIpv4List: Object, assignedClientIpv6List: Object, vpnInterfaceId: VpnInterfaceId, assignedRoutes: VpnRouteAssignment, assignedNamespace: VpnDomainNameAssignment, mtuSize: number, maxFrameSize: number, reserved: boolean, mainOuterTunnelTransport: Object, optionalOuterTunnelTransport: Object, assignedTrafficFilters: VpnTrafficFilterAssignment): void;
-    startWithTrafficFilter(assignedClientIpv4Addresses: Object, assignedClientIpv6Addresses: Object, vpninterfaceId: VpnInterfaceId, assignedRoutes: VpnRouteAssignment, assignedNamespace: VpnDomainNameAssignment, mtuSize: number, maxFrameSize: number, reserved: boolean, transports: Object, assignedTrafficFilters: VpnTrafficFilterAssignment): void;
+    startWithTrafficFilter(assignedClientIpv4List: Object, assignedClientIpv6List: Object, vpnInterfaceId: VpnInterfaceId, assignedRoutes: VpnRouteAssignment, assignedNamespace: VpnDomainNameAssignment, mtuSize: Number, maxFrameSize: Number, reserved: Boolean, mainOuterTunnelTransport: Object, optionalOuterTunnelTransport: Object, assignedTrafficFilters: VpnTrafficFilterAssignment): void;
+    startWithTrafficFilter(assignedClientIpv4Addresses: Object, assignedClientIpv6Addresses: Object, vpninterfaceId: VpnInterfaceId, assignedRoutes: VpnRouteAssignment, assignedNamespace: VpnDomainNameAssignment, mtuSize: Number, maxFrameSize: Number, reserved: Boolean, transports: Object, assignedTrafficFilters: VpnTrafficFilterAssignment): void;
 
     addAndAssociateTransport(transport: Object, context: Object): void;
 
@@ -275,7 +254,17 @@
 
     startReconnectingTransport(transport: Object, context: Object): void;
 
-    getSlotTypeForTransportContext(context: Object): number;
+    getSlotTypeForTransportContext(context: Object): Number;
+
+    appendVpnReceivePacketBuffer(decapsulatedPacketBuffer: VpnPacketBuffer): void;
+
+    appendVpnSendPacketBuffer(encapsulatedPacketBuffer: VpnPacketBuffer): void;
+
+    flushVpnReceivePacketBuffers(): void;
+
+    flushVpnSendPacketBuffers(): void;
+
+    activateForeground(packageRelativeAppId: String, sharedContext: Object): Object;
 
     addListener(type: "ActivityChange", listener: (ev: Event) => void): void ;
     removeListener(type: "ActivityChange", listener: (ev: Event) => void): void ;
@@ -301,8 +290,114 @@
 
   }
 
-  export class VpnSystemHealth {
-    statementOfHealth: Object;
+  export class VpnChannelActivityStateChangedArgs {
+    activityState: VpnChannelActivityEventType;
+    constructor();
+
+  }
+
+  export class VpnChannelConfiguration {
+    customField: String;
+    serverHostNameList: Object;
+    serverServiceName: String;
+    serverUris: Object;
+    constructor();
+
+  }
+
+  export class VpnCredential {
+    additionalPin: String;
+    certificateCredential: Object;
+    oldPasswordCredential: Object;
+    passkeyCredential: Object;
+    constructor();
+
+  }
+
+  export class VpnCustomCheckBox {
+    initialCheckState: Boolean;
+    checked: Boolean;
+    label: String;
+    compulsory: Boolean;
+    bordered: Boolean;
+    constructor();
+
+  }
+
+  export class VpnCustomComboBox {
+    optionsText: Object;
+    selected: Number;
+    label: String;
+    compulsory: Boolean;
+    bordered: Boolean;
+    constructor();
+
+  }
+
+  export class VpnCustomEditBox {
+    noEcho: Boolean;
+    defaultText: String;
+    text: String;
+    label: String;
+    compulsory: Boolean;
+    bordered: Boolean;
+    constructor();
+
+  }
+
+  export class VpnCustomErrorBox {
+    label: String;
+    compulsory: Boolean;
+    bordered: Boolean;
+    constructor();
+
+  }
+
+  export class VpnCustomPromptBooleanInput {
+    initialValue: Boolean;
+    value: Boolean;
+    emphasized: Boolean;
+    displayName: String;
+    compulsory: Boolean;
+    constructor();
+
+  }
+
+  export class VpnCustomPromptOptionSelector {
+    emphasized: Boolean;
+    displayName: String;
+    compulsory: Boolean;
+    options: Object;
+    selectedIndex: Number;
+    constructor();
+
+  }
+
+  export class VpnCustomPromptText {
+    emphasized: Boolean;
+    displayName: String;
+    compulsory: Boolean;
+    text: String;
+    constructor();
+
+  }
+
+  export class VpnCustomPromptTextInput {
+    emphasized: Boolean;
+    displayName: String;
+    compulsory: Boolean;
+    placeholderText: String;
+    isTextHidden: Boolean;
+    text: String;
+    constructor();
+
+  }
+
+  export class VpnCustomTextBox {
+    label: String;
+    compulsory: Boolean;
+    bordered: Boolean;
+    displayText: String;
     constructor();
 
   }
@@ -314,66 +409,6 @@
 
   }
 
-  export class VpnChannelActivityStateChangedArgs {
-    activityState: VpnChannelActivityEventType;
-    constructor();
-
-  }
-
-  export class IVpnCustomPromptElement {
-    compulsory: boolean;
-    displayName: string;
-    emphasized: boolean;
-    constructor();
-
-  }
-
-  export class VpnCredential {
-    additionalPin: string;
-    certificateCredential: Object;
-    oldPasswordCredential: Object;
-    passkeyCredential: Object;
-    constructor();
-
-  }
-
-  export class VpnTrafficFilterAssignment {
-    allowOutbound: boolean;
-    allowInbound: boolean;
-    trafficFilterList: Object;
-    constructor();
-
-  }
-
-  export class IVpnChannelStatics {
-    constructor();
-
-    processEventAsync(thirdPartyPlugIn: Object, event: Object): void;
-
-  }
-
-  export class IVpnPacketBufferFactory {
-    constructor();
-
-    createVpnPacketBuffer(parentBuffer: VpnPacketBuffer, offset: number, length: number): VpnPacketBuffer;
-
-  }
-
-  export class VpnAppId {
-    value: string;
-    type: VpnAppIdType;
-    constructor();
-    constructor(type: VpnAppIdType, value: string);
-
-  }
-
-  export class IVpnDomainNameInfoFactory {
-    constructor();
-
-    createVpnDomainNameInfo(name: string, nameType: VpnDomainNameType, dnsServerList: Object, proxyServerList: Object): VpnDomainNameInfo;
-
-  }
-
   export class VpnDomainNameInfo {
     domainNameType: VpnDomainNameType;
     domainName: Object;
@@ -381,7 +416,172 @@
     webProxyServers: Object;
     webProxyUris: Object;
     constructor();
-    constructor(name: string, nameType: VpnDomainNameType, dnsServerList: Object, proxyServerList: Object);
+    constructor(name: String, nameType: VpnDomainNameType, dnsServerList: Object, proxyServerList: Object);
+
+  }
+
+  export class VpnForegroundActivatedEventArgs {
+    kind: Number;
+    previousExecutionState: Number;
+    splashScreen: Object;
+    user: Object;
+    activationOperation: VpnForegroundActivationOperation;
+    profileName: String;
+    sharedContext: Object;
+    constructor();
+
+  }
+
+  export class VpnForegroundActivationOperation {
+    constructor();
+
+    complete(result: Object): void;
+
+  }
+
+  export class VpnInterfaceId {
+    constructor();
+    constructor(address: Array<Number>);
+
+    getAddressInfo(id: Array<Number>): void;
+
+  }
+
+  export class VpnManagementAgent {
+    constructor();
+
+    addProfileFromXmlAsync(xml: String, callback: (error: Error, result: VpnManagementErrorStatus) => void): void ;
+
+    addProfileFromObjectAsync(profile: IVpnProfile, callback: (error: Error, result: VpnManagementErrorStatus) => void): void ;
+
+    updateProfileFromXmlAsync(xml: String, callback: (error: Error, result: VpnManagementErrorStatus) => void): void ;
+
+    updateProfileFromObjectAsync(profile: IVpnProfile, callback: (error: Error, result: VpnManagementErrorStatus) => void): void ;
+
+    getProfilesAsync(callback: (error: Error, result: Object) => void): void ;
+
+    deleteProfileAsync(profile: IVpnProfile, callback: (error: Error, result: VpnManagementErrorStatus) => void): void ;
+
+    connectProfileAsync(profile: IVpnProfile, callback: (error: Error, result: VpnManagementErrorStatus) => void): void ;
+
+    connectProfileWithPasswordCredentialAsync(profile: IVpnProfile, passwordCredential: Object, callback: (error: Error, result: VpnManagementErrorStatus) => void): void ;
+
+    disconnectProfileAsync(profile: IVpnProfile, callback: (error: Error, result: VpnManagementErrorStatus) => void): void ;
+
+  }
+
+  export class VpnNamespaceAssignment {
+    proxyAutoConfigUri: Object;
+    namespaceList: Object;
+    constructor();
+
+  }
+
+  export class VpnNamespaceInfo {
+    webProxyServers: Object;
+    namespace: String;
+    dnsServers: Object;
+    constructor();
+    constructor(name: String, dnsServerList: Object, proxyServerList: Object);
+
+  }
+
+  export class VpnNativeProfile {
+    userAuthenticationMethod: VpnAuthenticationMethod;
+    tunnelAuthenticationMethod: VpnAuthenticationMethod;
+    routingPolicyType: VpnRoutingPolicyType;
+    eapConfiguration: String;
+    nativeProtocolType: VpnNativeProtocolType;
+    servers: Object;
+    requireVpnClientAppUI: Boolean;
+    connectionStatus: VpnManagementConnectionStatus;
+    profileName: String;
+    rememberCredentials: Boolean;
+    alwaysOn: Boolean;
+    routes: Object;
+    appTriggers: Object;
+    trafficFilters: Object;
+    domainNameInfoList: Object;
+    constructor();
+
+  }
+
+  export class VpnPacketBuffer {
+    transportAffinity: Number;
+    status: VpnPacketBufferStatus;
+    buffer: Object;
+    appId: VpnAppId;
+    transportContext: Object;
+    constructor();
+    constructor(parentBuffer: VpnPacketBuffer, offset: Number, length: Number);
+
+  }
+
+  export class VpnPacketBufferList {
+    status: VpnPacketBufferStatus;
+    size: Number;
+    constructor();
+
+    append(nextVpnPacketBuffer: VpnPacketBuffer): void;
+
+    addAtBegin(nextVpnPacketBuffer: VpnPacketBuffer): void;
+
+    removeAtEnd(): VpnPacketBuffer;
+
+    removeAtBegin(): VpnPacketBuffer;
+
+    clear(): void;
+
+    first(): Object;
+
+  }
+
+  export class VpnPickedCredential {
+    additionalPin: String;
+    oldPasswordCredential: Object;
+    passkeyCredential: Object;
+    constructor();
+
+  }
+
+  export class VpnPlugInProfile {
+    vpnPluginPackageFamilyName: String;
+    customConfiguration: String;
+    serverUris: Object;
+    requireVpnClientAppUI: Boolean;
+    connectionStatus: VpnManagementConnectionStatus;
+    profileName: String;
+    rememberCredentials: Boolean;
+    alwaysOn: Boolean;
+    appTriggers: Object;
+    domainNameInfoList: Object;
+    routes: Object;
+    trafficFilters: Object;
+    constructor();
+
+  }
+
+  export class VpnRoute {
+    prefixSize: Number;
+    address: Object;
+    constructor();
+    constructor(address: Object, prefixSize: Number);
+
+  }
+
+  export class VpnRouteAssignment {
+    ipv6InclusionRoutes: Object;
+    ipv6ExclusionRoutes: Object;
+    ipv4InclusionRoutes: Object;
+    ipv4ExclusionRoutes: Object;
+    excludeLocalSubnets: Boolean;
+    constructor();
+
+  }
+
+  export class VpnSystemHealth {
+    statementOfHealth: Object;
+    constructor();
 
   }
 
@@ -399,182 +599,11 @@
 
   }
 
-  export class IVpnProfile {
-    alwaysOn: boolean;
-    appTriggers: Object;
-    domainNameInfoList: Object;
-    profileName: string;
-    rememberCredentials: boolean;
-    routes: Object;
-    trafficFilters: Object;
+  export class VpnTrafficFilterAssignment {
+    allowOutbound: Boolean;
+    allowInbound: Boolean;
+    trafficFilterList: Object;
     constructor();
-
-  }
-
-  export class VpnPacketBufferList {
-    status: VpnPacketBufferStatus;
-    size: number;
-    constructor();
-
-    append(nextVpnPacketBuffer: VpnPacketBuffer): void;
-
-    addAtBegin(nextVpnPacketBuffer: VpnPacketBuffer): void;
-
-    removeAtEnd(): VpnPacketBuffer;
-
-    removeAtBegin(): VpnPacketBuffer;
-
-    clear(): void;
-
-    first(): Object;
-
-  }
-
-  export class VpnCustomEditBox {
-    noEcho: boolean;
-    defaultText: string;
-    text: string;
-    label: string;
-    compulsory: boolean;
-    bordered: boolean;
-    constructor();
-
-  }
-
-  export class VpnCustomPromptTextInput {
-    emphasized: boolean;
-    displayName: string;
-    compulsory: boolean;
-    placeholderText: string;
-    isTextHidden: boolean;
-    text: string;
-    constructor();
-
-  }
-
-  export class VpnCustomComboBox {
-    optionsText: Object;
-    selected: number;
-    label: string;
-    compulsory: boolean;
-    bordered: boolean;
-    constructor();
-
-  }
-
-  export class VpnCustomPromptOptionSelector {
-    emphasized: boolean;
-    displayName: string;
-    compulsory: boolean;
-    options: Object;
-    selectedIndex: number;
-    constructor();
-
-  }
-
-  export class VpnCustomTextBox {
-    label: string;
-    compulsory: boolean;
-    bordered: boolean;
-    displayText: string;
-    constructor();
-
-  }
-
-  export class VpnCustomPromptText {
-    emphasized: boolean;
-    displayName: string;
-    compulsory: boolean;
-    text: string;
-    constructor();
-
-  }
-
-  export class VpnCustomCheckBox {
-    initialCheckState: boolean;
-    checked: boolean;
-    label: string;
-    compulsory: boolean;
-    bordered: boolean;
-    constructor();
-
-  }
-
-  export class VpnCustomPromptBooleanInput {
-    initialValue: boolean;
-    value: boolean;
-    emphasized: boolean;
-    displayName: string;
-    compulsory: boolean;
-    constructor();
-
-  }
-
-  export class VpnCustomErrorBox {
-    label: string;
-    compulsory: boolean;
-    bordered: boolean;
-    constructor();
-
-  }
-
-  export class VpnPlugInProfile {
-    vpnPluginPackageFamilyName: string;
-    customConfiguration: string;
-    serverUris: Object;
-    requireVpnClientAppUI: boolean;
-    connectionStatus: VpnManagementConnectionStatus;
-    profileName: string;
-    rememberCredentials: boolean;
-    alwaysOn: boolean;
-    appTriggers: Object;
-    domainNameInfoList: Object;
-    routes: Object;
-    trafficFilters: Object;
-    constructor();
-
-  }
-
-  export class VpnNativeProfile {
-    userAuthenticationMethod: VpnAuthenticationMethod;
-    tunnelAuthenticationMethod: VpnAuthenticationMethod;
-    routingPolicyType: VpnRoutingPolicyType;
-    eapConfiguration: string;
-    nativeProtocolType: VpnNativeProtocolType;
-    servers: Object;
-    requireVpnClientAppUI: boolean;
-    connectionStatus: VpnManagementConnectionStatus;
-    profileName: string;
-    rememberCredentials: boolean;
-    alwaysOn: boolean;
-    routes: Object;
-    appTriggers: Object;
-    trafficFilters: Object;
-    domainNameInfoList: Object;
-    constructor();
-
-  }
-
-  export class VpnManagementAgent {
-    constructor();
-
-    addProfileFromXmlAsync(xml: string, callback: (error: Error, result: VpnManagementErrorStatus) => void): void ;
-
-    addProfileFromObjectAsync(profile: IVpnProfile, callback: (error: Error, result: VpnManagementErrorStatus) => void): void ;
-
-    updateProfileFromXmlAsync(xml: string, callback: (error: Error, result: VpnManagementErrorStatus) => void): void ;
-
-    updateProfileFromObjectAsync(profile: IVpnProfile, callback: (error: Error, result: VpnManagementErrorStatus) => void): void ;
-
-    getProfilesAsync(callback: (error: Error, result: Object) => void): void ;
-
-    deleteProfileAsync(profile: IVpnProfile, callback: (error: Error, result: VpnManagementErrorStatus) => void): void ;
-
-    connectProfileAsync(profile: IVpnProfile, callback: (error: Error, result: VpnManagementErrorStatus) => void): void ;
-
-    connectProfileWithPasswordCredentialAsync(profile: IVpnProfile, passwordCredential: Object, callback: (error: Error, result: VpnManagementErrorStatus) => void): void ;
-
-    disconnectProfileAsync(profile: IVpnProfile, callback: (error: Error, result: VpnManagementErrorStatus) => void): void ;
 
   }
 

@@ -11,17 +11,17 @@
   }
 
   export class CorePhysicalKeyStatus {
-    repeatCount: number;
-    scanCode: number;
-    isExtendedKey: boolean;
-    isMenuKeyDown: boolean;
-    wasKeyDown: boolean;
-    isKeyReleased: boolean;
+    repeatCount: Number;
+    scanCode: Number;
+    isExtendedKey: Boolean;
+    isMenuKeyDown: Boolean;
+    wasKeyDown: Boolean;
+    isKeyReleased: Boolean;
     constructor();
   }
 
   export class CoreProximityEvaluation {
-    score: number;
+    score: Number;
     adjustedPoint: Object;
     constructor();
   }
@@ -118,7 +118,7 @@
   }
 
   export class BackRequestedEventArgs {
-    handled: boolean;
+    handled: Boolean;
     constructor();
 
   }
@@ -144,7 +144,7 @@
   }
 
   export class ICoreWindowEventArgs {
-    handled: boolean;
+    handled: Boolean;
     constructor();
 
   }
@@ -155,19 +155,19 @@
     customProperties: Object;
     dispatcher: CoreDispatcher;
     flowDirection: CoreWindowFlowDirection;
-    isInputEnabled: boolean;
+    isInputEnabled: Boolean;
     pointerCursor: CoreCursor;
     pointerPosition: Object;
-    visible: boolean;
+    visible: Boolean;
     constructor();
 
     activate(): void;
 
     close(): void;
 
-    getAsyncKeyState(virtualKey: number): CoreVirtualKeyStates;
+    getAsyncKeyState(virtualKey: Number): CoreVirtualKeyStates;
 
-    getKeyState(virtualKey: number): CoreVirtualKeyStates;
+    getKeyState(virtualKey: Number): CoreVirtualKeyStates;
 
     releasePointerCapture(): void;
 
@@ -267,7 +267,7 @@
   }
 
   export class CoreDispatcher {
-    hasThreadAccess: boolean;
+    hasThreadAccess: Boolean;
     currentPriority: CoreDispatcherPriority;
     constructor();
 
@@ -275,14 +275,14 @@
 
     runIdleAsync(agileCallback: Object, callback: (error: Error) => void): void ;
 
-    tryRunAsync(priority: CoreDispatcherPriority, agileCallback: Object, callback: (error: Error, result: boolean) => void): void ;
+    tryRunAsync(priority: CoreDispatcherPriority, agileCallback: Object, callback: (error: Error, result: Boolean) => void): void ;
 
-    tryRunIdleAsync(agileCallback: Object, callback: (error: Error, result: boolean) => void): void ;
+    tryRunIdleAsync(agileCallback: Object, callback: (error: Error, result: Boolean) => void): void ;
 
     processEvents(options: CoreProcessEventsOption): void;
 
-    shouldYield(): boolean;
-    shouldYield(priority: CoreDispatcherPriority): boolean;
+    shouldYield(): Boolean;
+    shouldYield(priority: CoreDispatcherPriority): Boolean;
 
     stopProcessEvents(): void;
 
@@ -300,23 +300,23 @@
   }
 
   export class CoreCursor {
-    id: number;
+    id: Number;
     type: CoreCursorType;
     constructor();
-    constructor(type: CoreCursorType, id: number);
+    constructor(type: CoreCursorType, id: Number);
 
   }
 
   export class CoreWindow {
     pointerPosition: Object;
     pointerCursor: CoreCursor;
-    isInputEnabled: boolean;
+    isInputEnabled: Boolean;
     flowDirection: CoreWindowFlowDirection;
     automationHostProvider: Object;
     bounds: Object;
     customProperties: Object;
     dispatcher: CoreDispatcher;
-    visible: boolean;
+    visible: Boolean;
     activationMode: CoreWindowActivationMode;
     dispatcherQueue: Object;
     constructor();
@@ -324,15 +324,15 @@
     static getForCurrentThread(): CoreWindow;
 
 
-    getCurrentKeyEventDeviceId(): string;
+    getCurrentKeyEventDeviceId(): String;
 
     activate(): void;
 
     close(): void;
 
-    getAsyncKeyState(virtualKey: number): CoreVirtualKeyStates;
+    getAsyncKeyState(virtualKey: Number): CoreVirtualKeyStates;
 
-    getKeyState(virtualKey: number): CoreVirtualKeyStates;
+    getKeyState(virtualKey: Number): CoreVirtualKeyStates;
 
     releasePointerCapture(): void;
 
@@ -462,7 +462,7 @@
   }
 
   export class WindowActivatedEventArgs {
-    handled: boolean;
+    handled: Boolean;
     windowActivationState: CoreWindowActivationState;
     constructor();
 
@@ -470,45 +470,45 @@
 
   export class AutomationProviderRequestedEventArgs {
     automationProvider: Object;
-    handled: boolean;
+    handled: Boolean;
     constructor();
 
   }
 
   export class CharacterReceivedEventArgs {
-    keyCode: number;
+    keyCode: Number;
     keyStatus: CorePhysicalKeyStatus;
-    handled: boolean;
+    handled: Boolean;
     constructor();
 
   }
 
   export class CoreWindowEventArgs {
-    handled: boolean;
+    handled: Boolean;
     constructor();
 
   }
 
   export class InputEnabledEventArgs {
-    handled: boolean;
-    inputEnabled: boolean;
+    handled: Boolean;
+    inputEnabled: Boolean;
     constructor();
 
   }
 
   export class KeyEventArgs {
-    handled: boolean;
+    handled: Boolean;
     keyStatus: CorePhysicalKeyStatus;
-    virtualKey: number;
-    deviceId: string;
+    virtualKey: Number;
+    deviceId: String;
     constructor();
 
   }
 
   export class PointerEventArgs {
-    handled: boolean;
+    handled: Boolean;
     currentPoint: Object;
-    keyModifiers: number;
+    keyModifiers: Number;
     constructor();
 
     getIntermediatePoints(): Object;
@@ -516,7 +516,7 @@
   }
 
   export class TouchHitTestingEventArgs {
-    handled: boolean;
+    handled: Boolean;
     proximityEvaluation: CoreProximityEvaluation;
     boundingBox: Object;
     point: Object;
@@ -528,15 +528,15 @@
   }
 
   export class WindowSizeChangedEventArgs {
-    handled: boolean;
+    handled: Boolean;
     size: Object;
     constructor();
 
   }
 
   export class VisibilityChangedEventArgs {
-    handled: boolean;
-    visible: boolean;
+    handled: Boolean;
+    visible: Boolean;
     constructor();
 
   }
@@ -550,7 +550,7 @@
   }
 
   export class IdleDispatchedHandlerArgs {
-    isDispatcherIdle: boolean;
+    isDispatcherIdle: Boolean;
     constructor();
 
   }
@@ -574,9 +574,9 @@
   export class AcceleratorKeyEventArgs {
     eventType: CoreAcceleratorKeyEventType;
     keyStatus: CorePhysicalKeyStatus;
-    virtualKey: number;
-    deviceId: string;
-    handled: boolean;
+    virtualKey: Number;
+    deviceId: String;
+    handled: Boolean;
     constructor();
 
   }
@@ -605,7 +605,7 @@
   }
 
   export class CoreWindowResizeManager {
-    shouldWaitForLayoutCompletion: boolean;
+    shouldWaitForLayoutCompletion: Boolean;
     constructor();
 
     static getForCurrentView(): CoreWindowResizeManager;
@@ -617,7 +617,7 @@
 
   export class ICoreInputSourceBase {
     dispatcher: CoreDispatcher;
-    isInputEnabled: boolean;
+    isInputEnabled: Boolean;
     constructor();
 
     addListener(type: "InputEnabled", listener: (ev: Event) => void): void ;
@@ -634,7 +634,7 @@
   }
 
   export class ICorePointerInputSource {
-    hasCapture: boolean;
+    hasCapture: Boolean;
     pointerCursor: CoreCursor;
     pointerPosition: Object;
     constructor();
@@ -693,11 +693,11 @@
   }
 
   export class CoreComponentInputSource {
-    hasFocus: boolean;
-    isInputEnabled: boolean;
+    hasFocus: Boolean;
+    isInputEnabled: Boolean;
     dispatcher: CoreDispatcher;
     pointerCursor: CoreCursor;
-    hasCapture: boolean;
+    hasCapture: Boolean;
     pointerPosition: Object;
     dispatcherQueue: Object;
     constructor();
@@ -706,9 +706,9 @@
 
     setPointerCapture(): void;
 
-    getCurrentKeyState(virtualKey: number): CoreVirtualKeyStates;
+    getCurrentKeyState(virtualKey: Number): CoreVirtualKeyStates;
 
-    getCurrentKeyEventDeviceId(): string;
+    getCurrentKeyEventDeviceId(): String;
 
     addListener(type: "InputEnabled", listener: (ev: Event) => void): void ;
     removeListener(type: "InputEnabled", listener: (ev: Event) => void): void ;
@@ -794,10 +794,10 @@
   }
 
   export class CoreIndependentInputSource {
-    isInputEnabled: boolean;
+    isInputEnabled: Boolean;
     dispatcher: CoreDispatcher;
     pointerCursor: CoreCursor;
-    hasCapture: boolean;
+    hasCapture: Boolean;
     pointerPosition: Object;
     dispatcherQueue: Object;
     constructor();
@@ -888,16 +888,16 @@
   }
 
   export class CoreWindowDialog {
-    title: string;
-    isInteractionDelayed: number;
-    defaultCommandIndex: number;
-    cancelCommandIndex: number;
+    title: String;
+    isInteractionDelayed: Number;
+    defaultCommandIndex: Number;
+    cancelCommandIndex: Number;
     backButtonCommand: Object;
     commands: Object;
     maxSize: Object;
     minSize: Object;
     constructor();
-    constructor(title: string);
+    constructor(title: String);
 
     showAsync(callback: (error: Error, result: Object) => void): void ;
 
@@ -915,16 +915,16 @@
   }
 
   export class CoreWindowFlyout {
-    title: string;
-    isInteractionDelayed: number;
-    defaultCommandIndex: number;
+    title: String;
+    isInteractionDelayed: Number;
+    defaultCommandIndex: Number;
     backButtonCommand: Object;
     commands: Object;
     maxSize: Object;
     minSize: Object;
     constructor();
     constructor(position: Object);
-    constructor(position: Object, title: string);
+    constructor(position: Object, title: String);
 
     showAsync(callback: (error: Error, result: Object) => void): void ;
 
@@ -941,5 +941,48 @@
 
   }
 
+export const AppViewBackButtonVisibility: any;
+export const CoreWindowActivationState: any;
+export const CoreWindowActivationMode: any;
+export const CoreCursorType: any;
+export const CoreDispatcherPriority: any;
+export const CoreProcessEventsOption: any;
+export const CoreWindowFlowDirection: any;
+export const CoreVirtualKeyStates: any;
+export const CoreAcceleratorKeyEventType: any;
+export const CoreProximityEvaluationScore: any;
+export const CoreInputDeviceTypes: any;
+export const BackRequestedEventArgs: any;
+export const SystemNavigationManager: any;
+export const ICoreWindowEventArgs: any;
+export const ICoreWindow: any;
+export const CoreDispatcher: any;
+export const CoreCursor: any;
+export const CoreWindow: any;
+export const WindowActivatedEventArgs: any;
+export const AutomationProviderRequestedEventArgs: any;
+export const CharacterReceivedEventArgs: any;
+export const CoreWindowEventArgs: any;
+export const InputEnabledEventArgs: any;
+export const KeyEventArgs: any;
+export const PointerEventArgs: any;
+export const TouchHitTestingEventArgs: any;
+export const WindowSizeChangedEventArgs: any;
+export const VisibilityChangedEventArgs: any;
+export const ClosestInteractiveBoundsRequestedEventArgs: any;
+export const IdleDispatchedHandlerArgs: any;
+export const ICoreAcceleratorKeys: any;
+export const AcceleratorKeyEventArgs: any;
+export const CoreAcceleratorKeys: any;
+export const IInitializeWithCoreWindow: any;
+export const CoreWindowResizeManager: any;
+export const ICoreInputSourceBase: any;
+export const ICorePointerInputSource: any;
+export const ICorePointerInputSource2: any;
+export const CoreComponentInputSource: any;
+export const CoreIndependentInputSource: any;
+export const ICorePointerRedirector: any;
+export const CoreWindowPopupShowingEventArgs: any;
+export const CoreWindowDialog: any;
+export const CoreWindowFlyout: any;
 export * as animationmetrics from "./ui.core.animationmetrics.js";
-export * as preview from "./ui.core.preview.js";

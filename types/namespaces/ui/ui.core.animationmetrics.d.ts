@@ -6,12 +6,6 @@
     constructor();
   }
 
-  export enum PropertyAnimationType {
-    scale,
-    translation,
-    opacity,
-  }
-
   export enum AnimationEffect {
     expand,
     collapse,
@@ -74,32 +68,50 @@
     tapped,
   }
 
+  export enum PropertyAnimationType {
+    scale,
+    translation,
+    opacity,
+  }
+
+  export class AnimationDescription {
+    animations: Object;
+    delayLimit: Number;
+    staggerDelay: Number;
+    staggerDelayFactor: Number;
+    zOrder: Number;
+    constructor();
+    constructor(effect: AnimationEffect, target: AnimationEffectTarget);
+
+  }
+
   export class IPropertyAnimation {
     control1: Object;
     control2: Object;
-    delay: number;
-    duration: number;
+    delay: Number;
+    duration: Number;
     type: PropertyAnimationType;
     constructor();
 
   }
 
-  export class AnimationDescription {
-    animations: Object;
-    delayLimit: number;
-    staggerDelay: number;
-    staggerDelayFactor: number;
-    zOrder: number;
+  export class OpacityAnimation {
+    finalOpacity: Number;
+    initialOpacity: Number;
+    control1: Object;
+    control2: Object;
+    delay: Number;
+    duration: Number;
+    type: PropertyAnimationType;
     constructor();
-    constructor(effect: AnimationEffect, target: AnimationEffectTarget);
 
   }
 
   export class PropertyAnimation {
     control1: Object;
     control2: Object;
-    delay: number;
-    duration: number;
+    delay: Number;
+    duration: Number;
     type: PropertyAnimationType;
     constructor();
 
@@ -108,13 +120,13 @@
   export class ScaleAnimation {
     control1: Object;
     control2: Object;
-    delay: number;
-    duration: number;
+    delay: Number;
+    duration: Number;
     type: PropertyAnimationType;
-    finalScaleX: number;
-    finalScaleY: number;
-    initialScaleX: number;
-    initialScaleY: number;
+    finalScaleX: Number;
+    finalScaleY: Number;
+    initialScaleX: Number;
+    initialScaleY: Number;
     normalizedOrigin: Object;
     constructor();
 
@@ -123,20 +135,8 @@
   export class TranslationAnimation {
     control1: Object;
     control2: Object;
-    delay: number;
-    duration: number;
-    type: PropertyAnimationType;
-    constructor();
-
-  }
-
-  export class OpacityAnimation {
-    finalOpacity: number;
-    initialOpacity: number;
-    control1: Object;
-    control2: Object;
-    delay: number;
-    duration: number;
+    delay: Number;
+    duration: Number;
     type: PropertyAnimationType;
     constructor();
 

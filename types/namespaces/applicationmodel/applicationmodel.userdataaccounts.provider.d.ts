@@ -17,34 +17,34 @@
 
   export class UserDataAccountPartnerAccountInfo {
     accountKind: UserDataAccountProviderPartnerAccountKind;
-    displayName: string;
-    priority: number;
+    displayName: String;
+    priority: Number;
     constructor();
 
   }
 
   export class UserDataAccountProviderAddAccountOperation {
-    contentKinds: number;
+    contentKinds: Number;
     partnerAccountInfos: Object;
     kind: UserDataAccountProviderOperationKind;
     constructor();
 
-    reportCompleted(userDataAccountId: string): void;
+    reportCompleted(userDataAccountId: String): void;
 
   }
 
-  export class UserDataAccountProviderSettingsOperation {
+  export class UserDataAccountProviderResolveErrorsOperation {
     kind: UserDataAccountProviderOperationKind;
-    userDataAccountId: string;
+    userDataAccountId: String;
     constructor();
 
     reportCompleted(): void;
 
   }
 
-  export class UserDataAccountProviderResolveErrorsOperation {
+  export class UserDataAccountProviderSettingsOperation {
     kind: UserDataAccountProviderOperationKind;
-    userDataAccountId: string;
+    userDataAccountId: String;
     constructor();
 
     reportCompleted(): void;

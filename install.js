@@ -13,7 +13,10 @@ import { dirname } from "@xan105/fs/path";
 import { readJSON } from "@xan105/fs";
 import { Failure, attempt } from "@xan105/error";
 import { isStringNotEmpty } from "@xan105/is";
-import { shouldArrayOfStringNotEmpty } from "@xan105/is/assert";
+import { 
+  shouldStringNotEmpty, 
+  shouldArrayOfStringNotEmpty 
+} from "@xan105/is/assert";
 import { getJSON, download } from "@xan105/request/h1";
 import Archive from "adm-zip";
 import nodeAbi from "node-abi";
@@ -35,9 +38,7 @@ async function isElectron(){
 }
 
 async function findABI(runtime){
-
   if (runtime !== "electron") return process.versions.modules;
-
   try{
      
     const { version } = await readJSON(join(
@@ -67,7 +68,8 @@ async function findABI(runtime){
 }
 
 async function downloadFile(runtime, abi){
-
+  shouldStringNotEmpty(abi);
+  
   if(arch !== "x64"){
     throw new Failure("Unsupported arch", { 
       code: 3,
@@ -106,6 +108,8 @@ async function getModuleList(){
 }  
 
 async function unpack(filePath, runtime, abi){
+  shouldStringNotEmpty(filePath);
+  shouldStringNotEmpty(abi);
   
   const overwrite = true; 
   const zip = new Archive(filePath);
@@ -121,7 +125,12 @@ async function unpack(filePath, runtime, abi){
   
   if (modules.length > 0) {
     for (const module of modules){
-      const [, err ] = attempt(zip.extractEntryTo.bind(zip), [module.trim() + ".node", destination, true, overwrite]);
+      const [, err ] = attempt(zip.extractEntryTo.bind(zip), [
+        module.trim() + ".node", 
+        destination, 
+        true, 
+        overwrite
+      ]);
       if (err) console.warn(err);
     }
   } else {

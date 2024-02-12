@@ -1,3 +1,10 @@
+  export enum ContentAccessRestrictionLevel {
+    allow,
+    warn,
+    block,
+    hide,
+  }
+
   export enum RatedContentCategory {
     general,
     application,
@@ -7,41 +14,34 @@
     music,
   }
 
-  export enum ContentAccessRestrictionLevel {
-    allow,
-    warn,
-    block,
-    hide,
+  export class ContentRestrictionsBrowsePolicy {
+    geographicRegion: String;
+    maxBrowsableAgeRating: Number;
+    preferredAgeRating: Number;
+    constructor();
+
   }
 
   export class RatedContentDescription {
-    title: string;
+    title: String;
     ratings: Object;
     image: Object;
-    id: string;
+    id: String;
     category: RatedContentCategory;
     constructor();
-    constructor(id: string, title: string, category: RatedContentCategory);
-
-  }
-
-  export class ContentRestrictionsBrowsePolicy {
-    geographicRegion: string;
-    maxBrowsableAgeRating: number;
-    preferredAgeRating: number;
-    constructor();
+    constructor(id: String, title: String, category: RatedContentCategory);
 
   }
 
   export class RatedContentRestrictions {
     constructor();
-    constructor(maxAgeRating: number);
+    constructor(maxAgeRating: Number);
 
     getBrowsePolicyAsync(callback: (error: Error, result: ContentRestrictionsBrowsePolicy) => void): void ;
 
     getRestrictionLevelAsync(RatedContentDescription: RatedContentDescription, callback: (error: Error, result: ContentAccessRestrictionLevel) => void): void ;
 
-    requestContentAccessAsync(RatedContentDescription: RatedContentDescription, callback: (error: Error, result: boolean) => void): void ;
+    requestContentAccessAsync(RatedContentDescription: RatedContentDescription, callback: (error: Error, result: Boolean) => void): void ;
 
     addListener(type: "RestrictionsChanged", listener: (ev: Event) => void): void ;
     removeListener(type: "RestrictionsChanged", listener: (ev: Event) => void): void ;

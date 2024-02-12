@@ -1,3 +1,9 @@
+  export enum UserDataAccountContentKinds {
+    email,
+    contact,
+    appointment,
+  }
+
   export enum UserDataAccountOtherAppReadAccess {
     systemOnly,
     full,
@@ -9,24 +15,18 @@
     appAccountsReadWrite,
   }
 
-  export enum UserDataAccountContentKinds {
-    email,
-    contact,
-    appointment,
-  }
-
   export class UserDataAccount {
-    userDisplayName: string;
+    userDisplayName: String;
     otherAppReadAccess: UserDataAccountOtherAppReadAccess;
     icon: Object;
-    deviceAccountTypeId: string;
-    id: string;
-    packageFamilyName: string;
-    isProtectedUnderLock: boolean;
-    enterpriseId: string;
-    displayName: string;
+    deviceAccountTypeId: String;
+    id: String;
+    packageFamilyName: String;
+    isProtectedUnderLock: Boolean;
+    enterpriseId: String;
+    displayName: String;
     explictReadAccessPackageFamilyNames: Object;
-    canShowCreateContactGroup: boolean;
+    canShowCreateContactGroup: Boolean;
     providerProperties: Object;
     constructor();
 
@@ -46,7 +46,35 @@
 
     findContactGroupsAsync(callback: (error: Error, result: Object) => void): void ;
 
-    tryShowCreateContactGroupAsync(callback: (error: Error, result: string) => void): void ;
+    tryShowCreateContactGroupAsync(callback: (error: Error, result: String) => void): void ;
+
+  }
+
+  export class UserDataAccountManager {
+    constructor();
+
+    static requestStoreAsync(storeAccessType: UserDataAccountStoreAccessType, callback: (error: Error, result: UserDataAccountStore) => void): void ;
+
+
+    static showAddAccountAsync(contentKinds: UserDataAccountContentKinds, callback: (error: Error, result: String) => void): void ;
+
+
+    static showAccountSettingsAsync(id: String, callback: (error: Error) => void): void ;
+
+
+    static showAccountErrorResolverAsync(id: String, callback: (error: Error) => void): void ;
+
+
+    static getForUser(user: Object): UserDataAccountManagerForUser;
+
+
+  }
+
+  export class UserDataAccountManagerForUser {
+    user: Object;
+    constructor();
+
+    requestStoreAsync(storeAccessType: UserDataAccountStoreAccessType, callback: (error: Error, result: UserDataAccountStore) => void): void ;
 
   }
 
@@ -55,11 +83,11 @@
 
     findAccountsAsync(callback: (error: Error, result: Object) => void): void ;
 
-    getAccountAsync(id: string, callback: (error: Error, result: UserDataAccount) => void): void ;
+    getAccountAsync(id: String, callback: (error: Error, result: UserDataAccount) => void): void ;
 
-    createAccountAsync(userDisplayName: string, callback: (error: Error, result: UserDataAccount) => void): void ;
-    createAccountAsync(userDisplayName: string, packageRelativeAppId: string, callback: (error: Error, result: UserDataAccount) => void): void ;
-    createAccountAsync(userDisplayName: string, packageRelativeAppId: string, enterpriseId: string, callback: (error: Error, result: UserDataAccount) => void): void ;
+    createAccountAsync(userDisplayName: String, callback: (error: Error, result: UserDataAccount) => void): void ;
+    createAccountAsync(userDisplayName: String, packageRelativeAppId: String, callback: (error: Error, result: UserDataAccount) => void): void ;
+    createAccountAsync(userDisplayName: String, packageRelativeAppId: String, enterpriseId: String, callback: (error: Error, result: UserDataAccount) => void): void ;
 
     addListener(type: "StoreChanged", listener: (ev: Event) => void): void ;
     removeListener(type: "StoreChanged", listener: (ev: Event) => void): void ;
@@ -81,33 +109,13 @@
 
   }
 
-  export class UserDataAccountManagerForUser {
-    user: Object;
-    constructor();
-
-    requestStoreAsync(storeAccessType: UserDataAccountStoreAccessType, callback: (error: Error, result: UserDataAccountStore) => void): void ;
-
-  }
-
-  export class UserDataAccountManager {
-    constructor();
-
-    static requestStoreAsync(storeAccessType: UserDataAccountStoreAccessType, callback: (error: Error, result: UserDataAccountStore) => void): void ;
-
-
-    static showAddAccountAsync(contentKinds: UserDataAccountContentKinds, callback: (error: Error, result: string) => void): void ;
-
-
-    static showAccountSettingsAsync(id: string, callback: (error: Error) => void): void ;
-
-
-    static showAccountErrorResolverAsync(id: string, callback: (error: Error) => void): void ;
-
-
-    static getForUser(user: Object): UserDataAccountManagerForUser;
-
-
-  }
-
+export const UserDataAccountContentKinds: any;
+export const UserDataAccountOtherAppReadAccess: any;
+export const UserDataAccountStoreAccessType: any;
+export const UserDataAccount: any;
+export const UserDataAccountManager: any;
+export const UserDataAccountManagerForUser: any;
+export const UserDataAccountStore: any;
+export const UserDataAccountStoreChangedEventArgs: any;
 export * as provider from "./applicationmodel.userdataaccounts.provider.js";
 export * as systemaccess from "./applicationmodel.userdataaccounts.systemaccess.js";

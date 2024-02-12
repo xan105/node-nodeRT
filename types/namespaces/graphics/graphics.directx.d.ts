@@ -5,6 +5,34 @@
     ignore,
   }
 
+  export enum DirectXColorSpace {
+    rgbFullG22NoneP709,
+    rgbFullG10NoneP709,
+    rgbStudioG22NoneP709,
+    rgbStudioG22NoneP2020,
+    reserved,
+    yccFullG22NoneP709X601,
+    yccStudioG22LeftP601,
+    yccFullG22LeftP601,
+    yccStudioG22LeftP709,
+    yccFullG22LeftP709,
+    yccStudioG22LeftP2020,
+    yccFullG22LeftP2020,
+    rgbFullG2084NoneP2020,
+    yccStudioG2084LeftP2020,
+    rgbStudioG2084NoneP2020,
+    yccStudioG22TopLeftP2020,
+    yccStudioG2084TopLeftP2020,
+    rgbFullG22NoneP2020,
+    yccStudioGHlgTopLeftP2020,
+    yccFullGHlgTopLeftP2020,
+    rgbStudioG24NoneP709,
+    rgbStudioG24NoneP2020,
+    yccStudioG24LeftP709,
+    yccStudioG24LeftP2020,
+    yccStudioG24TopLeftP2020,
+  }
+
   export enum DirectXPixelFormat {
     unknown,
     r32G32B32A32Typeless,
@@ -125,34 +153,21 @@
     p208,
     v208,
     v408,
+    samplerFeedbackMinMipOpaque,
+    samplerFeedbackMipRegionUsedOpaque,
   }
 
-  export enum DirectXColorSpace {
-    rgbFullG22NoneP709,
-    rgbFullG10NoneP709,
-    rgbStudioG22NoneP709,
-    rgbStudioG22NoneP2020,
-    reserved,
-    yccFullG22NoneP709X601,
-    yccStudioG22LeftP601,
-    yccFullG22LeftP601,
-    yccStudioG22LeftP709,
-    yccFullG22LeftP709,
-    yccStudioG22LeftP2020,
-    yccFullG22LeftP2020,
-    rgbFullG2084NoneP2020,
-    yccStudioG2084LeftP2020,
-    rgbStudioG2084NoneP2020,
-    yccStudioG22TopLeftP2020,
-    yccStudioG2084TopLeftP2020,
-    rgbFullG22NoneP2020,
-    yccStudioGHlgTopLeftP2020,
-    yccFullGHlgTopLeftP2020,
-    rgbStudioG24NoneP709,
-    rgbStudioG24NoneP2020,
-    yccStudioG24LeftP709,
-    yccStudioG24LeftP2020,
-    yccStudioG24TopLeftP2020,
+  export enum DirectXPrimitiveTopology {
+    undefined,
+    pointList,
+    lineList,
+    lineStrip,
+    triangleList,
+    triangleStrip,
   }
 
+export const DirectXAlphaMode: any;
+export const DirectXColorSpace: any;
+export const DirectXPixelFormat: any;
+export const DirectXPrimitiveTopology: any;
 export * as direct3d11 from "./graphics.directx.direct3d11.js";

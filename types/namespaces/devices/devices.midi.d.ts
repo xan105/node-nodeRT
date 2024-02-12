@@ -23,203 +23,69 @@
 
   export class IMidiMessage {
     rawData: Object;
-    timestamp: number;
+    timestamp: Number;
     type: MidiMessageType;
     constructor();
 
   }
 
-  export class MidiNoteOffMessage {
-    rawData: Object;
-    timestamp: number;
-    type: MidiMessageType;
-    channel: number;
-    note: number;
-    velocity: number;
-    constructor();
-    constructor(channel: number, note: number, velocity: number);
-
-  }
-
-  export class MidiNoteOnMessage {
-    rawData: Object;
-    timestamp: number;
-    type: MidiMessageType;
-    channel: number;
-    note: number;
-    velocity: number;
-    constructor();
-    constructor(channel: number, note: number, velocity: number);
-
-  }
-
-  export class MidiPolyphonicKeyPressureMessage {
-    rawData: Object;
-    timestamp: number;
-    type: MidiMessageType;
-    channel: number;
-    note: number;
-    pressure: number;
-    constructor();
-    constructor(channel: number, note: number, pressure: number);
-
-  }
-
-  export class MidiControlChangeMessage {
-    channel: number;
-    controlValue: number;
-    controller: number;
-    rawData: Object;
-    timestamp: number;
-    type: MidiMessageType;
-    constructor();
-    constructor(channel: number, controller: number, controlValue: number);
-
-  }
-
-  export class MidiProgramChangeMessage {
-    rawData: Object;
-    timestamp: number;
-    type: MidiMessageType;
-    channel: number;
-    program: number;
-    constructor();
-    constructor(channel: number, program: number);
-
-  }
-
-  export class MidiChannelPressureMessage {
-    channel: number;
-    pressure: number;
-    rawData: Object;
-    timestamp: number;
-    type: MidiMessageType;
-    constructor();
-    constructor(channel: number, pressure: number);
-
-  }
-
-  export class MidiPitchBendChangeMessage {
-    rawData: Object;
-    timestamp: number;
-    type: MidiMessageType;
-    bend: number;
-    channel: number;
-    constructor();
-    constructor(channel: number, bend: number);
-
-  }
-
-  export class MidiSystemExclusiveMessage {
-    rawData: Object;
-    timestamp: number;
-    type: MidiMessageType;
-    constructor();
-    constructor(rawData: Object);
-
-  }
-
-  export class MidiTimeCodeMessage {
-    rawData: Object;
-    timestamp: number;
-    type: MidiMessageType;
-    frameType: number;
-    values: number;
-    constructor();
-    constructor(frameType: number, values: number);
-
-  }
-
-  export class MidiSongPositionPointerMessage {
-    rawData: Object;
-    timestamp: number;
-    type: MidiMessageType;
-    beats: number;
-    constructor();
-    constructor(beats: number);
-
-  }
-
-  export class MidiSongSelectMessage {
-    rawData: Object;
-    timestamp: number;
-    type: MidiMessageType;
-    song: number;
-    constructor();
-    constructor(song: number);
-
-  }
-
-  export class MidiTuneRequestMessage {
-    rawData: Object;
-    timestamp: number;
-    type: MidiMessageType;
+  export class IMidiOutPort {
+    deviceId: String;
     constructor();
 
-  }
+    sendMessage(midiMessage: IMidiMessage): void;
 
-  export class MidiTimingClockMessage {
-    rawData: Object;
-    timestamp: number;
-    type: MidiMessageType;
-    constructor();
-
-  }
-
-  export class MidiStartMessage {
-    rawData: Object;
-    timestamp: number;
-    type: MidiMessageType;
-    constructor();
-
-  }
-
-  export class MidiContinueMessage {
-    rawData: Object;
-    timestamp: number;
-    type: MidiMessageType;
-    constructor();
-
-  }
-
-  export class MidiStopMessage {
-    rawData: Object;
-    timestamp: number;
-    type: MidiMessageType;
-    constructor();
+    sendBuffer(midiData: Object): void;
 
   }
 
   export class MidiActiveSensingMessage {
     rawData: Object;
-    timestamp: number;
+    timestamp: Number;
     type: MidiMessageType;
     constructor();
 
   }
 
-  export class MidiSystemResetMessage {
+  export class MidiChannelPressureMessage {
+    channel: Number;
+    pressure: Number;
     rawData: Object;
-    timestamp: number;
+    timestamp: Number;
+    type: MidiMessageType;
+    constructor();
+    constructor(channel: Number, pressure: Number);
+
+  }
+
+  export class MidiContinueMessage {
+    rawData: Object;
+    timestamp: Number;
     type: MidiMessageType;
     constructor();
 
   }
 
-  export class MidiMessageReceivedEventArgs {
-    message: IMidiMessage;
+  export class MidiControlChangeMessage {
+    channel: Number;
+    controlValue: Number;
+    controller: Number;
+    rawData: Object;
+    timestamp: Number;
+    type: MidiMessageType;
     constructor();
+    constructor(channel: Number, controller: Number, controlValue: Number);
 
   }
 
   export class MidiInPort {
-    deviceId: string;
+    deviceId: String;
     constructor();
 
-    static fromIdAsync(deviceId: string, callback: (error: Error, result: MidiInPort) => void): void ;
+    static fromIdAsync(deviceId: String, callback: (error: Error, result: MidiInPort) => void): void ;
 
 
-    static getDeviceSelector(): string;
+    static getDeviceSelector(): String;
 
 
     close(): void;
@@ -236,24 +102,44 @@
 
   }
 
-  export class IMidiOutPort {
-    deviceId: string;
+  export class MidiMessageReceivedEventArgs {
+    message: IMidiMessage;
     constructor();
 
-    sendMessage(midiMessage: IMidiMessage): void;
+  }
 
-    sendBuffer(midiData: Object): void;
+  export class MidiNoteOffMessage {
+    rawData: Object;
+    timestamp: Number;
+    type: MidiMessageType;
+    channel: Number;
+    note: Number;
+    velocity: Number;
+    constructor();
+    constructor(channel: Number, note: Number, velocity: Number);
+
+  }
+
+  export class MidiNoteOnMessage {
+    rawData: Object;
+    timestamp: Number;
+    type: MidiMessageType;
+    channel: Number;
+    note: Number;
+    velocity: Number;
+    constructor();
+    constructor(channel: Number, note: Number, velocity: Number);
 
   }
 
   export class MidiOutPort {
-    deviceId: string;
+    deviceId: String;
     constructor();
 
-    static fromIdAsync(deviceId: string, callback: (error: Error, result: IMidiOutPort) => void): void ;
+    static fromIdAsync(deviceId: String, callback: (error: Error, result: IMidiOutPort) => void): void ;
 
 
-    static getDeviceSelector(): string;
+    static getDeviceSelector(): String;
 
 
     sendMessage(midiMessage: IMidiMessage): void;
@@ -263,9 +149,79 @@
     close(): void;
   }
 
+  export class MidiPitchBendChangeMessage {
+    rawData: Object;
+    timestamp: Number;
+    type: MidiMessageType;
+    bend: Number;
+    channel: Number;
+    constructor();
+    constructor(channel: Number, bend: Number);
+
+  }
+
+  export class MidiPolyphonicKeyPressureMessage {
+    rawData: Object;
+    timestamp: Number;
+    type: MidiMessageType;
+    channel: Number;
+    note: Number;
+    pressure: Number;
+    constructor();
+    constructor(channel: Number, note: Number, pressure: Number);
+
+  }
+
+  export class MidiProgramChangeMessage {
+    rawData: Object;
+    timestamp: Number;
+    type: MidiMessageType;
+    channel: Number;
+    program: Number;
+    constructor();
+    constructor(channel: Number, program: Number);
+
+  }
+
+  export class MidiSongPositionPointerMessage {
+    rawData: Object;
+    timestamp: Number;
+    type: MidiMessageType;
+    beats: Number;
+    constructor();
+    constructor(beats: Number);
+
+  }
+
+  export class MidiSongSelectMessage {
+    rawData: Object;
+    timestamp: Number;
+    type: MidiMessageType;
+    song: Number;
+    constructor();
+    constructor(song: Number);
+
+  }
+
+  export class MidiStartMessage {
+    rawData: Object;
+    timestamp: Number;
+    type: MidiMessageType;
+    constructor();
+
+  }
+
+  export class MidiStopMessage {
+    rawData: Object;
+    timestamp: Number;
+    type: MidiMessageType;
+    constructor();
+
+  }
+
   export class MidiSynthesizer {
-    deviceId: string;
-    volume: number;
+    deviceId: String;
+    volume: Number;
     audioDevice: Object;
     constructor();
 
@@ -273,7 +229,7 @@
     static createAsync(audioDevice: Object, callback: (error: Error, result: MidiSynthesizer) => void): void ;
 
 
-    static isSynthesizer(midiDevice: Object): boolean;
+    static isSynthesizer(midiDevice: Object): Boolean;
 
 
     sendMessage(midiMessage: IMidiMessage): void;
@@ -281,5 +237,49 @@
     sendBuffer(midiData: Object): void;
 
     close(): void;
+  }
+
+  export class MidiSystemExclusiveMessage {
+    rawData: Object;
+    timestamp: Number;
+    type: MidiMessageType;
+    constructor();
+    constructor(rawData: Object);
+
+  }
+
+  export class MidiSystemResetMessage {
+    rawData: Object;
+    timestamp: Number;
+    type: MidiMessageType;
+    constructor();
+
+  }
+
+  export class MidiTimeCodeMessage {
+    rawData: Object;
+    timestamp: Number;
+    type: MidiMessageType;
+    frameType: Number;
+    values: Number;
+    constructor();
+    constructor(frameType: Number, values: Number);
+
+  }
+
+  export class MidiTimingClockMessage {
+    rawData: Object;
+    timestamp: Number;
+    type: MidiMessageType;
+    constructor();
+
+  }
+
+  export class MidiTuneRequestMessage {
+    rawData: Object;
+    timestamp: Number;
+    type: MidiMessageType;
+    constructor();
+
   }
 

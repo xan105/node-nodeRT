@@ -17,23 +17,34 @@
   }
 
   export class Vector3 {
-    x: number;
-    y: number;
-    z: number;
+    x: Number;
+    y: Number;
+    z: Number;
     constructor();
   }
 
   export class Vector2 {
-    x: number;
-    y: number;
+    x: Number;
+    y: Number;
     constructor();
   }
 
   export class Quaternion {
-    x: number;
-    y: number;
-    z: number;
-    w: number;
+    x: Number;
+    y: Number;
+    z: Number;
+    w: Number;
+    constructor();
+  }
+
+  export class HolographicAdapterId {
+    lowPart: Number;
+    highPart: Number;
+    constructor();
+  }
+
+  export class HolographicFrameId {
+    value: Number;
     constructor();
   }
 
@@ -43,10 +54,9 @@
     constructor();
   }
 
-  export class HolographicAdapterId {
-    lowPart: number;
-    highPart: number;
-    constructor();
+  export enum HolographicDepthReprojectionMethod {
+    depthReprojection,
+    autoPlanar,
   }
 
   export enum HolographicFramePresentResult {
@@ -59,42 +69,216 @@
     doNotWaitForFrameToFinish,
   }
 
-  export enum HolographicSpaceUserPresence {
-    absent,
-    presentPassive,
-    presentActive,
-  }
-
   export enum HolographicReprojectionMode {
     positionAndOrientation,
     orientationOnly,
     disabled,
   }
 
+  export enum HolographicSpaceUserPresence {
+    absent,
+    presentPassive,
+    presentActive,
+  }
+
+  export enum HolographicViewConfigurationKind {
+    display,
+    photoVideoCamera,
+  }
+
   export class HolographicCamera {
-    viewportScaleFactor: number;
-    id: number;
-    isStereo: boolean;
+    viewportScaleFactor: Number;
+    id: Number;
+    isStereo: Boolean;
     renderTargetSize: Object;
     display: HolographicDisplay;
     leftViewportParameters: HolographicCameraViewportParameters;
     rightViewportParameters: HolographicCameraViewportParameters;
-    isPrimaryLayerEnabled: boolean;
-    maxQuadLayerCount: number;
+    isPrimaryLayerEnabled: Boolean;
+    maxQuadLayerCount: Number;
     quadLayers: Object;
-    canOverrideViewport: boolean;
+    canOverrideViewport: Boolean;
+    isHardwareContentProtectionEnabled: Boolean;
+    isHardwareContentProtectionSupported: Boolean;
+    viewConfiguration: HolographicViewConfiguration;
     constructor();
 
-    setNearPlaneDistance(value: number): void;
+    setNearPlaneDistance(value: Number): void;
 
-    setFarPlaneDistance(value: number): void;
+    setFarPlaneDistance(value: Number): void;
+
+  }
+
+  export class HolographicCameraPose {
+    farPlaneDistance: Number;
+    holographicCamera: HolographicCamera;
+    nearPlaneDistance: Number;
+    projectionTransform: HolographicStereoTransform;
+    viewport: Object;
+    constructor();
+
+    tryGetViewTransform(coordinateSystem: Object): HolographicStereoTransform;
+
+    tryGetCullingFrustum(coordinateSystem: Object): SpatialBoundingFrustum;
+
+    tryGetVisibleFrustum(coordinateSystem: Object): SpatialBoundingFrustum;
+
+    overrideViewTransform(coordinateSystem: Object, coordinateSystemToViewTransform: HolographicStereoTransform): void;
+
+    overrideProjectionTransform(projectionTransform: HolographicStereoTransform): void;
+
+    overrideViewport(leftViewport: Object, rightViewport: Object): void;
+
+  }
+
+  export class HolographicCameraRenderingParameters {
+    direct3D11BackBuffer: Object;
+    direct3D11Device: Object;
+    reprojectionMode: HolographicReprojectionMode;
+    isContentProtectionEnabled: Boolean;
+    depthReprojectionMethod: HolographicDepthReprojectionMethod;
+    constructor();
+
+    setFocusPoint(coordinateSystem: Object, position: Vector3): void;
+    setFocusPoint(coordinateSystem: Object, position: Vector3, normal: Vector3): void;
+    setFocusPoint(coordinateSystem: Object, position: Vector3, normal: Vector3, linearVelocity: Vector3): void;
+
+    commitDirect3D11DepthBuffer(value: Object): void;
+
+  }
+
+  export class HolographicCameraViewportParameters {
+    hiddenAreaMesh: Array<Vector2>;
+    visibleAreaMesh: Array<Vector2>;
+    constructor();
+
+  }
+
+  export class HolographicDisplay {
+    adapterId: HolographicAdapterId;
+    displayName: String;
+    isOpaque: Boolean;
+    isStereo: Boolean;
+    maxViewportSize: Object;
+    spatialLocator: Object;
+    refreshRate: Number;
+    constructor();
+
+    static getDefault(): HolographicDisplay;
+
+
+    tryGetViewConfiguration(kind: HolographicViewConfigurationKind): HolographicViewConfiguration;
+
+  }
+
+  export class HolographicFrame {
+    addedCameras: Object;
+    currentPrediction: HolographicFramePrediction;
+    duration: Number;
+    removedCameras: Object;
+    id: HolographicFrameId;
+    constructor();
+
+    getRenderingParameters(cameraPose: HolographicCameraPose): HolographicCameraRenderingParameters;
+
+    updateCurrentPrediction(): void;
+
+    presentUsingCurrentPrediction(): HolographicFramePresentResult;
+    presentUsingCurrentPrediction(waitBehavior: HolographicFramePresentWaitBehavior): HolographicFramePresentResult;
+
+    waitForFrameToFinish(): void;
+
+    getQuadLayerUpdateParameters(layer: HolographicQuadLayer): HolographicQuadLayerUpdateParameters;
+
+  }
+
+  export class HolographicFramePrediction {
+    cameraPoses: Object;
+    timestamp: Object;
+    constructor();
+
+  }
+
+  export class HolographicFramePresentationMonitor {
+    constructor();
+
+    readReports(): Object;
+
+    close(): void;
+  }
+
+  export class HolographicFramePresentationReport {
+    appGpuDuration: Number;
+    appGpuOverrun: Number;
+    compositorGpuDuration: Number;
+    missedPresentationOpportunityCount: Number;
+    presentationCount: Number;
+    constructor();
+
+  }
+
+  export class HolographicFrameRenderingReport {
+    frameId: HolographicFrameId;
+    missedLatchCount: Number;
+    systemRelativeActualGpuFinishTime: Number;
+    systemRelativeFrameReadyTime: Number;
+    systemRelativeTargetLatchTime: Number;
+    constructor();
+
+  }
+
+  export class HolographicFrameScanoutMonitor {
+    constructor();
+
+    readReports(): Object;
+
+    close(): void;
+  }
+
+  export class HolographicFrameScanoutReport {
+    missedScanoutCount: Number;
+    renderingReport: HolographicFrameRenderingReport;
+    systemRelativeLatchTime: Number;
+    systemRelativePhotonTime: Number;
+    systemRelativeScanoutStartTime: Number;
+    constructor();
+
+  }
+
+  export class HolographicQuadLayer {
+    pixelFormat: Number;
+    size: Object;
+    constructor();
+    constructor(size: Object);
+    constructor(size: Object, pixelFormat: Number);
+
+    close(): void;
+  }
+
+  export class HolographicQuadLayerUpdateParameters {
+    canAcquireWithHardwareProtection: Boolean;
+    constructor();
+
+    acquireBufferToUpdateContent(): Object;
+
+    updateViewport(value: Object): void;
+
+    updateContentProtectionEnabled(value: Boolean): void;
+
+    updateExtents(value: Vector2): void;
+
+    updateLocationWithStationaryMode(coordinateSystem: Object, position: Vector3, orientation: Quaternion): void;
+
+    updateLocationWithDisplayRelativeMode(position: Vector3, orientation: Quaternion): void;
+
+    acquireBufferToUpdateContentWithHardwareProtection(): Object;
 
   }
 
   export class HolographicSpace {
-    static isAvailable: boolean;
-    static isSupported: boolean;
-    static isConfigured: boolean;
+    static isAvailable: Boolean;
+    static isSupported: Boolean;
+    static isConfigured: Boolean;
     primaryAdapterId: HolographicAdapterId;
     userPresence: HolographicSpaceUserPresence;
     constructor();
@@ -108,9 +292,11 @@
 
     waitForNextFrameReady(): void;
 
-    waitForNextFrameReadyWithHeadStart(requestedHeadStartDuration: number): void;
+    waitForNextFrameReadyWithHeadStart(requestedHeadStartDuration: Number): void;
 
-    createFramePresentationMonitor(maxQueuedReports: number): HolographicFramePresentationMonitor;
+    createFramePresentationMonitor(maxQueuedReports: Number): HolographicFramePresentationMonitor;
+
+    createFrameScanoutMonitor(maxQueuedReports: Number): HolographicFrameScanoutMonitor;
 
     addListener(type: "CameraAdded", listener: (ev: Event) => void): void ;
     removeListener(type: "CameraAdded", listener: (ev: Event) => void): void ;
@@ -154,134 +340,20 @@
 
   }
 
-  export class HolographicFrame {
-    addedCameras: Object;
-    currentPrediction: HolographicFramePrediction;
-    duration: number;
-    removedCameras: Object;
+  export class HolographicViewConfiguration {
+    pixelFormat: Number;
+    isEnabled: Boolean;
+    display: HolographicDisplay;
+    isStereo: Boolean;
+    kind: HolographicViewConfigurationKind;
+    nativeRenderTargetSize: Object;
+    refreshRate: Number;
+    renderTargetSize: Object;
+    supportedPixelFormats: Object;
+    supportedDepthReprojectionMethods: Object;
     constructor();
 
-    getRenderingParameters(cameraPose: HolographicCameraPose): HolographicCameraRenderingParameters;
-
-    updateCurrentPrediction(): void;
-
-    presentUsingCurrentPrediction(): HolographicFramePresentResult;
-    presentUsingCurrentPrediction(waitBehavior: HolographicFramePresentWaitBehavior): HolographicFramePresentResult;
-
-    waitForFrameToFinish(): void;
-
-    getQuadLayerUpdateParameters(layer: HolographicQuadLayer): HolographicQuadLayerUpdateParameters;
-
-  }
-
-  export class HolographicFramePresentationMonitor {
-    constructor();
-
-    readReports(): Object;
-
-    close(): void;
-  }
-
-  export class HolographicCameraPose {
-    farPlaneDistance: number;
-    holographicCamera: HolographicCamera;
-    nearPlaneDistance: number;
-    projectionTransform: HolographicStereoTransform;
-    viewport: Object;
-    constructor();
-
-    tryGetViewTransform(coordinateSystem: Object): HolographicStereoTransform;
-
-    tryGetCullingFrustum(coordinateSystem: Object): SpatialBoundingFrustum;
-
-    tryGetVisibleFrustum(coordinateSystem: Object): SpatialBoundingFrustum;
-
-    overrideViewTransform(coordinateSystem: Object, coordinateSystemToViewTransform: HolographicStereoTransform): void;
-
-    overrideProjectionTransform(projectionTransform: HolographicStereoTransform): void;
-
-    overrideViewport(leftViewport: Object, rightViewport: Object): void;
-
-  }
-
-  export class HolographicCameraRenderingParameters {
-    direct3D11BackBuffer: Object;
-    direct3D11Device: Object;
-    reprojectionMode: HolographicReprojectionMode;
-    isContentProtectionEnabled: boolean;
-    constructor();
-
-    setFocusPoint(coordinateSystem: Object, position: Vector3): void;
-    setFocusPoint(coordinateSystem: Object, position: Vector3, normal: Vector3): void;
-    setFocusPoint(coordinateSystem: Object, position: Vector3, normal: Vector3, linearVelocity: Vector3): void;
-
-    commitDirect3D11DepthBuffer(value: Object): void;
-
-  }
-
-  export class HolographicFramePrediction {
-    cameraPoses: Object;
-    timestamp: Object;
-    constructor();
-
-  }
-
-  export class HolographicQuadLayer {
-    pixelFormat: number;
-    size: Object;
-    constructor();
-    constructor(size: Object);
-    constructor(size: Object, pixelFormat: number);
-
-    close(): void;
-  }
-
-  export class HolographicQuadLayerUpdateParameters {
-    constructor();
-
-    acquireBufferToUpdateContent(): Object;
-
-    updateViewport(value: Object): void;
-
-    updateContentProtectionEnabled(value: boolean): void;
-
-    updateExtents(value: Vector2): void;
-
-    updateLocationWithStationaryMode(coordinateSystem: Object, position: Vector3, orientation: Quaternion): void;
-
-    updateLocationWithDisplayRelativeMode(position: Vector3, orientation: Quaternion): void;
-
-  }
-
-  export class HolographicFramePresentationReport {
-    appGpuDuration: number;
-    appGpuOverrun: number;
-    compositorGpuDuration: number;
-    missedPresentationOpportunityCount: number;
-    presentationCount: number;
-    constructor();
-
-  }
-
-  export class HolographicCameraViewportParameters {
-    hiddenAreaMesh: Array<Vector2>;
-    visibleAreaMesh: Array<Vector2>;
-    constructor();
-
-  }
-
-  export class HolographicDisplay {
-    adapterId: HolographicAdapterId;
-    displayName: string;
-    isOpaque: boolean;
-    isStereo: boolean;
-    maxViewportSize: Object;
-    spatialLocator: Object;
-    refreshRate: number;
-    constructor();
-
-    static getDefault(): HolographicDisplay;
-
+    requestRenderTargetSize(size: Object): Object;
 
   }
 

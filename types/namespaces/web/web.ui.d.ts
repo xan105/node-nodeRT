@@ -16,20 +16,21 @@
     pointerLock,
     webNotifications,
     screen,
+    immersiveView,
   }
 
   export class IWebViewControl {
-    canGoBack: boolean;
-    canGoForward: boolean;
-    containsFullScreenElement: boolean;
+    canGoBack: Boolean;
+    canGoForward: Boolean;
+    containsFullScreenElement: Boolean;
     defaultBackgroundColor: Object;
     deferredPermissionRequests: Object;
-    documentTitle: string;
+    documentTitle: String;
     settings: WebViewControlSettings;
     source: Object;
     constructor();
 
-    invokeScriptAsync(scriptName: string, arguments: Object, callback: (error: Error, result: string) => void): void ;
+    invokeScriptAsync(scriptName: String, arguments: Object, callback: (error: Error, result: String) => void): void ;
 
     capturePreviewToStreamAsync(stream: Object, callback: (error: Error) => void): void ;
 
@@ -45,15 +46,15 @@
 
     navigate(source: Object): void;
 
-    navigateToString(text: string): void;
+    navigateToString(text: String): void;
 
     navigateToLocalStreamUri(source: Object, streamResolver: Object): void;
 
     navigateWithHttpRequestMessage(requestMessage: Object): void;
 
-    buildLocalStreamUri(contentIdentifier: string, relativePath: string): Object;
+    buildLocalStreamUri(contentIdentifier: String, relativePath: String): Object;
 
-    getDeferredPermissionRequestById(id: number, result: Object): void;
+    getDeferredPermissionRequestById(id: Number, result: Object): void;
 
     addListener(type: "ContainsFullScreenElementChanged", listener: (ev: Event) => void): void ;
     removeListener(type: "ContainsFullScreenElementChanged", listener: (ev: Event) => void): void ;
@@ -148,30 +149,10 @@
 
   }
 
-  export class WebViewControlSettings {
-    isScriptNotifyAllowed: boolean;
-    isJavaScriptEnabled: boolean;
-    isIndexedDBEnabled: boolean;
+  export class IWebViewControl2 {
     constructor();
 
-  }
-
-  export class WebViewControlDeferredPermissionRequest {
-    id: number;
-    permissionType: WebViewControlPermissionType;
-    uri: Object;
-    constructor();
-
-    allow(): void;
-
-    deny(): void;
-
-  }
-
-  export class WebViewControlNavigationStartingEventArgs {
-    cancel: boolean;
-    uri: Object;
-    constructor();
+    addInitializeScript(script: String): void;
 
   }
 
@@ -187,33 +168,63 @@
 
   }
 
-  export class WebViewControlNavigationCompletedEventArgs {
-    isSuccess: boolean;
+  export class WebViewControlDeferredPermissionRequest {
+    id: Number;
+    permissionType: WebViewControlPermissionType;
     uri: Object;
-    webErrorStatus: number;
     constructor();
 
-  }
+    allow(): void;
 
-  export class WebViewControlScriptNotifyEventArgs {
-    uri: Object;
-    value: string;
-    constructor();
+    deny(): void;
 
   }
 
   export class WebViewControlLongRunningScriptDetectedEventArgs {
-    stopPageScriptExecution: boolean;
-    executionTime: number;
+    stopPageScriptExecution: Boolean;
+    executionTime: Number;
     constructor();
 
   }
 
-  export class WebViewControlUnviewableContentIdentifiedEventArgs {
-    mediaType: string;
-    referrer: Object;
+  export class WebViewControlNavigationCompletedEventArgs {
+    isSuccess: Boolean;
+    uri: Object;
+    webErrorStatus: Number;
+    constructor();
+
+  }
+
+  export class WebViewControlNavigationStartingEventArgs {
+    cancel: Boolean;
     uri: Object;
     constructor();
+
+  }
+
+  export class WebViewControlNewWindowRequestedEventArgs {
+    handled: Boolean;
+    referrer: Object;
+    uri: Object;
+    newWindow: IWebViewControl;
+    constructor();
+
+    getDeferral(): Object;
+
+  }
+
+  export class WebViewControlPermissionRequest {
+    id: Number;
+    permissionType: WebViewControlPermissionType;
+    state: WebViewControlPermissionState;
+    uri: Object;
+    constructor();
+
+    defer(): void;
+
+    allow(): void;
+
+    deny(): void;
 
   }
 
@@ -223,15 +234,30 @@
 
   }
 
+  export class WebViewControlScriptNotifyEventArgs {
+    uri: Object;
+    value: String;
+    constructor();
+
+  }
+
+  export class WebViewControlSettings {
+    isScriptNotifyAllowed: Boolean;
+    isJavaScriptEnabled: Boolean;
+    isIndexedDBEnabled: Boolean;
+    constructor();
+
+  }
+
   export class WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
-    handled: boolean;
+    handled: Boolean;
     uri: Object;
     constructor();
 
   }
 
-  export class WebViewControlNewWindowRequestedEventArgs {
-    handled: boolean;
+  export class WebViewControlUnviewableContentIdentifiedEventArgs {
+    mediaType: String;
     referrer: Object;
     uri: Object;
     constructor();
@@ -247,19 +273,22 @@
 
   }
 
-  export class WebViewControlPermissionRequest {
-    id: number;
-    permissionType: WebViewControlPermissionType;
-    state: WebViewControlPermissionState;
-    uri: Object;
-    constructor();
-
-    defer(): void;
-
-    allow(): void;
-
-    deny(): void;
-
-  }
-
+export const WebViewControlPermissionState: any;
+export const WebViewControlPermissionType: any;
+export const IWebViewControl: any;
+export const IWebViewControl2: any;
+export const WebViewControlContentLoadingEventArgs: any;
+export const WebViewControlDOMContentLoadedEventArgs: any;
+export const WebViewControlDeferredPermissionRequest: any;
+export const WebViewControlLongRunningScriptDetectedEventArgs: any;
+export const WebViewControlNavigationCompletedEventArgs: any;
+export const WebViewControlNavigationStartingEventArgs: any;
+export const WebViewControlNewWindowRequestedEventArgs: any;
+export const WebViewControlPermissionRequest: any;
+export const WebViewControlPermissionRequestedEventArgs: any;
+export const WebViewControlScriptNotifyEventArgs: any;
+export const WebViewControlSettings: any;
+export const WebViewControlUnsupportedUriSchemeIdentifiedEventArgs: any;
+export const WebViewControlUnviewableContentIdentifiedEventArgs: any;
+export const WebViewControlWebResourceRequestedEventArgs: any;
 export * as interop from "./web.ui.interop.js";

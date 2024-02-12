@@ -1,36 +1,14 @@
-  export enum WiFiDirectServiceConfigurationMethod {
-    default,
-    pinDisplay,
-    pinEntry,
-  }
-
-  export enum WiFiDirectServiceStatus {
-    available,
-    busy,
-    custom,
-  }
-
-  export enum WiFiDirectServiceSessionStatus {
-    closed,
-    initiated,
-    requested,
-    open,
-  }
-
-  export enum WiFiDirectServiceSessionErrorStatus {
-    ok,
-    disassociated,
-    localClose,
-    remoteClose,
-    systemFailure,
-    noResponseFromRemote,
-  }
-
   export enum WiFiDirectServiceAdvertisementStatus {
     created,
     started,
     stopped,
     aborted,
+  }
+
+  export enum WiFiDirectServiceConfigurationMethod {
+    default,
+    pinDisplay,
+    pinEntry,
   }
 
   export enum WiFiDirectServiceError {
@@ -46,39 +24,52 @@
     udp,
   }
 
-  export class WiFiDirectServiceProvisioningInfo {
-    isGroupFormationNeeded: boolean;
-    selectedConfigurationMethod: WiFiDirectServiceConfigurationMethod;
-    constructor();
-
+  export enum WiFiDirectServiceSessionErrorStatus {
+    ok,
+    disassociated,
+    localClose,
+    remoteClose,
+    systemFailure,
+    noResponseFromRemote,
   }
 
-  export class WiFiDirectServiceSession {
-    advertisementId: number;
-    errorStatus: WiFiDirectServiceSessionErrorStatus;
-    serviceAddress: string;
-    serviceName: string;
-    sessionAddress: string;
-    sessionId: number;
-    status: WiFiDirectServiceSessionStatus;
+  export enum WiFiDirectServiceSessionStatus {
+    closed,
+    initiated,
+    requested,
+    open,
+  }
+
+  export enum WiFiDirectServiceStatus {
+    available,
+    busy,
+    custom,
+  }
+
+  export class WiFiDirectService {
+    sessionInfo: Object;
+    preferGroupOwnerMode: Boolean;
+    remoteServiceInfo: Object;
+    serviceError: WiFiDirectServiceError;
+    supportedConfigurationMethods: Object;
     constructor();
 
-    addStreamSocketListenerAsync(value: Object, callback: (error: Error) => void): void ;
+    static fromIdAsync(deviceId: String, callback: (error: Error, result: WiFiDirectService) => void): void ;
 
-    addDatagramSocketAsync(value: Object, callback: (error: Error) => void): void ;
 
-    getConnectionEndpointPairs(): Object;
+    static getSelector(serviceName: String): String;
+    static getSelector(serviceName: String, serviceInfoFilter: Object): String;
 
-    close(): void;
-    addListener(type: "RemotePortAdded", listener: (ev: Event) => void): void ;
-    removeListener(type: "RemotePortAdded", listener: (ev: Event) => void): void ;
-    on(type: "RemotePortAdded", listener: (ev: Event) => void): void ;
-    off(type: "RemotePortAdded", listener: (ev: Event) => void): void ;
-    
-    addListener(type: "SessionStatusChanged", listener: (ev: Event) => void): void ;
-    removeListener(type: "SessionStatusChanged", listener: (ev: Event) => void): void ;
-    on(type: "SessionStatusChanged", listener: (ev: Event) => void): void ;
-    off(type: "SessionStatusChanged", listener: (ev: Event) => void): void ;
+
+    getProvisioningInfoAsync(selectedConfigurationMethod: WiFiDirectServiceConfigurationMethod, callback: (error: Error, result: WiFiDirectServiceProvisioningInfo) => void): void ;
+
+    connectAsync(callback: (error: Error, result: WiFiDirectServiceSession) => void): void ;
+    connectAsync(pin: String, callback: (error: Error, result: WiFiDirectServiceSession) => void): void ;
+
+    addListener(type: "SessionDeferred", listener: (ev: Event) => void): void ;
+    removeListener(type: "SessionDeferred", listener: (ev: Event) => void): void ;
+    on(type: "SessionDeferred", listener: (ev: Event) => void): void ;
+    off(type: "SessionDeferred", listener: (ev: Event) => void): void ;
     
     addListener(type: string, listener: (ev: Event) => void): void ;
     removeListener(type: string, listener: (ev: Event) => void): void ;
@@ -88,59 +79,23 @@
 
   }
 
-  export class WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
-    session: WiFiDirectServiceSession;
-    sessionInfo: Object;
-    constructor();
-
-  }
-
-  export class WiFiDirectServiceRemotePortAddedEventArgs {
-    endpointPairs: Object;
-    protocol: WiFiDirectServiceIPProtocol;
-    constructor();
-
-  }
-
-  export class WiFiDirectServiceSessionDeferredEventArgs {
-    deferredSessionInfo: Object;
-    constructor();
-
-  }
-
-  export class WiFiDirectServiceSessionRequest {
-    deviceInformation: Object;
-    provisioningInfo: WiFiDirectServiceProvisioningInfo;
-    sessionInfo: Object;
-    constructor();
-
-    close(): void;
-  }
-
-  export class WiFiDirectServiceSessionRequestedEventArgs {
-    constructor();
-
-    getSessionRequest(): WiFiDirectServiceSessionRequest;
-
-  }
-
   export class WiFiDirectServiceAdvertiser {
     serviceStatus: WiFiDirectServiceStatus;
     serviceInfo: Object;
-    preferGroupOwnerMode: boolean;
+    preferGroupOwnerMode: Boolean;
     deferredSessionInfo: Object;
-    customServiceStatusCode: number;
-    autoAcceptSession: boolean;
+    customServiceStatusCode: Number;
+    autoAcceptSession: Boolean;
     serviceError: WiFiDirectServiceError;
     preferredConfigurationMethods: Object;
-    serviceName: string;
+    serviceName: String;
     serviceNamePrefixes: Object;
     advertisementStatus: WiFiDirectServiceAdvertisementStatus;
     constructor();
-    constructor(serviceName: string);
+    constructor(serviceName: String);
 
     connectAsync(deviceInfo: Object, callback: (error: Error, result: WiFiDirectServiceSession) => void): void ;
-    connectAsync(deviceInfo: Object, pin: string, callback: (error: Error, result: WiFiDirectServiceSession) => void): void ;
+    connectAsync(deviceInfo: Object, pin: String, callback: (error: Error, result: WiFiDirectServiceSession) => void): void ;
 
     start(): void;
 
@@ -169,36 +124,81 @@
 
   }
 
-  export class WiFiDirectService {
+  export class WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
+    session: WiFiDirectServiceSession;
     sessionInfo: Object;
-    preferGroupOwnerMode: boolean;
-    remoteServiceInfo: Object;
-    serviceError: WiFiDirectServiceError;
-    supportedConfigurationMethods: Object;
     constructor();
 
-    static fromIdAsync(deviceId: string, callback: (error: Error, result: WiFiDirectService) => void): void ;
+  }
 
+  export class WiFiDirectServiceProvisioningInfo {
+    isGroupFormationNeeded: Boolean;
+    selectedConfigurationMethod: WiFiDirectServiceConfigurationMethod;
+    constructor();
 
-    static getSelector(serviceName: string): string;
-    static getSelector(serviceName: string, serviceInfoFilter: Object): string;
+  }
 
+  export class WiFiDirectServiceRemotePortAddedEventArgs {
+    endpointPairs: Object;
+    protocol: WiFiDirectServiceIPProtocol;
+    constructor();
 
-    getProvisioningInfoAsync(selectedConfigurationMethod: WiFiDirectServiceConfigurationMethod, callback: (error: Error, result: WiFiDirectServiceProvisioningInfo) => void): void ;
+  }
 
-    connectAsync(callback: (error: Error, result: WiFiDirectServiceSession) => void): void ;
-    connectAsync(pin: string, callback: (error: Error, result: WiFiDirectServiceSession) => void): void ;
+  export class WiFiDirectServiceSession {
+    advertisementId: Number;
+    errorStatus: WiFiDirectServiceSessionErrorStatus;
+    serviceAddress: String;
+    serviceName: String;
+    sessionAddress: String;
+    sessionId: Number;
+    status: WiFiDirectServiceSessionStatus;
+    constructor();
 
-    addListener(type: "SessionDeferred", listener: (ev: Event) => void): void ;
-    removeListener(type: "SessionDeferred", listener: (ev: Event) => void): void ;
-    on(type: "SessionDeferred", listener: (ev: Event) => void): void ;
-    off(type: "SessionDeferred", listener: (ev: Event) => void): void ;
+    addStreamSocketListenerAsync(value: Object, callback: (error: Error) => void): void ;
+
+    addDatagramSocketAsync(value: Object, callback: (error: Error) => void): void ;
+
+    getConnectionEndpointPairs(): Object;
+
+    close(): void;
+    addListener(type: "RemotePortAdded", listener: (ev: Event) => void): void ;
+    removeListener(type: "RemotePortAdded", listener: (ev: Event) => void): void ;
+    on(type: "RemotePortAdded", listener: (ev: Event) => void): void ;
+    off(type: "RemotePortAdded", listener: (ev: Event) => void): void ;
+    
+    addListener(type: "SessionStatusChanged", listener: (ev: Event) => void): void ;
+    removeListener(type: "SessionStatusChanged", listener: (ev: Event) => void): void ;
+    on(type: "SessionStatusChanged", listener: (ev: Event) => void): void ;
+    off(type: "SessionStatusChanged", listener: (ev: Event) => void): void ;
     
     addListener(type: string, listener: (ev: Event) => void): void ;
     removeListener(type: string, listener: (ev: Event) => void): void ;
     on(type: string, listener: (ev: Event) => void): void ;
     off(type: string, listener: (ev: Event) => void): void ;
     
+
+  }
+
+  export class WiFiDirectServiceSessionDeferredEventArgs {
+    deferredSessionInfo: Object;
+    constructor();
+
+  }
+
+  export class WiFiDirectServiceSessionRequest {
+    deviceInformation: Object;
+    provisioningInfo: WiFiDirectServiceProvisioningInfo;
+    sessionInfo: Object;
+    constructor();
+
+    close(): void;
+  }
+
+  export class WiFiDirectServiceSessionRequestedEventArgs {
+    constructor();
+
+    getSessionRequest(): WiFiDirectServiceSessionRequest;
 
   }
 

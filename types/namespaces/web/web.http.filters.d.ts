@@ -1,10 +1,10 @@
   export class HttpProgress {
-    stage: number;
-    bytesSent: number;
-    totalBytesToSend: number;
-    bytesReceived: number;
-    totalBytesToReceive: number;
-    retries: number;
+    stage: Number;
+    bytesSent: Number;
+    totalBytesToSend: Number;
+    bytesReceived: Number;
+    totalBytesToReceive: Number;
+    retries: Number;
     constructor();
   }
 
@@ -25,34 +25,31 @@
     noCookies,
   }
 
-  export class IHttpFilter {
-    constructor();
-
-    sendRequestAsync(request: Object, callback: (error: Error, result: Object) => void): void ;
-
-  }
-
   export class HttpBaseProtocolFilter {
-    useProxy: boolean;
+    useProxy: Boolean;
     serverCredential: Object;
     proxyCredential: Object;
-    maxConnectionsPerServer: number;
+    maxConnectionsPerServer: Number;
     clientCertificate: Object;
-    automaticDecompression: boolean;
-    allowUI: boolean;
-    allowAutoRedirect: boolean;
+    automaticDecompression: Boolean;
+    allowUI: Boolean;
+    allowAutoRedirect: Boolean;
+    cacheControl: HttpCacheControl;
     cookieManager: Object;
     ignorableServerCertificateErrors: Object;
-    cacheControl: HttpCacheControl;
-    maxVersion: number;
+    maxVersion: Number;
     cookieUsageBehavior: HttpCookieUsageBehavior;
+    user: Object;
     constructor();
+
+    static createForUser(user: Object): HttpBaseProtocolFilter;
+
 
     sendRequestAsync(request: Object, callback: (error: Error, result: Object) => void): void ;
 
-    close(): void;
     clearAuthenticationCache(): void;
 
+    close(): void;
     addListener(type: "ServerCustomValidationRequested", listener: (ev: Event) => void): void ;
     removeListener(type: "ServerCustomValidationRequested", listener: (ev: Event) => void): void ;
     on(type: "ServerCustomValidationRequested", listener: (ev: Event) => void): void ;
@@ -76,7 +73,7 @@
   export class HttpServerCustomValidationRequestedEventArgs {
     requestMessage: Object;
     serverCertificate: Object;
-    serverCertificateErrorSeverity: number;
+    serverCertificateErrorSeverity: Number;
     serverCertificateErrors: Object;
     serverIntermediateCertificates: Object;
     constructor();
@@ -84,6 +81,13 @@
     reject(): void;
 
     getDeferral(): Object;
+
+  }
+
+  export class IHttpFilter {
+    constructor();
+
+    sendRequestAsync(request: Object, callback: (error: Error, result: Object) => void): void ;
 
   }
 

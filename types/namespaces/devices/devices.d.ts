@@ -29,6 +29,9 @@
 
   }
 
+export const ILowLevelDevicesAggregateProvider: any;
+export const LowLevelDevicesAggregateProvider: any;
+export const LowLevelDevicesController: any;
 export * as adc from "./devices.adc.js";
 export * as alljoyn from "./devices.alljoyn.js";
 export * as background from "./devices.background.js";

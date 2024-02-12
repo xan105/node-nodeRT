@@ -1,7 +1,21 @@
   export class TextSegment {
-    startPosition: number;
-    length: number;
+    startPosition: Number;
+    length: Number;
     constructor();
+  }
+
+  export enum AlternateNormalizationFormat {
+    notNormalized,
+    number,
+    currency,
+    date,
+    time,
+  }
+
+  export enum TextPredictionOptions {
+    none,
+    predictions,
+    corrections,
   }
 
   export enum UnicodeGeneralCategory {
@@ -44,168 +58,164 @@
     numeric,
   }
 
-  export enum AlternateNormalizationFormat {
-    notNormalized,
-    number,
-    currency,
-    date,
-    time,
-  }
-
-  export class SemanticTextQuery {
-    constructor();
-    constructor(aqsFilter: string);
-    constructor(aqsFilter: string, filterLanguage: string);
-
-    find(content: string): Object;
-
-    findInProperty(propertyContent: string, propertyName: string): Object;
-
-  }
-
-  export class UnicodeCharacters {
-    constructor();
-
-    static getCodepointFromSurrogatePair(highSurrogate: number, lowSurrogate: number): number;
-
-
-    static getSurrogatePairFromCodepoint(codepoint: number, highSurrogate: string, lowSurrogate: string): void;
-
-
-    static isHighSurrogate(codepoint: number): boolean;
-
-
-    static isLowSurrogate(codepoint: number): boolean;
-
-
-    static isSupplementary(codepoint: number): boolean;
-
-
-    static isNoncharacter(codepoint: number): boolean;
-
-
-    static isWhitespace(codepoint: number): boolean;
-
-
-    static isAlphabetic(codepoint: number): boolean;
-
-
-    static isCased(codepoint: number): boolean;
-
-
-    static isUppercase(codepoint: number): boolean;
-
-
-    static isLowercase(codepoint: number): boolean;
-
-
-    static isIdStart(codepoint: number): boolean;
-
-
-    static isIdContinue(codepoint: number): boolean;
-
-
-    static isGraphemeBase(codepoint: number): boolean;
-
-
-    static isGraphemeExtend(codepoint: number): boolean;
-
-
-    static getNumericType(codepoint: number): UnicodeNumericType;
-
-
-    static getGeneralCategory(codepoint: number): UnicodeGeneralCategory;
-
-
-  }
-
   export class AlternateWordForm {
-    alternateText: string;
+    alternateText: String;
     normalizationFormat: AlternateNormalizationFormat;
     sourceTextSegment: TextSegment;
     constructor();
 
   }
 
-  export class WordSegment {
-    alternateForms: Object;
-    sourceTextSegment: TextSegment;
-    text: string;
-    constructor();
-
-  }
-
-  export class WordsSegmenter {
-    resolvedLanguage: string;
-    constructor();
-    constructor(language: string);
-
-    getTokenAt(text: string, startIndex: number): WordSegment;
-
-    getTokens(text: string): Object;
-
-    tokenize(text: string, startIndex: number, handler: Object): void;
-
-  }
-
   export class SelectableWordSegment {
     sourceTextSegment: TextSegment;
-    text: string;
+    text: String;
     constructor();
 
   }
 
   export class SelectableWordsSegmenter {
-    resolvedLanguage: string;
+    resolvedLanguage: String;
     constructor();
-    constructor(language: string);
+    constructor(language: String);
 
-    getTokenAt(text: string, startIndex: number): SelectableWordSegment;
+    getTokenAt(text: String, startIndex: Number): SelectableWordSegment;
 
-    getTokens(text: string): Object;
+    getTokens(text: String): Object;
 
-    tokenize(text: string, startIndex: number, handler: Object): void;
+    tokenize(text: String, startIndex: Number, handler: Object): void;
 
   }
 
-  export class TextPredictionGenerator {
-    languageAvailableButNotInstalled: boolean;
-    resolvedLanguage: string;
+  export class SemanticTextQuery {
     constructor();
-    constructor(languageTag: string);
+    constructor(aqsFilter: String);
+    constructor(aqsFilter: String, filterLanguage: String);
 
-    getCandidatesAsync(input: string, callback: (error: Error, result: Object) => void): void ;
-    getCandidatesAsync(input: string, maxCandidates: number, callback: (error: Error, result: Object) => void): void ;
+    find(content: String): Object;
+
+    findInProperty(propertyContent: String, propertyName: String): Object;
 
   }
 
   export class TextConversionGenerator {
-    languageAvailableButNotInstalled: boolean;
-    resolvedLanguage: string;
+    languageAvailableButNotInstalled: Boolean;
+    resolvedLanguage: String;
     constructor();
-    constructor(languageTag: string);
+    constructor(languageTag: String);
 
-    getCandidatesAsync(input: string, callback: (error: Error, result: Object) => void): void ;
-    getCandidatesAsync(input: string, maxCandidates: number, callback: (error: Error, result: Object) => void): void ;
-
-  }
-
-  export class TextReverseConversionGenerator {
-    languageAvailableButNotInstalled: boolean;
-    resolvedLanguage: string;
-    constructor();
-    constructor(languageTag: string);
-
-    convertBackAsync(input: string, callback: (error: Error, result: string) => void): void ;
-
-    getPhonemesAsync(input: string, callback: (error: Error, result: Object) => void): void ;
+    getCandidatesAsync(input: String, callback: (error: Error, result: Object) => void): void ;
+    getCandidatesAsync(input: String, maxCandidates: Number, callback: (error: Error, result: Object) => void): void ;
 
   }
 
   export class TextPhoneme {
-    displayText: string;
-    readingText: string;
+    displayText: String;
+    readingText: String;
     constructor();
+
+  }
+
+  export class TextPredictionGenerator {
+    languageAvailableButNotInstalled: Boolean;
+    resolvedLanguage: String;
+    inputScope: Number;
+    constructor();
+    constructor(languageTag: String);
+
+    getCandidatesAsync(input: String, callback: (error: Error, result: Object) => void): void ;
+    getCandidatesAsync(input: String, maxCandidates: Number, callback: (error: Error, result: Object) => void): void ;
+    getCandidatesAsync(input: String, maxCandidates: Number, predictionOptions: TextPredictionOptions, previousStrings: Object, callback: (error: Error, result: Object) => void): void ;
+
+    getNextWordCandidatesAsync(maxCandidates: Number, previousStrings: Object, callback: (error: Error, result: Object) => void): void ;
+
+  }
+
+  export class TextReverseConversionGenerator {
+    languageAvailableButNotInstalled: Boolean;
+    resolvedLanguage: String;
+    constructor();
+    constructor(languageTag: String);
+
+    convertBackAsync(input: String, callback: (error: Error, result: String) => void): void ;
+
+    getPhonemesAsync(input: String, callback: (error: Error, result: Object) => void): void ;
+
+  }
+
+  export class UnicodeCharacters {
+    constructor();
+
+    static getCodepointFromSurrogatePair(highSurrogate: Number, lowSurrogate: Number): Number;
+
+
+    static getSurrogatePairFromCodepoint(codepoint: Number, highSurrogate: String, lowSurrogate: String): void;
+
+
+    static isHighSurrogate(codepoint: Number): Boolean;
+
+
+    static isLowSurrogate(codepoint: Number): Boolean;
+
+
+    static isSupplementary(codepoint: Number): Boolean;
+
+
+    static isNoncharacter(codepoint: Number): Boolean;
+
+
+    static isWhitespace(codepoint: Number): Boolean;
+
+
+    static isAlphabetic(codepoint: Number): Boolean;
+
+
+    static isCased(codepoint: Number): Boolean;
+
+
+    static isUppercase(codepoint: Number): Boolean;
+
+
+    static isLowercase(codepoint: Number): Boolean;
+
+
+    static isIdStart(codepoint: Number): Boolean;
+
+
+    static isIdContinue(codepoint: Number): Boolean;
+
+
+    static isGraphemeBase(codepoint: Number): Boolean;
+
+
+    static isGraphemeExtend(codepoint: Number): Boolean;
+
+
+    static getNumericType(codepoint: Number): UnicodeNumericType;
+
+
+    static getGeneralCategory(codepoint: Number): UnicodeGeneralCategory;
+
+
+  }
+
+  export class WordSegment {
+    alternateForms: Object;
+    sourceTextSegment: TextSegment;
+    text: String;
+    constructor();
+
+  }
+
+  export class WordsSegmenter {
+    resolvedLanguage: String;
+    constructor();
+    constructor(language: String);
+
+    getTokenAt(text: String, startIndex: Number): WordSegment;
+
+    getTokens(text: String): Object;
+
+    tokenize(text: String, startIndex: Number, handler: Object): void;
 
   }
 

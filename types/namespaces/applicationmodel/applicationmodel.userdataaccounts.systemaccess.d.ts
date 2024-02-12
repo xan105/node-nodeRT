@@ -1,23 +1,14 @@
-  export enum DeviceAccountServerType {
-    exchange,
-    pop,
-    imap,
-  }
-
   export enum DeviceAccountAuthenticationType {
     basic,
     oAuth,
     singleSignOn,
   }
 
-  export enum DeviceAccountSyncScheduleKind {
-    manual,
-    every15Minutes,
-    every30Minutes,
-    every60Minutes,
-    every2Hours,
-    daily,
-    asItemsArrive,
+  export enum DeviceAccountIconId {
+    exchange,
+    msa,
+    outlook,
+    generic,
   }
 
   export enum DeviceAccountMailAgeFilter {
@@ -30,59 +21,68 @@
     last90Days,
   }
 
-  export enum DeviceAccountIconId {
+  export enum DeviceAccountServerType {
     exchange,
-    msa,
-    outlook,
-    generic,
+    pop,
+    imap,
+  }
+
+  export enum DeviceAccountSyncScheduleKind {
+    manual,
+    every15Minutes,
+    every30Minutes,
+    every60Minutes,
+    every2Hours,
+    daily,
+    asItemsArrive,
   }
 
   export class DeviceAccountConfiguration {
-    emailAddress: string;
-    domain: string;
-    deviceAccountTypeId: string;
-    outgoingServerAddress: string;
-    contactsSyncEnabled: boolean;
-    calendarSyncEnabled: boolean;
-    accountName: string;
-    incomingServerUsername: string;
-    incomingServerRequiresSsl: boolean;
-    incomingServerPort: number;
-    incomingServerAddress: string;
-    emailSyncEnabled: boolean;
+    emailAddress: String;
+    domain: String;
+    deviceAccountTypeId: String;
+    outgoingServerAddress: String;
+    contactsSyncEnabled: Boolean;
+    calendarSyncEnabled: Boolean;
+    accountName: String;
+    incomingServerUsername: String;
+    incomingServerRequiresSsl: Boolean;
+    incomingServerPort: Number;
+    incomingServerAddress: String;
+    emailSyncEnabled: Boolean;
     serverType: DeviceAccountServerType;
-    outgoingServerUsername: string;
-    outgoingServerRequiresSsl: boolean;
-    outgoingServerPort: number;
+    outgoingServerUsername: String;
+    outgoingServerRequiresSsl: Boolean;
+    outgoingServerPort: Number;
     accountIconId: DeviceAccountIconId;
     calDavServerUrl: Object;
-    calDavRequiresSsl: boolean;
-    autoSelectAuthenticationCertificate: boolean;
+    calDavRequiresSsl: Boolean;
+    autoSelectAuthenticationCertificate: Boolean;
     authenticationType: DeviceAccountAuthenticationType;
-    authenticationCertificateId: string;
-    isOutgoingServerAuthenticationEnabled: boolean;
-    isClientAuthenticationCertificateRequired: boolean;
+    authenticationCertificateId: String;
+    isOutgoingServerAuthenticationEnabled: Boolean;
+    isClientAuthenticationCertificateRequired: Boolean;
     incomingServerCredential: Object;
-    isOutgoingServerAuthenticationRequired: boolean;
+    isOutgoingServerAuthenticationRequired: Boolean;
     cardDavSyncScheduleKind: DeviceAccountSyncScheduleKind;
-    alwaysDownloadFullMessage: boolean;
+    alwaysDownloadFullMessage: Boolean;
     cardDavServerUrl: Object;
-    cardDavRequiresSsl: boolean;
+    cardDavRequiresSsl: Boolean;
     calDavSyncScheduleKind: DeviceAccountSyncScheduleKind;
-    incomingServerCertificateHash: string;
-    wasOutgoingServerCertificateHashConfirmed: boolean;
-    wasModifiedByUser: boolean;
+    incomingServerCertificateHash: String;
+    wasOutgoingServerCertificateHashConfirmed: Boolean;
+    wasModifiedByUser: Boolean;
     syncScheduleKind: DeviceAccountSyncScheduleKind;
-    ssoAccountId: string;
-    wasIncomingServerCertificateHashConfirmed: boolean;
-    oAuthRefreshToken: string;
-    isExternallyManaged: boolean;
+    ssoAccountId: String;
+    wasIncomingServerCertificateHashConfirmed: Boolean;
+    oAuthRefreshToken: String;
+    isExternallyManaged: Boolean;
     mailAgeFilter: DeviceAccountMailAgeFilter;
-    isSyncScheduleManagedBySystem: boolean;
-    outgoingServerCertificateHash: string;
+    isSyncScheduleManagedBySystem: Boolean;
+    outgoingServerCertificateHash: String;
     outgoingServerCredential: Object;
-    doesPolicyAllowMailSync: boolean;
-    isSsoAuthenticationSupported: boolean;
+    doesPolicyAllowMailSync: Boolean;
+    isSsoAuthenticationSupported: Boolean;
     constructor();
 
   }
@@ -90,16 +90,16 @@
   export class UserDataAccountSystemAccessManager {
     constructor();
 
-    static suppressLocalAccountWithAccountAsync(userDataAccountId: string, callback: (error: Error) => void): void ;
+    static suppressLocalAccountWithAccountAsync(userDataAccountId: String, callback: (error: Error) => void): void ;
 
 
-    static createDeviceAccountAsync(account: DeviceAccountConfiguration, callback: (error: Error, result: string) => void): void ;
+    static createDeviceAccountAsync(account: DeviceAccountConfiguration, callback: (error: Error, result: String) => void): void ;
 
 
-    static deleteDeviceAccountAsync(accountId: string, callback: (error: Error) => void): void ;
+    static deleteDeviceAccountAsync(accountId: String, callback: (error: Error) => void): void ;
 
 
-    static getDeviceAccountConfigurationAsync(accountId: string, callback: (error: Error, result: DeviceAccountConfiguration) => void): void ;
+    static getDeviceAccountConfigurationAsync(accountId: String, callback: (error: Error, result: DeviceAccountConfiguration) => void): void ;
 
 
     static addAndShowDeviceAccountsAsync(accounts: Object, callback: (error: Error, result: Object) => void): void ;

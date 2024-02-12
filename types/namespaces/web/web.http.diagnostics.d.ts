@@ -18,60 +18,6 @@
     beacon,
   }
 
-  export class HttpDiagnosticSourceLocation {
-    columnNumber: number;
-    lineNumber: number;
-    sourceUri: Object;
-    constructor();
-
-  }
-
-  export class HttpDiagnosticProviderRequestSentEventArgs {
-    activityId: string;
-    initiator: HttpDiagnosticRequestInitiator;
-    message: Object;
-    processId: number;
-    sourceLocations: Object;
-    threadId: number;
-    timestamp: Date;
-    constructor();
-
-  }
-
-  export class HttpDiagnosticProviderResponseReceivedEventArgs {
-    activityId: string;
-    message: Object;
-    timestamp: Date;
-    constructor();
-
-  }
-
-  export class HttpDiagnosticProviderRequestResponseTimestamps {
-    cacheCheckedTimestamp: Date;
-    connectionCompletedTimestamp: Date;
-    connectionInitiatedTimestamp: Date;
-    nameResolvedTimestamp: Date;
-    requestCompletedTimestamp: Date;
-    requestSentTimestamp: Date;
-    responseCompletedTimestamp: Date;
-    responseReceivedTimestamp: Date;
-    sslNegotiatedTimestamp: Date;
-    constructor();
-
-  }
-
-  export class HttpDiagnosticProviderRequestResponseCompletedEventArgs {
-    activityId: string;
-    initiator: HttpDiagnosticRequestInitiator;
-    processId: number;
-    requestedUri: Object;
-    sourceLocations: Object;
-    threadId: number;
-    timestamps: HttpDiagnosticProviderRequestResponseTimestamps;
-    constructor();
-
-  }
-
   export class HttpDiagnosticProvider {
     constructor();
 
@@ -102,6 +48,60 @@
     on(type: string, listener: (ev: Event) => void): void ;
     off(type: string, listener: (ev: Event) => void): void ;
     
+
+  }
+
+  export class HttpDiagnosticProviderRequestResponseCompletedEventArgs {
+    activityId: String;
+    initiator: HttpDiagnosticRequestInitiator;
+    processId: Number;
+    requestedUri: Object;
+    sourceLocations: Object;
+    threadId: Number;
+    timestamps: HttpDiagnosticProviderRequestResponseTimestamps;
+    constructor();
+
+  }
+
+  export class HttpDiagnosticProviderRequestResponseTimestamps {
+    cacheCheckedTimestamp: Date;
+    connectionCompletedTimestamp: Date;
+    connectionInitiatedTimestamp: Date;
+    nameResolvedTimestamp: Date;
+    requestCompletedTimestamp: Date;
+    requestSentTimestamp: Date;
+    responseCompletedTimestamp: Date;
+    responseReceivedTimestamp: Date;
+    sslNegotiatedTimestamp: Date;
+    constructor();
+
+  }
+
+  export class HttpDiagnosticProviderRequestSentEventArgs {
+    activityId: String;
+    initiator: HttpDiagnosticRequestInitiator;
+    message: Object;
+    processId: Number;
+    sourceLocations: Object;
+    threadId: Number;
+    timestamp: Date;
+    constructor();
+
+  }
+
+  export class HttpDiagnosticProviderResponseReceivedEventArgs {
+    activityId: String;
+    message: Object;
+    timestamp: Date;
+    constructor();
+
+  }
+
+  export class HttpDiagnosticSourceLocation {
+    columnNumber: Number;
+    lineNumber: Number;
+    sourceUri: Object;
+    constructor();
 
   }
 

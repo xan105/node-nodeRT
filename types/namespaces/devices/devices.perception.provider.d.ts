@@ -1,15 +1,15 @@
   export class Vector3 {
-    x: number;
-    y: number;
-    z: number;
+    x: Number;
+    y: Number;
+    z: Number;
     constructor();
   }
 
   export class Quaternion {
-    x: number;
-    y: number;
-    z: number;
-    w: number;
+    x: Number;
+    y: Number;
+    z: Number;
+    w: Number;
     constructor();
   }
 
@@ -17,25 +17,8 @@
     constructor();
   }
 
-  export class IPerceptionFrameProviderManager {
-    constructor();
-
-    getFrameProvider(frameProviderInfo: PerceptionFrameProviderInfo): IPerceptionFrameProvider;
-
-  }
-
-  export class PerceptionFrameProviderInfo {
-    id: string;
-    hidden: boolean;
-    frameKind: string;
-    displayName: string;
-    deviceKind: string;
-    constructor();
-
-  }
-
   export class IPerceptionFrameProvider {
-    available: boolean;
+    available: Boolean;
     frameProviderInfo: PerceptionFrameProviderInfo;
     properties: Object;
     constructor();
@@ -48,20 +31,18 @@
 
   }
 
-  export class PerceptionPropertyChangeRequest {
-    status: number;
-    name: string;
-    value: Object;
+  export class IPerceptionFrameProviderManager {
     constructor();
 
-    getDeferral(): Object;
+    getFrameProvider(frameProviderInfo: PerceptionFrameProviderInfo): IPerceptionFrameProvider;
 
   }
 
-  export class PerceptionFaceAuthenticationGroup {
-    frameProviderIds: Object;
+  export class KnownPerceptionFrameKind {
+    static color: String;
+    static depth: String;
+    static infrared: String;
     constructor();
-    constructor(ids: Object, startHandler: Object, stopHandler: Object);
 
   }
 
@@ -72,6 +53,15 @@
 
   }
 
+  export class PerceptionCorrelation {
+    orientation: Quaternion;
+    position: Vector3;
+    targetId: String;
+    constructor();
+    constructor(targetId: String, position: Vector3, orientation: Quaternion);
+
+  }
+
   export class PerceptionCorrelationGroup {
     relativeLocations: Object;
     constructor();
@@ -79,32 +69,29 @@
 
   }
 
+  export class PerceptionFaceAuthenticationGroup {
+    frameProviderIds: Object;
+    constructor();
+    constructor(ids: Object, startHandler: Object, stopHandler: Object);
+
+  }
+
   export class PerceptionFrame {
-    relativeTime: number;
+    relativeTime: Number;
     frameData: Object;
     properties: Object;
     constructor();
 
   }
 
-  export class PerceptionCorrelation {
-    orientation: Quaternion;
-    position: Vector3;
-    targetId: string;
+  export class PerceptionFrameProviderInfo {
+    id: String;
+    hidden: Boolean;
+    frameKind: String;
+    displayName: String;
+    deviceKind: String;
     constructor();
-    constructor(targetId: string, position: Vector3, orientation: Quaternion);
 
-  }
-
-  export class PerceptionVideoFrameAllocator {
-    constructor();
-    constructor(maxOutstandingFrameCountForWrite: number, format: number, resolution: Object, alpha: number);
-
-    allocateFrame(): PerceptionFrame;
-
-    copyFromVideoFrame(frame: Object): PerceptionFrame;
-
-    close(): void;
   }
 
   export class PerceptionFrameProviderManagerService {
@@ -134,7 +121,7 @@
     static unregisterCorrelationGroup(manager: IPerceptionFrameProviderManager, correlationGroup: PerceptionCorrelationGroup): void;
 
 
-    static updateAvailabilityForProvider(provider: IPerceptionFrameProvider, available: boolean): void;
+    static updateAvailabilityForProvider(provider: IPerceptionFrameProvider, available: Boolean): void;
 
 
     static publishFrameForProvider(provider: IPerceptionFrameProvider, frame: PerceptionFrame): void;
@@ -142,11 +129,24 @@
 
   }
 
-  export class KnownPerceptionFrameKind {
-    static color: string;
-    static depth: string;
-    static infrared: string;
+  export class PerceptionPropertyChangeRequest {
+    status: Number;
+    name: String;
+    value: Object;
     constructor();
 
+    getDeferral(): Object;
+
+  }
+
+  export class PerceptionVideoFrameAllocator {
+    constructor();
+    constructor(maxOutstandingFrameCountForWrite: Number, format: Number, resolution: Object, alpha: Number);
+
+    allocateFrame(): PerceptionFrame;
+
+    copyFromVideoFrame(frame: Object): PerceptionFrame;
+
+    close(): void;
   }
 

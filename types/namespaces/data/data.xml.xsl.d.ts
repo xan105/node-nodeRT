@@ -2,7 +2,7 @@
     constructor();
     constructor(document: Object);
 
-    transformToString(inputNode: Object): string;
+    transformToString(inputNode: Object): String;
 
     transformToDocument(inputNode: Object): Object;
 

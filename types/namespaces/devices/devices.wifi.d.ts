@@ -1,7 +1,66 @@
+  export enum WiFiAccessStatus {
+    unspecified,
+    allowed,
+    deniedByUser,
+    deniedBySystem,
+  }
+
+  export enum WiFiConnectionMethod {
+    default,
+    wpsPin,
+    wpsPushButton,
+  }
+
+  export enum WiFiConnectionStatus {
+    unspecifiedFailure,
+    success,
+    accessRevoked,
+    invalidCredential,
+    networkNotAvailable,
+    timeout,
+    unsupportedAuthenticationProtocol,
+  }
+
   export enum WiFiNetworkKind {
     any,
     infrastructure,
     adhoc,
+  }
+
+  export enum WiFiOnDemandHotspotAvailability {
+    available,
+    unavailable,
+  }
+
+  export enum WiFiOnDemandHotspotCellularBars {
+    zeroBars,
+    oneBar,
+    twoBars,
+    threeBars,
+    fourBars,
+    fiveBars,
+  }
+
+  export enum WiFiOnDemandHotspotConnectStatus {
+    unspecifiedFailure,
+    success,
+    appTimedOut,
+    invalidCredential,
+    networkNotAvailable,
+    unsupportedAuthenticationProtocol,
+    bluetoothConnectFailed,
+    bluetoothTransmissionError,
+    operationCanceledByUser,
+    entitlementCheckFailed,
+    noCellularSignal,
+    cellularDataTurnedOff,
+    wlanConnectFailed,
+    wlanNotVisible,
+    accessPointCannotConnect,
+    cellularConnectTimedOut,
+    roamingNotAllowed,
+    pairingRequired,
+    dataLimitReached,
   }
 
   export enum WiFiPhyKind {
@@ -15,13 +74,8 @@
     hT,
     vht,
     dmg,
-  }
-
-  export enum WiFiAccessStatus {
-    unspecified,
-    allowed,
-    deniedByUser,
-    deniedBySystem,
+    hE,
+    eht,
   }
 
   export enum WiFiReconnectionKind {
@@ -29,20 +83,10 @@
     manual,
   }
 
-  export enum WiFiConnectionStatus {
+  export enum WiFiWpsConfigurationStatus {
     unspecifiedFailure,
     success,
-    accessRevoked,
-    invalidCredential,
-    networkNotAvailable,
     timeout,
-    unsupportedAuthenticationProtocol,
-  }
-
-  export enum WiFiConnectionMethod {
-    default,
-    wpsPin,
-    wpsPushButton,
   }
 
   export enum WiFiWpsKind {
@@ -54,12 +98,6 @@
     usb,
   }
 
-  export enum WiFiWpsConfigurationStatus {
-    unspecifiedFailure,
-    success,
-    timeout,
-  }
-
   export class WiFiAdapter {
     networkAdapter: Object;
     networkReport: WiFiNetworkReport;
@@ -68,21 +106,21 @@
     static findAllAdaptersAsync(callback: (error: Error, result: Object) => void): void ;
 
 
-    static fromIdAsync(deviceId: string, callback: (error: Error, result: WiFiAdapter) => void): void ;
+    static fromIdAsync(deviceId: String, callback: (error: Error, result: WiFiAdapter) => void): void ;
 
 
     static requestAccessAsync(callback: (error: Error, result: WiFiAccessStatus) => void): void ;
 
 
-    static getDeviceSelector(): string;
+    static getDeviceSelector(): String;
 
 
     scanAsync(callback: (error: Error) => void): void ;
 
     connectAsync(availableNetwork: WiFiAvailableNetwork, reconnectionKind: WiFiReconnectionKind, callback: (error: Error, result: WiFiConnectionResult) => void): void ;
     connectAsync(availableNetwork: WiFiAvailableNetwork, reconnectionKind: WiFiReconnectionKind, passwordCredential: Object, callback: (error: Error, result: WiFiConnectionResult) => void): void ;
-    connectAsync(availableNetwork: WiFiAvailableNetwork, reconnectionKind: WiFiReconnectionKind, passwordCredential: Object, ssid: string, callback: (error: Error, result: WiFiConnectionResult) => void): void ;
-    connectAsync(availableNetwork: WiFiAvailableNetwork, reconnectionKind: WiFiReconnectionKind, passwordCredential: Object, ssid: string, connectionMethod: WiFiConnectionMethod, callback: (error: Error, result: WiFiConnectionResult) => void): void ;
+    connectAsync(availableNetwork: WiFiAvailableNetwork, reconnectionKind: WiFiReconnectionKind, passwordCredential: Object, ssid: String, callback: (error: Error, result: WiFiConnectionResult) => void): void ;
+    connectAsync(availableNetwork: WiFiAvailableNetwork, reconnectionKind: WiFiReconnectionKind, passwordCredential: Object, ssid: String, connectionMethod: WiFiConnectionMethod, callback: (error: Error, result: WiFiConnectionResult) => void): void ;
 
     getWpsConfigurationAsync(availableNetwork: WiFiAvailableNetwork, callback: (error: Error, result: WiFiWpsConfigurationResult) => void): void ;
 
@@ -101,6 +139,28 @@
 
   }
 
+  export class WiFiAvailableNetwork {
+    beaconInterval: Number;
+    bssid: String;
+    channelCenterFrequencyInKilohertz: Number;
+    isWiFiDirect: Boolean;
+    networkKind: WiFiNetworkKind;
+    networkRssiInDecibelMilliwatts: Number;
+    phyKind: WiFiPhyKind;
+    securitySettings: Object;
+    signalBars: Number;
+    ssid: String;
+    uptime: Number;
+    constructor();
+
+  }
+
+  export class WiFiConnectionResult {
+    connectionStatus: WiFiConnectionStatus;
+    constructor();
+
+  }
+
   export class WiFiNetworkReport {
     availableNetworks: Object;
     timestamp: Date;
@@ -108,24 +168,45 @@
 
   }
 
-  export class WiFiAvailableNetwork {
-    beaconInterval: number;
-    bssid: string;
-    channelCenterFrequencyInKilohertz: number;
-    isWiFiDirect: boolean;
-    networkKind: WiFiNetworkKind;
-    networkRssiInDecibelMilliwatts: number;
-    phyKind: WiFiPhyKind;
-    securitySettings: Object;
-    signalBars: number;
-    ssid: string;
-    uptime: number;
+  export class WiFiOnDemandHotspotConnectTriggerDetails {
+    requestedNetwork: WiFiOnDemandHotspotNetwork;
+    constructor();
+
+    connectAsync(callback: (error: Error, result: WiFiOnDemandHotspotConnectionResult) => void): void ;
+
+    reportError(status: WiFiOnDemandHotspotConnectStatus): void;
+
+    connect(): WiFiOnDemandHotspotConnectionResult;
+
+  }
+
+  export class WiFiOnDemandHotspotConnectionResult {
+    status: WiFiOnDemandHotspotConnectStatus;
     constructor();
 
   }
 
-  export class WiFiConnectionResult {
-    connectionStatus: WiFiConnectionStatus;
+  export class WiFiOnDemandHotspotNetwork {
+    id: String;
+    constructor();
+
+    static getOrCreateById(networkId: String): WiFiOnDemandHotspotNetwork;
+
+
+    getProperties(): WiFiOnDemandHotspotNetworkProperties;
+
+    updateProperties(newProperties: WiFiOnDemandHotspotNetworkProperties): void;
+
+  }
+
+  export class WiFiOnDemandHotspotNetworkProperties {
+    ssid: String;
+    remainingBatteryPercent: Number;
+    password: Object;
+    isMetered: Boolean;
+    displayName: String;
+    cellularBars: WiFiOnDemandHotspotCellularBars;
+    availability: WiFiOnDemandHotspotAvailability;
     constructor();
 
   }

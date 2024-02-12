@@ -2,12 +2,9 @@
     constructor();
   }
 
-  export enum WebAccountAction {
-    reconnect,
-    remove,
-    viewDetails,
-    manage,
-    more,
+  export enum SettingsEdgeLocation {
+    right,
+    left,
   }
 
   export enum SupportedWebAccountActions {
@@ -19,71 +16,12 @@
     more,
   }
 
-  export enum SettingsEdgeLocation {
-    right,
-    left,
-  }
-
-  export class SettingsCommand {
-    static accountsCommand: SettingsCommand;
-    label: string;
-    invoked: Object;
-    id: Object;
-    constructor();
-    constructor(settingsCommandId: Object, label: string, handler: Object);
-
-  }
-
-  export class WebAccountProviderCommand {
-    invoked: Object;
-    webAccountProvider: Object;
-    constructor();
-    constructor(webAccountProvider: Object, invoked: Object);
-
-  }
-
-  export class WebAccountCommand {
-    actions: SupportedWebAccountActions;
-    invoked: Object;
-    webAccount: Object;
-    constructor();
-    constructor(webAccount: Object, invoked: Object, actions: SupportedWebAccountActions);
-
-  }
-
-  export class WebAccountInvokedArgs {
-    action: WebAccountAction;
-    constructor();
-
-  }
-
-  export class CredentialCommand {
-    credentialDeleted: Object;
-    passwordCredential: Object;
-    constructor();
-    constructor(passwordCredential: Object);
-    constructor(passwordCredential: Object, deleted: Object);
-
-  }
-
-  export class AccountsSettingsPaneEventDeferral {
-    constructor();
-
-    complete(): void;
-
-  }
-
-  export class AccountsSettingsPaneCommandsRequestedEventArgs {
-    headerText: string;
-    commands: Object;
-    credentialCommands: Object;
-    webAccountCommands: Object;
-    webAccountProviderCommands: Object;
-    user: Object;
-    constructor();
-
-    getDeferral(): AccountsSettingsPaneEventDeferral;
-
+  export enum WebAccountAction {
+    reconnect,
+    remove,
+    viewDetails,
+    manage,
+    more,
   }
 
   export class AccountsSettingsPane {
@@ -120,15 +58,42 @@
 
   }
 
-  export class SettingsPaneCommandsRequest {
-    applicationCommands: Object;
+  export class AccountsSettingsPaneCommandsRequestedEventArgs {
+    headerText: String;
+    commands: Object;
+    credentialCommands: Object;
+    webAccountCommands: Object;
+    webAccountProviderCommands: Object;
+    user: Object;
     constructor();
+
+    getDeferral(): AccountsSettingsPaneEventDeferral;
 
   }
 
-  export class SettingsPaneCommandsRequestedEventArgs {
-    request: SettingsPaneCommandsRequest;
+  export class AccountsSettingsPaneEventDeferral {
     constructor();
+
+    complete(): void;
+
+  }
+
+  export class CredentialCommand {
+    credentialDeleted: Object;
+    passwordCredential: Object;
+    constructor();
+    constructor(passwordCredential: Object);
+    constructor(passwordCredential: Object, deleted: Object);
+
+  }
+
+  export class SettingsCommand {
+    static accountsCommand: SettingsCommand;
+    label: String;
+    invoked: Object;
+    id: Object;
+    constructor();
+    constructor(settingsCommandId: Object, label: String, handler: Object);
 
   }
 
@@ -152,6 +117,41 @@
     on(type: string, listener: (ev: Event) => void): void ;
     off(type: string, listener: (ev: Event) => void): void ;
     
+
+  }
+
+  export class SettingsPaneCommandsRequest {
+    applicationCommands: Object;
+    constructor();
+
+  }
+
+  export class SettingsPaneCommandsRequestedEventArgs {
+    request: SettingsPaneCommandsRequest;
+    constructor();
+
+  }
+
+  export class WebAccountCommand {
+    actions: SupportedWebAccountActions;
+    invoked: Object;
+    webAccount: Object;
+    constructor();
+    constructor(webAccount: Object, invoked: Object, actions: SupportedWebAccountActions);
+
+  }
+
+  export class WebAccountInvokedArgs {
+    action: WebAccountAction;
+    constructor();
+
+  }
+
+  export class WebAccountProviderCommand {
+    invoked: Object;
+    webAccountProvider: Object;
+    constructor();
+    constructor(webAccountProvider: Object, invoked: Object);
 
   }
 

@@ -6,6 +6,11 @@
     constructor();
   }
 
+  export enum GameChatMessageOrigin {
+    voice,
+    text,
+  }
+
   export enum GameChatOverlayPosition {
     bottomCenter,
     bottomLeft,
@@ -17,20 +22,9 @@
     topRight,
   }
 
-  export enum GameChatMessageOrigin {
-    voice,
-    text,
-  }
-
-  export enum GameMonitoringPermission {
-    allowed,
-    deniedByUser,
-    deniedBySystem,
-  }
-
   export class GameBar {
-    static isInputRedirected: boolean;
-    static visible: boolean;
+    static isInputRedirected: Boolean;
+    static visible: Boolean;
     constructor();
 
     addListener(type: "IsInputRedirectedChanged", listener: (ev: Event) => void): void ;
@@ -51,6 +45,16 @@
 
   }
 
+  export class GameChatMessageReceivedEventArgs {
+    appDisplayName: String;
+    appId: String;
+    message: String;
+    origin: GameChatMessageOrigin;
+    senderName: String;
+    constructor();
+
+  }
+
   export class GameChatOverlay {
     desiredPosition: GameChatOverlayPosition;
     constructor();
@@ -58,24 +62,14 @@
     static getDefault(): GameChatOverlay;
 
 
-    addMessage(sender: string, message: string, origin: GameChatMessageOrigin): void;
-
-  }
-
-  export class GameMonitor {
-    constructor();
-
-    static getDefault(): GameMonitor;
-
-
-    requestPermissionAsync(callback: (error: Error, result: GameMonitoringPermission) => void): void ;
+    addMessage(sender: String, message: String, origin: GameChatMessageOrigin): void;
 
   }
 
   export class GameChatOverlayMessageSource {
     constructor();
 
-    setDelayBeforeClosingAfterMessageReceived(value: number): void;
+    setDelayBeforeClosingAfterMessageReceived(value: Number): void;
 
     addListener(type: "MessageReceived", listener: (ev: Event) => void): void ;
     removeListener(type: "MessageReceived", listener: (ev: Event) => void): void ;
@@ -90,19 +84,9 @@
 
   }
 
-  export class GameChatMessageReceivedEventArgs {
-    appDisplayName: string;
-    appId: string;
-    message: string;
-    origin: GameChatMessageOrigin;
-    senderName: string;
-    constructor();
-
-  }
-
   export class GameUIProviderActivatedEventArgs {
-    kind: number;
-    previousExecutionState: number;
+    kind: Number;
+    previousExecutionState: Number;
     splashScreen: Object;
     gameUIArgs: Object;
     constructor();

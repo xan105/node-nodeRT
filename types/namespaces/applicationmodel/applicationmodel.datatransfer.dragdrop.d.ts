@@ -8,4 +8,5 @@
     rightButton,
   }
 
+export const DragDropModifiers: any;
 export * as core from "./applicationmodel.datatransfer.dragdrop.core.js";

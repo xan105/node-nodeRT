@@ -4,12 +4,12 @@
   }
 
   export class SceneLightingEffect {
-    name: string;
-    specularShine: number;
-    specularAmount: number;
+    name: String;
+    specularShine: Number;
+    specularAmount: Number;
     normalMapSource: Object;
-    diffuseAmount: number;
-    ambientAmount: number;
+    diffuseAmount: Number;
+    ambientAmount: Number;
     reflectanceModel: SceneLightingEffectReflectanceModel;
     constructor();
 

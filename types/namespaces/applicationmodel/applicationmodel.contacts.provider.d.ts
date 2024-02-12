@@ -4,24 +4,18 @@
     unavailable,
   }
 
-  export class ContactRemovedEventArgs {
-    id: string;
-    constructor();
-
-  }
-
   export class ContactPickerUI {
     desiredFields: Object;
-    selectionMode: number;
+    selectionMode: Number;
     desiredFieldsWithContactFieldType: Object;
     constructor();
 
-    addContact(id: string, contact: Object): AddContactResult;
+    addContact(id: String, contact: Object): AddContactResult;
     addContact(contact: Object): AddContactResult;
 
-    removeContact(id: string): void;
+    removeContact(id: String): void;
 
-    containsContact(id: string): boolean;
+    containsContact(id: String): Boolean;
 
     addListener(type: "ContactRemoved", listener: (ev: Event) => void): void ;
     removeListener(type: "ContactRemoved", listener: (ev: Event) => void): void ;
@@ -33,6 +27,12 @@
     on(type: string, listener: (ev: Event) => void): void ;
     off(type: string, listener: (ev: Event) => void): void ;
     
+
+  }
+
+  export class ContactRemovedEventArgs {
+    id: String;
+    constructor();
 
   }
 

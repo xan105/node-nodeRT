@@ -1,22 +1,18 @@
+  export class Point {
+    constructor();
+  }
+
   export class Color {
     constructor();
   }
 
   export class Matrix3x2 {
-    m11: number;
-    m12: number;
-    m21: number;
-    m22: number;
-    m31: number;
-    m32: number;
-    constructor();
-  }
-
-  export class Point {
-    constructor();
-  }
-
-  export class Size {
+    m11: Number;
+    m12: Number;
+    m21: Number;
+    m22: Number;
+    m31: Number;
+    m32: Number;
     constructor();
   }
 
@@ -24,26 +20,19 @@
     constructor();
   }
 
-  export enum InkPresenterPredefinedConfiguration {
-    simpleSinglePointer,
-    simpleMultiplePointer,
+  export class Size {
+    constructor();
   }
 
-  export enum InkInputRightDragAction {
-    leaveUnprocessed,
-    allowProcessing,
+  export enum HandwritingLineHeight {
+    small,
+    medium,
+    large,
   }
 
-  export enum InkInputProcessingMode {
-    none,
-    inking,
-    erasing,
-  }
-
-  export enum InkPresenterStencilKind {
-    other,
-    ruler,
-    protractor,
+  export enum InkDrawingAttributesKind {
+    default,
+    pencil,
   }
 
   export enum InkHighContrastAdjustment {
@@ -52,10 +41,37 @@
     useOriginalColors,
   }
 
+  export enum InkInputProcessingMode {
+    none,
+    inking,
+    erasing,
+  }
+
+  export enum InkInputRightDragAction {
+    leaveUnprocessed,
+    allowProcessing,
+  }
+
   export enum InkManipulationMode {
     inking,
     erasing,
     selecting,
+  }
+
+  export enum InkPersistenceFormat {
+    gifWithEmbeddedIsf,
+    isf,
+  }
+
+  export enum InkPresenterPredefinedConfiguration {
+    simpleSinglePointer,
+    simpleMultiplePointer,
+  }
+
+  export enum InkPresenterStencilKind {
+    other,
+    ruler,
+    protractor,
   }
 
   export enum InkRecognitionTarget {
@@ -64,19 +80,428 @@
     recent,
   }
 
+  export enum PenHandedness {
+    right,
+    left,
+  }
+
   export enum PenTipShape {
     circle,
     rectangle,
   }
 
-  export enum InkDrawingAttributesKind {
-    default,
-    pencil,
+  export class IInkPointFactory {
+    constructor();
+
+    createInkPoint(position: Object, pressure: Number): InkPoint;
+
   }
 
-  export enum InkPersistenceFormat {
-    gifWithEmbeddedIsf,
-    isf,
+  export class IInkPresenterRulerFactory {
+    constructor();
+
+    create(inkPresenter: InkPresenter): InkPresenterRuler;
+
+  }
+
+  export class IInkPresenterStencil {
+    backgroundColor: Object;
+    foregroundColor: Object;
+    isVisible: Boolean;
+    kind: InkPresenterStencilKind;
+    transform: Matrix3x2;
+    constructor();
+
+  }
+
+  export class IInkRecognizerContainer {
+    constructor();
+
+    recognizeAsync(strokeCollection: InkStrokeContainer, recognitionTarget: InkRecognitionTarget, callback: (error: Error, result: Object) => void): void ;
+
+    setDefaultRecognizer(recognizer: InkRecognizer): void;
+
+    getRecognizers(): Object;
+
+  }
+
+  export class IInkStrokeContainer {
+    boundingRect: Object;
+    constructor();
+
+    loadAsync(inputStream: Object, callback: (error: Error) => void): void ;
+
+    saveAsync(outputStream: Object, callback: (error: Error, result: Number) => void): void ;
+
+    addStroke(stroke: InkStroke): void;
+
+    deleteSelected(): Object;
+
+    moveSelected(translation: Object): Object;
+
+    selectWithPolyLine(polyline: Object): Object;
+
+    selectWithLine(from: Object, to: Object): Object;
+
+    copySelectedToClipboard(): void;
+
+    pasteFromClipboard(position: Object): Object;
+
+    canPasteFromClipboard(): Boolean;
+
+    updateRecognitionResults(recognitionResults: Object): void;
+
+    getStrokes(): Object;
+
+    getRecognitionResults(): Object;
+
+  }
+
+  export class InkDrawingAttributes {
+    size: Object;
+    penTip: PenTipShape;
+    ignorePressure: Boolean;
+    fitToCurve: Boolean;
+    color: Object;
+    penTipTransform: Matrix3x2;
+    drawAsHighlighter: Boolean;
+    kind: InkDrawingAttributesKind;
+    pencilProperties: InkDrawingAttributesPencilProperties;
+    ignoreTilt: Boolean;
+    modelerAttributes: InkModelerAttributes;
+    constructor();
+
+    static createForPencil(): InkDrawingAttributes;
+
+
+  }
+
+  export class InkDrawingAttributesPencilProperties {
+    opacity: Number;
+    constructor();
+
+  }
+
+  export class InkInputConfiguration {
+    isPrimaryBarrelButtonInputEnabled: Boolean;
+    isEraserInputEnabled: Boolean;
+    isPenHapticFeedbackEnabled: Boolean;
+    constructor();
+
+  }
+
+  export class InkInputProcessingConfiguration {
+    rightDragAction: InkInputRightDragAction;
+    mode: InkInputProcessingMode;
+    constructor();
+
+  }
+
+  export class InkManager {
+    mode: InkManipulationMode;
+    boundingRect: Object;
+    constructor();
+
+    recognizeAsync(recognitionTarget: InkRecognitionTarget, callback: (error: Error, result: Object) => void): void ;
+    recognizeAsync(strokeCollection: InkStrokeContainer, recognitionTarget: InkRecognitionTarget, callback: (error: Error, result: Object) => void): void ;
+
+    loadAsync(inputStream: Object, callback: (error: Error) => void): void ;
+
+    saveAsync(outputStream: Object, callback: (error: Error, result: Number) => void): void ;
+
+    processPointerDown(pointerPoint: Object): void;
+
+    processPointerUpdate(pointerPoint: Object): Object;
+
+    processPointerUp(pointerPoint: Object): Object;
+
+    setDefaultDrawingAttributes(drawingAttributes: InkDrawingAttributes): void;
+
+    addStroke(stroke: InkStroke): void;
+
+    deleteSelected(): Object;
+
+    moveSelected(translation: Object): Object;
+
+    selectWithPolyLine(polyline: Object): Object;
+
+    selectWithLine(from: Object, to: Object): Object;
+
+    copySelectedToClipboard(): void;
+
+    pasteFromClipboard(position: Object): Object;
+
+    canPasteFromClipboard(): Boolean;
+
+    updateRecognitionResults(recognitionResults: Object): void;
+
+    getStrokes(): Object;
+
+    getRecognitionResults(): Object;
+
+    setDefaultRecognizer(recognizer: InkRecognizer): void;
+
+    getRecognizers(): Object;
+
+  }
+
+  export class InkModelerAttributes {
+    scalingFactor: Number;
+    predictionTime: Number;
+    useVelocityBasedPressure: Boolean;
+    constructor();
+
+  }
+
+  export class InkPoint {
+    position: Object;
+    pressure: Number;
+    tiltX: Number;
+    tiltY: Number;
+    timestamp: Number;
+    constructor();
+    constructor(position: Object, pressure: Number, tiltX: Number, tiltY: Number, timestamp: Number);
+    constructor(position: Object, pressure: Number);
+
+  }
+
+  export class InkPresenter {
+    strokeContainer: InkStrokeContainer;
+    isInputEnabled: Boolean;
+    inputDeviceTypes: Number;
+    inputProcessingConfiguration: InkInputProcessingConfiguration;
+    strokeInput: InkStrokeInput;
+    unprocessedInput: InkUnprocessedInput;
+    highContrastAdjustment: InkHighContrastAdjustment;
+    inputConfiguration: InkInputConfiguration;
+    constructor();
+
+    copyDefaultDrawingAttributes(): InkDrawingAttributes;
+
+    updateDefaultDrawingAttributes(value: InkDrawingAttributes): void;
+
+    activateCustomDrying(): InkSynchronizer;
+
+    setPredefinedConfiguration(value: InkPresenterPredefinedConfiguration): void;
+
+    addListener(type: "StrokesCollected", listener: (ev: Event) => void): void ;
+    removeListener(type: "StrokesCollected", listener: (ev: Event) => void): void ;
+    on(type: "StrokesCollected", listener: (ev: Event) => void): void ;
+    off(type: "StrokesCollected", listener: (ev: Event) => void): void ;
+    
+    addListener(type: "StrokesErased", listener: (ev: Event) => void): void ;
+    removeListener(type: "StrokesErased", listener: (ev: Event) => void): void ;
+    on(type: "StrokesErased", listener: (ev: Event) => void): void ;
+    off(type: "StrokesErased", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
+
+  }
+
+  export class InkPresenterProtractor {
+    radius: Number;
+    isResizable: Boolean;
+    isCenterMarkerVisible: Boolean;
+    isAngleReadoutVisible: Boolean;
+    areTickMarksVisible: Boolean;
+    areRaysVisible: Boolean;
+    accentColor: Object;
+    transform: Matrix3x2;
+    isVisible: Boolean;
+    foregroundColor: Object;
+    backgroundColor: Object;
+    kind: InkPresenterStencilKind;
+    constructor();
+    constructor(inkPresenter: InkPresenter);
+
+  }
+
+  export class InkPresenterRuler {
+    width: Number;
+    length: Number;
+    isCompassVisible: Boolean;
+    areTickMarksVisible: Boolean;
+    transform: Matrix3x2;
+    isVisible: Boolean;
+    foregroundColor: Object;
+    backgroundColor: Object;
+    kind: InkPresenterStencilKind;
+    constructor();
+    constructor(inkPresenter: InkPresenter);
+
+  }
+
+  export class InkRecognitionResult {
+    boundingRect: Object;
+    constructor();
+
+    getTextCandidates(): Object;
+
+    getStrokes(): Object;
+
+  }
+
+  export class InkRecognizer {
+    name: String;
+    constructor();
+
+  }
+
+  export class InkRecognizerContainer {
+    constructor();
+
+    recognizeAsync(strokeCollection: InkStrokeContainer, recognitionTarget: InkRecognitionTarget, callback: (error: Error, result: Object) => void): void ;
+
+    setDefaultRecognizer(recognizer: InkRecognizer): void;
+
+    getRecognizers(): Object;
+
+  }
+
+  export class InkStroke {
+    selected: Boolean;
+    drawingAttributes: InkDrawingAttributes;
+    boundingRect: Object;
+    recognized: Boolean;
+    pointTransform: Matrix3x2;
+    strokeStartedTime: Date;
+    strokeDuration: Number;
+    id: Number;
+    pointerId: Number;
+    constructor();
+
+    getRenderingSegments(): Object;
+
+    clone(): InkStroke;
+
+    getInkPoints(): Object;
+
+  }
+
+  export class InkStrokeBuilder {
+    constructor();
+
+    beginStroke(pointerPoint: Object): void;
+
+    appendToStroke(pointerPoint: Object): Object;
+
+    endStroke(pointerPoint: Object): InkStroke;
+
+    createStroke(points: Object): InkStroke;
+
+    setDefaultDrawingAttributes(drawingAttributes: InkDrawingAttributes): void;
+
+    createStrokeFromInkPoints(inkPoints: Object, transform: Matrix3x2): InkStroke;
+    createStrokeFromInkPoints(inkPoints: Object, transform: Matrix3x2, strokeStartedTime: Date, strokeDuration: Number): InkStroke;
+
+  }
+
+  export class InkStrokeContainer {
+    boundingRect: Object;
+    constructor();
+
+    loadAsync(inputStream: Object, callback: (error: Error) => void): void ;
+
+    saveAsync(outputStream: Object, callback: (error: Error, result: Number) => void): void ;
+    saveAsync(outputStream: Object, inkPersistenceFormat: InkPersistenceFormat, callback: (error: Error, result: Number) => void): void ;
+
+    addStroke(stroke: InkStroke): void;
+
+    deleteSelected(): Object;
+
+    moveSelected(translation: Object): Object;
+
+    selectWithPolyLine(polyline: Object): Object;
+
+    selectWithLine(from: Object, to: Object): Object;
+
+    copySelectedToClipboard(): void;
+
+    pasteFromClipboard(position: Object): Object;
+
+    canPasteFromClipboard(): Boolean;
+
+    updateRecognitionResults(recognitionResults: Object): void;
+
+    getStrokes(): Object;
+
+    getRecognitionResults(): Object;
+
+    addStrokes(strokes: Object): void;
+
+    clear(): void;
+
+    getStrokeById(id: Number): InkStroke;
+
+  }
+
+  export class InkStrokeInput {
+    inkPresenter: InkPresenter;
+    constructor();
+
+    addListener(type: "StrokeCanceled", listener: (ev: Event) => void): void ;
+    removeListener(type: "StrokeCanceled", listener: (ev: Event) => void): void ;
+    on(type: "StrokeCanceled", listener: (ev: Event) => void): void ;
+    off(type: "StrokeCanceled", listener: (ev: Event) => void): void ;
+    
+    addListener(type: "StrokeContinued", listener: (ev: Event) => void): void ;
+    removeListener(type: "StrokeContinued", listener: (ev: Event) => void): void ;
+    on(type: "StrokeContinued", listener: (ev: Event) => void): void ;
+    off(type: "StrokeContinued", listener: (ev: Event) => void): void ;
+    
+    addListener(type: "StrokeEnded", listener: (ev: Event) => void): void ;
+    removeListener(type: "StrokeEnded", listener: (ev: Event) => void): void ;
+    on(type: "StrokeEnded", listener: (ev: Event) => void): void ;
+    off(type: "StrokeEnded", listener: (ev: Event) => void): void ;
+    
+    addListener(type: "StrokeStarted", listener: (ev: Event) => void): void ;
+    removeListener(type: "StrokeStarted", listener: (ev: Event) => void): void ;
+    on(type: "StrokeStarted", listener: (ev: Event) => void): void ;
+    off(type: "StrokeStarted", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
+
+  }
+
+  export class InkStrokeRenderingSegment {
+    bezierControlPoint1: Object;
+    bezierControlPoint2: Object;
+    position: Object;
+    pressure: Number;
+    tiltX: Number;
+    tiltY: Number;
+    twist: Number;
+    constructor();
+
+  }
+
+  export class InkStrokesCollectedEventArgs {
+    strokes: Object;
+    constructor();
+
+  }
+
+  export class InkStrokesErasedEventArgs {
+    strokes: Object;
+    constructor();
+
+  }
+
+  export class InkSynchronizer {
+    constructor();
+
+    beginDry(): Object;
+
+    endDry(): void;
+
   }
 
   export class InkUnprocessedInput {
@@ -126,414 +551,19 @@
 
   }
 
-  export class InkStrokeInput {
-    inkPresenter: InkPresenter;
+  export class PenAndInkSettings {
+    fontFamilyName: String;
+    handwritingLineHeight: HandwritingLineHeight;
+    isHandwritingDirectlyIntoTextFieldEnabled: Boolean;
+    isTouchHandwritingEnabled: Boolean;
+    penHandedness: PenHandedness;
+    userConsentsToHandwritingTelemetryCollection: Boolean;
     constructor();
 
-    addListener(type: "StrokeCanceled", listener: (ev: Event) => void): void ;
-    removeListener(type: "StrokeCanceled", listener: (ev: Event) => void): void ;
-    on(type: "StrokeCanceled", listener: (ev: Event) => void): void ;
-    off(type: "StrokeCanceled", listener: (ev: Event) => void): void ;
-    
-    addListener(type: "StrokeContinued", listener: (ev: Event) => void): void ;
-    removeListener(type: "StrokeContinued", listener: (ev: Event) => void): void ;
-    on(type: "StrokeContinued", listener: (ev: Event) => void): void ;
-    off(type: "StrokeContinued", listener: (ev: Event) => void): void ;
-    
-    addListener(type: "StrokeEnded", listener: (ev: Event) => void): void ;
-    removeListener(type: "StrokeEnded", listener: (ev: Event) => void): void ;
-    on(type: "StrokeEnded", listener: (ev: Event) => void): void ;
-    off(type: "StrokeEnded", listener: (ev: Event) => void): void ;
-    
-    addListener(type: "StrokeStarted", listener: (ev: Event) => void): void ;
-    removeListener(type: "StrokeStarted", listener: (ev: Event) => void): void ;
-    on(type: "StrokeStarted", listener: (ev: Event) => void): void ;
-    off(type: "StrokeStarted", listener: (ev: Event) => void): void ;
-    
-    addListener(type: string, listener: (ev: Event) => void): void ;
-    removeListener(type: string, listener: (ev: Event) => void): void ;
-    on(type: string, listener: (ev: Event) => void): void ;
-    off(type: string, listener: (ev: Event) => void): void ;
-    
+    static getDefault(): PenAndInkSettings;
 
-  }
 
-  export class InkInputProcessingConfiguration {
-    rightDragAction: InkInputRightDragAction;
-    mode: InkInputProcessingMode;
-    constructor();
-
-  }
-
-  export class InkSynchronizer {
-    constructor();
-
-    beginDry(): Object;
-
-    endDry(): void;
-
-  }
-
-  export class InkPresenter {
-    strokeContainer: InkStrokeContainer;
-    isInputEnabled: boolean;
-    inputDeviceTypes: number;
-    inputProcessingConfiguration: InkInputProcessingConfiguration;
-    strokeInput: InkStrokeInput;
-    unprocessedInput: InkUnprocessedInput;
-    highContrastAdjustment: InkHighContrastAdjustment;
-    inputConfiguration: InkInputConfiguration;
-    constructor();
-
-    copyDefaultDrawingAttributes(): InkDrawingAttributes;
-
-    updateDefaultDrawingAttributes(value: InkDrawingAttributes): void;
-
-    activateCustomDrying(): InkSynchronizer;
-
-    setPredefinedConfiguration(value: InkPresenterPredefinedConfiguration): void;
-
-    addListener(type: "StrokesCollected", listener: (ev: Event) => void): void ;
-    removeListener(type: "StrokesCollected", listener: (ev: Event) => void): void ;
-    on(type: "StrokesCollected", listener: (ev: Event) => void): void ;
-    off(type: "StrokesCollected", listener: (ev: Event) => void): void ;
-    
-    addListener(type: "StrokesErased", listener: (ev: Event) => void): void ;
-    removeListener(type: "StrokesErased", listener: (ev: Event) => void): void ;
-    on(type: "StrokesErased", listener: (ev: Event) => void): void ;
-    off(type: "StrokesErased", listener: (ev: Event) => void): void ;
-    
-    addListener(type: string, listener: (ev: Event) => void): void ;
-    removeListener(type: string, listener: (ev: Event) => void): void ;
-    on(type: string, listener: (ev: Event) => void): void ;
-    off(type: string, listener: (ev: Event) => void): void ;
-    
-
-  }
-
-  export class InkStrokesCollectedEventArgs {
-    strokes: Object;
-    constructor();
-
-  }
-
-  export class InkStrokesErasedEventArgs {
-    strokes: Object;
-    constructor();
-
-  }
-
-  export class InkInputConfiguration {
-    isPrimaryBarrelButtonInputEnabled: boolean;
-    isEraserInputEnabled: boolean;
-    constructor();
-
-  }
-
-  export class IInkPresenterStencil {
-    backgroundColor: Object;
-    foregroundColor: Object;
-    isVisible: boolean;
-    kind: InkPresenterStencilKind;
-    transform: Matrix3x2;
-    constructor();
-
-  }
-
-  export class IInkPresenterRulerFactory {
-    constructor();
-
-    create(inkPresenter: InkPresenter): InkPresenterRuler;
-
-  }
-
-  export class InkPresenterRuler {
-    width: number;
-    length: number;
-    isCompassVisible: boolean;
-    areTickMarksVisible: boolean;
-    transform: Matrix3x2;
-    isVisible: boolean;
-    foregroundColor: Object;
-    backgroundColor: Object;
-    kind: InkPresenterStencilKind;
-    constructor();
-    constructor(inkPresenter: InkPresenter);
-
-  }
-
-  export class InkPresenterProtractor {
-    radius: number;
-    isResizable: boolean;
-    isCenterMarkerVisible: boolean;
-    isAngleReadoutVisible: boolean;
-    areTickMarksVisible: boolean;
-    areRaysVisible: boolean;
-    accentColor: Object;
-    transform: Matrix3x2;
-    isVisible: boolean;
-    foregroundColor: Object;
-    backgroundColor: Object;
-    kind: InkPresenterStencilKind;
-    constructor();
-    constructor(inkPresenter: InkPresenter);
-
-  }
-
-  export class IInkPointFactory {
-    constructor();
-
-    createInkPoint(position: Object, pressure: number): InkPoint;
-
-  }
-
-  export class InkPoint {
-    position: Object;
-    pressure: number;
-    tiltX: number;
-    tiltY: number;
-    timestamp: number;
-    constructor();
-    constructor(position: Object, pressure: number, tiltX: number, tiltY: number, timestamp: number);
-    constructor(position: Object, pressure: number);
-
-  }
-
-  export class InkDrawingAttributesPencilProperties {
-    opacity: number;
-    constructor();
-
-  }
-
-  export class InkDrawingAttributes {
-    size: Object;
-    penTip: PenTipShape;
-    ignorePressure: boolean;
-    fitToCurve: boolean;
-    color: Object;
-    penTipTransform: Matrix3x2;
-    drawAsHighlighter: boolean;
-    kind: InkDrawingAttributesKind;
-    pencilProperties: InkDrawingAttributesPencilProperties;
-    ignoreTilt: boolean;
-    modelerAttributes: InkModelerAttributes;
-    constructor();
-
-    static createForPencil(): InkDrawingAttributes;
-
-
-  }
-
-  export class InkModelerAttributes {
-    scalingFactor: number;
-    predictionTime: number;
-    constructor();
-
-  }
-
-  export class InkStrokeRenderingSegment {
-    bezierControlPoint1: Object;
-    bezierControlPoint2: Object;
-    position: Object;
-    pressure: number;
-    tiltX: number;
-    tiltY: number;
-    twist: number;
-    constructor();
-
-  }
-
-  export class InkStroke {
-    selected: boolean;
-    drawingAttributes: InkDrawingAttributes;
-    boundingRect: Object;
-    recognized: boolean;
-    pointTransform: Matrix3x2;
-    strokeStartedTime: Date;
-    strokeDuration: number;
-    id: number;
-    constructor();
-
-    getRenderingSegments(): Object;
-
-    clone(): InkStroke;
-
-    getInkPoints(): Object;
-
-  }
-
-  export class InkStrokeBuilder {
-    constructor();
-
-    beginStroke(pointerPoint: Object): void;
-
-    appendToStroke(pointerPoint: Object): Object;
-
-    endStroke(pointerPoint: Object): InkStroke;
-
-    createStroke(points: Object): InkStroke;
-
-    setDefaultDrawingAttributes(drawingAttributes: InkDrawingAttributes): void;
-
-    createStrokeFromInkPoints(inkPoints: Object, transform: Matrix3x2): InkStroke;
-    createStrokeFromInkPoints(inkPoints: Object, transform: Matrix3x2, strokeStartedTime: Date, strokeDuration: number): InkStroke;
-
-  }
-
-  export class InkRecognitionResult {
-    boundingRect: Object;
-    constructor();
-
-    getTextCandidates(): Object;
-
-    getStrokes(): Object;
-
-  }
-
-  export class IInkStrokeContainer {
-    boundingRect: Object;
-    constructor();
-
-    loadAsync(inputStream: Object, callback: (error: Error) => void): void ;
-
-    saveAsync(outputStream: Object, callback: (error: Error, result: number) => void): void ;
-
-    addStroke(stroke: InkStroke): void;
-
-    deleteSelected(): Object;
-
-    moveSelected(translation: Object): Object;
-
-    selectWithPolyLine(polyline: Object): Object;
-
-    selectWithLine(from: Object, to: Object): Object;
-
-    copySelectedToClipboard(): void;
-
-    pasteFromClipboard(position: Object): Object;
-
-    canPasteFromClipboard(): boolean;
-
-    updateRecognitionResults(recognitionResults: Object): void;
-
-    getStrokes(): Object;
-
-    getRecognitionResults(): Object;
-
-  }
-
-  export class InkStrokeContainer {
-    boundingRect: Object;
-    constructor();
-
-    loadAsync(inputStream: Object, callback: (error: Error) => void): void ;
-
-    saveAsync(outputStream: Object, callback: (error: Error, result: number) => void): void ;
-    saveAsync(outputStream: Object, inkPersistenceFormat: InkPersistenceFormat, callback: (error: Error, result: number) => void): void ;
-
-    addStroke(stroke: InkStroke): void;
-
-    deleteSelected(): Object;
-
-    moveSelected(translation: Object): Object;
-
-    selectWithPolyLine(polyline: Object): Object;
-
-    selectWithLine(from: Object, to: Object): Object;
-
-    copySelectedToClipboard(): void;
-
-    pasteFromClipboard(position: Object): Object;
-
-    canPasteFromClipboard(): boolean;
-
-    updateRecognitionResults(recognitionResults: Object): void;
-
-    getStrokes(): Object;
-
-    getRecognitionResults(): Object;
-
-    addStrokes(strokes: Object): void;
-
-    clear(): void;
-
-    getStrokeById(id: number): InkStroke;
-
-  }
-
-  export class InkRecognizer {
-    name: string;
-    constructor();
-
-  }
-
-  export class IInkRecognizerContainer {
-    constructor();
-
-    recognizeAsync(strokeCollection: InkStrokeContainer, recognitionTarget: InkRecognitionTarget, callback: (error: Error, result: Object) => void): void ;
-
-    setDefaultRecognizer(recognizer: InkRecognizer): void;
-
-    getRecognizers(): Object;
-
-  }
-
-  export class InkRecognizerContainer {
-    constructor();
-
-    recognizeAsync(strokeCollection: InkStrokeContainer, recognitionTarget: InkRecognitionTarget, callback: (error: Error, result: Object) => void): void ;
-
-    setDefaultRecognizer(recognizer: InkRecognizer): void;
-
-    getRecognizers(): Object;
-
-  }
-
-  export class InkManager {
-    mode: InkManipulationMode;
-    boundingRect: Object;
-    constructor();
-
-    recognizeAsync(recognitionTarget: InkRecognitionTarget, callback: (error: Error, result: Object) => void): void ;
-    recognizeAsync(strokeCollection: InkStrokeContainer, recognitionTarget: InkRecognitionTarget, callback: (error: Error, result: Object) => void): void ;
-
-    loadAsync(inputStream: Object, callback: (error: Error) => void): void ;
-
-    saveAsync(outputStream: Object, callback: (error: Error, result: number) => void): void ;
-
-    processPointerDown(pointerPoint: Object): void;
-
-    processPointerUpdate(pointerPoint: Object): Object;
-
-    processPointerUp(pointerPoint: Object): Object;
-
-    setDefaultDrawingAttributes(drawingAttributes: InkDrawingAttributes): void;
-
-    addStroke(stroke: InkStroke): void;
-
-    deleteSelected(): Object;
-
-    moveSelected(translation: Object): Object;
-
-    selectWithPolyLine(polyline: Object): Object;
-
-    selectWithLine(from: Object, to: Object): Object;
-
-    copySelectedToClipboard(): void;
-
-    pasteFromClipboard(position: Object): Object;
-
-    canPasteFromClipboard(): boolean;
-
-    updateRecognitionResults(recognitionResults: Object): void;
-
-    getStrokes(): Object;
-
-    getRecognitionResults(): Object;
-
-    setDefaultRecognizer(recognizer: InkRecognizer): void;
-
-    getRecognizers(): Object;
+    setPenHandedness(value: PenHandedness): void;
 
   }
 

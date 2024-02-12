@@ -7,41 +7,43 @@
   export class CryptographicBuffer {
     constructor();
 
-    static compare(object1: Object, object2: Object): boolean;
+    static compare(object1: Object, object2: Object): Boolean;
 
 
-    static generateRandom(length: number): Object;
+    static generateRandom(length: Number): Object;
 
 
-    static generateRandomNumber(): number;
+    static generateRandomNumber(): Number;
 
 
-    static createFromByteArray(value: Array<number>): Object;
+    static createFromByteArray(value: Array<Number>): Object;
 
 
-    static copyToByteArray(buffer: Object, value: Array<number>): void;
+    static copyToByteArray(buffer: Object, value: Array<Number>): void;
 
 
-    static decodeFromHexString(value: string): Object;
+    static decodeFromHexString(value: String): Object;
 
 
-    static encodeToHexString(buffer: Object): string;
+    static encodeToHexString(buffer: Object): String;
 
 
-    static decodeFromBase64String(value: string): Object;
+    static decodeFromBase64String(value: String): Object;
 
 
-    static encodeToBase64String(buffer: Object): string;
+    static encodeToBase64String(buffer: Object): String;
 
 
-    static convertStringToBinary(value: string, encoding: BinaryStringEncoding): Object;
+    static convertStringToBinary(value: String, encoding: BinaryStringEncoding): Object;
 
 
-    static convertBinaryToString(encoding: BinaryStringEncoding, buffer: Object): string;
+    static convertBinaryToString(encoding: BinaryStringEncoding, buffer: Object): String;
 
 
   }
 
+export const BinaryStringEncoding: any;
+export const CryptographicBuffer: any;
 export * as certificates from "./security.cryptography.certificates.js";
 export * as core from "./security.cryptography.core.js";
 export * as dataprotection from "./security.cryptography.dataprotection.js";

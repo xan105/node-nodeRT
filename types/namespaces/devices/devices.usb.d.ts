@@ -1,15 +1,3 @@
-  export enum UsbTransferDirection {
-    out,
-    in,
-  }
-
-  export enum UsbEndpointType {
-    control,
-    isochronous,
-    bulk,
-    interrupt,
-  }
-
   export enum UsbControlRecipient {
     device,
     specifiedInterface,
@@ -24,6 +12,13 @@
     vendor,
   }
 
+  export enum UsbEndpointType {
+    control,
+    isochronous,
+    bulk,
+    interrupt,
+  }
+
   export enum UsbReadOptions {
     none,
     autoClearStall,
@@ -32,36 +27,127 @@
     allowPartialReads,
   }
 
+  export enum UsbTransferDirection {
+    out,
+    in,
+  }
+
   export enum UsbWriteOptions {
     none,
     autoClearStall,
     shortPacketTerminate,
   }
 
+  export class UsbBulkInEndpointDescriptor {
+    endpointNumber: Number;
+    maxPacketSize: Number;
+    pipe: UsbBulkInPipe;
+    constructor();
+
+  }
+
+  export class UsbBulkInPipe {
+    readOptions: UsbReadOptions;
+    endpointDescriptor: UsbBulkInEndpointDescriptor;
+    inputStream: Object;
+    maxTransferSizeBytes: Number;
+    constructor();
+
+    clearStallAsync(callback: (error: Error) => void): void ;
+
+    flushBuffer(): void;
+
+  }
+
+  export class UsbBulkOutEndpointDescriptor {
+    endpointNumber: Number;
+    maxPacketSize: Number;
+    pipe: UsbBulkOutPipe;
+    constructor();
+
+  }
+
+  export class UsbBulkOutPipe {
+    writeOptions: UsbWriteOptions;
+    endpointDescriptor: UsbBulkOutEndpointDescriptor;
+    outputStream: Object;
+    constructor();
+
+    clearStallAsync(callback: (error: Error) => void): void ;
+
+  }
+
+  export class UsbConfiguration {
+    configurationDescriptor: UsbConfigurationDescriptor;
+    descriptors: Object;
+    usbInterfaces: Object;
+    constructor();
+
+  }
+
+  export class UsbConfigurationDescriptor {
+    configurationValue: Number;
+    maxPowerMilliamps: Number;
+    remoteWakeup: Boolean;
+    selfPowered: Boolean;
+    constructor();
+
+    static tryParse(descriptor: UsbDescriptor, parsed: Object): Boolean;
+
+
+    static parse(descriptor: UsbDescriptor): UsbConfigurationDescriptor;
+
+
+  }
+
   export class UsbControlRequestType {
     recipient: UsbControlRecipient;
     direction: UsbTransferDirection;
     controlTransferType: UsbControlTransferType;
-    asByte: number;
+    asByte: Number;
     constructor();
 
   }
 
-  export class UsbSetupPacket {
-    value: number;
-    requestType: UsbControlRequestType;
-    request: number;
-    length: number;
-    index: number;
+  export class UsbDescriptor {
+    descriptorType: Number;
+    length: Number;
     constructor();
-    constructor(eightByteBuffer: Object);
 
+    readDescriptorBuffer(buffer: Object): void;
+
+  }
+
+  export class UsbDevice {
+    configuration: UsbConfiguration;
+    defaultInterface: UsbInterface;
+    deviceDescriptor: UsbDeviceDescriptor;
+    constructor();
+
+    static fromIdAsync(deviceId: String, callback: (error: Error, result: UsbDevice) => void): void ;
+
+
+    static getDeviceSelector(vendorId: Number, productId: Number, winUsbInterfaceClass: String): String;
+    static getDeviceSelector(winUsbInterfaceClass: String): String;
+    static getDeviceSelector(vendorId: Number, productId: Number): String;
+
+
+    static getDeviceClassSelector(usbClass: UsbDeviceClass): String;
+
+
+    sendControlOutTransferAsync(setupPacket: UsbSetupPacket, buffer: Object, callback: (error: Error, result: Number) => void): void ;
+    sendControlOutTransferAsync(setupPacket: UsbSetupPacket, callback: (error: Error, result: Number) => void): void ;
+
+    sendControlInTransferAsync(setupPacket: UsbSetupPacket, buffer: Object, callback: (error: Error, result: Object) => void): void ;
+    sendControlInTransferAsync(setupPacket: UsbSetupPacket, callback: (error: Error, result: Object) => void): void ;
+
+    close(): void;
   }
 
   export class UsbDeviceClass {
-    subclassCode: number;
-    protocolCode: number;
-    classCode: number;
+    subclassCode: Number;
+    protocolCode: Number;
+    classCode: Number;
     constructor();
 
   }
@@ -80,133 +166,13 @@
 
   }
 
-  export class UsbDevice {
-    configuration: UsbConfiguration;
-    defaultInterface: UsbInterface;
-    deviceDescriptor: UsbDeviceDescriptor;
-    constructor();
-
-    static fromIdAsync(deviceId: string, callback: (error: Error, result: UsbDevice) => void): void ;
-
-
-    static getDeviceSelector(vendorId: number, productId: number, winUsbInterfaceClass: string): string;
-    static getDeviceSelector(winUsbInterfaceClass: string): string;
-    static getDeviceSelector(vendorId: number, productId: number): string;
-
-
-    static getDeviceClassSelector(usbClass: UsbDeviceClass): string;
-
-
-    sendControlOutTransferAsync(setupPacket: UsbSetupPacket, buffer: Object, callback: (error: Error, result: number) => void): void ;
-    sendControlOutTransferAsync(setupPacket: UsbSetupPacket, callback: (error: Error, result: number) => void): void ;
-
-    sendControlInTransferAsync(setupPacket: UsbSetupPacket, buffer: Object, callback: (error: Error, result: Object) => void): void ;
-    sendControlInTransferAsync(setupPacket: UsbSetupPacket, callback: (error: Error, result: Object) => void): void ;
-
-    close(): void;
-  }
-
-  export class UsbInterface {
-    bulkInPipes: Object;
-    bulkOutPipes: Object;
-    descriptors: Object;
-    interfaceNumber: number;
-    interfaceSettings: Object;
-    interruptInPipes: Object;
-    interruptOutPipes: Object;
-    constructor();
-
-  }
-
   export class UsbDeviceDescriptor {
-    bcdDeviceRevision: number;
-    bcdUsb: number;
-    maxPacketSize0: number;
-    numberOfConfigurations: number;
-    productId: number;
-    vendorId: number;
-    constructor();
-
-  }
-
-  export class UsbConfiguration {
-    configurationDescriptor: UsbConfigurationDescriptor;
-    descriptors: Object;
-    usbInterfaces: Object;
-    constructor();
-
-  }
-
-  export class UsbDescriptor {
-    descriptorType: number;
-    length: number;
-    constructor();
-
-    readDescriptorBuffer(buffer: Object): void;
-
-  }
-
-  export class UsbConfigurationDescriptor {
-    configurationValue: number;
-    maxPowerMilliamps: number;
-    remoteWakeup: boolean;
-    selfPowered: boolean;
-    constructor();
-
-    static tryParse(descriptor: UsbDescriptor, parsed: Object): boolean;
-
-
-    static parse(descriptor: UsbDescriptor): UsbConfigurationDescriptor;
-
-
-  }
-
-  export class UsbInterfaceDescriptor {
-    alternateSettingNumber: number;
-    classCode: number;
-    interfaceNumber: number;
-    protocolCode: number;
-    subclassCode: number;
-    constructor();
-
-    static tryParse(descriptor: UsbDescriptor, parsed: Object): boolean;
-
-
-    static parse(descriptor: UsbDescriptor): UsbInterfaceDescriptor;
-
-
-  }
-
-  export class UsbBulkInEndpointDescriptor {
-    endpointNumber: number;
-    maxPacketSize: number;
-    pipe: UsbBulkInPipe;
-    constructor();
-
-  }
-
-  export class UsbInterruptInEndpointDescriptor {
-    endpointNumber: number;
-    interval: number;
-    maxPacketSize: number;
-    pipe: UsbInterruptInPipe;
-    constructor();
-
-  }
-
-  export class UsbBulkOutEndpointDescriptor {
-    endpointNumber: number;
-    maxPacketSize: number;
-    pipe: UsbBulkOutPipe;
-    constructor();
-
-  }
-
-  export class UsbInterruptOutEndpointDescriptor {
-    endpointNumber: number;
-    interval: number;
-    maxPacketSize: number;
-    pipe: UsbInterruptOutPipe;
+    bcdDeviceRevision: Number;
+    bcdUsb: Number;
+    maxPacketSize0: Number;
+    numberOfConfigurations: Number;
+    productId: Number;
+    vendorId: Number;
     constructor();
 
   }
@@ -217,15 +183,66 @@
     asInterruptInEndpointDescriptor: UsbInterruptInEndpointDescriptor;
     asInterruptOutEndpointDescriptor: UsbInterruptOutEndpointDescriptor;
     direction: UsbTransferDirection;
-    endpointNumber: number;
+    endpointNumber: Number;
     endpointType: UsbEndpointType;
     constructor();
 
-    static tryParse(descriptor: UsbDescriptor, parsed: Object): boolean;
+    static tryParse(descriptor: UsbDescriptor, parsed: Object): Boolean;
 
 
     static parse(descriptor: UsbDescriptor): UsbEndpointDescriptor;
 
+
+  }
+
+  export class UsbInterface {
+    bulkInPipes: Object;
+    bulkOutPipes: Object;
+    descriptors: Object;
+    interfaceNumber: Number;
+    interfaceSettings: Object;
+    interruptInPipes: Object;
+    interruptOutPipes: Object;
+    constructor();
+
+  }
+
+  export class UsbInterfaceDescriptor {
+    alternateSettingNumber: Number;
+    classCode: Number;
+    interfaceNumber: Number;
+    protocolCode: Number;
+    subclassCode: Number;
+    constructor();
+
+    static tryParse(descriptor: UsbDescriptor, parsed: Object): Boolean;
+
+
+    static parse(descriptor: UsbDescriptor): UsbInterfaceDescriptor;
+
+
+  }
+
+  export class UsbInterfaceSetting {
+    bulkInEndpoints: Object;
+    bulkOutEndpoints: Object;
+    descriptors: Object;
+    interfaceDescriptor: UsbInterfaceDescriptor;
+    interruptInEndpoints: Object;
+    interruptOutEndpoints: Object;
+    selected: Boolean;
+    constructor();
+
+    selectSettingAsync(callback: (error: Error) => void): void ;
+
+  }
+
+  export class UsbInterruptInEndpointDescriptor {
+    endpointNumber: Number;
+    interval: Number;
+    maxPacketSize: Number;
+    pipe: UsbInterruptInPipe;
+    constructor();
 
   }
 
@@ -254,26 +271,12 @@
 
   }
 
-  export class UsbBulkInPipe {
-    readOptions: UsbReadOptions;
-    endpointDescriptor: UsbBulkInEndpointDescriptor;
-    inputStream: Object;
-    maxTransferSizeBytes: number;
+  export class UsbInterruptOutEndpointDescriptor {
+    endpointNumber: Number;
+    interval: Number;
+    maxPacketSize: Number;
+    pipe: UsbInterruptOutPipe;
     constructor();
-
-    clearStallAsync(callback: (error: Error) => void): void ;
-
-    flushBuffer(): void;
-
-  }
-
-  export class UsbBulkOutPipe {
-    writeOptions: UsbWriteOptions;
-    endpointDescriptor: UsbBulkOutEndpointDescriptor;
-    outputStream: Object;
-    constructor();
-
-    clearStallAsync(callback: (error: Error) => void): void ;
 
   }
 
@@ -287,17 +290,14 @@
 
   }
 
-  export class UsbInterfaceSetting {
-    bulkInEndpoints: Object;
-    bulkOutEndpoints: Object;
-    descriptors: Object;
-    interfaceDescriptor: UsbInterfaceDescriptor;
-    interruptInEndpoints: Object;
-    interruptOutEndpoints: Object;
-    selected: boolean;
+  export class UsbSetupPacket {
+    value: Number;
+    requestType: UsbControlRequestType;
+    request: Number;
+    length: Number;
+    index: Number;
     constructor();
-
-    selectSettingAsync(callback: (error: Error) => void): void ;
+    constructor(eightByteBuffer: Object);
 
   }
 

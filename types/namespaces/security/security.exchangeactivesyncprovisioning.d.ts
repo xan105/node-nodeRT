@@ -2,26 +2,11 @@
     constructor();
   }
 
-  export enum EasRequireEncryptionResult {
+  export enum EasDisallowConvenienceLogonResult {
     notEvaluated,
     compliant,
     canBeCompliant,
-    notProvisionedOnAllVolumes,
-    deFixedDataNotSupported,
-    fixedDataNotSupported,
-    deHardwareNotCompliant,
-    hardwareNotCompliant,
-    deWinReNotConfigured,
-    lockNotConfigured,
-    deProtectionSuspended,
-    protectionSuspended,
-    deOsVolumeNotProtected,
-    osVolumeNotProtected,
-    deProtectionNotYetEnabled,
-    protectionNotYetEnabled,
-    noFeatureLicense,
-    osNotProtected,
-    unexpectedFailure,
+    requestedPolicyIsStricter,
   }
 
   export enum EasEncryptionProviderType {
@@ -30,7 +15,23 @@
     otherEncryption,
   }
 
-  export enum EasMinPasswordLengthResult {
+  export enum EasMaxInactivityTimeLockResult {
+    notEvaluated,
+    compliant,
+    canBeCompliant,
+    requestedPolicyIsStricter,
+    invalidParameter,
+  }
+
+  export enum EasMaxPasswordFailedAttemptsResult {
+    notEvaluated,
+    compliant,
+    canBeCompliant,
+    requestedPolicyIsStricter,
+    invalidParameter,
+  }
+
+  export enum EasMinPasswordComplexCharactersResult {
     notEvaluated,
     compliant,
     canBeCompliant,
@@ -48,14 +49,7 @@
     changeConnectedUserPassword,
   }
 
-  export enum EasDisallowConvenienceLogonResult {
-    notEvaluated,
-    compliant,
-    canBeCompliant,
-    requestedPolicyIsStricter,
-  }
-
-  export enum EasMinPasswordComplexCharactersResult {
+  export enum EasMinPasswordLengthResult {
     notEvaluated,
     compliant,
     canBeCompliant,
@@ -93,37 +87,60 @@
     invalidParameter,
   }
 
-  export enum EasMaxPasswordFailedAttemptsResult {
+  export enum EasRequireEncryptionResult {
     notEvaluated,
     compliant,
     canBeCompliant,
-    requestedPolicyIsStricter,
-    invalidParameter,
-  }
-
-  export enum EasMaxInactivityTimeLockResult {
-    notEvaluated,
-    compliant,
-    canBeCompliant,
-    requestedPolicyIsStricter,
-    invalidParameter,
+    notProvisionedOnAllVolumes,
+    deFixedDataNotSupported,
+    fixedDataNotSupported,
+    deHardwareNotCompliant,
+    hardwareNotCompliant,
+    deWinReNotConfigured,
+    lockNotConfigured,
+    deProtectionSuspended,
+    protectionSuspended,
+    deOsVolumeNotProtected,
+    osVolumeNotProtected,
+    deProtectionNotYetEnabled,
+    protectionNotYetEnabled,
+    noFeatureLicense,
+    osNotProtected,
+    unexpectedFailure,
   }
 
   export class EasClientDeviceInformation {
-    friendlyName: string;
-    id: string;
-    operatingSystem: string;
-    systemManufacturer: string;
-    systemProductName: string;
-    systemSku: string;
-    systemFirmwareVersion: string;
-    systemHardwareVersion: string;
+    friendlyName: String;
+    id: String;
+    operatingSystem: String;
+    systemManufacturer: String;
+    systemProductName: String;
+    systemSku: String;
+    systemFirmwareVersion: String;
+    systemHardwareVersion: String;
     constructor();
 
   }
 
+  export class EasClientSecurityPolicy {
+    requireEncryption: Boolean;
+    passwordHistory: Number;
+    passwordExpiration: Number;
+    minPasswordLength: Number;
+    minPasswordComplexCharacters: Number;
+    maxPasswordFailedAttempts: Number;
+    maxInactivityTimeLock: Number;
+    disallowConvenienceLogon: Boolean;
+    constructor();
+
+    applyAsync(callback: (error: Error, result: EasComplianceResults) => void): void ;
+
+    checkCompliance(): EasComplianceResults;
+
+  }
+
   export class EasComplianceResults {
-    compliant: boolean;
+    compliant: Boolean;
     disallowConvenienceLogonResult: EasDisallowConvenienceLogonResult;
     maxInactivityTimeLockResult: EasMaxInactivityTimeLockResult;
     maxPasswordFailedAttemptsResult: EasMaxPasswordFailedAttemptsResult;
@@ -134,23 +151,6 @@
     requireEncryptionResult: EasRequireEncryptionResult;
     encryptionProviderType: EasEncryptionProviderType;
     constructor();
-
-  }
-
-  export class EasClientSecurityPolicy {
-    requireEncryption: boolean;
-    passwordHistory: number;
-    passwordExpiration: number;
-    minPasswordLength: number;
-    minPasswordComplexCharacters: number;
-    maxPasswordFailedAttempts: number;
-    maxInactivityTimeLock: number;
-    disallowConvenienceLogon: boolean;
-    constructor();
-
-    applyAsync(callback: (error: Error, result: EasComplianceResults) => void): void ;
-
-    checkCompliance(): EasComplianceResults;
 
   }
 

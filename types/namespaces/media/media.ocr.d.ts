@@ -2,35 +2,13 @@
     constructor();
   }
 
-  export class OcrWord {
-    boundingRect: Object;
-    text: string;
-    constructor();
-
-  }
-
-  export class OcrLine {
-    text: string;
-    words: Object;
-    constructor();
-
-  }
-
-  export class OcrResult {
-    lines: Object;
-    text: string;
-    textAngle: number;
-    constructor();
-
-  }
-
   export class OcrEngine {
     static availableRecognizerLanguages: Object;
-    static maxImageDimension: number;
+    static maxImageDimension: Number;
     recognizerLanguage: Object;
     constructor();
 
-    static isLanguageSupported(language: Object): boolean;
+    static isLanguageSupported(language: Object): Boolean;
 
 
     static tryCreateFromLanguage(language: Object): OcrEngine;
@@ -40,6 +18,28 @@
 
 
     recognizeAsync(bitmap: Object, callback: (error: Error, result: OcrResult) => void): void ;
+
+  }
+
+  export class OcrLine {
+    text: String;
+    words: Object;
+    constructor();
+
+  }
+
+  export class OcrResult {
+    lines: Object;
+    text: String;
+    textAngle: Number;
+    constructor();
+
+  }
+
+  export class OcrWord {
+    boundingRect: Object;
+    text: String;
+    constructor();
 
   }
 

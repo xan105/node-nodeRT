@@ -10,13 +10,6 @@
     constructor();
   }
 
-  export enum SystemIdentificationSource {
-    none,
-    tpm,
-    uefi,
-    registry,
-  }
-
   export enum PlatformDataCollectionLevel {
     security,
     basic,
@@ -24,33 +17,26 @@
     full,
   }
 
-  export class SystemIdentificationInfo {
-    id: Object;
-    source: SystemIdentificationSource;
-    constructor();
-
+  export enum SystemIdentificationSource {
+    none,
+    tpm,
+    uefi,
+    registry,
   }
 
-  export class SystemIdentification {
-    constructor();
-
-    static getSystemIdForPublisher(): SystemIdentificationInfo;
-
-
-    static getSystemIdForUser(user: Object): SystemIdentificationInfo;
-
-
+  export enum SystemOutOfBoxExperienceState {
+    notStarted,
+    inProgress,
+    completed,
   }
 
-  export class AnalyticsVersionInfo {
-    deviceFamily: string;
-    deviceFamilyVersion: string;
-    constructor();
-
+  export enum UnsupportedAppRequirementReasons {
+    unknown,
+    deniedBySystem,
   }
 
   export class AnalyticsInfo {
-    static deviceForm: string;
+    static deviceForm: String;
     static versionInfo: AnalyticsVersionInfo;
     constructor();
 
@@ -59,8 +45,67 @@
 
   }
 
+  export class AnalyticsVersionInfo {
+    deviceFamily: String;
+    deviceFamilyVersion: String;
+    productName: String;
+    constructor();
+
+  }
+
+  export class AppApplicability {
+    constructor();
+
+    static getUnsupportedAppRequirements(capabilities: Object): Object;
+
+
+  }
+
   export class EducationSettings {
-    static isEducationEnvironment: boolean;
+    static isEducationEnvironment: Boolean;
+    constructor();
+
+  }
+
+  export class HardwareIdentification {
+    constructor();
+
+    static getPackageSpecificToken(nonce: Object): HardwareToken;
+
+
+  }
+
+  export class HardwareToken {
+    certificate: Object;
+    id: Object;
+    signature: Object;
+    constructor();
+
+  }
+
+  export class KnownRetailInfoProperties {
+    static batteryLifeDescription: String;
+    static displayDescription: String;
+    static displayModelName: String;
+    static formFactor: String;
+    static frontCameraDescription: String;
+    static graphicsDescription: String;
+    static hasNfc: String;
+    static hasOpticalDrive: String;
+    static hasSdSlot: String;
+    static isFeatured: String;
+    static isOfficeInstalled: String;
+    static manufacturerName: String;
+    static memory: String;
+    static modelName: String;
+    static price: String;
+    static processorDescription: String;
+    static rearCameraDescription: String;
+    static retailAccessCode: String;
+    static screenSize: String;
+    static storageDescription: String;
+    static weight: String;
+    static windowsEdition: String;
     constructor();
 
   }
@@ -69,7 +114,7 @@
     static collectionLevel: PlatformDataCollectionLevel;
     constructor();
 
-    static canCollectDiagnostics(level: PlatformDataCollectionLevel): boolean;
+    static canCollectDiagnostics(level: PlatformDataCollectionLevel): Boolean;
 
 
     addListener(type: "CollectionLevelChanged", listener: (ev: Event) => void): void ;
@@ -85,61 +130,117 @@
 
   }
 
-  export class HardwareToken {
-    certificate: Object;
-    id: Object;
-    signature: Object;
-    constructor();
-
-  }
-
-  export class HardwareIdentification {
-    constructor();
-
-    static getPackageSpecificToken(nonce: Object): HardwareToken;
-
-
-  }
-
   export class RetailInfo {
-    static isDemoModeEnabled: boolean;
+    static isDemoModeEnabled: Boolean;
     static properties: Object;
     constructor();
 
   }
 
-  export class KnownRetailInfoProperties {
-    static batteryLifeDescription: string;
-    static displayDescription: string;
-    static displayModelName: string;
-    static formFactor: string;
-    static frontCameraDescription: string;
-    static graphicsDescription: string;
-    static hasNfc: string;
-    static hasOpticalDrive: string;
-    static hasSdSlot: string;
-    static isFeatured: string;
-    static isOfficeInstalled: string;
-    static manufacturerName: string;
-    static memory: string;
-    static modelName: string;
-    static price: string;
-    static processorDescription: string;
-    static rearCameraDescription: string;
-    static retailAccessCode: string;
-    static screenSize: string;
-    static storageDescription: string;
-    static weight: string;
-    static windowsEdition: string;
-    constructor();
-
-  }
-
   export class SharedModeSettings {
-    static isEnabled: boolean;
-    static shouldAvoidLocalStorage: boolean;
+    static isEnabled: Boolean;
+    static shouldAvoidLocalStorage: Boolean;
     constructor();
 
   }
 
+  export class SmartAppControlPolicy {
+    static isEnabled: Boolean;
+    constructor();
+
+    addListener(type: "Changed", listener: (ev: Event) => void): void ;
+    removeListener(type: "Changed", listener: (ev: Event) => void): void ;
+    on(type: "Changed", listener: (ev: Event) => void): void ;
+    off(type: "Changed", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
+
+  }
+
+  export class SystemIdentification {
+    constructor();
+
+    static getSystemIdForPublisher(): SystemIdentificationInfo;
+
+
+    static getSystemIdForUser(user: Object): SystemIdentificationInfo;
+
+
+  }
+
+  export class SystemIdentificationInfo {
+    id: Object;
+    source: SystemIdentificationSource;
+    constructor();
+
+  }
+
+  export class SystemSetupInfo {
+    static outOfBoxExperienceState: SystemOutOfBoxExperienceState;
+    constructor();
+
+    addListener(type: "OutOfBoxExperienceStateChanged", listener: (ev: Event) => void): void ;
+    removeListener(type: "OutOfBoxExperienceStateChanged", listener: (ev: Event) => void): void ;
+    on(type: "OutOfBoxExperienceStateChanged", listener: (ev: Event) => void): void ;
+    off(type: "OutOfBoxExperienceStateChanged", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
+
+  }
+
+  export class UnsupportedAppRequirement {
+    reasons: UnsupportedAppRequirementReasons;
+    requirement: String;
+    constructor();
+
+  }
+
+  export class WindowsIntegrityPolicy {
+    static canDisable: Boolean;
+    static isDisableSupported: Boolean;
+    static isEnabled: Boolean;
+    static isEnabledForTrial: Boolean;
+    constructor();
+
+    addListener(type: "PolicyChanged", listener: (ev: Event) => void): void ;
+    removeListener(type: "PolicyChanged", listener: (ev: Event) => void): void ;
+    on(type: "PolicyChanged", listener: (ev: Event) => void): void ;
+    off(type: "PolicyChanged", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
+
+  }
+
+export const PlatformDataCollectionLevel: any;
+export const SystemIdentificationSource: any;
+export const SystemOutOfBoxExperienceState: any;
+export const UnsupportedAppRequirementReasons: any;
+export const AnalyticsInfo: any;
+export const AnalyticsVersionInfo: any;
+export const AppApplicability: any;
+export const EducationSettings: any;
+export const HardwareIdentification: any;
+export const HardwareToken: any;
+export const KnownRetailInfoProperties: any;
+export const PlatformDiagnosticsAndUsageDataSettings: any;
+export const RetailInfo: any;
+export const SharedModeSettings: any;
+export const SmartAppControlPolicy: any;
+export const SystemIdentification: any;
+export const SystemIdentificationInfo: any;
+export const SystemSetupInfo: any;
+export const UnsupportedAppRequirement: any;
+export const WindowsIntegrityPolicy: any;
 export * as systemmanufacturers from "./system.profile.systemmanufacturers.js";

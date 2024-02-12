@@ -17,12 +17,68 @@
     adequate,
   }
 
+  export class BackgroundEnergyManager {
+    static excessiveUsageLevel: Number;
+    static lowUsageLevel: Number;
+    static maxAcceptableUsageLevel: Number;
+    static nearMaxAcceptableUsageLevel: Number;
+    static nearTerminationUsageLevel: Number;
+    static recentEnergyUsage: Number;
+    static recentEnergyUsageLevel: Number;
+    static terminationUsageLevel: Number;
+    constructor();
+
+    addListener(type: "RecentEnergyUsageIncreased", listener: (ev: Event) => void): void ;
+    removeListener(type: "RecentEnergyUsageIncreased", listener: (ev: Event) => void): void ;
+    on(type: "RecentEnergyUsageIncreased", listener: (ev: Event) => void): void ;
+    off(type: "RecentEnergyUsageIncreased", listener: (ev: Event) => void): void ;
+    
+    addListener(type: "RecentEnergyUsageReturnedToLow", listener: (ev: Event) => void): void ;
+    removeListener(type: "RecentEnergyUsageReturnedToLow", listener: (ev: Event) => void): void ;
+    on(type: "RecentEnergyUsageReturnedToLow", listener: (ev: Event) => void): void ;
+    off(type: "RecentEnergyUsageReturnedToLow", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
+
+  }
+
+  export class ForegroundEnergyManager {
+    static excessiveUsageLevel: Number;
+    static lowUsageLevel: Number;
+    static maxAcceptableUsageLevel: Number;
+    static nearMaxAcceptableUsageLevel: Number;
+    static recentEnergyUsage: Number;
+    static recentEnergyUsageLevel: Number;
+    constructor();
+
+    addListener(type: "RecentEnergyUsageIncreased", listener: (ev: Event) => void): void ;
+    removeListener(type: "RecentEnergyUsageIncreased", listener: (ev: Event) => void): void ;
+    on(type: "RecentEnergyUsageIncreased", listener: (ev: Event) => void): void ;
+    off(type: "RecentEnergyUsageIncreased", listener: (ev: Event) => void): void ;
+    
+    addListener(type: "RecentEnergyUsageReturnedToLow", listener: (ev: Event) => void): void ;
+    removeListener(type: "RecentEnergyUsageReturnedToLow", listener: (ev: Event) => void): void ;
+    on(type: "RecentEnergyUsageReturnedToLow", listener: (ev: Event) => void): void ;
+    off(type: "RecentEnergyUsageReturnedToLow", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
+
+  }
+
   export class PowerManager {
     static batteryStatus: BatteryStatus;
     static energySaverStatus: EnergySaverStatus;
     static powerSupplyStatus: PowerSupplyStatus;
-    static remainingChargePercent: number;
-    static remainingDischargeTime: number;
+    static remainingChargePercent: Number;
+    static remainingDischargeTime: Number;
     constructor();
 
     addListener(type: "BatteryStatusChanged", listener: (ev: Event) => void): void ;
@@ -58,60 +114,10 @@
 
   }
 
-  export class BackgroundEnergyManager {
-    static excessiveUsageLevel: number;
-    static lowUsageLevel: number;
-    static maxAcceptableUsageLevel: number;
-    static nearMaxAcceptableUsageLevel: number;
-    static nearTerminationUsageLevel: number;
-    static recentEnergyUsage: number;
-    static recentEnergyUsageLevel: number;
-    static terminationUsageLevel: number;
-    constructor();
-
-    addListener(type: "RecentEnergyUsageIncreased", listener: (ev: Event) => void): void ;
-    removeListener(type: "RecentEnergyUsageIncreased", listener: (ev: Event) => void): void ;
-    on(type: "RecentEnergyUsageIncreased", listener: (ev: Event) => void): void ;
-    off(type: "RecentEnergyUsageIncreased", listener: (ev: Event) => void): void ;
-    
-    addListener(type: "RecentEnergyUsageReturnedToLow", listener: (ev: Event) => void): void ;
-    removeListener(type: "RecentEnergyUsageReturnedToLow", listener: (ev: Event) => void): void ;
-    on(type: "RecentEnergyUsageReturnedToLow", listener: (ev: Event) => void): void ;
-    off(type: "RecentEnergyUsageReturnedToLow", listener: (ev: Event) => void): void ;
-    
-    addListener(type: string, listener: (ev: Event) => void): void ;
-    removeListener(type: string, listener: (ev: Event) => void): void ;
-    on(type: string, listener: (ev: Event) => void): void ;
-    off(type: string, listener: (ev: Event) => void): void ;
-    
-
-  }
-
-  export class ForegroundEnergyManager {
-    static excessiveUsageLevel: number;
-    static lowUsageLevel: number;
-    static maxAcceptableUsageLevel: number;
-    static nearMaxAcceptableUsageLevel: number;
-    static recentEnergyUsage: number;
-    static recentEnergyUsageLevel: number;
-    constructor();
-
-    addListener(type: "RecentEnergyUsageIncreased", listener: (ev: Event) => void): void ;
-    removeListener(type: "RecentEnergyUsageIncreased", listener: (ev: Event) => void): void ;
-    on(type: "RecentEnergyUsageIncreased", listener: (ev: Event) => void): void ;
-    off(type: "RecentEnergyUsageIncreased", listener: (ev: Event) => void): void ;
-    
-    addListener(type: "RecentEnergyUsageReturnedToLow", listener: (ev: Event) => void): void ;
-    removeListener(type: "RecentEnergyUsageReturnedToLow", listener: (ev: Event) => void): void ;
-    on(type: "RecentEnergyUsageReturnedToLow", listener: (ev: Event) => void): void ;
-    off(type: "RecentEnergyUsageReturnedToLow", listener: (ev: Event) => void): void ;
-    
-    addListener(type: string, listener: (ev: Event) => void): void ;
-    removeListener(type: string, listener: (ev: Event) => void): void ;
-    on(type: string, listener: (ev: Event) => void): void ;
-    off(type: string, listener: (ev: Event) => void): void ;
-    
-
-  }
-
+export const BatteryStatus: any;
+export const EnergySaverStatus: any;
+export const PowerSupplyStatus: any;
+export const BackgroundEnergyManager: any;
+export const ForegroundEnergyManager: any;
+export const PowerManager: any;
 export * as diagnostics from "./system.power.diagnostics.js";

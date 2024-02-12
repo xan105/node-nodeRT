@@ -7,24 +7,35 @@
     string,
   }
 
+  export class NamedPolicy {
+    constructor();
+
+    static getPolicyFromPath(area: String, name: String): NamedPolicyData;
+
+
+    static getPolicyFromPathForUser(user: Object, area: String, name: String): NamedPolicyData;
+
+
+  }
+
   export class NamedPolicyData {
-    area: string;
-    isManaged: boolean;
-    isUserPolicy: boolean;
+    area: String;
+    isManaged: Boolean;
+    isUserPolicy: Boolean;
     kind: NamedPolicyKind;
-    name: string;
+    name: String;
     user: Object;
     constructor();
 
-    getBoolean(): boolean;
+    getBoolean(): Boolean;
 
     getBinary(): Object;
 
-    getInt32(): number;
+    getInt32(): Number;
 
-    getInt64(): number;
+    getInt64(): Number;
 
-    getString(): string;
+    getString(): String;
 
     addListener(type: "Changed", listener: (ev: Event) => void): void ;
     removeListener(type: "Changed", listener: (ev: Event) => void): void ;
@@ -36,17 +47,6 @@
     on(type: string, listener: (ev: Event) => void): void ;
     off(type: string, listener: (ev: Event) => void): void ;
     
-
-  }
-
-  export class NamedPolicy {
-    constructor();
-
-    static getPolicyFromPath(area: string, name: string): NamedPolicyData;
-
-
-    static getPolicyFromPathForUser(user: Object, area: string, name: string): NamedPolicyData;
-
 
   }
 

@@ -1,16 +1,16 @@
   export class HdmiDisplayHdr2086Metadata {
-    redPrimaryX: number;
-    redPrimaryY: number;
-    greenPrimaryX: number;
-    greenPrimaryY: number;
-    bluePrimaryX: number;
-    bluePrimaryY: number;
-    whitePointX: number;
-    whitePointY: number;
-    maxMasteringLuminance: number;
-    minMasteringLuminance: number;
-    maxContentLightLevel: number;
-    maxFrameAverageLightLevel: number;
+    redPrimaryX: Number;
+    redPrimaryY: Number;
+    greenPrimaryX: Number;
+    greenPrimaryY: Number;
+    bluePrimaryX: Number;
+    bluePrimaryY: Number;
+    whitePointX: Number;
+    whitePointY: Number;
+    maxMasteringLuminance: Number;
+    minMasteringLuminance: Number;
+    maxContentLightLevel: Number;
+    maxFrameAverageLightLevel: Number;
     constructor();
   }
 
@@ -21,34 +21,18 @@
     bT709,
   }
 
+  export enum HdmiDisplayHdrOption {
+    none,
+    eotfSdr,
+    eotf2084,
+    dolbyVisionLowLatency,
+  }
+
   export enum HdmiDisplayPixelEncoding {
     rgb444,
     ycc444,
     ycc422,
     ycc420,
-  }
-
-  export enum HdmiDisplayHdrOption {
-    none,
-    eotfSdr,
-    eotf2084,
-  }
-
-  export class HdmiDisplayMode {
-    bitsPerPixel: number;
-    colorSpace: HdmiDisplayColorSpace;
-    is2086MetadataSupported: boolean;
-    isSdrLuminanceSupported: boolean;
-    isSmpte2084Supported: boolean;
-    pixelEncoding: HdmiDisplayPixelEncoding;
-    refreshRate: number;
-    resolutionHeightInRawPixels: number;
-    resolutionWidthInRawPixels: number;
-    stereoEnabled: boolean;
-    constructor();
-
-    isEqual(mode: HdmiDisplayMode): boolean;
-
   }
 
   export class HdmiDisplayInformation {
@@ -59,9 +43,9 @@
 
     setDefaultDisplayModeAsync(callback: (error: Error) => void): void ;
 
-    requestSetCurrentDisplayModeAsync(mode: HdmiDisplayMode, callback: (error: Error, result: boolean) => void): void ;
-    requestSetCurrentDisplayModeAsync(mode: HdmiDisplayMode, hdrOption: HdmiDisplayHdrOption, callback: (error: Error, result: boolean) => void): void ;
-    requestSetCurrentDisplayModeAsync(mode: HdmiDisplayMode, hdrOption: HdmiDisplayHdrOption, hdrMetadata: HdmiDisplayHdr2086Metadata, callback: (error: Error, result: boolean) => void): void ;
+    requestSetCurrentDisplayModeAsync(mode: HdmiDisplayMode, callback: (error: Error, result: Boolean) => void): void ;
+    requestSetCurrentDisplayModeAsync(mode: HdmiDisplayMode, hdrOption: HdmiDisplayHdrOption, callback: (error: Error, result: Boolean) => void): void ;
+    requestSetCurrentDisplayModeAsync(mode: HdmiDisplayMode, hdrOption: HdmiDisplayHdrOption, hdrMetadata: HdmiDisplayHdr2086Metadata, callback: (error: Error, result: Boolean) => void): void ;
 
     getSupportedDisplayModes(): Object;
 
@@ -77,6 +61,24 @@
     on(type: string, listener: (ev: Event) => void): void ;
     off(type: string, listener: (ev: Event) => void): void ;
     
+
+  }
+
+  export class HdmiDisplayMode {
+    bitsPerPixel: Number;
+    colorSpace: HdmiDisplayColorSpace;
+    is2086MetadataSupported: Boolean;
+    isSdrLuminanceSupported: Boolean;
+    isSmpte2084Supported: Boolean;
+    pixelEncoding: HdmiDisplayPixelEncoding;
+    refreshRate: Number;
+    resolutionHeightInRawPixels: Number;
+    resolutionWidthInRawPixels: Number;
+    stereoEnabled: Boolean;
+    isDolbyVisionLowLatencySupported: Boolean;
+    constructor();
+
+    isEqual(mode: HdmiDisplayMode): Boolean;
 
   }
 

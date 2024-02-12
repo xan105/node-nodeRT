@@ -3,25 +3,6 @@
     allLicenses,
   }
 
-  export class LicenseSatisfactionInfo {
-    isSatisfied: boolean;
-    satisfiedByDevice: boolean;
-    satisfiedByInstallMedia: boolean;
-    satisfiedByOpenLicense: boolean;
-    satisfiedByPass: boolean;
-    satisfiedBySignedInUser: boolean;
-    satisfiedByTrial: boolean;
-    constructor();
-
-  }
-
-  export class LicenseSatisfactionResult {
-    extendedError: number;
-    licenseSatisfactionInfos: Object;
-    constructor();
-
-  }
-
   export class LicenseManager {
     constructor();
 
@@ -33,6 +14,25 @@
 
     static getSatisfactionInfosAsync(contentIds: Object, keyIds: Object, callback: (error: Error, result: LicenseSatisfactionResult) => void): void ;
 
+
+  }
+
+  export class LicenseSatisfactionInfo {
+    isSatisfied: Boolean;
+    satisfiedByDevice: Boolean;
+    satisfiedByInstallMedia: Boolean;
+    satisfiedByOpenLicense: Boolean;
+    satisfiedByPass: Boolean;
+    satisfiedBySignedInUser: Boolean;
+    satisfiedByTrial: Boolean;
+    constructor();
+
+  }
+
+  export class LicenseSatisfactionResult {
+    extendedError: Number;
+    licenseSatisfactionInfos: Object;
+    constructor();
 
   }
 

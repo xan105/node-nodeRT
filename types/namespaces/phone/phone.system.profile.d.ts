@@ -1,5 +1,5 @@
   export class RetailMode {
-    static retailModeEnabled: boolean;
+    static retailModeEnabled: Boolean;
     constructor();
 
   }

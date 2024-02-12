@@ -1,6 +1,6 @@
   export class DisplayAdapterId {
-    lowPart: number;
-    highPart: number;
+    lowPart: Number;
+    highPart: Number;
     constructor();
   }
 
@@ -23,6 +23,12 @@
     image,
   }
 
+  export enum LearningModelPixelRange {
+    zeroTo255,
+    zeroToOne,
+    minusOneToOne,
+  }
+
   export enum TensorKind {
     undefined,
     float,
@@ -43,10 +49,10 @@
   }
 
   export class ILearningModelFeatureDescriptor {
-    description: string;
-    isRequired: boolean;
+    description: String;
+    isRequired: Boolean;
     kind: LearningModelFeatureKind;
-    name: string;
+    name: String;
     constructor();
 
   }
@@ -70,14 +76,15 @@
   }
 
   export class ImageFeatureDescriptor {
-    bitmapAlphaMode: number;
-    bitmapPixelFormat: number;
-    height: number;
-    width: number;
-    description: string;
-    isRequired: boolean;
+    bitmapAlphaMode: Number;
+    bitmapPixelFormat: Number;
+    height: Number;
+    width: Number;
+    pixelRange: LearningModelPixelRange;
+    description: String;
+    isRequired: Boolean;
     kind: LearningModelFeatureKind;
-    name: string;
+    name: String;
     constructor();
 
   }
@@ -93,14 +100,14 @@
   }
 
   export class LearningModel {
-    author: string;
-    description: string;
-    domain: string;
+    author: String;
+    description: String;
+    domain: String;
     inputFeatures: Object;
     metadata: Object;
-    name: string;
+    name: String;
     outputFeatures: Object;
-    version: number;
+    version: Number;
     constructor();
 
     static loadFromStorageFileAsync(modelFile: Object, callback: (error: Error, result: LearningModel) => void): void ;
@@ -111,8 +118,8 @@
     static loadFromStreamAsync(modelStream: Object, operatorProvider: ILearningModelOperatorProvider, callback: (error: Error, result: LearningModel) => void): void ;
 
 
-    static loadFromFilePath(filePath: string): LearningModel;
-    static loadFromFilePath(filePath: string, operatorProvider: ILearningModelOperatorProvider): LearningModel;
+    static loadFromFilePath(filePath: String): LearningModel;
+    static loadFromFilePath(filePath: String, operatorProvider: ILearningModelOperatorProvider): LearningModel;
 
 
     static loadFromStream(modelStream: Object): LearningModel;
@@ -126,14 +133,14 @@
     constructor();
     constructor(session: LearningModelSession);
 
-    bind(name: string, value: Object): void;
-    bind(name: string, value: Object, props: Object): void;
+    bind(name: String, value: Object): void;
+    bind(name: String, value: Object, props: Object): void;
 
     clear(): void;
 
-    lookup(key: string): Object;
+    lookup(key: String): Object;
 
-    hasKey(key: string): boolean;
+    hasKey(key: String): Boolean;
 
     split(first: Object, second: Object): void;
 
@@ -153,10 +160,10 @@
   }
 
   export class LearningModelEvaluationResult {
-    correlationId: string;
-    errorStatus: number;
+    correlationId: String;
+    errorStatus: Number;
     outputs: Object;
-    succeeded: boolean;
+    succeeded: Boolean;
     constructor();
 
   }
@@ -170,29 +177,31 @@
     constructor(model: LearningModel);
     constructor(model: LearningModel, deviceToRunOn: LearningModelDevice);
 
-    evaluateAsync(bindings: LearningModelBinding, correlationId: string, callback: (error: Error, result: LearningModelEvaluationResult) => void): void ;
+    evaluateAsync(bindings: LearningModelBinding, correlationId: String, callback: (error: Error, result: LearningModelEvaluationResult) => void): void ;
 
-    evaluateFeaturesAsync(features: Object, correlationId: string, callback: (error: Error, result: LearningModelEvaluationResult) => void): void ;
+    evaluateFeaturesAsync(features: Object, correlationId: String, callback: (error: Error, result: LearningModelEvaluationResult) => void): void ;
 
-    evaluate(bindings: LearningModelBinding, correlationId: string): LearningModelEvaluationResult;
+    evaluate(bindings: LearningModelBinding, correlationId: String): LearningModelEvaluationResult;
 
-    evaluateFeatures(features: Object, correlationId: string): LearningModelEvaluationResult;
+    evaluateFeatures(features: Object, correlationId: String): LearningModelEvaluationResult;
 
     close(): void;
   }
 
   export class LearningModelSessionOptions {
-    batchSizeOverride: number;
-    closeModelOnSessionCreation: boolean;
+    batchSizeOverride: Number;
+    closeModelOnSessionCreation: Boolean;
     constructor();
+
+    overrideNamedDimension(name: String, dimension: Number): void;
 
   }
 
   export class MapFeatureDescriptor {
-    description: string;
-    isRequired: boolean;
+    description: String;
+    isRequired: Boolean;
     kind: LearningModelFeatureKind;
-    name: string;
+    name: String;
     keyKind: TensorKind;
     valueDescriptor: ILearningModelFeatureDescriptor;
     constructor();
@@ -200,10 +209,10 @@
   }
 
   export class SequenceFeatureDescriptor {
-    description: string;
-    isRequired: boolean;
+    description: String;
+    isRequired: Boolean;
     kind: LearningModelFeatureKind;
-    name: string;
+    name: String;
     elementDescriptor: ILearningModelFeatureDescriptor;
     constructor();
 
@@ -215,17 +224,17 @@
     tensorKind: TensorKind;
     constructor();
 
-    static createFromShapeArrayAndDataArray(shape: Array<number>, data: Array<boolean>): TensorBoolean;
+    static createFromShapeArrayAndDataArray(shape: Array<Number>, data: Array<Boolean>): TensorBoolean;
 
 
-    static createFromBuffer(shape: Array<number>, buffer: Object): TensorBoolean;
+    static createFromBuffer(shape: Array<Number>, buffer: Object): TensorBoolean;
 
 
     static create(): TensorBoolean;
     static create(shape: Object): TensorBoolean;
 
 
-    static createFromArray(shape: Object, data: Array<boolean>): TensorBoolean;
+    static createFromArray(shape: Object, data: Array<Boolean>): TensorBoolean;
 
 
     static createFromIterable(shape: Object, data: Object): TensorBoolean;
@@ -244,17 +253,17 @@
     tensorKind: TensorKind;
     constructor();
 
-    static createFromShapeArrayAndDataArray(shape: Array<number>, data: Array<number>): TensorDouble;
+    static createFromShapeArrayAndDataArray(shape: Array<Number>, data: Array<Number>): TensorDouble;
 
 
-    static createFromBuffer(shape: Array<number>, buffer: Object): TensorDouble;
+    static createFromBuffer(shape: Array<Number>, buffer: Object): TensorDouble;
 
 
     static create(): TensorDouble;
     static create(shape: Object): TensorDouble;
 
 
-    static createFromArray(shape: Object, data: Array<number>): TensorDouble;
+    static createFromArray(shape: Object, data: Array<Number>): TensorDouble;
 
 
     static createFromIterable(shape: Object, data: Object): TensorDouble;
@@ -268,10 +277,10 @@
   }
 
   export class TensorFeatureDescriptor {
-    description: string;
-    isRequired: boolean;
+    description: String;
+    isRequired: Boolean;
     kind: LearningModelFeatureKind;
-    name: string;
+    name: String;
     shape: Object;
     tensorKind: TensorKind;
     constructor();
@@ -284,17 +293,17 @@
     tensorKind: TensorKind;
     constructor();
 
-    static createFromShapeArrayAndDataArray(shape: Array<number>, data: Array<number>): TensorFloat;
+    static createFromShapeArrayAndDataArray(shape: Array<Number>, data: Array<Number>): TensorFloat;
 
 
-    static createFromBuffer(shape: Array<number>, buffer: Object): TensorFloat;
+    static createFromBuffer(shape: Array<Number>, buffer: Object): TensorFloat;
 
 
     static create(): TensorFloat;
     static create(shape: Object): TensorFloat;
 
 
-    static createFromArray(shape: Object, data: Array<number>): TensorFloat;
+    static createFromArray(shape: Object, data: Array<Number>): TensorFloat;
 
 
     static createFromIterable(shape: Object, data: Object): TensorFloat;
@@ -313,17 +322,17 @@
     tensorKind: TensorKind;
     constructor();
 
-    static createFromShapeArrayAndDataArray(shape: Array<number>, data: Array<number>): TensorFloat16Bit;
+    static createFromShapeArrayAndDataArray(shape: Array<Number>, data: Array<Number>): TensorFloat16Bit;
 
 
-    static createFromBuffer(shape: Array<number>, buffer: Object): TensorFloat16Bit;
+    static createFromBuffer(shape: Array<Number>, buffer: Object): TensorFloat16Bit;
 
 
     static create(): TensorFloat16Bit;
     static create(shape: Object): TensorFloat16Bit;
 
 
-    static createFromArray(shape: Object, data: Array<number>): TensorFloat16Bit;
+    static createFromArray(shape: Object, data: Array<Number>): TensorFloat16Bit;
 
 
     static createFromIterable(shape: Object, data: Object): TensorFloat16Bit;
@@ -342,17 +351,17 @@
     tensorKind: TensorKind;
     constructor();
 
-    static createFromShapeArrayAndDataArray(shape: Array<number>, data: Array<number>): TensorInt16Bit;
+    static createFromShapeArrayAndDataArray(shape: Array<Number>, data: Array<Number>): TensorInt16Bit;
 
 
-    static createFromBuffer(shape: Array<number>, buffer: Object): TensorInt16Bit;
+    static createFromBuffer(shape: Array<Number>, buffer: Object): TensorInt16Bit;
 
 
     static create(): TensorInt16Bit;
     static create(shape: Object): TensorInt16Bit;
 
 
-    static createFromArray(shape: Object, data: Array<number>): TensorInt16Bit;
+    static createFromArray(shape: Object, data: Array<Number>): TensorInt16Bit;
 
 
     static createFromIterable(shape: Object, data: Object): TensorInt16Bit;
@@ -371,17 +380,17 @@
     tensorKind: TensorKind;
     constructor();
 
-    static createFromShapeArrayAndDataArray(shape: Array<number>, data: Array<number>): TensorInt32Bit;
+    static createFromShapeArrayAndDataArray(shape: Array<Number>, data: Array<Number>): TensorInt32Bit;
 
 
-    static createFromBuffer(shape: Array<number>, buffer: Object): TensorInt32Bit;
+    static createFromBuffer(shape: Array<Number>, buffer: Object): TensorInt32Bit;
 
 
     static create(): TensorInt32Bit;
     static create(shape: Object): TensorInt32Bit;
 
 
-    static createFromArray(shape: Object, data: Array<number>): TensorInt32Bit;
+    static createFromArray(shape: Object, data: Array<Number>): TensorInt32Bit;
 
 
     static createFromIterable(shape: Object, data: Object): TensorInt32Bit;
@@ -400,17 +409,17 @@
     tensorKind: TensorKind;
     constructor();
 
-    static createFromShapeArrayAndDataArray(shape: Array<number>, data: Array<number>): TensorInt64Bit;
+    static createFromShapeArrayAndDataArray(shape: Array<Number>, data: Array<Number>): TensorInt64Bit;
 
 
-    static createFromBuffer(shape: Array<number>, buffer: Object): TensorInt64Bit;
+    static createFromBuffer(shape: Array<Number>, buffer: Object): TensorInt64Bit;
 
 
     static create(): TensorInt64Bit;
     static create(shape: Object): TensorInt64Bit;
 
 
-    static createFromArray(shape: Object, data: Array<number>): TensorInt64Bit;
+    static createFromArray(shape: Object, data: Array<Number>): TensorInt64Bit;
 
 
     static createFromIterable(shape: Object, data: Object): TensorInt64Bit;
@@ -429,17 +438,17 @@
     tensorKind: TensorKind;
     constructor();
 
-    static createFromShapeArrayAndDataArray(shape: Array<number>, data: Array<number>): TensorInt8Bit;
+    static createFromShapeArrayAndDataArray(shape: Array<Number>, data: Array<Number>): TensorInt8Bit;
 
 
-    static createFromBuffer(shape: Array<number>, buffer: Object): TensorInt8Bit;
+    static createFromBuffer(shape: Array<Number>, buffer: Object): TensorInt8Bit;
 
 
     static create(): TensorInt8Bit;
     static create(shape: Object): TensorInt8Bit;
 
 
-    static createFromArray(shape: Object, data: Array<number>): TensorInt8Bit;
+    static createFromArray(shape: Object, data: Array<Number>): TensorInt8Bit;
 
 
     static createFromIterable(shape: Object, data: Object): TensorInt8Bit;
@@ -458,14 +467,14 @@
     tensorKind: TensorKind;
     constructor();
 
-    static createFromShapeArrayAndDataArray(shape: Array<number>, data: Array<string>): TensorString;
+    static createFromShapeArrayAndDataArray(shape: Array<Number>, data: Array<String>): TensorString;
 
 
     static create(): TensorString;
     static create(shape: Object): TensorString;
 
 
-    static createFromArray(shape: Object, data: Array<string>): TensorString;
+    static createFromArray(shape: Object, data: Array<String>): TensorString;
 
 
     static createFromIterable(shape: Object, data: Object): TensorString;
@@ -484,17 +493,17 @@
     tensorKind: TensorKind;
     constructor();
 
-    static createFromShapeArrayAndDataArray(shape: Array<number>, data: Array<number>): TensorUInt16Bit;
+    static createFromShapeArrayAndDataArray(shape: Array<Number>, data: Array<Number>): TensorUInt16Bit;
 
 
-    static createFromBuffer(shape: Array<number>, buffer: Object): TensorUInt16Bit;
+    static createFromBuffer(shape: Array<Number>, buffer: Object): TensorUInt16Bit;
 
 
     static create(): TensorUInt16Bit;
     static create(shape: Object): TensorUInt16Bit;
 
 
-    static createFromArray(shape: Object, data: Array<number>): TensorUInt16Bit;
+    static createFromArray(shape: Object, data: Array<Number>): TensorUInt16Bit;
 
 
     static createFromIterable(shape: Object, data: Object): TensorUInt16Bit;
@@ -513,17 +522,17 @@
     tensorKind: TensorKind;
     constructor();
 
-    static createFromShapeArrayAndDataArray(shape: Array<number>, data: Array<number>): TensorUInt32Bit;
+    static createFromShapeArrayAndDataArray(shape: Array<Number>, data: Array<Number>): TensorUInt32Bit;
 
 
-    static createFromBuffer(shape: Array<number>, buffer: Object): TensorUInt32Bit;
+    static createFromBuffer(shape: Array<Number>, buffer: Object): TensorUInt32Bit;
 
 
     static create(): TensorUInt32Bit;
     static create(shape: Object): TensorUInt32Bit;
 
 
-    static createFromArray(shape: Object, data: Array<number>): TensorUInt32Bit;
+    static createFromArray(shape: Object, data: Array<Number>): TensorUInt32Bit;
 
 
     static createFromIterable(shape: Object, data: Object): TensorUInt32Bit;
@@ -542,17 +551,17 @@
     tensorKind: TensorKind;
     constructor();
 
-    static createFromShapeArrayAndDataArray(shape: Array<number>, data: Array<number>): TensorUInt64Bit;
+    static createFromShapeArrayAndDataArray(shape: Array<Number>, data: Array<Number>): TensorUInt64Bit;
 
 
-    static createFromBuffer(shape: Array<number>, buffer: Object): TensorUInt64Bit;
+    static createFromBuffer(shape: Array<Number>, buffer: Object): TensorUInt64Bit;
 
 
     static create(): TensorUInt64Bit;
     static create(shape: Object): TensorUInt64Bit;
 
 
-    static createFromArray(shape: Object, data: Array<number>): TensorUInt64Bit;
+    static createFromArray(shape: Object, data: Array<Number>): TensorUInt64Bit;
 
 
     static createFromIterable(shape: Object, data: Object): TensorUInt64Bit;
@@ -571,17 +580,17 @@
     tensorKind: TensorKind;
     constructor();
 
-    static createFromShapeArrayAndDataArray(shape: Array<number>, data: Array<number>): TensorUInt8Bit;
+    static createFromShapeArrayAndDataArray(shape: Array<Number>, data: Array<Number>): TensorUInt8Bit;
 
 
-    static createFromBuffer(shape: Array<number>, buffer: Object): TensorUInt8Bit;
+    static createFromBuffer(shape: Array<Number>, buffer: Object): TensorUInt8Bit;
 
 
     static create(): TensorUInt8Bit;
     static create(shape: Object): TensorUInt8Bit;
 
 
-    static createFromArray(shape: Object, data: Array<number>): TensorUInt8Bit;
+    static createFromArray(shape: Object, data: Array<Number>): TensorUInt8Bit;
 
 
     static createFromIterable(shape: Object, data: Object): TensorUInt8Bit;
@@ -594,4 +603,3 @@
     close(): void;
   }
 
-export * as preview from "./ai.machinelearning.preview.js";

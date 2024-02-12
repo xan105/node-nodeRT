@@ -1,3 +1,11 @@
+  export enum FulfillmentResult {
+    succeeded,
+    nothingToFulfill,
+    purchasePending,
+    purchaseReverted,
+    serverError,
+  }
+
   export enum ProductPurchaseStatus {
     succeeded,
     alreadyPurchased,
@@ -11,18 +19,102 @@
     consumable,
   }
 
-  export enum FulfillmentResult {
-    succeeded,
-    nothingToFulfill,
-    purchasePending,
-    purchaseReverted,
-    serverError,
+  export class CurrentApp {
+    static appId: String;
+    static licenseInformation: LicenseInformation;
+    static linkUri: Object;
+    constructor();
+
+    static getCustomerPurchaseIdAsync(serviceTicket: String, publisherUserId: String, callback: (error: Error, result: String) => void): void ;
+
+
+    static getCustomerCollectionsIdAsync(serviceTicket: String, publisherUserId: String, callback: (error: Error, result: String) => void): void ;
+
+
+    static getAppPurchaseCampaignIdAsync(callback: (error: Error, result: String) => void): void ;
+
+
+    static loadListingInformationByProductIdsAsync(productIds: Object, callback: (error: Error, result: ListingInformation) => void): void ;
+
+
+    static loadListingInformationByKeywordsAsync(keywords: Object, callback: (error: Error, result: ListingInformation) => void): void ;
+
+
+    static reportConsumableFulfillmentAsync(productId: String, transactionId: String, callback: (error: Error, result: FulfillmentResult) => void): void ;
+
+
+    static requestProductPurchaseAsync(productId: String, callback: (error: Error, result: PurchaseResults) => void): void ;
+    static requestProductPurchaseAsync(productId: String, offerId: String, displayProperties: ProductPurchaseDisplayProperties, callback: (error: Error, result: PurchaseResults) => void): void ;
+    static requestProductPurchaseAsync(productId: String, includeReceipt: Boolean, callback: (error: Error, result: String) => void): void ;
+
+
+    static getUnfulfilledConsumablesAsync(callback: (error: Error, result: Object) => void): void ;
+
+
+    static requestAppPurchaseAsync(includeReceipt: Boolean, callback: (error: Error, result: String) => void): void ;
+
+
+    static loadListingInformationAsync(callback: (error: Error, result: ListingInformation) => void): void ;
+
+
+    static getAppReceiptAsync(callback: (error: Error, result: String) => void): void ;
+
+
+    static getProductReceiptAsync(productId: String, callback: (error: Error, result: String) => void): void ;
+
+
+    static reportProductFulfillment(productId: String): void;
+
+
+  }
+
+  export class CurrentAppSimulator {
+    static appId: String;
+    static licenseInformation: LicenseInformation;
+    static linkUri: Object;
+    constructor();
+
+    static getAppPurchaseCampaignIdAsync(callback: (error: Error, result: String) => void): void ;
+
+
+    static loadListingInformationByProductIdsAsync(productIds: Object, callback: (error: Error, result: ListingInformation) => void): void ;
+
+
+    static loadListingInformationByKeywordsAsync(keywords: Object, callback: (error: Error, result: ListingInformation) => void): void ;
+
+
+    static reportConsumableFulfillmentAsync(productId: String, transactionId: String, callback: (error: Error, result: FulfillmentResult) => void): void ;
+
+
+    static requestProductPurchaseAsync(productId: String, callback: (error: Error, result: PurchaseResults) => void): void ;
+    static requestProductPurchaseAsync(productId: String, offerId: String, displayProperties: ProductPurchaseDisplayProperties, callback: (error: Error, result: PurchaseResults) => void): void ;
+    static requestProductPurchaseAsync(productId: String, includeReceipt: Boolean, callback: (error: Error, result: String) => void): void ;
+
+
+    static getUnfulfilledConsumablesAsync(callback: (error: Error, result: Object) => void): void ;
+
+
+    static requestAppPurchaseAsync(includeReceipt: Boolean, callback: (error: Error, result: String) => void): void ;
+
+
+    static loadListingInformationAsync(callback: (error: Error, result: ListingInformation) => void): void ;
+
+
+    static getAppReceiptAsync(callback: (error: Error, result: String) => void): void ;
+
+
+    static getProductReceiptAsync(productId: String, callback: (error: Error, result: String) => void): void ;
+
+
+    static reloadSimulatorAsync(simulatorSettingsFile: Object, callback: (error: Error) => void): void ;
+
+
   }
 
   export class LicenseInformation {
     expirationDate: Date;
-    isActive: boolean;
-    isTrial: boolean;
+    isActive: Boolean;
+    isTrial: Boolean;
     productLicenses: Object;
     constructor();
 
@@ -40,163 +132,70 @@
   }
 
   export class ListingInformation {
-    ageRating: number;
-    currentMarket: string;
-    description: string;
-    formattedPrice: string;
-    name: string;
+    ageRating: Number;
+    currentMarket: String;
+    description: String;
+    formattedPrice: String;
+    name: String;
     productListings: Object;
-    currencyCode: string;
-    formattedBasePrice: string;
-    isOnSale: boolean;
+    currencyCode: String;
+    formattedBasePrice: String;
+    isOnSale: Boolean;
     saleEndDate: Date;
-    constructor();
-
-  }
-
-  export class PurchaseResults {
-    offerId: string;
-    receiptXml: string;
-    status: ProductPurchaseStatus;
-    transactionId: string;
-    constructor();
-
-  }
-
-  export class ProductPurchaseDisplayProperties {
-    name: string;
-    image: Object;
-    description: string;
-    constructor();
-    constructor(name: string);
-
-  }
-
-  export class UnfulfilledConsumable {
-    offerId: string;
-    productId: string;
-    transactionId: string;
     constructor();
 
   }
 
   export class ProductLicense {
     expirationDate: Date;
-    isActive: boolean;
-    productId: string;
-    isConsumable: boolean;
+    isActive: Boolean;
+    productId: String;
+    isConsumable: Boolean;
     constructor();
 
   }
 
   export class ProductListing {
-    formattedPrice: string;
-    name: string;
-    productId: string;
-    formattedBasePrice: string;
-    isOnSale: boolean;
+    formattedPrice: String;
+    name: String;
+    productId: String;
+    formattedBasePrice: String;
+    isOnSale: Boolean;
     saleEndDate: Date;
-    currencyCode: string;
-    description: string;
+    currencyCode: String;
+    description: String;
     imageUri: Object;
     keywords: Object;
-    tag: string;
+    tag: String;
     productType: ProductType;
     constructor();
 
   }
 
-  export class CurrentApp {
-    static appId: string;
-    static licenseInformation: LicenseInformation;
-    static linkUri: Object;
+  export class ProductPurchaseDisplayProperties {
+    name: String;
+    image: Object;
+    description: String;
     constructor();
-
-    static getCustomerPurchaseIdAsync(serviceTicket: string, publisherUserId: string, callback: (error: Error, result: string) => void): void ;
-
-
-    static getCustomerCollectionsIdAsync(serviceTicket: string, publisherUserId: string, callback: (error: Error, result: string) => void): void ;
-
-
-    static getAppPurchaseCampaignIdAsync(callback: (error: Error, result: string) => void): void ;
-
-
-    static loadListingInformationByProductIdsAsync(productIds: Object, callback: (error: Error, result: ListingInformation) => void): void ;
-
-
-    static loadListingInformationByKeywordsAsync(keywords: Object, callback: (error: Error, result: ListingInformation) => void): void ;
-
-
-    static reportConsumableFulfillmentAsync(productId: string, transactionId: string, callback: (error: Error, result: FulfillmentResult) => void): void ;
-
-
-    static requestProductPurchaseAsync(productId: string, callback: (error: Error, result: PurchaseResults) => void): void ;
-    static requestProductPurchaseAsync(productId: string, offerId: string, displayProperties: ProductPurchaseDisplayProperties, callback: (error: Error, result: PurchaseResults) => void): void ;
-    static requestProductPurchaseAsync(productId: string, includeReceipt: boolean, callback: (error: Error, result: string) => void): void ;
-
-
-    static getUnfulfilledConsumablesAsync(callback: (error: Error, result: Object) => void): void ;
-
-
-    static requestAppPurchaseAsync(includeReceipt: boolean, callback: (error: Error, result: string) => void): void ;
-
-
-    static loadListingInformationAsync(callback: (error: Error, result: ListingInformation) => void): void ;
-
-
-    static getAppReceiptAsync(callback: (error: Error, result: string) => void): void ;
-
-
-    static getProductReceiptAsync(productId: string, callback: (error: Error, result: string) => void): void ;
-
-
-    static reportProductFulfillment(productId: string): void;
-
+    constructor(name: String);
 
   }
 
-  export class CurrentAppSimulator {
-    static appId: string;
-    static licenseInformation: LicenseInformation;
-    static linkUri: Object;
+  export class PurchaseResults {
+    offerId: String;
+    receiptXml: String;
+    status: ProductPurchaseStatus;
+    transactionId: String;
     constructor();
 
-    static getAppPurchaseCampaignIdAsync(callback: (error: Error, result: string) => void): void ;
+  }
 
-
-    static loadListingInformationByProductIdsAsync(productIds: Object, callback: (error: Error, result: ListingInformation) => void): void ;
-
-
-    static loadListingInformationByKeywordsAsync(keywords: Object, callback: (error: Error, result: ListingInformation) => void): void ;
-
-
-    static reportConsumableFulfillmentAsync(productId: string, transactionId: string, callback: (error: Error, result: FulfillmentResult) => void): void ;
-
-
-    static requestProductPurchaseAsync(productId: string, callback: (error: Error, result: PurchaseResults) => void): void ;
-    static requestProductPurchaseAsync(productId: string, offerId: string, displayProperties: ProductPurchaseDisplayProperties, callback: (error: Error, result: PurchaseResults) => void): void ;
-    static requestProductPurchaseAsync(productId: string, includeReceipt: boolean, callback: (error: Error, result: string) => void): void ;
-
-
-    static getUnfulfilledConsumablesAsync(callback: (error: Error, result: Object) => void): void ;
-
-
-    static requestAppPurchaseAsync(includeReceipt: boolean, callback: (error: Error, result: string) => void): void ;
-
-
-    static loadListingInformationAsync(callback: (error: Error, result: ListingInformation) => void): void ;
-
-
-    static getAppReceiptAsync(callback: (error: Error, result: string) => void): void ;
-
-
-    static getProductReceiptAsync(productId: string, callback: (error: Error, result: string) => void): void ;
-
-
-    static reloadSimulatorAsync(simulatorSettingsFile: Object, callback: (error: Error) => void): void ;
-
+  export class UnfulfilledConsumable {
+    offerId: String;
+    productId: String;
+    transactionId: String;
+    constructor();
 
   }
 
 export * as licensemanagement from "./applicationmodel.store.licensemanagement.js";
-export * as preview from "./applicationmodel.store.preview.js";

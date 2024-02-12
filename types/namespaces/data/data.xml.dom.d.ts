@@ -14,67 +14,342 @@
     notationNode,
   }
 
+  export class DtdEntity {
+    notationName: Object;
+    publicId: Object;
+    systemId: Object;
+    prefix: Object;
+    nodeValue: Object;
+    firstChild: IXmlNode;
+    lastChild: IXmlNode;
+    localName: Object;
+    namespaceUri: Object;
+    nextSibling: IXmlNode;
+    nodeName: String;
+    nodeType: NodeType;
+    attributes: XmlNamedNodeMap;
+    ownerDocument: XmlDocument;
+    childNodes: XmlNodeList;
+    parentNode: IXmlNode;
+    previousSibling: IXmlNode;
+    innerText: String;
+    constructor();
+
+    hasChildNodes(): Boolean;
+
+    insertBefore(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
+
+    replaceChild(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
+
+    removeChild(childNode: IXmlNode): IXmlNode;
+
+    appendChild(newChild: IXmlNode): IXmlNode;
+
+    cloneNode(deep: Boolean): IXmlNode;
+
+    normalize(): void;
+
+    selectSingleNode(xpath: String): IXmlNode;
+
+    selectNodes(xpath: String): XmlNodeList;
+
+    selectSingleNodeNS(xpath: String, namespaces: Object): IXmlNode;
+
+    selectNodesNS(xpath: String, namespaces: Object): XmlNodeList;
+
+    getXml(): String;
+
+  }
+
+  export class DtdNotation {
+    publicId: Object;
+    systemId: Object;
+    prefix: Object;
+    nodeValue: Object;
+    firstChild: IXmlNode;
+    lastChild: IXmlNode;
+    localName: Object;
+    namespaceUri: Object;
+    nextSibling: IXmlNode;
+    nodeName: String;
+    nodeType: NodeType;
+    attributes: XmlNamedNodeMap;
+    ownerDocument: XmlDocument;
+    childNodes: XmlNodeList;
+    parentNode: IXmlNode;
+    previousSibling: IXmlNode;
+    innerText: String;
+    constructor();
+
+    hasChildNodes(): Boolean;
+
+    insertBefore(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
+
+    replaceChild(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
+
+    removeChild(childNode: IXmlNode): IXmlNode;
+
+    appendChild(newChild: IXmlNode): IXmlNode;
+
+    cloneNode(deep: Boolean): IXmlNode;
+
+    normalize(): void;
+
+    selectSingleNode(xpath: String): IXmlNode;
+
+    selectNodes(xpath: String): XmlNodeList;
+
+    selectSingleNodeNS(xpath: String, namespaces: Object): IXmlNode;
+
+    selectNodesNS(xpath: String, namespaces: Object): XmlNodeList;
+
+    getXml(): String;
+
+  }
+
+  export class IXmlCharacterData {
+    data: String;
+    length: Number;
+    constructor();
+
+    substringData(offset: Number, count: Number): String;
+
+    appendData(data: String): void;
+
+    insertData(offset: Number, data: String): void;
+
+    deleteData(offset: Number, count: Number): void;
+
+    replaceData(offset: Number, count: Number, data: String): void;
+
+  }
+
+  export class IXmlNode {
+    attributes: XmlNamedNodeMap;
+    childNodes: XmlNodeList;
+    firstChild: IXmlNode;
+    lastChild: IXmlNode;
+    localName: Object;
+    namespaceUri: Object;
+    nextSibling: IXmlNode;
+    nodeName: String;
+    nodeType: NodeType;
+    nodeValue: Object;
+    ownerDocument: XmlDocument;
+    parentNode: IXmlNode;
+    prefix: Object;
+    previousSibling: IXmlNode;
+    constructor();
+
+    hasChildNodes(): Boolean;
+
+    insertBefore(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
+
+    replaceChild(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
+
+    removeChild(childNode: IXmlNode): IXmlNode;
+
+    appendChild(newChild: IXmlNode): IXmlNode;
+
+    cloneNode(deep: Boolean): IXmlNode;
+
+    normalize(): void;
+
+  }
+
   export class IXmlNodeSelector {
     constructor();
 
-    selectSingleNode(xpath: string): IXmlNode;
+    selectSingleNode(xpath: String): IXmlNode;
 
-    selectNodes(xpath: string): XmlNodeList;
+    selectNodes(xpath: String): XmlNodeList;
 
-    selectSingleNodeNS(xpath: string, namespaces: Object): IXmlNode;
+    selectSingleNodeNS(xpath: String, namespaces: Object): IXmlNode;
 
-    selectNodesNS(xpath: string, namespaces: Object): XmlNodeList;
-
-  }
-
-  export class XmlNodeList {
-    length: number;
-    constructor();
-
-    item(index: number): IXmlNode;
-
-    getAt(index: number): IXmlNode;
-
-    indexOf(value: IXmlNode, index: number): boolean;
-
-    getMany(startIndex: number, items: Array<Object>): number;
-
-    first(): Object;
+    selectNodesNS(xpath: String, namespaces: Object): XmlNodeList;
 
   }
 
-  export class XmlNamedNodeMap {
-    length: number;
+  export class IXmlNodeSerializer {
+    innerText: String;
     constructor();
 
-    item(index: number): IXmlNode;
+    getXml(): String;
 
-    getNamedItem(name: string): IXmlNode;
+  }
 
-    setNamedItem(node: IXmlNode): IXmlNode;
+  export class IXmlText {
+    constructor();
 
-    removeNamedItem(name: string): IXmlNode;
+    splitText(offset: Number): IXmlText;
 
-    getNamedItemNS(namespaceUri: Object, name: string): IXmlNode;
+  }
 
-    removeNamedItemNS(namespaceUri: Object, name: string): IXmlNode;
+  export class XmlAttribute {
+    value: String;
+    specified: Boolean;
+    name: String;
+    prefix: Object;
+    nodeValue: Object;
+    firstChild: IXmlNode;
+    lastChild: IXmlNode;
+    localName: Object;
+    namespaceUri: Object;
+    nextSibling: IXmlNode;
+    nodeName: String;
+    nodeType: NodeType;
+    attributes: XmlNamedNodeMap;
+    ownerDocument: XmlDocument;
+    childNodes: XmlNodeList;
+    parentNode: IXmlNode;
+    previousSibling: IXmlNode;
+    innerText: String;
+    constructor();
 
-    setNamedItemNS(node: IXmlNode): IXmlNode;
+    hasChildNodes(): Boolean;
 
-    getAt(index: number): IXmlNode;
+    insertBefore(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
 
-    indexOf(value: IXmlNode, index: number): boolean;
+    replaceChild(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
 
-    getMany(startIndex: number, items: Array<Object>): number;
+    removeChild(childNode: IXmlNode): IXmlNode;
 
-    first(): Object;
+    appendChild(newChild: IXmlNode): IXmlNode;
+
+    cloneNode(deep: Boolean): IXmlNode;
+
+    normalize(): void;
+
+    selectSingleNode(xpath: String): IXmlNode;
+
+    selectNodes(xpath: String): XmlNodeList;
+
+    selectSingleNodeNS(xpath: String, namespaces: Object): IXmlNode;
+
+    selectNodesNS(xpath: String, namespaces: Object): XmlNodeList;
+
+    getXml(): String;
+
+  }
+
+  export class XmlCDataSection {
+    data: String;
+    length: Number;
+    prefix: Object;
+    nodeValue: Object;
+    firstChild: IXmlNode;
+    lastChild: IXmlNode;
+    localName: Object;
+    namespaceUri: Object;
+    nextSibling: IXmlNode;
+    nodeName: String;
+    nodeType: NodeType;
+    attributes: XmlNamedNodeMap;
+    ownerDocument: XmlDocument;
+    childNodes: XmlNodeList;
+    parentNode: IXmlNode;
+    previousSibling: IXmlNode;
+    innerText: String;
+    constructor();
+
+    splitText(offset: Number): IXmlText;
+
+    substringData(offset: Number, count: Number): String;
+
+    appendData(data: String): void;
+
+    insertData(offset: Number, data: String): void;
+
+    deleteData(offset: Number, count: Number): void;
+
+    replaceData(offset: Number, count: Number, data: String): void;
+
+    hasChildNodes(): Boolean;
+
+    insertBefore(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
+
+    replaceChild(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
+
+    removeChild(childNode: IXmlNode): IXmlNode;
+
+    appendChild(newChild: IXmlNode): IXmlNode;
+
+    cloneNode(deep: Boolean): IXmlNode;
+
+    normalize(): void;
+
+    selectSingleNode(xpath: String): IXmlNode;
+
+    selectNodes(xpath: String): XmlNodeList;
+
+    selectSingleNodeNS(xpath: String, namespaces: Object): IXmlNode;
+
+    selectNodesNS(xpath: String, namespaces: Object): XmlNodeList;
+
+    getXml(): String;
+
+  }
+
+  export class XmlComment {
+    data: String;
+    length: Number;
+    prefix: Object;
+    nodeValue: Object;
+    firstChild: IXmlNode;
+    lastChild: IXmlNode;
+    localName: Object;
+    namespaceUri: Object;
+    nextSibling: IXmlNode;
+    nodeName: String;
+    nodeType: NodeType;
+    attributes: XmlNamedNodeMap;
+    ownerDocument: XmlDocument;
+    childNodes: XmlNodeList;
+    parentNode: IXmlNode;
+    previousSibling: IXmlNode;
+    innerText: String;
+    constructor();
+
+    substringData(offset: Number, count: Number): String;
+
+    appendData(data: String): void;
+
+    insertData(offset: Number, data: String): void;
+
+    deleteData(offset: Number, count: Number): void;
+
+    replaceData(offset: Number, count: Number, data: String): void;
+
+    hasChildNodes(): Boolean;
+
+    insertBefore(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
+
+    replaceChild(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
+
+    removeChild(childNode: IXmlNode): IXmlNode;
+
+    appendChild(newChild: IXmlNode): IXmlNode;
+
+    cloneNode(deep: Boolean): IXmlNode;
+
+    normalize(): void;
+
+    selectSingleNode(xpath: String): IXmlNode;
+
+    selectNodes(xpath: String): XmlNodeList;
+
+    selectSingleNodeNS(xpath: String, namespaces: Object): IXmlNode;
+
+    selectNodesNS(xpath: String, namespaces: Object): XmlNodeList;
+
+    getXml(): String;
 
   }
 
   export class XmlDocument {
     doctype: XmlDocumentType;
     documentElement: XmlElement;
-    documentUri: string;
+    documentUri: String;
     implementation: XmlDomImplementation;
     prefix: Object;
     nodeValue: Object;
@@ -83,14 +358,14 @@
     localName: Object;
     namespaceUri: Object;
     nextSibling: IXmlNode;
-    nodeName: string;
+    nodeName: String;
     nodeType: NodeType;
     attributes: XmlNamedNodeMap;
     childNodes: XmlNodeList;
     parentNode: IXmlNode;
     ownerDocument: XmlDocument;
     previousSibling: IXmlNode;
-    innerText: string;
+    innerText: String;
     constructor();
 
     static loadFromUriAsync(uri: Object, callback: (error: Error, result: XmlDocument) => void): void ;
@@ -106,87 +381,33 @@
     loadXmlFromBuffer(buffer: Object): void;
     loadXmlFromBuffer(buffer: Object, loadSettings: XmlLoadSettings): void;
 
-    createElement(tagName: string): XmlElement;
+    createElement(tagName: String): XmlElement;
 
     createDocumentFragment(): XmlDocumentFragment;
 
-    createTextNode(data: string): XmlText;
+    createTextNode(data: String): XmlText;
 
-    createComment(data: string): XmlComment;
+    createComment(data: String): XmlComment;
 
-    createProcessingInstruction(target: string, data: string): XmlProcessingInstruction;
+    createProcessingInstruction(target: String, data: String): XmlProcessingInstruction;
 
-    createAttribute(name: string): XmlAttribute;
+    createAttribute(name: String): XmlAttribute;
 
-    createEntityReference(name: string): XmlEntityReference;
+    createEntityReference(name: String): XmlEntityReference;
 
-    getElementsByTagName(tagName: string): XmlNodeList;
+    getElementsByTagName(tagName: String): XmlNodeList;
 
-    createCDataSection(data: string): XmlCDataSection;
+    createCDataSection(data: String): XmlCDataSection;
 
-    createAttributeNS(namespaceUri: Object, qualifiedName: string): XmlAttribute;
+    createAttributeNS(namespaceUri: Object, qualifiedName: String): XmlAttribute;
 
-    createElementNS(namespaceUri: Object, qualifiedName: string): XmlElement;
+    createElementNS(namespaceUri: Object, qualifiedName: String): XmlElement;
 
-    getElementById(elementId: string): XmlElement;
+    getElementById(elementId: String): XmlElement;
 
-    importNode(node: IXmlNode, deep: boolean): IXmlNode;
+    importNode(node: IXmlNode, deep: Boolean): IXmlNode;
 
-    hasChildNodes(): boolean;
-
-    insertBefore(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
-
-    replaceChild(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
-
-    removeChild(childNode: IXmlNode): IXmlNode;
-
-    appendChild(newChild: IXmlNode): IXmlNode;
-
-    cloneNode(deep: boolean): IXmlNode;
-
-    normalize(): void;
-
-    selectSingleNode(xpath: string): IXmlNode;
-
-    selectNodes(xpath: string): XmlNodeList;
-
-    selectSingleNodeNS(xpath: string, namespaces: Object): IXmlNode;
-
-    selectNodesNS(xpath: string, namespaces: Object): XmlNodeList;
-
-    getXml(): string;
-
-    loadXml(xml: string): void;
-    loadXml(xml: string, loadSettings: XmlLoadSettings): void;
-
-  }
-
-  export class IXmlNodeSerializer {
-    innerText: string;
-    constructor();
-
-    getXml(): string;
-
-  }
-
-  export class IXmlNode {
-    attributes: XmlNamedNodeMap;
-    childNodes: XmlNodeList;
-    firstChild: IXmlNode;
-    lastChild: IXmlNode;
-    localName: Object;
-    namespaceUri: Object;
-    nextSibling: IXmlNode;
-    nodeName: string;
-    nodeType: NodeType;
-    nodeValue: Object;
-    ownerDocument: XmlDocument;
-    parentNode: IXmlNode;
-    prefix: Object;
-    previousSibling: IXmlNode;
-    constructor();
-
-    hasChildNodes(): boolean;
+    hasChildNodes(): Boolean;
 
     insertBefore(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
 
@@ -196,203 +417,22 @@
 
     appendChild(newChild: IXmlNode): IXmlNode;
 
-    cloneNode(deep: boolean): IXmlNode;
+    cloneNode(deep: Boolean): IXmlNode;
 
     normalize(): void;
 
-  }
+    selectSingleNode(xpath: String): IXmlNode;
 
-  export class XmlAttribute {
-    value: string;
-    specified: boolean;
-    name: string;
-    prefix: Object;
-    nodeValue: Object;
-    firstChild: IXmlNode;
-    lastChild: IXmlNode;
-    localName: Object;
-    namespaceUri: Object;
-    nextSibling: IXmlNode;
-    nodeName: string;
-    nodeType: NodeType;
-    attributes: XmlNamedNodeMap;
-    ownerDocument: XmlDocument;
-    childNodes: XmlNodeList;
-    parentNode: IXmlNode;
-    previousSibling: IXmlNode;
-    innerText: string;
-    constructor();
+    selectNodes(xpath: String): XmlNodeList;
 
-    hasChildNodes(): boolean;
+    selectSingleNodeNS(xpath: String, namespaces: Object): IXmlNode;
 
-    insertBefore(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
+    selectNodesNS(xpath: String, namespaces: Object): XmlNodeList;
 
-    replaceChild(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
+    getXml(): String;
 
-    removeChild(childNode: IXmlNode): IXmlNode;
-
-    appendChild(newChild: IXmlNode): IXmlNode;
-
-    cloneNode(deep: boolean): IXmlNode;
-
-    normalize(): void;
-
-    selectSingleNode(xpath: string): IXmlNode;
-
-    selectNodes(xpath: string): XmlNodeList;
-
-    selectSingleNodeNS(xpath: string, namespaces: Object): IXmlNode;
-
-    selectNodesNS(xpath: string, namespaces: Object): XmlNodeList;
-
-    getXml(): string;
-
-  }
-
-  export class IXmlCharacterData {
-    data: string;
-    length: number;
-    constructor();
-
-    substringData(offset: number, count: number): string;
-
-    appendData(data: string): void;
-
-    insertData(offset: number, data: string): void;
-
-    deleteData(offset: number, count: number): void;
-
-    replaceData(offset: number, count: number, data: string): void;
-
-  }
-
-  export class IXmlText {
-    constructor();
-
-    splitText(offset: number): IXmlText;
-
-  }
-
-  export class XmlDocumentType {
-    entities: XmlNamedNodeMap;
-    name: string;
-    notations: XmlNamedNodeMap;
-    prefix: Object;
-    nodeValue: Object;
-    firstChild: IXmlNode;
-    lastChild: IXmlNode;
-    localName: Object;
-    namespaceUri: Object;
-    nextSibling: IXmlNode;
-    nodeName: string;
-    nodeType: NodeType;
-    attributes: XmlNamedNodeMap;
-    ownerDocument: XmlDocument;
-    childNodes: XmlNodeList;
-    parentNode: IXmlNode;
-    previousSibling: IXmlNode;
-    innerText: string;
-    constructor();
-
-    hasChildNodes(): boolean;
-
-    insertBefore(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
-
-    replaceChild(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
-
-    removeChild(childNode: IXmlNode): IXmlNode;
-
-    appendChild(newChild: IXmlNode): IXmlNode;
-
-    cloneNode(deep: boolean): IXmlNode;
-
-    normalize(): void;
-
-    selectSingleNode(xpath: string): IXmlNode;
-
-    selectNodes(xpath: string): XmlNodeList;
-
-    selectSingleNodeNS(xpath: string, namespaces: Object): IXmlNode;
-
-    selectNodesNS(xpath: string, namespaces: Object): XmlNodeList;
-
-    getXml(): string;
-
-  }
-
-  export class XmlDomImplementation {
-    constructor();
-
-    hasFeature(feature: string, version: Object): boolean;
-
-  }
-
-  export class XmlElement {
-    tagName: string;
-    prefix: Object;
-    nodeValue: Object;
-    firstChild: IXmlNode;
-    lastChild: IXmlNode;
-    localName: Object;
-    nextSibling: IXmlNode;
-    namespaceUri: Object;
-    nodeType: NodeType;
-    nodeName: string;
-    attributes: XmlNamedNodeMap;
-    ownerDocument: XmlDocument;
-    parentNode: IXmlNode;
-    childNodes: XmlNodeList;
-    previousSibling: IXmlNode;
-    innerText: string;
-    constructor();
-
-    getAttribute(attributeName: string): string;
-
-    setAttribute(attributeName: string, attributeValue: string): void;
-
-    removeAttribute(attributeName: string): void;
-
-    getAttributeNode(attributeName: string): XmlAttribute;
-
-    setAttributeNode(newAttribute: XmlAttribute): XmlAttribute;
-
-    removeAttributeNode(attributeNode: XmlAttribute): XmlAttribute;
-
-    getElementsByTagName(tagName: string): XmlNodeList;
-
-    setAttributeNS(namespaceUri: Object, qualifiedName: string, value: string): void;
-
-    getAttributeNS(namespaceUri: Object, localName: string): string;
-
-    removeAttributeNS(namespaceUri: Object, localName: string): void;
-
-    setAttributeNodeNS(newAttribute: XmlAttribute): XmlAttribute;
-
-    getAttributeNodeNS(namespaceUri: Object, localName: string): XmlAttribute;
-
-    hasChildNodes(): boolean;
-
-    insertBefore(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
-
-    replaceChild(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
-
-    removeChild(childNode: IXmlNode): IXmlNode;
-
-    appendChild(newChild: IXmlNode): IXmlNode;
-
-    cloneNode(deep: boolean): IXmlNode;
-
-    normalize(): void;
-
-    selectSingleNode(xpath: string): IXmlNode;
-
-    selectNodes(xpath: string): XmlNodeList;
-
-    selectSingleNodeNS(xpath: string, namespaces: Object): IXmlNode;
-
-    selectNodesNS(xpath: string, namespaces: Object): XmlNodeList;
-
-    getXml(): string;
+    loadXml(xml: String): void;
+    loadXml(xml: String, loadSettings: XmlLoadSettings): void;
 
   }
 
@@ -404,17 +444,17 @@
     localName: Object;
     namespaceUri: Object;
     nextSibling: IXmlNode;
-    nodeName: string;
+    nodeName: String;
     nodeType: NodeType;
     attributes: XmlNamedNodeMap;
     ownerDocument: XmlDocument;
     parentNode: IXmlNode;
     childNodes: XmlNodeList;
     previousSibling: IXmlNode;
-    innerText: string;
+    innerText: String;
     constructor();
 
-    hasChildNodes(): boolean;
+    hasChildNodes(): Boolean;
 
     insertBefore(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
 
@@ -424,25 +464,26 @@
 
     appendChild(newChild: IXmlNode): IXmlNode;
 
-    cloneNode(deep: boolean): IXmlNode;
+    cloneNode(deep: Boolean): IXmlNode;
 
     normalize(): void;
 
-    selectSingleNode(xpath: string): IXmlNode;
+    selectSingleNode(xpath: String): IXmlNode;
 
-    selectNodes(xpath: string): XmlNodeList;
+    selectNodes(xpath: String): XmlNodeList;
 
-    selectSingleNodeNS(xpath: string, namespaces: Object): IXmlNode;
+    selectSingleNodeNS(xpath: String, namespaces: Object): IXmlNode;
 
-    selectNodesNS(xpath: string, namespaces: Object): XmlNodeList;
+    selectNodesNS(xpath: String, namespaces: Object): XmlNodeList;
 
-    getXml(): string;
+    getXml(): String;
 
   }
 
-  export class XmlText {
-    data: string;
-    length: number;
+  export class XmlDocumentType {
+    entities: XmlNamedNodeMap;
+    name: String;
+    notations: XmlNamedNodeMap;
     prefix: Object;
     nodeValue: Object;
     firstChild: IXmlNode;
@@ -450,29 +491,17 @@
     localName: Object;
     namespaceUri: Object;
     nextSibling: IXmlNode;
-    nodeName: string;
+    nodeName: String;
     nodeType: NodeType;
     attributes: XmlNamedNodeMap;
     ownerDocument: XmlDocument;
     childNodes: XmlNodeList;
     parentNode: IXmlNode;
     previousSibling: IXmlNode;
-    innerText: string;
+    innerText: String;
     constructor();
 
-    splitText(offset: number): IXmlText;
-
-    substringData(offset: number, count: number): string;
-
-    appendData(data: string): void;
-
-    insertData(offset: number, data: string): void;
-
-    deleteData(offset: number, count: number): void;
-
-    replaceData(offset: number, count: number, data: string): void;
-
-    hasChildNodes(): boolean;
+    hasChildNodes(): Boolean;
 
     insertBefore(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
 
@@ -482,25 +511,99 @@
 
     appendChild(newChild: IXmlNode): IXmlNode;
 
-    cloneNode(deep: boolean): IXmlNode;
+    cloneNode(deep: Boolean): IXmlNode;
 
     normalize(): void;
 
-    selectSingleNode(xpath: string): IXmlNode;
+    selectSingleNode(xpath: String): IXmlNode;
 
-    selectNodes(xpath: string): XmlNodeList;
+    selectNodes(xpath: String): XmlNodeList;
 
-    selectSingleNodeNS(xpath: string, namespaces: Object): IXmlNode;
+    selectSingleNodeNS(xpath: String, namespaces: Object): IXmlNode;
 
-    selectNodesNS(xpath: string, namespaces: Object): XmlNodeList;
+    selectNodesNS(xpath: String, namespaces: Object): XmlNodeList;
 
-    getXml(): string;
+    getXml(): String;
 
   }
 
-  export class XmlComment {
-    data: string;
-    length: number;
+  export class XmlDomImplementation {
+    constructor();
+
+    hasFeature(feature: String, version: Object): Boolean;
+
+  }
+
+  export class XmlElement {
+    tagName: String;
+    prefix: Object;
+    nodeValue: Object;
+    firstChild: IXmlNode;
+    lastChild: IXmlNode;
+    localName: Object;
+    nextSibling: IXmlNode;
+    namespaceUri: Object;
+    nodeType: NodeType;
+    nodeName: String;
+    attributes: XmlNamedNodeMap;
+    ownerDocument: XmlDocument;
+    parentNode: IXmlNode;
+    childNodes: XmlNodeList;
+    previousSibling: IXmlNode;
+    innerText: String;
+    constructor();
+
+    getAttribute(attributeName: String): String;
+
+    setAttribute(attributeName: String, attributeValue: String): void;
+
+    removeAttribute(attributeName: String): void;
+
+    getAttributeNode(attributeName: String): XmlAttribute;
+
+    setAttributeNode(newAttribute: XmlAttribute): XmlAttribute;
+
+    removeAttributeNode(attributeNode: XmlAttribute): XmlAttribute;
+
+    getElementsByTagName(tagName: String): XmlNodeList;
+
+    setAttributeNS(namespaceUri: Object, qualifiedName: String, value: String): void;
+
+    getAttributeNS(namespaceUri: Object, localName: String): String;
+
+    removeAttributeNS(namespaceUri: Object, localName: String): void;
+
+    setAttributeNodeNS(newAttribute: XmlAttribute): XmlAttribute;
+
+    getAttributeNodeNS(namespaceUri: Object, localName: String): XmlAttribute;
+
+    hasChildNodes(): Boolean;
+
+    insertBefore(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
+
+    replaceChild(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
+
+    removeChild(childNode: IXmlNode): IXmlNode;
+
+    appendChild(newChild: IXmlNode): IXmlNode;
+
+    cloneNode(deep: Boolean): IXmlNode;
+
+    normalize(): void;
+
+    selectSingleNode(xpath: String): IXmlNode;
+
+    selectNodes(xpath: String): XmlNodeList;
+
+    selectSingleNodeNS(xpath: String, namespaces: Object): IXmlNode;
+
+    selectNodesNS(xpath: String, namespaces: Object): XmlNodeList;
+
+    getXml(): String;
+
+  }
+
+  export class XmlEntityReference {
     prefix: Object;
     nodeValue: Object;
     firstChild: IXmlNode;
@@ -508,27 +611,17 @@
     localName: Object;
     namespaceUri: Object;
     nextSibling: IXmlNode;
-    nodeName: string;
+    nodeName: String;
     nodeType: NodeType;
     attributes: XmlNamedNodeMap;
     ownerDocument: XmlDocument;
-    childNodes: XmlNodeList;
     parentNode: IXmlNode;
+    childNodes: XmlNodeList;
     previousSibling: IXmlNode;
-    innerText: string;
+    innerText: String;
     constructor();
 
-    substringData(offset: number, count: number): string;
-
-    appendData(data: string): void;
-
-    insertData(offset: number, data: string): void;
-
-    deleteData(offset: number, count: number): void;
-
-    replaceData(offset: number, count: number, data: string): void;
-
-    hasChildNodes(): boolean;
+    hasChildNodes(): Boolean;
 
     insertBefore(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
 
@@ -538,19 +631,73 @@
 
     appendChild(newChild: IXmlNode): IXmlNode;
 
-    cloneNode(deep: boolean): IXmlNode;
+    cloneNode(deep: Boolean): IXmlNode;
 
     normalize(): void;
 
-    selectSingleNode(xpath: string): IXmlNode;
+    selectSingleNode(xpath: String): IXmlNode;
 
-    selectNodes(xpath: string): XmlNodeList;
+    selectNodes(xpath: String): XmlNodeList;
 
-    selectSingleNodeNS(xpath: string, namespaces: Object): IXmlNode;
+    selectSingleNodeNS(xpath: String, namespaces: Object): IXmlNode;
 
-    selectNodesNS(xpath: string, namespaces: Object): XmlNodeList;
+    selectNodesNS(xpath: String, namespaces: Object): XmlNodeList;
 
-    getXml(): string;
+    getXml(): String;
+
+  }
+
+  export class XmlLoadSettings {
+    validateOnParse: Boolean;
+    resolveExternals: Boolean;
+    prohibitDtd: Boolean;
+    maxElementDepth: Number;
+    elementContentWhiteSpace: Boolean;
+    constructor();
+
+  }
+
+  export class XmlNamedNodeMap {
+    length: Number;
+    constructor();
+
+    item(index: Number): IXmlNode;
+
+    getNamedItem(name: String): IXmlNode;
+
+    setNamedItem(node: IXmlNode): IXmlNode;
+
+    removeNamedItem(name: String): IXmlNode;
+
+    getNamedItemNS(namespaceUri: Object, name: String): IXmlNode;
+
+    removeNamedItemNS(namespaceUri: Object, name: String): IXmlNode;
+
+    setNamedItemNS(node: IXmlNode): IXmlNode;
+
+    getAt(index: Number): IXmlNode;
+
+    indexOf(value: IXmlNode, index: Number): Boolean;
+
+    getMany(startIndex: Number, items: Array<Object>): Number;
+
+    first(): Object;
+
+  }
+
+  export class XmlNodeList {
+    length: Number;
+    constructor();
+
+    item(index: Number): IXmlNode;
+
+    getAt(index: Number): IXmlNode;
+
+    indexOf(value: IXmlNode, index: Number): Boolean;
+
+    getMany(startIndex: Number, items: Array<Object>): Number;
+
+    first(): Object;
 
   }
 
@@ -564,17 +711,17 @@
     localName: Object;
     namespaceUri: Object;
     nextSibling: IXmlNode;
-    nodeName: string;
+    nodeName: String;
     nodeType: NodeType;
     ownerDocument: XmlDocument;
     parentNode: IXmlNode;
     previousSibling: IXmlNode;
-    innerText: string;
-    data: string;
-    target: string;
+    innerText: String;
+    data: String;
+    target: String;
     constructor();
 
-    hasChildNodes(): boolean;
+    hasChildNodes(): Boolean;
 
     insertBefore(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
 
@@ -584,23 +731,25 @@
 
     appendChild(newChild: IXmlNode): IXmlNode;
 
-    cloneNode(deep: boolean): IXmlNode;
+    cloneNode(deep: Boolean): IXmlNode;
 
     normalize(): void;
 
-    selectSingleNode(xpath: string): IXmlNode;
+    selectSingleNode(xpath: String): IXmlNode;
 
-    selectNodes(xpath: string): XmlNodeList;
+    selectNodes(xpath: String): XmlNodeList;
 
-    selectSingleNodeNS(xpath: string, namespaces: Object): IXmlNode;
+    selectSingleNodeNS(xpath: String, namespaces: Object): IXmlNode;
 
-    selectNodesNS(xpath: string, namespaces: Object): XmlNodeList;
+    selectNodesNS(xpath: String, namespaces: Object): XmlNodeList;
 
-    getXml(): string;
+    getXml(): String;
 
   }
 
-  export class XmlEntityReference {
+  export class XmlText {
+    data: String;
+    length: Number;
     prefix: Object;
     nodeValue: Object;
     firstChild: IXmlNode;
@@ -608,17 +757,29 @@
     localName: Object;
     namespaceUri: Object;
     nextSibling: IXmlNode;
-    nodeName: string;
+    nodeName: String;
     nodeType: NodeType;
     attributes: XmlNamedNodeMap;
     ownerDocument: XmlDocument;
-    parentNode: IXmlNode;
     childNodes: XmlNodeList;
+    parentNode: IXmlNode;
     previousSibling: IXmlNode;
-    innerText: string;
+    innerText: String;
     constructor();
 
-    hasChildNodes(): boolean;
+    splitText(offset: Number): IXmlText;
+
+    substringData(offset: Number, count: Number): String;
+
+    appendData(data: String): void;
+
+    insertData(offset: Number, data: String): void;
+
+    deleteData(offset: Number, count: Number): void;
+
+    replaceData(offset: Number, count: Number, data: String): void;
+
+    hasChildNodes(): Boolean;
 
     insertBefore(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
 
@@ -628,180 +789,19 @@
 
     appendChild(newChild: IXmlNode): IXmlNode;
 
-    cloneNode(deep: boolean): IXmlNode;
+    cloneNode(deep: Boolean): IXmlNode;
 
     normalize(): void;
 
-    selectSingleNode(xpath: string): IXmlNode;
+    selectSingleNode(xpath: String): IXmlNode;
 
-    selectNodes(xpath: string): XmlNodeList;
+    selectNodes(xpath: String): XmlNodeList;
 
-    selectSingleNodeNS(xpath: string, namespaces: Object): IXmlNode;
+    selectSingleNodeNS(xpath: String, namespaces: Object): IXmlNode;
 
-    selectNodesNS(xpath: string, namespaces: Object): XmlNodeList;
+    selectNodesNS(xpath: String, namespaces: Object): XmlNodeList;
 
-    getXml(): string;
-
-  }
-
-  export class XmlCDataSection {
-    data: string;
-    length: number;
-    prefix: Object;
-    nodeValue: Object;
-    firstChild: IXmlNode;
-    lastChild: IXmlNode;
-    localName: Object;
-    namespaceUri: Object;
-    nextSibling: IXmlNode;
-    nodeName: string;
-    nodeType: NodeType;
-    attributes: XmlNamedNodeMap;
-    ownerDocument: XmlDocument;
-    childNodes: XmlNodeList;
-    parentNode: IXmlNode;
-    previousSibling: IXmlNode;
-    innerText: string;
-    constructor();
-
-    splitText(offset: number): IXmlText;
-
-    substringData(offset: number, count: number): string;
-
-    appendData(data: string): void;
-
-    insertData(offset: number, data: string): void;
-
-    deleteData(offset: number, count: number): void;
-
-    replaceData(offset: number, count: number, data: string): void;
-
-    hasChildNodes(): boolean;
-
-    insertBefore(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
-
-    replaceChild(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
-
-    removeChild(childNode: IXmlNode): IXmlNode;
-
-    appendChild(newChild: IXmlNode): IXmlNode;
-
-    cloneNode(deep: boolean): IXmlNode;
-
-    normalize(): void;
-
-    selectSingleNode(xpath: string): IXmlNode;
-
-    selectNodes(xpath: string): XmlNodeList;
-
-    selectSingleNodeNS(xpath: string, namespaces: Object): IXmlNode;
-
-    selectNodesNS(xpath: string, namespaces: Object): XmlNodeList;
-
-    getXml(): string;
-
-  }
-
-  export class XmlLoadSettings {
-    validateOnParse: boolean;
-    resolveExternals: boolean;
-    prohibitDtd: boolean;
-    maxElementDepth: number;
-    elementContentWhiteSpace: boolean;
-    constructor();
-
-  }
-
-  export class DtdNotation {
-    publicId: Object;
-    systemId: Object;
-    prefix: Object;
-    nodeValue: Object;
-    firstChild: IXmlNode;
-    lastChild: IXmlNode;
-    localName: Object;
-    namespaceUri: Object;
-    nextSibling: IXmlNode;
-    nodeName: string;
-    nodeType: NodeType;
-    attributes: XmlNamedNodeMap;
-    ownerDocument: XmlDocument;
-    childNodes: XmlNodeList;
-    parentNode: IXmlNode;
-    previousSibling: IXmlNode;
-    innerText: string;
-    constructor();
-
-    hasChildNodes(): boolean;
-
-    insertBefore(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
-
-    replaceChild(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
-
-    removeChild(childNode: IXmlNode): IXmlNode;
-
-    appendChild(newChild: IXmlNode): IXmlNode;
-
-    cloneNode(deep: boolean): IXmlNode;
-
-    normalize(): void;
-
-    selectSingleNode(xpath: string): IXmlNode;
-
-    selectNodes(xpath: string): XmlNodeList;
-
-    selectSingleNodeNS(xpath: string, namespaces: Object): IXmlNode;
-
-    selectNodesNS(xpath: string, namespaces: Object): XmlNodeList;
-
-    getXml(): string;
-
-  }
-
-  export class DtdEntity {
-    notationName: Object;
-    publicId: Object;
-    systemId: Object;
-    prefix: Object;
-    nodeValue: Object;
-    firstChild: IXmlNode;
-    lastChild: IXmlNode;
-    localName: Object;
-    namespaceUri: Object;
-    nextSibling: IXmlNode;
-    nodeName: string;
-    nodeType: NodeType;
-    attributes: XmlNamedNodeMap;
-    ownerDocument: XmlDocument;
-    childNodes: XmlNodeList;
-    parentNode: IXmlNode;
-    previousSibling: IXmlNode;
-    innerText: string;
-    constructor();
-
-    hasChildNodes(): boolean;
-
-    insertBefore(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
-
-    replaceChild(newChild: IXmlNode, referenceChild: IXmlNode): IXmlNode;
-
-    removeChild(childNode: IXmlNode): IXmlNode;
-
-    appendChild(newChild: IXmlNode): IXmlNode;
-
-    cloneNode(deep: boolean): IXmlNode;
-
-    normalize(): void;
-
-    selectSingleNode(xpath: string): IXmlNode;
-
-    selectNodes(xpath: string): XmlNodeList;
-
-    selectSingleNodeNS(xpath: string, namespaces: Object): IXmlNode;
-
-    selectNodesNS(xpath: string, namespaces: Object): XmlNodeList;
-
-    getXml(): string;
+    getXml(): String;
 
   }
 

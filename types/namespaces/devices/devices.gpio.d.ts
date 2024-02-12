@@ -1,18 +1,19 @@
+  export class GpioChangeCount {
+    count: Number;
+    relativeTime: Number;
+    constructor();
+  }
+
   export class GpioChangeRecord {
-    relativeTime: number;
+    relativeTime: Number;
     edge: GpioPinEdge;
     constructor();
   }
 
-  export class GpioChangeCount {
-    count: number;
-    relativeTime: number;
-    constructor();
-  }
-
-  export enum GpioSharingMode {
-    exclusive,
-    sharedReadOnly,
+  export enum GpioChangePolarity {
+    falling,
+    rising,
+    both,
   }
 
   export enum GpioOpenStatus {
@@ -34,35 +35,93 @@
     outputOpenSourcePullDown,
   }
 
-  export enum GpioPinValue {
-    low,
-    high,
-  }
-
   export enum GpioPinEdge {
     fallingEdge,
     risingEdge,
   }
 
-  export enum GpioChangePolarity {
-    falling,
-    rising,
-    both,
+  export enum GpioPinValue {
+    low,
+    high,
   }
 
-  export class GpioPinValueChangedEventArgs {
-    edge: GpioPinEdge;
+  export enum GpioSharingMode {
+    exclusive,
+    sharedReadOnly,
+  }
+
+  export class GpioChangeCounter {
+    polarity: GpioChangePolarity;
+    isStarted: Boolean;
     constructor();
+    constructor(pin: GpioPin);
+
+    start(): void;
+
+    stop(): void;
+
+    read(): GpioChangeCount;
+
+    reset(): GpioChangeCount;
+
+    close(): void;
+  }
+
+  export class GpioChangeReader {
+    polarity: GpioChangePolarity;
+    capacity: Number;
+    isEmpty: Boolean;
+    isOverflowed: Boolean;
+    isStarted: Boolean;
+    length: Number;
+    constructor();
+    constructor(pin: GpioPin);
+    constructor(pin: GpioPin, minCapacity: Number);
+
+    waitForItemsAsync(count: Number, callback: (error: Error) => void): void ;
+
+    start(): void;
+
+    stop(): void;
+
+    clear(): void;
+
+    getNextItem(): GpioChangeRecord;
+
+    peekNextItem(): GpioChangeRecord;
+
+    getAllItems(): Object;
+
+    close(): void;
+  }
+
+  export class GpioController {
+    pinCount: Number;
+    constructor();
+
+    static getControllersAsync(provider: Object, callback: (error: Error, result: Object) => void): void ;
+
+
+    static getDefaultAsync(callback: (error: Error, result: GpioController) => void): void ;
+
+
+    static getDefault(): GpioController;
+
+
+    openPin(pinNumber: Number): GpioPin;
+    openPin(pinNumber: Number, sharingMode: GpioSharingMode): GpioPin;
+
+    tryOpenPin(pinNumber: Number, sharingMode: GpioSharingMode, pin: Object, openStatus: GpioOpenStatus): Boolean;
 
   }
 
   export class GpioPin {
-    debounceTimeout: number;
-    pinNumber: number;
+    debounceTimeout: Number;
+    pinNumber: Number;
     sharingMode: GpioSharingMode;
     constructor();
 
-    isDriveModeSupported(driveMode: GpioPinDriveMode): boolean;
+    isDriveModeSupported(driveMode: GpioPinDriveMode): Boolean;
 
     getDriveMode(): GpioPinDriveMode;
 
@@ -86,69 +145,21 @@
 
   }
 
-  export class GpioController {
-    pinCount: number;
+  export class GpioPinValueChangedEventArgs {
+    edge: GpioPinEdge;
     constructor();
-
-    static getControllersAsync(provider: Object, callback: (error: Error, result: Object) => void): void ;
-
-
-    static getDefaultAsync(callback: (error: Error, result: GpioController) => void): void ;
-
-
-    static getDefault(): GpioController;
-
-
-    openPin(pinNumber: number): GpioPin;
-    openPin(pinNumber: number, sharingMode: GpioSharingMode): GpioPin;
-
-    tryOpenPin(pinNumber: number, sharingMode: GpioSharingMode, pin: Object, openStatus: GpioOpenStatus): boolean;
 
   }
 
-  export class GpioChangeReader {
-    polarity: GpioChangePolarity;
-    capacity: number;
-    isEmpty: boolean;
-    isOverflowed: boolean;
-    isStarted: boolean;
-    length: number;
-    constructor();
-    constructor(pin: GpioPin);
-    constructor(pin: GpioPin, minCapacity: number);
-
-    waitForItemsAsync(count: number, callback: (error: Error) => void): void ;
-
-    start(): void;
-
-    stop(): void;
-
-    clear(): void;
-
-    getNextItem(): GpioChangeRecord;
-
-    peekNextItem(): GpioChangeRecord;
-
-    getAllItems(): Object;
-
-    close(): void;
-  }
-
-  export class GpioChangeCounter {
-    polarity: GpioChangePolarity;
-    isStarted: boolean;
-    constructor();
-    constructor(pin: GpioPin);
-
-    start(): void;
-
-    stop(): void;
-
-    read(): GpioChangeCount;
-
-    reset(): GpioChangeCount;
-
-    close(): void;
-  }
-
+export const GpioChangePolarity: any;
+export const GpioOpenStatus: any;
+export const GpioPinDriveMode: any;
+export const GpioPinEdge: any;
+export const GpioPinValue: any;
+export const GpioSharingMode: any;
+export const GpioChangeCounter: any;
+export const GpioChangeReader: any;
+export const GpioController: any;
+export const GpioPin: any;
+export const GpioPinValueChangedEventArgs: any;
 export * as provider from "./devices.gpio.provider.js";

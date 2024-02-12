@@ -1,7 +1,7 @@
   export class ApplicationDataManager {
     constructor();
 
-    static createForPackageFamily(packageFamilyName: string): Object;
+    static createForPackageFamily(packageFamilyName: String): Object;
 
 
   }

@@ -4,7 +4,7 @@
     static getDefault(): VibrationDevice;
 
 
-    vibrate(duration: number): void;
+    vibrate(duration: Number): void;
 
     cancel(): void;
 

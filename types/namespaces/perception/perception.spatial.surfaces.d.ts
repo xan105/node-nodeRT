@@ -6,30 +6,21 @@
   }
 
   export class Vector3 {
-    x: number;
-    y: number;
-    z: number;
+    x: Number;
+    y: Number;
+    z: Number;
     constructor();
   }
 
   export class SpatialSurfaceInfo {
-    id: string;
+    id: String;
     updateTime: Date;
     constructor();
 
-    tryComputeLatestMeshAsync(maxTrianglesPerCubicMeter: number, callback: (error: Error, result: SpatialSurfaceMesh) => void): void ;
-    tryComputeLatestMeshAsync(maxTrianglesPerCubicMeter: number, options: SpatialSurfaceMeshOptions, callback: (error: Error, result: SpatialSurfaceMesh) => void): void ;
+    tryComputeLatestMeshAsync(maxTrianglesPerCubicMeter: Number, callback: (error: Error, result: SpatialSurfaceMesh) => void): void ;
+    tryComputeLatestMeshAsync(maxTrianglesPerCubicMeter: Number, options: SpatialSurfaceMeshOptions, callback: (error: Error, result: SpatialSurfaceMesh) => void): void ;
 
     tryGetBounds(coordinateSystem: Object): SpatialBoundingOrientedBox;
-
-  }
-
-  export class SpatialSurfaceMeshBuffer {
-    data: Object;
-    elementCount: number;
-    format: number;
-    stride: number;
-    constructor();
 
   }
 
@@ -44,14 +35,23 @@
 
   }
 
+  export class SpatialSurfaceMeshBuffer {
+    data: Object;
+    elementCount: Number;
+    format: Number;
+    stride: Number;
+    constructor();
+
+  }
+
   export class SpatialSurfaceMeshOptions {
     static supportedTriangleIndexFormats: Object;
     static supportedVertexNormalFormats: Object;
     static supportedVertexPositionFormats: Object;
-    vertexPositionFormat: number;
-    vertexNormalFormat: number;
-    triangleIndexFormat: number;
-    includeVertexNormals: boolean;
+    vertexPositionFormat: Number;
+    vertexNormalFormat: Number;
+    triangleIndexFormat: Number;
+    includeVertexNormals: Boolean;
     constructor();
 
   }
@@ -59,10 +59,10 @@
   export class SpatialSurfaceObserver {
     constructor();
 
-    static requestAccessAsync(callback: (error: Error, result: number) => void): void ;
+    static requestAccessAsync(callback: (error: Error, result: Number) => void): void ;
 
 
-    static isSupported(): boolean;
+    static isSupported(): Boolean;
 
 
     getObservedSurfaces(): Object;

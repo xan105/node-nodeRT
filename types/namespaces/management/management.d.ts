@@ -1,16 +1,16 @@
+  export enum MdmAlertDataType {
+    string,
+    base64,
+    boolean,
+    integer,
+  }
+
   export enum MdmAlertMark {
     none,
     fatal,
     critical,
     warning,
     informational,
-  }
-
-  export enum MdmAlertDataType {
-    string,
-    base64,
-    boolean,
-    integer,
   }
 
   export enum MdmSessionState {
@@ -24,21 +24,21 @@
   }
 
   export class MdmAlert {
-    type: string;
-    target: string;
-    source: string;
+    type: String;
+    target: String;
+    source: String;
     mark: MdmAlertMark;
     format: MdmAlertDataType;
-    data: string;
-    status: number;
+    data: String;
+    status: Number;
     constructor();
 
   }
 
   export class MdmSession {
     alerts: Object;
-    extendedError: number;
-    id: string;
+    extendedError: Number;
+    id: String;
     state: MdmSessionState;
     constructor();
 
@@ -58,14 +58,20 @@
     static tryCreateSession(): MdmSession;
 
 
-    static deleteSessionById(sessionId: string): void;
+    static deleteSessionById(sessionId: String): void;
 
 
-    static getSessionById(sessionId: string): MdmSession;
+    static getSessionById(sessionId: String): MdmSession;
 
 
   }
 
+export const MdmAlertDataType: any;
+export const MdmAlertMark: any;
+export const MdmSessionState: any;
+export const MdmAlert: any;
+export const MdmSession: any;
+export const MdmSessionManager: any;
 export * as core from "./management.core.js";
 export * as deployment from "./management.deployment.js";
 export * as policies from "./management.policies.js";

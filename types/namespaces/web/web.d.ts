@@ -66,11 +66,14 @@
   export class WebError {
     constructor();
 
-    static getStatus(hresult: number): WebErrorStatus;
+    static getStatus(hresult: Number): WebErrorStatus;
 
 
   }
 
+export const WebErrorStatus: any;
+export const IUriToStreamResolver: any;
+export const WebError: any;
 export * as atompub from "./web.atompub.js";
 export * as http from "./web.http.js";
 export * as syndication from "./web.syndication.js";

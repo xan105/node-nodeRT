@@ -5,9 +5,74 @@
   export class PrintPageDescription {
     pageSize: Object;
     imageableRect: Object;
-    dpiX: number;
-    dpiY: number;
+    dpiX: Number;
+    dpiY: Number;
     constructor();
+  }
+
+  export enum PrintBinding {
+    default,
+    notAvailable,
+    printerCustom,
+    none,
+    bale,
+    bindBottom,
+    bindLeft,
+    bindRight,
+    bindTop,
+    booklet,
+    edgeStitchBottom,
+    edgeStitchLeft,
+    edgeStitchRight,
+    edgeStitchTop,
+    fold,
+    jogOffset,
+    trim,
+  }
+
+  export enum PrintBordering {
+    default,
+    notAvailable,
+    printerCustom,
+    bordered,
+    borderless,
+  }
+
+  export enum PrintCollation {
+    default,
+    notAvailable,
+    printerCustom,
+    collated,
+    uncollated,
+  }
+
+  export enum PrintColorMode {
+    default,
+    notAvailable,
+    printerCustom,
+    color,
+    grayscale,
+    monochrome,
+  }
+
+  export enum PrintDuplex {
+    default,
+    notAvailable,
+    printerCustom,
+    oneSided,
+    twoSidedShortEdge,
+    twoSidedLongEdge,
+  }
+
+  export enum PrintHolePunch {
+    default,
+    notAvailable,
+    printerCustom,
+    none,
+    leftEdge,
+    rightEdge,
+    topEdge,
+    bottomEdge,
   }
 
   export enum PrintMediaSize {
@@ -244,32 +309,6 @@
     text,
   }
 
-  export enum PrintColorMode {
-    default,
-    notAvailable,
-    printerCustom,
-    color,
-    grayscale,
-    monochrome,
-  }
-
-  export enum PrintDuplex {
-    default,
-    notAvailable,
-    printerCustom,
-    oneSided,
-    twoSidedShortEdge,
-    twoSidedLongEdge,
-  }
-
-  export enum PrintCollation {
-    default,
-    notAvailable,
-    printerCustom,
-    collated,
-    uncollated,
-  }
-
   export enum PrintStaple {
     default,
     notAvailable,
@@ -286,45 +325,6 @@
     saddleStitch,
   }
 
-  export enum PrintHolePunch {
-    default,
-    notAvailable,
-    printerCustom,
-    none,
-    leftEdge,
-    rightEdge,
-    topEdge,
-    bottomEdge,
-  }
-
-  export enum PrintBinding {
-    default,
-    notAvailable,
-    printerCustom,
-    none,
-    bale,
-    bindBottom,
-    bindLeft,
-    bindRight,
-    bindTop,
-    booklet,
-    edgeStitchBottom,
-    edgeStitchLeft,
-    edgeStitchRight,
-    edgeStitchTop,
-    fold,
-    jogOffset,
-    trim,
-  }
-
-  export enum PrintBordering {
-    default,
-    notAvailable,
-    printerCustom,
-    bordered,
-    borderless,
-  }
-
   export enum PrintTaskCompletion {
     abandoned,
     canceled,
@@ -332,20 +332,15 @@
     submitted,
   }
 
-  export class PrintPageRange {
-    firstPageNumber: number;
-    lastPageNumber: number;
+  export class IPrintDocumentSource {
     constructor();
-    constructor(firstPage: number, lastPage: number);
-    constructor(page: number);
 
   }
 
-  export class PrintPageRangeOptions {
-    allowCustomSetOfPages: boolean;
-    allowCurrentPage: boolean;
-    allowAllPages: boolean;
+  export class IPrintTaskOptionsCore {
     constructor();
+
+    getPageDescription(jobPageNumber: Number): PrintPageDescription;
 
   }
 
@@ -355,24 +350,14 @@
     colorMode: PrintColorMode;
     duplex: PrintDuplex;
     holePunch: PrintHolePunch;
-    maxCopies: number;
+    maxCopies: Number;
     mediaSize: PrintMediaSize;
     mediaType: PrintMediaType;
-    minCopies: number;
-    numberOfCopies: number;
+    minCopies: Number;
+    numberOfCopies: Number;
     orientation: PrintOrientation;
     printQuality: PrintQuality;
     staple: PrintStaple;
-    constructor();
-
-  }
-
-  export class PrintPageInfo {
-    pageSize: Object;
-    orientation: PrintOrientation;
-    mediaSize: PrintMediaSize;
-    dpiY: number;
-    dpiX: number;
     constructor();
 
   }
@@ -383,72 +368,54 @@
 
   }
 
-  export class IPrintTaskOptionsCore {
+  export class PrintManager {
     constructor();
 
-    getPageDescription(jobPageNumber: number): PrintPageDescription;
+    static showPrintUIAsync(callback: (error: Error, result: Boolean) => void): void ;
+
+
+    static isSupported(): Boolean;
+
+
+    static getForCurrentView(): PrintManager;
+
+
+    addListener(type: "PrintTaskRequested", listener: (ev: Event) => void): void ;
+    removeListener(type: "PrintTaskRequested", listener: (ev: Event) => void): void ;
+    on(type: "PrintTaskRequested", listener: (ev: Event) => void): void ;
+    off(type: "PrintTaskRequested", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
 
   }
 
-  export class PrintTaskOptions {
-    bordering: PrintBordering;
-    pageRangeOptions: PrintPageRangeOptions;
-    customPageRanges: Object;
-    mediaType: PrintMediaType;
-    holePunch: PrintHolePunch;
-    binding: PrintBinding;
-    duplex: PrintDuplex;
-    colorMode: PrintColorMode;
-    collation: PrintCollation;
-    staple: PrintStaple;
-    printQuality: PrintQuality;
+  export class PrintPageInfo {
+    pageSize: Object;
     orientation: PrintOrientation;
     mediaSize: PrintMediaSize;
-    numberOfCopies: number;
-    maxCopies: number;
-    minCopies: number;
-    displayedOptions: Object;
-    constructor();
-
-    getPageDescription(jobPageNumber: number): PrintPageDescription;
-
-    getPagePrintTicket(printPageInfo: PrintPageInfo): Object;
-
-  }
-
-  export class StandardPrintTaskOptions {
-    static copies: string;
-    static binding: string;
-    static collation: string;
-    static colorMode: string;
-    static mediaType: string;
-    static duplex: string;
-    static holePunch: string;
-    static inputBin: string;
-    static mediaSize: string;
-    static nUp: string;
-    static orientation: string;
-    static printQuality: string;
-    static staple: string;
-    static bordering: string;
-    static customPageRanges: string;
+    dpiY: Number;
+    dpiX: Number;
     constructor();
 
   }
 
-  export class IPrintDocumentSource {
+  export class PrintPageRange {
+    firstPageNumber: Number;
+    lastPageNumber: Number;
     constructor();
+    constructor(firstPage: Number, lastPage: Number);
+    constructor(page: Number);
 
   }
 
-  export class PrintTaskProgressingEventArgs {
-    documentPageCount: number;
-    constructor();
-
-  }
-
-  export class PrintTaskCompletedEventArgs {
-    completion: PrintTaskCompletion;
+  export class PrintPageRangeOptions {
+    allowCustomSetOfPages: Boolean;
+    allowCurrentPage: Boolean;
+    allowAllPages: Boolean;
     constructor();
 
   }
@@ -457,9 +424,9 @@
     options: PrintTaskOptions;
     properties: Object;
     source: IPrintDocumentSource;
-    isPreviewEnabled: boolean;
-    isPrinterTargetEnabled: boolean;
-    is3DManufacturingTargetEnabled: boolean;
+    isPreviewEnabled: Boolean;
+    isPrinterTargetEnabled: Boolean;
+    is3DManufacturingTargetEnabled: Boolean;
     constructor();
 
     addListener(type: "Completed", listener: (ev: Event) => void): void ;
@@ -490,10 +457,64 @@
 
   }
 
-  export class PrintTaskSourceRequestedDeferral {
+  export class PrintTaskCompletedEventArgs {
+    completion: PrintTaskCompletion;
+    constructor();
+
+  }
+
+  export class PrintTaskOptions {
+    bordering: PrintBordering;
+    pageRangeOptions: PrintPageRangeOptions;
+    customPageRanges: Object;
+    mediaType: PrintMediaType;
+    holePunch: PrintHolePunch;
+    binding: PrintBinding;
+    duplex: PrintDuplex;
+    colorMode: PrintColorMode;
+    collation: PrintCollation;
+    staple: PrintStaple;
+    printQuality: PrintQuality;
+    orientation: PrintOrientation;
+    mediaSize: PrintMediaSize;
+    numberOfCopies: Number;
+    maxCopies: Number;
+    minCopies: Number;
+    displayedOptions: Object;
+    constructor();
+
+    getPageDescription(jobPageNumber: Number): PrintPageDescription;
+
+    getPagePrintTicket(printPageInfo: PrintPageInfo): Object;
+
+  }
+
+  export class PrintTaskProgressingEventArgs {
+    documentPageCount: Number;
+    constructor();
+
+  }
+
+  export class PrintTaskRequest {
+    deadline: Date;
+    constructor();
+
+    createPrintTask(title: String, handler: Object): PrintTask;
+
+    getDeferral(): PrintTaskRequestedDeferral;
+
+  }
+
+  export class PrintTaskRequestedDeferral {
     constructor();
 
     complete(): void;
+
+  }
+
+  export class PrintTaskRequestedEventArgs {
+    request: PrintTaskRequest;
+    constructor();
 
   }
 
@@ -507,54 +528,64 @@
 
   }
 
-  export class PrintTaskRequestedDeferral {
+  export class PrintTaskSourceRequestedDeferral {
     constructor();
 
     complete(): void;
 
   }
 
-  export class PrintTaskRequest {
-    deadline: Date;
+  export class StandardPrintTaskOptions {
+    static copies: String;
+    static binding: String;
+    static collation: String;
+    static colorMode: String;
+    static mediaType: String;
+    static duplex: String;
+    static holePunch: String;
+    static inputBin: String;
+    static mediaSize: String;
+    static nUp: String;
+    static orientation: String;
+    static printQuality: String;
+    static staple: String;
+    static bordering: String;
+    static customPageRanges: String;
     constructor();
-
-    createPrintTask(title: string, handler: Object): PrintTask;
-
-    getDeferral(): PrintTaskRequestedDeferral;
 
   }
 
-  export class PrintTaskRequestedEventArgs {
-    request: PrintTaskRequest;
-    constructor();
-
-  }
-
-  export class PrintManager {
-    constructor();
-
-    static showPrintUIAsync(callback: (error: Error, result: boolean) => void): void ;
-
-
-    static isSupported(): boolean;
-
-
-    static getForCurrentView(): PrintManager;
-
-
-    addListener(type: "PrintTaskRequested", listener: (ev: Event) => void): void ;
-    removeListener(type: "PrintTaskRequested", listener: (ev: Event) => void): void ;
-    on(type: "PrintTaskRequested", listener: (ev: Event) => void): void ;
-    off(type: "PrintTaskRequested", listener: (ev: Event) => void): void ;
-    
-    addListener(type: string, listener: (ev: Event) => void): void ;
-    removeListener(type: string, listener: (ev: Event) => void): void ;
-    on(type: string, listener: (ev: Event) => void): void ;
-    off(type: string, listener: (ev: Event) => void): void ;
-    
-
-  }
-
+export const PrintBinding: any;
+export const PrintBordering: any;
+export const PrintCollation: any;
+export const PrintColorMode: any;
+export const PrintDuplex: any;
+export const PrintHolePunch: any;
+export const PrintMediaSize: any;
+export const PrintMediaType: any;
+export const PrintOrientation: any;
+export const PrintQuality: any;
+export const PrintStaple: any;
+export const PrintTaskCompletion: any;
+export const IPrintDocumentSource: any;
+export const IPrintTaskOptionsCore: any;
+export const IPrintTaskOptionsCoreProperties: any;
+export const IPrintTaskOptionsCoreUIConfiguration: any;
+export const PrintManager: any;
+export const PrintPageInfo: any;
+export const PrintPageRange: any;
+export const PrintPageRangeOptions: any;
+export const PrintTask: any;
+export const PrintTaskCompletedEventArgs: any;
+export const PrintTaskOptions: any;
+export const PrintTaskProgressingEventArgs: any;
+export const PrintTaskRequest: any;
+export const PrintTaskRequestedDeferral: any;
+export const PrintTaskRequestedEventArgs: any;
+export const PrintTaskSourceRequestedArgs: any;
+export const PrintTaskSourceRequestedDeferral: any;
+export const StandardPrintTaskOptions: any;
 export * as optiondetails from "./graphics.printing.optiondetails.js";
+export * as printsupport from "./graphics.printing.printsupport.js";
 export * as printticket from "./graphics.printing.printticket.js";
 export * as workflow from "./graphics.printing.workflow.js";

@@ -1,3 +1,13 @@
+  export enum VoiceCommandCompletionReason {
+    unknown,
+    communicationFailed,
+    resourceLimitsExceeded,
+    canceled,
+    timeoutExceeded,
+    appLaunched,
+    completed,
+  }
+
   export enum VoiceCommandContentTileType {
     titleOnly,
     titleWithText,
@@ -9,22 +19,45 @@
     titleWith280x140IconAndText,
   }
 
-  export enum VoiceCommandCompletionReason {
-    unknown,
-    communicationFailed,
-    resourceLimitsExceeded,
-    canceled,
-    timeoutExceeded,
-    appLaunched,
-    completed,
+  export class VoiceCommand {
+    commandName: String;
+    properties: Object;
+    speechRecognitionResult: Object;
+    constructor();
+
+  }
+
+  export class VoiceCommandCompletedEventArgs {
+    reason: VoiceCommandCompletionReason;
+    constructor();
+
+  }
+
+  export class VoiceCommandConfirmationResult {
+    confirmed: Boolean;
+    constructor();
+
+  }
+
+  export class VoiceCommandContentTile {
+    title: String;
+    textLine3: String;
+    textLine2: String;
+    textLine1: String;
+    image: Object;
+    contentTileType: VoiceCommandContentTileType;
+    appLaunchArgument: String;
+    appContext: Object;
+    constructor();
+
   }
 
   export class VoiceCommandDefinition {
-    language: string;
-    name: string;
+    language: String;
+    name: String;
     constructor();
 
-    setPhraseListAsync(phraseListName: string, phraseList: Object, callback: (error: Error) => void): void ;
+    setPhraseListAsync(phraseListName: String, phraseList: Object, callback: (error: Error) => void): void ;
 
   }
 
@@ -37,39 +70,17 @@
 
   }
 
-  export class VoiceCommandContentTile {
-    title: string;
-    textLine3: string;
-    textLine2: string;
-    textLine1: string;
-    image: Object;
-    contentTileType: VoiceCommandContentTileType;
-    appLaunchArgument: string;
-    appContext: Object;
-    constructor();
-
-  }
-
-  export class VoiceCommandUserMessage {
-    spokenMessage: string;
-    displayMessage: string;
-    constructor();
-
-  }
-
-  export class VoiceCommand {
-    commandName: string;
-    properties: Object;
-    speechRecognitionResult: Object;
+  export class VoiceCommandDisambiguationResult {
+    selectedItem: VoiceCommandContentTile;
     constructor();
 
   }
 
   export class VoiceCommandResponse {
-    static maxSupportedVoiceCommandContentTiles: number;
+    static maxSupportedVoiceCommandContentTiles: Number;
     repeatMessage: VoiceCommandUserMessage;
     message: VoiceCommandUserMessage;
-    appLaunchArgument: string;
+    appLaunchArgument: String;
     voiceCommandContentTiles: Object;
     constructor();
 
@@ -80,18 +91,6 @@
     static createResponseForPrompt(message: VoiceCommandUserMessage, repeatMessage: VoiceCommandUserMessage): VoiceCommandResponse;
     static createResponseForPrompt(message: VoiceCommandUserMessage, repeatMessage: VoiceCommandUserMessage, contentTiles: Object): VoiceCommandResponse;
 
-
-  }
-
-  export class VoiceCommandConfirmationResult {
-    confirmed: boolean;
-    constructor();
-
-  }
-
-  export class VoiceCommandDisambiguationResult {
-    selectedItem: VoiceCommandContentTile;
-    constructor();
 
   }
 
@@ -129,8 +128,9 @@
 
   }
 
-  export class VoiceCommandCompletedEventArgs {
-    reason: VoiceCommandCompletionReason;
+  export class VoiceCommandUserMessage {
+    spokenMessage: String;
+    displayMessage: String;
     constructor();
 
   }

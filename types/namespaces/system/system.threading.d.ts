@@ -1,29 +1,12 @@
-  export enum WorkItemPriority {
-    low,
-    normal,
-    high,
-  }
-
   export enum WorkItemOptions {
     none,
     timeSliced,
   }
 
-  export class ThreadPoolTimer {
-    delay: number;
-    period: number;
-    constructor();
-
-    static createPeriodicTimer(handler: Object, period: number): ThreadPoolTimer;
-    static createPeriodicTimer(handler: Object, period: number, destroyed: Object): ThreadPoolTimer;
-
-
-    static createTimer(handler: Object, delay: number): ThreadPoolTimer;
-    static createTimer(handler: Object, delay: number, destroyed: Object): ThreadPoolTimer;
-
-
-    cancel(): void;
-
+  export enum WorkItemPriority {
+    low,
+    normal,
+    high,
   }
 
   export class ThreadPool {
@@ -36,4 +19,25 @@
 
   }
 
+  export class ThreadPoolTimer {
+    delay: Number;
+    period: Number;
+    constructor();
+
+    static createPeriodicTimer(handler: Object, period: Number): ThreadPoolTimer;
+    static createPeriodicTimer(handler: Object, period: Number, destroyed: Object): ThreadPoolTimer;
+
+
+    static createTimer(handler: Object, delay: Number): ThreadPoolTimer;
+    static createTimer(handler: Object, delay: Number, destroyed: Object): ThreadPoolTimer;
+
+
+    cancel(): void;
+
+  }
+
+export const WorkItemOptions: any;
+export const WorkItemPriority: any;
+export const ThreadPool: any;
+export const ThreadPoolTimer: any;
 export * as core from "./system.threading.core.js";

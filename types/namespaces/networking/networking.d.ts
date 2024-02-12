@@ -1,3 +1,8 @@
+  export enum DomainNameType {
+    suffix,
+    fullyQualified,
+  }
+
   export enum HostNameSortOptions {
     none,
     optimizeForLongConnections,
@@ -10,39 +15,39 @@
     bluetooth,
   }
 
-  export enum DomainNameType {
-    suffix,
-    fullyQualified,
+  export class EndpointPair {
+    remoteServiceName: String;
+    remoteHostName: HostName;
+    localServiceName: String;
+    localHostName: HostName;
+    constructor();
+    constructor(localHostName: HostName, localServiceName: String, remoteHostName: HostName, remoteServiceName: String);
+
   }
 
   export class HostName {
-    canonicalName: string;
-    displayName: string;
+    canonicalName: String;
+    displayName: String;
     iPInformation: Object;
-    rawName: string;
+    rawName: String;
     type: HostNameType;
     constructor();
-    constructor(hostName: string);
+    constructor(hostName: String);
 
-    static compare(value1: string, value2: string): number;
+    static compare(value1: String, value2: String): Number;
 
 
-    isEqual(hostName: HostName): boolean;
+    isEqual(hostName: HostName): Boolean;
 
-    toString(): string;
-
-  }
-
-  export class EndpointPair {
-    remoteServiceName: string;
-    remoteHostName: HostName;
-    localServiceName: string;
-    localHostName: HostName;
-    constructor();
-    constructor(localHostName: HostName, localServiceName: string, remoteHostName: HostName, remoteServiceName: string);
+    toString(): String;
 
   }
 
+export const DomainNameType: any;
+export const HostNameSortOptions: any;
+export const HostNameType: any;
+export const EndpointPair: any;
+export const HostName: any;
 export * as backgroundtransfer from "./networking.backgroundtransfer.js";
 export * as connectivity from "./networking.connectivity.js";
 export * as networkoperators from "./networking.networkoperators.js";

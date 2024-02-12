@@ -5,6 +5,21 @@
     rfc3966,
   }
 
+  export enum PhoneNumberMatchResult {
+    noMatch,
+    shortNationalSignificantNumberMatch,
+    nationalSignificantNumberMatch,
+    exactMatch,
+  }
+
+  export enum PhoneNumberParseResult {
+    valid,
+    notANumber,
+    invalidCountryCode,
+    tooShort,
+    tooLong,
+  }
+
   export enum PredictedPhoneNumberKind {
     fixedLine,
     mobile,
@@ -20,70 +35,55 @@
     unknown,
   }
 
-  export enum PhoneNumberParseResult {
-    valid,
-    notANumber,
-    invalidCountryCode,
-    tooShort,
-    tooLong,
-  }
-
-  export enum PhoneNumberMatchResult {
-    noMatch,
-    shortNationalSignificantNumberMatch,
-    nationalSignificantNumberMatch,
-    exactMatch,
-  }
-
-  export class PhoneNumberInfo {
-    countryCode: number;
-    phoneNumber: string;
-    constructor();
-    constructor(number: string);
-
-    static tryParse(input: string, phoneNumber: Object): PhoneNumberParseResult;
-    static tryParse(input: string, regionCode: string, phoneNumber: Object): PhoneNumberParseResult;
-
-
-    getLengthOfGeographicalAreaCode(): number;
-
-    getNationalSignificantNumber(): string;
-
-    getLengthOfNationalDestinationCode(): number;
-
-    predictNumberKind(): PredictedPhoneNumberKind;
-
-    getGeographicRegionCode(): string;
-
-    checkNumberMatch(otherNumber: PhoneNumberInfo): PhoneNumberMatchResult;
-
-    toString(): string;
-
-  }
-
   export class PhoneNumberFormatter {
     constructor();
 
-    static tryCreate(regionCode: string, phoneNumber: Object): void;
+    static tryCreate(regionCode: String, phoneNumber: Object): void;
 
 
-    static getCountryCodeForRegion(regionCode: string): number;
+    static getCountryCodeForRegion(regionCode: String): Number;
 
 
-    static getNationalDirectDialingPrefixForRegion(regionCode: string, stripNonDigit: boolean): string;
+    static getNationalDirectDialingPrefixForRegion(regionCode: String, stripNonDigit: Boolean): String;
 
 
-    static wrapWithLeftToRightMarkers(number: string): string;
+    static wrapWithLeftToRightMarkers(number: String): String;
 
 
-    format(number: PhoneNumberInfo): string;
-    format(number: PhoneNumberInfo, numberFormat: PhoneNumberFormat): string;
+    format(number: PhoneNumberInfo): String;
+    format(number: PhoneNumberInfo, numberFormat: PhoneNumberFormat): String;
 
-    formatPartialString(number: string): string;
+    formatPartialString(number: String): String;
 
-    formatString(number: string): string;
+    formatString(number: String): String;
 
-    formatStringWithLeftToRightMarkers(number: string): string;
+    formatStringWithLeftToRightMarkers(number: String): String;
+
+  }
+
+  export class PhoneNumberInfo {
+    countryCode: Number;
+    phoneNumber: String;
+    constructor();
+    constructor(number: String);
+
+    static tryParse(input: String, phoneNumber: Object): PhoneNumberParseResult;
+    static tryParse(input: String, regionCode: String, phoneNumber: Object): PhoneNumberParseResult;
+
+
+    getLengthOfGeographicalAreaCode(): Number;
+
+    getNationalSignificantNumber(): String;
+
+    getLengthOfNationalDestinationCode(): Number;
+
+    predictNumberKind(): PredictedPhoneNumberKind;
+
+    getGeographicRegionCode(): String;
+
+    checkNumberMatch(otherNumber: PhoneNumberInfo): PhoneNumberMatchResult;
+
+    toString(): String;
 
   }
 

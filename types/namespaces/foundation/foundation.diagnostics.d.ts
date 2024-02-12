@@ -10,18 +10,6 @@
     constructor();
   }
 
-  export enum CausalityTraceLevel {
-    required,
-    important,
-    verbose,
-  }
-
-  export enum CausalitySource {
-    application,
-    library,
-    system,
-  }
-
   export enum CausalityRelation {
     assignDelegate,
     join,
@@ -30,10 +18,22 @@
     error,
   }
 
+  export enum CausalitySource {
+    application,
+    library,
+    system,
+  }
+
   export enum CausalitySynchronousWork {
     completionNotification,
     progressNotification,
     execution,
+  }
+
+  export enum CausalityTraceLevel {
+    required,
+    important,
+    verbose,
   }
 
   export enum ErrorOptions {
@@ -42,24 +42,6 @@
     forceExceptions,
     useSetErrorInfo,
     suppressSetErrorInfo,
-  }
-
-  export enum LoggingLevel {
-    verbose,
-    information,
-    warning,
-    error,
-    critical,
-  }
-
-  export enum LoggingOpcode {
-    info,
-    start,
-    stop,
-    reply,
-    resume,
-    suspend,
-    send,
   }
 
   export enum LoggingFieldFormat {
@@ -84,26 +66,37 @@
     unsigned,
   }
 
-  export class TracingStatusChangedEventArgs {
-    enabled: boolean;
-    traceLevel: CausalityTraceLevel;
-    constructor();
+  export enum LoggingLevel {
+    verbose,
+    information,
+    warning,
+    error,
+    critical,
+  }
 
+  export enum LoggingOpcode {
+    info,
+    start,
+    stop,
+    reply,
+    resume,
+    suspend,
+    send,
   }
 
   export class AsyncCausalityTracer {
     constructor();
 
-    static traceOperationCreation(traceLevel: CausalityTraceLevel, source: CausalitySource, platformId: string, operationId: number, operationName: string, relatedContext: number): void;
+    static traceOperationCreation(traceLevel: CausalityTraceLevel, source: CausalitySource, platformId: String, operationId: Number, operationName: String, relatedContext: Number): void;
 
 
-    static traceOperationCompletion(traceLevel: CausalityTraceLevel, source: CausalitySource, platformId: string, operationId: number, status: number): void;
+    static traceOperationCompletion(traceLevel: CausalityTraceLevel, source: CausalitySource, platformId: String, operationId: Number, status: Number): void;
 
 
-    static traceOperationRelation(traceLevel: CausalityTraceLevel, source: CausalitySource, platformId: string, operationId: number, relation: CausalityRelation): void;
+    static traceOperationRelation(traceLevel: CausalityTraceLevel, source: CausalitySource, platformId: String, operationId: Number, relation: CausalityRelation): void;
 
 
-    static traceSynchronousWorkStart(traceLevel: CausalityTraceLevel, source: CausalitySource, platformId: string, operationId: number, work: CausalitySynchronousWork): void;
+    static traceSynchronousWorkStart(traceLevel: CausalityTraceLevel, source: CausalitySource, platformId: String, operationId: Number, work: CausalitySynchronousWork): void;
 
 
     static traceSynchronousWorkCompletion(traceLevel: CausalityTraceLevel, source: CausalitySource, work: CausalitySynchronousWork): void;
@@ -122,278 +115,34 @@
 
   }
 
-  export class IErrorReportingSettings {
-    constructor();
-
-    setErrorOptions(value: ErrorOptions): void;
-
-    getErrorOptions(): ErrorOptions;
-
-  }
-
-  export class RuntimeBrokerErrorSettings {
-    constructor();
-
-    setErrorOptions(value: ErrorOptions): void;
-
-    getErrorOptions(): ErrorOptions;
-
-  }
-
   export class ErrorDetails {
-    description: string;
+    description: String;
     helpUri: Object;
-    longDescription: string;
+    longDescription: String;
     constructor();
 
-    static createFromHResultAsync(errorCode: number, callback: (error: Error, result: ErrorDetails) => void): void ;
+    static createFromHResultAsync(errorCode: Number, callback: (error: Error, result: ErrorDetails) => void): void ;
 
 
   }
 
-  export class LoggingOptions {
-    task: number;
-    tags: number;
-    relatedActivityId: string;
-    opcode: LoggingOpcode;
-    keywords: number;
-    activityId: string;
+  export class FileLoggingSession {
+    name: String;
     constructor();
-    constructor(keywords: number);
+    constructor(name: String);
 
-  }
+    closeAndSaveToFileAsync(callback: (error: Error, result: Object) => void): void ;
 
-  export class LoggingChannelOptions {
-    group: string;
-    constructor();
-    constructor(group: string);
+    addLoggingChannel(loggingChannel: ILoggingChannel): void;
+    addLoggingChannel(loggingChannel: ILoggingChannel, maxLevel: LoggingLevel): void;
 
-  }
-
-  export class LoggingFields {
-    constructor();
-
-    addPointArray(name: string, value: Array<Object>, format: LoggingFieldFormat): void;
-    addPointArray(name: string, value: Array<Object>, format: LoggingFieldFormat, tags: number): void;
-    addPointArray(name: string, value: Array<Object>): void;
-
-    addSize(name: string, value: Object): void;
-    addSize(name: string, value: Object, format: LoggingFieldFormat): void;
-    addSize(name: string, value: Object, format: LoggingFieldFormat, tags: number): void;
-
-    addSizeArray(name: string, value: Array<Object>): void;
-    addSizeArray(name: string, value: Array<Object>, format: LoggingFieldFormat): void;
-    addSizeArray(name: string, value: Array<Object>, format: LoggingFieldFormat, tags: number): void;
-
-    addRect(name: string, value: Object): void;
-    addRect(name: string, value: Object, format: LoggingFieldFormat): void;
-    addRect(name: string, value: Object, format: LoggingFieldFormat, tags: number): void;
-
-    addRectArray(name: string, value: Array<Object>): void;
-    addRectArray(name: string, value: Array<Object>, format: LoggingFieldFormat): void;
-    addRectArray(name: string, value: Array<Object>, format: LoggingFieldFormat, tags: number): void;
-
-    addSingle(name: string, value: number, format: LoggingFieldFormat): void;
-    addSingle(name: string, value: number, format: LoggingFieldFormat, tags: number): void;
-    addSingle(name: string, value: number): void;
-
-    addSingleArray(name: string, value: Array<number>): void;
-    addSingleArray(name: string, value: Array<number>, format: LoggingFieldFormat): void;
-    addSingleArray(name: string, value: Array<number>, format: LoggingFieldFormat, tags: number): void;
-
-    addDouble(name: string, value: number): void;
-    addDouble(name: string, value: number, format: LoggingFieldFormat): void;
-    addDouble(name: string, value: number, format: LoggingFieldFormat, tags: number): void;
-
-    addDoubleArray(name: string, value: Array<number>): void;
-    addDoubleArray(name: string, value: Array<number>, format: LoggingFieldFormat): void;
-    addDoubleArray(name: string, value: Array<number>, format: LoggingFieldFormat, tags: number): void;
-
-    addChar16(name: string, value: string): void;
-    addChar16(name: string, value: string, format: LoggingFieldFormat): void;
-    addChar16(name: string, value: string, format: LoggingFieldFormat, tags: number): void;
-
-    addChar16Array(name: string, value: Array<string>): void;
-    addChar16Array(name: string, value: Array<string>, format: LoggingFieldFormat): void;
-    addChar16Array(name: string, value: Array<string>, format: LoggingFieldFormat, tags: number): void;
-
-    addBoolean(name: string, value: boolean): void;
-    addBoolean(name: string, value: boolean, format: LoggingFieldFormat): void;
-    addBoolean(name: string, value: boolean, format: LoggingFieldFormat, tags: number): void;
-
-    addBooleanArray(name: string, value: Array<boolean>): void;
-    addBooleanArray(name: string, value: Array<boolean>, format: LoggingFieldFormat): void;
-    addBooleanArray(name: string, value: Array<boolean>, format: LoggingFieldFormat, tags: number): void;
-
-    addString(name: string, value: string): void;
-    addString(name: string, value: string, format: LoggingFieldFormat): void;
-    addString(name: string, value: string, format: LoggingFieldFormat, tags: number): void;
-
-    addStringArray(name: string, value: Array<string>): void;
-    addStringArray(name: string, value: Array<string>, format: LoggingFieldFormat): void;
-    addStringArray(name: string, value: Array<string>, format: LoggingFieldFormat, tags: number): void;
-
-    addGuid(name: string, value: string): void;
-    addGuid(name: string, value: string, format: LoggingFieldFormat): void;
-    addGuid(name: string, value: string, format: LoggingFieldFormat, tags: number): void;
-
-    addGuidArray(name: string, value: Array<string>): void;
-    addGuidArray(name: string, value: Array<string>, format: LoggingFieldFormat): void;
-    addGuidArray(name: string, value: Array<string>, format: LoggingFieldFormat, tags: number): void;
-
-    addDateTime(name: string, value: Date): void;
-    addDateTime(name: string, value: Date, format: LoggingFieldFormat): void;
-    addDateTime(name: string, value: Date, format: LoggingFieldFormat, tags: number): void;
-
-    addDateTimeArray(name: string, value: Array<Date>): void;
-    addDateTimeArray(name: string, value: Array<Date>, format: LoggingFieldFormat): void;
-    addDateTimeArray(name: string, value: Array<Date>, format: LoggingFieldFormat, tags: number): void;
-
-    addTimeSpan(name: string, value: number): void;
-    addTimeSpan(name: string, value: number, format: LoggingFieldFormat): void;
-    addTimeSpan(name: string, value: number, format: LoggingFieldFormat, tags: number): void;
-
-    addTimeSpanArray(name: string, value: Array<number>): void;
-    addTimeSpanArray(name: string, value: Array<number>, format: LoggingFieldFormat): void;
-    addTimeSpanArray(name: string, value: Array<number>, format: LoggingFieldFormat, tags: number): void;
-
-    addPoint(name: string, value: Object): void;
-    addPoint(name: string, value: Object, format: LoggingFieldFormat): void;
-    addPoint(name: string, value: Object, format: LoggingFieldFormat, tags: number): void;
-
-    clear(): void;
-
-    beginStruct(name: string): void;
-    beginStruct(name: string, tags: number): void;
-
-    endStruct(): void;
-
-    addEmpty(name: string): void;
-    addEmpty(name: string, format: LoggingFieldFormat): void;
-    addEmpty(name: string, format: LoggingFieldFormat, tags: number): void;
-
-    addUInt8(name: string, value: number): void;
-    addUInt8(name: string, value: number, format: LoggingFieldFormat): void;
-    addUInt8(name: string, value: number, format: LoggingFieldFormat, tags: number): void;
-
-    addUInt8Array(name: string, value: Array<number>): void;
-    addUInt8Array(name: string, value: Array<number>, format: LoggingFieldFormat): void;
-    addUInt8Array(name: string, value: Array<number>, format: LoggingFieldFormat, tags: number): void;
-
-    addInt16(name: string, value: number): void;
-    addInt16(name: string, value: number, format: LoggingFieldFormat): void;
-    addInt16(name: string, value: number, format: LoggingFieldFormat, tags: number): void;
-
-    addInt16Array(name: string, value: Array<number>): void;
-    addInt16Array(name: string, value: Array<number>, format: LoggingFieldFormat): void;
-    addInt16Array(name: string, value: Array<number>, format: LoggingFieldFormat, tags: number): void;
-
-    addUInt16(name: string, value: number): void;
-    addUInt16(name: string, value: number, format: LoggingFieldFormat): void;
-    addUInt16(name: string, value: number, format: LoggingFieldFormat, tags: number): void;
-
-    addUInt16Array(name: string, value: Array<number>): void;
-    addUInt16Array(name: string, value: Array<number>, format: LoggingFieldFormat): void;
-    addUInt16Array(name: string, value: Array<number>, format: LoggingFieldFormat, tags: number): void;
-
-    addInt32(name: string, value: number): void;
-    addInt32(name: string, value: number, format: LoggingFieldFormat): void;
-    addInt32(name: string, value: number, format: LoggingFieldFormat, tags: number): void;
-
-    addInt32Array(name: string, value: Array<number>): void;
-    addInt32Array(name: string, value: Array<number>, format: LoggingFieldFormat): void;
-    addInt32Array(name: string, value: Array<number>, format: LoggingFieldFormat, tags: number): void;
-
-    addUInt32(name: string, value: number): void;
-    addUInt32(name: string, value: number, format: LoggingFieldFormat): void;
-    addUInt32(name: string, value: number, format: LoggingFieldFormat, tags: number): void;
-
-    addUInt32Array(name: string, value: Array<number>): void;
-    addUInt32Array(name: string, value: Array<number>, format: LoggingFieldFormat): void;
-    addUInt32Array(name: string, value: Array<number>, format: LoggingFieldFormat, tags: number): void;
-
-    addInt64(name: string, value: number): void;
-    addInt64(name: string, value: number, format: LoggingFieldFormat): void;
-    addInt64(name: string, value: number, format: LoggingFieldFormat, tags: number): void;
-
-    addInt64Array(name: string, value: Array<number>): void;
-    addInt64Array(name: string, value: Array<number>, format: LoggingFieldFormat): void;
-    addInt64Array(name: string, value: Array<number>, format: LoggingFieldFormat, tags: number): void;
-
-    addUInt64(name: string, value: number): void;
-    addUInt64(name: string, value: number, format: LoggingFieldFormat): void;
-    addUInt64(name: string, value: number, format: LoggingFieldFormat, tags: number): void;
-
-    addUInt64Array(name: string, value: Array<number>): void;
-    addUInt64Array(name: string, value: Array<number>, format: LoggingFieldFormat): void;
-    addUInt64Array(name: string, value: Array<number>, format: LoggingFieldFormat, tags: number): void;
-
-  }
-
-  export class ILoggingTarget {
-    constructor();
-
-    isEnabled(): boolean;
-    isEnabled(level: LoggingLevel): boolean;
-    isEnabled(level: LoggingLevel, keywords: number): boolean;
-
-    logEvent(eventName: string): void;
-    logEvent(eventName: string, fields: LoggingFields): void;
-    logEvent(eventName: string, fields: LoggingFields, level: LoggingLevel): void;
-    logEvent(eventName: string, fields: LoggingFields, level: LoggingLevel, options: LoggingOptions): void;
-
-    startActivity(startEventName: string): LoggingActivity;
-    startActivity(startEventName: string, fields: LoggingFields): LoggingActivity;
-    startActivity(startEventName: string, fields: LoggingFields, level: LoggingLevel): LoggingActivity;
-    startActivity(startEventName: string, fields: LoggingFields, level: LoggingLevel, options: LoggingOptions): LoggingActivity;
-
-  }
-
-  export class LoggingActivity {
-    id: string;
-    name: string;
-    channel: LoggingChannel;
-    constructor();
-    constructor(activityName: string, loggingChannel: ILoggingChannel);
-    constructor(activityName: string, loggingChannel: ILoggingChannel, level: LoggingLevel);
+    removeLoggingChannel(loggingChannel: ILoggingChannel): void;
 
     close(): void;
-    stopActivity(stopEventName: string): void;
-    stopActivity(stopEventName: string, fields: LoggingFields): void;
-    stopActivity(stopEventName: string, fields: LoggingFields, options: LoggingOptions): void;
-
-    isEnabled(): boolean;
-    isEnabled(level: LoggingLevel): boolean;
-    isEnabled(level: LoggingLevel, keywords: number): boolean;
-
-    logEvent(eventName: string): void;
-    logEvent(eventName: string, fields: LoggingFields): void;
-    logEvent(eventName: string, fields: LoggingFields, level: LoggingLevel): void;
-    logEvent(eventName: string, fields: LoggingFields, level: LoggingLevel, options: LoggingOptions): void;
-
-    startActivity(startEventName: string): LoggingActivity;
-    startActivity(startEventName: string, fields: LoggingFields): LoggingActivity;
-    startActivity(startEventName: string, fields: LoggingFields, level: LoggingLevel): LoggingActivity;
-    startActivity(startEventName: string, fields: LoggingFields, level: LoggingLevel, options: LoggingOptions): LoggingActivity;
-
-  }
-
-  export class ILoggingChannel {
-    enabled: boolean;
-    level: LoggingLevel;
-    name: string;
-    constructor();
-
-    logMessage(eventString: string): void;
-    logMessage(eventString: string, level: LoggingLevel): void;
-
-    logValuePair(value1: string, value2: number): void;
-    logValuePair(value1: string, value2: number, level: LoggingLevel): void;
-
-    addListener(type: "LoggingEnabled", listener: (ev: Event) => void): void ;
-    removeListener(type: "LoggingEnabled", listener: (ev: Event) => void): void ;
-    on(type: "LoggingEnabled", listener: (ev: Event) => void): void ;
-    off(type: "LoggingEnabled", listener: (ev: Event) => void): void ;
+    addListener(type: "LogFileGenerated", listener: (ev: Event) => void): void ;
+    removeListener(type: "LogFileGenerated", listener: (ev: Event) => void): void ;
+    on(type: "LogFileGenerated", listener: (ev: Event) => void): void ;
+    off(type: "LogFileGenerated", listener: (ev: Event) => void): void ;
     
     addListener(type: string, listener: (ev: Event) => void): void ;
     removeListener(type: string, listener: (ev: Event) => void): void ;
@@ -403,36 +152,50 @@
 
   }
 
-  export class LoggingChannel {
-    enabled: boolean;
-    level: LoggingLevel;
-    name: string;
-    id: string;
+  export class IErrorReportingSettings {
     constructor();
-    constructor(name: string, options: LoggingChannelOptions);
-    constructor(name: string, options: LoggingChannelOptions, id: string);
-    constructor(name: string);
 
-    logMessage(eventString: string): void;
-    logMessage(eventString: string, level: LoggingLevel): void;
+    setErrorOptions(value: ErrorOptions): void;
 
-    logValuePair(value1: string, value2: number): void;
-    logValuePair(value1: string, value2: number, level: LoggingLevel): void;
+    getErrorOptions(): ErrorOptions;
 
-    close(): void;
-    isEnabled(): boolean;
-    isEnabled(level: LoggingLevel): boolean;
-    isEnabled(level: LoggingLevel, keywords: number): boolean;
+  }
 
-    logEvent(eventName: string): void;
-    logEvent(eventName: string, fields: LoggingFields): void;
-    logEvent(eventName: string, fields: LoggingFields, level: LoggingLevel): void;
-    logEvent(eventName: string, fields: LoggingFields, level: LoggingLevel, options: LoggingOptions): void;
+  export class IFileLoggingSession {
+    name: String;
+    constructor();
 
-    startActivity(startEventName: string): LoggingActivity;
-    startActivity(startEventName: string, fields: LoggingFields): LoggingActivity;
-    startActivity(startEventName: string, fields: LoggingFields, level: LoggingLevel): LoggingActivity;
-    startActivity(startEventName: string, fields: LoggingFields, level: LoggingLevel, options: LoggingOptions): LoggingActivity;
+    closeAndSaveToFileAsync(callback: (error: Error, result: Object) => void): void ;
+
+    addLoggingChannel(loggingChannel: ILoggingChannel): void;
+    addLoggingChannel(loggingChannel: ILoggingChannel, maxLevel: LoggingLevel): void;
+
+    removeLoggingChannel(loggingChannel: ILoggingChannel): void;
+
+    addListener(type: "LogFileGenerated", listener: (ev: Event) => void): void ;
+    removeListener(type: "LogFileGenerated", listener: (ev: Event) => void): void ;
+    on(type: "LogFileGenerated", listener: (ev: Event) => void): void ;
+    off(type: "LogFileGenerated", listener: (ev: Event) => void): void ;
+    
+    addListener(type: string, listener: (ev: Event) => void): void ;
+    removeListener(type: string, listener: (ev: Event) => void): void ;
+    on(type: string, listener: (ev: Event) => void): void ;
+    off(type: string, listener: (ev: Event) => void): void ;
+    
+
+  }
+
+  export class ILoggingChannel {
+    enabled: Boolean;
+    level: LoggingLevel;
+    name: String;
+    constructor();
+
+    logMessage(eventString: String): void;
+    logMessage(eventString: String, level: LoggingLevel): void;
+
+    logValuePair(value1: String, value2: Number): void;
+    logValuePair(value1: String, value2: Number, level: LoggingLevel): void;
 
     addListener(type: "LoggingEnabled", listener: (ev: Event) => void): void ;
     removeListener(type: "LoggingEnabled", listener: (ev: Event) => void): void ;
@@ -448,10 +211,10 @@
   }
 
   export class ILoggingSession {
-    name: string;
+    name: String;
     constructor();
 
-    saveToFileAsync(folder: Object, fileName: string, callback: (error: Error, result: Object) => void): void ;
+    saveToFileAsync(folder: Object, fileName: String, callback: (error: Error, result: Object) => void): void ;
 
     addLoggingChannel(loggingChannel: ILoggingChannel): void;
     addLoggingChannel(loggingChannel: ILoggingChannel, maxLevel: LoggingLevel): void;
@@ -460,19 +223,23 @@
 
   }
 
-  export class LoggingSession {
-    name: string;
+  export class ILoggingTarget {
     constructor();
-    constructor(name: string);
 
-    saveToFileAsync(folder: Object, fileName: string, callback: (error: Error, result: Object) => void): void ;
+    isEnabled(): Boolean;
+    isEnabled(level: LoggingLevel): Boolean;
+    isEnabled(level: LoggingLevel, keywords: Number): Boolean;
 
-    addLoggingChannel(loggingChannel: ILoggingChannel): void;
-    addLoggingChannel(loggingChannel: ILoggingChannel, maxLevel: LoggingLevel): void;
+    logEvent(eventName: String): void;
+    logEvent(eventName: String, fields: LoggingFields): void;
+    logEvent(eventName: String, fields: LoggingFields, level: LoggingLevel): void;
+    logEvent(eventName: String, fields: LoggingFields, level: LoggingLevel, options: LoggingOptions): void;
 
-    removeLoggingChannel(loggingChannel: ILoggingChannel): void;
+    startActivity(startEventName: String): LoggingActivity;
+    startActivity(startEventName: String, fields: LoggingFields): LoggingActivity;
+    startActivity(startEventName: String, fields: LoggingFields, level: LoggingLevel): LoggingActivity;
+    startActivity(startEventName: String, fields: LoggingFields, level: LoggingLevel, options: LoggingOptions): LoggingActivity;
 
-    close(): void;
   }
 
   export class LogFileGeneratedEventArgs {
@@ -481,21 +248,70 @@
 
   }
 
-  export class IFileLoggingSession {
-    name: string;
+  export class LoggingActivity {
+    id: String;
+    name: String;
+    channel: LoggingChannel;
     constructor();
+    constructor(activityName: String, loggingChannel: ILoggingChannel);
+    constructor(activityName: String, loggingChannel: ILoggingChannel, level: LoggingLevel);
 
-    closeAndSaveToFileAsync(callback: (error: Error, result: Object) => void): void ;
+    close(): void;
+    stopActivity(stopEventName: String): void;
+    stopActivity(stopEventName: String, fields: LoggingFields): void;
+    stopActivity(stopEventName: String, fields: LoggingFields, options: LoggingOptions): void;
 
-    addLoggingChannel(loggingChannel: ILoggingChannel): void;
-    addLoggingChannel(loggingChannel: ILoggingChannel, maxLevel: LoggingLevel): void;
+    isEnabled(): Boolean;
+    isEnabled(level: LoggingLevel): Boolean;
+    isEnabled(level: LoggingLevel, keywords: Number): Boolean;
 
-    removeLoggingChannel(loggingChannel: ILoggingChannel): void;
+    logEvent(eventName: String): void;
+    logEvent(eventName: String, fields: LoggingFields): void;
+    logEvent(eventName: String, fields: LoggingFields, level: LoggingLevel): void;
+    logEvent(eventName: String, fields: LoggingFields, level: LoggingLevel, options: LoggingOptions): void;
 
-    addListener(type: "LogFileGenerated", listener: (ev: Event) => void): void ;
-    removeListener(type: "LogFileGenerated", listener: (ev: Event) => void): void ;
-    on(type: "LogFileGenerated", listener: (ev: Event) => void): void ;
-    off(type: "LogFileGenerated", listener: (ev: Event) => void): void ;
+    startActivity(startEventName: String): LoggingActivity;
+    startActivity(startEventName: String, fields: LoggingFields): LoggingActivity;
+    startActivity(startEventName: String, fields: LoggingFields, level: LoggingLevel): LoggingActivity;
+    startActivity(startEventName: String, fields: LoggingFields, level: LoggingLevel, options: LoggingOptions): LoggingActivity;
+
+  }
+
+  export class LoggingChannel {
+    enabled: Boolean;
+    level: LoggingLevel;
+    name: String;
+    id: String;
+    constructor();
+    constructor(name: String, options: LoggingChannelOptions);
+    constructor(name: String, options: LoggingChannelOptions, id: String);
+    constructor(name: String);
+
+    logMessage(eventString: String): void;
+    logMessage(eventString: String, level: LoggingLevel): void;
+
+    logValuePair(value1: String, value2: Number): void;
+    logValuePair(value1: String, value2: Number, level: LoggingLevel): void;
+
+    close(): void;
+    isEnabled(): Boolean;
+    isEnabled(level: LoggingLevel): Boolean;
+    isEnabled(level: LoggingLevel, keywords: Number): Boolean;
+
+    logEvent(eventName: String): void;
+    logEvent(eventName: String, fields: LoggingFields): void;
+    logEvent(eventName: String, fields: LoggingFields, level: LoggingLevel): void;
+    logEvent(eventName: String, fields: LoggingFields, level: LoggingLevel, options: LoggingOptions): void;
+
+    startActivity(startEventName: String): LoggingActivity;
+    startActivity(startEventName: String, fields: LoggingFields): LoggingActivity;
+    startActivity(startEventName: String, fields: LoggingFields, level: LoggingLevel): LoggingActivity;
+    startActivity(startEventName: String, fields: LoggingFields, level: LoggingLevel, options: LoggingOptions): LoggingActivity;
+
+    addListener(type: "LoggingEnabled", listener: (ev: Event) => void): void ;
+    removeListener(type: "LoggingEnabled", listener: (ev: Event) => void): void ;
+    on(type: "LoggingEnabled", listener: (ev: Event) => void): void ;
+    off(type: "LoggingEnabled", listener: (ev: Event) => void): void ;
     
     addListener(type: string, listener: (ev: Event) => void): void ;
     removeListener(type: string, listener: (ev: Event) => void): void ;
@@ -505,12 +321,191 @@
 
   }
 
-  export class FileLoggingSession {
-    name: string;
+  export class LoggingChannelOptions {
+    group: String;
     constructor();
-    constructor(name: string);
+    constructor(group: String);
 
-    closeAndSaveToFileAsync(callback: (error: Error, result: Object) => void): void ;
+  }
+
+  export class LoggingFields {
+    constructor();
+
+    addPointArray(name: String, value: Array<Object>, format: LoggingFieldFormat): void;
+    addPointArray(name: String, value: Array<Object>, format: LoggingFieldFormat, tags: Number): void;
+    addPointArray(name: String, value: Array<Object>): void;
+
+    addSize(name: String, value: Object): void;
+    addSize(name: String, value: Object, format: LoggingFieldFormat): void;
+    addSize(name: String, value: Object, format: LoggingFieldFormat, tags: Number): void;
+
+    addSizeArray(name: String, value: Array<Object>): void;
+    addSizeArray(name: String, value: Array<Object>, format: LoggingFieldFormat): void;
+    addSizeArray(name: String, value: Array<Object>, format: LoggingFieldFormat, tags: Number): void;
+
+    addRect(name: String, value: Object): void;
+    addRect(name: String, value: Object, format: LoggingFieldFormat): void;
+    addRect(name: String, value: Object, format: LoggingFieldFormat, tags: Number): void;
+
+    addRectArray(name: String, value: Array<Object>): void;
+    addRectArray(name: String, value: Array<Object>, format: LoggingFieldFormat): void;
+    addRectArray(name: String, value: Array<Object>, format: LoggingFieldFormat, tags: Number): void;
+
+    addSingle(name: String, value: Number, format: LoggingFieldFormat): void;
+    addSingle(name: String, value: Number, format: LoggingFieldFormat, tags: Number): void;
+    addSingle(name: String, value: Number): void;
+
+    addSingleArray(name: String, value: Array<Number>): void;
+    addSingleArray(name: String, value: Array<Number>, format: LoggingFieldFormat): void;
+    addSingleArray(name: String, value: Array<Number>, format: LoggingFieldFormat, tags: Number): void;
+
+    addDouble(name: String, value: Number): void;
+    addDouble(name: String, value: Number, format: LoggingFieldFormat): void;
+    addDouble(name: String, value: Number, format: LoggingFieldFormat, tags: Number): void;
+
+    addDoubleArray(name: String, value: Array<Number>): void;
+    addDoubleArray(name: String, value: Array<Number>, format: LoggingFieldFormat): void;
+    addDoubleArray(name: String, value: Array<Number>, format: LoggingFieldFormat, tags: Number): void;
+
+    addChar16(name: String, value: String): void;
+    addChar16(name: String, value: String, format: LoggingFieldFormat): void;
+    addChar16(name: String, value: String, format: LoggingFieldFormat, tags: Number): void;
+
+    addChar16Array(name: String, value: Array<String>): void;
+    addChar16Array(name: String, value: Array<String>, format: LoggingFieldFormat): void;
+    addChar16Array(name: String, value: Array<String>, format: LoggingFieldFormat, tags: Number): void;
+
+    addBoolean(name: String, value: Boolean): void;
+    addBoolean(name: String, value: Boolean, format: LoggingFieldFormat): void;
+    addBoolean(name: String, value: Boolean, format: LoggingFieldFormat, tags: Number): void;
+
+    addBooleanArray(name: String, value: Array<Boolean>): void;
+    addBooleanArray(name: String, value: Array<Boolean>, format: LoggingFieldFormat): void;
+    addBooleanArray(name: String, value: Array<Boolean>, format: LoggingFieldFormat, tags: Number): void;
+
+    addString(name: String, value: String): void;
+    addString(name: String, value: String, format: LoggingFieldFormat): void;
+    addString(name: String, value: String, format: LoggingFieldFormat, tags: Number): void;
+
+    addStringArray(name: String, value: Array<String>): void;
+    addStringArray(name: String, value: Array<String>, format: LoggingFieldFormat): void;
+    addStringArray(name: String, value: Array<String>, format: LoggingFieldFormat, tags: Number): void;
+
+    addGuid(name: String, value: String): void;
+    addGuid(name: String, value: String, format: LoggingFieldFormat): void;
+    addGuid(name: String, value: String, format: LoggingFieldFormat, tags: Number): void;
+
+    addGuidArray(name: String, value: Array<String>): void;
+    addGuidArray(name: String, value: Array<String>, format: LoggingFieldFormat): void;
+    addGuidArray(name: String, value: Array<String>, format: LoggingFieldFormat, tags: Number): void;
+
+    addDateTime(name: String, value: Date): void;
+    addDateTime(name: String, value: Date, format: LoggingFieldFormat): void;
+    addDateTime(name: String, value: Date, format: LoggingFieldFormat, tags: Number): void;
+
+    addDateTimeArray(name: String, value: Array<Date>): void;
+    addDateTimeArray(name: String, value: Array<Date>, format: LoggingFieldFormat): void;
+    addDateTimeArray(name: String, value: Array<Date>, format: LoggingFieldFormat, tags: Number): void;
+
+    addTimeSpan(name: String, value: Number): void;
+    addTimeSpan(name: String, value: Number, format: LoggingFieldFormat): void;
+    addTimeSpan(name: String, value: Number, format: LoggingFieldFormat, tags: Number): void;
+
+    addTimeSpanArray(name: String, value: Array<Number>): void;
+    addTimeSpanArray(name: String, value: Array<Number>, format: LoggingFieldFormat): void;
+    addTimeSpanArray(name: String, value: Array<Number>, format: LoggingFieldFormat, tags: Number): void;
+
+    addPoint(name: String, value: Object): void;
+    addPoint(name: String, value: Object, format: LoggingFieldFormat): void;
+    addPoint(name: String, value: Object, format: LoggingFieldFormat, tags: Number): void;
+
+    clear(): void;
+
+    beginStruct(name: String): void;
+    beginStruct(name: String, tags: Number): void;
+
+    endStruct(): void;
+
+    addEmpty(name: String): void;
+    addEmpty(name: String, format: LoggingFieldFormat): void;
+    addEmpty(name: String, format: LoggingFieldFormat, tags: Number): void;
+
+    addUInt8(name: String, value: Number): void;
+    addUInt8(name: String, value: Number, format: LoggingFieldFormat): void;
+    addUInt8(name: String, value: Number, format: LoggingFieldFormat, tags: Number): void;
+
+    addUInt8Array(name: String, value: Array<Number>): void;
+    addUInt8Array(name: String, value: Array<Number>, format: LoggingFieldFormat): void;
+    addUInt8Array(name: String, value: Array<Number>, format: LoggingFieldFormat, tags: Number): void;
+
+    addInt16(name: String, value: Number): void;
+    addInt16(name: String, value: Number, format: LoggingFieldFormat): void;
+    addInt16(name: String, value: Number, format: LoggingFieldFormat, tags: Number): void;
+
+    addInt16Array(name: String, value: Array<Number>): void;
+    addInt16Array(name: String, value: Array<Number>, format: LoggingFieldFormat): void;
+    addInt16Array(name: String, value: Array<Number>, format: LoggingFieldFormat, tags: Number): void;
+
+    addUInt16(name: String, value: Number): void;
+    addUInt16(name: String, value: Number, format: LoggingFieldFormat): void;
+    addUInt16(name: String, value: Number, format: LoggingFieldFormat, tags: Number): void;
+
+    addUInt16Array(name: String, value: Array<Number>): void;
+    addUInt16Array(name: String, value: Array<Number>, format: LoggingFieldFormat): void;
+    addUInt16Array(name: String, value: Array<Number>, format: LoggingFieldFormat, tags: Number): void;
+
+    addInt32(name: String, value: Number): void;
+    addInt32(name: String, value: Number, format: LoggingFieldFormat): void;
+    addInt32(name: String, value: Number, format: LoggingFieldFormat, tags: Number): void;
+
+    addInt32Array(name: String, value: Array<Number>): void;
+    addInt32Array(name: String, value: Array<Number>, format: LoggingFieldFormat): void;
+    addInt32Array(name: String, value: Array<Number>, format: LoggingFieldFormat, tags: Number): void;
+
+    addUInt32(name: String, value: Number): void;
+    addUInt32(name: String, value: Number, format: LoggingFieldFormat): void;
+    addUInt32(name: String, value: Number, format: LoggingFieldFormat, tags: Number): void;
+
+    addUInt32Array(name: String, value: Array<Number>): void;
+    addUInt32Array(name: String, value: Array<Number>, format: LoggingFieldFormat): void;
+    addUInt32Array(name: String, value: Array<Number>, format: LoggingFieldFormat, tags: Number): void;
+
+    addInt64(name: String, value: Number): void;
+    addInt64(name: String, value: Number, format: LoggingFieldFormat): void;
+    addInt64(name: String, value: Number, format: LoggingFieldFormat, tags: Number): void;
+
+    addInt64Array(name: String, value: Array<Number>): void;
+    addInt64Array(name: String, value: Array<Number>, format: LoggingFieldFormat): void;
+    addInt64Array(name: String, value: Array<Number>, format: LoggingFieldFormat, tags: Number): void;
+
+    addUInt64(name: String, value: Number): void;
+    addUInt64(name: String, value: Number, format: LoggingFieldFormat): void;
+    addUInt64(name: String, value: Number, format: LoggingFieldFormat, tags: Number): void;
+
+    addUInt64Array(name: String, value: Array<Number>): void;
+    addUInt64Array(name: String, value: Array<Number>, format: LoggingFieldFormat): void;
+    addUInt64Array(name: String, value: Array<Number>, format: LoggingFieldFormat, tags: Number): void;
+
+  }
+
+  export class LoggingOptions {
+    task: Number;
+    tags: Number;
+    relatedActivityId: String;
+    opcode: LoggingOpcode;
+    keywords: Number;
+    activityId: String;
+    constructor();
+    constructor(keywords: Number);
+
+  }
+
+  export class LoggingSession {
+    name: String;
+    constructor();
+    constructor(name: String);
+
+    saveToFileAsync(folder: Object, fileName: String, callback: (error: Error, result: Object) => void): void ;
 
     addLoggingChannel(loggingChannel: ILoggingChannel): void;
     addLoggingChannel(loggingChannel: ILoggingChannel, maxLevel: LoggingLevel): void;
@@ -518,16 +513,21 @@
     removeLoggingChannel(loggingChannel: ILoggingChannel): void;
 
     close(): void;
-    addListener(type: "LogFileGenerated", listener: (ev: Event) => void): void ;
-    removeListener(type: "LogFileGenerated", listener: (ev: Event) => void): void ;
-    on(type: "LogFileGenerated", listener: (ev: Event) => void): void ;
-    off(type: "LogFileGenerated", listener: (ev: Event) => void): void ;
-    
-    addListener(type: string, listener: (ev: Event) => void): void ;
-    removeListener(type: string, listener: (ev: Event) => void): void ;
-    on(type: string, listener: (ev: Event) => void): void ;
-    off(type: string, listener: (ev: Event) => void): void ;
-    
+  }
+
+  export class RuntimeBrokerErrorSettings {
+    constructor();
+
+    setErrorOptions(value: ErrorOptions): void;
+
+    getErrorOptions(): ErrorOptions;
+
+  }
+
+  export class TracingStatusChangedEventArgs {
+    enabled: Boolean;
+    traceLevel: CausalityTraceLevel;
+    constructor();
 
   }
 

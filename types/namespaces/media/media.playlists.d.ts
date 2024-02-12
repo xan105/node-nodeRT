@@ -17,8 +17,8 @@
 
     saveAsync(callback: (error: Error) => void): void ;
 
-    saveAsAsync(saveLocation: Object, desiredName: string, option: number, callback: (error: Error, result: Object) => void): void ;
-    saveAsAsync(saveLocation: Object, desiredName: string, option: number, playlistFormat: PlaylistFormat, callback: (error: Error, result: Object) => void): void ;
+    saveAsAsync(saveLocation: Object, desiredName: String, option: Number, callback: (error: Error, result: Object) => void): void ;
+    saveAsAsync(saveLocation: Object, desiredName: String, option: Number, playlistFormat: PlaylistFormat, callback: (error: Error, result: Object) => void): void ;
 
   }
 
