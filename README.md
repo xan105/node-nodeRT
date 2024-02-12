@@ -109,3 +109,26 @@ const toast = new notifications.ToastNotification(xml);
 They are a couple of them due to compilation failure.
 
 🐞 NB: Provided types are those from NodeRT packages. I know they have some errors but I haven't the courage to fix them up by hand.
+
+Build Env
+=========
+
+Visual Studio 2022:
+
+  + Visual Studio Installer:
+    - C/C++ Desktop
+    - C++ ATL for latest v143
+    - C++ MFC for latest v143
+    - C++/CLI support for v143 build tools
+    - MSVC v140 - VS 2015 C++ build tools (v14.00) //VS2015 build tools
+    - Windows 10 SDK 20h1 (10.0.19041.0)
+  
+  + Manual:
+    - [Windows 10 SDK rs4 (10.0.17134.0)](https://go.microsoft.com/fwlink/p/?linkid=870807)
+    
+Node.js native addon:
+
+    - Node.js v18.15.0
+    - npm v9.5.0
+    - node-gyp v9.3.1
+    - Python3 v3.11
