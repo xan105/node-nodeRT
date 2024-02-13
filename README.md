@@ -101,7 +101,7 @@ API
 
 ⚠️  This module is only available as an ECMAScript module (ESM).
 
-WinRT namespaces are also under their respective namespace:
+WinRT namespaces are also exported under their respective namespace:
 
 ```js
 import { ui } from "@xan105/nodert" 

@@ -1328,9 +1328,11 @@
     "fetch:manual": "powershell -NoProfile -ExecutionPolicy Bypass -File ./fetch.ps1 && patch-package",
     "fetch:auto": "npm ci --ignore-scripts && patch-package",
     "diff": "powershell -NoProfile -ExecutionPolicy Bypass -File ./diff.ps1",
+    "build:abi93": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 16.0.0 -abi abi93 -skip",
     "build:abi108": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 18.0.0 -abi abi108 -skip",
     "build:abi115": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 20.0.0 -abi abi115 -skip",
-    "build:electron:abi119": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 28.0.0 -abi abi119 -runtime electron -skip"
+    "build:electron:abi119": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 28.0.0 -abi abi119 -runtime electron -skip",
+    "build:electron:abi121": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 29.0.0 -abi abi121 -runtime electron -skip"
   },
   "keywords": [
     "nodeRT",
