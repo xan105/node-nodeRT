@@ -1317,8 +1317,13 @@
     "/integrity.json"
   ],
   "engines": {
-    "node": ">=20.11.0"
+    "node": ">=20.12.2",
+    "npm": "^10.2.4"
   },
+  "cpu": [
+    "x64",
+    "arm64"
+  ],
   "scripts": {
     "install": "node \"./install.js\"",
     "lint": "eslint \"./lib/**/*.{js,mjs}\" \"./types/**/*.d.ts\"",
@@ -1328,10 +1333,7 @@
     "fetch:manual": "powershell -NoProfile -ExecutionPolicy Bypass -File ./fetch.ps1 && patch-package",
     "fetch:auto": "npm ci --ignore-scripts && patch-package",
     "diff": "powershell -NoProfile -ExecutionPolicy Bypass -File ./diff.ps1",
-    "build:abi93": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 16.0.0 -abi abi93 -skip",
-    "build:abi108": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 18.0.0 -abi abi108 -skip",
     "build:abi115": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 20.0.0 -abi abi115 -skip",
-    "build:electron:abi119": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 28.0.0 -abi abi119 -runtime electron -skip",
     "build:electron:abi121": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 29.0.0 -abi abi121 -runtime electron -skip",
     "build:electron:abi123": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1 -target 30.0.0 -abi abi123 -runtime electron -skip"
   },
@@ -1374,7 +1376,7 @@
     "@xan105/is": "^2.9.3",
     "@xan105/request": "^1.1.0",
     "adm-zip": "^0.5.10",
-    "node-abi": "^3.58.0"
+    "node-abi": "^3.61.0"
   },
   "devDependencies": {
     "@nodert-win10-rs4/windows.devices.lights": "^0.4.4",
@@ -1683,12 +1685,10 @@
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
     "eslint": "^8.56.0",
+    "nan": "^2.19.0",
+    "node-gyp": "^10.1.0",
     "patch-package": "^8.0.0",
-    "prebuildify": "^6.0.0",
+    "prebuildify": "^6.0.1",
     "typescript": "^5.3.3"
-  },
-  "overrides": {
-    "node-gyp": ">=10.0.1",
-    "nan": ">=2.19.0"
   }
 }

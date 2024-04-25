@@ -68,11 +68,14 @@ List of namespaces can be found [here](https://github.com/xan105/node-nodeRT/tre
 
 ### ABI
 
-NodeRT package are not using [n-api](https://nodejs.org/api/n-api.html#node-api) they must be compiled for every ABI.<br />
-Unless exception, expect prebuilds for current and previous Node.js LTS releases (x64).<br />
+NodeRT packages are not using [n-api](https://nodejs.org/api/n-api.html#node-api) they must be compiled for every ABI.<br />
+Unless exception, expect prebuilds for current and previous Node.js LTS releases (x64 / ARM64).<br />
 ⚠️ Due to the fast Electron release cycle, do not expect this package to always keep up with the latest.
 
 List of provided ABI can be found [here](https://github.com/xan105/node-nodeRT/blob/main/integrity.json) (GitHub) or in the corresponding GitHub release.
+
+ℹ️ You may want to check previous versions of this package if you are still using an older version of Node or Electron. 
+Older versions are dropped over time due to usage of new features and the like.
 
 ### Electron
 
@@ -90,14 +93,16 @@ Alternatively in your package.json file under the `_nodert` path:
 },
 ```
 
-Electron's `packages.json` file will be read to determine Electron's ABI.
+ℹ️ Electron's `packages.json` file will be read to determine Electron's ABI _(I recommend you install it first to avoid any surprise)_.
+
+💡 In case npm mutes the output of the install script; You can check inside `node_modules/@xan105/nodeRT/prebuilds` which runtime was downloaded: `node` or `electron`.
 
 ⚠️ NodeRT should be loaded in the main process [NodeRT#158](https://github.com/NodeRT/NodeRT/issues/158)
 
 API
 ===
 
-> Please see the NodeRT and [Microsoft](https://learn.microsoft.com/en-us/uwp/api/) docs for more details.
+> Please see the [NodeRT](https://github.com/NodeRT/NodeRT#using-nodert-modules) and [Microsoft](https://learn.microsoft.com/en-us/uwp/api/) docs for more details.
 
 ⚠️  This module is only available as an ECMAScript module (ESM).
 
@@ -122,20 +127,24 @@ Build Env
 🆚 Visual Studio 2022:
 
   + Visual Studio Installer:
-    - C/C++ Desktop
-    - C++ ATL for latest v143
-    - C++ MFC for latest v143
-    - C++/CLI support for v143 build tools
+    
+    - C++ core features
+    - MSVC v143 - VS 2022 C++ x86/x64 build tools (latest)
     - MSVC v140 - VS 2015 C++ build tools (v14.00) //VS2015 build tools
+    - C++ ATL for latest v143 (x86 & x64)
+    - C++ MFC for latest v143 (x86 & x64)
+    - MSVC v143 - VS 2022 C++ ARM64/ARM64EC build tools (latest)
+    - C++ ATL for latest v143 (ARM64/ARM64EC)
+    - C++ MFC for latest v143 (ARM64/ARM64EC)
     - Windows 11 SDK 22h2 (10.0.22621.0)
   
   + Manual:
     - [Windows 10 SDK rs4 (10.0.17134.0)](https://go.microsoft.com/fwlink/p/?linkid=870807)
 
-    
 ⬢ Node.js native addon:
 
-  - Node.js v20.11.0
-  - npm v10.2.4
-  - node-gyp v10.0.1
+  - Node.js v20.12.2
+  - npm v10.5.0
+  - node-gyp v10.1.0
+  - nan v2.19.0
   - Python3 v3.11.3

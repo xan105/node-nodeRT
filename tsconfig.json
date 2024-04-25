@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "node16",
+    "module": "nodenext",
     "allowJs": true,
     "strict": true,
     "noImplicitAny": false

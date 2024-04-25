@@ -15,33 +15,43 @@ param (
 )
 
 #Make destination dirs
-if (!(Test-Path .\logs\build\$runtime\$abi)) {
-  New-Item .\logs\build\$runtime\$abi -ItemType Directory | Out-Null
+if (!(Test-Path .\build\logs\$runtime\$abi)) {
+  New-Item .\build\logs\$runtime\$abi -ItemType Directory | Out-Null
 }
 if (!(Test-Path .\prebuilds\$runtime\$abi)) {
   New-Item .\prebuilds\$runtime\$abi -ItemType Directory | Out-Null
 }
-
-#Reset file content
-Clear-Content -Path .\logs\build\$runtime\failed.$abi.txt -Force -ErrorAction SilentlyContinue
+foreach($arch in "x64", "arm64"){
+  if (!(Test-Path .\build\logs\$runtime\$abi\$arch)) {
+    New-Item .\build\logs\$runtime\$abi\$arch -ItemType Directory | Out-Null
+  }
+  if (!(Test-Path .\prebuilds\$runtime\$abi\$arch)) {
+    New-Item .\prebuilds\$runtime\$abi\$arch -ItemType Directory | Out-Null
+  }
+  
+  #Reset file content
+  Clear-Content -Path .\build\logs\$runtime\failed.$abi.$arch.txt -Force -ErrorAction SilentlyContinue
+}
 
 #Compile
 foreach($scope in Get-ChildItem .\packages -File){
   foreach($name in Get-Content .\packages\$scope) {
-    Write-Host -NoNewline $scope/$name
-  
-    if ($skip -And (Test-Path .\prebuilds\$runtime\$abi\$name.node)) {
-      Write-Host " [Skip]" -ForegroundColor Yellow
-      continue
-    }
+    foreach($arch in "x64", "arm64"){
+      Write-Host -NoNewline $scope/$name $arch
     
-    & { npx prebuildify --t $runtime@$target --strip --arch x64 --platform win32 --cwd "node_modules/@nodert-$scope/$name" } 2>&1 > .\logs\build\$runtime\$abi\$name.log
-    if ($LASTEXITCODE -eq 0) {
-      Write-Host " [Ok]" -ForegroundColor Green
-      Move-Item -Path .\node_modules\@nodert-$scope\$name\prebuilds\win32-x64\@nodert-$scope+$name.node -Destination .\prebuilds\$runtime\$abi\$name.node -Force
-    } else {
-      Write-Host " [Fail]" -ForegroundColor Red
-      Write-Output $name >> .\logs\build\$runtime\failed.$abi.txt
+      if ($skip -And (Test-Path .\prebuilds\$runtime\$abi\$arch\$name.node)) {
+        Write-Host " [Skip]" -ForegroundColor Yellow
+        continue
+      }
+    
+      & { npx prebuildify --t $runtime@$target --strip --arch $arch --platform win32 --cwd "node_modules/@nodert-$scope/$name" } 2>&1 > .\build\logs\$runtime\$abi\$arch\$name.log
+      if ($LASTEXITCODE -eq 0) {
+        Write-Host " [Ok]" -ForegroundColor Green
+        Move-Item -Path .\node_modules\@nodert-$scope\$name\prebuilds\win32-$arch\@nodert-$scope+$name.node -Destination .\prebuilds\$runtime\$abi\$arch\$name.node -Force
+      } else {
+        Write-Host " [Fail]" -ForegroundColor Red
+        Write-Output $name >> .\build\logs\$runtime\failed.$abi.$arch.txt
+      }
     }
   }
 }
