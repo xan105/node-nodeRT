@@ -1,15 +1,25 @@
 { 
   "release": "2024.02.12",
-  "sha256": {
-    "node": {
-      "abi93": "f1155b971cb29647adc90433ba37439f0e12af42c9dad1d8fbdd3a86597e78fa",
-      "abi108": "b5019b16021ddd438a92244b8100ea57a3267e6c262a86261d2e0a6032b2a1c1",
-      "abi115": "65ff8a764e511abb69c2f9106e803cdff80ba5154fe1ffc89651d009cfa9183f"
+  "sha256":{
+    "x64":{
+      "node": {
+        "abi93": "f1155b971cb29647adc90433ba37439f0e12af42c9dad1d8fbdd3a86597e78fa",
+        "abi108": "b5019b16021ddd438a92244b8100ea57a3267e6c262a86261d2e0a6032b2a1c1",
+        "abi115": "65ff8a764e511abb69c2f9106e803cdff80ba5154fe1ffc89651d009cfa9183f"
+      },
+      "electron": {
+        "abi119": "dadf65d85c5fc96104253cc2ecf6050450a6627628a1d21b92a993c03a084336",
+        "abi121": "08063603a81a178514991bee026a27d3c43c8fd74633e459bf39431cee24176a",
+        "abi123": "84b8c2a84b5a53606b074c0b76aa1c22ce35cdff8144027860c862ce57f05bd1"
+      }
     },
-    "electron": {
-      "abi119": "dadf65d85c5fc96104253cc2ecf6050450a6627628a1d21b92a993c03a084336",
-      "abi121": "08063603a81a178514991bee026a27d3c43c8fd74633e459bf39431cee24176a",
-      "abi123": "84b8c2a84b5a53606b074c0b76aa1c22ce35cdff8144027860c862ce57f05bd1"
+    "arm64": {
+      "node": {
+      
+      },
+      "electron": {
+      
+      }
     }
   }
 }

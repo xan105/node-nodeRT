@@ -6,13 +6,19 @@ This source code is licensed under the Apache 2.0 License
 found in the LICENSE file in the root directory of this source tree.
 */
 
-import { arch } from "node:process";
+import { 
+  arch,
+  env, 
+  cwd, 
+  versions, 
+  exit 
+} from "node:process";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { dirname } from "@xan105/fs/path";
 import { readJSON } from "@xan105/fs";
 import { Failure, attempt } from "@xan105/error";
 import { isStringNotEmpty } from "@xan105/is";
+
 import { 
   shouldStringNotEmpty, 
   shouldArrayOfStringNotEmpty 
@@ -22,27 +28,27 @@ import Archive from "adm-zip";
 import nodeAbi from "node-abi";
 
 async function read(){
-  const file = join(process.env.npm_config_local_prefix || process.cwd(), "package.json");
+  const file = join(env.npm_config_local_prefix || cwd(), "package.json");
   const [ json = {} ] = await attempt(readJSON, [file]);
   return json;
 }
 
 async function isElectron(){
-  if (process.env.npm_config_electron === "true" || 
-      process.env.npm_config_runtime === "electron") {
+  if (env.npm_config_electron === "true" || 
+      env.npm_config_runtime === "electron") {
     return true;
   } else {
     const json = await read();
-    return json._nodert?.runtime === "electron";
+    return json["_nodert"]?.runtime === "electron";
   }
 }
 
 async function findABI(runtime){
-  if (runtime !== "electron") return process.versions.modules;
+  if (runtime !== "electron") return versions.modules;
   try{
      
     const { version } = await readJSON(join(
-      process.env.npm_config_local_prefix || process.cwd(),
+      env.npm_config_local_prefix || cwd(),
       "node_modules",
       "electron",
       "package.json"
@@ -70,28 +76,29 @@ async function findABI(runtime){
 async function downloadFile(runtime, abi){
   shouldStringNotEmpty(abi);
   
-  if(arch !== "x64"){
+  const supported = ["x64", "arm64"];
+  if(!supported.includes(arch)){
     throw new Failure("Unsupported arch", { 
       code: 3,
-      info: "Only x64 is provided"
+      info: { arch, supported }
     });
   }
   
   const { release, sha256 } = await readJSON(join(
-    dirname(import.meta.url), 
+    import.meta.dirname,
     "integrity.json"
   ));
 
   const url = `https://github.com/xan105/node-nodert/releases/download/${release}/`;
   const filename = `${runtime}.abi${abi}.${arch}.zip`;
   
-  console.log(`Downloading NodeRT prebuild for ${runtime} ${arch} abi${abi}...`);
+  console.log(`Downloading NodeRT prebuild for ${runtime} abi${abi} (${arch})...`);
   
   const { file } = await download(
     url + filename, 
     join(tmpdir(), `${Date.now()}`), 
     {
-      hash: { algo: "sha256", sum: sha256[runtime]["abi" + abi] }
+      hash: { algo: "sha256", sum: sha256[arch][runtime]["abi" + abi] }
     }
   );
                      
@@ -99,11 +106,11 @@ async function downloadFile(runtime, abi){
 }
 
 async function getModuleList(){  
-  if (isStringNotEmpty(process.env.npm_config_modules)){
-    return process.env.npm_config_modules.split(",");
+  if (isStringNotEmpty(env.npm_config_modules)){
+    return env.npm_config_modules.split(",");
   } else {
     const json = await read();
-    return json._nodert?.modules ?? [];
+    return json["_nodert"]?.modules ?? [];
   }
 }  
 
@@ -114,10 +121,11 @@ async function unpack(filePath, runtime, abi){
   const overwrite = true; 
   const zip = new Archive(filePath);
   const destination = join(
-    dirname(import.meta.url),
+    import.meta.dirname,
     "prebuilds", 
     runtime, 
-    "abi" + abi
+    "abi" + abi,
+    arch
   );
   
   const modules = await getModuleList();
@@ -147,8 +155,8 @@ async function install(){
 
 install()
 .then(()=>{
-  process.exit(0);
+  exit(0);
 }).catch((err)=>{
   console.error(err);
-  process.exit(1);
+  exit(1);
 });
