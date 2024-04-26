@@ -16,6 +16,7 @@ import {
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { readJSON } from "@xan105/fs";
+import { dirname } from "@xan105/fs/path";
 import { Failure, attempt } from "@xan105/error";
 import { isStringNotEmpty } from "@xan105/is";
 
@@ -75,17 +76,27 @@ async function findABI(runtime){
 
 async function downloadFile(runtime, abi){
   shouldStringNotEmpty(abi);
-  
+
   const supported = ["x64", "arm64"];
   if(!supported.includes(arch)){
     throw new Failure("Unsupported arch", { 
       code: 3,
-      info: { arch, supported }
+      info: { runtime, abi, arch, supported }
     });
   }
   
+  if(
+    (arch === "arm64" && runtime === "node" && +abi < 115) ||
+    (arch === "arm64" && runtime === "electron" && +abi < 123)
+  }
+    throw new Failure("ARM64 is officially supported starting with Node.js v20", { 
+      code: 3,
+      info: { runtime, abi, arch }
+    });
+  )
+
   const { release, sha256 } = await readJSON(join(
-    import.meta.dirname,
+    import.meta.dirname ?? dirname(import.meta.url),
     "integrity.json"
   ));
 
@@ -121,7 +132,7 @@ async function unpack(filePath, runtime, abi){
   const overwrite = true; 
   const zip = new Archive(filePath);
   const destination = join(
-    import.meta.dirname,
+    import.meta.dirname ?? dirname(import.meta.url),
     "prebuilds", 
     runtime, 
     "abi" + abi,

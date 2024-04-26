@@ -7,7 +7,7 @@ param (
     [string]$target,
   
   [Parameter(Mandatory)]
-    [string]$abi,
+    [int]$abi,
   
   [string]$runtime = "node",
   
@@ -15,22 +15,22 @@ param (
 )
 
 #Make destination dirs
-if (!(Test-Path .\build\logs\$runtime\$abi)) {
-  New-Item .\build\logs\$runtime\$abi -ItemType Directory | Out-Null
+if (!(Test-Path .\build\logs\$runtime\abi$abi)) {
+  New-Item .\build\logs\$runtime\abi$abi -ItemType Directory | Out-Null
 }
-if (!(Test-Path .\prebuilds\$runtime\$abi)) {
-  New-Item .\prebuilds\$runtime\$abi -ItemType Directory | Out-Null
+if (!(Test-Path .\prebuilds\$runtime\abi$abi)) {
+  New-Item .\prebuilds\$runtime\abi$abi -ItemType Directory | Out-Null
 }
 foreach($arch in "x64", "arm64"){
-  if (!(Test-Path .\build\logs\$runtime\$abi\$arch)) {
-    New-Item .\build\logs\$runtime\$abi\$arch -ItemType Directory | Out-Null
+  if (!(Test-Path .\build\logs\$runtime\abi$abi\$arch)) {
+    New-Item .\build\logs\$runtime\abi$abi\$arch -ItemType Directory | Out-Null
   }
-  if (!(Test-Path .\prebuilds\$runtime\$abi\$arch)) {
-    New-Item .\prebuilds\$runtime\$abi\$arch -ItemType Directory | Out-Null
+  if (!(Test-Path .\prebuilds\$runtime\abi$abi\$arch)) {
+    New-Item .\prebuilds\$runtime\abi$abi\$arch -ItemType Directory | Out-Null
   }
   
   #Reset file content
-  Clear-Content -Path .\build\logs\$runtime\failed.$abi.$arch.txt -Force -ErrorAction SilentlyContinue
+  Clear-Content -Path .\build\logs\$runtime\failed.abi$abi.$arch.txt -Force -ErrorAction SilentlyContinue
 }
 
 #Compile
@@ -39,18 +39,27 @@ foreach($scope in Get-ChildItem .\packages -File){
     foreach($arch in "x64", "arm64"){
       Write-Host -NoNewline $scope/$name $arch
     
-      if ($skip -And (Test-Path .\prebuilds\$runtime\$abi\$arch\$name.node)) {
+      if ($skip -And (Test-Path .\prebuilds\$runtime\abi$abi\$arch\$name.node)) {
         Write-Host " [Skip]" -ForegroundColor Yellow
         continue
       }
-    
-      & { npx prebuildify --t $runtime@$target --strip --arch $arch --platform win32 --cwd "node_modules/@nodert-$scope/$name" } 2>&1 > .\build\logs\$runtime\$abi\$arch\$name.log
+      
+      #ARM64 is officially supported node >= 20
+      if(
+        ($arch -eq "arm64" -And $runtime -eq "node" -And $abi -lt 115) -Or 
+        ($arch -eq "arm64" -And $runtime -eq "electron" -And $abi -lt 123)
+      ){
+        Write-Host " [Force Skip (unavailable)]" -ForegroundColor Orange
+        continue
+      }
+
+      & { npx prebuildify --t $runtime@$target --strip --arch $arch --platform win32 --cwd "node_modules/@nodert-$scope/$name" } 2>&1 > .\build\logs\$runtime\abi$abi\$arch\$name.log
       if ($LASTEXITCODE -eq 0) {
         Write-Host " [Ok]" -ForegroundColor Green
-        Move-Item -Path .\node_modules\@nodert-$scope\$name\prebuilds\win32-$arch\@nodert-$scope+$name.node -Destination .\prebuilds\$runtime\$abi\$arch\$name.node -Force
+        Move-Item -Path .\node_modules\@nodert-$scope\$name\prebuilds\win32-$arch\@nodert-$scope+$name.node -Destination .\prebuilds\$runtime\abi$abi\$arch\$name.node -Force
       } else {
         Write-Host " [Fail]" -ForegroundColor Red
-        Write-Output $name >> .\build\logs\$runtime\failed.$abi.$arch.txt
+        Write-Output $name >> .\build\logs\$runtime\failed.abi$abi.$arch.txt
       }
     }
   }
