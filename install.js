@@ -85,15 +85,16 @@ async function downloadFile(runtime, abi){
     });
   }
   
+  //This would 404 not found anyway but let's be explicit about it
   if(
     (arch === "arm64" && runtime === "node" && +abi < 115) ||
     (arch === "arm64" && runtime === "electron" && +abi < 123)
-  }
+  ){
     throw new Failure("ARM64 is officially supported starting with Node.js v20", { 
       code: 3,
       info: { runtime, abi, arch }
     });
-  )
+  }
 
   const { release, sha256 } = await readJSON(join(
     import.meta.dirname ?? dirname(import.meta.url),

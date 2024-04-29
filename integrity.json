@@ -5,7 +5,8 @@
       "node": {
         "abi93": "f1155b971cb29647adc90433ba37439f0e12af42c9dad1d8fbdd3a86597e78fa",
         "abi108": "b5019b16021ddd438a92244b8100ea57a3267e6c262a86261d2e0a6032b2a1c1",
-        "abi115": "65ff8a764e511abb69c2f9106e803cdff80ba5154fe1ffc89651d009cfa9183f"
+        "abi115": "65ff8a764e511abb69c2f9106e803cdff80ba5154fe1ffc89651d009cfa9183f",
+        "abi127": "6b62bc1476b8d1f2cb8e8ff4a4d20e36a2704ac6486a1dbcf1a505cb206c7b0f"
       },
       "electron": {
         "abi119": "dadf65d85c5fc96104253cc2ecf6050450a6627628a1d21b92a993c03a084336",
@@ -15,10 +16,12 @@
     },
     "arm64": {
       "node": {
-      
+        "abi115": "914b4c326c82e73b81ad53eaf6f7436735daa1c84ca0824bbda2a82d9527a93c",
+        "abi127": "b23d98d2b8345bcc4df59352086d64630bafbdde9b224527a7a09ff91465a5a9"
       },
       "electron": {
-      
+        "abi121": "c32b14b39d6326da120a0538c1dd0c5ab2e1b4be2cf77dccc12d59c6337cbf2a",
+        "abi123": "0443463fcc9b7ab68ebb08899f3490114e2872859a6cd58c62c95bf9b5a2fd25"
       }
     }
   }
