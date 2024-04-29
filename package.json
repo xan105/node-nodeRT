@@ -1321,6 +1321,7 @@
     "npm": "^10.2.4"
   },
   "scripts": {
+    "test": "node --test test/auto.js",
     "install": "node \"./install.js\"",
     "lint": "eslint \"./lib/**/*.{js,mjs}\" \"./types/**/*.d.ts\"",
     "check": "tsc --noemit --checkjs",
@@ -1684,6 +1685,7 @@
     "@types/node": "^20.11.17",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
+    "@xan105/shell": "^0.1.0",
     "eslint": "^8.56.0",
     "nan": "^2.19.0",
     "node-gyp": "^10.1.0",
