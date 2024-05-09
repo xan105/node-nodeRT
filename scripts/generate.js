@@ -9,7 +9,7 @@ found in the LICENSE file in the root directory of this source tree.
 import { ls, writeFile, exists, readFile, writeJSON } from "@xan105/fs";
 import { join } from "node:path";
 import { EOL } from "node:os";
-import { load } from "./lib/util/load.js";
+import { load } from "../lib/util/load.js";
 
 const header = `/*` + EOL +
 `Copyright (c) Anthony Beaumont` + EOL +
@@ -19,10 +19,10 @@ const header = `/*` + EOL +
 
 const dependencies = `import { load, reference } from "../../util/load.js";` + EOL + EOL;
 
-const scopes = await ls("./node_modules", { pattern: /^@nodert-.*$/ })
+const scopes = await ls("../node_modules", { pattern: /^@nodert-.*$/ })
 for (const scope of scopes)
 {
-  const namespaces = await ls(join("./node_modules", scope));
+  const namespaces = await ls(join("../node_modules", scope));
   for (const namespace of namespaces)
   {
     
@@ -55,7 +55,7 @@ for (const scope of scopes)
     `reference(namespace.externalReference);` + EOL;
     
     await writeFile(
-      join("./lib/namespaces", folder, names.join(".") + ".js"), 
+      join("../lib/namespaces", folder, names.join(".") + ".js"), 
       file, 
       "utf8"
     );
@@ -87,7 +87,7 @@ for (const scope of scopes)
 async function getExternalRef(scope, namespace){
   
   const filePath = join(
-    "./node_modules",
+    "../node_modules",
     scope,
     namespace,
     "lib",
@@ -119,7 +119,7 @@ let map = {
   }
 };
 
-const list = await ls("./lib/namespaces", { recursive: true, ignore: { dir : true }, ext: "js" });
+const list = await ls("../lib/namespaces", { recursive: true, ignore: { dir : true }, ext: "js" });
 
 for (const exportName of list) {
 
@@ -133,4 +133,4 @@ for (const exportName of list) {
 
 }
 
-await writeJSON("./build/exports.json", map, { pretty: true });
+await writeJSON("../build/exports.json", map, { pretty: true });

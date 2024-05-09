@@ -10,15 +10,15 @@ found in the LICENSE file in the root directory of this source tree.
 import { join } from "node:path";
 import { readJSON, writeJSON, ls } from "@xan105/fs";
 
-const scopes = await ls("./node_modules", { pattern: /^@nodert-.*$/ })
+const scopes = await ls("../node_modules", { pattern: /^@nodert-.*$/ })
 for (const scope of scopes)
 {
-  const namespaces = await ls(join("./node_modules", scope));
+  const namespaces = await ls(join("../node_modules", scope));
   for (const namespace of namespaces)
   {
     console.log(scope + "/" + namespace);
     
-    const binding = join("./node_modules", scope, namespace, "binding.gyp");
+    const binding = join("../node_modules", scope, namespace, "binding.gyp");
     const gyp = await readJSON(binding);
     
 /*
