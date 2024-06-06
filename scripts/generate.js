@@ -63,7 +63,7 @@ for (const scope of scopes)
     for ( let i = names.length - 1; i >= 0; i--) {
       const self = i === 0 ? names[0] : names[i];
       const parent = i === 0 ? names[0] : names.slice(0, i).join(".");
-      const parentPath = join("./lib/namespaces", folder, parent + ".js");
+      const parentPath = join("../lib/namespaces", folder, parent + ".js");
 
       if (await exists(parentPath) ){
         
