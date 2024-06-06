@@ -1,6 +1,6 @@
 {
   "name": "@xan105/nodert",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "NodeRT but precompiled (use WinRT API directly from node)",
   "type": "module",
   "exports": {
