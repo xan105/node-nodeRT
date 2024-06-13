@@ -11,7 +11,8 @@
       "electron": {
         "abi119": "dadf65d85c5fc96104253cc2ecf6050450a6627628a1d21b92a993c03a084336",
         "abi121": "08063603a81a178514991bee026a27d3c43c8fd74633e459bf39431cee24176a",
-        "abi123": "84b8c2a84b5a53606b074c0b76aa1c22ce35cdff8144027860c862ce57f05bd1"
+        "abi123": "84b8c2a84b5a53606b074c0b76aa1c22ce35cdff8144027860c862ce57f05bd1",
+        "abi125": "0e6df9f810a1d7cef8af35f6e8ca501f4e0ce53dcfd5e749c46dd0ac456f54bd"
       }
     },
     "arm64": {
@@ -21,7 +22,8 @@
       },
       "electron": {
         "abi121": "c32b14b39d6326da120a0538c1dd0c5ab2e1b4be2cf77dccc12d59c6337cbf2a",
-        "abi123": "0443463fcc9b7ab68ebb08899f3490114e2872859a6cd58c62c95bf9b5a2fd25"
+        "abi123": "0443463fcc9b7ab68ebb08899f3490114e2872859a6cd58c62c95bf9b5a2fd25",
+        "abi125": "dd63ed111a99b3879f0753521611b74cd11291fe9dfe0a3ac8c7b1b5cfbe55db"
       }
     }
   }
