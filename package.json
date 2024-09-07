@@ -1,6 +1,6 @@
 {
   "name": "@xan105/nodert",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "NodeRT but precompiled (use WinRT API directly from node)",
   "type": "module",
   "exports": {
@@ -1337,7 +1337,8 @@
     "build:electron:abi119": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/build.ps1 -target 28.0.0 -abi 119 -runtime electron -skip",
     "build:electron:abi121": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/build.ps1 -target 29.0.0 -abi 121 -runtime electron -skip",
     "build:electron:abi123": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/build.ps1 -target 30.0.0 -abi 123 -runtime electron -skip",
-    "build:electron:abi125": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/build.ps1 -target 31.0.0 -abi 125 -runtime electron -skip"
+    "build:electron:abi125": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/build.ps1 -target 31.0.0 -abi 125 -runtime electron -skip",
+    "build:electron:abi128": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/build.ps1 -target 32.0.0 -abi 128 -runtime electron -skip"
   },
   "keywords": [
     "nodeRT",
@@ -1378,7 +1379,7 @@
     "@xan105/is": "^2.9.3",
     "@xan105/request": "^1.1.0",
     "adm-zip": "^0.5.10",
-    "node-abi": "^3.62.0"
+    "node-abi": "^3.67.0"
   },
   "devDependencies": {
     "@nodert-win10-rs4/windows.devices.lights": "^0.4.4",
