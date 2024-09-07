@@ -22,7 +22,7 @@ for (const scope of scopes)
     const gyp = await readJSON(binding);
     
 /*
-Node 22 is using "/std:c++20" this is an issue because it's incompatible with "/ZW" (C++/CX), this is unlikely to change as Microsoft has abandonned uwp/winrt and recommends to [move to C++/WinRT from C++/CX](https://learn.microsoft.com/en-us/windows/uwp/cpp-and-winrt-apis/move-to-winrt-from-cx).
+Node 22 is using "/std:c++20" this is an issue because it's incompatible with "/ZW" (C++/CX), this is unlikely to change as Microsoft has abandoned uwp/winrt and recommends to [move to C++/WinRT from C++/CX](https://learn.microsoft.com/en-us/windows/uwp/cpp-and-winrt-apis/move-to-winrt-from-cx).
 Hence the forcing of "/std:c++17" via binding.gyp (using CL.exe env var gets overriden 🙄).
 */
     
