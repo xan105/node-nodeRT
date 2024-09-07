@@ -28,7 +28,7 @@ import Archive from "adm-zip";
 import nodeAbi from "node-abi";
 
 async function read(){
-  const file = join(env.npm_config_local_prefix || cwd(), "package.json");
+  const file = join(env.npm_config_local_prefix || env.INIT_CWD || cwd(), "package.json");
   const [ json = {} ] = await attempt(readJSON, [file]);
   return json;
 }
@@ -48,7 +48,7 @@ async function findABI(runtime){
   try{
      
     const { version } = await readJSON(join(
-      env.npm_config_local_prefix || cwd(),
+      env.npm_config_local_prefix || env.INIT_CWD || cwd(),
       "node_modules",
       "electron",
       "package.json"
